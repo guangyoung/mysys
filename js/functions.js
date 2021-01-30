@@ -142,6 +142,10 @@ function tickers_list_btn () {
 
 function tickers_list_filter() {
     var tickers = ["AAPL", "AMZN", "ABCB", "AAME", "ADBE", "ADI", "ADP"];
+    var urls = "dataset/"+exchange_choose+"/startdate_1990_under/";
+    $.getJSON(urls, function(result){
+      console.log(result);
+    });
     for (i=0;i<tickers.length;i++) {
     var newLi = document.createElement('li');
     var cb = document.createElement( "input" );
@@ -190,10 +194,10 @@ function add_data() {
         let as_data_price = new Array();
 
         // const proxyurl = "https://cors-anywhere.herokuapp.com/";
-       const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
-       $.getJSON(urls, function(result){
-           var yahoo_data = result;
-         });
+       // const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
+       // $.getJSON(proxyurl+urls, function(result){
+       //     var yahoo_data = result;
+       //   });
 
         Papa.parse("dataset/"+exchange_choose+"/startdate_1990_under/"+tickere+".csv", {
             download: true,
