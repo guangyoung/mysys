@@ -188,6 +188,13 @@ function add_data() {
         let tickere = ticker_list[i].split(', ')[0];
         let as_data_date = new Array();
         let as_data_price = new Array();
+
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+       const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
+       $.getJSON(proxyurl+urls, function(result){
+           var yahoo_data = result;
+         });
+         
         Papa.parse("dataset/"+exchange_choose+"/startdate_1990_under/"+tickere+".csv", {
             download: true,
             header: false,
