@@ -13,14 +13,14 @@ function start_quantxi_btn() {
           headers:{
               "Content-Type": "application/x-www-form-urlencoded",
               "X-API-KEY": api_key
-          },        
+          },
           dataType: 'json',
           success: function(result){
           // if (result.status == "success") {
-              alert(`selamat datang point72`); //setting diserver u/tampilkan message nama user api             
-              sessionStorage.setItem("api", api_key);  
+              alert(`selamat datang point72`); //setting diserver u/tampilkan message nama user api
+              sessionStorage.setItem("api", api_key);
               open("dashboard.html","_self");
-          // } 
+          // }
           // else {
           //     alert(`gagal koneksi, periksa api key anda`);
           //     return false;
@@ -31,8 +31,8 @@ function start_quantxi_btn() {
               return false;
           }
       })
-    }      
-  // } 
+    }
+  // }
 
 //Function Logout
 function logout_btn() {
@@ -59,7 +59,7 @@ function test_setting_submit_btn() {
 }
 
 //Function Portfolio Dataset
-var ticker_list = new Array(); 
+var ticker_list = new Array();
 var exchange_choose_current;
 var exchange_choose;
 var startdate_choose_current;
@@ -70,20 +70,20 @@ var mychart;
 // var port_data = new Array();
 
 function exchange_list() {//cari solusi biar tdk double click, muncul berkali2 di console
-      $("#tickers_exchange").on('click', '.dropdown-item', function (event) {  
+      $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
         var container_exchange = $(this).closest("#tickers_exchange");
         exchange_choose_current = $(event.currentTarget)[0].innerHTML;
         container_exchange.find('.Xchange').text( exchange_choose_current || 'Exchange');
-        console.log(exchange_choose_current);       
-    });  
+        console.log(exchange_choose_current);
+    });
   }
-  
+
 function startdate_list() {//cari solusi biar tdk double click, muncul berkali2 di console
-  $("#tickers_startdate").on('click', '.dropdown-item', function (event) {  
+  $("#tickers_startdate").on('click', '.dropdown-item', function (event) {
       var container_startdate = $(this).closest("#tickers_startdate");
       startdate_choose_current = $(event.currentTarget)[0].innerHTML;
       container_startdate.find('.startdt').text( startdate_choose_current || 'Startdate');
-      console.log(startdate_choose_current); 
+      console.log(startdate_choose_current);
   });
   }
 
@@ -93,25 +93,25 @@ function tickers_list_btn () {
     var li = document.createElement('li').appendChild(document.createTextNode("silahkan pilih exchange & startdate"));
     document.getElementById("ulul").appendChild(li);
     return false;
-  } 
-  // if(exchange_choose_current == exchange_choose || startdate_choose_current == stardate_choose) {   
+  }
+  // if(exchange_choose_current == exchange_choose || startdate_choose_current == stardate_choose) {
   //   return false;
-  // }   
+  // }
   if(ticker_list.length>0) {
-    if (exchange_choose_current !== exchange_choose || startdate_choose_current !== startdate_choose) {  
+    if (exchange_choose_current !== exchange_choose || startdate_choose_current !== startdate_choose) {
     if (confirm("anda punya ticker yg dipilih blm di add, apa anda mau batalin") == true) {
-        ticker_list = [];               
-        $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);  
+        ticker_list = [];
+        $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
         exchange_choose = exchange_choose_current;
         startdate_choose = startdate_choose_current;
         $('#ulul').empty();
         tickers_list_filter();
-      } else { 
+      } else {
         exchange_choose_current = exchange_choose;
-        startdate_choose_current = startdate_choose;           
-        $("#Xchange_btn").html(`<span class="Xchange">`+exchange_choose+`</span>`);            
-        $("#startdt_btn").html(`<span class="startdt">`+startdate_choose+`</span>`); 
-        return false;           
+        startdate_choose_current = startdate_choose;
+        $("#Xchange_btn").html(`<span class="Xchange">`+exchange_choose+`</span>`);
+        $("#startdt_btn").html(`<span class="startdt">`+startdate_choose+`</span>`);
+        return false;
       }
   } else {
       return false
@@ -122,9 +122,9 @@ function tickers_list_btn () {
   $('#ulul').empty();
   tickers_list_filter();
   }
-    $("#tickers_list").on('click', '.dropdown-menu li', function (event) { //cari solusi biar tdk double click, muncul berkali2 di console     
+    $("#tickers_list").on('click', '.dropdown-menu li', function (event) { //cari solusi biar tdk double click, muncul berkali2 di console
       event.stopPropagation();
-      var container2 = $(this).closest("#tickers_list"); 
+      var container2 = $(this).closest("#tickers_list");
       var numChecked2 = container2.find('[type="checkbox"]:checked').length;
       container2.find('.quantity').text(numChecked2 || '0');
       console.log(numChecked2);
@@ -133,29 +133,29 @@ function tickers_list_btn () {
       if(numChecked2 > ticker_list.length) {
           ticker_list.push($target2.text());
       } else if(numChecked2 < ticker_list.length){
-          var index = ticker_list.indexOf($target2.text()); 
+          var index = ticker_list.indexOf($target2.text());
           ticker_list.splice(index, 1);
-      } else{} 
-      console.log(ticker_list);     
+      } else{}
+      console.log(ticker_list);
   });
 }
 
 function tickers_list_filter() {
     var tickers = new Array();
     $.ajax({
-        url: "dataset/"+exchange_choose+"/startdate_1990_under",
-        success: function(data) {            
+        url: "https://heriyang9000.github.io/mysys/dataset/"+exchange_choose+"/startdate_1990_under",
+        success: function(data) {
             doc = new DOMParser().parseFromString(data, 'text/html');
             rows = doc.querySelector('table').querySelectorAll('tr');
             for (var i=3;i<rows.length;i++) {
                 if (rows[i].children[1]) {
                     if (parseInt(rows[i].children[1].innerText)>0);
-                    tickers.push(rows[i].children[1].innerText.split('.')[0]);                   
+                    tickers.push(rows[i].children[1].innerText.split('.')[0]);
                 }
-            }           
+            }
             console.log(tickers.length);
-             //Create checkbox dynamically 
-          
+             //Create checkbox dynamically
+
             for (i=0;i<tickers.length;i++) {
                 //Create a new <li> dynamically
             var newLi = document.createElement('li');
@@ -173,12 +173,12 @@ function tickers_list_filter() {
             var ul = document.getElementById("ulul");
             ul.appendChild(newLi);
             }
-           
+
         }
     });
   }
 
-function add_data() { 
+function add_data() {
     if(ticker_list.length==0) {
         alert("tidak ada ticker yg dipilih");
         return false;
@@ -188,22 +188,22 @@ function add_data() {
       return false;
     }
     if(asset_portfolio_yahoo.length>0) {
-    for (i = 0; i<ticker_list.length; i++) {    //?????                
-        var tickere = ticker_list[i].split(', ')[0];        
+    for (i = 0; i<ticker_list.length; i++) {    //?????
+        var tickere = ticker_list[i].split(', ')[0];
         for(x=0;x<asset_portfolio_yahoo.length;x++) {
           let idx = asset_portfolio_yahoo[x].ticker.indexOf(tickere);
           if (idx !== -1) {
             alert("ticker "+tickere+" sdh dipilih");
             return false;
-          }          
+          }
         }
       }
     }
-    for (i = 0; i < ticker_list.length && i < (30 - asset_portfolio_yahoo.length); i++) {  
-        let tickere = ticker_list[i].split(', ')[0];        
-        let as_data_date = new Array(); 
-        let as_data_price = new Array(); 
-        Papa.parse("dataset/"+exchange_choose+"/startdate_1990_under/"+tickere+".csv", {    
+    for (i = 0; i < ticker_list.length && i < (30 - asset_portfolio_yahoo.length); i++) {
+        let tickere = ticker_list[i].split(', ')[0];
+        let as_data_date = new Array();
+        let as_data_price = new Array();
+        Papa.parse("dataset/"+exchange_choose+"/startdate_1990_under/"+tickere+".csv", {
             download: true,
             header: false,
             complete: function(result) {
@@ -216,7 +216,7 @@ function add_data() {
                 );
                 as_data_price.push(
                   data_price
-                );      
+                );
                 }
                 asset_portfolio_yahoo.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
                 console.log(asset_portfolio_yahoo);
@@ -231,16 +231,16 @@ function add_data() {
                     <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
                 </tr>`;
                 $("#table_assets > tbody").append(portfolio);
-            }         
-        });               
-    }      
+            }
+        });
+    }
     exchange_choose_current = "";
-    startdate_choose_current = "";   
+    startdate_choose_current = "";
     $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
-    $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);            
-    $("#startdt_btn").html(`<span class="startdt">Startdate</span>`); 
-    ticker_list = [];     
-    } 
+    $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
+    $("#startdt_btn").html(`<span class="startdt">Startdate</span>`);
+    ticker_list = [];
+    }
 
   function reset_portfolio() {
     asset_portfolio_yahoo = [];
@@ -261,15 +261,15 @@ function add_data() {
   }
 
 function price_idx_list() {//cari solusi biar tdk double click, muncul berkali2 di console
-  $("#price_idx").on('click', '.dropdown-item', function (event) {  
+  $("#price_idx").on('click', '.dropdown-item', function (event) {
     var container_price_idx = $(this).closest("#price_idx");
     price_idx = $(event.currentTarget)[0].innerHTML;
     container_price_idx.find('.price_idx_column').text( price_idx || '#');
-    console.log(price_idx);       
-});  
+    console.log(price_idx);
+});
 }
 
-function add_data_files() { 
+function add_data_files() {
   if(file.files.length==0) {
     alert("tidak ada file yg dipilih");
     return false;
@@ -279,31 +279,31 @@ function add_data_files() {
     return false;
   }
   if(asset_portfolio_files.length>0) {
-  for (i = 0; i<file.files.length; i++) {    //?????                
-      var tickere = file.files[i].split(', ')[0];        
+  for (i = 0; i<file.files.length; i++) {    //?????
+      var tickere = file.files[i].split(', ')[0];
       for(x=0;x<asset_portfolio_files.length;x++) {
         let idx = asset_portfolio_files[x].ticker.indexOf(tickere);
         if (idx !== -1) {
           alert("ticker "+tickere+" sdh dipilih");
           return false;
-        }          
+        }
       }
     }
   }
   for (i = 0; i < file.files.length; i++) {
     let sFileName       = (file.files[i].name.split('\\').pop().split('/').pop().split('.'))[0];
-    let sFileExtension  = file.files[i].name.split('.')[file.files[i].name.split('.').length - 1].toLowerCase();            
+    let sFileExtension  = file.files[i].name.split('.')[file.files[i].name.split('.').length - 1].toLowerCase();
     let sFileSize       = file.files[i].size / 1024 / 1024; // in MB
     if (!(sFileExtension === "csv" )) { /// 10 mb
         alert(`Format File ${file.files[i].name} Bukan CSV`);
         return false;
-    } 
+    }
     else if (sFileSize > 1) { /// 10 mb
         alert(`File Size ${file.files[i].name} Lebih dr 1 MB`);
         return false;
     } else {
-      let as_data_date = new Array(); 
-      let as_data_price = new Array(); 
+      let as_data_date = new Array();
+      let as_data_price = new Array();
         Papa.parse(file.files[i], {
             download: true,
             header: false,
@@ -316,7 +316,7 @@ function add_data_files() {
                 );
                 as_data_price.push(
                   data_price
-                );      
+                );
                 }
                 asset_portfolio_files.push({ticker: sFileName, data: {date: as_data_date, price: as_data_price}});
                 console.log(asset_portfolio_files);
@@ -336,12 +336,12 @@ function add_data_files() {
 
   }
 }
-$("#file").val(``);      
+$("#file").val(``);
 
 }
 
-//tombol proses data utk data from yahoo and files 
- function process_data_yahoo() {      
+//tombol proses data utk data from yahoo and files
+ function process_data_yahoo() {
       if(asset_portfolio_yahoo.length < 30) {
           alert('total asset kurang dari 30');
           return false;
@@ -361,9 +361,9 @@ $("#file").val(``);
           var endDate=new Date(Math.min.apply(null,enddates));
           console.log(startDate);
           console.log(endDate);
-          
+
           var dt = startDate;
-          var dtt_arr = new Array();            
+          var dtt_arr = new Array();
           var dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
           dt.toString().slice(0, 10);
           dtt_arr.push(dtt);
@@ -377,15 +377,15 @@ $("#file").val(``);
                   dt = new Date(dt.setDate(dt.getDate() + 1));
                   dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
                   dt.toString().slice(0, 10);
-                  dtt_arr.push(dtt); 
+                  dtt_arr.push(dtt);
               }
           }
           port_data.push(dtt_arr);
-          
+
           for (y=0; y<asset_portfolio_yahoo.length; y++) {
               var as_arr = new Array();
-              for (i=0; i<dtt_arr.length; i++) {                
-                  var tgl = new Date(dtt_arr[i]);  
+              for (i=0; i<dtt_arr.length; i++) {
+                  var tgl = new Date(dtt_arr[i]);
                   tgl = tgl.getFullYear() + "-" + appendLeadingZeroes(tgl.getMonth()+1) + "-" + appendLeadingZeroes(tgl.getDate());
                   tgl.toString().slice(0, 10);
                   var idx = asset_portfolio_yahoo[y].data.date.indexOf(tgl)
@@ -393,23 +393,23 @@ $("#file").val(``);
                       as_arr.push(as_arr[as_arr.length-1]); //masukkan harga sebelumnya
                   } else {
                       as_arr.push(asset_portfolio_yahoo[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
-                  }               
+                  }
               }
-              port_data.push(as_arr);            
+              port_data.push(as_arr);
           }
       }
 
-      $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]); 
-      $("#start_date").val(dtt_arr[0]); 
-      console.log(port_data);    
-     
+      $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
+      $("#start_date").val(dtt_arr[0]);
+      console.log(port_data);
+
       $("#pagination-demo").twbsPagination({
         totalPages: Math.ceil(port_data[0].length/24),
         visiblePages: 4,
         onPageClick: function (event, page) {
           $("#port_data_tbl>tbody").empty();
-            for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {      
-              var port_data_row = 
+            for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {
+              var port_data_row =
               `<tr>
                   <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[0][i]+`</td>
                   <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[1][i]).toFixed(2))+`</td>
@@ -431,7 +431,7 @@ $("#file").val(``);
                   <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[17][i]).toFixed(2))+`</td>
                   <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[18][i]).toFixed(2))+`</td>
                   <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[19][i]).toFixed(2))+`</td>
-                  <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[20][i]).toFixed(2))+`</td> 
+                  <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[20][i]).toFixed(2))+`</td>
                   <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[21][i]).toFixed(2))+`</td>
                   <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[22][i]).toFixed(2))+`</td>
                   <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[23][i]).toFixed(2))+`</td>
@@ -441,7 +441,7 @@ $("#file").val(``);
                   <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[27][i]).toFixed(2))+`</td>
                   <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[28][i]).toFixed(2))+`</td>
                   <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[29][i]).toFixed(2))+`</td>
-                  <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[30][i]).toFixed(2))+`</td>       
+                  <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[30][i]).toFixed(2))+`</td>
               </tr>`;
               $("#port_data_tbl>tbody").append(port_data_row);
               }
@@ -451,7 +451,7 @@ $("#file").val(``);
        localStorage.setItem("portData", JSON.stringify(port_data));
  }
 
- function process_data_files() {      
+ function process_data_files() {
   if(asset_portfolio_files.length < 30) {
       alert('total asset kurang dari 30');
       return false;
@@ -471,9 +471,9 @@ $("#file").val(``);
       var endDate=new Date(Math.min.apply(null,enddates));
       console.log(startDate);
       console.log(endDate);
-      
+
       var dt = startDate;
-      var dtt_arr = new Array();            
+      var dtt_arr = new Array();
       var dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
       dt.toString().slice(0, 10);
       dtt_arr.push(dtt);
@@ -487,15 +487,15 @@ $("#file").val(``);
               dt = new Date(dt.setDate(dt.getDate() + 1));
               dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
               dt.toString().slice(0, 10);
-              dtt_arr.push(dtt); 
+              dtt_arr.push(dtt);
           }
       }
       port_data.push(dtt_arr);
-      
+
       for (y=0; y<asset_portfolio_files.length; y++) {
           var as_arr = new Array();
-          for (i=0; i<dtt_arr.length; i++) {                
-              var tgl = new Date(dtt_arr[i]);  
+          for (i=0; i<dtt_arr.length; i++) {
+              var tgl = new Date(dtt_arr[i]);
               tgl = tgl.getFullYear() + "-" + appendLeadingZeroes(tgl.getMonth()+1) + "-" + appendLeadingZeroes(tgl.getDate());
               tgl.toString().slice(0, 10);
               var idx = asset_portfolio_files[y].data.date.indexOf(tgl)
@@ -503,23 +503,23 @@ $("#file").val(``);
                   as_arr.push(as_arr[as_arr.length-1]); //masukkan harga sebelumnya
               } else {
                   as_arr.push(asset_portfolio_files[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
-              }               
+              }
           }
-          port_data.push(as_arr);            
+          port_data.push(as_arr);
       }
   }
 
-  $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]); 
-  $("#start_date").val(dtt_arr[0]); 
-  console.log(port_data);    
- 
+  $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
+  $("#start_date").val(dtt_arr[0]);
+  console.log(port_data);
+
   $("#pagination-demo").twbsPagination({
     totalPages: Math.ceil(port_data[0].length/24),
     visiblePages: 4,
     onPageClick: function (event, page) {
       $("#port_data_tbl>tbody").empty();
-        for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {      
-          var port_data_row = 
+        for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {
+          var port_data_row =
           `<tr>
               <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[0][i]+`</td>
               <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[1][i]).toFixed(2))+`</td>
@@ -541,7 +541,7 @@ $("#file").val(``);
               <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[17][i]).toFixed(2))+`</td>
               <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[18][i]).toFixed(2))+`</td>
               <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[19][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[20][i]).toFixed(2))+`</td> 
+              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[20][i]).toFixed(2))+`</td>
               <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[21][i]).toFixed(2))+`</td>
               <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[22][i]).toFixed(2))+`</td>
               <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[23][i]).toFixed(2))+`</td>
@@ -551,7 +551,7 @@ $("#file").val(``);
               <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[27][i]).toFixed(2))+`</td>
               <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[28][i]).toFixed(2))+`</td>
               <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[29][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[30][i]).toFixed(2))+`</td>       
+              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[30][i]).toFixed(2))+`</td>
           </tr>`;
           $("#port_data_tbl>tbody").append(port_data_row);
           }
@@ -562,7 +562,7 @@ $("#file").val(``);
 }
 
 //montecarlo simulation proses
-function process_montercarlo_simulation() {  
+function process_montercarlo_simulation() {
         var port_data = new Array();
         $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
@@ -586,32 +586,32 @@ function process_montercarlo_simulation() {
           dt = new Date(dt.setDate(dt.getDate() + 1));
           let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
           // dt.toString().slice(0, 10);
-          dt_arr.push(dtt); 
+          dt_arr.push(dtt);
       }
     }
-    port_data.push(dt_arr);    
-    
+    port_data.push(dt_arr);
+
     for (i=0;i<30;i++) {
       var price_sim_array = new Array ();
-      var price_sim = parseFloat(initial_price);    
+      var price_sim = parseFloat(initial_price);
       for (x=0;x<7830;x++) {
         price_sim_array.push(price_sim)
-        price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));        
+        price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
       }
-      port_data.push(price_sim_array);      
+      port_data.push(price_sim_array);
     }
-   
-    $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]); 
-    $("#start_date").val(dt_arr[0]); 
-    console.log(port_data);    
-   
+
+    $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
+    $("#start_date").val(dt_arr[0]);
+    console.log(port_data);
+
     $("#pagination-demo").twbsPagination({
       totalPages: Math.ceil(port_data[0].length/24),
       visiblePages: 4,
       onPageClick: function (event, page) {
         $("#port_data_tbl>tbody").empty();
-          for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {      
-            var port_data_row = 
+          for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {
+            var port_data_row =
             `<tr>
                 <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[0][i]+`</td>
                 <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[1][i]).toFixed(2))+`</td>
@@ -633,7 +633,7 @@ function process_montercarlo_simulation() {
                 <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[17][i]).toFixed(2))+`</td>
                 <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[18][i]).toFixed(2))+`</td>
                 <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[19][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[20][i]).toFixed(2))+`</td> 
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[20][i]).toFixed(2))+`</td>
                 <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[21][i]).toFixed(2))+`</td>
                 <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[22][i]).toFixed(2))+`</td>
                 <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[23][i]).toFixed(2))+`</td>
@@ -643,7 +643,7 @@ function process_montercarlo_simulation() {
                 <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[27][i]).toFixed(2))+`</td>
                 <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[28][i]).toFixed(2))+`</td>
                 <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[29][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[30][i]).toFixed(2))+`</td>       
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[30][i]).toFixed(2))+`</td>
             </tr>`;
             $("#port_data_tbl>tbody").append(port_data_row);
             }
@@ -660,40 +660,40 @@ function process_montercarlo_simulation() {
         blue: 'rgb(54, 162, 235)',
         purple: 'rgb(153, 102, 255)',
         grey: 'rgb(201, 203, 207)' };
-        
+
     data_chart = JSON.parse(localStorage.portData);
     dataChart1 = new Array();
-    dataChart2 = new Array(); 
-    dataChart3 = new Array(); 
-    dataChart4 = new Array(); 
-    dataChart5 = new Array(); 
-    dataChart6 = new Array(); 
-    dataChart7 = new Array(); 
-    dataChart8 = new Array(); 
-    dataChart9 = new Array(); 
-    dataChart10 = new Array(); 
+    dataChart2 = new Array();
+    dataChart3 = new Array();
+    dataChart4 = new Array();
+    dataChart5 = new Array();
+    dataChart6 = new Array();
+    dataChart7 = new Array();
+    dataChart8 = new Array();
+    dataChart9 = new Array();
+    dataChart10 = new Array();
     dataChart11 = new Array();
-    dataChart12 = new Array(); 
-    dataChart13 = new Array(); 
-    dataChart14 = new Array(); 
-    dataChart15 = new Array(); 
-    dataChart16 = new Array(); 
-    dataChart17 = new Array(); 
-    dataChart18 = new Array(); 
-    dataChart19 = new Array(); 
-    dataChart20 = new Array(); 
+    dataChart12 = new Array();
+    dataChart13 = new Array();
+    dataChart14 = new Array();
+    dataChart15 = new Array();
+    dataChart16 = new Array();
+    dataChart17 = new Array();
+    dataChart18 = new Array();
+    dataChart19 = new Array();
+    dataChart20 = new Array();
     dataChart21 = new Array();
-    dataChart22 = new Array(); 
-    dataChart23 = new Array(); 
-    dataChart24 = new Array(); 
-    dataChart25 = new Array(); 
-    dataChart26 = new Array(); 
-    dataChart27 = new Array(); 
-    dataChart28 = new Array(); 
-    dataChart29 = new Array(); 
-    dataChart30 = new Array(); 
-    dataLabel = new Array(); 
-    
+    dataChart22 = new Array();
+    dataChart23 = new Array();
+    dataChart24 = new Array();
+    dataChart25 = new Array();
+    dataChart26 = new Array();
+    dataChart27 = new Array();
+    dataChart28 = new Array();
+    dataChart29 = new Array();
+    dataChart30 = new Array();
+    dataLabel = new Array();
+
     for (i=0; i<7830; i++) {
       dataLabel.push(data_chart[0][i]);
       dataChart1.push(data_chart[1][i]);
@@ -727,7 +727,7 @@ function process_montercarlo_simulation() {
       dataChart29.push(data_chart[29][i]);
       dataChart30.push(data_chart[30][i]);
     }
-    
+
     var config = {
         type: 'line',
         data: {
@@ -738,7 +738,7 @@ function process_montercarlo_simulation() {
             borderWidth: 1,
             backgroundColor: chartColors.red,
             borderColor: chartColors.red,
-            data: dataChart1,  
+            data: dataChart1,
             fill: false },
           {
             label: 'Asset2',
@@ -746,7 +746,7 @@ function process_montercarlo_simulation() {
             borderWidth: 1,
             backgroundColor: chartColors.blue,
             borderColor: chartColors.blue,
-            data: dataChart2,            
+            data: dataChart2,
             fill: false},
           {
             label: 'Asset3',
@@ -754,7 +754,7 @@ function process_montercarlo_simulation() {
             borderWidth: 1,
             backgroundColor: chartColors.blue,
             borderColor: chartColors.blue,
-            data: dataChart3,            
+            data: dataChart3,
             fill: false},
           {
             label: 'Asset4',
@@ -762,7 +762,7 @@ function process_montercarlo_simulation() {
             borderWidth: 1,
             backgroundColor: chartColors.blue,
             borderColor: chartColors.blue,
-            data: dataChart4,            
+            data: dataChart4,
             fill: false},
           {
             label: 'Asset5',
@@ -770,7 +770,7 @@ function process_montercarlo_simulation() {
             borderWidth: 1,
             backgroundColor: chartColors.blue,
             borderColor: chartColors.blue,
-            data: dataChart5,            
+            data: dataChart5,
             fill: false},
           {
             label: 'Asset6',
@@ -778,7 +778,7 @@ function process_montercarlo_simulation() {
             borderWidth: 1,
             backgroundColor: chartColors.blue,
             borderColor: chartColors.blue,
-            data: dataChart6,            
+            data: dataChart6,
             fill: false},
           {
             label: 'Asset7',
@@ -786,7 +786,7 @@ function process_montercarlo_simulation() {
             borderWidth: 1,
             backgroundColor: chartColors.blue,
             borderColor: chartColors.blue,
-            data: dataChart7,            
+            data: dataChart7,
             fill: false},
           {
             label: 'Asset8',
@@ -794,7 +794,7 @@ function process_montercarlo_simulation() {
             borderWidth: 1,
             backgroundColor: chartColors.blue,
             borderColor: chartColors.blue,
-            data: dataChart8,            
+            data: dataChart8,
             fill: false},
           {
             label: 'Asset9',
@@ -802,7 +802,7 @@ function process_montercarlo_simulation() {
             borderWidth: 1,
             backgroundColor: chartColors.blue,
             borderColor: chartColors.blue,
-            data: dataChart9,            
+            data: dataChart9,
             fill: false},
           {
             label: 'Asset10',
@@ -810,11 +810,11 @@ function process_montercarlo_simulation() {
             borderWidth: 1,
             backgroundColor: chartColors.blue,
             borderColor: chartColors.blue,
-            data: dataChart10,            
+            data: dataChart10,
             fill: false}
-          ]},        
+          ]},
         options: {
-         
+
           responsive: true,
           legend: {
               display: false
@@ -822,7 +822,7 @@ function process_montercarlo_simulation() {
           title: {
             display: true,
             text: 'Montecarlo Simulation Stocks Chart' },
-      
+
           hover: {
             mode: 'nearest',
             intersect: true },
@@ -833,17 +833,17 @@ function process_montercarlo_simulation() {
               scaleLabel: {
                 display: false,
                 labelString: 'Years' } }],
-      
-      
+
+
           yAxes: [{
             display: false,
             scaleLabel: {
               display: false,
               labelString: 'Equity' } }] } } };
-              
+
           if(mychart!=null){
               mychart.destroy();
-          }            
+          }
             var ctx = document.getElementById('overtimechart').getContext('2d');
             mychart = new Chart(ctx, config);
 }
@@ -863,20 +863,20 @@ function run_test() {
     endpoint_post = 'http://localhost/rasio_server/api/post.php'//https://quantxi.com/api.php
     endpoint_reset = 'http://localhost/rasio_server/api/reset.php'//https://quantxi.com/api.php
     api_key = sessionStorage.getItem("api");
-    
+
     if(localStorage.portData == undefined) {
       alert(`tidak ada data untuk test`);
       return false;
-    } 
+    }
     data_test = JSON.parse(localStorage.portData);
     data_test.shift();
-    
+
     data_length = data_test[0].length;
     start_date = $("#start_date").val();//ambil angka di inputan start date di dashboard
 
     //data awal
     // data_id = 1;
-    // data_id_out = 1;    
+    // data_id_out = 1;
 
     // for(i=1;i<31;i++) {
     //     berat_previous_anak[i] = 0;
@@ -884,18 +884,18 @@ function run_test() {
 
     // for(i=1;i<31;i++) {
     //     total_rasio_anak[i] = 0;
-    // }    
+    // }
 
     // total_porsi2 = 0;
 
     // hasil_kelompok = new Array();
-    
+
     // rasio_anak_kelompok = new Array();
 
     // for(i=1;i<31;i++) {
     //     rasio_details_anak[i] = new Array();
     // }
-    
+
     // perbandingan_rasio = new Array();
 
     if (data_length < 2610) {
@@ -921,7 +921,7 @@ function run_test() {
         headers:{
           "Content-Type": "application/json",
           "X-API-KEY": api_key
-        },        
+        },
         dataType: 'json',
         success: function(result){
           console.log(result);
@@ -1003,7 +1003,7 @@ function proses() {
         "X-API-KEY": api_key
       },
       data:{
-        data_id: 100, 
+        data_id: 100,
         margin_available: 100,
         asset1_price: 100,
         asset2_price: 100,
@@ -1035,7 +1035,7 @@ function proses() {
         asset28_price: 100,
         asset29_price: 100,
         asset30_price: 100
-      },        
+      },
       dataType: 'json',
       success: function(result){
 
@@ -1057,7 +1057,7 @@ function proses() {
       for(i=1;i<31;i++) {
         pola_anak[i] = "Tambah";
       }
-      
+
       for(i=1;i<31;i++) {
         rasio_berat_tambah_anak[i] = 10;
       }
@@ -1084,7 +1084,7 @@ function proses() {
 
       for(i=1;i<31;i++) {
         porsi1_kurang_anak[i] = br_kurang_anak[i] * massafix;
-      }        
+      }
 
       porsi1_tambah = porsi1_tambah_anak1 + porsi1_tambah_anak2 + porsi1_tambah_anak3 + porsi1_tambah_anak4 + porsi1_tambah_anak5 + porsi1_tambah_anak6 + porsi1_tambah_anak7 + porsi1_tambah_anak8 + porsi1_tambah_anak9 + porsi1_tambah_anak10 + porsi1_tambah_anak11 + porsi1_tambah_anak12 + porsi1_tambah_anak13 + porsi1_tambah_anak14 + porsi1_tambah_anak15 + porsi1_tambah_anak16 + porsi1_tambah_anak17 + porsi1_tambah_anak18 + porsi1_tambah_anak19 + porsi1_tambah_anak20 + porsi1_tambah_anak21 + porsi1_tambah_anak22 + porsi1_tambah_anak23 + porsi1_tambah_anak24 + porsi1_tambah_anak25 + porsi1_tambah_anak26 + porsi1_tambah_anak27 + porsi1_tambah_anak28 + porsi1_tambah_anak29 + porsi1_tambah_anak30;
 
@@ -1093,7 +1093,7 @@ function proses() {
       for(i=1;i<31;i++) {
         porsi2_tambah_anak[i] = br_tambah_anak[i] * massafix;
       }
-      
+
       for(i=1;i<31;i++) {
         porsi2_kurang_anak[i] = br_kurang_anak[i] * massafix;
       }
@@ -1109,7 +1109,7 @@ function proses() {
       for(i=1;i<31;i++) {
         bobot_kurang_anak[i] = br_kurang_anak1[i] * (bobot1 + bobot2);
       }
-      
+
       bobot_tambah = bobot_tambah_anak1 + bobot_tambah_anak2 + bobot_tambah_anak3 + bobot_tambah_anak4 + bobot_tambah_anak5 + bobot_tambah_anak6 + bobot_tambah_anak7 + bobot_tambah_anak8 + bobot_tambah_anak9 + bobot_tambah_anak10 + bobot_tambah_anak11 + bobot_tambah_anak12 + bobot_tambah_anak13 + bobot_tambah_anak14 + bobot_tambah_anak15 + bobot_tambah_anak16 + bobot_tambah_anak17 + bobot_tambah_anak18 + bobot_tambah_anak19 + bobot_tambah_anak20 + bobot_tambah_anak21 + bobot_tambah_anak22 + bobot_tambah_anak23 + bobot_tambah_anak24 + bobot_tambah_anak25 + bobot_tambah_anak26 + bobot_tambah_anak27 + bobot_tambah_anak28 + bobot_tambah_anak29 + bobot_tambah_anak30;
 
       bobot_kurang = bobot_kurang_anak1 + bobot_kurang_anak2 + bobot_kurang_anak3 + bobot_kurang_anak4 + bobot_kurang_anak5 + bobot_kurang_anak6 + bobot_kurang_anak7 + bobot_kurang_anak8 + bobot_kurang_anak9 + bobot_kurang_anak10 + bobot_kurang_anak11 + bobot_kurang_anak12 + bobot_kurang_anak13 + bobot_kurang_anak14 + bobot_kurang_anak15 + bobot_kurang_anak16 + bobot_kurang_anak17 + bobot_kurang_anak18 + bobot_kurang_anak19 + bobot_kurang_anak20 + bobot_kurang_anak21 + bobot_kurang_anak22 + bobot_kurang_anak23 + bobot_kurang_anak24 + bobot_kurang_anak25 + bobot_kurang_anak26 + bobot_kurang_anak27 + bobot_kurang_anak28 + bobot_kurang_anak29 + bobot_kurang_anak30;
@@ -1118,14 +1118,14 @@ function proses() {
 
       for(i=1;i<31;i++) {
         total_rasio_anak[i] += (rasio_berat_tambah_anak[i] + rasio_berat_kurang_anak[i]);
-      }      
+      }
 
       total_porsi2 += porsi2_tambah + porsi2_kurang;
 
       for(i=1;i<31;i++) {
         berat_previous_anak[i] = berat_anak[i];
-      }  
-      
+      }
+
       data_rasio_anak1.push(tanggal);
       data_rasio_anak1.push(berat_anak1);
       data_rasio_anak1.push(total_rasio_anak1);
@@ -1231,7 +1231,3 @@ function reset_test() {
 //Function Performance Chart
 
 //Function Test History
-
-
-
-
