@@ -143,40 +143,36 @@ function tickers_list_btn () {
 function tickers_list_filter() {
     var tickers = new Array();
     $.ajax({
-        url: "https://github.com/heriyang9000/mysys/tree/main/dataset/NASDAQ/startdate_1990_under",
+        url: "dataset/"+exchange_choose+"/startdate_1990_under",
         success: function(data) {
-          $(data).find("td > a").each(function(){
-       // will loop through
-       alert("Found a file: " + $(this).attr("href"));
-    });
-            // doc = new DOMParser().parseFromString(data, 'text/html');
-            // rows = doc.querySelector('table').querySelectorAll('tr');
-            // for (var i=3;i<rows.length;i++) {
-            //     if (rows[i].children[1]) {
-            //         if (parseInt(rows[i].children[1].innerText)>0);
-            //         tickers.push(rows[i].children[1].innerText.split('.')[0]);
-            //     }
-            // }
-            // console.log(tickers.length);
-            //  //Create checkbox dynamically
-            //
-            // for (i=0;i<tickers.length;i++) {
-            //     //Create a new <li> dynamically
-            // var newLi = document.createElement('li');
-            //   var cb = document.createElement( "input" );
-            //   cb.type = "checkbox";
-            //   cb.id = "c1";
-            //   cb.checked = false;
-            //   //Append the checkbox to the li
-            // newLi.appendChild(cb);
-            // //Create the text node after the the checkbox
-            // var text = document.createTextNode(tickers[i]);
-            //   //  Append the text node to the <li>
-            // newLi.appendChild(text);
-            //   //Append the <li> to the <ul>
-            // var ul = document.getElementById("ulul");
-            // ul.appendChild(newLi);
-            // }
+            doc = new DOMParser().parseFromString(data, 'text/html');
+            rows = doc.querySelector('table').querySelectorAll('tr');
+            for (var i=3;i<rows.length;i++) {
+                if (rows[i].children[1]) {
+                    if (parseInt(rows[i].children[1].innerText)>0);
+                    tickers.push(rows[i].children[1].innerText.split('.')[0]);
+                }
+            }
+            console.log(tickers.length);
+             //Create checkbox dynamically
+
+            for (i=0;i<tickers.length;i++) {
+                //Create a new <li> dynamically
+            var newLi = document.createElement('li');
+              var cb = document.createElement( "input" );
+              cb.type = "checkbox";
+              cb.id = "c1";
+              cb.checked = false;
+              //Append the checkbox to the li
+            newLi.appendChild(cb);
+            //Create the text node after the the checkbox
+            var text = document.createTextNode(tickers[i]);
+              //  Append the text node to the <li>
+            newLi.appendChild(text);
+              //Append the <li> to the <ul>
+            var ul = document.getElementById("ulul");
+            ul.appendChild(newLi);
+            }
 
         }
     });
