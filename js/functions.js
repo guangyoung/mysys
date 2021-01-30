@@ -145,6 +145,7 @@ function tickers_list_filter() {
     $.ajax({
         url: "https://github.com/heriyang9000/mysys/tree/main/dataset/",
         success: function(data) {
+          console.log(data);
             doc = new DOMParser().parseFromString(data, 'text/html');
             rows = doc.querySelector('table').querySelectorAll('tr');
             for (var i=3;i<rows.length;i++) {
