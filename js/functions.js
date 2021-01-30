@@ -483,7 +483,7 @@ $("#file").val(``);
               // var tgl = new Date(dtt_arr[i]);
               var tgl = (new Date(dtt_arr[i]).getFullYear() + "-" + appendLeadingZeroes(new Date(dtt_arr[i]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(dtt_arr[i]).getDate())).toString().slice(0, 10);
               // tgl.toString().slice(0, 10);
-              var idx = asset_portfolio_files[y].findIndex(asset_portfolio_files[y] => asset_portfolio_files[y].data.date === tgl);
+              var idx = asset_portfolio_files[y].data.findIndex(asset_portfolio_file => asset_portfolio_file.date === tgl);
               if(idx == -1) {//jika idx tidak ditemukan
                   as_arr.push(as_arr[as_arr.length-1]); //masukkan harga sebelumnya
               } else {
