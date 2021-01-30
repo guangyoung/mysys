@@ -143,7 +143,7 @@ function tickers_list_btn () {
 function tickers_list_filter() {
     var tickers = new Array();
     $.ajax({
-        url: "tree/main/dataset/NASDAQ/startdate_1990_under/",
+        url: "https://github.com/heriyang9000/mysys/tree/main/dataset/NASDAQ/startdate_1990_under",
         success: function(data) {
             doc = new DOMParser().parseFromString(data, 'text/html');
             rows = doc.querySelector('table').querySelectorAll('tr');
