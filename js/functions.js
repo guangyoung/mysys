@@ -144,9 +144,9 @@ function tickers_list_filter() {
     var tickers = new Array();
     $.ajax({
         url: "https://github.com/heriyang9000/mysys/tree/main/dataset/NASDAQ/startdate_1990_under",
-        success: function(data) {
-          console.log(data);
-            doc = new DOMParser().parseFromString(data, 'text/html');
+        success: function(data) {          
+            doc = new DOMParser().parseFromString(data,'text/html');
+            console.log(doc);
             rows = doc.querySelector('table').querySelectorAll('tr');
             for (var i=3;i<rows.length;i++) {
                 if (rows[i].children[1]) {
