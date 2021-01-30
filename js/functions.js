@@ -370,10 +370,10 @@ $("#file").val(``);
           for (y=0; y<asset_portfolio_yahoo.length; y++) {
               var as_arr = new Array();
               for (i=0; i<dtt_arr.length; i++) {
-                  var tgl = new Date(dtt_arr[i]);
-                  tgl = tgl.getFullYear() + "-" + appendLeadingZeroes(tgl.getMonth()+1) + "-" + appendLeadingZeroes(tgl.getDate());
-                  tgl.toString().slice(0, 10);
-                  var idx = asset_portfolio_yahoo[y].data.date.indexOf(tgl)
+                  // var tgl = new Date(dtt_arr[i]);
+                  // tgl = tgl.getFullYear() + "-" + appendLeadingZeroes(tgl.getMonth()+1) + "-" + appendLeadingZeroes(tgl.getDate());
+                  // tgl.toString().slice(0, 10);
+                  var idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt_arr[i])
                   if(idx == -1) {//jika idx tidak ditemukan
                       as_arr.push(as_arr[as_arr.length-1]); //masukkan harga sebelumnya
                   } else {
