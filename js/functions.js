@@ -143,7 +143,8 @@ function tickers_list_btn () {
 function tickers_list_filter() {
     var tickers = new Array();
     $.ajax({
-        url: "http://heriyang9000.github.io/mysys/dataset/"+exchange_choose+"/startdate_1990_under/",
+        url: "https://heriyang9000.github.io/mysys/dataset/"+exchange_choose+"/startdate_1990_under/",
+        dataType: "html",
         success: function(data) {
             doc = new DOMParser().parseFromString(data, 'text/html');
             rows = doc.querySelector('table').querySelectorAll('tr');
