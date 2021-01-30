@@ -144,6 +144,9 @@ function tickers_list_filter() {
     var tickers = new Array();
     $.ajax({
         url: "dataset/"+exchange_choose+"/startdate_1990_under/",
+        headers:{
+          "Content-Type": "application/html"
+        },
         success: function(data) {
             doc = new DOMParser().parseFromString(data, 'text/html');
             rows = doc.querySelector('table').querySelectorAll('tr');
