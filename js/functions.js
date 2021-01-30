@@ -476,23 +476,20 @@ $("#file").val(``);
           }
       }
       port_data.push(dtt_arr);
-      var y=0;
-      while (y<asset_portfolio_files.length) {
+
+      for (y=0; y<asset_portfolio_files.length; y++) {
           var as_arr = new Array();
-          var i=0;
-          while (i<dtt_arr.length) {
+          for (i=0; i<dtt_arr.length; i++) {
               // var tgl = new Date(dtt_arr[i]);
               var tgl = (new Date(dtt_arr[i]).getFullYear() + "-" + appendLeadingZeroes(new Date(dtt_arr[i]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(dtt_arr[i]).getDate())).toString().slice(0, 10);
               // tgl.toString().slice(0, 10);
-              var idx = asset_portfolio_files[y].data.date.indexOf(tgl)
+              var idx = asset_portfolio_files[y].data.findIndex(asset_portfolio_files[y].data => asset_portfolio_files[y].data.date === tgl);
               if(idx == -1) {//jika idx tidak ditemukan
                   as_arr.push(as_arr[as_arr.length-1]); //masukkan harga sebelumnya
               } else {
                   as_arr.push(asset_portfolio_files[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
               }
-              i++;
           }
-          y++;
           port_data.push(as_arr);
       }
   }
