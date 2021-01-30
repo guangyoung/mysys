@@ -142,10 +142,7 @@ function tickers_list_btn () {
 
 function tickers_list_filter() {
     var tickers = ["AAPL", "AMZN", "ABCB", "AAME", "ADBE", "ADI", "ADP"];
-    var urls = "dataset/"+exchange_choose+"/startdate_1990_under/";
-    $.getJSON(urls, function(result){
-      console.log(result);
-    });
+
     for (i=0;i<tickers.length;i++) {
     var newLi = document.createElement('li');
     var cb = document.createElement( "input" );
@@ -155,9 +152,9 @@ function tickers_list_filter() {
       //Append the checkbox to the li
     newLi.appendChild(cb);
     //Create the text node after the the checkbox
-    // var text = document.createTextNode(tickers[i]);
+    var text = document.createTextNode(tickers[i]);
       //  Append the text node to the <li>
-    newLi.appendChild(document.createTextNode(tickers[i]));
+    newLi.appendChild(text);
       //Append the <li> to the <ul>
     // var ul = document.getElementById("ulul");
     document.getElementById("ulul").appendChild(newLi);
