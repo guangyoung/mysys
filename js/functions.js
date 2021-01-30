@@ -476,7 +476,6 @@ $("#file").val(``);
           }
       }
       port_data.push(dtt_arr);
-      console.log(dtt_arr);
       for (y=0; y<asset_portfolio_files.length; y++) {
           var as_arr = new Array();
           for (i=0; i<dtt_arr.length; i++) {
@@ -496,7 +495,7 @@ $("#file").val(``);
 
   $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
   $("#start_date").val(dtt_arr[0]);
-  console.log(port_data);
+  // console.log(port_data);
 
   $("#pagination-demo").twbsPagination({
     totalPages: Math.ceil(port_data[0].length/24),
