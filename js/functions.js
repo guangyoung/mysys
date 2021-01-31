@@ -921,20 +921,20 @@ function run_test() {
           //
           //   proses();
 
-          } else {
-            $('#setting_button').attr('disabled',false);
-            $('#data_button').attr('disabled',false);
-            $('#start_date').attr('disabled',false);
-            $('#change_period_btn').attr('disabled',false);
-            $('#play_button').attr('disabled',false);
-            $('#viewpost_button').attr('disabled',false);
-            $('#trade_report_button').attr('disabled',false);
-            $('#chart_button').attr('disabled',false);
-            $('#statistik_button').attr('disabled',false);
-
-            alert(`ada kesalahan, coba periksa api key anda dan ulang lagi`);
-            return false;
-          }
+          // } else {
+          //   $('#setting_button').attr('disabled',false);
+          //   $('#data_button').attr('disabled',false);
+          //   $('#start_date').attr('disabled',false);
+          //   $('#change_period_btn').attr('disabled',false);
+          //   $('#play_button').attr('disabled',false);
+          //   $('#viewpost_button').attr('disabled',false);
+          //   $('#trade_report_button').attr('disabled',false);
+          //   $('#chart_button').attr('disabled',false);
+          //   $('#statistik_button').attr('disabled',false);
+          //
+          //   alert(`ada kesalahan, coba periksa api key anda dan ulang lagi`);
+          //   return false;
+          // }
         },
         error: function() {
 
