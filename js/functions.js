@@ -918,8 +918,8 @@ function run_test() {
         success: function(result){
           console.log(result);
           if (result.status == "success") {
-            alert("data sdh direset");
-            // proses();
+
+            proses();
 
           } else {
             $('#setting_button').attr('disabled',false);
@@ -955,8 +955,7 @@ function run_test() {
   }
 
 function proses() {
-  // console.log(to);
-  to = setTimeout(proses, 1/10000);
+  setTimeout(proses, 1/10000);
   // var hasil ={};
   if (data_id < data_length) {
 
@@ -1191,7 +1190,7 @@ function proses() {
     $('#portfolio_summary_button').attr('disabled',false);
     $('#assets_details_button').attr('disabled',false);
 
-    clearTimeout(to);
+    clearTimeout();
 
     alertFn("success", `data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
     return false;
