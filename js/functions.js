@@ -918,7 +918,11 @@ function run_test() {
         success: function(result){
           console.log(result);
           if (result.status == "success") {
-
+            var data_id = 0;
+            var margin_available = 0;
+            for(i=1;i<31;i++) {
+                asset[i]_previous_price = 0;
+            }
             proses();
 
           } else {
