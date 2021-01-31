@@ -141,7 +141,7 @@ function tickers_list_btn () {
 }
 
 function tickers_list_filter() {
-    var tickers = ["AAPL", "AMZN", "ABCB", "AAME", "ADBE", "ADI", "ADP"];
+    var tickers = NYSE_ticker_list;
 
     for (i=0;i<tickers.length;i++) {
     var newLi = document.createElement('li');
