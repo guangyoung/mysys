@@ -198,15 +198,18 @@ function add_data() {
             for(i=0; i<length_tm; i++) {
             var data_date = new Date(yahoo_data.chart.result[0].timestamp[i] * 1000);
             var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
-            as_data_date.push({
-                date: data_date.getFullYear() + "-" + appendLeadingZeroes(data_date.getMonth()+1) + "-" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10)
-            });
-            as_data_price.push({
-                price: data_price
-            });
+            as_data_date.push(
+              data_date.getFullYear() + "-" + appendLeadingZeroes(data_date.getMonth()+1) + "-" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10)
+            );
+            as_data_price.push(
+              data_price
+            );
             }
             asset_portfolio_yahoo.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
+            console.log(asset_portfolio_yahoo);
+            console.log(as_data_date);
             let al = asset_portfolio_yahoo.length;
+            // let ad = as_data.length-1;
             let portfolio =
             `<tr>
                 <td class="text-center">Asset `+al+`</td>
