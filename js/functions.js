@@ -2,7 +2,10 @@
 
 //Function Login
 function start_quantxi_btn() {
-  var endpoint = "http://localhost/rasio_server/api/user/get.php";
+  // if($("#api_key").val() == null) {
+  //   alert("api key belum diisi");
+  // } else {
+  var endpoint = "http://localhost/rasio_server/api/get.php";
   var api_key = $("#api_key").val();
       $.ajax({
           type: "GET",
@@ -13,21 +16,22 @@ function start_quantxi_btn() {
           },
           dataType: 'json',
           success: function(result){
-          if (result.status == "success") {
-              alert("success", `selamat datang point72`); //setting diserver u/tampilkan message nama user api
+          // if (result.status == "success") {
+              alert(`selamat datang point72`); //setting diserver u/tampilkan message nama user api
               sessionStorage.setItem("api", api_key);
               open("dashboard.html","_self");
-          } else {
-              alertFn("error", `gagal, periksa api key anda`);
-              return false;
-            }
+          // }
+          // else {
+          //     alert(`gagal koneksi, periksa api key anda`);
+          //     return false;
+          //   }
           },
           error: function() {
-              alertFn("error", `gagal koneksi`);
+              alert(`gagal koneksi, periksa api key anda`);
               return false;
           }
       })
-  }
+    }
   // }
 
 //Function Logout
