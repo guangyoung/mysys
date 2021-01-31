@@ -206,10 +206,7 @@ function add_data() {
             );
             }
             asset_portfolio_yahoo.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
-            console.log(asset_portfolio_yahoo);
-            console.log(as_data_date);
             let al = asset_portfolio_yahoo.length;
-            // let ad = as_data.length-1;
             let portfolio =
             `<tr>
                 <td class="text-center">Asset `+al+`</td>
@@ -350,11 +347,9 @@ function add_data_files() {
                 $("#table_assets2 > tbody").append(portfolio);
             }
         });
-
   }
 }
 $("#file").val(``);
-
 }
 
 //tombol proses data utk data from yahoo and files
@@ -464,7 +459,6 @@ $("#file").val(``);
               }
         }
         });
-
        localStorage.setItem("portData", JSON.stringify(port_data));
  }
 
@@ -866,6 +860,7 @@ function process_montercarlo_simulation() {
 
 //Function Run Test
 function run_test() {
+    //test setting
     var initialequity = $("#initial_equity").val();
     var bidaskspread = $("#bid_ask_spread").val();
     var commisionshare = $("#commision_share").val();
@@ -876,51 +871,31 @@ function run_test() {
     var mindata = $("#min_data").val();
     var maxdata = $("#max_data").val();
     var portfoliosize = $("#portfolio_size").val();
-    endpoint_post = 'http://localhost/rasio_server/api/post.php'//https://quantxi.com/api.php
-    endpoint_reset = 'http://localhost/rasio_server/api/reset.php'//https://quantxi.com/api.php
-    api_key = sessionStorage.getItem("api");
 
+    //portfolio dataset
     if(localStorage.portData == undefined) {
       alert(`tidak ada data untuk test`);
       return false;
     }
     data_test = JSON.parse(localStorage.portData);
-    data_test.shift();
-
     data_length = data_test[0].length;
-    start_date = $("#start_date").val();//ambil angka di inputan start date di dashboard
-
-    //data awal
-    // data_id = 1;
-    // data_id_out = 1;
-
-    // for(i=1;i<31;i++) {
-    //     berat_previous_anak[i] = 0;
-    // }
-
-    // for(i=1;i<31;i++) {
-    //     total_rasio_anak[i] = 0;
-    // }
-
-    // total_porsi2 = 0;
-
-    // hasil_kelompok = new Array();
-
-    // rasio_anak_kelompok = new Array();
-
-    // for(i=1;i<31;i++) {
-    //     rasio_details_anak[i] = new Array();
-    // }
-
-    // perbandingan_rasio = new Array();
-
     if (data_length < 2610) {
       alert(`data test anda kurang dari 2610 data baris`);
       return false;
-    } else if (start_date == "") {
-        alert(`startdate belum diisi`);
-        return false;
-    } else {
+    }
+
+    //startdate
+    start_date = $("#start_date").val();//ambil angka di inputan start date di dashboard
+    if (start_date == "") {
+       alert(`startdate belum diisi`);
+       return false;
+    }
+
+    //restfull api
+    endpoint_post = 'http://localhost/rasio_server/api/post.php'//https://quantxi.com/api.php
+    endpoint_reset = 'http://localhost/rasio_server/api/reset.php'//https://quantxi.com/api.php
+    api_key = sessionStorage.getItem("api");
+
       $('#setting_button').attr('disabled',true);
       $('#data_button').attr('disabled',true);
       $('#start_date').attr('disabled',true);
@@ -931,6 +906,7 @@ function run_test() {
       $('#chart_button').attr('disabled',true);
       $('#statistik_button').attr('disabled',true);
 
+      //reset your portfolio data in quantxi
       $.ajax({
         type: "POST",
         url: endpoint_reset,
@@ -941,9 +917,9 @@ function run_test() {
         dataType: 'json',
         success: function(result){
           console.log(result);
-          if (result.status == "success") {
-
-            proses();
+          // if (result.status == "success") {
+          //
+          //   proses();
 
           } else {
             $('#setting_button').attr('disabled',false);
@@ -976,8 +952,6 @@ function run_test() {
           return false;
         }
       })
-
-    }
   }
 
 function proses() {
