@@ -923,7 +923,7 @@ function run_test() {
             // for(i=1;i<31;i++) {
             //     asset[i]_previous_price = 0;
             // }
-            // proses();
+            proses();
 
           } else {
             $('#setting_button').attr('disabled',false);
