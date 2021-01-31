@@ -1,7 +1,7 @@
 //Kumpulan Fungsi-Fungsi.....
 
 //Function Login
-function start_quantxi_btn() {
+function start_quantxi() {
   // if($("#api_key").val() == null) {
   //   alert("api key belum diisi");
   // } else {
@@ -918,12 +918,12 @@ function run_test() {
         success: function(result){
           console.log(result);
           if (result.status == "success") {
-            var data_id = 0;
-            var margin_available = 0;
-            for(i=1;i<31;i++) {
-                asset[i]_previous_price = 0;
-            }
-            proses();
+            // var data_id = 0;
+            // var margin_available = 0;
+            // for(i=1;i<31;i++) {
+            //     asset[i]_previous_price = 0;
+            // }
+            // proses();
 
           } else {
             $('#setting_button').attr('disabled',false);
