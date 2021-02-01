@@ -412,7 +412,8 @@ $("#file").val(``);
       }
 
       $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
-      $("#start_date").val(dtt_arr[0]);
+      $("#period_data_dashboard").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
+      // $("#start_date").val(dtt_arr[0]);
       console.log(port_data);
 
       $("#pagination-demo").twbsPagination({
@@ -520,7 +521,8 @@ $("#file").val(``);
   }
 
   $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
-  $("#start_date").val(dtt_arr[0]);
+  $("#period_data_dashboard").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
+  // $("#start_date").val(dtt_arr[0]);
   // console.log(port_data);
 
   $("#pagination-demo").twbsPagination({
@@ -588,7 +590,6 @@ function process_montercarlo_simulation() {
     var dt_arr = new Array();
     for (i=0;i<7830;i++) {
       if (dt.getDay()==5) {
-        // dt = new Date(dt.setDate(dt.getDate() + 3));
         let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
         dt_arr.push(dtt);
         dt = new Date(dt.setDate(dt.getDate() + 3));
@@ -611,7 +612,8 @@ function process_montercarlo_simulation() {
     }
 
     $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
-    $("#start_date").val(dt_arr[0]);
+    $("#period_data_dashboard").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
+    // $("#start_date").val(dt_arr[0]);
     console.log(port_data);
 
     $("#pagination-demo").twbsPagination({
