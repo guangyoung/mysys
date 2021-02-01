@@ -588,10 +588,10 @@ function process_montercarlo_simulation() {
     var dt_arr = new Array();
     for (i=0;i<7830;i++) {
       if (dt.getDay()==5) {
-        dt = new Date(dt.setDate(dt.getDate() + 3));
+        // dt = new Date(dt.setDate(dt.getDate() + 3));
         let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
         dt_arr.push(dtt);
-        dt = new Date(dt.setDate(dt.getDate() + 1));
+        dt = new Date(dt.setDate(dt.getDate() + 3));
       } else {          
           let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
           dt_arr.push(dtt);
