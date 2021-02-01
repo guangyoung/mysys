@@ -590,13 +590,12 @@ function process_montercarlo_simulation() {
       if (dt.getDay()==5) {
         dt = new Date(dt.setDate(dt.getDate() + 3));
         let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
-        // dt.toString().slice(0, 10);
         dt_arr.push(dtt);
-      } else {
-          dt = new Date(dt.setDate(dt.getDate() + 1));
+        dt = new Date(dt.setDate(dt.getDate() + 1));
+      } else {          
           let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
-          // dt.toString().slice(0, 10);
           dt_arr.push(dtt);
+          dt = new Date(dt.setDate(dt.getDate() + 1));
       }
     }
     port_data.push(dt_arr);
