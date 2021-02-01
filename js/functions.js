@@ -612,7 +612,7 @@ function process_montercarlo_simulation() {
     }
 
     $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
-    $("#period_data_dashboard").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
+    $("#period_data_dashboard").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
     // $("#start_date").val(dt_arr[0]);
     console.log(port_data);
 
