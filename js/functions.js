@@ -362,7 +362,7 @@ $("#file").val(``);
         $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
         $("#period_data").val("");
-        $("#start_date").val("");
+        $("#period_data_dashboard").val("No Data Available");
           var startdates= new Array();
           var enddates= new Array();
           for (i=0; i<asset_portfolio_yahoo.length; i++) {
@@ -472,7 +472,7 @@ $("#file").val(``);
     $("#port_data_tbl>tbody").empty();
     $("#pagination-demo").twbsPagination("destroy");
     $("#period_data").val("");
-    $("#start_date").val("");
+    $("#period_data_dashboard").val("No Data Available");
       var startdates= new Array();
       var enddates= new Array();
       for (i=0; i<asset_portfolio_files.length; i++) {
@@ -579,7 +579,7 @@ function process_montercarlo_simulation() {
         $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
         $("#period_data").val("");
-        $("#start_date").val("");
+        $("#period_data_dashboard").val("No Data Available");
     var initial_price = $("#initial_price").val();
     var drift = $("#drift").val();
     var volatility = $("#volatility").val();
@@ -885,13 +885,6 @@ function run_test() {
       return false;
     }
 
-    //startdate
-    start_date = $("#start_date").val();//ambil angka di inputan start date di dashboard
-    if (start_date == "") {
-       alert(`startdate belum diisi`);
-       return false;
-    }
-
     //restfull api
     endpoint_post = 'http://localhost/rasio_server/api/post.php'//https://quantxi.com/api.php
     endpoint_reset = 'http://localhost/rasio_server/api/reset.php'//https://quantxi.com/api.php
@@ -924,7 +917,7 @@ function run_test() {
             // for(i=1;i<31;i++) {
             //     asset[i]_previous_price = 0;
             // }
-            proses();
+            // proses();
 
           } else {
             $('#setting_button').attr('disabled',false);
@@ -1155,7 +1148,6 @@ function proses() {
 
       rasio_anak_kelompok.push(data_rasio);
 
-
       $('#total_post').html(data_id);
       $('#total_resp').html(data_id);
       // $("#data_kelompok").html(rasio_kelompok_datarow);
@@ -1169,7 +1161,7 @@ function proses() {
       // start_date= start_date+1;
       data_id++;
 
-        }
+      }
 
 
         // if (result.status == "failed") { //coba dipikirkan kodingnya PENTING JIKA SERVER BELUM ADA OUTPUT!!!!
@@ -1204,12 +1196,11 @@ function proses() {
 
 //Function Reset Test
 function reset_test() {
-  $('#start_date').val("");
-  $('#start_date').attr('disabled',false);
+  $('#period_data_dashboard').val("No Data Available");
+  // $('#start_date').attr('disabled',false);
   $('#play_button').attr('disabled',false);
   $('#refresh_button').attr('disabled',true);
   $('#total_post').html(0);
-  $('#total_resp').html(0);
   $('#totalbrtr').html(0);
   $('#totalbrtr2').html(0);
   $('#totalbrtr3').html(0);
