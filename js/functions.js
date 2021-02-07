@@ -353,12 +353,13 @@ $("#file").val(``);
 }
 
 //tombol proses data utk data from yahoo and files
+var port_data = new Array();
  function process_data_yahoo() {
       if(asset_portfolio_yahoo.length < 30) {
           alert('total asset kurang dari 30');
           return false;
       } else {
-        var port_data = new Array();
+        port_data = [];
         $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
         $("#period_data").val("");
@@ -413,7 +414,6 @@ $("#file").val(``);
 
       $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
       $("#period_data_dashboard").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
-      // $("#start_date").val(dtt_arr[0]);
       console.log(port_data);
 
       $("#pagination-demo").twbsPagination({
@@ -460,7 +460,6 @@ $("#file").val(``);
               }
         }
         });
-       localStorage.setItem("portData", JSON.stringify(port_data));
  }
 
  function process_data_files() {
@@ -468,7 +467,7 @@ $("#file").val(``);
       alert('total asset kurang dari 30');
       return false;
   } else {
-    var port_data = new Array();
+    port_data = [];
     $("#port_data_tbl>tbody").empty();
     $("#pagination-demo").twbsPagination("destroy");
     $("#period_data").val("");
@@ -522,8 +521,6 @@ $("#file").val(``);
 
   $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
   $("#period_data_dashboard").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
-  // $("#start_date").val(dtt_arr[0]);
-  // console.log(port_data);
 
   $("#pagination-demo").twbsPagination({
     totalPages: Math.ceil(port_data[0].length/24),
@@ -569,13 +566,11 @@ $("#file").val(``);
           }
     }
     });
-
-   localStorage.setItem("portData", JSON.stringify(port_data));
 }
 
 //montecarlo simulation proses
 function process_montercarlo_simulation() {
-        var port_data = new Array();
+        port_data = [];
         $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
         $("#period_data").val("");
@@ -661,18 +656,16 @@ function process_montercarlo_simulation() {
       }
       });
 
-     localStorage.setItem("portData", JSON.stringify(port_data));
+    chartColors = {
+      red: 'rgb(255, 99, 132)',
+      orange: 'rgb(255, 159, 64)',
+      yellow: 'rgb(255, 205, 86)',
+      green: 'rgb(75, 192, 192)',
+      blue: 'rgb(54, 162, 235)',
+      purple: 'rgb(153, 102, 255)',
+      grey: 'rgb(201, 203, 207)' };
 
-      chartColors = {
-        red: 'rgb(255, 99, 132)',
-        orange: 'rgb(255, 159, 64)',
-        yellow: 'rgb(255, 205, 86)',
-        green: 'rgb(75, 192, 192)',
-        blue: 'rgb(54, 162, 235)',
-        purple: 'rgb(153, 102, 255)',
-        grey: 'rgb(201, 203, 207)' };
-
-    data_chart = JSON.parse(localStorage.portData);
+    data_chart = port_data;
     dataChart1 = new Array();
     dataChart2 = new Array();
     dataChart3 = new Array();
@@ -857,10 +850,56 @@ function process_montercarlo_simulation() {
           }
             var ctx = document.getElementById('overtimechart').getContext('2d');
             mychart = new Chart(ctx, config);
-}
+  }
+  
+  //run Test
+  async function run_test() {
 
-//Function Run Test
-function run_test() {
+    var data_id;
+    var date;
+    
+    var asset_price = [];
+    var asset_position_size_pretrade = [];
+    var asset_market_value_pretrade = [];
+    var asset_trade_position = [];
+    var asset_trade_size = [];
+    var asset_trade_value = [];
+    var asset_trade_margin_req = [];
+    var asset_trade_margin_loan = [];
+    var asset_trade_cost = [];
+    var asset_position_size_posttrade = [];
+    var asset_market_value_posttrade = [];
+    
+    var cash_pretrade;
+    var market_value_pretrade;
+    var margin_loan_balance_pretrade;
+    var equity_pretrade;
+    var maintenance_margin;
+    var regT_margin_req;
+    var margin_available;
+    var buy_trade_value;
+    var buy_margin_req = 0;
+    var buy_margin_loan = 0;
+    var buy_trade_cost = 0;
+    var sell_trade_value;
+    var sell_margin_req = 0;
+    var sell_margin_loan = 0;
+    var sell_trade_cost = 0;
+    var cash_posttrade;
+    var market_value_posttrade;
+    var margin_loan_balance_posttrade;
+    var equity_posttrade;
+
+    var daily_interest = 0; 
+
+    var signal_response = new Array ();
+
+    //array
+    var assets_trade_details = new Array();
+    var data_length;
+    var signal_response;
+
+    data_id = 0;
     //test setting
     var initialequity = $("#initial_equity").val();
     var bidaskspread = $("#bid_ask_spread").val();
@@ -873,340 +912,239 @@ function run_test() {
     var maxdata = $("#max_data").val();
     var portfoliosize = $("#portfolio_size").val();
 
-    //portfolio dataset
-    if(localStorage.portData == undefined) {
+    //cek test data
+    if (port_data.length == 0) {
       alert(`tidak ada data untuk test`);
       return false;
     }
-    data_test = JSON.parse(localStorage.portData);
-    data_length = data_test[0].length;
+    data_length = port_data[0].length;
     if (data_length < 2610) {
       alert(`data test anda kurang dari 2610 data baris`);
       return false;
-    }
+    }    
 
-    //restfull api
-    endpoint_post = 'http://localhost/rasio_server/api/post.php'//https://quantxi.com/api.php
-    endpoint_reset = 'http://localhost/rasio_server/api/reset.php'//https://quantxi.com/api.php
-    api_key = sessionStorage.getItem("api");
-
-      $('#setting_button').attr('disabled',true);
-      $('#data_button').attr('disabled',true);
-      $('#start_date').attr('disabled',true);
-      $('#change_period_btn').attr('disabled',true);
-      $('#play_button').attr('disabled',true);
-      $('#viewpost_button').attr('disabled',true);
-      $('#trade_report_button').attr('disabled',true);
-      $('#chart_button').attr('disabled',true);
-      $('#statistik_button').attr('disabled',true);
-
-      //reset your portfolio data in quantxi
-      $.ajax({
-        type: "POST",
-        url: endpoint_reset,
-        headers:{
-          "Content-Type": "application/json",
-          "X-API-KEY": api_key
-        },
-        dataType: 'json',
-        success: function(result){
-          console.log(result);
-          if (result.status == "success") {
-            // var data_id = 0;
-            // var margin_available = 0;
-            // for(i=1;i<31;i++) {
-            //     asset[i]_previous_price = 0;
-            // }
-            // proses();
-
-          } else {
-            $('#setting_button').attr('disabled',false);
-            $('#data_button').attr('disabled',false);
-            $('#start_date').attr('disabled',false);
-            $('#change_period_btn').attr('disabled',false);
-            $('#play_button').attr('disabled',false);
-            $('#viewpost_button').attr('disabled',false);
-            $('#trade_report_button').attr('disabled',false);
-            $('#chart_button').attr('disabled',false);
-            $('#statistik_button').attr('disabled',false);
-
-            alert(`ada kesalahan, coba periksa api key anda dan ulang lagi`);
-            return false;
-          }
-        },
-        error: function() {
-
-          $('#setting_button').attr('disabled',false);
-          $('#data_button').attr('disabled',false);
-          $('#start_date').attr('disabled',false);
-          $('#change_period_btn').attr('disabled',false);
-          $('#play_button').attr('disabled',false);
-          $('#viewpost_button').attr('disabled',false);
-          $('#trade_report_button').attr('disabled',false);
-          $('#chart_button').attr('disabled',false);
-          $('#statistik_button').attr('disabled',false);
-
-          alert(`koneksi ke server gagal, coba beberapa saat lagi`);
-          return false;
-        }
-      })
-  }
-
-function proses() {
-  setTimeout(proses, 1/10000);
-  // var hasil ={};
-  if (data_id < data_length) {
-
-    data_rasio = new Array ();
-    data_rasio_anak1 = new Array ();
-
-    tanggal = data_anak[data_id-1][0];
-
-    for(i=1,y=1;i<31,y<31;i++,y++) {
-        berat_anak[i] = data_anak[data_id-1][y];
-    }
-
-    for(i=1;i<31;i++) {
-        total_brtr_anak[i] = berat_anak[i] * total_rasio_anak[i];
-    }
-
-    total_brtr = total_brtr_anak1 + total_brtr_anak2 + total_brtr_anak3 + total_brtr_anak4 + total_brtr_anak5 + total_brtr_anak6 + total_brtr_anak7 + total_brtr_anak8 + total_brtr_anak9 + total_brtr_anak10 +  total_brtr_anak11 + total_brtr_anak12+ total_brtr_anak13 + total_brtr_anak14 + total_brtr_anak15 + total_brtr_anak16 + total_brtr_anak17 + total_brtr_anak18 + total_brtr_anak19 + total_brtr_anak20 + total_brtr_anak21 + total_brtr_anak22 + total_brtr_anak23 + total_brtr_anak24 + total_brtr_anak25 + total_brtr_anak26 + total_brtr_anak27 + total_brtr_anak28 + total_brtr_anak29 + total_brtr_anak30;
-
-    selisih_harian = (total_rasio_anak1 * (berat_anak1-berat_anak1_previous))+(total_rasio_anak2 * (berat_anak2-berat_anak2_previous))+(total_rasio_anak3 * (berat_anak3-berat_anak3_previous))+(total_rasio_anak4 * (berat_anak4-berat_anak4_previous))+(total_rasio_anak5 * (berat_anak5-berat_anak5_previous))+(total_rasio_anak6 * (berat_anak6-berat_anak6_previous))+(total_rasio_anak7 * (berat_anak7-berat_anak7_previous))+(total_rasio_anak8 * (berat_anak8-berat_anak8_previous))+(total_rasio_anak9 * (berat_anak9-berat_anak9_previous))+(total_rasio_anak10 * (berat_anak10-berat_anak10_previous))+(total_rasio_anak11 * (berat_anak11-berat_anak11_previous))+(total_rasio_anak12 * (berat_anak12-berat_anak12_previous))+(total_rasio_anak13 * (berat_anak13-berat_anak13_previous))+(total_rasio_anak14 * (berat_anak14-berat_anak14_previous))+(total_rasio_anak15 * (berat_anak15-berat_anak15_previous))+(total_rasio_anak16 * (berat_anak16-berat_anak16_previous))+(total_rasio_anak17 * (berat_anak17-berat_anak17_previous))+(total_rasio_anak18 * (berat_anak18-berat_anak18_previous))+(total_rasio_anak19 * (berat_anak19-berat_anak19_previous))+(total_rasio_anak20 * (berat_anak20-berat_anak20_previous))+(total_rasio_anak21 * (berat_anak21-berat_anak21_previous))+(total_rasio_anak22 * (berat_anak22-berat_anak22_previous))+(total_rasio_anak23 * (berat_anak23-berat_anak23_previous))+(total_rasio_anak24 * (berat_anak24-berat_anak24_previous))+(total_rasio_anak25 * (berat_anak25-berat_anak25_previous))+(total_rasio_anak26 * (berat_anak26-berat_anak26_previous))+(total_rasio_anak27 * (berat_anak27-berat_anak27_previous))+(total_rasio_anak28 * (berat_anak28-berat_anak28_previous))+(total_rasio_anak29 * (berat_anak29-berat_anak29_previous))+(total_rasio_anak30 * (berat_anak30-berat_anak30_previous));
-
-    index_harian = total_porsi2 * (indeX/360);
-
-    massa = massa + selisih_harian - index_harian;
-
-    massa_fix = total_brtr * massafix;
-
-    index_massa = massa - massa_fix;
-
-    $.ajax({
+    //reset your previous portfolio data in quantxi
+    await $.ajax({
       type: "POST",
-      url: endpoint,
+      url: "http://localhost/rasio_server/api/reset.php",
       headers:{
         "Content-Type": "application/json",
-        "X-API-KEY": api_key
-      },
-      data:{
-        data_id: 100,
-        margin_available: 100,
-        asset1_price: 100,
-        asset2_price: 100,
-        asset3_price: 100,
-        asset4_price: 100,
-        asset5_price: 100,
-        asset6_price: 100,
-        asset7_price: 100,
-        asset8_price: 100,
-        asset9_price: 100,
-        asset10_price: 100,
-        asset11_price: 100,
-        asset12_price: 100,
-        asset13_price: 100,
-        asset14_price: 100,
-        asset15_price: 100,
-        asset16_price: 100,
-        asset17_price: 100,
-        asset18_price: 100,
-        asset19_price: 100,
-        asset20_price: 100,
-        asset21_price: 100,
-        asset22_price: 100,
-        asset23_price: 100,
-        asset24_price: 100,
-        asset25_price: 100,
-        asset26_price: 100,
-        asset27_price: 100,
-        asset28_price: 100,
-        asset29_price: 100,
-        asset30_price: 100
+        "X-API-KEY": sessionStorage.getItem("api")
       },
       dataType: 'json',
       success: function(result){
-
-      if (result.data.data_id == data_id) {
-
-        var hasil = new Array ();
-        hasil.push(result.data);
-        var req_element =
-        '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
-        + JSON.stringify(hasil, null, 4) +
-        '</pre>';
-      $("#request_area").html(req_element);
-        var resp_element =
-        '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
-        + JSON.stringify(hasil, null, 4) +
-        '</pre>';
-      $("#response_area").html(resp_element);
-
-      for(i=1;i<31;i++) {
-        pola_anak[i] = "Tambah";
-      }
-
-      for(i=1;i<31;i++) {
-        rasio_berat_tambah_anak[i] = 10;
-      }
-
-      for(i=1;i<31;i++) {
-        rasio_berat_kurang_anak[i] = 10;
-      }
-
-      for(i=1;i<31;i++) {
-        br_tambah_anak[i] = berat_anak[i] * rasio_berat_tambah_anak[i];
-      }
-
-      for(i=1;i<31;i++) {
-        br_kurang_anak[i] = berat_anak[i] * rasio_berat_kurang_anak[i];
-      }
-
-      br_tambah = br_tambah_anak1 + br_tambah_anak2 + br_tambah_anak3 + br_tambah_anak4 + br_tambah_anak5 + br_tambah_anak6 + br_tambah_anak7 + br_tambah_anak8 + br_tambah_anak9 + br_tambah_anak10 + br_tambah_anak11 + br_tambah_anak12 + br_tambah_anak13 + br_tambah_anak14 + br_tambah_anak15 + br_tambah_anak16 + br_tambah_anak17 + br_tambah_anak18 + br_tambah_anak19 + br_tambah_anak20 +br_tambah_anak21 + br_tambah_anak22 + br_tambah_anak23 + br_tambah_anak24 + br_tambah_anak25 + br_tambah_anak26 + br_tambah_anak27 + br_tambah_anak28 + br_tambah_anak29 + br_tambah_anak30;
-
-      br_kurang = br_kurang_anak1 + br_kurang_anak2 + br_kurang_anak3 + br_kurang_anak4 + br_kurang_anak5 + br_kurang_anak6 + br_kurang_anak7 + br_kurang_anak8 + br_kurang_anak9 + br_kurang_anak10 + br_kurang_anak11 + br_kurang_anak12 + br_kurang_anak13 + br_kurang_anak14 + br_kurang_anak15 + br_kurang_anak16 + br_kurang_anak17 + br_kurang_anak18 + br_kurang_anak19 + br_kurang_anak20 +br_kurang_anak21 + br_kurang_anak22 + br_kurang_anak23 + br_kurang_anak24 + br_kurang_anak25 + br_kurang_anak26 + br_kurang_anak27 + br_kurang_anak28 + br_kurang_anak29 + br_kurang_anak30;
-
-      for(i=1;i<31;i++) {
-        porsi1_tambah_anak[i] = br_tambah_anak[i] * massafix;
-      }
-
-      for(i=1;i<31;i++) {
-        porsi1_kurang_anak[i] = br_kurang_anak[i] * massafix;
-      }
-
-      porsi1_tambah = porsi1_tambah_anak1 + porsi1_tambah_anak2 + porsi1_tambah_anak3 + porsi1_tambah_anak4 + porsi1_tambah_anak5 + porsi1_tambah_anak6 + porsi1_tambah_anak7 + porsi1_tambah_anak8 + porsi1_tambah_anak9 + porsi1_tambah_anak10 + porsi1_tambah_anak11 + porsi1_tambah_anak12 + porsi1_tambah_anak13 + porsi1_tambah_anak14 + porsi1_tambah_anak15 + porsi1_tambah_anak16 + porsi1_tambah_anak17 + porsi1_tambah_anak18 + porsi1_tambah_anak19 + porsi1_tambah_anak20 + porsi1_tambah_anak21 + porsi1_tambah_anak22 + porsi1_tambah_anak23 + porsi1_tambah_anak24 + porsi1_tambah_anak25 + porsi1_tambah_anak26 + porsi1_tambah_anak27 + porsi1_tambah_anak28 + porsi1_tambah_anak29 + porsi1_tambah_anak30;
-
-      porsi1_kurang = porsi1_kurang_anak1 + porsi1_kurang_anak2 + porsi1_kurang_anak3 + porsi1_kurang_anak4 + porsi1_kurang_anak5 + porsi1_kurang_anak6 + porsi1_kurang_anak7 + porsi1_kurang_anak8 + porsi1_kurang_anak9 + porsi1_kurang_anak10 + porsi1_kurang_anak11 + porsi1_kurang_anak12 + porsi1_kurang_anak13 + porsi1_kurang_anak14 + porsi1_kurang_anak15 + porsi1_kurang_anak16 + porsi1_kurang_anak17 + porsi1_kurang_anak18 + porsi1_kurang_anak19 + porsi1_kurang_anak20 + porsi1_kurang_anak21 + porsi1_kurang_anak22 + porsi1_kurang_anak23 + porsi1_kurang_anak24 + porsi1_kurang_anak25 + porsi1_kurang_anak26 + porsi1_kurang_anak27 + porsi1_kurang_anak28 + porsi1_kurang_anak29 + porsi1_kurang_anak30;
-
-      for(i=1;i<31;i++) {
-        porsi2_tambah_anak[i] = br_tambah_anak[i] * massafix;
-      }
-
-      for(i=1;i<31;i++) {
-        porsi2_kurang_anak[i] = br_kurang_anak[i] * massafix;
-      }
-
-      porsi2_tambah = porsi2_tambah_anak1 + porsi2_tambah_anak2 + porsi2_tambah_anak3 + porsi2_tambah_anak4 + porsi2_tambah_anak5 + porsi2_tambah_anak6 + porsi2_tambah_anak7 + porsi2_tambah_anak8 + porsi2_tambah_anak9 + porsi2_tambah_anak10 + porsi2_tambah_anak11 + porsi2_tambah_anak12 + porsi2_tambah_anak13 + porsi2_tambah_anak14 + porsi2_tambah_anak15 + porsi2_tambah_anak16 + porsi2_tambah_anak17 + porsi2_tambah_anak18 + porsi2_tambah_anak19 + porsi2_tambah_anak20 + porsi2_tambah_anak21 + porsi2_tambah_anak22 + porsi2_tambah_anak23 + porsi2_tambah_anak24 + porsi2_tambah_anak25 + porsi2_tambah_anak26 + porsi2_tambah_anak27 + porsi2_tambah_anak28 + porsi2_tambah_anak29 + porsi2_tambah_anak30;
-
-      porsi2_kurang = porsi2_kurang_anak1 + porsi2_kurang_anak2 + porsi2_kurang_anak3 + porsi2_kurang_anak4 + porsi2_kurang_anak5 + porsi2_kurang_anak6 + porsi2_kurang_anak7 + porsi2_kurang_anak8 + porsi2_kurang_anak9 + porsi2_kurang_anak10 + porsi2_kurang_anak11 + porsi2_kurang_anak12 + porsi2_kurang_anak13 + porsi2_kurang_anak14 + porsi2_kurang_anak15 + porsi2_kurang_anak16 + porsi2_kurang_anak17 + porsi2_kurang_anak18 + porsi2_kurang_anak19 + porsi2_kurang_anak20 + porsi2_kurang_anak21 + porsi2_kurang_anak22 + porsi2_kurang_anak23 + porsi2_kurang_anak24 + porsi2_kurang_anak25 + porsi2_kurang_anak26 + porsi2_kurang_anak27 + porsi2_kurang_anak28 + porsi2_kurang_anak29 + porsi2_kurang_anak30;
-
-      for(i=1;i<31;i++) {
-        bobot_tambah_anak[i] = br_tambah_anak[i] * (bobot1 + bobot2);
-      }
-
-      for(i=1;i<31;i++) {
-        bobot_kurang_anak[i] = br_kurang_anak1[i] * (bobot1 + bobot2);
-      }
-
-      bobot_tambah = bobot_tambah_anak1 + bobot_tambah_anak2 + bobot_tambah_anak3 + bobot_tambah_anak4 + bobot_tambah_anak5 + bobot_tambah_anak6 + bobot_tambah_anak7 + bobot_tambah_anak8 + bobot_tambah_anak9 + bobot_tambah_anak10 + bobot_tambah_anak11 + bobot_tambah_anak12 + bobot_tambah_anak13 + bobot_tambah_anak14 + bobot_tambah_anak15 + bobot_tambah_anak16 + bobot_tambah_anak17 + bobot_tambah_anak18 + bobot_tambah_anak19 + bobot_tambah_anak20 + bobot_tambah_anak21 + bobot_tambah_anak22 + bobot_tambah_anak23 + bobot_tambah_anak24 + bobot_tambah_anak25 + bobot_tambah_anak26 + bobot_tambah_anak27 + bobot_tambah_anak28 + bobot_tambah_anak29 + bobot_tambah_anak30;
-
-      bobot_kurang = bobot_kurang_anak1 + bobot_kurang_anak2 + bobot_kurang_anak3 + bobot_kurang_anak4 + bobot_kurang_anak5 + bobot_kurang_anak6 + bobot_kurang_anak7 + bobot_kurang_anak8 + bobot_kurang_anak9 + bobot_kurang_anak10 + bobot_kurang_anak11 + bobot_kurang_anak12 + bobot_kurang_anak13 + bobot_kurang_anak14 + bobot_kurang_anak15 + bobot_kurang_anak16 + bobot_kurang_anak17 + bobot_kurang_anak18 + bobot_kurang_anak19 + bobot_kurang_anak20 + bobot_kurang_anak21 + bobot_kurang_anak22 + bobot_kurang_anak23 + bobot_kurang_anak24 + bobot_kurang_anak25 + bobot_kurang_anak26 + bobot_kurang_anak27 + bobot_kurang_anak28 + bobot_kurang_anak29 + bobot_kurang_anak30;
-
-      massa = massa - bobot_tambah - bobot_kurang;
-
-      for(i=1;i<31;i++) {
-        total_rasio_anak[i] += (rasio_berat_tambah_anak[i] + rasio_berat_kurang_anak[i]);
-      }
-
-      total_porsi2 += porsi2_tambah + porsi2_kurang;
-
-      for(i=1;i<31;i++) {
-        berat_previous_anak[i] = berat_anak[i];
-      }
-
-      data_rasio_anak1.push(tanggal);
-      data_rasio_anak1.push(berat_anak1);
-      data_rasio_anak1.push(total_rasio_anak1);
-      data_rasio_anak1.push(total_brtr_anak1);
-      data_rasio_anak1.push(rasio_berat_tambah_anak1);
-      data_rasio_anak1.push(br_tambah_anak1);
-      data_rasio_anak1.push(porsi1_tambah_anak1);
-      data_rasio_anak1.push(porsi2_tambah_anak1);
-      data_rasio_anak1.push(bobot_tambah_anak1);
-      data_rasio_anak1.push(rasio_berat_kurang_anak1);
-      data_rasio_anak1.push(br_kurang_anak1);
-      data_rasio_anak1.push(porsi1_kurang_anak1);
-      data_rasio_anak1.push(porsi2_kurang_anak1);
-      data_rasio_anak1.push(bobot_kurang_anak1);
-
-      rasio_anak1_details.push(data_rasio_anak1);
-
-      data_rasio.push(tanggal);
-      data_rasio.push(total_brtr);
-      data_rasio.push(selisih_harian);
-      data_rasio.push(index_harian);
-      data_rasio.push(massa);
-      data_rasio.push(massa_fix);
-      data_rasio.push(index_massa);
-      data_rasio.push(br_tambah);
-      data_rasio.push(porsi1_tambah);
-      data_rasio.push(porsi2_tambah);
-      data_rasio.push(bobot_tambah);
-      data_rasio.push(br_kurang);
-      data_rasio.push(porsi1_kurang);
-      data_rasio.push(porsi2_kurang);
-      data_rasio.push(bobot_kurang);
-
-      rasio_anak_kelompok.push(data_rasio);
-
-      $('#total_post').html(data_id);
-      $('#total_resp').html(data_id);
-      // $("#data_kelompok").html(rasio_kelompok_datarow);
-      $('#totalbrtr').html(Intl.NumberFormat().format(total_brtr));
-      $('#totalbrtr2').html(Intl.NumberFormat().format(total_brtr));
-      $('#totalbrtr3').html(Intl.NumberFormat().format(total_brtr));
-      $('#massa').html(Intl.NumberFormat().format(massa.toFixed(2)));
-      // $("#request_area").html(hasil);
-      // $("#response_area").html(hasil);
-
-      // start_date= start_date+1;
-      data_id++;
-
-      }
-
-
-        // if (result.status == "failed") { //coba dipikirkan kodingnya PENTING JIKA SERVER BELUM ADA OUTPUT!!!!
-        //     return false;
-        // }
+        console.log(result);
+        //disable button
+        $('#setting_button').attr('disabled',true);
+        $('#data_button').attr('disabled',true);
+        $('#start_date').attr('disabled',true);
+        $('#change_period_btn').attr('disabled',true);
+        $('#play_button').attr('disabled',true);
+        // $('#refresh_button').attr('disabled',false);
+        $('#viewpost_button').attr('disabled',true);
+        $('#trade_report_button').attr('disabled',true);
+        $('#chart_button').attr('disabled',true);
+        $('#statistik_button').attr('disabled',true);
       },
-      error: function() {
-
-        var req_element = '<div style="margin: auto; width: 50%; color: #c1c2c6; text-align: center"> <h5 style="margin-top: 120px">koneksi lambat, mohon tunggu atau klik "reload this page" pada browser anda utk mengulang dr awal.....</h5> <img src="img/spinner.gif" width="200" height="200" style="margin-top: -30px"></div>';
-
-        $("#request_area").html(req_element);
-        $("#response_area").html(req_element);
-    }
+      error: function() {      
+        alert(`koneksi ke server gagal, coba beberapa saat lagi`);
+        return false;
+      }
     })
-  } else if (data_id == max) {
-    $('#setting_button').attr('disabled',false);
-    $('#data_button').attr('disabled',false);
-    $('#refresh_button').attr('disabled',false);
-    $('#statistik_button').attr('disabled',false);
-    $('#logout_button').attr('disabled',false);
-    $('#viewpost_button').attr('disabled',false);
-    $('#chart_button').attr('disabled',false);
-    $('#portfolio_summary_button').attr('disabled',false);
-    $('#assets_details_button').attr('disabled',false);
 
-    clearTimeout();
+    //proses data
+    function proses() {
+      if (data_id < data_length) {
+        data_id++;
+        
+        //PRE TRADE 
+        date = port_data[0][data_id-1];  
+        console.log(date);  
+        
+        for (i=1;i<31;i++) {     
+          asset_price[i] = port_data[i][data_id-1];
+          asset_position_size_pretrade[i] = asset_position_size_posttrade[i];
+          asset_market_value_pretrade[i] =  asset_position_size_pretrade[i] * asset_price[i];      
+        }
+        cash_pretrade = cash_posttrade - daily_interest;
+        for (i=1;i<31;i++) {     
+          market_value_pretrade += asset_market_value_pretrade[i]; //cek lagi rumus ini ?????
+        }
+        margin_loan_balance_pretrade = margin_loan_balance_posttrade; 
+        equity_pretrade = cash_pretrade + market_value_pretrade - margin_loan_balance_pretrade;
+        maintenance_margin = market_value_pretrade * maintmargin;
+        regT_margin_req = market_value_pretrade * regTmargin;
+        margin_available = equity_pretrade - regT_margin_req;
+    
+        //POST REST API, pikirkan code yg bila ini gagal balik lagi ke task ini
+      //   var signal_receive = "false";
+      //   while(signal_receive == "false") {
+      //   $.ajax({
+      //     type: "POST",
+      //     url: "http://localhost/rasio_server/api/post.php",
+      //     headers:{
+      //       "Content-Type": "application/json",
+      //       "X-API-KEY": api_key
+      //     },
+      //     data:{
+      //       data_id: data_id,
+      //       margin_available: margin_available,
+      //       asset1_price: asset_price[0],
+      //       asset2_price: asset_price[1],
+      //       asset3_price: asset_price[2],
+      //       asset4_price: asset_price[3],
+      //       asset5_price: asset_price[4],
+      //       asset6_price: asset_price[5],
+      //       asset7_price: asset_price[6],
+      //       asset8_price: asset_price[7],
+      //       asset9_price: asset_price[8],
+      //       asset10_price: asset_price[9],
+      //       asset11_price: asset_price[10],
+      //       asset12_price: asset_price[11],
+      //       asset13_price: asset_price[12],
+      //       asset14_price: asset_price[13],
+      //       asset15_price: asset_price[14],
+      //       asset16_price: asset_price[15],
+      //       asset17_price: asset_price[16],
+      //       asset18_price: asset_price[17],
+      //       asset19_price: asset_price[18],
+      //       asset20_price: asset_price[19],
+      //       asset21_price: asset_price[20],
+      //       asset22_price: asset_price[21],
+      //       asset23_price: asset_price[22],
+      //       asset24_price: asset_price[23],
+      //       asset25_price: asset_price[24],
+      //       asset26_price: asset_price[25],
+      //       asset27_price: asset_price[26],
+      //       asset28_price: asset_price[27],
+      //       asset29_price: asset_price[28],
+      //       asset30_price: asset_price[29]
+      //     },
+      //     dataType: 'json',
+      //     success: function(result){
+    
+      //     if (result.data.data_id == data_id) {
+            
+      //       signal_receive = "true"
+      //       signal_response = new Array ();
+      //       signal_response.push(result.data);
+            
+      //       var req_element =
+      //       '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
+      //       + JSON.stringify(hasil, null, 4) +
+      //       '</pre>';
+      //       $("#request_area").html(req_element);
+      //       var resp_element =
+      //       '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
+      //       + JSON.stringify(hasil, null, 4) +
+      //       '</pre>';
+      //       $("#response_area").html(resp_element);
+      //     } else {
+      //       //kembali ke post rest api, coba lagi
+      //     }
+      //     },
+      //     error: function() {
+      //       var req_element = '<div style="margin: auto; width: 50%; color: #c1c2c6; text-align: center"> <h5 style="margin-top: 120px">koneksi lambat, mohon tunggu atau klik "reload this page" pada browser anda utk mengulang dr awal.....</h5> <img src="img/spinner.gif" width="200" height="200" style="margin-top: -30px"></div>';
+    
+      //       $("#request_area").html(req_element);
+      //       $("#response_area").html(req_element);
+    
+      //   }
+      //   })
+      // }
+    
+      //   //TRADE
+      //   for (i=1, x=2;i<31, x<32;i++, x++) {      
+      //     if(signal_response[x]>0) {
+      //       asset_trade_position[i] = "BUY";
+      //       asset_trade_size[i] = signal_response[x];
+      //       asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
+      //       asset_trade_margin_req[i] = asset_trade_value * regTmargin;
+      //       asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i];
+      //       asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
+      //     } else if(signal_response[x]<0) {
+      //       asset_trade_position[i] = "SELL";
+      //       asset_trade_size[i] = signal_response[x];
+      //       asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
+      //       asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i]; // cek lagi, coding marginloan saat kondisi jual
+      //       asset_trade_margin_req[i] = asset_trade_value * regTmargin;
+      //       asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
+      //     } else {
+      //       asset_trade_position[i] = "HOLD";
+      //     }
+      //   }
+    
+      //   for (i=1; i<31; i++) {
+      //     if(asset_trade_position[i] == "BUY") {
+      //       buy_trade_value += asset_trade_value[i]; 
+      //       buy_margin_req += asset_trade_margin_req[i];
+      //       buy_margin_loan += asset_trade_margin_loan[i];
+      //       buy_trade_cost += asset_trade_cost[i];     
+      //     } else if(asset_trade_position[i] == "SELL") {
+      //       sell_trade_value += asset_trade_value[i];
+      //       sell_margin_req += asset_trade_margin_req[i];
+      //       sell_margin_loan += asset_trade_margin_loan[i];
+      //       sell_trade_cost += asset_trade_cost[i];  
+      //     }
+      //   }
+    
+      //   //POST TRADE
+      //   for(i=1;i<31;i++) {
+      //     asset_position_size_posttrade[i] = asset_position_size_pretrade[i] + asset_trade_size[i];
+      //     asset_market_value_posttrade[i] = asset_position_size_posttrade[i] * asset_price[i];
+      //   }
+    
+      //   cash_posttrade = cash_pretrade - buy_margin_req - buy_trade_cost + sell_margin_req - sell_trade_cost;
+      //   for(i=1;i<31;i++) {
+      //     market_value_posttrade += asset_market_value_posttrade[i]; //cek lagi rumus ini ?????
+      //   }
+      //   margin_loan_balance_posttrade = margin_loan_balance_pretrade + buy_margin_loan - sell_margin_loan;
+      //   equity_posttrade = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
+    
+      //   daily_interest = margin_loan_balance_posttrade * (1/365); //cek lagi rumus ini ????? 
+    
+      } else {
+        $('#setting_button').attr('disabled',false);
+        $('#data_button').attr('disabled',false);
+        $('#refresh_button').attr('disabled',false);
+        $('#statistik_button').attr('disabled',false);
+        $('#logout_button').attr('disabled',false);
+        $('#viewpost_button').attr('disabled',false);
+        $('#chart_button').attr('disabled',false);
+        $('#portfolio_summary_button').attr('disabled',false);
+        $('#assets_details_button').attr('disabled',false);
+    
+        clearTimeout();
+    
+        alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
+        return false;
+      }
+      setTimeout(proses, 1/1000);
+    }
 
-    alertFn("success", `data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
-    return false;
+    proses(); 
+    
   }
-}
 
 //Function Reset Test
 function reset_test() {
-  $('#period_data_dashboard').val("No Data Available");
-  // $('#start_date').attr('disabled',false);
+  $('#setting_button').attr('disabled',false);
+  $('#data_button').attr('disabled',false);
+  $('#start_date').attr('disabled',false);
+  $('#change_period_btn').attr('disabled',false);
   $('#play_button').attr('disabled',false);
   $('#refresh_button').attr('disabled',true);
-  $('#total_post').html(0);
-  $('#totalbrtr').html(0);
-  $('#totalbrtr2').html(0);
-  $('#totalbrtr3').html(0);
-  $('#massa').html(0);
-  $("#request_area").html("");
-  $("#response_area").html("");
+  $('#viewpost_button').attr('disabled',false);
+  $('#trade_report_button').attr('disabled',false);
+  $('#chart_button').attr('disabled',false);
+  $('#statistik_button').attr('disabled',false);
+  // $('#total_post').html(0);
+  // $('#totalbrtr').html(0);
+  // $('#totalbrtr2').html(0);
+  // $('#totalbrtr3').html(0);
+  // $('#massa').html(0);
+  // $("#request_area").html("");
+  // $("#response_area").html("");
 }
 
 //Function View Full Post Request Response
