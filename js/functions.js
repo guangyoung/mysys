@@ -583,7 +583,7 @@ var steps = $("#steps").val();
 var startdate_simulation = new Date($("#startdate_simulation").val());
 var dt = startdate_simulation;
 var dt_arr = new Array();
-for (i=0;i<7830;i++) {
+for (i=0;i<90;i++) {
 if (dt.getDay()==5) {
   let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
   dt_arr.push(dtt);
@@ -599,7 +599,7 @@ port_data.push(dt_arr);
 for (i=0;i<30;i++) {
 var price_sim_array = new Array ();
 var price_sim = parseFloat(initial_price);
-for (x=0;x<7830;x++) {
+for (x=0;x<90;x++) {
   price_sim_array.push(price_sim)
   price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
 }
@@ -856,8 +856,7 @@ var config = {
   async function run_test() {
 
     var data_id;
-    var date;
-    
+    var date;   
   
     var asset_position_size_pretrade = [];
     var asset_market_value_pretrade = [];
@@ -953,7 +952,7 @@ var config = {
     })
 
     //proses data
-    function proses() {
+    async function proses() {
       if (data_id < (data_length+1)) {
         var asset_price = new Array();
         //PRE TRADE 
@@ -978,7 +977,7 @@ var config = {
         //POST REST API, pikirkan code yg bila ini gagal balik lagi ke task ini
         
         // for(i=0;i<100;i++) {
-        $.ajax({
+        await $.ajax({
           type: "POST",
           url: "http://localhost/rasio_server/api/post.php",
           headers:{
