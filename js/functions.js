@@ -570,287 +570,287 @@ var port_data = new Array();
 
 //montecarlo simulation proses
 function process_montercarlo_simulation() {
-        port_data = [];
-        $("#port_data_tbl>tbody").empty();
-        $("#pagination-demo").twbsPagination("destroy");
-        $("#period_data").val("");
-        $("#period_data_dashboard").val("No Data Available");
-    var initial_price = $("#initial_price").val();
-    var drift = $("#drift").val();
-    var volatility = $("#volatility").val();
-    var year_days = $("#year_days").val();
-    var steps = $("#steps").val();
-    var startdate_simulation = new Date($("#startdate_simulation").val());
-    var dt = startdate_simulation;
-    var dt_arr = new Array();
-    for (i=0;i<7830;i++) {
-      if (dt.getDay()==5) {
-        let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
-        dt_arr.push(dtt);
-        dt = new Date(dt.setDate(dt.getDate() + 3));
-      } else {          
-          let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
-          dt_arr.push(dtt);
-          dt = new Date(dt.setDate(dt.getDate() + 1));
+  port_data = [];
+  $("#port_data_tbl>tbody").empty();
+  $("#pagination-demo").twbsPagination("destroy");
+  $("#period_data").val("");
+  $("#period_data_dashboard").val("No Data Available");
+var initial_price = $("#initial_price").val();
+var drift = $("#drift").val();
+var volatility = $("#volatility").val();
+var year_days = $("#year_days").val();
+var steps = $("#steps").val();
+var startdate_simulation = new Date($("#startdate_simulation").val());
+var dt = startdate_simulation;
+var dt_arr = new Array();
+for (i=0;i<7830;i++) {
+if (dt.getDay()==5) {
+  let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
+  dt_arr.push(dtt);
+  dt = new Date(dt.setDate(dt.getDate() + 3));
+} else {          
+    let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
+    dt_arr.push(dtt);
+    dt = new Date(dt.setDate(dt.getDate() + 1));
+}
+}
+port_data.push(dt_arr);
+
+for (i=0;i<30;i++) {
+var price_sim_array = new Array ();
+var price_sim = parseFloat(initial_price);
+for (x=0;x<7830;x++) {
+  price_sim_array.push(price_sim)
+  price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
+}
+port_data.push(price_sim_array);
+}
+
+$("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
+$("#period_data_dashboard").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
+// $("#start_date").val(dt_arr[0]);
+console.log(port_data);
+
+$("#pagination-demo").twbsPagination({
+totalPages: Math.ceil(port_data[0].length/24),
+visiblePages: 4,
+onPageClick: function (event, page) {
+  $("#port_data_tbl>tbody").empty();
+    for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {
+      var port_data_row =
+      `<tr>
+          <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[0][i]+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[1][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[2][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[3][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[4][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[5][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[6][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[7][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[8][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[9][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[10][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[11][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[12][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[13][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[14][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[15][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[16][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[17][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[18][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[19][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[20][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[21][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[22][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[23][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[24][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[25][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[26][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[27][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[28][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[29][i]).toFixed(2))+`</td>
+          <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[30][i]).toFixed(2))+`</td>
+      </tr>`;
+      $("#port_data_tbl>tbody").append(port_data_row);
       }
+}
+});
+
+chartColors = {
+red: 'rgb(255, 99, 132)',
+orange: 'rgb(255, 159, 64)',
+yellow: 'rgb(255, 205, 86)',
+green: 'rgb(75, 192, 192)',
+blue: 'rgb(54, 162, 235)',
+purple: 'rgb(153, 102, 255)',
+grey: 'rgb(201, 203, 207)' };
+
+data_chart = port_data;
+dataChart1 = new Array();
+dataChart2 = new Array();
+dataChart3 = new Array();
+dataChart4 = new Array();
+dataChart5 = new Array();
+dataChart6 = new Array();
+dataChart7 = new Array();
+dataChart8 = new Array();
+dataChart9 = new Array();
+dataChart10 = new Array();
+dataChart11 = new Array();
+dataChart12 = new Array();
+dataChart13 = new Array();
+dataChart14 = new Array();
+dataChart15 = new Array();
+dataChart16 = new Array();
+dataChart17 = new Array();
+dataChart18 = new Array();
+dataChart19 = new Array();
+dataChart20 = new Array();
+dataChart21 = new Array();
+dataChart22 = new Array();
+dataChart23 = new Array();
+dataChart24 = new Array();
+dataChart25 = new Array();
+dataChart26 = new Array();
+dataChart27 = new Array();
+dataChart28 = new Array();
+dataChart29 = new Array();
+dataChart30 = new Array();
+dataLabel = new Array();
+
+for (i=0; i<7830; i++) {
+dataLabel.push(data_chart[0][i]);
+dataChart1.push(data_chart[1][i]);
+dataChart2.push(data_chart[2][i]);
+dataChart3.push(data_chart[3][i]);
+dataChart4.push(data_chart[4][i]);
+dataChart5.push(data_chart[5][i]);
+dataChart6.push(data_chart[6][i]);
+dataChart7.push(data_chart[7][i]);
+dataChart8.push(data_chart[8][i]);
+dataChart9.push(data_chart[9][i]);
+dataChart10.push(data_chart[10][i]);
+dataChart11.push(data_chart[11][i]);
+dataChart12.push(data_chart[12][i]);
+dataChart13.push(data_chart[13][i]);
+dataChart14.push(data_chart[14][i]);
+dataChart15.push(data_chart[15][i]);
+dataChart16.push(data_chart[16][i]);
+dataChart17.push(data_chart[17][i]);
+dataChart18.push(data_chart[18][i]);
+dataChart19.push(data_chart[19][i]);
+dataChart20.push(data_chart[20][i]);
+dataChart21.push(data_chart[21][i]);
+dataChart22.push(data_chart[22][i]);
+dataChart23.push(data_chart[23][i]);
+dataChart24.push(data_chart[24][i]);
+dataChart25.push(data_chart[25][i]);
+dataChart26.push(data_chart[26][i]);
+dataChart27.push(data_chart[27][i]);
+dataChart28.push(data_chart[28][i]);
+dataChart29.push(data_chart[29][i]);
+dataChart30.push(data_chart[30][i]);
+}
+
+var config = {
+  type: 'line',
+  data: {
+    labels: dataLabel,
+    datasets: [{
+      label: 'Asset1',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.red,
+      borderColor: chartColors.red,
+      data: dataChart1,
+      fill: false },
+    {
+      label: 'Asset2',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart2,
+      fill: false},
+    {
+      label: 'Asset3',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart3,
+      fill: false},
+    {
+      label: 'Asset4',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart4,
+      fill: false},
+    {
+      label: 'Asset5',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart5,
+      fill: false},
+    {
+      label: 'Asset6',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart6,
+      fill: false},
+    {
+      label: 'Asset7',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart7,
+      fill: false},
+    {
+      label: 'Asset8',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart8,
+      fill: false},
+    {
+      label: 'Asset9',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart9,
+      fill: false},
+    {
+      label: 'Asset10',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart10,
+      fill: false}
+    ]},
+  options: {
+
+    responsive: true,
+    legend: {
+        display: false
+    },
+    title: {
+      display: true,
+      text: 'Montecarlo Simulation Stocks Chart' },
+
+    hover: {
+      mode: 'nearest',
+      intersect: true },
+      // events:[],
+    scales: {
+      xAxes: [{
+        display: false,
+        scaleLabel: {
+          display: false,
+          labelString: 'Years' } }],
+
+
+    yAxes: [{
+      display: false,
+      scaleLabel: {
+        display: false,
+        labelString: 'Equity' } }] } } };
+
+    if(mychart!=null){
+        mychart.destroy();
     }
-    port_data.push(dt_arr);
-
-    for (i=0;i<30;i++) {
-      var price_sim_array = new Array ();
-      var price_sim = parseFloat(initial_price);
-      for (x=0;x<7830;x++) {
-        price_sim_array.push(price_sim)
-        price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
-      }
-      port_data.push(price_sim_array);
-    }
-
-    $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
-    $("#period_data_dashboard").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
-    // $("#start_date").val(dt_arr[0]);
-    console.log(port_data);
-
-    $("#pagination-demo").twbsPagination({
-      totalPages: Math.ceil(port_data[0].length/24),
-      visiblePages: 4,
-      onPageClick: function (event, page) {
-        $("#port_data_tbl>tbody").empty();
-          for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {
-            var port_data_row =
-            `<tr>
-                <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[0][i]+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[1][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[2][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[3][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[4][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[5][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[6][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[7][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[8][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[9][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[10][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[11][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[12][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[13][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[14][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[15][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[16][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[17][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[18][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[19][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[20][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[21][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[22][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[23][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[24][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[25][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[26][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[27][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[28][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[29][i]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[30][i]).toFixed(2))+`</td>
-            </tr>`;
-            $("#port_data_tbl>tbody").append(port_data_row);
-            }
-      }
-      });
-
-    chartColors = {
-      red: 'rgb(255, 99, 132)',
-      orange: 'rgb(255, 159, 64)',
-      yellow: 'rgb(255, 205, 86)',
-      green: 'rgb(75, 192, 192)',
-      blue: 'rgb(54, 162, 235)',
-      purple: 'rgb(153, 102, 255)',
-      grey: 'rgb(201, 203, 207)' };
-
-    data_chart = port_data;
-    dataChart1 = new Array();
-    dataChart2 = new Array();
-    dataChart3 = new Array();
-    dataChart4 = new Array();
-    dataChart5 = new Array();
-    dataChart6 = new Array();
-    dataChart7 = new Array();
-    dataChart8 = new Array();
-    dataChart9 = new Array();
-    dataChart10 = new Array();
-    dataChart11 = new Array();
-    dataChart12 = new Array();
-    dataChart13 = new Array();
-    dataChart14 = new Array();
-    dataChart15 = new Array();
-    dataChart16 = new Array();
-    dataChart17 = new Array();
-    dataChart18 = new Array();
-    dataChart19 = new Array();
-    dataChart20 = new Array();
-    dataChart21 = new Array();
-    dataChart22 = new Array();
-    dataChart23 = new Array();
-    dataChart24 = new Array();
-    dataChart25 = new Array();
-    dataChart26 = new Array();
-    dataChart27 = new Array();
-    dataChart28 = new Array();
-    dataChart29 = new Array();
-    dataChart30 = new Array();
-    dataLabel = new Array();
-
-    for (i=0; i<7830; i++) {
-      dataLabel.push(data_chart[0][i]);
-      dataChart1.push(data_chart[1][i]);
-      dataChart2.push(data_chart[2][i]);
-      dataChart3.push(data_chart[3][i]);
-      dataChart4.push(data_chart[4][i]);
-      dataChart5.push(data_chart[5][i]);
-      dataChart6.push(data_chart[6][i]);
-      dataChart7.push(data_chart[7][i]);
-      dataChart8.push(data_chart[8][i]);
-      dataChart9.push(data_chart[9][i]);
-      dataChart10.push(data_chart[10][i]);
-      dataChart11.push(data_chart[11][i]);
-      dataChart12.push(data_chart[12][i]);
-      dataChart13.push(data_chart[13][i]);
-      dataChart14.push(data_chart[14][i]);
-      dataChart15.push(data_chart[15][i]);
-      dataChart16.push(data_chart[16][i]);
-      dataChart17.push(data_chart[17][i]);
-      dataChart18.push(data_chart[18][i]);
-      dataChart19.push(data_chart[19][i]);
-      dataChart20.push(data_chart[20][i]);
-      dataChart21.push(data_chart[21][i]);
-      dataChart22.push(data_chart[22][i]);
-      dataChart23.push(data_chart[23][i]);
-      dataChart24.push(data_chart[24][i]);
-      dataChart25.push(data_chart[25][i]);
-      dataChart26.push(data_chart[26][i]);
-      dataChart27.push(data_chart[27][i]);
-      dataChart28.push(data_chart[28][i]);
-      dataChart29.push(data_chart[29][i]);
-      dataChart30.push(data_chart[30][i]);
-    }
-
-    var config = {
-        type: 'line',
-        data: {
-          labels: dataLabel,
-          datasets: [{
-            label: 'Asset1',
-            pointRadius: 0,
-            borderWidth: 1,
-            backgroundColor: chartColors.red,
-            borderColor: chartColors.red,
-            data: dataChart1,
-            fill: false },
-          {
-            label: 'Asset2',
-            pointRadius: 0,
-            borderWidth: 1,
-            backgroundColor: chartColors.blue,
-            borderColor: chartColors.blue,
-            data: dataChart2,
-            fill: false},
-          {
-            label: 'Asset3',
-            pointRadius: 0,
-            borderWidth: 1,
-            backgroundColor: chartColors.blue,
-            borderColor: chartColors.blue,
-            data: dataChart3,
-            fill: false},
-          {
-            label: 'Asset4',
-            pointRadius: 0,
-            borderWidth: 1,
-            backgroundColor: chartColors.blue,
-            borderColor: chartColors.blue,
-            data: dataChart4,
-            fill: false},
-          {
-            label: 'Asset5',
-            pointRadius: 0,
-            borderWidth: 1,
-            backgroundColor: chartColors.blue,
-            borderColor: chartColors.blue,
-            data: dataChart5,
-            fill: false},
-          {
-            label: 'Asset6',
-            pointRadius: 0,
-            borderWidth: 1,
-            backgroundColor: chartColors.blue,
-            borderColor: chartColors.blue,
-            data: dataChart6,
-            fill: false},
-          {
-            label: 'Asset7',
-            pointRadius: 0,
-            borderWidth: 1,
-            backgroundColor: chartColors.blue,
-            borderColor: chartColors.blue,
-            data: dataChart7,
-            fill: false},
-          {
-            label: 'Asset8',
-            pointRadius: 0,
-            borderWidth: 1,
-            backgroundColor: chartColors.blue,
-            borderColor: chartColors.blue,
-            data: dataChart8,
-            fill: false},
-          {
-            label: 'Asset9',
-            pointRadius: 0,
-            borderWidth: 1,
-            backgroundColor: chartColors.blue,
-            borderColor: chartColors.blue,
-            data: dataChart9,
-            fill: false},
-          {
-            label: 'Asset10',
-            pointRadius: 0,
-            borderWidth: 1,
-            backgroundColor: chartColors.blue,
-            borderColor: chartColors.blue,
-            data: dataChart10,
-            fill: false}
-          ]},
-        options: {
-
-          responsive: true,
-          legend: {
-              display: false
-          },
-          title: {
-            display: true,
-            text: 'Montecarlo Simulation Stocks Chart' },
-
-          hover: {
-            mode: 'nearest',
-            intersect: true },
-            // events:[],
-          scales: {
-            xAxes: [{
-              display: false,
-              scaleLabel: {
-                display: false,
-                labelString: 'Years' } }],
-
-
-          yAxes: [{
-            display: false,
-            scaleLabel: {
-              display: false,
-              labelString: 'Equity' } }] } } };
-
-          if(mychart!=null){
-              mychart.destroy();
-          }
-            var ctx = document.getElementById('overtimechart').getContext('2d');
-            mychart = new Chart(ctx, config);
-  }
+      var ctx = document.getElementById('overtimechart').getContext('2d');
+      mychart = new Chart(ctx, config);
+}
   
   //run Test
   async function run_test() {
@@ -858,7 +858,7 @@ function process_montercarlo_simulation() {
     var data_id;
     var date;
     
-    var asset_price = [];
+  
     var asset_position_size_pretrade = [];
     var asset_market_value_pretrade = [];
     var asset_trade_position = [];
@@ -899,7 +899,7 @@ function process_montercarlo_simulation() {
     var data_length;
     var signal_response;
 
-    data_id = 0;
+    data_id = 1;
     //test setting
     var initialequity = $("#initial_equity").val();
     var bidaskspread = $("#bid_ask_spread").val();
@@ -911,14 +911,14 @@ function process_montercarlo_simulation() {
     var mindata = $("#min_data").val();
     var maxdata = $("#max_data").val();
     var portfoliosize = $("#portfolio_size").val();
-
+    
     //cek test data
     if (port_data.length == 0) {
       alert(`tidak ada data untuk test`);
       return false;
     }
     data_length = port_data[0].length;
-    if (data_length < 2610) {
+    if (data_length < 30) {
       alert(`data test anda kurang dari 2610 data baris`);
       return false;
     }    
@@ -954,12 +954,11 @@ function process_montercarlo_simulation() {
 
     //proses data
     function proses() {
-      if (data_id < data_length) {
-        data_id++;
-        
+      if (data_id < (data_length+1)) {
+        var asset_price = new Array();
         //PRE TRADE 
         date = port_data[0][data_id-1];  
-        console.log(date);  
+        // console.log(date);  
         
         for (i=1;i<31;i++) {     
           asset_price[i] = port_data[i][data_id-1];
@@ -977,80 +976,88 @@ function process_montercarlo_simulation() {
         margin_available = equity_pretrade - regT_margin_req;
     
         //POST REST API, pikirkan code yg bila ini gagal balik lagi ke task ini
-      //   var signal_receive = "false";
-      //   while(signal_receive == "false") {
-      //   $.ajax({
-      //     type: "POST",
-      //     url: "http://localhost/rasio_server/api/post.php",
-      //     headers:{
-      //       "Content-Type": "application/json",
-      //       "X-API-KEY": api_key
-      //     },
-      //     data:{
-      //       data_id: data_id,
-      //       margin_available: margin_available,
-      //       asset1_price: asset_price[0],
-      //       asset2_price: asset_price[1],
-      //       asset3_price: asset_price[2],
-      //       asset4_price: asset_price[3],
-      //       asset5_price: asset_price[4],
-      //       asset6_price: asset_price[5],
-      //       asset7_price: asset_price[6],
-      //       asset8_price: asset_price[7],
-      //       asset9_price: asset_price[8],
-      //       asset10_price: asset_price[9],
-      //       asset11_price: asset_price[10],
-      //       asset12_price: asset_price[11],
-      //       asset13_price: asset_price[12],
-      //       asset14_price: asset_price[13],
-      //       asset15_price: asset_price[14],
-      //       asset16_price: asset_price[15],
-      //       asset17_price: asset_price[16],
-      //       asset18_price: asset_price[17],
-      //       asset19_price: asset_price[18],
-      //       asset20_price: asset_price[19],
-      //       asset21_price: asset_price[20],
-      //       asset22_price: asset_price[21],
-      //       asset23_price: asset_price[22],
-      //       asset24_price: asset_price[23],
-      //       asset25_price: asset_price[24],
-      //       asset26_price: asset_price[25],
-      //       asset27_price: asset_price[26],
-      //       asset28_price: asset_price[27],
-      //       asset29_price: asset_price[28],
-      //       asset30_price: asset_price[29]
-      //     },
-      //     dataType: 'json',
-      //     success: function(result){
+        
+        // for(i=0;i<100;i++) {
+        $.ajax({
+          type: "POST",
+          url: "http://localhost/rasio_server/api/post.php",
+          headers:{
+            "Content-Type": "application/x-www-form-urlencoded",
+            "X-API-KEY": sessionStorage.getItem("api")
+          },
+          data:{
+            data_id: data_id,
+            margin_available: margin_available,
+            asset1_price: asset_price[1],
+            asset2_price: asset_price[2],
+            asset3_price: asset_price[3],
+            asset4_price: asset_price[4],
+            asset5_price: asset_price[5],
+            asset6_price: asset_price[6],
+            asset7_price: asset_price[7],
+            asset8_price: asset_price[8],
+            asset9_price: asset_price[9],
+            asset10_price: asset_price[10],
+            asset11_price: asset_price[11],
+            asset12_price: asset_price[12],
+            asset13_price: asset_price[13],
+            asset14_price: asset_price[14],
+            asset15_price: asset_price[15],
+            asset16_price: asset_price[16],
+            asset17_price: asset_price[17],
+            asset18_price: asset_price[18],
+            asset19_price: asset_price[19],
+            asset20_price: asset_price[20],
+            asset21_price: asset_price[21],
+            asset22_price: asset_price[22],
+            asset23_price: asset_price[23],
+            asset24_price: asset_price[24],
+            asset25_price: asset_price[25],
+            asset26_price: asset_price[26],
+            asset27_price: asset_price[27],
+            asset28_price: asset_price[28],
+            asset29_price: asset_price[29],
+            asset30_price: asset_price[30]
+          },
+          dataType: 'json',
+          success: function(result){
+
+            console.log(result);
     
-      //     if (result.data.data_id == data_id) {
+          if (result.status == "success") {
+            data_id++;
+            signal_response = new Array ();
+            signal_response.push(result.data);
+
+            // console.log(signal_response);
             
-      //       signal_receive = "true"
-      //       signal_response = new Array ();
-      //       signal_response.push(result.data);
-            
-      //       var req_element =
-      //       '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
-      //       + JSON.stringify(hasil, null, 4) +
-      //       '</pre>';
-      //       $("#request_area").html(req_element);
-      //       var resp_element =
-      //       '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
-      //       + JSON.stringify(hasil, null, 4) +
-      //       '</pre>';
-      //       $("#response_area").html(resp_element);
-      //     } else {
-      //       //kembali ke post rest api, coba lagi
-      //     }
-      //     },
-      //     error: function() {
-      //       var req_element = '<div style="margin: auto; width: 50%; color: #c1c2c6; text-align: center"> <h5 style="margin-top: 120px">koneksi lambat, mohon tunggu atau klik "reload this page" pada browser anda utk mengulang dr awal.....</h5> <img src="img/spinner.gif" width="200" height="200" style="margin-top: -30px"></div>';
+            // var req_element =
+            // '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
+            // + JSON.stringify(hasil, null, 4) +
+            // '</pre>';
+            // $("#request_area").html(req_element);
+            // var resp_element =
+            // '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
+            // + JSON.stringify(hasil, null, 4) +
+            // '</pre>';
+            // $("#response_area").html(resp_element);
+
+          } else {
+            // alert("error post");
+            // return false;
+            //kembali ke post rest api, coba lagi
+          }
+          // },
+          // error: function() {
+          //   alert("error post");
+          //   return false;
+            // var req_element = '<div style="margin: auto; width: 50%; color: #c1c2c6; text-align: center"> <h5 style="margin-top: 120px">koneksi lambat, mohon tunggu atau klik "reload this page" pada browser anda utk mengulang dr awal.....</h5> <img src="img/spinner.gif" width="200" height="200" style="margin-top: -30px"></div>';
     
-      //       $("#request_area").html(req_element);
-      //       $("#response_area").html(req_element);
+            // $("#request_area").html(req_element);
+            // $("#response_area").html(req_element);
     
-      //   }
-      //   })
+        }
+        })
       // }
     
       //   //TRADE
