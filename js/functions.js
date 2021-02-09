@@ -869,7 +869,7 @@ var config = {
     var asset_position_size_posttrade = [];
     var asset_market_value_posttrade = [];
     
-    var cash_pretrade;
+    var cash_pretrade = initialequity;
     var market_value_pretrade;
     var margin_loan_balance_pretrade;
     var equity_pretrade;
@@ -975,8 +975,7 @@ var config = {
         margin_available = equity_pretrade - regT_margin_req;
     
         //POST REST API, pikirkan code yg bila ini gagal balik lagi ke task ini
-        
-        // for(i=0;i<100;i++) {
+      
         await $.ajax({
           type: "POST",
           url: "http://localhost/rasio_server/api/post.php",
@@ -1020,32 +1019,33 @@ var config = {
           },
           dataType: 'json',
           success: function(result){
-
+            
             console.log(result);
     
           if (result.status == "success") {
-            data_id++;
+           
             signal_response = new Array ();
             signal_response.push(result.data);
 
-            // console.log(signal_response);
+            // console.log(result.data);
             
-            // var req_element =
-            // '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
-            // + JSON.stringify(hasil, null, 4) +
-            // '</pre>';
-            // $("#request_area").html(req_element);
-            // var resp_element =
-            // '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
-            // + JSON.stringify(hasil, null, 4) +
-            // '</pre>';
-            // $("#response_area").html(resp_element);
+            var req_element =
+            '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
+            + JSON.stringify(result, null, 4) +
+            '</pre>';
+            $("#request_area").html(req_element);
+            var resp_element =
+            '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
+            + JSON.stringify(result, null, 4) +
+            '</pre>';
+            $("#response_area").html(resp_element);
 
-          } else {
-            // alert("error post");
-            // return false;
-            //kembali ke post rest api, coba lagi
-          }
+          } 
+          // else {
+          //   alert("error post");
+          //   return false;
+          //   //kembali ke post rest api, coba lagi
+          // }
           // },
           // error: function() {
           //   alert("error post");
@@ -1056,58 +1056,64 @@ var config = {
             // $("#response_area").html(req_element);
     
         }
-        })
-      // }
+      })
     
-      //   //TRADE
-      //   for (i=1, x=2;i<31, x<32;i++, x++) {      
-      //     if(signal_response[x]>0) {
-      //       asset_trade_position[i] = "BUY";
-      //       asset_trade_size[i] = signal_response[x];
-      //       asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
-      //       asset_trade_margin_req[i] = asset_trade_value * regTmargin;
-      //       asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i];
-      //       asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
-      //     } else if(signal_response[x]<0) {
-      //       asset_trade_position[i] = "SELL";
-      //       asset_trade_size[i] = signal_response[x];
-      //       asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
-      //       asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i]; // cek lagi, coding marginloan saat kondisi jual
-      //       asset_trade_margin_req[i] = asset_trade_value * regTmargin;
-      //       asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
-      //     } else {
-      //       asset_trade_position[i] = "HOLD";
-      //     }
-      //   }
+      if(signal_response.length > 0) {   
+        //TRADE   
+        console.log("trade"); 
+        for (i=1, x=2;i<31, x<32;i++, x++) {      
+          if(signal_response[x]>0) {
+            asset_trade_position[i] = "BUY";
+            asset_trade_size[i] = signal_response[x];
+            asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
+            asset_trade_margin_req[i] = asset_trade_value * regTmargin;
+            asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i];
+            asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
+          } else if(signal_response[x]<0) {
+            asset_trade_position[i] = "SELL";
+            asset_trade_size[i] = signal_response[x];
+            asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
+            asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i]; // cek lagi, coding marginloan saat kondisi jual
+            asset_trade_margin_req[i] = asset_trade_value * regTmargin;
+            asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
+          } else {
+            asset_trade_position[i] = "HOLD";
+          }
+        }
     
-      //   for (i=1; i<31; i++) {
-      //     if(asset_trade_position[i] == "BUY") {
-      //       buy_trade_value += asset_trade_value[i]; 
-      //       buy_margin_req += asset_trade_margin_req[i];
-      //       buy_margin_loan += asset_trade_margin_loan[i];
-      //       buy_trade_cost += asset_trade_cost[i];     
-      //     } else if(asset_trade_position[i] == "SELL") {
-      //       sell_trade_value += asset_trade_value[i];
-      //       sell_margin_req += asset_trade_margin_req[i];
-      //       sell_margin_loan += asset_trade_margin_loan[i];
-      //       sell_trade_cost += asset_trade_cost[i];  
-      //     }
-      //   }
+        for (i=1; i<31; i++) {
+          if(asset_trade_position[i] == "BUY") {
+            buy_trade_value += asset_trade_value[i]; 
+            buy_margin_req += asset_trade_margin_req[i];
+            buy_margin_loan += asset_trade_margin_loan[i];
+            buy_trade_cost += asset_trade_cost[i];     
+          } else if(asset_trade_position[i] == "SELL") {
+            sell_trade_value += asset_trade_value[i];
+            sell_margin_req += asset_trade_margin_req[i];
+            sell_margin_loan += asset_trade_margin_loan[i];
+            sell_trade_cost += asset_trade_cost[i];  
+          }
+        }
     
-      //   //POST TRADE
-      //   for(i=1;i<31;i++) {
-      //     asset_position_size_posttrade[i] = asset_position_size_pretrade[i] + asset_trade_size[i];
-      //     asset_market_value_posttrade[i] = asset_position_size_posttrade[i] * asset_price[i];
-      //   }
+        //POST TRADE
+        console.log("post trade"); 
+        for(i=1;i<31;i++) {
+          asset_position_size_posttrade[i] = asset_position_size_pretrade[i] + asset_trade_size[i];
+          asset_market_value_posttrade[i] = asset_position_size_posttrade[i] * asset_price[i];
+        }
     
-      //   cash_posttrade = cash_pretrade - buy_margin_req - buy_trade_cost + sell_margin_req - sell_trade_cost;
-      //   for(i=1;i<31;i++) {
-      //     market_value_posttrade += asset_market_value_posttrade[i]; //cek lagi rumus ini ?????
-      //   }
-      //   margin_loan_balance_posttrade = margin_loan_balance_pretrade + buy_margin_loan - sell_margin_loan;
-      //   equity_posttrade = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
+        cash_posttrade = cash_pretrade - buy_margin_req - buy_trade_cost + sell_margin_req - sell_trade_cost;
+        for(i=1;i<31;i++) {
+          market_value_posttrade += asset_market_value_posttrade[i]; //cek lagi rumus ini ?????
+        }
+        margin_loan_balance_posttrade = margin_loan_balance_pretrade + buy_margin_loan - sell_margin_loan;
+        equity_posttrade = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
     
-      //   daily_interest = margin_loan_balance_posttrade * (1/365); //cek lagi rumus ini ????? 
+        daily_interest = margin_loan_balance_posttrade * (1/365); //cek lagi rumus ini ?????
+        
+        data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?
+       
+      }     
     
       } else {
         $('#setting_button').attr('disabled',false);
