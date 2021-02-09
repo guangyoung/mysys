@@ -1111,6 +1111,7 @@ var config = {
     
         daily_interest = margin_loan_balance_posttrade * (1/365); //cek lagi rumus ini ?????
         
+        //ADD DATA ID
         data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?
        
       }     
