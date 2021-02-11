@@ -854,6 +854,17 @@ var config = {
   
   //run Test
   async function run_test() {
+    //test setting
+    var initialequity = parseFloat($("#initial_equity").val());
+    var bidaskspread = parseFloat($("#bid_ask_spread").val());
+    var commisionshare = parseFloat($("#commision_share").val());
+    var interestrate = parseFloat($("#interest_rate").val());
+    var riskfreerate = parseFloat($("#risk_free_rate").val());
+    var regTmargin = parseFloat($("#regT_margin").val());
+    var maintmargin = parseFloat($("#maint_margin").val());
+    var mindata = parseInt($("#min_data").val());
+    var maxdata = parseInt($("#max_data").val());
+    var portfoliosize = parseInt($("#portfolio_size").val());
 
     var data_id;
     var date;   
@@ -866,12 +877,18 @@ var config = {
     var asset_trade_margin_req = [];
     var asset_trade_margin_loan = [];
     var asset_trade_cost = [];
-    var asset_position_size_posttrade = [];
+    var asset_position_size_posttrade = [];    
     var asset_market_value_posttrade = [];
+
+    //data awal
+    for (i=1;i<31;i++) {
+      asset_position_size_posttrade[i] = 1;    
+    }
+   
     
-    var cash_pretrade = initialequity;
-    var market_value_pretrade;
-    var margin_loan_balance_pretrade;
+    var cash_pretrade;
+    var market_value_pretrade = 0;
+    var margin_loan_balance_pretrade = 0;
     var equity_pretrade;
     var maintenance_margin;
     var regT_margin_req;
@@ -884,9 +901,9 @@ var config = {
     var sell_margin_req = 0;
     var sell_margin_loan = 0;
     var sell_trade_cost = 0;
-    var cash_posttrade;
+    var cash_posttrade = initialequity;
     var market_value_posttrade;
-    var margin_loan_balance_posttrade;
+    var margin_loan_balance_posttrade = 0;
     var equity_posttrade;
 
     var daily_interest = 0; 
@@ -899,17 +916,7 @@ var config = {
     var signal_response;
 
     data_id = 1;
-    //test setting
-    var initialequity = $("#initial_equity").val();
-    var bidaskspread = $("#bid_ask_spread").val();
-    var commisionshare = $("#commision_share").val();
-    var interestrate = $("#interest_rate").val();
-    var riskfreerate = $("#risk_free_rate").val();
-    var regTmargin = $("#regT_margin").val();
-    var maintmargin = $("#maint_margin").val();
-    var mindata = $("#min_data").val();
-    var maxdata = $("#max_data").val();
-    var portfoliosize = $("#portfolio_size").val();
+    
     
     //cek test data
     if (port_data.length == 0) {
@@ -951,170 +958,180 @@ var config = {
       }
     })
 
-    //proses data
-    async function proses() {
-      if (data_id < (data_length+1)) {
-        var asset_price = new Array();
-        //PRE TRADE 
-        date = port_data[0][data_id-1];  
-        // console.log(date);  
+          //proses data
+          async function proses() {
+            if (data_id < (data_length+1)) {
+            var asset_price = new Array();
+            //PRE TRADE 
+            date = port_data[0][data_id-1];  
+            // console.log(date);  
+            
+            for (i=1;i<31;i++) {     
+              asset_price[i] = port_data[i][data_id-1];
+              asset_position_size_pretrade[i] = asset_position_size_posttrade[i];
+              asset_market_value_pretrade[i] =  asset_position_size_pretrade[i] * asset_price[i];
+            }
+            cash_pretrade = cash_posttrade - daily_interest;
+            // for (i=1;i<31;i++) {     
+            //   market_value_pretrade = market_value_pretrade + asset_market_value_pretrade[i]; //cek lagi rumus ini ?????            
+            // }
+            market_value_pretrade = asset_market_value_pretrade.reduce(function (accumulator, current) { return accumulator + current; });
+            console.log(market_value_pretrade);
+
+            margin_loan_balance_pretrade = margin_loan_balance_posttrade; 
+            
+            equity_pretrade = cash_pretrade + market_value_pretrade - margin_loan_balance_pretrade;
+            
+            maintenance_margin = market_value_pretrade * maintmargin;
+            regT_margin_req = market_value_pretrade * regTmargin;
+            margin_available = equity_pretrade - regT_margin_req;
+
+            var data_request = 
+                {
+                  data_id: data_id,
+                  margin_available: margin_available,
+                  asset1_price: asset_price[1],
+                  asset2_price: asset_price[2],
+                  asset3_price: asset_price[3],
+                  asset4_price: asset_price[4],
+                  asset5_price: asset_price[5],
+                  asset6_price: asset_price[6],
+                  asset7_price: asset_price[7],
+                  asset8_price: asset_price[8],
+                  asset9_price: asset_price[9],
+                  asset10_price: asset_price[10],
+                  asset11_price: asset_price[11],
+                  asset12_price: asset_price[12],
+                  asset13_price: asset_price[13],
+                  asset14_price: asset_price[14],
+                  asset15_price: asset_price[15],
+                  asset16_price: asset_price[16],
+                  asset17_price: asset_price[17],
+                  asset18_price: asset_price[18],
+                  asset19_price: asset_price[19],
+                  asset20_price: asset_price[20],
+                  asset21_price: asset_price[21],
+                  asset22_price: asset_price[22],
+                  asset23_price: asset_price[23],
+                  asset24_price: asset_price[24],
+                  asset25_price: asset_price[25],
+                  asset26_price: asset_price[26],
+                  asset27_price: asset_price[27],
+                  asset28_price: asset_price[28],
+                  asset29_price: asset_price[29],
+                  asset30_price: asset_price[30]
+                };
         
-        for (i=1;i<31;i++) {     
-          asset_price[i] = port_data[i][data_id-1];
-          asset_position_size_pretrade[i] = asset_position_size_posttrade[i];
-          asset_market_value_pretrade[i] =  asset_position_size_pretrade[i] * asset_price[i];      
-        }
-        cash_pretrade = cash_posttrade - daily_interest;
-        for (i=1;i<31;i++) {     
-          market_value_pretrade += asset_market_value_pretrade[i]; //cek lagi rumus ini ?????
-        }
-        margin_loan_balance_pretrade = margin_loan_balance_posttrade; 
-        equity_pretrade = cash_pretrade + market_value_pretrade - margin_loan_balance_pretrade;
-        maintenance_margin = market_value_pretrade * maintmargin;
-        regT_margin_req = market_value_pretrade * regTmargin;
-        margin_available = equity_pretrade - regT_margin_req;
+            //POST REST API, pikirkan code yg bila ini gagal balik lagi ke task ini
+          
+            await $.ajax({
+              type: "POST",
+              url: "http://localhost/rasio_server/api/post.php",
+              headers:{
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-API-KEY": sessionStorage.getItem("api")
+              },
+              data: data_request,             
+              dataType: 'json',
+              success: function(result){
+                
+                console.log(result);
+        
+              if (result.status !== "success") {
+              
+                signal_response = new Array ();
+                signal_response.push(result.data);
+
+                // console.log(result.data);
+                
+                var req_element =
+                '<pre style="margin-left: 80px; margin-top: 3px; margin-bottom: 3px; font-size: 13px; color: #c1c2c6; overflow:hidden">'
+                + JSON.stringify(data_request, null, 4) +
+                '</pre>';
+                $("#request_area").html(req_element);
+                var resp_element =
+                // '<pre style="font-size: 13px; direction: rtl; color: #c1c2c6; overflow:hidden">'
+                '<div style="direction: ltr; margin-left: 80px; margin-top: 20px; margin-bottom: 0px">'
+                + JSON.stringify(data_request, null, 4) +
+                '</div>'
+                // '</pre>';
+                $("#response_area").html(resp_element);
+
+              } 
+              // else {
+              //   alert("error post");
+              //   return false;
+              //   //kembali ke post rest api, coba lagi
+              // }
+              // },
+              // error: function() {
+              //   alert("error post");
+              //   return false;
+                // var req_element = '<div style="margin: auto; width: 50%; color: #c1c2c6; text-align: center"> <h5 style="margin-top: 120px">koneksi lambat, mohon tunggu atau klik "reload this page" pada browser anda utk mengulang dr awal.....</h5> <img src="img/spinner.gif" width="200" height="200" style="margin-top: -30px"></div>';
+        
+                // $("#request_area").html(req_element);
+                // $("#response_area").html(req_element);
+        
+            }
+          })                    
     
-        //POST REST API, pikirkan code yg bila ini gagal balik lagi ke task ini
+          if(signal_response.length > 0) {   
+            //TRADE   
+            console.log("trade"); 
+            for (i=1, x=2;i<31, x<32;i++, x++) {      
+              if(signal_response[x]>0) {
+                asset_trade_position[i] = "BUY";
+                asset_trade_size[i] = signal_response[x];
+                asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
+                asset_trade_margin_req[i] = asset_trade_value * regTmargin;
+                asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i];
+                asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
+              } else if(signal_response[x]<0) {
+                asset_trade_position[i] = "SELL";
+                asset_trade_size[i] = signal_response[x];
+                asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
+                asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i]; // cek lagi, coding marginloan saat kondisi jual
+                asset_trade_margin_req[i] = asset_trade_value * regTmargin;
+                asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
+              } else {
+                asset_trade_position[i] = "HOLD";
+              }
+            }
+        
+            for (i=1; i<31; i++) {
+              if(asset_trade_position[i] == "BUY") {
+                buy_trade_value += asset_trade_value[i]; 
+                buy_margin_req += asset_trade_margin_req[i];
+                buy_margin_loan += asset_trade_margin_loan[i];
+                buy_trade_cost += asset_trade_cost[i];     
+              } else if(asset_trade_position[i] == "SELL") {
+                sell_trade_value += asset_trade_value[i];
+                sell_margin_req += asset_trade_margin_req[i];
+                sell_margin_loan += asset_trade_margin_loan[i];
+                sell_trade_cost += asset_trade_cost[i];  
+              }
+            }
+    
+          //POST TRADE
+          console.log("post trade"); 
+          for(i=1;i<31;i++) {
+            asset_position_size_posttrade[i] = asset_position_size_pretrade[i] + asset_trade_size[i];
+            asset_market_value_posttrade[i] = asset_position_size_posttrade[i] * asset_price[i];
+          }
       
-        await $.ajax({
-          type: "POST",
-          url: "http://localhost/rasio_server/api/post.php",
-          headers:{
-            "Content-Type": "application/x-www-form-urlencoded",
-            "X-API-KEY": sessionStorage.getItem("api")
-          },
-          data:{
-            data_id: data_id,
-            margin_available: margin_available,
-            asset1_price: asset_price[1],
-            asset2_price: asset_price[2],
-            asset3_price: asset_price[3],
-            asset4_price: asset_price[4],
-            asset5_price: asset_price[5],
-            asset6_price: asset_price[6],
-            asset7_price: asset_price[7],
-            asset8_price: asset_price[8],
-            asset9_price: asset_price[9],
-            asset10_price: asset_price[10],
-            asset11_price: asset_price[11],
-            asset12_price: asset_price[12],
-            asset13_price: asset_price[13],
-            asset14_price: asset_price[14],
-            asset15_price: asset_price[15],
-            asset16_price: asset_price[16],
-            asset17_price: asset_price[17],
-            asset18_price: asset_price[18],
-            asset19_price: asset_price[19],
-            asset20_price: asset_price[20],
-            asset21_price: asset_price[21],
-            asset22_price: asset_price[22],
-            asset23_price: asset_price[23],
-            asset24_price: asset_price[24],
-            asset25_price: asset_price[25],
-            asset26_price: asset_price[26],
-            asset27_price: asset_price[27],
-            asset28_price: asset_price[28],
-            asset29_price: asset_price[29],
-            asset30_price: asset_price[30]
-          },
-          dataType: 'json',
-          success: function(result){
-            
-            console.log(result);
-    
-          if (result.status == "success") {
-           
-            signal_response = new Array ();
-            signal_response.push(result.data);
-
-            // console.log(result.data);
-            
-            var req_element =
-            '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
-            + JSON.stringify(result, null, 4) +
-            '</pre>';
-            $("#request_area").html(req_element);
-            var resp_element =
-            '<pre style="font-size: 13px; color: #c1c2c6; overflow:hidden">'
-            + JSON.stringify(result, null, 4) +
-            '</pre>';
-            $("#response_area").html(resp_element);
-
-          } 
-          // else {
-          //   alert("error post");
-          //   return false;
-          //   //kembali ke post rest api, coba lagi
-          // }
-          // },
-          // error: function() {
-          //   alert("error post");
-          //   return false;
-            // var req_element = '<div style="margin: auto; width: 50%; color: #c1c2c6; text-align: center"> <h5 style="margin-top: 120px">koneksi lambat, mohon tunggu atau klik "reload this page" pada browser anda utk mengulang dr awal.....</h5> <img src="img/spinner.gif" width="200" height="200" style="margin-top: -30px"></div>';
-    
-            // $("#request_area").html(req_element);
-            // $("#response_area").html(req_element);
-    
-        }
-      })
-    
-      if(signal_response.length > 0) {   
-        //TRADE   
-        console.log("trade"); 
-        for (i=1, x=2;i<31, x<32;i++, x++) {      
-          if(signal_response[x]>0) {
-            asset_trade_position[i] = "BUY";
-            asset_trade_size[i] = signal_response[x];
-            asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
-            asset_trade_margin_req[i] = asset_trade_value * regTmargin;
-            asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i];
-            asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
-          } else if(signal_response[x]<0) {
-            asset_trade_position[i] = "SELL";
-            asset_trade_size[i] = signal_response[x];
-            asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
-            asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i]; // cek lagi, coding marginloan saat kondisi jual
-            asset_trade_margin_req[i] = asset_trade_value * regTmargin;
-            asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
-          } else {
-            asset_trade_position[i] = "HOLD";
+          cash_posttrade = cash_pretrade - buy_margin_req - buy_trade_cost + sell_margin_req - sell_trade_cost;
+          for(i=1;i<31;i++) {
+            market_value_posttrade += asset_market_value_posttrade[i]; //cek lagi rumus ini ?????
           }
-        }
-    
-        for (i=1; i<31; i++) {
-          if(asset_trade_position[i] == "BUY") {
-            buy_trade_value += asset_trade_value[i]; 
-            buy_margin_req += asset_trade_margin_req[i];
-            buy_margin_loan += asset_trade_margin_loan[i];
-            buy_trade_cost += asset_trade_cost[i];     
-          } else if(asset_trade_position[i] == "SELL") {
-            sell_trade_value += asset_trade_value[i];
-            sell_margin_req += asset_trade_margin_req[i];
-            sell_margin_loan += asset_trade_margin_loan[i];
-            sell_trade_cost += asset_trade_cost[i];  
-          }
-        }
-    
-        //POST TRADE
-        console.log("post trade"); 
-        for(i=1;i<31;i++) {
-          asset_position_size_posttrade[i] = asset_position_size_pretrade[i] + asset_trade_size[i];
-          asset_market_value_posttrade[i] = asset_position_size_posttrade[i] * asset_price[i];
-        }
-    
-        cash_posttrade = cash_pretrade - buy_margin_req - buy_trade_cost + sell_margin_req - sell_trade_cost;
-        for(i=1;i<31;i++) {
-          market_value_posttrade += asset_market_value_posttrade[i]; //cek lagi rumus ini ?????
-        }
-        margin_loan_balance_posttrade = margin_loan_balance_pretrade + buy_margin_loan - sell_margin_loan;
-        equity_posttrade = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
-    
-        daily_interest = margin_loan_balance_posttrade * (1/365); //cek lagi rumus ini ?????
+          margin_loan_balance_posttrade = margin_loan_balance_pretrade + buy_margin_loan - sell_margin_loan;
+          equity_posttrade = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
+      
+          daily_interest = margin_loan_balance_posttrade * (1/365); //cek lagi rumus ini ?????
         
-        //ADD DATA ID
-        data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?
+          //ADD DATA ID
+          data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?
        
-      }     
+        }     
     
       } else {
         $('#setting_button').attr('disabled',false);
