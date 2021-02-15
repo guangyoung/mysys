@@ -583,7 +583,7 @@ var steps = $("#steps").val();
 var startdate_simulation = new Date($("#startdate_simulation").val());
 var dt = startdate_simulation;
 var dt_arr = new Array();
-for (i=0;i<90;i++) {
+for (i=0;i<1000;i++) {
 if (dt.getDay()==5) {
   let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
   dt_arr.push(dtt);
@@ -599,7 +599,7 @@ port_data.push(dt_arr);
 for (i=0;i<30;i++) {
 var price_sim_array = new Array ();
 var price_sim = parseFloat(initial_price);
-for (x=0;x<90;x++) {
+for (x=0;x<1000;x++) {
   price_sim_array.push(price_sim)
   price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
 }
@@ -854,59 +854,73 @@ var config = {
   
   //run Test
   async function run_test() {
+
     //test setting
-    var initialequity = parseFloat($("#initial_equity").val());
-    var bidaskspread = parseFloat($("#bid_ask_spread").val());
-    var commisionshare = parseFloat($("#commision_share").val());
-    var interestrate = parseFloat($("#interest_rate").val());
-    var riskfreerate = parseFloat($("#risk_free_rate").val());
-    var regTmargin = parseFloat($("#regT_margin").val());
-    var maintmargin = parseFloat($("#maint_margin").val());
+    var initial_equity = parseFloat($("#initial_equity").val());
+    var bidask_spread = parseFloat($("#bid_ask_spread").val());
+    var commision_share = parseFloat($("#commision_share").val());
+    var interest_rate = parseFloat($("#interest_rate").val());
+    var riskfree_rate = parseFloat($("#risk_free_rate").val());
+    var regTmargin_rate = parseFloat($("#regT_margin").val());
+    var maintmargin_rate = parseFloat($("#maint_margin").val());
     var mindata = parseInt($("#min_data").val());
     var maxdata = parseInt($("#max_data").val());
-    var portfoliosize = parseInt($("#portfolio_size").val());
+    // var portfoliosize = parseInt($("#portfolio_size").val());
 
-    var data_id;
-    var date;   
-  
+    var data_id = 1;
+    var date;  
+     
+    var asset_price = [];
     var asset_position_size_pretrade = [];
     var asset_market_value_pretrade = [];
+    var asset_margin_loan_balance_pretrade = [];
     var asset_trade_position = [];
     var asset_trade_size = [];
     var asset_trade_value = [];
     var asset_trade_margin_req = [];
     var asset_trade_margin_loan = [];
     var asset_trade_cost = [];
-    var asset_position_size_posttrade = [];    
+    var asset_position_size_posttrade = [];
     var asset_market_value_posttrade = [];
-
-    //data awal
-    for (i=1;i<31;i++) {
-      asset_position_size_posttrade[i] = 1;    
-    }
-   
+    var asset_margin_loan_balance_posttrade = [];
     
-    var cash_pretrade;
-    var market_value_pretrade = 0;
-    var margin_loan_balance_pretrade = 0;
-    var equity_pretrade;
-    var maintenance_margin;
-    var regT_margin_req;
-    var margin_available;
-    var buy_trade_value;
-    var buy_margin_req = 0;
-    var buy_margin_loan = 0;
+    //data awal
+    for (i=1;i<=30;i++) {
+      asset_price[i] = 0;      
+      asset_position_size_pretrade[i] = 0;
+      asset_market_value_pretrade[i] = asset_position_size_pretrade[i] * asset_price[i]; 
+      asset_margin_loan_balance_pretrade[i] = 0;
+      asset_trade_size[i] = 0;
+      asset_trade_value[i] = asset_trade_size[i] * asset_price[i];
+      asset_trade_margin_req[i] = asset_trade_value[i] * regTmargin_rate;
+      asset_trade_margin_loan[i] = asset_trade_value[i] - asset_trade_margin_req[i];
+      asset_trade_cost[i] = (asset_trade_value[i] * bidask_spread) + (asset_trade_value[i] * commision_share); 
+      asset_position_size_posttrade[i] = asset_position_size_pretrade[i] + asset_trade_size[i];
+      asset_market_value_posttrade[i] = asset_position_size_posttrade[i] * asset_price[i];
+      asset_margin_loan_balance_posttrade[i] = asset_margin_loan_balance_pretrade[i] + asset_trade_margin_loan[i];      
+    }
+    
+    var cash_pretrade = initial_equity;
+    var market_value_pretrade = asset_market_value_pretrade.reduce(function (accumulator, current) { return accumulator + current; });
+    var margin_loan_balance_pretrade = asset_margin_loan_balance_pretrade.reduce(function (accumulator, current) { return accumulator + current; });
+    var equity_pretrade = cash_pretrade + market_value_pretrade - margin_loan_balance_pretrade;            
+    var maintenance_margin = market_value_pretrade * maintmargin_rate;
+    var regT_margin_req = market_value_pretrade * regTmargin_rate;
+    var margin_available = equity_pretrade - regT_margin_req;
+    var buy_trade_value = 0;
+    var buy_trade_margin_req = 0;
+    var buy_trade_margin_loan = 0;
     var buy_trade_cost = 0;
-    var sell_trade_value;
-    var sell_margin_req = 0;
-    var sell_margin_loan = 0;
-    var sell_trade_cost = 0;
-    var cash_posttrade = initialequity;
-    var market_value_posttrade;
-    var margin_loan_balance_posttrade = 0;
-    var equity_posttrade;
+    var sell_trade_value = 0;
+    var sell_trade_margin_req = 0;
+    var sell_trade_margin_loan = 0;
+    var sell_trade_cost = 0;  
+    var cash_posttrade = cash_pretrade - buy_trade_margin_req - buy_trade_cost + sell_trade_margin_req - sell_trade_cost;
+    var market_value_posttrade = asset_market_value_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
+    var margin_loan_balance_posttrade = asset_margin_loan_balance_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
+    var equity_posttrade = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
 
-    var daily_interest = 0; 
+    var daily_interest = margin_loan_balance_posttrade * (1/365); //cek lagi rumus ini ???? 
 
     var signal_response = new Array ();
 
@@ -914,20 +928,23 @@ var config = {
     var assets_trade_details = new Array();
     var data_length;
     var signal_response;
-
-    data_id = 1;
-    
     
     //cek test data
     if (port_data.length == 0) {
       alert(`tidak ada data untuk test`);
       return false;
     }
-    data_length = port_data[0].length;
-    if (data_length < 30) {
-      alert(`data test anda kurang dari 2610 data baris`);
+    
+    data_length = port_data[0].length;    
+    if (data_length < 30) { //30 ganti jadi mindata
+      alert(`data test anda kurang dari `+mindata+` data baris`);
       return false;
-    }    
+    }
+    
+    if (data_length > maxdata) {
+      alert(`data test anda lebih dari `+maxdata+` data baris`);
+      return false;
+    }  
 
     //reset your previous portfolio data in quantxi
     await $.ajax({
@@ -946,7 +963,6 @@ var config = {
         $('#start_date').attr('disabled',true);
         $('#change_period_btn').attr('disabled',true);
         $('#play_button').attr('disabled',true);
-        // $('#refresh_button').attr('disabled',false);
         $('#viewpost_button').attr('disabled',true);
         $('#trade_report_button').attr('disabled',true);
         $('#chart_button').attr('disabled',true);
@@ -958,33 +974,36 @@ var config = {
       }
     })
 
-          //proses data
+    //PROSES DATA
           async function proses() {
-            if (data_id < (data_length+1)) {
-            var asset_price = new Array();
-            //PRE TRADE 
-            date = port_data[0][data_id-1];  
-            // console.log(date);  
-            
-            for (i=1;i<31;i++) {     
-              asset_price[i] = port_data[i][data_id-1];
-              asset_position_size_pretrade[i] = asset_position_size_posttrade[i];
-              asset_market_value_pretrade[i] =  asset_position_size_pretrade[i] * asset_price[i];
-            }
-            cash_pretrade = cash_posttrade - daily_interest;
-            // for (i=1;i<31;i++) {     
-            //   market_value_pretrade = market_value_pretrade + asset_market_value_pretrade[i]; //cek lagi rumus ini ?????            
-            // }
-            market_value_pretrade = asset_market_value_pretrade.reduce(function (accumulator, current) { return accumulator + current; });
-            console.log(market_value_pretrade);
+            if (data_id <= data_length) {
 
-            margin_loan_balance_pretrade = margin_loan_balance_posttrade; 
+            date = port_data[0][data_id-1];
             
-            equity_pretrade = cash_pretrade + market_value_pretrade - margin_loan_balance_pretrade;
+        //PRE TRADE
+            //asset trade details
+            for (i=1;i<=30;i++) {  
+                asset_price[i]                        = port_data[i][data_id-1];
+                asset_position_size_pretrade[i]       = asset_position_size_posttrade[i]
+                asset_market_value_pretrade[i]        = asset_position_size_pretrade[i] * asset_price[i]; 
+                asset_margin_loan_balance_pretrade[i] = asset_margin_loan_balance_posttrade[i];         
+            }
+            //account & trade summary
+            cash_pretrade                 = cash_posttrade - daily_interest;
             
-            maintenance_margin = market_value_pretrade * maintmargin;
-            regT_margin_req = market_value_pretrade * regTmargin;
-            margin_available = equity_pretrade - regT_margin_req;
+            market_value_pretrade         = asset_market_value_pretrade.reduce(function (accumulator, current) { return accumulator + current; });
+           
+            margin_loan_balance_pretrade  = asset_margin_loan_balance_pretrade.reduce(function (accumulator, current) { return accumulator + current; });
+            
+            equity_pretrade               = cash_pretrade + market_value_pretrade - margin_loan_balance_pretrade;
+            
+            maintenance_margin            = market_value_pretrade * maintmargin_rate;
+
+            regT_margin_req               = market_value_pretrade * regTmargin_rate;
+
+            margin_available              = equity_pretrade - regT_margin_req;
+
+            console.log(margin_available);
 
             var data_request = 
                 {
@@ -1022,8 +1041,7 @@ var config = {
                   asset30_price: asset_price[30]
                 };
         
-            //POST REST API, pikirkan code yg bila ini gagal balik lagi ke task ini
-          
+        //POST REST API         
             await $.ajax({
               type: "POST",
               url: "http://localhost/rasio_server/api/post.php",
@@ -1035,98 +1053,335 @@ var config = {
               dataType: 'json',
               success: function(result){
                 
-                console.log(result);
+                // console.log(result);
         
-              if (result.status !== "success") {
+              if (result.status == "success") {
               
                 signal_response = new Array ();
-                signal_response.push(result.data);
+                signal_response = result.data;
+                console.log(signal_response);
 
-                // console.log(result.data);
+                // var data_response = 
+                // {
+                //   data_id: signal_response.data_id,
+                //   total_signal: signal_response.total_signal_proccessed,
+                //   asset1_signal: signal_response.asset1_signal,
+                //   asset2_signal: signal_response.asset2_signal,
+                //   asset3_signal: signal_response.asset3_signal,
+                //   asset4_signal: signal_response.asset4_signal,
+                //   asset5_signal: signal_response.asset5_signal,
+                //   asset6_signal: signal_response.asset6_signal,
+                //   asset7_signal: signal_response.asset7_signal,
+                //   asset8_signal: signal_response.asset8_signal,
+                //   asset9_signal: signal_response.asset9_signal,
+                //   asset10_signal: signal_response.asset10_signal,
+                //   asset11_signal: signal_response.asset11_signal,
+                //   asset12_signal: signal_response.asset12_signal,
+                //   asset13_signal: signal_response.asset13_signal,
+                //   asset14_signal: signal_response.asset14_signal,
+                //   asset15_signal: signal_response.asset15_signal,
+                //   asset16_signal: signal_response.asset16_signal,
+                //   asset17_signal: signal_response.asset17_signal,
+                //   asset18_signal: signal_response.asset18_signal,
+                //   asset19_signal: signal_response.asset19_signal,
+                //   asset20_signal: signal_response.asset20_signal,
+                //   asset21_signal: signal_response.asset21_signal,
+                //   asset22_signal: signal_response.asset22_signal,
+                //   asset23_signal: signal_response.asset23_signal,
+                //   asset24_signal: signal_response.asset24_signal,
+                //   asset25_signal: signal_response.asset25_signal,
+                //   asset26_signal: signal_response.asset26_signal,
+                //   asset27_signal: signal_response.asset27_signal,
+                //   asset28_signal: signal_response.asset28_signal,
+                //   asset29_signal: signal_response.asset29_signal,
+                //   asset30_signal: signal_response.asset30_signal
+                // };
                 
-                var req_element =
-                '<pre style="margin-left: 80px; margin-top: 3px; margin-bottom: 3px; font-size: 13px; color: #c1c2c6; overflow:hidden">'
-                + JSON.stringify(data_request, null, 4) +
-                '</pre>';
-                $("#request_area").html(req_element);
-                var resp_element =
-                // '<pre style="font-size: 13px; direction: rtl; color: #c1c2c6; overflow:hidden">'
-                '<div style="direction: ltr; margin-left: 80px; margin-top: 20px; margin-bottom: 0px">'
-                + JSON.stringify(data_request, null, 4) +
-                '</div>'
+                var data_input =
+                // '<pre style="margin-left: 80px; margin-top: 3px; margin-bottom: 3px; font-size: 13px; color: #c1c2c6; overflow:hidden">'
+                // + JSON.stringify(data_request, null, 4) +
                 // '</pre>';
-                $("#response_area").html(resp_element);
+                `<tr>
+                    <td colspan="2" style="text-align: left; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
+                    <td colspan="2" style="text-align: right; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+data_id+`</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: left; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Margin Available</td>
+                    <td colspan="2" style="text-align: right; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+margin_available+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 1 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[1]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 2 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[2]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 3 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[3]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 4 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[4]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 5 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[5]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 6 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[6]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 7 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[7]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 8 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[8]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 9 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[9]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 10 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[10]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 11 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[11]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 12 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[12]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 13 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[13]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 14 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[14]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 15 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[15]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 16 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[16]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 17 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[17]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 18 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[18]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 19 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[19]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 20 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[20]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 21 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[21]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 22 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[22]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 23 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[23]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 24 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[24]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 25 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[25]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 26 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[26]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 27 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[27]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 28 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[28]).toFixed(2))+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 29 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[29]).toFixed(2))+`</td>
+                    <td style="text-align: left; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 30 Price</td>
+                    <td style="text-align: right; width: 90px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[30]).toFixed(2))+`</td>
+                </tr>`  
+
+                $("#data_input_tbl>tbody").html(data_input);
+                var signal_output =
+                // '<pre style="font-size: 13px; direction: rtl; color: #c1c2c6; overflow:hidden">'
+                // + JSON.stringify(data_response, null, 4) +                
+                // '</pre>';
+                `<tr>
+                <td colspan="2" style="text-align: left; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
+                <td colspan="2" style="text-align: right; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_response.data_id+`</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: left; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Signal Processed</td>
+                    <td colspan="2" style="text-align: right; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_response.total_signal_proccessed+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 1 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset1_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 2 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset2_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 3 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset3_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 4 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset4_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 5 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset5_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 6 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset6_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 7 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset7_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 8 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset8_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 9 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset9_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 10 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset10_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 11 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset11_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 12 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset12_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 13 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset13_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 14 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset14_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 15 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset15_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 16 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset16_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 17 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset17_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 18 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset18_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 19 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset19_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 20 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset20_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 21 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset21_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 22 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset22_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 23 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset23_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 24 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset24_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 25 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset25_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 26 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset26_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 27 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset27_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 28 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset28_signal)+`</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 29 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset29_signal)+`</td>
+                    <td style="text-align: left; width: 95px; padding: 2px 10px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 30 Signal</td>
+                    <td style="text-align: right; width: 85px; padding: 2px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_response.asset30_signal)+`</td>
+                </tr>`
+
+                $("#signal_output_tbl>tbody").html(signal_output);
 
               } 
-              // else {
-              //   alert("error post");
-              //   return false;
-              //   //kembali ke post rest api, coba lagi
-              // }
-              // },
-              // error: function() {
-              //   alert("error post");
-              //   return false;
-                // var req_element = '<div style="margin: auto; width: 50%; color: #c1c2c6; text-align: center"> <h5 style="margin-top: 120px">koneksi lambat, mohon tunggu atau klik "reload this page" pada browser anda utk mengulang dr awal.....</h5> <img src="img/spinner.gif" width="200" height="200" style="margin-top: -30px"></div>';
-        
-                // $("#request_area").html(req_element);
-                // $("#response_area").html(req_element);
         
             }
           })                    
     
-          if(signal_response.length > 0) {   
-            //TRADE   
+          if(signal_response.data_id == data_id) {   
+        //TRADE 
+            //asset trade details
             console.log("trade"); 
-            for (i=1, x=2;i<31, x<32;i++, x++) {      
+            for (i=1, x=2;i<=30, x<=31;i++, x++) {      
               if(signal_response[x]>0) {
-                asset_trade_position[i] = "BUY";
-                asset_trade_size[i] = signal_response[x];
-                asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
-                asset_trade_margin_req[i] = asset_trade_value * regTmargin;
-                asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i];
-                asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
+                asset_trade_position[i]     = "BUY";
+                asset_trade_size[i]         = signal_response[x];
+                asset_trade_value[i]        = asset_trade_size[i] * asset_price[i];        
+                asset_trade_margin_req[i]   = asset_trade_value * regTmargin_rate;
+                asset_trade_margin_loan[i]  = asset_trade_value - asset_trade_margin_req[i];
+                asset_trade_cost[i]         = (asset_trade_value * bidask_spread) + (asset_trade_value * commision_share);
               } else if(signal_response[x]<0) {
-                asset_trade_position[i] = "SELL";
-                asset_trade_size[i] = signal_response[x];
-                asset_trade_value[i] = asset_trade_size[i] * asset_price[i];        
-                asset_trade_margin_loan[i] = asset_trade_value - asset_trade_margin_req[i]; // cek lagi, coding marginloan saat kondisi jual
-                asset_trade_margin_req[i] = asset_trade_value * regTmargin;
-                asset_trade_cost[i] = (asset_trade_value * bidaskspread) + (asset_trade_value * commisionshare);
+                asset_trade_position[i]     = "SELL";
+                asset_trade_size[i]         = signal_response[x];
+                asset_trade_value[i]        = asset_trade_size[i] * asset_price[i];        
+                asset_trade_margin_loan[i]  = asset_trade_value - asset_trade_margin_req[i]; // cek lagi, coding marginloan saat kondisi jual
+                asset_trade_margin_req[i]   = asset_trade_value * regTmargin_rate;
+                asset_trade_cost[i]         = (asset_trade_value * bidask_spread) + (asset_trade_value * commision_share);
               } else {
-                asset_trade_position[i] = "HOLD";
+                asset_trade_position[i]     = "HOLD";
+                asset_trade_size[i]         = 0;
+                asset_trade_value[i]        = asset_trade_size[i] * asset_price[i];        
+                asset_trade_margin_req[i]   = asset_trade_value * regTmargin_rate;
+                asset_trade_margin_loan[i]  = asset_trade_value - asset_trade_margin_req[i];
+                asset_trade_cost[i]         = (asset_trade_value * bidask_spread) + (asset_trade_value * commision_share);
               }
             }
         
-            for (i=1; i<31; i++) {
+            //trade summary
+            buy_trade_value = 0;
+            buy_trade_margin_req = 0;
+            buy_trade_margin_loan = 0;
+            buy_trade_cost = 0;
+            sell_trade_value = 0;
+            sell_trade_margin_req = 0;
+            sell_trade_margin_loan = 0;
+            var sell_trade_cost = 0;
+            for (i=1; i<=30; i++) {
               if(asset_trade_position[i] == "BUY") {
                 buy_trade_value += asset_trade_value[i]; 
-                buy_margin_req += asset_trade_margin_req[i];
-                buy_margin_loan += asset_trade_margin_loan[i];
+                buy_trade_margin_req += asset_trade_margin_req[i];
+                buy_trade_margin_loan += asset_trade_margin_loan[i];
                 buy_trade_cost += asset_trade_cost[i];     
               } else if(asset_trade_position[i] == "SELL") {
                 sell_trade_value += asset_trade_value[i];
-                sell_margin_req += asset_trade_margin_req[i];
-                sell_margin_loan += asset_trade_margin_loan[i];
+                sell_trade_margin_req += asset_trade_margin_req[i];
+                sell_trade_margin_loan += asset_trade_margin_loan[i];
                 sell_trade_cost += asset_trade_cost[i];  
-              }
+              } 
             }
     
-          //POST TRADE
+      //POST TRADE
           console.log("post trade"); 
-          for(i=1;i<31;i++) {
-            asset_position_size_posttrade[i] = asset_position_size_pretrade[i] + asset_trade_size[i];
-            asset_market_value_posttrade[i] = asset_position_size_posttrade[i] * asset_price[i];
+          //asset trade details
+          for(i=1;i<=30;i++) {
+            asset_position_size_posttrade[i]        = asset_position_size_pretrade[i] + asset_trade_size[i];
+            asset_market_value_posttrade[i]         = asset_position_size_posttrade[i] * asset_price[i];
+            asset_margin_loan_balance_posttrade[i]  = asset_margin_loan_balance_pretrade[i] + asset_trade_margin_loan[i];
           }
+          
+          //account & trade summary
+          cash_posttrade                  = cash_pretrade - buy_trade_margin_req - buy_trade_cost + sell_trade_margin_req - sell_trade_cost;
+          
+          market_value_posttrade          = asset_market_value_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
+           
+          margin_loan_balance_posttrade   = asset_margin_loan_balance_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
+         
+          equity_posttrade                = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
       
-          cash_posttrade = cash_pretrade - buy_margin_req - buy_trade_cost + sell_margin_req - sell_trade_cost;
-          for(i=1;i<31;i++) {
-            market_value_posttrade += asset_market_value_posttrade[i]; //cek lagi rumus ini ?????
-          }
-          margin_loan_balance_posttrade = margin_loan_balance_pretrade + buy_margin_loan - sell_margin_loan;
-          equity_posttrade = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
-      
-          daily_interest = margin_loan_balance_posttrade * (1/365); //cek lagi rumus ini ?????
+          daily_interest                  = margin_loan_balance_posttrade * (1/365); //cek lagi rumus ini ?????
         
           //ADD DATA ID
           data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?
