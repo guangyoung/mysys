@@ -2,6 +2,14 @@
     background-color: #111631;
 }
 
+.buy{
+    background-color: blue;
+} 
+
+.sell{
+    background-color: red;
+} 
+
 .bg {
     /* The image used */
     background-image: url("img/img04.png");
