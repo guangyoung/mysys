@@ -56,7 +56,7 @@
                     <p style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 15px">TEST DATA PERIOD</p>
                     <!-- <input style="font-size: 11px; font-family: calibri; width: 135px; height: 17px; margin-top: 19px; margin-left: 5px" type="date" min="1899-01-01" max="2000-12-13" class="form-control" id="start_date" aria-describedby="" required> -->
                     <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11.5px; color: #414347; margin-left: 5px; font-family: calibri; width: 135px; height: 18px; margin-top: 18px; margin-left: 5px">
-                    <a style="margin-top: 14px; margin-left:10px"><button type="button" class="btn btn-secondary btn-sm" id="change_period_btn" style="padding: 0px 6px; font-size: 10px" disabled >Change Period</button></a>
+                    <a style="margin-top: 14px; margin-left:10px"><button type="button" class="btn btn-secondary btn-sm" id="change_period_btn" style="padding: 0px 6px; font-size: 10px" disabled >Change Startdate</button></a>
                     <a style="margin-top: 14px; margin-left:10px"><button type="button" class="btn btn-success btn-sm" id="play_button" style="padding: 0px 6px; font-size: 10px" onclick="run_test()">
                         <i class="fa fa-play" style="font-size: 14px"></i>
                     </button></a>
@@ -92,18 +92,18 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="background-color: #0c0f23; border-right: 1px #1b1c2c solid; border-left: 1px #1b1c2c solid;">
+        <div id="body_div" class="row" style="background-color: #0c0f23; border-right: 1px #1b1c2c solid; border-left: 1px #1b1c2c solid;">
             <div style="width: 35%" >              
                 <div class="table-report" style="margin-top: 10px; margin-left: 15px; margin-bottom: 10px">
                     <table id="data_input_tbl">
                         <tbody style="font-size: 12px; font-family: calibri; color: #c1c2c6; ">
                             <tr>
                                 <td colspan="3" style="text-align: left; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
-                                <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="data_id_input">0</span></td>
                             </tr>
                             <tr>
                                 <td colspan="3" style="text-align: left; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Equity Balance</td>
-                                <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="equity_balance">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; width: 65px; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset</td>
@@ -115,123 +115,123 @@
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 1</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset1_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset1_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 16</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset16_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset16_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 2</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset2_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset2_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 17</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset17_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset17_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 3</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset3_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset3_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 18</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset18_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset18_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 4</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset4_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset4_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 19</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset19_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset19_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 5</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset5_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset5_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 20</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset20_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset20_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 6</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset6_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset6_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 21</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset21_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset21_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 7</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset7_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset7_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 22</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset22_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset22_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 8</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset8_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset8_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 23</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset23_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset23_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 9</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset9_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset9_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 24</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset24_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset24_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 10</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset10_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset10_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 25</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset25_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset25_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 11</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset11_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset11_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 26</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset26_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset26_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 12</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset12_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset12_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 27</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset27_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset27_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 13</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset13_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset13_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 28</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset28_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset28_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 14</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset14_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset14_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 29</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset29_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset29_position_size">0</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 15</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset15_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset15_position_size">0</span></td>
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 30</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset30_price">0</span></td>
+                                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset30_position_size">0</span></td>
                             </tr>                                                       
                         </tbody>
                     </table>
@@ -259,11 +259,11 @@
                             <tbody style="font-size: 12px; font-family: calibri; color: #c1c2c6; ">
                                 <tr>
                                     <td colspan="3" style="text-align: left; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
-                                    <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="data_id_output">0</span></td>
                                 </tr>
                                 <tr>
                                     <td colspan="3" style="text-align: left; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset Signal Created</td>
-                                    <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset_signal_created">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; width: 65px; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset</td>
@@ -275,123 +275,123 @@
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 1</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset1_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset1_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 16</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset16_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset16_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 2</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset2_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset2_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 17</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset17_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset17_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 3</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset3_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset3_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 18</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset18_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset18_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 4</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset4_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset4_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 19</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset19_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset19_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 5</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset5_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset5_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 20</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset20_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset20_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 6</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset6_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset6_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 21</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset21_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset21_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 7</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset7_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset7_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 22</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset22_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset22_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 8</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset8_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset8_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 23</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset23_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset23_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 9</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset9_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset9_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 24</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset24_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset24_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 10</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset10_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset10_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 25</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset25_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset25_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 11</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset11_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset11_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 26</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset26_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset26_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 12</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset12_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset12_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 27</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset27_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset27_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 13</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset13_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset13_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 28</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset28_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset28_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 14</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset14_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset14_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 29</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset29_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset29_signal_size">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 15</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset15_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset15_signal_size">0</span></td>
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 30</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
-                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">0</td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset30_signal_position">0</span></td>
+                                    <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset30_signal_size">0</span></td>
                                 </tr>                                                       
                             </tbody>
                         </table>
@@ -403,11 +403,11 @@
             <div style="text-align: left;">
                 <div class="row">
                     <p style="margin-left: 15px; margin-top: 4px; font-family: Acrom; font-size: 11px;">TESTED DATA PERIOD</p>
-                    <input id="period_data_tested" type="text" class="form-text-sm" disabled value="No Data Tested" style="text-align: center; font-size: 11.5px; color: #414347; margin-left: 5px; font-family: calibri; width: 135px; height: 18px; margin-top: 2px; margin-left: 5px">
+                    <input id="tested_data_period" type="text" class="form-text-sm" disabled value="No Data Tested" style="text-align: center; font-size: 11.5px; background-color: #2a2a2a; color: #ffffff; margin-left: 5px; font-family: calibri; width: 135px; height: 18px; margin-top: 2px; margin-left: 5px">
                     <p style="margin-left: 15px; margin-top: 4px; font-family: Acrom; font-size: 11px;">TESTING PROGRESS</p>
-                    <div class="progress" style="font-size: 12px; margin-top: 3px; margin-left: 5px; background-color: #c3c3c3; height: 17px; width: 140px">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="color: #4a4a4a; width:0%">
-                        <!-- 0% -->
+                    <div class="progress" style="font-size: 11px; margin-top: 3px; margin-left: 5px; background-color: #c3c3c3; height: 17px; width: 140px">
+                        <div class="progress-bar" role="progressbar" id="progress_bar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="color: #4a4a4a; width:0%">
+                            <span id="progress_bar_value">0%</span>
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#trade_report" id="trade_report_button" style="font-family: Acrom; margin-left: 15px; margin-top: 3px; height: 17px; padding: 0px 5px; font-size: 10px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 5px"></i>TRADE REPORT</button>
@@ -568,17 +568,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">Test Data</strong></h5>
-                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" style="margin-top: 4px; margin-left: 40px; padding: 3px 15px; font-size: 12px" id="pills-yahoo-tab" data-toggle="pill" href="#pills-yahoo" role="tab" aria-controls="pills-yahoo" aria-selected="true">Create From Yahoo Finance Historical Data</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="margin-top: 4px; margin-left: 20px; padding: 3px 15px; font-size: 12px" id="pills-files-tab" data-toggle="pill" href="#pills-files" role="tab" aria-controls="pills-files" aria-selected="true">Create From Yours Historical Data CSV Files</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="margin-top: 4px; margin-left: 20px; padding: 3px 15px; font-size: 12px" id="pills-montecarlo-tab" data-toggle="pill" href="#pills-montecarlo" role="tab" aria-controls="pills-montecarlo" aria-selected="false">Create From Montecarlo Simulation</a>
-                        </li>
-                    </ul>
+                   
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -586,12 +576,24 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-4">
+                            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" style="text-align: center; margin-top: 0px; margin-left: 0px; padding: 2px 0px; font-size: 12px; width: 350px" id="pills-yahoo-tab" data-toggle="pill" href="#pills-yahoo" role="tab" aria-controls="pills-yahoo" aria-selected="true">Create From Yahoo Finance Historical Data</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" style="text-align: center; margin-top: 5px; margin-left: 0px; padding: 2px 0px; font-size: 12px; width: 350px" id="pills-files-tab" data-toggle="pill" href="#pills-files" role="tab" aria-controls="pills-files" aria-selected="true">Create From Yours Historical Data CSV Files</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" style="text-align: center; margin-top:5px; margin-left: 0px; padding: 2px 0px; font-size: 12px; width: 350px" id="pills-montecarlo-tab" data-toggle="pill" href="#pills-montecarlo" role="tab" aria-controls="pills-montecarlo" aria-selected="false">Create From Montecarlo Simulation</a>
+                                </li>
+                            </ul>
+                            <hr style="height: 1px; width: 100%; margin-top: 5px; margin-bottom: 5px; line-height:1px;background-color: #848484"/>
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-yahoo" role="tabpanel" aria-labelledby="pills-yahoo-tab">
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <a style="font-size: 13px; margin-top: 0px; margin-left: 15px; "><strong><u>Create Portfolio Dataset From Yahoo Finance</u></strong></a>
-                                    </div>
-                                            <div class="row" style="margin-top: 3px" id="tt_dd">
+                                    </div> -->
+                                            <div class="row" style="margin-top: 0px" id="tt_dd">
                                                 <!-- <a style="font-size: 12px; margin-left: 15px; margin-top: 4px; color: #111111;">Select Tickers</a> -->
                                                 <div class="dropdown" id="tickers_exchange">
                                                     <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 10px; width: 78px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
@@ -671,7 +673,7 @@
                                             </a>
                                         </div>
                                         <div class="row">
-                                            <div class="table-report" style="border-top: 1px #858585 solid; margin-top: 2px; margin-left: 15px; margin-right: 0px; height: 300px; width: 347px; overflow-y: scroll">
+                                            <div class="table-report" style="border-top: 1px #858585 solid; margin-top: 2px; margin-left: 15px; margin-right: 0px; height: 238px; width: 347px; overflow-y: scroll">
                                                 <table id="table_assets">
                                                     <thead style="font-size: 12px; font-family: calibri">
                                                         <tr>
@@ -697,10 +699,10 @@
                                         </div>
                                 </div>
                                 <div class="tab-pane fade" id="pills-files" role="tabpanel" aria-labelledby="pills-files-tab">
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <a style="font-size: 13px; margin-top: 0px; margin-left: 15px; "><strong><u>Create Portfolio Dataset From Yours Files</u></strong></a>
-                                    </div>
-                                        <div class="row" style="margin-top: 3px;">
+                                    </div> -->
+                                        <div class="row" style="margin-top: 0px;">
                                             <input type="file" id="file" name="file" accept=".csv" style="font-size: 10px; margin-top: 3px; margin-left: 15px; width: 160px" multiple >
                                             <div class="dropdown" id="price_idx">
                                                 <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="price_idx_column_btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px; margin-left: 10px; font-size: 10px; padding: 1px 0px; height: 20px; width: 90px">
@@ -732,7 +734,7 @@
                                             </a>
                                         </div>
                                         <div class="row">
-                                            <div class="table-report" style="border-top: 1px #858585 solid; margin-top: 2px; margin-left: 15px; margin-right: 0px; height: 300px; width: 347px; overflow-y: scroll">
+                                            <div class="table-report" style="border-top: 1px #858585 solid; margin-top: 2px; margin-left: 15px; margin-right: 0px; height: 266px; width: 347px; overflow-y: scroll">
                                                 <table id="table_assets2">
                                                     <thead style="font-size: 12px; font-family: calibri">
                                                         <tr>
@@ -761,37 +763,37 @@
                                 <div class="tab-pane fade" id="pills-montecarlo" role="tabpanel" aria-labelledby="pills-montecarlo-tab">
                                     <div class="row">
                                         <!-- <div class="row"> -->
-                                            <a style="font-size: 13px; margin-left: 15px; "><strong>Create Data using Montecarlo Simulation</strong></a>
+                                            <!-- <a style="font-size: 13px; margin-left: 15px; "><strong>Create Data using Montecarlo Simulation</strong></a> -->
                                         <!-- </div>   -->
-                                        <div class="col-6" style="margin-top: 10px">
-                                            <div class="form-group" style="font-size: 13px">
-                                                <label>Berat Rata2 Awal <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                                <input style="font-size: 11px; width: 150px; height: 21px" type="number" class="form-control" id="initial_price" aria-describedby="" value= "100" min="100" required>
+                                        <div class="col-6" style="margin-top: 0px">
+                                            <div class="form-group" style="font-size: 12px">
+                                                <label>Berat Rata2 Awal <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
+                                                <input style="margin-top: -5px; font-size: 11px; width: 150px; height: 20px" type="number" class="form-control" id="initial_price" aria-describedby="" value= "100" min="100" required>
                                             <!-- </div>
                                             <div class="form-group" style="margin-left: 15px; font-size: 13px"> -->
-                                                <label style="margin-top: 10px">Drift <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                                <input style="font-size: 11px; width: 150px; height: 21px" type="number" class="form-control" id="drift" aria-describedby="" value= "0.1" min="5%" max="25%" required>
+                                                <label style="margin-top: 5px">Drift <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
+                                                <input style="margin-top: -5px; font-size: 11px; width: 150px; height: 20px" type="number" class="form-control" id="drift" aria-describedby="" value= "0.1" min="5%" max="25%" required>
                                             <!-- </div>
                                             <div class="form-group" style="margin-left: 15px; font-size: 13px"> -->
-                                                <label style="margin-top: 10px">Volatibilitas Berat <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                                <input style="font-size: 11px; width: 150px; height: 21px" type="number" class="form-control" id="volatility" aria-describedby="" value= "0.3" min="10%" max="50%" required>
+                                                <label style="margin-top: 5px">Volatibilitas Berat <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
+                                                <input style="margin-top: -5px; font-size: 11px; width: 150px; height: 20px" type="number" class="form-control" id="volatility" aria-describedby="" value= "0.3" min="10%" max="50%" required>
                                             </div>
                                         </div>
-                                        <div class="col-6" style="margin-top: 10px">
-                                            <div class="form-group" style="position: absolute; right: 15px; font-size: 13px">
-                                                <label>Jumlah Hari/Tahun <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                                <input style="font-size: 11px; width: 150px; height: 21px" type="number" class="form-control" id="year_days" aria-describedby="" value= "261" disabled required>
+                                        <div class="col-6" style="margin-top: 0px">
+                                            <div class="form-group" style="position: absolute; right: 15px; font-size: 12px">
+                                                <label>Jumlah Hari/Tahun <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
+                                                <input style="margin-top: -5px; font-size: 11px; width: 150px; height: 20px" type="number" class="form-control" id="year_days" aria-describedby="" value= "261" disabled required>
                                             <!-- </div>
                                             <div class="form-group" style="margin-left: 15px; font-size: 13px"> -->
-                                                <label style="margin-top: 10px">Steps <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                                <input style="font-size: 11px; width: 150px; height: 21px" type="number" class="form-control" id="steps" aria-describedby="" value= "0.00383141762" disabled required>
+                                                <label style="margin-top: 5px">Steps <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
+                                                <input style="margin-top: -5px; font-size: 11px; width: 150px; height: 20px" type="number" class="form-control" id="steps" aria-describedby="" value= "0.00383141762" disabled required>
                                             <!-- </div>
                                             <div class="form-group" style="margin-left: 15px; font-size: 13px"> -->
-                                                <label style="margin-top: 10px">Start Date <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                                <input style="font-size: 11px; width: 150px; height: 21px" type="date" class="form-control" id="startdate_simulation" value= "1991-01-01" aria-describedby="" disabled required>
+                                                <label style="margin-top: 5px">Start Date <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
+                                                <input style="margin-top: -5px; font-size: 11px; width: 150px; height: 20px" type="date" class="form-control" id="startdate_simulation" value= "1991-01-01" aria-describedby="" disabled required>
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-left: 15px">
+                                        <div class="row" style="margin-left: 15px; margin-top: -5px">
                                             <div class="progress" style="font-size: 12px; margin-top: 0px; background-color: #c3c3c3; height: 20px; width: 257px">
                                                 <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="color: #4a4a4a; width:0%">
                                                 <!-- 0% -->
@@ -800,7 +802,7 @@
                                             <button type="button" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 0px; margin-left: 10px; margin-top: 0px; height: 20px; width: 80px" onclick="process_montercarlo_simulation()">Process</button>
                                         </div>
                                     </div>
-                                    <div class="card container" style="margin-top: 5px; margin-left: 0px; width: 350px; height: 215px">
+                                    <div class="card container" style="margin-top: 5px; margin-left: 0px; width: 350px; height: 194px">
                                         <canvas id="overtimechart" width="11" height="7" class="chartjs-render-monitor"></canvas>
                                     </div>
                                     <!-- <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 2px 18px; margin-top: 5px; margin-right: 15px; margin-left: 0px; width: 100%">Process</button> -->

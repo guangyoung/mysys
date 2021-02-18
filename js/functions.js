@@ -199,7 +199,7 @@ function add_data() {
             var data_date = new Date(yahoo_data.chart.result[0].timestamp[i] * 1000);
             var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
             as_data_date.push(
-              data_date.getFullYear() + "-" + appendLeadingZeroes(data_date.getMonth()+1) + "-" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10)
+              appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
             );
             as_data_price.push(
               data_price
@@ -326,7 +326,7 @@ function add_data_files() {
                 let data_date = new Date(result.data[i][0]);
                 let data_price = result.data[i][5];
                 as_data_date.push(
-                    data_date.getFullYear() + "-" + appendLeadingZeroes(data_date.getMonth()+1) + "-" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10)
+                  appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
                 );
                 as_data_price.push(
                   data_price
@@ -377,18 +377,18 @@ var port_data = new Array();
 
           var dt = startDate;
           var dtt_arr = new Array();
-          var dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
+          var dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
           dt.toString().slice(0, 10);
           dtt_arr.push(dtt);
           while (dt < endDate) {
               if (dt.getDay()==5) {
                   dt = new Date(dt.setDate(dt.getDate() + 3));
-                  dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
+                  dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
                   dt.toString().slice(0, 10);
                   dtt_arr.push(dtt);
               } else {
                   dt = new Date(dt.setDate(dt.getDate() + 1));
-                  dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
+                  dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
                   dt.toString().slice(0, 10);
                   dtt_arr.push(dtt);
               }
@@ -485,18 +485,18 @@ var port_data = new Array();
 
       var dt = startDate;
       var dtt_arr = new Array();
-      var dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
+      var dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
       dt.toString().slice(0, 10);
       dtt_arr.push(dtt);
       while (dt < endDate) {
           if (dt.getDay()==5) {
               dt = new Date(dt.setDate(dt.getDate() + 3));
-              dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
+              dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
               dt.toString().slice(0, 10);
               dtt_arr.push(dtt);
           } else {
               dt = new Date(dt.setDate(dt.getDate() + 1));
-              dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
+              dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
               dt.toString().slice(0, 10);
               dtt_arr.push(dtt);
           }
@@ -584,15 +584,15 @@ var startdate_simulation = new Date($("#startdate_simulation").val());
 var dt = startdate_simulation;
 var dt_arr = new Array();
 for (i=0;i<1000;i++) {
-if (dt.getDay()==5) {
-  let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
-  dt_arr.push(dtt);
-  dt = new Date(dt.setDate(dt.getDate() + 3));
-} else {          
-    let dtt = dt.getFullYear() + "-" + appendLeadingZeroes(dt.getMonth()+1) + "-" + appendLeadingZeroes(dt.getDate());
+  if (dt.getDay()==5) {
+    let dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
     dt_arr.push(dtt);
-    dt = new Date(dt.setDate(dt.getDate() + 1));
-}
+    dt = new Date(dt.setDate(dt.getDate() + 3));
+  } else {          
+    let dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
+      dt_arr.push(dtt);
+      dt = new Date(dt.setDate(dt.getDate() + 1));
+  }
 }
 port_data.push(dt_arr);
 
@@ -609,7 +609,6 @@ port_data.push(price_sim_array);
 $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
 $("#period_data_dashboard").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
 // $("#start_date").val(dt_arr[0]);
-console.log(port_data);
 
 $("#pagination-demo").twbsPagination({
 totalPages: Math.ceil(port_data[0].length/24),
@@ -977,7 +976,7 @@ var config = {
         if (data_id <= data_length) {
         
         var data_input;
-        var signal_output;
+        var signal_output = new Array();
             
         //PRE TRADE
           //asset trade details
@@ -1002,6 +1001,7 @@ var config = {
 
           margin_available              = equity_pretrade - regT_margin_req;
 
+        //POST REST API 
           data_input = {
             data_id: data_id,
             equity_balance: equity_pretrade,
@@ -1067,378 +1067,223 @@ var config = {
             asset30_position_size: asset_position_size_pretrade[30]
           }
 
-          var data_input_area =
-            `<tr>
-            <td colspan="3" style="text-align: left; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
-            <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+data_id+`</td>
-            </tr>
-            <tr>
-                <td colspan="3" style="text-align: left; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Equity Balance</td>
-                <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(equity_pretrade).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; width: 65px; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset</td>
-                <td style="text-align: center; width: 70px; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Price</td>
-                <td style="text-align: center; width: 85px; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Position<br>Size</td>
-                <td style="text-align: center; width: 65px; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset</td>
-                <td style="text-align: center; width: 70px; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Price</td>
-                <td style="text-align: center; width: 85px; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Position<br>Size</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 1</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[1]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[1]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 16</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[16]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[16]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 2</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[2]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[2]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 17</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[17]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[17]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 3</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[3]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[3]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 18</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[18]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[18]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 4</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[4]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[4]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 19</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[19]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[19]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 5</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[5]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[5]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 20</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[20]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[20]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 6</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[6]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[6]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 21</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[21]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[21]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 7</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[7]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[7]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 22</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[22]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[22]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 8</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[8]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[8]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 23</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[23]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[23]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 9</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[9]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[9]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 24</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[24]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[24]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 10</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[10]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[10]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 25</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[25]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[25]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 11</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[11]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[11]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 26</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[26]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[26]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 12</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[12]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[12]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 27</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[27]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[27]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 13</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[13]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[13]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 28</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[28]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[28]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 14</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[14]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[14]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 29</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[29]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[29]).toFixed(2))+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 15</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[15]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[15]).toFixed(2))+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 30</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_price[30]).toFixed(2))+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[30]).toFixed(2))+`</td>
-            </tr>`
-
-          $("#data_input_tbl>tbody").html(data_input_area);
-        
-        //POST REST API         
-            await $.ajax({
-              type: "POST",
-              url: "http://localhost/rasio_server/api/post.php",
-              headers:{
-                "Content-Type": "application/x-www-form-urlencoded",
-                "X-API-KEY": sessionStorage.getItem("api")
-              },
-              data: data_input,             
-              dataType: 'json',
-              success: function(result){                 
-                 
-              if (result.status == "success") {
+          $('#data_id_input').html(data_id);
+          $('#equity_balance').html(Intl.NumberFormat().format(parseFloat(equity_pretrade).toFixed(2)));
+          $('#asset1_price').html(Intl.NumberFormat().format(parseFloat(asset_price[1]).toFixed(2)));
+          $('#asset1_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[1]).toFixed(2)));
+          $('#asset2_price').html(Intl.NumberFormat().format(parseFloat(asset_price[2]).toFixed(2)));
+          $('#asset2_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[2]).toFixed(2)));
+          $('#asset3_price').html(Intl.NumberFormat().format(parseFloat(asset_price[3]).toFixed(2)));
+          $('#asset3_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[3]).toFixed(2)));
+          $('#asset4_price').html(Intl.NumberFormat().format(parseFloat(asset_price[4]).toFixed(2)));
+          $('#asset4_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[4]).toFixed(2)));
+          $('#asset5_price').html(Intl.NumberFormat().format(parseFloat(asset_price[5]).toFixed(2)));
+          $('#asset5_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[5]).toFixed(2)));
+          $('#asset6_price').html(Intl.NumberFormat().format(parseFloat(asset_price[6]).toFixed(2)));
+          $('#asset6_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[6]).toFixed(2)));
+          $('#asset7_price').html(Intl.NumberFormat().format(parseFloat(asset_price[7]).toFixed(2)));
+          $('#asset7_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[7]).toFixed(2)));
+          $('#asset8_price').html(Intl.NumberFormat().format(parseFloat(asset_price[8]).toFixed(2)));
+          $('#asset8_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[8]).toFixed(2)));
+          $('#asset9_price').html(Intl.NumberFormat().format(parseFloat(asset_price[9]).toFixed(2)));
+          $('#asset9_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[9]).toFixed(2)));
+          $('#asset10_price').html(Intl.NumberFormat().format(parseFloat(asset_price[10]).toFixed(2)));
+          $('#asset10_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[10]).toFixed(2)));
+          $('#asset11_price').html(Intl.NumberFormat().format(parseFloat(asset_price[11]).toFixed(2)));
+          $('#asset11_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[11]).toFixed(2)));
+          $('#asset12_price').html(Intl.NumberFormat().format(parseFloat(asset_price[12]).toFixed(2)));
+          $('#asset12_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[12]).toFixed(2)));
+          $('#asset13_price').html(Intl.NumberFormat().format(parseFloat(asset_price[13]).toFixed(2)));
+          $('#asset13_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[13]).toFixed(2)));
+          $('#asset14_price').html(Intl.NumberFormat().format(parseFloat(asset_price[14]).toFixed(2)));
+          $('#asset14_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[14]).toFixed(2)));
+          $('#asset15_price').html(Intl.NumberFormat().format(parseFloat(asset_price[15]).toFixed(2)));
+          $('#asset15_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[15]).toFixed(2)));
+          $('#asset16_price').html(Intl.NumberFormat().format(parseFloat(asset_price[16]).toFixed(2)));
+          $('#asset16_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[16]).toFixed(2)));
+          $('#asset17_price').html(Intl.NumberFormat().format(parseFloat(asset_price[17]).toFixed(2)));
+          $('#asset17_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[17]).toFixed(2)));
+          $('#asset18_price').html(Intl.NumberFormat().format(parseFloat(asset_price[18]).toFixed(2)));
+          $('#asset18_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[18]).toFixed(2)));
+          $('#asset19_price').html(Intl.NumberFormat().format(parseFloat(asset_price[19]).toFixed(2)));
+          $('#asset19_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[19]).toFixed(2)));
+          $('#asset20_price').html(Intl.NumberFormat().format(parseFloat(asset_price[20]).toFixed(2)));
+          $('#asset20_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[20]).toFixed(2)));
+          $('#asset21_price').html(Intl.NumberFormat().format(parseFloat(asset_price[21]).toFixed(2)));
+          $('#asset21_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[21]).toFixed(2)));
+          $('#asset22_price').html(Intl.NumberFormat().format(parseFloat(asset_price[22]).toFixed(2)));
+          $('#asset22_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[22]).toFixed(2)));
+          $('#asset23_price').html(Intl.NumberFormat().format(parseFloat(asset_price[23]).toFixed(2)));
+          $('#asset23_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[23]).toFixed(2)));
+          $('#asset24_price').html(Intl.NumberFormat().format(parseFloat(asset_price[24]).toFixed(2)));
+          $('#asset24_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[24]).toFixed(2)));
+          $('#asset25_price').html(Intl.NumberFormat().format(parseFloat(asset_price[25]).toFixed(2)));
+          $('#asset25_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[25]).toFixed(2)));
+          $('#asset26_price').html(Intl.NumberFormat().format(parseFloat(asset_price[26]).toFixed(2)));
+          $('#asset26_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[26]).toFixed(2)));
+          $('#asset27_price').html(Intl.NumberFormat().format(parseFloat(asset_price[27]).toFixed(2)));
+          $('#asset27_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[27]).toFixed(2)));
+          $('#asset28_price').html(Intl.NumberFormat().format(parseFloat(asset_price[28]).toFixed(2)));
+          $('#asset28_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[28]).toFixed(2)));
+          $('#asset29_price').html(Intl.NumberFormat().format(parseFloat(asset_price[29]).toFixed(2)));
+          $('#asset29_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[29]).toFixed(2)));
+          $('#asset30_price').html(Intl.NumberFormat().format(parseFloat(asset_price[30]).toFixed(2)));
+          $('#asset30_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[30]).toFixed(2)));
+          
+          await $.ajax({
+            type: "POST",
+            url: "http://localhost/rasio_server/api/post.php",
+            headers:{
+              "Content-Type": "application/x-www-form-urlencoded",
+              "X-API-KEY": sessionStorage.getItem("api")
+            },
+            data: data_input,             
+            dataType: 'json',
+            success: function(result){                 
                 
-                signal_output = new Array();
-                let asset_signal_position = new Array();
-                let asset_signal_size = new Array();                    
-                asset_signal_position.push(
-                  result.data.asset1_signal_position,
-                  result.data.asset2_signal_position,
-                  result.data.asset3_signal_position,
-                  result.data.asset4_signal_position,
-                  result.data.asset5_signal_position,
-                  result.data.asset6_signal_position,
-                  result.data.asset7_signal_position,
-                  result.data.asset8_signal_position,
-                  result.data.asset9_signal_position,
-                  result.data.asset10_signal_position,
-                  result.data.asset11_signal_position,
-                  result.data.asset12_signal_position,
-                  result.data.asset13_signal_position,
-                  result.data.asset14_signal_position,
-                  result.data.asset15_signal_position,
-                  result.data.asset16_signal_position,
-                  result.data.asset17_signal_position,
-                  result.data.asset18_signal_position,
-                  result.data.asset19_signal_position,
-                  result.data.asset20_signal_position,
-                  result.data.asset21_signal_position,
-                  result.data.asset22_signal_position,
-                  result.data.asset23_signal_position,
-                  result.data.asset24_signal_position,
-                  result.data.asset25_signal_position,
-                  result.data.asset26_signal_position,
-                  result.data.asset27_signal_position,
-                  result.data.asset28_signal_position,
-                  result.data.asset29_signal_position,
-                  result.data.asset30_signal_position
-                );
-                asset_signal_size.push(
-                  result.data.asset1_signal_size,
-                  result.data.asset2_signal_size,
-                  result.data.asset3_signal_size,
-                  result.data.asset4_signal_size,
-                  result.data.asset5_signal_size,
-                  result.data.asset6_signal_size,
-                  result.data.asset7_signal_size,
-                  result.data.asset8_signal_size,
-                  result.data.asset9_signal_size,
-                  result.data.asset10_signal_size,
-                  result.data.asset11_signal_size,
-                  result.data.asset12_signal_size,
-                  result.data.asset13_signal_size,
-                  result.data.asset14_signal_size,
-                  result.data.asset15_signal_size,
-                  result.data.asset16_signal_size,
-                  result.data.asset17_signal_size,
-                  result.data.asset18_signal_size,
-                  result.data.asset19_signal_size,
-                  result.data.asset20_signal_size,
-                  result.data.asset21_signal_size,
-                  result.data.asset22_signal_size,
-                  result.data.asset23_signal_size,
-                  result.data.asset24_signal_size,
-                  result.data.asset25_signal_size,
-                  result.data.asset26_signal_size,
-                  result.data.asset27_signal_size,
-                  result.data.asset28_signal_size,
-                  result.data.asset29_signal_size,
-                  result.data.asset30_signal_size
-                );
-                signal_output.push({data_id: result.data.data_id});
-                signal_output.push({total_signal_proccessed: result.data.total_signal_proccessed});
-                signal_output.push({asset_signal_position: asset_signal_position});
-                signal_output.push({asset_signal_size: asset_signal_size});
+            if (result.status == "success") {
+
+              $('#total_post').html(data_id); 
+              
+              let asset_signal_position = new Array();
+              let asset_signal_size = new Array();                    
+              asset_signal_position.push(
+                result.data.asset1_signal_position,
+                result.data.asset2_signal_position,
+                result.data.asset3_signal_position,
+                result.data.asset4_signal_position,
+                result.data.asset5_signal_position,
+                result.data.asset6_signal_position,
+                result.data.asset7_signal_position,
+                result.data.asset8_signal_position,
+                result.data.asset9_signal_position,
+                result.data.asset10_signal_position,
+                result.data.asset11_signal_position,
+                result.data.asset12_signal_position,
+                result.data.asset13_signal_position,
+                result.data.asset14_signal_position,
+                result.data.asset15_signal_position,
+                result.data.asset16_signal_position,
+                result.data.asset17_signal_position,
+                result.data.asset18_signal_position,
+                result.data.asset19_signal_position,
+                result.data.asset20_signal_position,
+                result.data.asset21_signal_position,
+                result.data.asset22_signal_position,
+                result.data.asset23_signal_position,
+                result.data.asset24_signal_position,
+                result.data.asset25_signal_position,
+                result.data.asset26_signal_position,
+                result.data.asset27_signal_position,
+                result.data.asset28_signal_position,
+                result.data.asset29_signal_position,
+                result.data.asset30_signal_position
+              );
+              asset_signal_size.push(
+                result.data.asset1_signal_size,
+                result.data.asset2_signal_size,
+                result.data.asset3_signal_size,
+                result.data.asset4_signal_size,
+                result.data.asset5_signal_size,
+                result.data.asset6_signal_size,
+                result.data.asset7_signal_size,
+                result.data.asset8_signal_size,
+                result.data.asset9_signal_size,
+                result.data.asset10_signal_size,
+                result.data.asset11_signal_size,
+                result.data.asset12_signal_size,
+                result.data.asset13_signal_size,
+                result.data.asset14_signal_size,
+                result.data.asset15_signal_size,
+                result.data.asset16_signal_size,
+                result.data.asset17_signal_size,
+                result.data.asset18_signal_size,
+                result.data.asset19_signal_size,
+                result.data.asset20_signal_size,
+                result.data.asset21_signal_size,
+                result.data.asset22_signal_size,
+                result.data.asset23_signal_size,
+                result.data.asset24_signal_size,
+                result.data.asset25_signal_size,
+                result.data.asset26_signal_size,
+                result.data.asset27_signal_size,
+                result.data.asset28_signal_size,
+                result.data.asset29_signal_size,
+                result.data.asset30_signal_size
+              );
+              signal_output.push({data_id: result.data.data_id});
+              signal_output.push({total_signal_proccessed: result.data.total_signal_proccessed});
+              signal_output.push({asset_signal_position: asset_signal_position});
+              signal_output.push({asset_signal_size: asset_signal_size});
+
+              $('#data_id_output').html(signal_output[0].data_id);
+              $('#asset_signal_created').html(signal_output[1].total_signal_proccessed);
+              $('#asset1_signal_position').html(signal_output[2].asset_signal_position[0]);
+              $('#asset1_signal_size').html(signal_output[3].asset_signal_size[0]); 
+              $('#asset2_signal_position').html(signal_output[2].asset_signal_position[1]);
+              $('#asset2_signal_size').html(signal_output[3].asset_signal_size[1]); 
+              $('#asset3_signal_position').html(signal_output[2].asset_signal_position[2]);
+              $('#asset3_signal_size').html(signal_output[3].asset_signal_size[2]); 
+              $('#asset4_signal_position').html(signal_output[2].asset_signal_position[3]);
+              $('#asset4_signal_size').html(signal_output[3].asset_signal_size[3]); 
+              $('#asset5_signal_position').html(signal_output[2].asset_signal_position[4]);
+              $('#asset5_signal_size').html(signal_output[3].asset_signal_size[4]); 
+              $('#asset6_signal_position').html(signal_output[2].asset_signal_position[5]);
+              $('#asset6_signal_size').html(signal_output[3].asset_signal_size[5]); 
+              $('#asset7_signal_position').html(signal_output[2].asset_signal_position[6]);
+              $('#asset7_signal_size').html(signal_output[3].asset_signal_size[6]); 
+              $('#asset8_signal_position').html(signal_output[2].asset_signal_position[7]);
+              $('#asset8_signal_size').html(signal_output[3].asset_signal_size[7]); 
+              $('#asset9_signal_position').html(signal_output[2].asset_signal_position[8]);
+              $('#asset9_signal_size').html(signal_output[3].asset_signal_size[8]); 
+              $('#asset10_signal_position').html(signal_output[2].asset_signal_position[9]);
+              $('#asset10_signal_size').html(signal_output[3].asset_signal_size[9]);
+              $('#asset11_signal_position').html(signal_output[2].asset_signal_position[10]);
+              $('#asset11_signal_size').html(signal_output[3].asset_signal_size[10]); 
+              $('#asset12_signal_position').html(signal_output[2].asset_signal_position[11]);
+              $('#asset12_signal_size').html(signal_output[3].asset_signal_size[11]); 
+              $('#asset13_signal_position').html(signal_output[2].asset_signal_position[12]);
+              $('#asset13_signal_size').html(signal_output[3].asset_signal_size[12]); 
+              $('#asset14_signal_position').html(signal_output[2].asset_signal_position[13]);
+              $('#asset14_signal_size').html(signal_output[3].asset_signal_size[13]); 
+              $('#asset15_signal_position').html(signal_output[2].asset_signal_position[14]);
+              $('#asset15_signal_size').html(signal_output[3].asset_signal_size[14]); 
+              $('#asset16_signal_position').html(signal_output[2].asset_signal_position[15]);
+              $('#asset16_signal_size').html(signal_output[3].asset_signal_size[15]); 
+              $('#asset17_signal_position').html(signal_output[2].asset_signal_position[16]);
+              $('#asset17_signal_size').html(signal_output[3].asset_signal_size[16]); 
+              $('#asset18_signal_position').html(signal_output[2].asset_signal_position[17]);
+              $('#asset18_signal_size').html(signal_output[3].asset_signal_size[17]); 
+              $('#asset19_signal_position').html(signal_output[2].asset_signal_position[18]);
+              $('#asset19_signal_size').html(signal_output[3].asset_signal_size[18]); 
+              $('#asset20_signal_position').html(signal_output[2].asset_signal_position[19]);
+              $('#asset20_signal_size').html(signal_output[3].asset_signal_size[19]); 
+              $('#asset21_signal_position').html(signal_output[2].asset_signal_position[20]);
+              $('#asset21_signal_size').html(signal_output[3].asset_signal_size[20]); 
+              $('#asset22_signal_position').html(signal_output[2].asset_signal_position[21]);
+              $('#asset22_signal_size').html(signal_output[3].asset_signal_size[21]); 
+              $('#asset23_signal_position').html(signal_output[2].asset_signal_position[22]);
+              $('#asset23_signal_size').html(signal_output[3].asset_signal_size[22]); 
+              $('#asset24_signal_position').html(signal_output[2].asset_signal_position[23]);
+              $('#asset24_signal_size').html(signal_output[3].asset_signal_size[23]); 
+              $('#asset25_signal_position').html(signal_output[2].asset_signal_position[24]);
+              $('#asset25_signal_size').html(signal_output[3].asset_signal_size[24]); 
+              $('#asset26_signal_position').html(signal_output[2].asset_signal_position[25]);
+              $('#asset26_signal_size').html(signal_output[3].asset_signal_size[25]); 
+              $('#asset27_signal_position').html(signal_output[2].asset_signal_position[26]);
+              $('#asset27_signal_size').html(signal_output[3].asset_signal_size[26]); 
+              $('#asset28_signal_position').html(signal_output[2].asset_signal_position[27]);
+              $('#asset28_signal_size').html(signal_output[3].asset_signal_size[27]); 
+              $('#asset29_signal_position').html(signal_output[2].asset_signal_position[28]);
+              $('#asset29_signal_size').html(signal_output[3].asset_signal_size[28]); 
+              $('#asset30_signal_position').html(signal_output[2].asset_signal_position[29]);
+              $('#asset30_signal_size').html(signal_output[3].asset_signal_size[29]); 
               }         
             }
-          })          
-
-          if(signal_output.length > 0) { 
-            
-            var signal_output_area =                
-            `<tr>
-            <td colspan="3" style="text-align: left; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
-            <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[0].data_id+`</td>
-            </tr>
-            <tr>
-                <td colspan="3" style="text-align: left; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset Signal Created</td>
-                <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[1].total_signal_proccessed+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; width: 65px; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset</td>
-                <td style="text-align: center; width: 75px; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Signal<br>Position</td>
-                <td style="text-align: center; width: 80px; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Signal<br>Size</td>
-                <td style="text-align: center; width: 65px; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset</td>
-                <td style="text-align: center; width: 75px; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Signal<br>Position</td>
-                <td style="text-align: center; width: 80px; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Signal<br>Size</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 1</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[0]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[0])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 16</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[15]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[15])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 2</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[1]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[1])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 17</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[16]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[16])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 3</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[2]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[2])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 18</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[17]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[17])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 4</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[3]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[3])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 19</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[18]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[18])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 5</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[4]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[4])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 20</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[19]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[19])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 6</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[5]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[5])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 21</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[20]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[20])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 7</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[6]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[6])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 22</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[21]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[21])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 8</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[7]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[7])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 23</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[22]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[22])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 9</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[8]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[8])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 24</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[23]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[23])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 10</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[9]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[9])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 25</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[24]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[24])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 11</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[10]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[10])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 26</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[25]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[25])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 12</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[11]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[11])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 27</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[26]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[26])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 13</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[12]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[12])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 28</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[27]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[27])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 14</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[13]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[13])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 29</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[28]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[28])+`</td>
-            </tr>
-            <tr>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 15</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[14]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[14])+`</td>
-                <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 30</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signal_output[2].asset_signal_position[29]+`</td>
-                <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(signal_output[3].asset_signal_size[29])+`</td>
-            </tr> `
-
-            $("#signal_output_tbl>tbody").html(signal_output_area);  
+          })
         
-            //TRADE 
+          if(signal_output.length > 0) { 
+          //TRADE 
             //asset trade details
             for (i=1, x=0;i<=30, x<30;i++, x++) {  
                 asset_trade_position[i]     = signal_output[2].asset_signal_position[x];
@@ -1469,56 +1314,54 @@ var config = {
                 sell_trade_margin_loan += asset_trade_margin_loan[i];
                 sell_trade_cost += asset_trade_cost[i];  
               } 
-            }
-    
-      //POST TRADE
-          //asset trade details
-          for(i=1;i<=30;i++) {
-            if(asset_trade_position[i] == "BUY") {
-              asset_position_size_posttrade[i]        = asset_position_size_pretrade[i] + asset_trade_size[i];
-              asset_market_value_posttrade[i]         = asset_position_size_posttrade[i] * asset_price[i];
-              asset_margin_loan_balance_posttrade[i]  = asset_margin_loan_balance_pretrade[i] + asset_trade_margin_loan[i];            
-            } else if(asset_trade_position[i] == "SELL") {
-              asset_position_size_posttrade[i]        = asset_position_size_pretrade[i] - asset_trade_size[i];
-              asset_market_value_posttrade[i]         = asset_position_size_posttrade[i] * asset_price[i];
-              asset_margin_loan_balance_posttrade[i]  = asset_margin_loan_balance_pretrade[i] - asset_trade_margin_loan[i]; 
-            }            
-          }
-          
-          //account & trade summary
-          cash_posttrade                  = cash_pretrade - buy_trade_margin_req - buy_trade_cost + sell_trade_margin_req - sell_trade_cost;
-          
-          market_value_posttrade          = asset_market_value_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
-           
-          margin_loan_balance_posttrade   = asset_margin_loan_balance_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
-         
-          equity_posttrade                = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
-      
-          daily_interest                  = 0; //cek lagi rumus ini ?????
+            }    
+            
+          //POST TRADE
+            //asset trade details
+            for(i=1;i<=30;i++) {
+              if(asset_trade_position[i] == "BUY") {
+                asset_position_size_posttrade[i]        = asset_position_size_pretrade[i] + asset_trade_size[i];
+                asset_market_value_posttrade[i]         = asset_position_size_posttrade[i] * asset_price[i];
+                asset_margin_loan_balance_posttrade[i]  = asset_margin_loan_balance_pretrade[i] + asset_trade_margin_loan[i];            
+              } else if(asset_trade_position[i] == "SELL") {
+                asset_position_size_posttrade[i]        = asset_position_size_pretrade[i] - asset_trade_size[i];
+                asset_market_value_posttrade[i]         = asset_position_size_posttrade[i] * asset_price[i];
+                asset_margin_loan_balance_posttrade[i]  = asset_margin_loan_balance_pretrade[i] - asset_trade_margin_loan[i]; 
+              }            
+            }          
+            //account & trade summary
+            cash_posttrade                  = cash_pretrade - buy_trade_margin_req - buy_trade_cost + sell_trade_margin_req - sell_trade_cost;
+            market_value_posttrade          = asset_market_value_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
+            margin_loan_balance_posttrade   = asset_margin_loan_balance_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
+            equity_posttrade                = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
+            daily_interest                  = 0; //cek lagi rumus ini ?????        
+            
+            $("#tested_data_period").val(port_data[0][0]+' - '+port_data[0][data_id-1]);
+            $("#progress_bar_value").html(parseFloat((data_id/data_length)*100).toFixed(2)+"%"); 
+            $("#progress_bar").css("width",parseFloat((data_id/data_length)*100).toFixed(2)+"%")
+            //add data ID
+            data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?       
+          }           
         
-          //ADD DATA ID
-          data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?
-       
-        }     
     
-      } else {
-        $('#setting_button').attr('disabled',false);
-        $('#data_button').attr('disabled',false);
-        $('#refresh_button').attr('disabled',false);
-        $('#statistik_button').attr('disabled',false);
-        $('#logout_button').attr('disabled',false);
-        $('#viewpost_button').attr('disabled',false);
-        $('#chart_button').attr('disabled',false);
-        $('#portfolio_summary_button').attr('disabled',false);
-        $('#assets_details_button').attr('disabled',false);
-    
-        clearTimeout();
-    
-        alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
-        return false;
+        } else {
+          $('#setting_button').attr('disabled',false);
+          $('#data_button').attr('disabled',false);
+          $('#refresh_button').attr('disabled',false);
+          $('#statistik_button').attr('disabled',false);
+          $('#logout_button').attr('disabled',false);
+          $('#viewpost_button').attr('disabled',false);
+          $('#chart_button').attr('disabled',false);
+          $('#portfolio_summary_button').attr('disabled',false);
+          $('#assets_details_button').attr('disabled',false);
+      
+          clearTimeout();
+      
+          alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
+          return false;
+        }
+        setTimeout(proses, 1/1000);
       }
-      setTimeout(proses, 1/1000);
-    }
 
     proses(); 
     
@@ -1536,13 +1379,10 @@ function reset_test() {
   $('#trade_report_button').attr('disabled',false);
   $('#chart_button').attr('disabled',false);
   $('#statistik_button').attr('disabled',false);
-  // $('#total_post').html(0);
-  // $('#totalbrtr').html(0);
-  // $('#totalbrtr2').html(0);
-  // $('#totalbrtr3').html(0);
-  // $('#massa').html(0);
-  // $("#request_area").html("");
-  // $("#response_area").html("");
+
+  // $("#body_div").load(" #body_div > *");
+  // $( "#body_div" ).load(window.location.href + " #body_div" );
+  $("#body_div").load("#body_div .reloaded-divs > *");
 }
 
 //Function View Full Post Request Response
