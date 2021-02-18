@@ -1380,6 +1380,8 @@ function reset_test() {
   $('#chart_button').attr('disabled',false);
   $('#statistik_button').attr('disabled',false);
 
+  $("#body_div").load("dashboard.html");
+
   // $("#body_div").load(" #body_div > *");
   // $( "#body_div" ).load(window.location.href + " #body_div" );
   // $("#body_div").load("#body_div .reloaded-divs > *");
