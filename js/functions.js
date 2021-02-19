@@ -608,7 +608,7 @@ for (x=0;x<1000;x++) {
 port_data.push(price_sim_array);
 }
 
-$("#source_data").val("Montecarlo Simulation");
+$("#source_data").val('Montecarlo Simulation');
 $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
 $("#period_data_dashboard").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
 // $("#start_date").val(dt_arr[0]);
