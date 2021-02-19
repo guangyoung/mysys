@@ -412,13 +412,14 @@ var port_data = new Array();
           }
       }
 
+      $("#source_data").val("Yahoo Finance");
       $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
       $("#period_data_dashboard").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
       console.log(port_data);
 
       $("#pagination-demo").twbsPagination({
         totalPages: Math.ceil(port_data[0].length/24),
-        visiblePages: 4,
+        visiblePages: 2,
         onPageClick: function (event, page) {
           $("#port_data_tbl>tbody").empty();
             for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {
@@ -519,12 +520,13 @@ var port_data = new Array();
       }
   }
 
+  $("#source_data").val("CSV Data Files");
   $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
   $("#period_data_dashboard").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
 
   $("#pagination-demo").twbsPagination({
     totalPages: Math.ceil(port_data[0].length/24),
-    visiblePages: 4,
+    visiblePages: 2,
     onPageClick: function (event, page) {
       $("#port_data_tbl>tbody").empty();
         for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {
@@ -606,13 +608,14 @@ for (x=0;x<1000;x++) {
 port_data.push(price_sim_array);
 }
 
+$("#source_data").val("Montecarlo Simulation");
 $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
 $("#period_data_dashboard").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
 // $("#start_date").val(dt_arr[0]);
 
 $("#pagination-demo").twbsPagination({
 totalPages: Math.ceil(port_data[0].length/24),
-visiblePages: 4,
+visiblePages: 2,
 onPageClick: function (event, page) {
   $("#port_data_tbl>tbody").empty();
     for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {
