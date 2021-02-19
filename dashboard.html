@@ -25,6 +25,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js" integrity="sha512-frFP3ZxLshB4CErXkPVEXnd5ingvYYtYhE5qllGdZmcOlRKNEPbufyupfdSTNmoF5ICaQNO6SenXzOZvoGkiIA==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.js" integrity="sha512-uzuo1GprrBscZGr+iQSv8+YQQsKY+rSHJju0FruVsGHV2CZNZPymW/4RkxoHxAxw3Lo5UQaxDMF8zINUfAsGeg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 </head>
 
@@ -47,16 +48,18 @@
         <div class="row" style="margin-top: 5px">
             <div class="col">
                 <div class="row">
-                    <img src="img/ai_gif_logo_1_statis.png" width="60" height="55">
-                    <img src="img/quantxi5.png" width="160" height="46" style="margin-left: 3px; margin-top: 5px">
-                    <img src="img/signaltesting3.png" width="120" height="47" style="margin-left: 10px; margin-top: 5px">
+                    <img src="img/ai_gif_logo_1_statis.png" width="55" height="55">
+                    <img src="img/quantxi5.png" width="150" height="46" style="margin-left: 3px; margin-top: 5px">
+                    <img src="img/signaltesting3.png" width="110" height="45" style="margin-left: 10px; margin-top: 5px">
                     <a style="margin-top: 13px; margin-left: 20px"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#setting" id="setting_button" style="padding: 1px 5px; font-size: 10px"><i class="fa fa-gear" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>TEST SETTING</button></a>
                     <a style="margin-top: 13px; margin-left: 15px"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="padding: 1px 5px; font-size: 10px"><i class="fa fa-database" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>TEST DATA</button></a>
                     <!-- <a style="font-size: 12px; color: #c1c2c6; margin-top: 18px; margin-left: 15px; margin-bottom: 5px;"><strong>TEST DATASET :</strong></a> -->
                     <p style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 15px">TEST DATA PERIOD</p>
                     <!-- <input style="font-size: 11px; font-family: calibri; width: 135px; height: 17px; margin-top: 19px; margin-left: 5px" type="date" min="1899-01-01" max="2000-12-13" class="form-control" id="start_date" aria-describedby="" required> -->
-                    <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11.5px; color: #414347; margin-left: 5px; font-family: calibri; width: 135px; height: 18px; margin-top: 18px; margin-left: 5px">
-                    <a style="margin-top: 14px; margin-left:10px"><button type="button" class="btn btn-secondary btn-sm" id="change_period_btn" style="padding: 0px 6px; font-size: 10px" disabled >Change Startdate</button></a>
+                    <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11px; color: #414347; margin-left: 5px; font-family: calibri; width: 125px; height: 18px; margin-top: 18px; margin-left: 5px">
+                    <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 15px">Start Date</a>
+                    <input style="font-size: 10px; font-family: calibri; width: 125px; height: 17px; margin-top: 18px; margin-left: 5px" type="date" class="form-control" id="startDate" aria-describedby="" required>
+                    <!-- <a style="margin-top: 14px; margin-left:10px"><button type="button" class="btn btn-secondary btn-sm" id="change_period_btn" style="padding: 0px 6px; font-size: 10px" onclick="start_date_change()">Change Startdate</button></a> -->
                     <a style="margin-top: 14px; margin-left:10px"><button type="button" class="btn btn-success btn-sm" id="play_button" style="padding: 0px 6px; font-size: 10px" onclick="run_test()">
                         <i class="fa fa-play" style="font-size: 14px"></i>
                     </button></a>
@@ -861,13 +864,14 @@
 										</tbody>
 									</table>
 								</div>
-							</div>
-							<div class="modal-footer">                                
-                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
+							</div>							
+						</div>                        
+					</div>                   
 				</div>
+                <div class="modal-footer">
+                    <a style="position: absolute; left: 15px; font-size: 12px;">NB : Sebagai bentuk transparansi nama asset tidak ditampilkan dalam tabel data......</a>                                
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                </div>
 			</div>
 		</div>
     </div>
@@ -1191,12 +1195,12 @@
 
                             </tbody>
                         </table>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger btn-sm">Reset</button>
-                        <button type="button" class="btn btn-secondary btn-sm" style="margin-left: 20px" data-dismiss="modal">Close</button>
-                    </div>
+                    </div>                    
 				</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm">Reset</button>
+                    <button type="button" class="btn btn-secondary btn-sm" style="margin-left: 20px" data-dismiss="modal">Close</button>
+                </div>
 		    </div>
 		</div>
     </div>

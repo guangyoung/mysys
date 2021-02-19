@@ -611,7 +611,8 @@ port_data.push(price_sim_array);
 $("#source_data").val("Montecarlo Simulation");
 $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
 $("#period_data_dashboard").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
-// $("#start_date").val(dt_arr[0]);
+var datearray = dt_arr[0].split("/");
+$("#startDate").val(datearray[2] + '-' + datearray[0] + '-' + datearray[1]);
 
 $("#pagination-demo").twbsPagination({
 totalPages: Math.ceil(port_data[0].length/24),
@@ -853,7 +854,7 @@ var config = {
       var ctx = document.getElementById('overtimechart').getContext('2d');
       mychart = new Chart(ctx, config);
 }
-  
+
   //RUN TEST -------------------------------------------------------------------------------
   async function run_test() {
     //-----------------------------------------------------------------------------------
