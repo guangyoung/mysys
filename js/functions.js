@@ -1,10 +1,7 @@
 //Kumpulan Fungsi-Fungsi.....
 
 //Function Login
-function start_quantxi_btn() {
-  // if($("#api_key").val() == null) {
-  //   alert("api key belum diisi");
-  // } else {
+function start_quantxi_btn() {  
   var endpoint = "http://localhost/rasio_server/api/get.php";
   var api_key = $("#api_key").val();
       $.ajax({
@@ -585,7 +582,7 @@ var steps = $("#steps").val();
 var startdate_simulation = new Date($("#startdate_simulation").val());
 var dt = startdate_simulation;
 var dt_arr = new Array();
-for (i=0;i<1000;i++) {
+for (i=0;i<100;i++) {
   if (dt.getDay()==5) {
     let dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
     dt_arr.push(dtt);
@@ -601,7 +598,7 @@ port_data.push(dt_arr);
 for (i=0;i<30;i++) {
 var price_sim_array = new Array ();
 var price_sim = parseFloat(initial_price);
-for (x=0;x<1000;x++) {
+for (x=0;x<100;x++) {
   price_sim_array.push(price_sim)
   price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
 }
@@ -611,8 +608,7 @@ port_data.push(price_sim_array);
 $("#source_data").val("Montecarlo Simulation");
 $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
 $("#period_data_dashboard").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
-var datearray = dt_arr[0].split("/");
-$("#startDate").val(datearray[2] + '-' + datearray[0] + '-' + datearray[1]);
+$("#startDate").val(dt_arr[0].split("/")[2] + '-' + dt_arr[0].split("/")[0] + '-' + dt_arr[0].split("/")[1]);
 
 $("#pagination-demo").twbsPagination({
 totalPages: Math.ceil(port_data[0].length/24),
@@ -926,7 +922,8 @@ var config = {
       var daily_interest = 0;     
 
       //array
-      var assets_trade_details = new Array();  
+      var asset_trade_details = new Array();
+      var account_trade_summary = new Array();  
     //------------------------------------------------------------------------------------------------------------  
     
     //cek test data
@@ -1343,6 +1340,53 @@ var config = {
             $("#tested_data_period").val(port_data[0][0]+' - '+port_data[0][data_id-1]);
             $("#progress_bar_value").html(parseFloat((data_id/data_length)*100).toFixed(2)+"%"); 
             $("#progress_bar").css("width",parseFloat((data_id/data_length)*100).toFixed(2)+"%")
+
+            //asset trade details array
+            var asset_trade = new Array();
+            for(i=1;i<=30;i++) {             
+              asset_trade.push({
+                asset_price : asset_price[i],
+                asset_position_size_pretrade : asset_position_size_pretrade[i],
+                asset_market_value_pretrade : asset_market_value_pretrade[i],
+                asset_margin_loan_balance_pretrade : asset_margin_loan_balance_pretrade[i],
+                asset_trade_position : asset_trade_position[i],
+                asset_trade_size : asset_trade_size[i],
+                asset_trade_value : asset_trade_value[i],
+                asset_trade_margin_req : asset_trade_margin_req[i],
+                asset_trade_margin_loan : asset_trade_margin_loan[i],
+                asset_trade_cost : asset_trade_cost[i],
+                asset_position_size_posttrade : asset_position_size_posttrade[i],
+                asset_market_value_posttrade : asset_market_value_posttrade[i],
+                asset_margin_loan_balance_posttrade : asset_margin_loan_balance_posttrade[i]
+              })
+            }
+            asset_trade_details.push(asset_trade);
+            
+            //acount trade summary array
+            account_trade_summary.push({
+              date : 1,
+              cash_pretrade : cash_pretrade,
+              market_value_pretrade : market_value_pretrade,
+              margin_loan_balance_pretrade : margin_loan_balance_pretrade,
+              equity_pretrade : equity_pretrade,
+              maintenance_margin : maintenance_margin,
+              regT_margin_req : regT_margin_req,
+              margin_available : margin_available,
+              buy_trade_value : buy_trade_value,
+              buy_trade_margin_req : buy_trade_margin_req,
+              buy_trade_margin_loan : buy_trade_margin_loan,
+              buy_trade_cost : buy_trade_cost,
+              sell_trade_value : sell_trade_value,
+              sell_trade_margin_req : sell_trade_margin_req,
+              sell_trade_margin_loan : sell_trade_margin_loan,
+              sell_trade_cost : sell_trade_cost,
+              cash_posttrade : cash_posttrade,
+              market_value_posttrade : market_value_posttrade,
+              margin_loan_balance_posttrade : margin_loan_balance_posttrade,
+              equity_posttrade : equity_posttrade,
+              daily_interest : daily_interest      
+            });           
+
             //add data ID
             data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?       
           }           
@@ -1360,6 +1404,10 @@ var config = {
           $('#assets_details_button').attr('disabled',false);
       
           clearTimeout();
+
+          console.log(asset_trade_details);
+
+          //test history array
       
           alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
           return false;
@@ -1373,22 +1421,27 @@ var config = {
 
 //Function Reset Test
 function reset_test() {
-  $('#setting_button').attr('disabled',false);
-  $('#data_button').attr('disabled',false);
-  $('#start_date').attr('disabled',false);
-  $('#change_period_btn').attr('disabled',false);
-  $('#play_button').attr('disabled',false);
+  $('#setting_button, #data_button, #start_date, #play_button, #viewpost_button, #trade_report_button, #chart_button, #statistik_button').attr('disabled',false);
   $('#refresh_button').attr('disabled',true);
-  $('#viewpost_button').attr('disabled',false);
-  $('#trade_report_button').attr('disabled',false);
-  $('#chart_button').attr('disabled',false);
-  $('#statistik_button').attr('disabled',false);
+  
+  $('#data_id_input, #equity_balance, #asset1_price, #asset1_position_size, #asset2_price, #asset2_position_size, #asset3_price, #asset3_position_size, #asset4_price, #asset4_position_size, #asset5_price, #asset5_position_size').html(0);
+  $('#asset6_price, #asset6_position_size, #asset7_price, #asset7_position_size, #asset8_price, #asset8_position_size, #asset9_price, #asset9_position_size, #asset10_price, #asset10_position_size').html(0);
+  $('#asset11_price, #asset11_position_size, #asset12_price, #asset12_position_size, #asset13_price, #asset13_position_size, #asset14_price, #asset14_position_size, #asset15_price, #asset15_position_size').html(0);
+  $('#asset16_price, #asset16_position_size, #asset17_price, #asset17_position_size, #asset18_price, #asset18_position_size, #asset19_price, #asset19_position_size, #asset20_price, #asset20_position_size').html(0);
+  $('#asset21_price, #asset21_position_size, #asset22_price, #asset22_position_size, #asset23_price, #asset23_position_size, #asset24_price, #asset24_position_size, #asset25_price, #asset25_position_size').html(0);
+  $('#asset26_price, #asset26_position_size, #asset27_price, #asset27_position_size, #asset28_price, #asset28_position_size, #asset29_price, #asset29_position_size, #asset30_price, #asset30_position_size').html(0);
 
-  // $("#body_div").load("dashboard.html");
+  $('#data_id_output, #asset_signal_created, #asset1_signal_position, #asset1_signal_size, #asset2_signal_position, #asset2_signal_size, #asset3_signal_position, #asset3_signal_size, #asset4_signal_position, #asset4_signal_size, #asset5_signal_position, #asset5_signal_size').html(0);
+  $('#asset6_signal_position, #asset6_signal_size, #asset7_signal_position, #asset7_signal_size, #asset8_signal_position, #asset8_signal_size, #asset9_signal_position, #asset9_signal_size, #asset10_signal_position, #asset10_signal_size').html(0);
+  $('#asset11_signal_position, #asset11_signal_size, #asset12_signal_position, #asset12_signal_size, #asset13_signal_position, #asset13_signal_size, #asset14_signal_position, #asset14_signal_size, #asset15_signal_position, #asset15_signal_size').html(0);
+  $('#asset16_signal_position, #asset16_signal_size, #asset17_signal_position, #asset17_signal_size, #asset18_signal_position, #asset18_signal_size, #asset19_signal_position, #asset19_signal_size, #asset20_signal_position, #asset20_signal_size').html(0);
+  $('#asset21_signal_position, #asset21_signal_size, #asset22_signal_position, #asset22_signal_size, #asset23_signal_position, #asset23_signal_size, #asset24_signal_position, #asset24_signal_size, #asset25_signal_position, #asset25_signal_size').html(0);
+  $('#asset26_signal_position, #asset26_signal_size, #asset27_signal_position, #asset27_signal_size, #asset28_signal_position, #asset28_signal_size, #asset29_signal_position, #asset29_signal_size, #asset30_signal_position, #asset30_signal_size').html(0);
+  
+  $('#tested_data_period').val('No Data Tested');
+  $("#progress_bar_value").html("0%"); 
+  $("#progress_bar").css("width","0%")
 
-  // $("#body_div").load(" #body_div > *");
-  // $( "#body_div" ).load(window.location.href + " #body_div" );
-  // $("#body_div").load("#body_div .reloaded-divs > *");
 }
 
 //Function View Full Post Request Response
