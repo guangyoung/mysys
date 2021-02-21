@@ -126,6 +126,7 @@ var account_trade_summary = new Array();
        
        var data_input;
        var signal_output = new Array();
+       var date = port_data[0][data_id-1];
            
        //PRE TRADE
          //asset trade details
@@ -512,7 +513,7 @@ var account_trade_summary = new Array();
            
            //acount trade summary array
            account_trade_summary.push({
-             date : 1,
+             date : port_data[0][data_id-1],
              cash_pretrade : cash_pretrade,
              market_value_pretrade : market_value_pretrade,
              margin_loan_balance_pretrade : margin_loan_balance_pretrade,

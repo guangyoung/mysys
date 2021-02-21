@@ -455,6 +455,23 @@ margin: 10px 10px 10px 0px;
     padding: 1px 8px;
     /* margin-bottom: 5px; */
   }
+
+  #pagination_trade_summary{
+    display: inline-block;
+    margin-top: -4px;
+    position: absolute;
+    right: 15px;
+
+  }
+  #pagination_trade_summary li{
+    display: inline-block;  
+  }
+
+  #pagination_trade_summary li a{
+    font-size: 11px;
+    padding: 1px 8px;
+    /* margin-bottom: 5px; */
+  }
   
   .page-content{
     background: #eee;
