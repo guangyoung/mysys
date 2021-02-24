@@ -1,7 +1,7 @@
-//array
-var asset_trade_details = new Array();
-var account_trade_summary = new Array();  
  //RUN TEST -------------------------------------------------------------------------------
+ //array
+ var asset_trade_details = new Array();
+ var account_trade_summary = new Array();  
  async function run_test() {
    //-----------------------------------------------------------------------------------
      //test setting variable
@@ -17,80 +17,78 @@ var account_trade_summary = new Array();
      // var portfoliosize = parseInt($("#portfolio_size").val());
 
      var data_id = 1;
+     var date;
 
      //trade details variable
-     var asset_price = [];
-     var asset_position_size_pretrade = [];
-     var asset_market_value_pretrade = [];
-     var asset_margin_loan_balance_pretrade = [];
-     var asset_trade_position = [];
-     var asset_trade_size = [];
-     var asset_trade_value = [];
-     var asset_trade_margin_req = [];
-     var asset_trade_margin_loan = [];
-     var asset_trade_cost = [];
-     var asset_position_size_posttrade = [];
-     var asset_market_value_posttrade = [];
-     var asset_margin_loan_balance_posttrade = [];
+     var price = [];
+     var position_size = [];
+     var market_value = [];
+     var margin_loan_balance = [];
+     var buy_trade_size = [];
+     var buy_trade_value = [];
+     var buy_trade_margin_used = [];
+     var buy_trade_margin_loan = [];
+     var buy_trade_cost = [];
+     var sell_trade_size = [];
+     var sell_trade_value = [];
+     var avg_buy_price = [];
+     var sell_trade_loan_back = [];
+     var sell_trade_margin_back = [];
+     var sell_trade_cost = [];
 
      for (i=1;i<=30;i++) {
-       asset_price[i] = 0;      
-       asset_position_size_pretrade[i] = 0;
-       asset_market_value_pretrade[i] = 0; 
-       asset_margin_loan_balance_pretrade[i] = 0;
-       asset_trade_position[i] = "HOLD";
-       asset_trade_size[i] = 0;
-       asset_trade_value[i] = 0;
-       asset_trade_margin_req[i] = 0;
-       asset_trade_margin_loan[i] = 0;
-       asset_trade_cost[i] = 0; 
-       asset_position_size_posttrade[i] = 0;
-       asset_market_value_posttrade[i] = 0;
-       asset_margin_loan_balance_posttrade[i] = 0;      
+     price[i] = 0;
+     position_size[i] = 0;
+     market_value[i] = 0;
+     margin_loan_balance[i] = 0;
+     buy_trade_size[i] = 0;
+     buy_trade_value[i] = 0;
+     buy_trade_margin_used[i] = 0;
+     buy_trade_margin_loan[i] = 0;
+     buy_trade_cost[i] = 0;
+     sell_trade_size[i] = 0;
+     sell_trade_value[i] = 0;
+     avg_buy_price[i] = 0;
+     sell_trade_loan_back[i] = 0;
+     sell_trade_margin_back[i] = 0;
+     sell_trade_cost[i] = 0;     
      }
      
      //account & trade summary variable
-     var cash_pretrade = initial_equity;
-     var market_value_pretrade = 0;
-     var margin_loan_balance_pretrade = 0;
-     var equity_pretrade = cash_pretrade + market_value_pretrade - margin_loan_balance_pretrade;            
-     var maintenance_margin = market_value_pretrade * maintmargin_rate;
-     var regT_margin_req = market_value_pretrade * regTmargin_rate;
-     var margin_available = equity_pretrade - regT_margin_req;
-     var buy_trade_value = 0;
-     var buy_trade_margin_req = 0;
-     var buy_trade_margin_loan = 0;
-     var buy_trade_cost = 0;
-     var sell_trade_value = 0;
-     var sell_trade_margin_req = 0;
-     var sell_trade_margin_loan = 0;
-     var sell_trade_cost = 0;  
-     var cash_posttrade = cash_pretrade - buy_trade_margin_req - buy_trade_cost + sell_trade_margin_req - sell_trade_cost;
-     var market_value_posttrade = asset_market_value_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
-     var margin_loan_balance_posttrade = asset_margin_loan_balance_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
-     var equity_posttrade = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
+     var cash = initial_equity;
+     var market_value_summary = 0;
+     var margin_loan_balance_summary = 0;
+     var equity = cash + market_value_summary - margin_loan_balance_summary;            
+     var maintenance_margin = market_value_summary * maintmargin_rate;
+     var regT_margin_req = market_value_summary * regTmargin_rate;
+     var margin_available = equity - regT_margin_req;
+     var margin_used = 0;
+     var margin_back = 0;
+     var loan_used = 0;
+     var loan_back = 0;
+     var trade_cost_summary = 0;
      var daily_interest = 0;     
+     
 
-    
    //------------------------------------------------------------------------------------------------------------  
    
    //cek test data
    if (port_data.length == 0) {
      alert(`tidak ada data untuk test`);
      return false;
+   } else {
+    var data_length = port_data[0].length;
+
+    if (data_length < 30) { //30 ganti jadi mindata
+      alert(`data test anda kurang dari `+mindata+` data baris`);
+      return false;
+    } else {
+      if (data_length > maxdata) {
+        alert(`data test anda lebih dari `+maxdata+` data baris`);
+        return false;
+      }  
+    }
    }
-   
-   var data_length = port_data[0].length;
-    
-   if (data_length < 30) { //30 ganti jadi mindata
-     alert(`data test anda kurang dari `+mindata+` data baris`);
-     return false;
-   }
-   
-   if (data_length > maxdata) {
-     alert(`data test anda lebih dari `+maxdata+` data baris`);
-     return false;
-   }  
 
    //reset your previous portfolio data in quantxi
    await $.ajax({
@@ -102,17 +100,7 @@ var account_trade_summary = new Array();
      },
      dataType: 'json',
      success: function(result){
-       console.log(result);
-       //disable button
-       $('#setting_button').attr('disabled',true);
-       $('#data_button').attr('disabled',true);
-       $('#start_date').attr('disabled',true);
-       $('#change_period_btn').attr('disabled',true);
-       $('#play_button').attr('disabled',true);
-       $('#viewpost_button').attr('disabled',true);
-       $('#trade_report_button').attr('disabled',true);
-       $('#chart_button').attr('disabled',true);
-       $('#statistik_button').attr('disabled',true);
+       console.log(result);     
      },
      error: function() {      
        alert(`koneksi ke server gagal, coba beberapa saat lagi`);
@@ -124,161 +112,163 @@ var account_trade_summary = new Array();
      async function proses() {
        if (data_id <= data_length) {
        
-       var data_input;
+      //  var data_input;
        var signal_output = new Array();
-       var date = port_data[0][data_id-1];
+      
+       date = port_data[0][data_id-1];
            
-       //PRE TRADE
+       //PRE TRADE POSITION          
          //asset trade details
          for (i=1;i<=30;i++) {  
-             asset_price[i]                        = parseFloat(port_data[i][data_id-1]);
-             asset_position_size_pretrade[i]       = asset_position_size_posttrade[i]                
-             asset_market_value_pretrade[i]        = asset_position_size_pretrade[i] * asset_price[i]; 
-             asset_margin_loan_balance_pretrade[i] = asset_margin_loan_balance_posttrade[i];                
+            price[i]                = parseFloat(port_data[i][data_id-1]);
+            position_size[i]        = position_size[i] + buy_trade_size[i] - sell_trade_size[i];              
+            market_value[i]        = position_size[i] * price[i];
+            margin_loan_balance[i]  = margin_loan_balance[i] + buy_trade_margin_loan[i] - sell_trade_loan_back[i];            
          }
-         //account & trade summary
-         cash_pretrade                 = cash_posttrade - daily_interest;           
+         //account summary
+            cash                    = cash - margin_used + margin_back - trade_cost_summary - daily_interest; 
+            console.                    
          
-         market_value_pretrade         = asset_market_value_pretrade.reduce(function (accumulator, current) { return accumulator + current; });
+            market_value_summary    = market_value.reduce(function (accumulator, current) { return accumulator + current; });
          
-         margin_loan_balance_pretrade  = asset_margin_loan_balance_pretrade.reduce(function (accumulator, current) { return accumulator + current; });
+            margin_loan_balance_summary  = margin_loan_balance.reduce(function (accumulator, current) { return accumulator + current; });
          
-         equity_pretrade               = cash_pretrade + market_value_pretrade - margin_loan_balance_pretrade;
-         
-         maintenance_margin            = market_value_pretrade * maintmargin_rate;
+              equity               = cash + market_value_summary - margin_loan_balance_summary;
+              
+              maintenance_margin            = market_value_summary * maintmargin_rate;
 
-         regT_margin_req               = market_value_pretrade * regTmargin_rate;
+              regT_margin_req               = market_value_summary * regTmargin_rate;
 
-         margin_available              = equity_pretrade - regT_margin_req;
+              margin_available              = equity - regT_margin_req;
 
        //POST REST API 
-         data_input = {
+         var data_input = {
            data_id: data_id,
-           equity_balance: equity_pretrade,
-           asset1_price: asset_price[1],
-           asset1_position_size: asset_position_size_pretrade[1],
-           asset2_price: asset_price[2],
-           asset2_position_size: asset_position_size_pretrade[2],
-           asset3_price: asset_price[3],
-           asset3_position_size: asset_position_size_pretrade[3],
-           asset4_price: asset_price[4],
-           asset4_position_size: asset_position_size_pretrade[4],
-           asset5_price: asset_price[5],
-           asset5_position_size: asset_position_size_pretrade[5],
-           asset6_price: asset_price[6],
-           asset6_position_size: asset_position_size_pretrade[6],
-           asset7_price: asset_price[7],
-           asset7_position_size: asset_position_size_pretrade[7],
-           asset8_price: asset_price[8],
-           asset8_position_size: asset_position_size_pretrade[8],
-           asset9_price: asset_price[9],
-           asset9_position_size: asset_position_size_pretrade[9],
-           asset10_price: asset_price[10],
-           asset10_position_size: asset_position_size_pretrade[10],
-           asset11_price: asset_price[11],
-           asset11_position_size: asset_position_size_pretrade[11],
-           asset12_price: asset_price[12],
-           asset12_position_size: asset_position_size_pretrade[12],
-           asset13_price: asset_price[13],
-           asset13_position_size: asset_position_size_pretrade[13],
-           asset14_price: asset_price[14],
-           asset14_position_size: asset_position_size_pretrade[14],
-           asset15_price: asset_price[15],
-           asset15_position_size: asset_position_size_pretrade[15],
-           asset16_price: asset_price[16],
-           asset16_position_size: asset_position_size_pretrade[16],
-           asset17_price: asset_price[17],
-           asset17_position_size: asset_position_size_pretrade[17],
-           asset18_price: asset_price[18],
-           asset18_position_size: asset_position_size_pretrade[18],
-           asset19_price: asset_price[19],
-           asset19_position_size: asset_position_size_pretrade[19],
-           asset20_price: asset_price[20],
-           asset20_position_size: asset_position_size_pretrade[20],
-           asset21_price: asset_price[21],
-           asset21_position_size: asset_position_size_pretrade[21],
-           asset22_price: asset_price[22],
-           asset22_position_size: asset_position_size_pretrade[22],
-           asset23_price: asset_price[23],
-           asset23_position_size: asset_position_size_pretrade[23],
-           asset24_price: asset_price[24],
-           asset24_position_size: asset_position_size_pretrade[24],
-           asset25_price: asset_price[25],
-           asset25_position_size: asset_position_size_pretrade[25],
-           asset26_price: asset_price[26],
-           asset26_position_size: asset_position_size_pretrade[26],
-           asset27_price: asset_price[27],
-           asset27_position_size: asset_position_size_pretrade[27],
-           asset28_price: asset_price[28],
-           asset28_position_size: asset_position_size_pretrade[28],
-           asset29_price: asset_price[29],
-           asset29_position_size: asset_position_size_pretrade[29],
-           asset30_price: asset_price[30],
-           asset30_position_size: asset_position_size_pretrade[30]
+           equity_balance: equity,
+           asset1_price: price[1],
+           asset1_position_size: position_size[1],
+           asset2_price: price[2],
+           asset2_position_size: position_size[2],
+           asset3_price: price[3],
+           asset3_position_size: position_size[3],
+           asset4_price: price[4],
+           asset4_position_size: position_size[4],
+           asset5_price: price[5],
+           asset5_position_size: position_size[5],
+           asset6_price: price[6],
+           asset6_position_size: position_size[6],
+           asset7_price: price[7],
+           asset7_position_size: position_size[7],
+           asset8_price: price[8],
+           asset8_position_size: position_size[8],
+           asset9_price: price[9],
+           asset9_position_size: position_size[9],
+           asset10_price: price[10],
+           asset10_position_size: position_size[10],
+           asset11_price: price[11],
+           asset11_position_size: position_size[11],
+           asset12_price: price[12],
+           asset12_position_size: position_size[12],
+           asset13_price: price[13],
+           asset13_position_size: position_size[13],
+           asset14_price: price[14],
+           asset14_position_size: position_size[14],
+           asset15_price: price[15],
+           asset15_position_size: position_size[15],
+           asset16_price: price[16],
+           asset16_position_size: position_size[16],
+           asset17_price: price[17],
+           asset17_position_size: position_size[17],
+           asset18_price: price[18],
+           asset18_position_size: position_size[18],
+           asset19_price: price[19],
+           asset19_position_size: position_size[19],
+           asset20_price: price[20],
+           asset20_position_size: position_size[20],
+           asset21_price: price[21],
+           asset21_position_size: position_size[21],
+           asset22_price: price[22],
+           asset22_position_size: position_size[22],
+           asset23_price: price[23],
+           asset23_position_size: position_size[23],
+           asset24_price: price[24],
+           asset24_position_size: position_size[24],
+           asset25_price: price[25],
+           asset25_position_size: position_size[25],
+           asset26_price: price[26],
+           asset26_position_size: position_size[26],
+           asset27_price: price[27],
+           asset27_position_size: position_size[27],
+           asset28_price: price[28],
+           asset28_position_size: position_size[28],
+           asset29_price: price[29],
+           asset29_position_size: position_size[29],
+           asset30_price: price[30],
+           asset30_position_size: position_size[30]
          }
 
          $('#data_id_input').html(data_id);
-         $('#equity_balance').html(Intl.NumberFormat().format(parseFloat(equity_pretrade).toFixed(2)));
-         $('#asset1_price').html(Intl.NumberFormat().format(parseFloat(asset_price[1]).toFixed(2)));
-         $('#asset1_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[1]).toFixed(2)));
-         $('#asset2_price').html(Intl.NumberFormat().format(parseFloat(asset_price[2]).toFixed(2)));
-         $('#asset2_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[2]).toFixed(2)));
-         $('#asset3_price').html(Intl.NumberFormat().format(parseFloat(asset_price[3]).toFixed(2)));
-         $('#asset3_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[3]).toFixed(2)));
-         $('#asset4_price').html(Intl.NumberFormat().format(parseFloat(asset_price[4]).toFixed(2)));
-         $('#asset4_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[4]).toFixed(2)));
-         $('#asset5_price').html(Intl.NumberFormat().format(parseFloat(asset_price[5]).toFixed(2)));
-         $('#asset5_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[5]).toFixed(2)));
-         $('#asset6_price').html(Intl.NumberFormat().format(parseFloat(asset_price[6]).toFixed(2)));
-         $('#asset6_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[6]).toFixed(2)));
-         $('#asset7_price').html(Intl.NumberFormat().format(parseFloat(asset_price[7]).toFixed(2)));
-         $('#asset7_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[7]).toFixed(2)));
-         $('#asset8_price').html(Intl.NumberFormat().format(parseFloat(asset_price[8]).toFixed(2)));
-         $('#asset8_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[8]).toFixed(2)));
-         $('#asset9_price').html(Intl.NumberFormat().format(parseFloat(asset_price[9]).toFixed(2)));
-         $('#asset9_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[9]).toFixed(2)));
-         $('#asset10_price').html(Intl.NumberFormat().format(parseFloat(asset_price[10]).toFixed(2)));
-         $('#asset10_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[10]).toFixed(2)));
-         $('#asset11_price').html(Intl.NumberFormat().format(parseFloat(asset_price[11]).toFixed(2)));
-         $('#asset11_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[11]).toFixed(2)));
-         $('#asset12_price').html(Intl.NumberFormat().format(parseFloat(asset_price[12]).toFixed(2)));
-         $('#asset12_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[12]).toFixed(2)));
-         $('#asset13_price').html(Intl.NumberFormat().format(parseFloat(asset_price[13]).toFixed(2)));
-         $('#asset13_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[13]).toFixed(2)));
-         $('#asset14_price').html(Intl.NumberFormat().format(parseFloat(asset_price[14]).toFixed(2)));
-         $('#asset14_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[14]).toFixed(2)));
-         $('#asset15_price').html(Intl.NumberFormat().format(parseFloat(asset_price[15]).toFixed(2)));
-         $('#asset15_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[15]).toFixed(2)));
-         $('#asset16_price').html(Intl.NumberFormat().format(parseFloat(asset_price[16]).toFixed(2)));
-         $('#asset16_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[16]).toFixed(2)));
-         $('#asset17_price').html(Intl.NumberFormat().format(parseFloat(asset_price[17]).toFixed(2)));
-         $('#asset17_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[17]).toFixed(2)));
-         $('#asset18_price').html(Intl.NumberFormat().format(parseFloat(asset_price[18]).toFixed(2)));
-         $('#asset18_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[18]).toFixed(2)));
-         $('#asset19_price').html(Intl.NumberFormat().format(parseFloat(asset_price[19]).toFixed(2)));
-         $('#asset19_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[19]).toFixed(2)));
-         $('#asset20_price').html(Intl.NumberFormat().format(parseFloat(asset_price[20]).toFixed(2)));
-         $('#asset20_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[20]).toFixed(2)));
-         $('#asset21_price').html(Intl.NumberFormat().format(parseFloat(asset_price[21]).toFixed(2)));
-         $('#asset21_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[21]).toFixed(2)));
-         $('#asset22_price').html(Intl.NumberFormat().format(parseFloat(asset_price[22]).toFixed(2)));
-         $('#asset22_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[22]).toFixed(2)));
-         $('#asset23_price').html(Intl.NumberFormat().format(parseFloat(asset_price[23]).toFixed(2)));
-         $('#asset23_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[23]).toFixed(2)));
-         $('#asset24_price').html(Intl.NumberFormat().format(parseFloat(asset_price[24]).toFixed(2)));
-         $('#asset24_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[24]).toFixed(2)));
-         $('#asset25_price').html(Intl.NumberFormat().format(parseFloat(asset_price[25]).toFixed(2)));
-         $('#asset25_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[25]).toFixed(2)));
-         $('#asset26_price').html(Intl.NumberFormat().format(parseFloat(asset_price[26]).toFixed(2)));
-         $('#asset26_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[26]).toFixed(2)));
-         $('#asset27_price').html(Intl.NumberFormat().format(parseFloat(asset_price[27]).toFixed(2)));
-         $('#asset27_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[27]).toFixed(2)));
-         $('#asset28_price').html(Intl.NumberFormat().format(parseFloat(asset_price[28]).toFixed(2)));
-         $('#asset28_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[28]).toFixed(2)));
-         $('#asset29_price').html(Intl.NumberFormat().format(parseFloat(asset_price[29]).toFixed(2)));
-         $('#asset29_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[29]).toFixed(2)));
-         $('#asset30_price').html(Intl.NumberFormat().format(parseFloat(asset_price[30]).toFixed(2)));
-         $('#asset30_position_size').html(Intl.NumberFormat().format(parseFloat(asset_position_size_pretrade[30]).toFixed(2)));
+         $('#equity_balance').html(Intl.NumberFormat().format(parseFloat(equity).toFixed(2)));
+         $('#asset1_price').html(Intl.NumberFormat().format(parseFloat(price[1]).toFixed(2)));
+         $('#asset1_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[1]).toFixed(2)));
+         $('#asset2_price').html(Intl.NumberFormat().format(parseFloat(price[2]).toFixed(2)));
+         $('#asset2_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[2]).toFixed(2)));
+         $('#asset3_price').html(Intl.NumberFormat().format(parseFloat(price[3]).toFixed(2)));
+         $('#asset3_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[3]).toFixed(2)));
+         $('#asset4_price').html(Intl.NumberFormat().format(parseFloat(price[4]).toFixed(2)));
+         $('#asset4_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[4]).toFixed(2)));
+         $('#asset5_price').html(Intl.NumberFormat().format(parseFloat(price[5]).toFixed(2)));
+         $('#asset5_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[5]).toFixed(2)));
+         $('#asset6_price').html(Intl.NumberFormat().format(parseFloat(price[6]).toFixed(2)));
+         $('#asset6_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[6]).toFixed(2)));
+         $('#asset7_price').html(Intl.NumberFormat().format(parseFloat(price[7]).toFixed(2)));
+         $('#asset7_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[7]).toFixed(2)));
+         $('#asset8_price').html(Intl.NumberFormat().format(parseFloat(price[8]).toFixed(2)));
+         $('#asset8_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[8]).toFixed(2)));
+         $('#asset9_price').html(Intl.NumberFormat().format(parseFloat(price[9]).toFixed(2)));
+         $('#asset9_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[9]).toFixed(2)));
+         $('#asset10_price').html(Intl.NumberFormat().format(parseFloat(price[10]).toFixed(2)));
+         $('#asset10_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[10]).toFixed(2)));
+         $('#asset11_price').html(Intl.NumberFormat().format(parseFloat(price[11]).toFixed(2)));
+         $('#asset11_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[11]).toFixed(2)));
+         $('#asset12_price').html(Intl.NumberFormat().format(parseFloat(price[12]).toFixed(2)));
+         $('#asset12_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[12]).toFixed(2)));
+         $('#asset13_price').html(Intl.NumberFormat().format(parseFloat(price[13]).toFixed(2)));
+         $('#asset13_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[13]).toFixed(2)));
+         $('#asset14_price').html(Intl.NumberFormat().format(parseFloat(price[14]).toFixed(2)));
+         $('#asset14_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[14]).toFixed(2)));
+         $('#asset15_price').html(Intl.NumberFormat().format(parseFloat(price[15]).toFixed(2)));
+         $('#asset15_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[15]).toFixed(2)));
+         $('#asset16_price').html(Intl.NumberFormat().format(parseFloat(price[16]).toFixed(2)));
+         $('#asset16_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[16]).toFixed(2)));
+         $('#asset17_price').html(Intl.NumberFormat().format(parseFloat(price[17]).toFixed(2)));
+         $('#asset17_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[17]).toFixed(2)));
+         $('#asset18_price').html(Intl.NumberFormat().format(parseFloat(price[18]).toFixed(2)));
+         $('#asset18_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[18]).toFixed(2)));
+         $('#asset19_price').html(Intl.NumberFormat().format(parseFloat(price[19]).toFixed(2)));
+         $('#asset19_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[19]).toFixed(2)));
+         $('#asset20_price').html(Intl.NumberFormat().format(parseFloat(price[20]).toFixed(2)));
+         $('#asset20_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[20]).toFixed(2)));
+         $('#asset21_price').html(Intl.NumberFormat().format(parseFloat(price[21]).toFixed(2)));
+         $('#asset21_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[21]).toFixed(2)));
+         $('#asset22_price').html(Intl.NumberFormat().format(parseFloat(price[22]).toFixed(2)));
+         $('#asset22_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[22]).toFixed(2)));
+         $('#asset23_price').html(Intl.NumberFormat().format(parseFloat(price[23]).toFixed(2)));
+         $('#asset23_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[23]).toFixed(2)));
+         $('#asset24_price').html(Intl.NumberFormat().format(parseFloat(price[24]).toFixed(2)));
+         $('#asset24_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[24]).toFixed(2)));
+         $('#asset25_price').html(Intl.NumberFormat().format(parseFloat(price[25]).toFixed(2)));
+         $('#asset25_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[25]).toFixed(2)));
+         $('#asset26_price').html(Intl.NumberFormat().format(parseFloat(price[26]).toFixed(2)));
+         $('#asset26_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[26]).toFixed(2)));
+         $('#asset27_price').html(Intl.NumberFormat().format(parseFloat(price[27]).toFixed(2)));
+         $('#asset27_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[27]).toFixed(2)));
+         $('#asset28_price').html(Intl.NumberFormat().format(parseFloat(price[28]).toFixed(2)));
+         $('#asset28_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[28]).toFixed(2)));
+         $('#asset29_price').html(Intl.NumberFormat().format(parseFloat(price[29]).toFixed(2)));
+         $('#asset29_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[29]).toFixed(2)));
+         $('#asset30_price').html(Intl.NumberFormat().format(parseFloat(price[30]).toFixed(2)));
+         $('#asset30_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[30]).toFixed(2)));
          
          await $.ajax({
            type: "POST",
@@ -366,6 +356,8 @@ var account_trade_summary = new Array();
              signal_output.push({asset_signal_position: asset_signal_position});
              signal_output.push({asset_signal_size: asset_signal_size});
 
+             console.log(signal_output[3]);
+
              $('#data_id_output').html(signal_output[0].data_id);
              $('#asset_signal_created').html(signal_output[1].total_signal_proccessed);
              $('#asset1_signal_position').html(signal_output[2].asset_signal_position[0]);
@@ -434,57 +426,35 @@ var account_trade_summary = new Array();
        
          if(signal_output.length > 0) { 
          //TRADE 
-           //asset trade details
+           //asset trade details          
            for (i=1, x=0;i<=30, x<30;i++, x++) {  
-               asset_trade_position[i]     = signal_output[2].asset_signal_position[x];
-               asset_trade_size[i]         = parseInt(signal_output[3].asset_signal_size[x]);
-               asset_trade_value[i]        = asset_trade_size[i] * asset_price[i];        
-               asset_trade_margin_req[i]   = asset_trade_value[i] * regTmargin_rate;
-               asset_trade_margin_loan[i]  = asset_trade_value[i] - asset_trade_margin_req[i];
-               asset_trade_cost[i]         = (asset_trade_value[i] * bidask_spread) + (asset_trade_value[i] * commision_share);
-           }        
+             if(signal_output[2].asset_signal_position[x] == "BUY") {
+              buy_trade_size[i]         = parseInt(signal_output[3].asset_signal_size[x]);
+              buy_trade_value[i]        = buy_trade_size[i] * price[i];        
+              buy_trade_margin_used[i]   = buy_trade_value[i] * regTmargin_rate;
+              buy_trade_margin_loan[i]  = buy_trade_value[i] - buy_trade_margin_used[i];
+              buy_trade_cost[i]         = (buy_trade_value[i] * bidask_spread) + (buy_trade_value[i] * commision_share);
+             } else if(signal_output[2].asset_signal_position[x] == "SELL") {
+              sell_trade_size[i]         = parseInt(signal_output[3].asset_signal_size[x]);
+              sell_trade_value[i]        = sell_trade_size[i] * price[i];    
+              avg_buy_price[i]            = price[i];//dicek lagi rumus ini, hanya sementara saja    
+              sell_trade_loan_back[i]   = (avg_buy_price[i] * sell_trade_size[i]) * regTmargin_rate;
+              sell_trade_margin_back[i]  = sell_trade_value[i] - sell_trade_loan_back[i];
+              sell_trade_cost[i]         = (sell_trade_value[i] * bidask_spread) + (sell_trade_value[i] * commision_share);
+             } else {
+               //kode apa ya buat hold...???
+             }
+           }  
+
            //trade summary
-           buy_trade_value = 0;
-           buy_trade_margin_req = 0;
-           buy_trade_margin_loan = 0;
-           buy_trade_cost = 0;
-           sell_trade_value = 0;
-           sell_trade_margin_req = 0;
-           sell_trade_margin_loan = 0;
-           sell_trade_cost = 0;
-           for (i=1; i<=30; i++) {
-             if(asset_trade_position[i] == "BUY") {
-               buy_trade_value += asset_trade_value[i]; 
-               buy_trade_margin_req += asset_trade_margin_req[i];
-               buy_trade_margin_loan += asset_trade_margin_loan[i];
-               buy_trade_cost += asset_trade_cost[i];     
-             } else if(asset_trade_position[i] == "SELL") {
-               sell_trade_value += asset_trade_value[i];
-               sell_trade_margin_req += asset_trade_margin_req[i];
-               sell_trade_margin_loan += asset_trade_margin_loan[i];
-               sell_trade_cost += asset_trade_cost[i];  
-             } 
-           }    
-           
-         //POST TRADE
-           //asset trade details
-           for(i=1;i<=30;i++) {
-             if(asset_trade_position[i] == "BUY") {
-               asset_position_size_posttrade[i]        = asset_position_size_pretrade[i] + asset_trade_size[i];
-               asset_market_value_posttrade[i]         = asset_position_size_posttrade[i] * asset_price[i];
-               asset_margin_loan_balance_posttrade[i]  = asset_margin_loan_balance_pretrade[i] + asset_trade_margin_loan[i];            
-             } else if(asset_trade_position[i] == "SELL") {
-               asset_position_size_posttrade[i]        = asset_position_size_pretrade[i] - asset_trade_size[i];
-               asset_market_value_posttrade[i]         = asset_position_size_posttrade[i] * asset_price[i];
-               asset_margin_loan_balance_posttrade[i]  = asset_margin_loan_balance_pretrade[i] - asset_trade_margin_loan[i]; 
-             }            
-           }          
-           //account & trade summary
-           cash_posttrade                  = cash_pretrade - buy_trade_margin_req - buy_trade_cost + sell_trade_margin_req - sell_trade_cost;
-           market_value_posttrade          = asset_market_value_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
-           margin_loan_balance_posttrade   = asset_margin_loan_balance_posttrade.reduce(function (accumulator, current) { return accumulator + current; });
-           equity_posttrade                = cash_posttrade + market_value_posttrade - margin_loan_balance_posttrade;
-           daily_interest                  = 0; //cek lagi rumus ini ?????        
+           margin_used    = buy_trade_margin_used.reduce(function (accumulator, current) { return accumulator + current; });
+           margin_back    = sell_trade_margin_back.reduce(function (accumulator, current) { return accumulator + current; });
+           loan_used      = buy_trade_margin_loan.reduce(function (accumulator, current) { return accumulator + current; });
+           loan_back      = sell_trade_loan_back.reduce(function (accumulator, current) { return accumulator + current; });
+           trade_cost_summary  = buy_trade_cost.reduce(function (accumulator, current) { return accumulator + current; })+
+                                sell_trade_cost.reduce(function (accumulator, current) { return accumulator + current; });
+           daily_interest = (margin_loan_balance_summary + loan_used - loan_back) * interest_rate;//cek lagi rumus dan posisi kolom
+             
            
            $("#tested_data_period").val(port_data[0][0]+' - '+port_data[0][data_id-1]);
            $("#progress_bar_value").html(parseFloat((data_id/data_length)*100).toFixed(2)+"%"); 
@@ -494,45 +464,45 @@ var account_trade_summary = new Array();
            var asset_trade = new Array();
            for(i=1;i<=30;i++) {             
              asset_trade.push({
-               asset_price : asset_price[i],
-               asset_position_size_pretrade : asset_position_size_pretrade[i],
-               asset_market_value_pretrade : asset_market_value_pretrade[i],
-               asset_margin_loan_balance_pretrade : asset_margin_loan_balance_pretrade[i],
-               asset_trade_position : asset_trade_position[i],
-               asset_trade_size : asset_trade_size[i],
-               asset_trade_value : asset_trade_value[i],
-               asset_trade_margin_req : asset_trade_margin_req[i],
-               asset_trade_margin_loan : asset_trade_margin_loan[i],
-               asset_trade_cost : asset_trade_cost[i],
-               asset_position_size_posttrade : asset_position_size_posttrade[i],
-               asset_market_value_posttrade : asset_market_value_posttrade[i],
-               asset_margin_loan_balance_posttrade : asset_margin_loan_balance_posttrade[i]
+               date : date,
+               price : price[i],
+               position_size : position_size[i],
+               market_value : market_value[i],
+               margin_loan_balance : margin_loan_balance[i],
+               buy_trade_size : buy_trade_size[i],
+               buy_trade_value : buy_trade_value[i],
+               buy_trade_margin_used : buy_trade_margin_used[i],
+               buy_trade_margin_loan : buy_trade_margin_loan[i],
+               buy_trade_cost : buy_trade_cost[i],
+               sell_trade_size : sell_trade_size[i],
+               sell_trade_value : sell_trade_value[i],
+               avg_buy_price : avg_buy_price[i],
+               sell_trade_loan_back : sell_trade_loan_back[i],
+               sell_trade_margin_back : sell_trade_margin_back[i],
+               sell_trade_cost : sell_trade_cost[i],
              })
            }
            asset_trade_details.push(asset_trade);
            
-           //acount trade summary array
+           //acount summary array
            account_trade_summary.push({
-             date : port_data[0][data_id-1],
-             cash_pretrade : cash_pretrade,
-             market_value_pretrade : market_value_pretrade,
-             margin_loan_balance_pretrade : margin_loan_balance_pretrade,
-             equity_pretrade : equity_pretrade,
+             date : date,
+             //Pre Trade Account Position
+             cash : cash,
+             market_value_summary : market_value_summary,
+             margin_loan_balance_summary : margin_loan_balance_summary,
+             equity : equity,
+             //Pre Trade Margin Position
              maintenance_margin : maintenance_margin,
              regT_margin_req : regT_margin_req,
              margin_available : margin_available,
-             buy_trade_value : buy_trade_value,
-             buy_trade_margin_req : buy_trade_margin_req,
-             buy_trade_margin_loan : buy_trade_margin_loan,
-             buy_trade_cost : buy_trade_cost,
-             sell_trade_value : sell_trade_value,
-             sell_trade_margin_req : sell_trade_margin_req,
-             sell_trade_margin_loan : sell_trade_margin_loan,
-             sell_trade_cost : sell_trade_cost,
-             cash_posttrade : cash_posttrade,
-             market_value_posttrade : market_value_posttrade,
-             margin_loan_balance_posttrade : margin_loan_balance_posttrade,
-             equity_posttrade : equity_posttrade,
+             //Trade Summary
+             margin_used : margin_used,
+             margin_back : margin_back,
+             loan_used : loan_used,
+             loan_back : loan_back,
+             trade_cost_summary : trade_cost_summary,
+             //Daily Interest
              daily_interest : daily_interest      
            });           
 
@@ -554,7 +524,7 @@ var account_trade_summary = new Array();
      
          clearTimeout();
 
-         console.log(account_trade_summary);
+        //  console.log(account_trade_summary);
 
          //test history array
      
