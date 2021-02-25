@@ -1,7 +1,18 @@
  //RUN TEST -------------------------------------------------------------------------------
- //array
+ 
+ //post request response array
+ 
+ //trade report array
  var asset_trade_details = new Array();
- var account_trade_summary = new Array();  
+ var account_trade_summary = new Array();
+
+ //performance_chart_array
+ var quantxi_equity_array = new Array();
+ var buyandhold_equity_array = new Array();
+
+ //test history array 
+ 
+ 
  async function run_test() {
    //-----------------------------------------------------------------------------------
      //test setting variable
@@ -67,8 +78,14 @@
      var loan_used = 0;
      var loan_back = 0;
      var trade_cost_summary = 0;
-     var daily_interest = 0;     
+     var daily_interest = 0;  
      
+     //Buy & Hold Variable
+     var asset_invest = [];
+     for(i=1;i<=30;i++) {
+      asset_invest[i] = initial_equity/30;
+     } 
+     console.log(asset_invest);   
 
    //------------------------------------------------------------------------------------------------------------  
    
@@ -100,7 +117,7 @@
      },
      dataType: 'json',
      success: function(result){
-       console.log(result);     
+      //  console.log(result);     
      },
      error: function() {      
        alert(`koneksi ke server gagal, coba beberapa saat lagi`);
@@ -126,20 +143,19 @@
             margin_loan_balance[i]  = margin_loan_balance[i] + buy_trade_margin_loan[i] - sell_trade_loan_back[i];            
          }
          //account summary
-            cash                    = cash - margin_used + margin_back - trade_cost_summary - daily_interest; 
-            console.                    
+            cash                          = cash - margin_used + margin_back - trade_cost_summary - daily_interest;                             
          
-            market_value_summary    = market_value.reduce(function (accumulator, current) { return accumulator + current; });
+            market_value_summary          = market_value.reduce(function (accumulator, current) { return accumulator + current; });
          
-            margin_loan_balance_summary  = margin_loan_balance.reduce(function (accumulator, current) { return accumulator + current; });
+            margin_loan_balance_summary   = margin_loan_balance.reduce(function (accumulator, current) { return accumulator + current; });
          
-              equity               = cash + market_value_summary - margin_loan_balance_summary;
-              
-              maintenance_margin            = market_value_summary * maintmargin_rate;
+            equity                        = cash + market_value_summary - margin_loan_balance_summary;
+            
+            maintenance_margin            = market_value_summary * maintmargin_rate;
 
-              regT_margin_req               = market_value_summary * regTmargin_rate;
+            regT_margin_req               = market_value_summary * regTmargin_rate;
 
-              margin_available              = equity - regT_margin_req;
+            margin_available              = equity - regT_margin_req;
 
        //POST REST API 
          var data_input = {
@@ -356,7 +372,7 @@
              signal_output.push({asset_signal_position: asset_signal_position});
              signal_output.push({asset_signal_size: asset_signal_size});
 
-             console.log(signal_output[3]);
+            //  console.log(signal_output[3]);
 
              $('#data_id_output').html(signal_output[0].data_id);
              $('#asset_signal_created').html(signal_output[1].total_signal_proccessed);
@@ -427,23 +443,32 @@
          if(signal_output.length > 0) { 
          //TRADE 
            //asset trade details          
-           for (i=1, x=0;i<=30, x<30;i++, x++) {  
-             if(signal_output[2].asset_signal_position[x] == "BUY") {
-              buy_trade_size[i]         = parseInt(signal_output[3].asset_signal_size[x]);
-              buy_trade_value[i]        = buy_trade_size[i] * price[i];        
-              buy_trade_margin_used[i]   = buy_trade_value[i] * regTmargin_rate;
-              buy_trade_margin_loan[i]  = buy_trade_value[i] - buy_trade_margin_used[i];
-              buy_trade_cost[i]         = (buy_trade_value[i] * bidask_spread) + (buy_trade_value[i] * commision_share);
-             } else if(signal_output[2].asset_signal_position[x] == "SELL") {
-              sell_trade_size[i]         = parseInt(signal_output[3].asset_signal_size[x]);
-              sell_trade_value[i]        = sell_trade_size[i] * price[i];    
-              avg_buy_price[i]            = price[i];//dicek lagi rumus ini, hanya sementara saja    
-              sell_trade_loan_back[i]   = (avg_buy_price[i] * sell_trade_size[i]) * regTmargin_rate;
-              sell_trade_margin_back[i]  = sell_trade_value[i] - sell_trade_loan_back[i];
-              sell_trade_cost[i]         = (sell_trade_value[i] * bidask_spread) + (sell_trade_value[i] * commision_share);
-             } else {
-               //kode apa ya buat hold...???
-             }
+           for (i=1, x=0; i<=30, x<30; i++, x++) {  
+
+            if(signal_output[2].asset_signal_position[x] == "BUY") {
+              buy_trade_size[i]  = parseInt(signal_output[3].asset_signal_size[x]);
+              sell_trade_size[i] = 0;
+            
+            } else if(signal_output[2].asset_signal_position[x] == "SELL") {
+              buy_trade_size[i] = 0;
+              sell_trade_size[i] = parseInt(signal_output[3].asset_signal_size[x]);              
+            
+            } else if(signal_output[2].asset_signal_position[x] == "HOLD"){
+              buy_trade_size[i] = 0;
+              sell_trade_size[i] = 0;
+            }
+
+            buy_trade_value[i]        = buy_trade_size[i] * price[i];        
+            buy_trade_margin_used[i]   = buy_trade_value[i] * regTmargin_rate;
+            buy_trade_margin_loan[i]  = buy_trade_value[i] - buy_trade_margin_used[i];
+            buy_trade_cost[i]         = (buy_trade_value[i] * bidask_spread) + (buy_trade_value[i] * commision_share);
+            
+            sell_trade_value[i]        = sell_trade_size[i] * price[i];    
+            avg_buy_price[i]            = price[i] * sell_trade_size[i];//dicek lagi rumus ini, hanya sementara saja    
+            sell_trade_loan_back[i]   = (avg_buy_price[i] * sell_trade_size[i]) * regTmargin_rate;
+            sell_trade_margin_back[i]  = sell_trade_value[i] - sell_trade_loan_back[i];
+            sell_trade_cost[i]         = (sell_trade_value[i] * bidask_spread) + (sell_trade_value[i] * commision_share);
+
            }  
 
            //trade summary
@@ -505,6 +530,65 @@
              //Daily Interest
              daily_interest : daily_interest      
            });           
+          
+           
+           //Performance Comparison
+          //  var period = 
+           var quantxi_equity = equity;
+
+           var asset_equity_buyandhold = [];
+           for(i=1;i<31;i++) {
+              asset_equity_buyandhold[i] = (asset_invest[i]/parseFloat(port_data[i][0]))*parseFloat(port_data[i][data_id-1]); 
+           }
+           
+           var buyandhold_equity = asset_equity_buyandhold.reduce(function (accumulator, current) { return accumulator + current; });           
+           var quantxi_total_return = equity/initial_equity;
+           var buyandhold_total_return = buyandhold_equity/equity;
+           var quantxi_cagr = ((quantxi_total_return)^(1/30)-1);//angka 30 ganti jadi periode sesuai periode data
+           var buyandhold_cagr = ((buyandhold_total_return)^(1/30)-1);//angka 30 ganti jadi periode sesuai periode data
+           var quantxi_maxdd = (
+              1
+           );
+           var buyandhold_maxdd = (
+             1
+           );
+           var quantxi_mar_ratio = (
+            1
+           );
+           var buyandhold_mar_ratio = (
+            1
+           );
+           var quantxi_sharpe_ratio = (
+            1
+           );
+           var buyandhold_sharpe_ratio = (
+            1
+           );
+           var quantxi_treynor_ratio = (
+            1
+           );
+           var buyandhold_treynor_ratio = (
+            1
+           );
+
+           $('#quantxi_equity').html(Intl.NumberFormat().format(parseFloat(quantxi_equity).toFixed(0))); 
+           $('#buyandhold_equity').html(Intl.NumberFormat().format(parseFloat(buyandhold_equity).toFixed(0))); 
+           $('#quantxi_total_return').html(quantxi_total_return); 
+           $('#buyandhold_total_return').html(buyandhold_total_return);
+           $('#quantxi_cagr').html(quantxi_cagr); 
+           $('#buyandhold_cagr').html(buyandhold_cagr);
+           $('#quantxi_maxdd').html(quantxi_maxdd); 
+           $('#buyandhold_maxdd').html(buyandhold_maxdd); 
+           $('#quantxi_mar_ratio').html(quantxi_mar_ratio); 
+           $('#buyandhold_mar_ratio').html(buyandhold_mar_ratio);
+           $('#quantxi_sharpe_ratio').html(quantxi_sharpe_ratio); 
+           $('#buyandhold_sharpe_ratio').html(buyandhold_sharpe_ratio);
+           $('#quantxi_treynor_ratio').html(quantxi_treynor_ratio); 
+           $('#buyandhold_treynor_ratio').html(buyandhold_treynor_ratio);     
+
+            //Performance Chart
+            quantxi_equity_array.push(equity);    
+            buyandhold_equity_array.push(buyandhold_equity);
 
            //add data ID
            data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?       

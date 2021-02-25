@@ -355,7 +355,7 @@ var port_data = new Array();
       $("#source_data").val("Yahoo Finance");
       $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
       $("#period_data_dashboard").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
-      console.log(port_data);
+      // console.log(port_data);
 
       $("#pagination-demo").twbsPagination({
         totalPages: Math.ceil(port_data[0].length/24),
@@ -548,7 +548,7 @@ for (x=0;x<100;x++) {
 port_data.push(price_sim_array);
 }
 
-console.log(port_data);
+// console.log(port_data);
 
 $("#source_data").val("Montecarlo Simulation");
 $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);

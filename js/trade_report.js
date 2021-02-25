@@ -42,7 +42,7 @@ function assets_list() {//cari solusi biar tdk double click, muncul berkali2 di 
       var container_asset_choose = $(this).closest("#trade_report_dd");
       asset_choose_current = $(event.currentTarget)[0].innerHTML;
       container_asset_choose.find('.asset_selected').text( asset_choose_current || 'Select Asset');
-      console.log(asset_choose_current);
+      // console.log(asset_choose_current);
   });
 }
 
@@ -57,39 +57,42 @@ function view_asset_trade_details() {
 
   $("#asset_trade_details_tbl>tbody").empty();
   $("#pagination_trade_details").twbsPagination("destroy");
- 
-  if(asset_trade_details.length > 0) {
+
+  if(asset_idx == -1) {
+    alert("Asset belum dipilih, silahkan select asset yang mau ditampilkan datanya");
+    return false;
+  } else if(asset_trade_details.length == 0) {
+    alert("belum ada data")
+    return false;    
+  } else {
     $("#pagination_trade_details").twbsPagination({
       totalPages: Math.ceil(asset_trade_details.length/20),
       visiblePages: 4,
       onPageClick: function (event, page) {
         $("#asset_trade_details_tbl>tbody").empty();
-          for (i=(page*20)-20; i<(page*20) && i<(asset_trade_details.length); i++) {
-            var asset_trade_details_row =
-            `<tr>
-                <td class="text-center" style="font-size: 10px; font-family: calibri; position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 2px 2px">`+asset_trade_details[i][asset_idx].date+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].price.toFixed(0)))+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].position_size.toFixed(0)))+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].market_value.toFixed(0)))+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].margin_loan_balance.toFixed(0)))+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].buy_trade_size.toFixed(0)))+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].buy_trade_value.toFixed(0)))+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].buy_trade_margin_used.toFixed(0)))+`</td>                
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].buy_trade_margin_loan.toFixed(0)))+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].buy_trade_cost.toFixed(0)))+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].sell_trade_size.toFixed(0)))+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].sell_trade_value.toFixed(0)))+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].avg_buy_price.toFixed(0)))+`</td>
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].sell_trade_loan_back.toFixed(0)))+`</td>                 
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].sell_trade_margin_back.toFixed(0)))+`</td>  
-                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].sell_trade_cost.toFixed(0)))+`</td>  
-            </tr>`           
-            $("#asset_trade_details_tbl>tbody").append(asset_trade_details_row);
-            }
+        for (i=(page*20)-20; i<(page*20) && i<(asset_trade_details.length); i++) {
+          var asset_trade_details_row =
+          `<tr>
+              <td class="text-center" style="font-size: 10px; font-family: calibri; position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 2px 2px">`+asset_trade_details[i][asset_idx].date+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].price.toFixed(0)))+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].position_size.toFixed(0)))+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].market_value.toFixed(0)))+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].margin_loan_balance.toFixed(0)))+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].buy_trade_size.toFixed(0)))+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].buy_trade_value.toFixed(0)))+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].buy_trade_margin_used.toFixed(0)))+`</td>                
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].buy_trade_margin_loan.toFixed(0)))+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].buy_trade_cost.toFixed(0)))+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].sell_trade_size.toFixed(0)))+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].sell_trade_value.toFixed(0)))+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].avg_buy_price.toFixed(0)))+`</td>
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].sell_trade_loan_back.toFixed(0)))+`</td>                 
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].sell_trade_margin_back.toFixed(0)))+`</td>  
+              <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 2px 2px">`+Intl.NumberFormat().format(parseFloat(asset_trade_details[i][asset_idx].sell_trade_cost.toFixed(0)))+`</td>  
+          </tr>`           
+          $("#asset_trade_details_tbl>tbody").append(asset_trade_details_row);
+        }
       }
-    });
-  } else {
-    alert("belum ada data")
-    return false;
+    });    
   } 
 }
