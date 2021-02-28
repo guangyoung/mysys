@@ -525,7 +525,7 @@ var steps = $("#steps").val();
 var startdate_simulation = new Date($("#startdate_simulation").val());
 var dt = startdate_simulation;
 var dt_arr = new Array();
-for (i=0;i<50;i++) {
+for (i=0;i<5000;i++) {
   if (dt.getDay()==5) {
     let dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
     dt_arr.push(dtt);
@@ -541,7 +541,7 @@ port_data.push(dt_arr);
 for (i=0;i<30;i++) {
 var price_sim_array = new Array ();
 var price_sim = parseFloat(initial_price);
-for (x=0;x<50;x++) {
+for (x=0;x<5000;x++) {
   price_sim_array.push(price_sim)
   price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
 }

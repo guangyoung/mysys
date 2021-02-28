@@ -111,7 +111,7 @@ var test_history = new Array();
       alert(`data test anda kurang dari `+mindata+` data baris`);
       return false;
     } else {
-      if (data_length > maxdata) {
+      if (data_length > 5000) {
         alert(`data test anda lebih dari `+maxdata+` data baris`);
         return false;
       }  
@@ -563,7 +563,8 @@ var test_history = new Array();
           //----------------------------------------------------------------------------------
            
            //Performance Comparison --------------------------------------------------------
-           //  var period = 
+          var period = new Date(new Date(port_data[0][(idx_start+(data_id-1))])-new Date(port_data[0][idx_start])).getUTCFullYear() - 1970;
+          console.log(period);
            var quantxi_equity = equity;
 
            var asset_equity_buyandhold = [];
@@ -574,8 +575,8 @@ var test_history = new Array();
            var buyandhold_equity = asset_equity_buyandhold.reduce(function (accumulator, current) { return accumulator + current; });           
            var quantxi_total_return = equity/initial_equity;
            var buyandhold_total_return = buyandhold_equity/equity;
-           var quantxi_cagr = ((quantxi_total_return)^(1/1)-1);//angka 30 ganti jadi periode sesuai periode data
-           var buyandhold_cagr = ((buyandhold_total_return)^(1/1)-1);//angka 30 ganti jadi periode sesuai periode data
+           var quantxi_cagr = ((quantxi_total_return)^(1/period)-1);//angka 30 ganti jadi periode sesuai periode data
+           var buyandhold_cagr = ((buyandhold_total_return)^(1/period)-1);//angka 30 ganti jadi periode sesuai periode data
            var quantxi_maxdd = (
               1
            );
