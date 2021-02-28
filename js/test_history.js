@@ -36,8 +36,7 @@ function view_test_history() {
               }
         }
       });
-    } else {
-      alert("belum ada data")
+    } else {     
       return false;
     } 
   }

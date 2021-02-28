@@ -649,8 +649,7 @@ var test_history = new Array();
         // test_history();
         test_history = [];
         
-        var test_history_item = JSON.parse(localStorage.getItem("testhistory"));
-        // console.log())
+        var test_history_item = JSON.parse(localStorage.getItem("testhistory"));      
         
         if(test_history_item !== null) {
           for(i=0;i<test_history_item.length;i++) {
