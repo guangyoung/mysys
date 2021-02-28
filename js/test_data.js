@@ -554,6 +554,8 @@ $("#source_data").val("Montecarlo Simulation");
 $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
 $("#period_data_dashboard").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
 $("#startDate").val(dt_arr[0].split("/")[2] + '-' + dt_arr[0].split("/")[0] + '-' + dt_arr[0].split("/")[1]);
+$('#startDate').attr('min',"1990-12-01");//atur biar tgl otomatis
+$('#startDate').attr('max',"1991-02-01");//atur biar tgl otomatis
 
 $("#pagination-demo").twbsPagination({
 totalPages: Math.ceil(port_data[0].length/24),

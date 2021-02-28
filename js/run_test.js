@@ -32,8 +32,13 @@ var test_history = new Array();
      var mindata = parseInt($("#min_data").val());
      var maxdata = parseInt($("#max_data").val());
      // var portfoliosize = parseInt($("#portfolio_size").val());
+     
+     var start_date = $('#startDate').val().split("-")[1] + '/' + $('#startDate').val().split("-")[2] + '/' + $('#startDate').val().split("-")[0];
+     
+     var idx_start = port_data[0].indexOf(start_date);
 
      var data_id = 1;
+     
      var date;
 
      //trade details variable
@@ -91,7 +96,7 @@ var test_history = new Array();
      for(i=1;i<=30;i++) {
       asset_invest[i] = initial_equity/30;
      } 
-     console.log(asset_invest);   
+    //  console.log(asset_invest);   
 
    //------------------------------------------------------------------------------------------------------------  
    
@@ -146,17 +151,17 @@ var test_history = new Array();
 
    //PROSES DATA
      async function proses() {
-       if (data_id <= data_length) {
+       if (data_id <= (data_length-idx_start)) {
        
       //  var data_input;
        var signal_output = new Array();
       
-       date = port_data[0][data_id-1];
+       date = port_data[0][(idx_start+(data_id-1))];
            
        //PRE TRADE POSITION          
          //asset trade details
          for (i=1;i<=30;i++) {  
-            price[i]                = parseFloat(port_data[i][data_id-1]);
+            price[i]                = parseFloat(port_data[i][(idx_start+(data_id-1))]);
             position_size[i]        = position_size[i] + buy_trade_size[i] - sell_trade_size[i];              
             market_value[i]        = position_size[i] * price[i];
             margin_loan_balance[i]  = margin_loan_balance[i] + buy_trade_margin_loan[i] - sell_trade_loan_back[i];            
@@ -552,7 +557,7 @@ var test_history = new Array();
            //-------------------------------------------------------------------
            // view....---------------------------------------------------------------------
           $('#total_post').html(data_id); 
-          $("#tested_data_period").val(port_data[0][0]+' - '+port_data[0][data_id-1]);
+          $("#tested_data_period").val(port_data[0][idx_start]+' - '+port_data[0][(idx_start+(data_id-1))]);
           $("#progress_bar_value").html(parseFloat((data_id/data_length)*100).toFixed(2)+"%"); 
           $("#progress_bar").css("width",parseFloat((data_id/data_length)*100).toFixed(2)+"%");           
           //----------------------------------------------------------------------------------
@@ -563,7 +568,7 @@ var test_history = new Array();
 
            var asset_equity_buyandhold = [];
            for(i=1;i<31;i++) {
-              asset_equity_buyandhold[i] = (asset_invest[i]/parseFloat(port_data[i][0]))*parseFloat(port_data[i][data_id-1]); 
+              asset_equity_buyandhold[i] = (asset_invest[i]/parseFloat(port_data[i][idx_start]))*parseFloat(port_data[i][(idx_start+(data_id-1))]); 
            }
            
            var buyandhold_equity = asset_equity_buyandhold.reduce(function (accumulator, current) { return accumulator + current; });           
