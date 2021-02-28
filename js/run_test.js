@@ -6,11 +6,17 @@
  var asset_trade_details = new Array();
  var account_trade_summary = new Array();
 
+ //post_request_response
+ var data_input_array = new Array();
+ var signal_output_array = new Array();
+
  //performance_chart_array
+ var date_array = new Array();
  var quantxi_equity_array = new Array();
  var buyandhold_equity_array = new Array();
 
- //test history array 
+//  //test history array 
+//  var test_history = new Array();
  
  
  async function run_test() {
@@ -125,6 +131,19 @@
      }
    })
 
+   //Disable Button
+  $('#setting_button').attr('disabled',true);
+  $('#data_button').attr('disabled',true);
+  $('#start_date').val('');
+  $('#play_button').attr('disabled',true);
+  $('#pause_button').attr('disabled',false);
+  $('#refresh_button').attr('disabled',true);
+  $('#viewpost_button').attr('disabled',true);
+  $('#trade_report_button').attr('disabled',true);
+  $('#chart_button').attr('disabled',true);
+  $('#statistik_button').attr('disabled',true);
+  // $('#logout_button').attr('disabled',true);
+
    //PROSES DATA
      async function proses() {
        if (data_id <= data_length) {
@@ -158,70 +177,71 @@
             margin_available              = equity - regT_margin_req;
 
        //POST REST API 
-         var data_input = {
-           data_id: data_id,
-           equity_balance: equity,
-           asset1_price: price[1],
-           asset1_position_size: position_size[1],
-           asset2_price: price[2],
-           asset2_position_size: position_size[2],
-           asset3_price: price[3],
-           asset3_position_size: position_size[3],
-           asset4_price: price[4],
-           asset4_position_size: position_size[4],
-           asset5_price: price[5],
-           asset5_position_size: position_size[5],
-           asset6_price: price[6],
-           asset6_position_size: position_size[6],
-           asset7_price: price[7],
-           asset7_position_size: position_size[7],
-           asset8_price: price[8],
-           asset8_position_size: position_size[8],
-           asset9_price: price[9],
-           asset9_position_size: position_size[9],
-           asset10_price: price[10],
-           asset10_position_size: position_size[10],
-           asset11_price: price[11],
-           asset11_position_size: position_size[11],
-           asset12_price: price[12],
-           asset12_position_size: position_size[12],
-           asset13_price: price[13],
-           asset13_position_size: position_size[13],
-           asset14_price: price[14],
-           asset14_position_size: position_size[14],
-           asset15_price: price[15],
-           asset15_position_size: position_size[15],
-           asset16_price: price[16],
-           asset16_position_size: position_size[16],
-           asset17_price: price[17],
-           asset17_position_size: position_size[17],
-           asset18_price: price[18],
-           asset18_position_size: position_size[18],
-           asset19_price: price[19],
-           asset19_position_size: position_size[19],
-           asset20_price: price[20],
-           asset20_position_size: position_size[20],
-           asset21_price: price[21],
-           asset21_position_size: position_size[21],
-           asset22_price: price[22],
-           asset22_position_size: position_size[22],
-           asset23_price: price[23],
-           asset23_position_size: position_size[23],
-           asset24_price: price[24],
-           asset24_position_size: position_size[24],
-           asset25_price: price[25],
-           asset25_position_size: position_size[25],
-           asset26_price: price[26],
-           asset26_position_size: position_size[26],
-           asset27_price: price[27],
-           asset27_position_size: position_size[27],
-           asset28_price: price[28],
-           asset28_position_size: position_size[28],
-           asset29_price: price[29],
-           asset29_position_size: position_size[29],
-           asset30_price: price[30],
-           asset30_position_size: position_size[30]
-         }
+         var data_input = 
+                  {
+                    data_id: data_id,
+                    equity_balance: equity,
+                    asset1_price: price[1],
+                    asset1_position_size: position_size[1],
+                    asset2_price: price[2],
+                    asset2_position_size: position_size[2],
+                    asset3_price: price[3],
+                    asset3_position_size: position_size[3],
+                    asset4_price: price[4],
+                    asset4_position_size: position_size[4],
+                    asset5_price: price[5],
+                    asset5_position_size: position_size[5],
+                    asset6_price: price[6],
+                    asset6_position_size: position_size[6],
+                    asset7_price: price[7],
+                    asset7_position_size: position_size[7],
+                    asset8_price: price[8],
+                    asset8_position_size: position_size[8],
+                    asset9_price: price[9],
+                    asset9_position_size: position_size[9],
+                    asset10_price: price[10],
+                    asset10_position_size: position_size[10],
+                    asset11_price: price[11],
+                    asset11_position_size: position_size[11],
+                    asset12_price: price[12],
+                    asset12_position_size: position_size[12],
+                    asset13_price: price[13],
+                    asset13_position_size: position_size[13],
+                    asset14_price: price[14],
+                    asset14_position_size: position_size[14],
+                    asset15_price: price[15],
+                    asset15_position_size: position_size[15],
+                    asset16_price: price[16],
+                    asset16_position_size: position_size[16],
+                    asset17_price: price[17],
+                    asset17_position_size: position_size[17],
+                    asset18_price: price[18],
+                    asset18_position_size: position_size[18],
+                    asset19_price: price[19],
+                    asset19_position_size: position_size[19],
+                    asset20_price: price[20],
+                    asset20_position_size: position_size[20],
+                    asset21_price: price[21],
+                    asset21_position_size: position_size[21],
+                    asset22_price: price[22],
+                    asset22_position_size: position_size[22],
+                    asset23_price: price[23],
+                    asset23_position_size: position_size[23],
+                    asset24_price: price[24],
+                    asset24_position_size: position_size[24],
+                    asset25_price: price[25],
+                    asset25_position_size: position_size[25],
+                    asset26_price: price[26],
+                    asset26_position_size: position_size[26],
+                    asset27_price: price[27],
+                    asset27_position_size: position_size[27],
+                    asset28_price: price[28],
+                    asset28_position_size: position_size[28],
+                    asset29_price: price[29],
+                    asset29_position_size: position_size[29],
+                    asset30_price: price[30],
+                    asset30_position_size: position_size[30]
+                  };
 
          $('#data_id_input').html(data_id);
          $('#equity_balance').html(Intl.NumberFormat().format(parseFloat(equity).toFixed(2)));
@@ -297,9 +317,7 @@
            dataType: 'json',
            success: function(result){                 
                
-           if (result.status == "success") {
-
-             $('#total_post').html(data_id); 
+           if (result.status == "success") {           
              
              let asset_signal_position = new Array();
              let asset_signal_size = new Array();                    
@@ -441,7 +459,7 @@
          })
        
          if(signal_output.length > 0) { 
-         //TRADE 
+         //TRADE ---------------------------------------------------------------------
            //asset trade details          
            for (i=1, x=0; i<=30, x<30; i++, x++) {  
 
@@ -479,12 +497,13 @@
            trade_cost_summary  = buy_trade_cost.reduce(function (accumulator, current) { return accumulator + current; })+
                                 sell_trade_cost.reduce(function (accumulator, current) { return accumulator + current; });
            daily_interest = (margin_loan_balance_summary + loan_used - loan_back) * interest_rate;//cek lagi rumus dan posisi kolom
-             
+        //-------------------------------------------------------------   
+          //post request response ----------------------------------------------
+          data_input_array.push(data_input);//diatur lagi susunan jsonnya
+          signal_output_array.push(signal_output);//diatur lagi susunan jsonnya
+          //---------------------------------------------------------------
            
-           $("#tested_data_period").val(port_data[0][0]+' - '+port_data[0][data_id-1]);
-           $("#progress_bar_value").html(parseFloat((data_id/data_length)*100).toFixed(2)+"%"); 
-           $("#progress_bar").css("width",parseFloat((data_id/data_length)*100).toFixed(2)+"%")
-
+          // TRADE REPORT ---------------------------------------------------------------
            //asset trade details array
            var asset_trade = new Array();
            for(i=1;i<=30;i++) {             
@@ -529,11 +548,17 @@
              trade_cost_summary : trade_cost_summary,
              //Daily Interest
              daily_interest : daily_interest      
-           });           
-          
+           });
+           //-------------------------------------------------------------------
+           // view....---------------------------------------------------------------------
+          $('#total_post').html(data_id); 
+          $("#tested_data_period").val(port_data[0][0]+' - '+port_data[0][data_id-1]);
+          $("#progress_bar_value").html(parseFloat((data_id/data_length)*100).toFixed(2)+"%"); 
+          $("#progress_bar").css("width",parseFloat((data_id/data_length)*100).toFixed(2)+"%");           
+          //----------------------------------------------------------------------------------
            
-           //Performance Comparison
-          //  var period = 
+           //Performance Comparison --------------------------------------------------------
+           //  var period = 
            var quantxi_equity = equity;
 
            var asset_equity_buyandhold = [];
@@ -544,8 +569,8 @@
            var buyandhold_equity = asset_equity_buyandhold.reduce(function (accumulator, current) { return accumulator + current; });           
            var quantxi_total_return = equity/initial_equity;
            var buyandhold_total_return = buyandhold_equity/equity;
-           var quantxi_cagr = ((quantxi_total_return)^(1/30)-1);//angka 30 ganti jadi periode sesuai periode data
-           var buyandhold_cagr = ((buyandhold_total_return)^(1/30)-1);//angka 30 ganti jadi periode sesuai periode data
+           var quantxi_cagr = ((quantxi_total_return)^(1/1)-1);//angka 30 ganti jadi periode sesuai periode data
+           var buyandhold_cagr = ((buyandhold_total_return)^(1/1)-1);//angka 30 ganti jadi periode sesuai periode data
            var quantxi_maxdd = (
               1
            );
@@ -573,47 +598,96 @@
 
            $('#quantxi_equity').html(Intl.NumberFormat().format(parseFloat(quantxi_equity).toFixed(0))); 
            $('#buyandhold_equity').html(Intl.NumberFormat().format(parseFloat(buyandhold_equity).toFixed(0))); 
-           $('#quantxi_total_return').html(quantxi_total_return); 
-           $('#buyandhold_total_return').html(buyandhold_total_return);
-           $('#quantxi_cagr').html(quantxi_cagr); 
-           $('#buyandhold_cagr').html(buyandhold_cagr);
-           $('#quantxi_maxdd').html(quantxi_maxdd); 
-           $('#buyandhold_maxdd').html(buyandhold_maxdd); 
-           $('#quantxi_mar_ratio').html(quantxi_mar_ratio); 
-           $('#buyandhold_mar_ratio').html(buyandhold_mar_ratio);
-           $('#quantxi_sharpe_ratio').html(quantxi_sharpe_ratio); 
-           $('#buyandhold_sharpe_ratio').html(buyandhold_sharpe_ratio);
-           $('#quantxi_treynor_ratio').html(quantxi_treynor_ratio); 
-           $('#buyandhold_treynor_ratio').html(buyandhold_treynor_ratio);     
-
-            //Performance Chart
-            quantxi_equity_array.push(equity);    
-            buyandhold_equity_array.push(buyandhold_equity);
-
-           //add data ID
-           data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?       
+           $('#quantxi_total_return').html(parseFloat((quantxi_total_return)*100).toFixed(2)+"%"); 
+           $('#buyandhold_total_return').html(parseFloat((buyandhold_total_return)*100).toFixed(2)+"%");
+           $('#quantxi_cagr').html(parseFloat((quantxi_cagr)*100).toFixed(2)+"%"); 
+           $('#buyandhold_cagr').html(parseFloat((buyandhold_cagr)*100).toFixed(2)+"%");
+           $('#quantxi_maxdd').html(parseFloat((quantxi_maxdd)*100).toFixed(2)+"%"); 
+           $('#buyandhold_maxdd').html(parseFloat((buyandhold_maxdd)*100).toFixed(2)+"%"); 
+           $('#quantxi_mar_ratio').html(parseFloat((quantxi_mar_ratio)*100).toFixed(2)+"%"); 
+           $('#buyandhold_mar_ratio').html(parseFloat((buyandhold_mar_ratio)*100).toFixed(2)+"%");
+           $('#quantxi_sharpe_ratio').html(parseFloat((quantxi_sharpe_ratio)*100).toFixed(2)+"%"); 
+           $('#buyandhold_sharpe_ratio').html(parseFloat((buyandhold_sharpe_ratio)*100).toFixed(2)+"%");
+           $('#quantxi_treynor_ratio').html(parseFloat((quantxi_treynor_ratio)*100).toFixed(2)+"%"); 
+           $('#buyandhold_treynor_ratio').html(parseFloat((buyandhold_treynor_ratio)*100).toFixed(2)+"%");     
+            //--------------------------------------------------------------------
+            //Performance Chart ---------------------------------------------
+            date_array.push(date);
+            quantxi_equity_array.push(parseFloat(equity).toFixed(0));    
+            buyandhold_equity_array.push(parseFloat(buyandhold_equity).toFixed(0));            
+            //------------------------------------------------------------------
+           //add data ID -------------------------------------------------------
+           data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?  
+           //-----------------------------------------------------------     
          }           
        
    
        } else {
-         $('#setting_button').attr('disabled',false);
-         $('#data_button').attr('disabled',false);
-         $('#refresh_button').attr('disabled',false);
-         $('#statistik_button').attr('disabled',false);
-         $('#logout_button').attr('disabled',false);
-         $('#viewpost_button').attr('disabled',false);
-         $('#chart_button').attr('disabled',false);
-         $('#trade_report_button').attr('disabled',false);
-         // $('#assets_details_button').attr('disabled',false);
+        //Enable Button
+        $('#setting_button').attr('disabled',false);
+        $('#data_button').attr('disabled',false);
+        $('#start_date').val('');
+        $('#play_button').attr('disabled',true);
+        $('#pause_button').attr('disabled',true);
+        $('#refresh_button').attr('disabled',false);
+        $('#viewpost_button').attr('disabled',false);
+        $('#trade_report_button').attr('disabled',false);
+        $('#chart_button').attr('disabled',false);
+        $('#statistik_button').attr('disabled',false);
      
-         clearTimeout();
+        clearTimeout();
 
-        //  console.log(account_trade_summary);
+        //view post json
+        post_request_response_json();
 
-         //test history array
+        //account trade summary
+        view_account_trade_summary();
+
+        //performance_chart
+        performance_chart();
+        
+        // test_history();
+        var test_history = new Array();
+        
+        var test_history_item = JSON.parse(localStorage.getItem("testhistory"));
+        
+        for(i=0;i<test_history_item.length;i++) {
+          test_history.push(test_history_item[i]);
+        }
+
+        test_history.push({
+          test_no : 4,
+          date_time_testing : Date.now(),
+          test_setting : {
+            spread_side : 0,
+            commision_share : 0,
+            interest_rate : 0
+          },
+          data_source : "montecarlo simulation",
+          ticker : "AAPL, AMZN",
+          period_of_data : "23/01/20 - 23/01/21",
+          quantxi_return : {
+            total_return : "100%",
+            cagr : "100%",
+            max_dd : "100%",
+            mar_ratio : "100%",
+            sharpe_ratio : "100%",
+            treynor_ratio : "100%"
+          },
+          buyandhold_return : {
+            total_return : "100%",
+            cagr : "100%",
+            max_dd : "100%",
+            mar_ratio : "100%",
+            sharpe_ratio : "100%",
+            treynor_ratio : "100%"
+          }
+        });
+
+        localStorage.setItem("testhistory",JSON.stringify(test_history));
      
-         alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
-         return false;
+        alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
+        return false;
        }
        setTimeout(proses, 1/1000);
      }

@@ -525,7 +525,7 @@ var steps = $("#steps").val();
 var startdate_simulation = new Date($("#startdate_simulation").val());
 var dt = startdate_simulation;
 var dt_arr = new Array();
-for (i=0;i<100;i++) {
+for (i=0;i<50;i++) {
   if (dt.getDay()==5) {
     let dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
     dt_arr.push(dtt);
@@ -541,7 +541,7 @@ port_data.push(dt_arr);
 for (i=0;i<30;i++) {
 var price_sim_array = new Array ();
 var price_sim = parseFloat(initial_price);
-for (x=0;x<100;x++) {
+for (x=0;x<50;x++) {
   price_sim_array.push(price_sim)
   price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
 }
@@ -600,6 +600,7 @@ onPageClick: function (event, page) {
 }
 });
 
+//montecarlo simulation chart
 chartColors = {
 red: 'rgb(255, 99, 132)',
 orange: 'rgb(255, 159, 64)',
@@ -792,6 +793,6 @@ var config = {
     if(mychart!=null){
         mychart.destroy();
     }
-      var ctx = document.getElementById('overtimechart').getContext('2d');
+      var ctx = document.getElementById('montecarlo_simulation_chart').getContext('2d');
       mychart = new Chart(ctx, config);
 }

@@ -475,16 +475,33 @@ margin: 10px 10px 10px 0px;
 
   #pagination_trade_details{
     display: inline-block;
-    margin-top: -4px;
+    margin-top: 0px;
     position: absolute;
     right: 15px;
   }
-  
+
   #pagination_trade_details li{
     display: inline-block;  
   }
 
   #pagination_trade_details li a{
+    font-size: 11px;
+    padding: 1px 8px;
+    /* margin-bottom: 5px; */
+  }
+
+  #pagination_post_request_response{
+    display: inline-block;
+    margin-top: -12px;
+    position: absolute;
+    right: 15px;
+  }
+
+  #pagination_post_request_response li{
+    display: inline-block;  
+  }
+
+  #pagination_post_request_response li a{
     font-size: 11px;
     padding: 1px 8px;
     /* margin-bottom: 5px; */
