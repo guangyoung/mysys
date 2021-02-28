@@ -506,6 +506,23 @@ margin: 10px 10px 10px 0px;
     padding: 1px 8px;
     /* margin-bottom: 5px; */
   }
+
+  #pagination_test_history{
+    display: inline-block;
+    margin-top: -12px;
+    position: absolute;
+    right: 15px;
+  }
+
+  #pagination_test_history li{
+    display: inline-block;  
+  }
+
+  #pagination_test_history li a{
+    font-size: 11px;
+    padding: 1px 8px;
+    /* margin-bottom: 5px; */
+  }
   
   .page-content{
     background: #eee;

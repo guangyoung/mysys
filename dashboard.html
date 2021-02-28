@@ -24,6 +24,7 @@
     <script src="js/trade_report.js"></script>
     <script src="js/performance_chart.js"></script>
     <script src="js/post_request_response.js"></script>
+    <script src="js/test_history.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch-jsonp/1.0.6/fetch-jsonp.min.js"></script> -->
@@ -59,13 +60,10 @@
                     <img src="img/signaltesting3.png" width="110" height="45" style="margin-left: 10px; margin-top: 5px">
                     <a style="margin-top: 13px; margin-left: 20px"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#setting" id="setting_button" style="padding: 1px 5px; font-size: 10px"><i class="fa fa-gear" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>TEST SETTING</button></a>
                     <a style="margin-top: 13px; margin-left: 15px"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="padding: 1px 5px; font-size: 10px"><i class="fa fa-database" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>TEST DATA</button></a>
-                    <!-- <a style="font-size: 12px; color: #c1c2c6; margin-top: 18px; margin-left: 15px; margin-bottom: 5px;"><strong>TEST DATASET :</strong></a> -->
                     <p style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 15px">TEST DATA PERIOD</p>
-                    <!-- <input style="font-size: 11px; font-family: calibri; width: 135px; height: 17px; margin-top: 19px; margin-left: 5px" type="date" min="1899-01-01" max="2000-12-13" class="form-control" id="start_date" aria-describedby="" required> -->
-                    <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11px; color: #414347; margin-left: 5px; font-family: calibri; width: 125px; height: 18px; margin-top: 18px; margin-left: 5px">
+                   <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11px; color: #414347; margin-left: 5px; font-family: calibri; width: 125px; height: 18px; margin-top: 18px; margin-left: 5px">
                     <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 15px">Start Date</a>
                     <input style="font-size: 10px; font-family: calibri; width: 125px; height: 17px; margin-top: 18px; margin-left: 5px" type="date" class="form-control" id="startDate" aria-describedby="" required>
-                    <!-- <a style="margin-top: 14px; margin-left:10px"><button type="button" class="btn btn-secondary btn-sm" id="change_period_btn" style="padding: 0px 6px; font-size: 10px" onclick="start_date_change()">Change Startdate</button></a> -->
                     <a style="margin-top: 14px; margin-left:10px"><button type="button" class="btn btn-success btn-sm" id="play_button" style="padding: 0px 6px; font-size: 10px" onclick="run_test()">
                         <i class="fa fa-play" style="font-size: 14px"></i>
                     </button></a>
@@ -881,7 +879,7 @@
 		</div>
     </div>
 
-    <!-- TOMBOL STATISTIK -->
+    <!-- TEST HISTORY -->
     <div class="modal fade" id="statistik" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="statistikLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document" >
             <div class="modal-content">
@@ -898,8 +896,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div style="overflow-y: auto; overflow-x: hidden; height: 420px">
-                        <table style="background-color: #070914">
+                    <div class="row">
+                        <h6 style="margin-left: 15px; margin-top: -5px; font-size: 13px">Test History</h6>
+                        <ul id="pagination_test_history" class="pagination pagination-sm"></ul>
+                    </div>
+                    <div style="overflow-y: auto; overflow-x: hidden; height: 420px">                        
+                        <table id="test_history_tbl" style="background-color: #070914">
                             <thead style="color:#d2d3d7">
                                 <tr>
                                     <th rowspan="2" style="text-align: center; position: sticky; left: 0px; top: 0px; z-index: 2; background-color: #1b1d2d; padding: 1px 10px; width: 5%; font-size: 11px">#Test</th>
@@ -916,34 +918,7 @@
                                 </tr>
                             </thead>
                             <tbody style="font-size: 10px; color:#d2d3d7; ">
-                                <tr>
-                                    <td style="text-align: center; ; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; position: sticky; left: 0px; padding: 5px 5px; color:#d2d3d7;">12345</td>
-                                    <td style="text-align: center; padding: 0px 10px; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">23/01/20<br>15:00:00</td>
-                                    <td style="text-align: left; padding: 0px 10px; border-bottom: 1px #292b43 solid">Spread/side<br>Commision/trade<br>Interest rate/year</td>
-                                    <td style="text-align: left; padding: 0px 10px; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">0.01%<br>0.01%<br>2.0%</td>
-                                    <td style="text-align: center; padding: 0px 10px; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">Montecarlo Simulation</td>
-                                    <td style="text-align: center; padding: 10px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">
-                                    AAPL,&nbsp;AMZN,&nbsp;BBCA,&nbsp;BBMR,&nbsp;AAPL,&nbsp;
-                                    AMZN,&nbsp;BBCA,&nbsp;BBMR,&nbsp;AAPL,&nbsp;AMZN,&nbsp;
-                                    BBCA,&nbsp;BBMR,&nbsp;AAPL,&nbsp;AMZN,&nbsp;BBCA,&nbsp;
-                                    AAPL,&nbsp;AMZN,&nbsp;BBCA,&nbsp;BBMR,&nbsp;AAPL,&nbsp;
-                                    AMZN,&nbsp;BBCA,&nbsp;BBMR,&nbsp;AAPL,&nbsp;AMZN,&nbsp;
-                                    BBCA,&nbsp;BBMR,&nbsp;AAPL,&nbsp;AMZN,&nbsp;BBCA
-                                    </td>
-                                    <td style="text-align: center; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">23/01/20<br>-<br>23/01/20</td>
-                                    <td style="text-align: left; padding: 0px 10px; border-bottom: 1px #292b43 solid">
-                                    Total Return<br>CAGR<br>Max DD<br>MAR Ratio<br>Sharpe Ratio
-                                    </td>
-                                    <td style="text-align: left; padding: 0px 10px; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">
-                                    100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
-                                    </td>
-                                    <td style="text-align: left; padding: 0px 10px; border-bottom: 1px #292b43 solid">
-                                    Total Return<br>CAGR<br>Max DD<br>MAR Ratio<br>Sharpe Ratio
-                                    </td>
-                                    <td style="text-align: left; padding: 0px 10px; border-bottom: 1px #292b43 solid">
-                                    100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
-                                    </td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>                    
@@ -1076,36 +1051,36 @@
                                     <button class="btn btn-secondary btn-sm" type="button" style="margin-left: 10px; margin-top: 2px; font-size: 10px; height: 20px; width: 70px; padding: 1px 5px" onclick="view_asset_trade_details()">View Data</button>
                                    
                                     <div class="dropdown-menu" onclick="assets_list()" aria-labelledby="dropdownMenuButton" style="text-align: left; font-size: 10px; height: 200px; overflow-y: auto; overflow-x: hidden">
-                                    <a class="dropdown-item" href="#">Asset 1</a>
-                                    <a class="dropdown-item" href="#">Asset 2</a>
-                                    <a class="dropdown-item" href="#">Asset 3</a>
-                                    <a class="dropdown-item" href="#">Asset 4</a>
-                                    <a class="dropdown-item" href="#">Asset 5</a>
-                                    <a class="dropdown-item" href="#">Asset 6</a>
-                                    <a class="dropdown-item" href="#">Asset 7</a>
-                                    <a class="dropdown-item" href="#">Asset 8</a>
-                                    <a class="dropdown-item" href="#">Asset 9</a>
-                                    <a class="dropdown-item" href="#">Asset 10</a>
-                                    <a class="dropdown-item" href="#">Asset 11</a>
-                                    <a class="dropdown-item" href="#">Asset 12</a>
-                                    <a class="dropdown-item" href="#">Asset 13</a>
-                                    <a class="dropdown-item" href="#">Asset 14</a>
-                                    <a class="dropdown-item" href="#">Asset 15</a>
-                                    <a class="dropdown-item" href="#">Asset 16</a>
-                                    <a class="dropdown-item" href="#">Asset 17</a>
-                                    <a class="dropdown-item" href="#">Asset 18</a>
-                                    <a class="dropdown-item" href="#">Asset 19</a>
-                                    <a class="dropdown-item" href="#">Asset 20</a>
-                                    <a class="dropdown-item" href="#">Asset 21</a>
-                                    <a class="dropdown-item" href="#">Asset 22</a>
-                                    <a class="dropdown-item" href="#">Asset 23</a>
-                                    <a class="dropdown-item" href="#">Asset 24</a>
-                                    <a class="dropdown-item" href="#">Asset 25</a>
-                                    <a class="dropdown-item" href="#">Asset 26</a>
-                                    <a class="dropdown-item" href="#">Asset 27</a>
-                                    <a class="dropdown-item" href="#">Asset 28</a>
-                                    <a class="dropdown-item" href="#">Asset 29</a>
-                                    <a class="dropdown-item" href="#">Asset 30</a>
+                                        <a class="dropdown-item">Asset 1</a>
+                                        <a class="dropdown-item">Asset 2</a>
+                                        <a class="dropdown-item">Asset 3</a>
+                                        <a class="dropdown-item">Asset 4</a>
+                                        <a class="dropdown-item">Asset 5</a>
+                                        <a class="dropdown-item">Asset 6</a>
+                                        <a class="dropdown-item">Asset 7</a>
+                                        <a class="dropdown-item">Asset 8</a>
+                                        <a class="dropdown-item">Asset 9</a>
+                                        <a class="dropdown-item">Asset 10</a>
+                                        <a class="dropdown-item">Asset 11</a>
+                                        <a class="dropdown-item">Asset 12</a>
+                                        <a class="dropdown-item">Asset 13</a>
+                                        <a class="dropdown-item">Asset 14</a>
+                                        <a class="dropdown-item">Asset 15</a>
+                                        <a class="dropdown-item">Asset 16</a>
+                                        <a class="dropdown-item">Asset 17</a>
+                                        <a class="dropdown-item">Asset 18</a>
+                                        <a class="dropdown-item">Asset 19</a>
+                                        <a class="dropdown-item">Asset 20</a>
+                                        <a class="dropdown-item">Asset 21</a>
+                                        <a class="dropdown-item">Asset 22</a>
+                                        <a class="dropdown-item">Asset 23</a>
+                                        <a class="dropdown-item">Asset 24</a>
+                                        <a class="dropdown-item">Asset 25</a>
+                                        <a class="dropdown-item">Asset 26</a>
+                                        <a class="dropdown-item">Asset 27</a>
+                                        <a class="dropdown-item">Asset 28</a>
+                                        <a class="dropdown-item">Asset 29</a>
+                                        <a class="dropdown-item">Asset 30</a>
                                     </div>
                                 </div>  
                                 <ul id="pagination_trade_details" class="pagination pagination-sm"></ul>                              
@@ -1167,15 +1142,10 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <!-- <div class="row" style="height: 430px">
-
-                </div> -->
+            <div class="modal-body">              
                 <div class="card container" style="margin-top: 5px; margin-left: 0px; height: 430px">
                     <canvas id="performance_chart" width="11" height="4.5" class="chartjs-render-monitor"></canvas>
                 </div>
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
@@ -1183,6 +1153,21 @@
             </div>
         </div>
     </div>
+
+    <script>
+        test_history = [];
+        
+        var test_history_item = JSON.parse(localStorage.getItem("testhistory"));
+        
+        if(test_history_item !== null) {
+          for(i=0;i<test_history_item.length;i++) {
+            test_history.push(test_history_item[i]);
+          }
+        };  
+
+        view_test_history();
+
+    </script>
 
 </body>
 </html>

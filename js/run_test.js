@@ -16,7 +16,7 @@
  var buyandhold_equity_array = new Array();
 
 //  //test history array 
-//  var test_history = new Array();
+var test_history = new Array();
  
  
  async function run_test() {
@@ -647,16 +647,18 @@
         performance_chart();
         
         // test_history();
-        var test_history = new Array();
+        test_history = [];
         
         var test_history_item = JSON.parse(localStorage.getItem("testhistory"));
         
-        for(i=0;i<test_history_item.length;i++) {
-          test_history.push(test_history_item[i]);
-        }
+        if(test_history_item !== null) {
+          for(i=0;i<test_history_item.length;i++) {
+            test_history.push(test_history_item[i]);
+          }
+        };       
 
         test_history.push({
-          test_no : 4,
+          test_no : test_history.length+1,
           date_time_testing : Date.now(),
           test_setting : {
             spread_side : 0,
@@ -685,6 +687,8 @@
         });
 
         localStorage.setItem("testhistory",JSON.stringify(test_history));
+
+        view_test_history();
      
         alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
         return false;
