@@ -30,6 +30,10 @@
     font-family: Acrom;
 }
 
+.container-fluid {
+    min-width:1210px;
+ }
+
 /* login */
 
 * { margin: 0; padding: 0; }
