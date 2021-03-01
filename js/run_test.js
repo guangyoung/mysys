@@ -35,8 +35,6 @@ var test_history = new Array();
      
      var start_date = $('#startDate').val().split("-")[1] + '/' + $('#startDate').val().split("-")[2] + '/' + $('#startDate').val().split("-")[0];
      
-     var idx_start = port_data[0].indexOf(start_date);
-
      var data_id = 1;
      
      var date;
@@ -105,6 +103,8 @@ var test_history = new Array();
      alert(`tidak ada data untuk test`);
      return false;
    } else {
+    
+    var idx_start = port_data[0].indexOf(start_date);
     var data_length = port_data[0].length;
 
     if (data_length < 30) { //30 ganti jadi mindata
