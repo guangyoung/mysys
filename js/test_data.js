@@ -129,64 +129,64 @@ function add_data() {
         let as_data_date = new Array();
         let as_data_price = new Array();
 
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
+        // const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        // const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
 
-        $.getJSON(proxyurl+urls, function(result){
-            var yahoo_data = result;
-            let length_tm = yahoo_data.chart.result[0].timestamp.length;
-            for(i=0; i<length_tm; i++) {
-            var data_date = new Date(yahoo_data.chart.result[0].timestamp[i] * 1000);
-            var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
-            as_data_date.push(
-              appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
-            );
-            as_data_price.push(
-              data_price
-            );
-            }
-            asset_portfolio_yahoo.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
-            let al = asset_portfolio_yahoo.length;
-            let portfolio =
-            `<tr>
-                <td class="text-center">Asset `+al+`</td>
-                <td class="text-center">`+tickere+`</td>
-                <td class="text-center">`+as_data_date[0]+`</td>
-                <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
-            </tr>`;
-            $("#table_assets > tbody").append(portfolio);
-            });
-
-        // Papa.parse("dataset/"+exchange_choose+"/startdate_1990_under/"+tickere+".csv", {
-        //     download: true,
-        //     header: false,
-        //     complete: function(result) {
-        //       console.log(result.data);
-        //       for(i=1; i<result.data.length; i++) {
-        //         var data_date = new Date(result.data[i][0]);
-        //         var data_price = result.data[i][5];
-        //         as_data_date.push(
-        //           data_date.getFullYear() + "-" + appendLeadingZeroes(data_date.getMonth()+1) + "-" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10)
-        //         );
-        //         as_data_price.push(
-        //           data_price
-        //         );
-        //         }
-        //         asset_portfolio_yahoo.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
-        //         console.log(asset_portfolio_yahoo);
-        //         console.log(as_data_date);
-        //         let al = asset_portfolio_yahoo.length;
-        //         // let ad = as_data.length-1;
-        //         let portfolio =
-        //         `<tr>
-        //             <td class="text-center">Asset `+al+`</td>
-        //             <td class="text-center">`+tickere+`</td>
-        //             <td class="text-center">`+as_data_date[0]+`</td>
-        //             <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
-        //         </tr>`;
-        //         $("#table_assets > tbody").append(portfolio);
+        // $.getJSON(proxyurl+urls, function(result){
+        //     var yahoo_data = result;
+        //     let length_tm = yahoo_data.chart.result[0].timestamp.length;
+        //     for(i=0; i<length_tm; i++) {
+        //     var data_date = new Date(yahoo_data.chart.result[0].timestamp[i] * 1000);
+        //     var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
+        //     as_data_date.push(
+        //       appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
+        //     );
+        //     as_data_price.push(
+        //       data_price
+        //     );
         //     }
-        // });
+        //     asset_portfolio_yahoo.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
+        //     let al = asset_portfolio_yahoo.length;
+        //     let portfolio =
+        //     `<tr>
+        //         <td class="text-center">Asset `+al+`</td>
+        //         <td class="text-center">`+tickere+`</td>
+        //         <td class="text-center">`+as_data_date[0]+`</td>
+        //         <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
+        //     </tr>`;
+        //     $("#table_assets > tbody").append(portfolio);
+        //     });
+
+        Papa.parse("dataset/"+exchange_choose+"/startdate_1990_under/"+tickere+".csv", {
+            download: true,
+            header: false,
+            complete: function(result) {
+              console.log(result.data);
+              for(i=1; i<result.data.length; i++) {
+                var data_date = new Date(result.data[i][0]);
+                var data_price = result.data[i][5];
+                as_data_date.push(
+                  appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
+                );
+                as_data_price.push(
+                  data_price
+                );
+                }
+                asset_portfolio_yahoo.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
+                console.log(asset_portfolio_yahoo);
+                console.log(as_data_date);
+                let al = asset_portfolio_yahoo.length;
+                // let ad = as_data.length-1;
+                let portfolio =
+                `<tr>
+                    <td class="text-center">Asset `+al+`</td>
+                    <td class="text-center">`+tickere+`</td>
+                    <td class="text-center">`+as_data_date[0]+`</td>
+                    <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
+                </tr>`;
+                $("#table_assets > tbody").append(portfolio);
+            }
+        });
     }
     exchange_choose_current = "";
     startdate_choose_current = "";
