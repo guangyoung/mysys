@@ -2,7 +2,6 @@
 function view_test_history() {
     $("#test_history_tbl>tbody").empty();
     $("#pagination_test_history").twbsPagination("destroy");
-    // console.log(test_history);
     if(test_history.length > 0) {
       $("#pagination_test_history").twbsPagination({
         totalPages: Math.ceil(test_history.length/20),

@@ -176,7 +176,6 @@ function add_data() {
                 console.log(asset_portfolio_yahoo);
                 console.log(as_data_date);
                 let al = asset_portfolio_yahoo.length;
-                // let ad = as_data.length-1;
                 let portfolio =
                 `<tr>
                     <td class="text-center">Asset `+al+`</td>

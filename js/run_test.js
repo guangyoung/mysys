@@ -391,14 +391,14 @@ var test_history = new Array();
                result.data.asset30_signal_size
              );
              signal_output.push({data_id: result.data.data_id});
-             signal_output.push({total_signal_proccessed: result.data.total_signal_proccessed});
+             signal_output.push({signal_timestamp: result.data.signal_timestamp});
              signal_output.push({asset_signal_position: asset_signal_position});
              signal_output.push({asset_signal_size: asset_signal_size});
 
             //  console.log(signal_output[3]);
 
              $('#data_id_output').html(signal_output[0].data_id);
-             $('#asset_signal_created').html(signal_output[1].total_signal_proccessed);
+             $('#asset_signal_created').html(signal_output[1].signal_timestamp);
              $('#asset1_signal_position').html(signal_output[2].asset_signal_position[0]);
              $('#asset1_signal_size').html(signal_output[3].asset_signal_size[0]); 
              $('#asset2_signal_position').html(signal_output[2].asset_signal_position[1]);
