@@ -59,12 +59,12 @@
                     <img src="img/ai_gif_logo_1_statis.png" width="55" height="55">
                     <img src="img/quantxi5.png" width="150" height="46" style="margin-left: 3px; margin-top: 5px">
                     <img src="img/signaltesting3.png" width="110" height="45" style="margin-left: 10px; margin-top: 5px">
-                    <a style="margin-top: 13px; margin-left: 20px"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#setting" id="setting_button" style="padding: 1px 10px; font-size: 10px"><i class="fa fa-gear" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>SETTING</button></a>
-                    <a style="margin-top: 13px; margin-left: 20px"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="padding: 1px 10px; font-size: 10px"><i class="fa fa-database" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>DATA</button></a>
-                    <strong style="font-size: 12px; color: #c1c2c6; margin-top: 18px; margin-left: 25px">PROSES DATA :</strong>
-                    <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">Period</a>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#setting" id="setting_button" style="margin-top: 16px; margin-left: 20px; padding: 1px 10px; height: 20px; font-size: 10px"><i class="fa fa-gear" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>SETTING</button>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="margin-top: 16px; margin-left: 20px; padding: 1px 10px; height: 20px; font-size: 10px"><i class="fa fa-database" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>DATA</button>
+                    <strong style="font-size: 12px; color: #c1c2c6; margin-top: 18px; margin-left: 25px">PROCESS DATA :</strong>
+                    <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">Data Period</a>
                     <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 5px; font-family: calibri; width: 130px; height: 18px; margin-top: 18px; margin-left: 5px">
-                    <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">StartDate</a>
+                    <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">Start Date</a>
                     <input style="font-size: 10px; font-family: calibri; width: 112px; height: 17px; margin-top: 18px; margin-left: 5px; padding: 0 5px" type="date" class="form-control" id="startDate" aria-describedby="" required>
                     <!-- <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 15px">EndDate</a>
                     <input id="endDate" type="text" class="form-text-sm" disabled value="mm/dd/yyyy" style="text-align: center; font-size: 11px; color: #414347; margin-left: 5px; font-family: calibri; width: 100px; height: 18px; margin-top: 18px; margin-left: 5px"> -->
@@ -77,7 +77,7 @@
                     <a style="margin-top: 14px; margin-left:10px"><button type="button" class="btn btn-danger btn-sm" id="refresh_button" style="padding: 0px 6px; font-size: 10px" disabled onclick="reset_test()">
                         <i class="fa fa-refresh" style="font-size: 14px"></i>
                     </button></a>
-                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-top: 14px; position: absolute; right: 70px"><i class="fa fa-question-circle" style="color: #c1c2c6; cursor: pointer; font-size: 25px"></i></a>
+                    <a href="how_to_use.html" target="_blank" style="margin-top: 14px; position: absolute; right: 70px"><i class="fa fa-question-circle" style="color: #c1c2c6; cursor: pointer; font-size: 25px"></i></a>
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-top: 14px; position: absolute; right: 35px"><i class="fa fa-github" style="color: #c1c2c6; cursor: pointer; font-size: 25px"></i></a>
                     <a onclick="logout_btn()" style="margin-top: 14px; position: absolute; right: 0px"><i class="fa fa-sign-out" style="color: #c1c2c6; cursor: pointer; font-size: 25px"></i></a>
                 </div>
@@ -422,7 +422,7 @@
                             <span id="progress_bar_value"></span>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#trade_report" id="trade_report_button" style="font-family: Acrom; margin-left: 25px; margin-top: 3px; height: 17px; padding: 0px 5px; font-size: 10px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 5px"></i>TRADE REPORT</button>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#trade_report" id="trade_report_button" style="font-family: Acrom; margin-left: 25px; margin-top: 3px; height: 17px; padding: 0px 5px; font-size: 10px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 5px"></i>TRADE TESTING REPORT</button>
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#rasio_chart" id="chart_button" style="font-family: Acrom; margin-left: 25px; margin-top: 3px; height: 17px; padding: 0px 5px; font-size: 10px"><i class="fa fa-line-chart" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 5px"></i>PERFORMANCE CHART</button>
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#statistik" id="statistik_button" style="margin-top: 3px; position: absolute; right: 10px; height: 17px; padding: 0px 5px; font-size: 10px"><i class="fa fa-list" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 5px"></i>TEST HISTORY</button>
                 </div>
@@ -576,7 +576,7 @@
     </div>
     <!-- TOMBOL DATA -->
     <div class="modal fade" id="market_data" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="market_dataLabel" aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 1120px" role="document">
+        <div class="modal-dialog" style="min-width: 1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">Data</strong></h5>
@@ -886,7 +886,7 @@
 
     <!-- TEST HISTORY -->
     <div class="modal fade" id="statistik" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="statistikLabel" aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 1120px" role="document">
+        <div class="modal-dialog" style="min-width: 1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title"><i class="fa fa-list"></i><strong style="margin-left: 10px">Test History</strong></h5>
@@ -938,7 +938,7 @@
 
     <!-- TOMBOL VIEW ALL POST -->
     <div class="modal fade" id="view_allpost" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="dataLabel" aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 1120px" role="document">
+        <div class="modal-dialog" style="min-width: 1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <img src="img/rest_api_symbol_black.png" width="32" height="22" style="margin-top: 4px; margin-left: 0px; margin-right: 0px">
@@ -985,150 +985,94 @@
 
     <!-- TOMBOL TRADE REPORT -->
     <div class="modal fade" id="trade_report" data-backdrop="static" data-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="trade_reportLabel" aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 1120px" role="document">
+        <div class="modal-dialog" style="min-width: 1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>TRADE REPORT</strong></a>
-                    <ul class="nav nav-pills" id="trade-report-tab" role="tablist">
+                    <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>TRADE TESTING REPORT</strong></a>
+                    <a href="how_to_use.html" target="_blank"><button type="button" class="btn btn-primary btn-sm" style="margin-top: 3px; position: absolute; right: 40px; padding: 1px 10px; height: 25px; font-size: 13px"><i class="fa fa-question-circle" style="color: #ffffff; font-size: 15px; margin-top: 1px; margin-right: 6px"></i>Petunjuk Perhitungan</button></a>
+                    <!-- <a href="how_to_use.html" target="_blank" style="margin-top: 5px; position: absolute; right: 70px"><i class="fa fa-question-circle" style="color: #3e3f44; cursor: pointer; font-size: 22px"></i>How To Use</a> -->
+                    <!-- <ul class="nav nav-pills" id="trade-report-tab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" style="margin-top: 4px; margin-left: 60px; padding: 3px 15px; font-size: 13px" id="trade-summary-tab" data-toggle="pill" href="#trade-summary" role="tab" aria-controls="trade-summary" aria-selected="true">Account Summary</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="margin-top: 4px; margin-left: 60px; padding: 3px 15px; font-size: 13px" id="trade-details-tab" data-toggle="pill" href="#trade-details" role="tab" aria-controls="trade-details" aria-selected="true">Asset Trade Details</a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="tab-content" id="trade-report-tabContent">
-                        <div class="tab-pane fade show active" id="trade-summary" role="tabpanel" aria-labelledby="trade-summary-tab">
+                    <!-- <div class="tab-content" id="trade-report-tabContent">
+                        <div class="tab-pane fade show active" id="trade-summary" role="tabpanel" aria-labelledby="trade-summary-tab"> -->
                             <div class="row">
-                                <h6 style="margin-left: 15px; margin-top: 0px; font-size: 13px">Account Summary :</h6>
-                                <h6 style="margin-left: 10px; margin-top: 0px; font-size: 13px">Period 23/01/01 - 24/01/01</h6>
+                                <!-- <h6 style="margin-left: 15px; margin-top: 0px; font-size: 13px">Account Summary :</h6> -->
+                                <h6 style="margin-left: 15px; margin-top: 0px; font-size: 11px">Date : 23-01-2001 ---------------- Data ID : 293</h6>
                                 <!-- <button class="btn btn-secondary btn-sm" type="button" style="margin-left: 10px; margin-top: -2px; font-size: 10px; height: 20px; width: 70px; padding: 1px 5px" onclick="view_account_trade_summary()">View Data</button> -->
                                 <ul id="pagination_trade_summary" class="pagination pagination-sm"></ul>
-                                <div class="table-hover" style="margin-left: 15px; margin-right: 15px; margin-top: 0px; background-color: #070914; height: 438px">
+                                <div class="table-hover" style="margin-left: 15px; margin-right: 15px; margin-top: -7px; background-color: #070914; overflow : auto; height: 185px">
                                     <table id="account_trade_summary_tbl" style="width: 100%">
                                         <thead style="color:#d2d3d7">
                                             <tr>
-                                                <th class="text-center" rowspan="3" style="position: sticky; left: 0px; top: 0px; z-index: 2; background-color: #2e3050; padding: 3px 10px; font-size: 9px">Date</th>
-                                                <th class="text-center" colspan="4" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Pretrade Account Position</th>
-                                                <th class="text-center" colspan="3" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Pretrade Margin Position</th>
-                                                <th class="text-center" colspan="5" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Trade Summary</th>                                                
-                                                <th class="text-center" rowspan="3" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Daily Interest</th>
+                                                <th class="text-center" rowspan="2" style="position: sticky; top: 0px; padding: 3px 8px; background-color: #40446f; font-size: 9px">Portfolio</th>
+                                                <th class="text-center" rowspan="2" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Price</th>
+                                                <th class="text-center" colspan="4" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Pre Trade Position</th>
+                                                <th class="text-center" colspan="5" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Buy Open (Add Position)</th>
+                                                <th class="text-center" colspan="6" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Sell Close (Reduce Position)</th>
+                                                <th class="text-center" colspan="3" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Post Trade Position</th>
                                             </tr>                                           
                                             <tr>
-                                                <th class="text-center" rowspan="2" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Cash</th>
-                                                <th class="text-center" rowspan="2" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-                                                <th class="text-center" rowspan="2" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Margin Loan Balance</th>
-                                                <th class="text-center" rowspan="2" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Equity</th>
-                                                <th class="text-center" rowspan="2" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Maint. Margin (30%)</th>
-                                                <th class="text-center" rowspan="2" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Reg.T Margin Req. (50%)</th>
-                                                <th class="text-center" rowspan="2" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Margin Available</th>
-                                                <th class="text-center" colspan="2" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Margin</th>                                                
-                                                <th class="text-center" colspan="2" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Loan</th>
-                                                <th class="text-center" rowspan="2" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Balance</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Daily Interest</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Signal Size</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Margin Used</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Used</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Signal Size</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Avg Buy Price</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Payback</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Margin Return</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
+                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Balance</th>  
+                                            </tr>                                            
+                                        </thead>
+                                        <tbody>                                                                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="margin-left: 15px; margin-right: 15px; margin-top: 0px; background-color: #1b3636; height: 140px">
+                                    <table id="" style="width: 100%">                                        
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center" rowspan="2" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 100px; padding: 2px 7px"><strong>ACCOUNT<br>SUMMARY</strong></td>
+                                                <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 250px; padding: 2px 7px"><strong>PRE TRADE POSITION</strong></td>
+                                                <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 267px; padding: 2px 7px"><strong>BUY OPEN TRADE SUMMARY</strong></td>
+                                                <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 340px; padding: 2px 7px"><strong>SELL CLOSE TRADE SUMMARY</strong></td>
+                                                <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 117px; padding: 2px 7px"><strong>POST TRADE POSITION</strong></td>                                                
+                                               
                                             </tr>
                                             <tr>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Buy/Used</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Sell/Back</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Buy/Used</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 3px 8px; background-color: #1b1d2d; font-size: 9px">Sell/Back</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
+                                                <!-- <td class="text-center" rowspan="2" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 100px; padding: 2px 10px">Account<br>Summary</td> -->
+                                                <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Cash Balance<br>Portfolio Market Value<br>Total Loan Balance<br>Equity Balance<br>Maintenance Margin<br>Margin Requirement<br>Margin Available<br>Buying Power</td>
+                                                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
+                                                <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Trade Value<br><br/>Margin Used<br><br/>Loan Used<br><br/>Trade Cost</td>
+                                                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00</td>                                                
+                                                <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Trade Value<br><br/>Margin Return<br><br/>Loan Payback<br><br/>Trade Cost</td>
+                                                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00</td>
+                                                <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Cash Balance<br>Portfolio Market Value<br>Total Loan Balance<br>Equity Balance<br>Maintenance Margin<br>Margin Requirement<br>Margin Available<br>Buying Power</td>
+                                                <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
+                                            </tr>                                            
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane fade" id="trade-details" role="tabpanel" aria-labelledby="trade-details-tab">
-                            <div class="row">
-                                <h6 style="margin-left: 15px; margin-top: 0px; font-size: 14px">Asset Trade Details :</h6>
-                                <h6 style="margin-left: 10px; margin-top: 0px; font-size: 13px">Period 23/01/01 - 24/01/01</h6>
-                                <div class="dropdown" id="trade_report_dd" style="margin-top: -5px;">
-                                    <button class="btn btn-secondary btn-sm dropdown-toggle" id="trade_report_dd_btn" type="button" data-toggle="dropdown" style="margin-left: 5px; font-size: 10px; width: 90px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
-                                        <span class="asset_selected">Asset 1</span>
-                                    </button>
-                                    <!-- <button class="btn btn-secondary btn-sm" type="button" style="margin-left: 10px; margin-top: 2px; font-size: 10px; height: 20px; width: 70px; padding: 1px 5px" onclick="view_asset_trade_details()">View Data</button> -->
-                                   
-                                    <div class="dropdown-menu" onclick="view_asset_trade_details()" aria-labelledby="dropdownMenuButton" style="text-align: left; font-size: 10px; height: 200px; overflow-y: auto; overflow-x: hidden">
-                                        <a class="dropdown-item">Asset 1</a>
-                                        <a class="dropdown-item">Asset 2</a>
-                                        <a class="dropdown-item">Asset 3</a>
-                                        <a class="dropdown-item">Asset 4</a>
-                                        <a class="dropdown-item">Asset 5</a>
-                                        <a class="dropdown-item">Asset 6</a>
-                                        <a class="dropdown-item">Asset 7</a>
-                                        <a class="dropdown-item">Asset 8</a>
-                                        <a class="dropdown-item">Asset 9</a>
-                                        <a class="dropdown-item">Asset 10</a>
-                                        <a class="dropdown-item">Asset 11</a>
-                                        <a class="dropdown-item">Asset 12</a>
-                                        <a class="dropdown-item">Asset 13</a>
-                                        <a class="dropdown-item">Asset 14</a>
-                                        <a class="dropdown-item">Asset 15</a>
-                                        <a class="dropdown-item">Asset 16</a>
-                                        <a class="dropdown-item">Asset 17</a>
-                                        <a class="dropdown-item">Asset 18</a>
-                                        <a class="dropdown-item">Asset 19</a>
-                                        <a class="dropdown-item">Asset 20</a>
-                                        <a class="dropdown-item">Asset 21</a>
-                                        <a class="dropdown-item">Asset 22</a>
-                                        <a class="dropdown-item">Asset 23</a>
-                                        <a class="dropdown-item">Asset 24</a>
-                                        <a class="dropdown-item">Asset 25</a>
-                                        <a class="dropdown-item">Asset 26</a>
-                                        <a class="dropdown-item">Asset 27</a>
-                                        <a class="dropdown-item">Asset 28</a>
-                                        <a class="dropdown-item">Asset 29</a>
-                                        <a class="dropdown-item">Asset 30</a>
-                                    </div>
-                                </div>  
-                                <ul id="pagination_trade_details" class="pagination pagination-sm"></ul>                              
-                            </div>
-                            <div class="row">
-                                <div class="table-responsive table-hover" style="margin-top: 0px; margin-left: 15px; margin-right: 15px; border: 1px #ffffff solid; background-color: #070914; overflow-y: scroll; height: 450px">
-                                    <table id="asset_trade_details_tbl" style="width: 100%">
-                                        <thead style="color:#d2d3d7">
-                                            <tr class="text-white">
-                                                <th class="text-center" rowspan="3" style="position: sticky; top: 0; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Date</th>
-                                                <th class="text-center" rowspan="3" style="position: sticky; top: 0; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #2e3050; font-size: 9px">Price</th>
-                                                <th class="text-center" rowspan="2" colspan="3" style="position: sticky; top: 0; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #2e3050; font-size: 9px">PreTrade Position</th>
-                                                <th class="text-center" colspan="11" style="position: sticky; top: 0; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #2e3050; font-size: 9px">Trade</th>
-                                            </tr>
-                                            <tr class="text-white">
-                                                <th class="text-center" colspan="5" style="position: sticky; top: 0; border-left: 1px #070914 solid; padding: 2px 8px; background-color: #2e3050; font-size: 9px">Buy</th>
-                                                <th class="text-center" colspan="6" style="position: sticky; top: 0; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #2e3050; font-size: 9px">Sell</th>
-                                            </tr>
-                                            <tr class="text-white">
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Margin Loan Balance</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Trade Size</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Margin Used</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Loan Used</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Trade Size</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Avg Buy Price</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Loan Back</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Margin Back</th>
-                                                <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #070914 solid; padding: 2px 9px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
@@ -1139,7 +1083,7 @@
 
     <!-- TOMBOL CHART -->
     <div class="modal fade" id="rasio_chart" data-backdrop="static" data-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="rasio_chartLabel" aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 1120px" role="document">
+        <div class="modal-dialog" style="min-width: 1200px" role="document">
             <div class="modal-content">
             <div class="modal-header" style="color: black">
                 <h5 class="modal-title"><strong><i class="fa fa-line-chart"><strong style="margin-left: 10px"></strong></i>Performance Chart</strong></h5>
@@ -1175,5 +1119,33 @@
 
     </script>
 
+    <script>
+        for (i=1; i<31; i++) {
+        var account_trade_summary_row =
+        `<tr>
+            <td class="text-center" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">Asset `+i+`</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">10,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #1c2451 solid; color:#d2d3d7; padding: 1px 2px">1,000,000</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">100,000,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">10,000,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">1,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">10,000</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">1,000,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">1,000,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">1,000,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">10,000</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">10,000</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">1,000,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">1,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">1,000,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">1,000,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">10,000</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">100,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">100,000,000.00</td>
+            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; padding: 1px 2px">10,000,000.00</td>                                                    
+        </tr>`           
+        $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
+        }
+    </script>
 </body>
 </html>
