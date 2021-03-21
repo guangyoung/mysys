@@ -10,6 +10,11 @@
     background-color: red;
 } 
 
+#select-tab>li>a.active {
+    background-color: #555555 !important;
+    color: #fff;
+}
+
 .bg {
     /* The image used */
     background-image: url("img/img04.png");
@@ -31,7 +36,7 @@
 }
 
 .container-fluid {
-    min-width:1180px;
+    min-width:1250px;
  }
 
 /* login */
