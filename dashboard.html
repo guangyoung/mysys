@@ -37,7 +37,7 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script> -->
 </head>
 
-<body  class="cover">
+<body class="cover">
     <script>
         // let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
         // if (width < 1200) {
@@ -56,22 +56,26 @@
         <div class="row" style="margin-top: 5px">
             <div class="col">
                 <div class="row">
-                    <img src="img/ai_gif_logo_1_statis.png" width="55" height="55">
-                    <img src="img/quantxi5.png" width="150" height="46" style="margin-left: 3px; margin-top: 5px">
-                    <img src="img/signaltesting3.png" width="110" height="45" style="margin-left: 10px; margin-top: 5px">
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#setting" id="setting_button" style="margin-top: 16px; margin-left: 20px; padding: 1px 10px; height: 20px; font-size: 10px"><i class="fa fa-gear" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>SETTING</button>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="margin-top: 16px; margin-left: 20px; padding: 1px 10px; height: 20px; font-size: 10px"><i class="fa fa-database" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>CREATE DATA</button>
-                    <strong style="font-size: 12px; color: #c1c2c6; margin-top: 18px; margin-left: 20px">PROCESS DATA :</strong>
-                    <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">Data Period</a>
-                    <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="01/01/1991 - 01/01/2001" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 5px; font-family: calibri; width: 130px; height: 18px; margin-top: 18px; margin-left: 5px">
+                    <img src="img/ai_gif_logo_1_statis.png" width="53" height="53">
+                    <img src="img/quantxi5.png" width="127" height="47" style="margin-left: 3px; margin-top: 4px">
+                    <img src="img/tradingsimulation2.png" width="110" height="45" style="margin-left: 3px; margin-top: 5px">
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#setting" id="setting_button" style="margin-top: 16px; margin-left: 20px; padding: 1px 6px; height: 20px; font-size: 10px"><i class="fa fa-gear" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>SETTING</button>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="margin-top: 16px; margin-left: 15px; padding: 1px 6px; height: 20px; font-size: 10px"><i class="fa fa-database" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>CREATE DATA</button>
+                    <strong style="font-size: 12px; color: #c1c2c6; margin-top: 18px; margin-left: 15px">REPLAY DATA :</strong>
+                    <!-- <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">Data Period</a> -->
+                    <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 5px; font-family: calibri; width: 115px; height: 18px; margin-top: 18px;">
+                    <input id="" type="text" class="form-text-sm" disabled value="No Data Period" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 8px; font-family: calibri; width: 130px; height: 18px; margin-top: 18px;">
                     <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">Start Date</a>
                     <input style="font-size: 10px; font-family: calibri; width: 112px; height: 17px; margin-top: 18px; margin-left: 5px; padding: 0 5px" type="date" class="form-control" id="startDate" aria-describedby="" required>
-                    <a style="margin-top: 14px; margin-left:10px"><button type="button" class="btn btn-success btn-sm" id="play_button" style="padding: 0px 6px; font-size: 10px" onclick="run_test()">
-                        <i class="fa fa-play" style="font-size: 14px"></i>
-                    </button></a>
-                    <a style="margin-top: 14px; margin-left:10px"><button type="button" class="btn btn-danger btn-sm" id="refresh_button" style="padding: 0px 6px; font-size: 10px" disabled onclick="reset_test()">
-                        <i class="fa fa-refresh" style="font-size: 14px"></i>
-                    </button></a>
+                    <!-- <button type="button" class="btn btn-success btn-sm" id="play_button" style="margin-left: 10px; margin-top: 16px; padding: 1px 6px; height: 20px; font-size: 10px" onclick="run_test()">
+                        <i class="fa fa-play" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>PROCESS
+                    </button> -->
+                    <button type="button" class="btn btn-success btn-sm" id="play_button" style="margin-top: 16px; margin-left: 10px; padding: 0px 6px; height: 20px; font-size: 10px" onclick="run_test()">
+                        <i class="fa fa-play" style="margin-top: 1px; font-size: 14px"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" id="refresh_button" style="margin-top: 16px; margin-left: 10px; padding: 0px 6px; height: 20px; font-size: 10px" disabled onclick="reset_test()">
+                        <i class="fa fa-refresh" style="margin-top: 1px; font-size: 14px"></i>
+                    </button>
                     <a href="how_to_use.html" target="_blank" style="margin-top: 14px; position: absolute; right: 70px"><i class="fa fa-question-circle" style="color: #c1c2c6; cursor: pointer; font-size: 25px"></i></a>
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-top: 14px; position: absolute; right: 35px"><i class="fa fa-github" style="color: #c1c2c6; cursor: pointer; font-size: 25px"></i></a>
                     <a onclick="logout_btn()" style="margin-top: 14px; position: absolute; right: 0px"><i class="fa fa-sign-out" style="color: #c1c2c6; cursor: pointer; font-size: 25px"></i></a>
@@ -268,7 +272,7 @@
                                     <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="data_id_output">0</span></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3" style="text-align: left; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset Signal Created</td>
+                                    <td colspan="3" style="text-align: left; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Signal Timestamp</td>
                                     <td colspan="3" style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset_signal_created">0</span></td>
                                 </tr>
                                 <tr>
@@ -583,7 +587,7 @@
                 <div class="modal-body">                    
                     <div class="row">
                         <div class="col" style="width : 37%">
-                            <h6 style="font-size: 14px">Create Data</h6>
+                            <!-- <h6 style="font-size: 14px">Create Data</h6> -->
                             <div class="card text-center">
                                 <div class="card-header">
                                     <ul class="nav nav-pills" id="create-tab" role="tablist">
@@ -769,19 +773,19 @@
                             </div>
                         </div>
                         <div class="col" style="width : 63%">
-                            <div class="row">
+                            <!-- <div class="row">
                                 <h6 style="font-size: 14px">Data Created</h6>
-                            </div>                           
+                            </div>                            -->
                             <div class="row">
                                 <!-- <strong style="margin-left: 0px; font-size: 12px;">Portfolio Data :</strong> -->
                                 <a style="margin-left: 0px; font-size: 12px;">Data Source</a>
-                                <input id="source_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 5px; height: 18px;  width: 145px; font-size: 10px"> 
+                                <input id="source_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 5px; height: 18px;  width: 130px; font-size: 10px"> 
                                 <a style="margin-left: 10px; font-size: 12px;">Data Period</a>
                                 <input id="period_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 5px; height: 18px;  width: 145px; font-size: 10px">                               
                                 <ul id="pagination-demo" class="pagination pagination-sm"></ul>
                             </div>                           
                             <div class="row">
-                                <div class="table-hover" style="font-family: calibri; font-size: 11px; background-color: #070914; margin-right: 15px; margin-top: 5px; overflow: auto; height: 430px">
+                                <div class="table-hover" style="font-family: calibri; font-size: 11px; background-color: #070914; margin-right: 15px; margin-top: 5px; overflow: auto; height: 427px">
                                     <table id="port_data_tbl">
                                         <thead style="color:#d2d3d7">
                                             <tr>
@@ -996,276 +1000,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">                        
-                        <h6 style="margin-left: 15px; margin-top: -5px; font-size: 12px; color: #000000">Period : 01/01/1991 - 01/01/2001</h6>
-                        <ul id="pagination_trade_summary" class="pagination pagination-sm"></ul>
-                        <div style="margin-left: 15px; margin-right: 15px; margin-top: -7px; background-color: #070914; overflow : auto; height: 460px">
-                            <table id="" style="width: 100%">                                        
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <h6 style="background-color: #0080c0; color: #ffffff; margin-left: 15px; margin-right: 15px; margin-top: 10px; font-size: 10px; padding: 3px 7px">Date : 23-01-2001 ---------------- Data ID : 293</h6>
-                                            <div class="table-hover" style="margin-left: 15px; margin-right: 15px; margin-top: -8px; background-color: #070914; overflow : auto; height: 200px">
-                                                <table id="account_trade_summary_tbl" style="width: 100%">
-                                                    <thead style="color:#d2d3d7">
-                                                        <tr>
-                                                            <th class="text-center" rowspan="2" style="position: sticky; top: 0px; padding: 3px 8px; background-color: #40446f; font-size: 9px">Portfolio</th>
-                                                            <th class="text-center" rowspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Price</th>
-                                                            <th class="text-center" colspan="4" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Pre Trade Position</th>
-                                                            <th class="text-center" colspan="5" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Buy Open (Add Position)</th>
-                                                            <th class="text-center" colspan="6" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Sell Close (Reduce Position)</th>
-                                                            <th class="text-center" colspan="3" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Post Trade Position</th>
-                                                        </tr>                                           
-                                                        <tr>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Balance</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Daily Interest</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Signal Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Margin Used</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Used</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Signal Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Avg Buy Price</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Payback</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Margin Return</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Balance</th>  
-                                                        </tr>                                            
-                                                    </thead>
-                                                    <tbody>                                                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div style="margin-left: 15px; margin-right: 15px; margin-top: 0px; background-color: #1b3636; height: 140px">
-                                                <table id="" style="width: 100%">                                        
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="text-center" rowspan="2" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 100px; padding: 2px 7px"><strong>ACCOUNT<br>SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 250px; padding: 2px 7px"><strong>PRE TRADE POSITION</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 267px; padding: 2px 7px"><strong>BUY OPEN TRADE SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 340px; padding: 2px 7px"><strong>SELL CLOSE TRADE SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 117px; padding: 2px 7px"><strong>POST TRADE POSITION</strong></td>                                                
-                                                        
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Cash Balance<br>Portfolio Market Value<br>Total Loan Balance<br>Equity Balance<br>Maintenance Margin<br>Margin Requirement<br>Margin Available<br>Buying Power</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Trade Value<br><br/>Margin Used<br><br/>Loan Used<br><br/>Trade Cost</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00</td>                                                
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Trade Value<br><br/>Margin Return<br><br/>Loan Payback<br><br/>Trade Cost</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00</td>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Cash Balance<br>Portfolio Market Value<br>Total Loan Balance<br>Equity Balance<br>Maintenance Margin<br>Margin Requirement<br>Margin Available<br>Buying Power</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
-                                                        </tr>                                            
-                                                    </tbody>
-                                                </table>
-                                            </div> 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h6 style="background-color: #808040; color: #ffffff; margin-left: 15px; margin-right: 15px; margin-top: 10px; font-size: 10px; padding: 3px 7px">Date : 23-01-2001 ---------------- Data ID : 293</h6>
-                                            <div class="table-hover" style="margin-left: 15px; margin-right: 15px; margin-top: -8px; background-color: #070914; overflow : auto; height: 200px">
-                                                <table id="account_trade_summary_tbl" style="width: 100%">
-                                                    <thead style="color:#d2d3d7">
-                                                        <tr>
-                                                            <th class="text-center" rowspan="2" style="position: sticky; top: 0px; padding: 3px 8px; background-color: #40446f; font-size: 9px">Portfolio</th>
-                                                            <th class="text-center" rowspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Price</th>
-                                                            <th class="text-center" colspan="4" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Pre Trade Position</th>
-                                                            <th class="text-center" colspan="5" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Buy Open (Add Position)</th>
-                                                            <th class="text-center" colspan="6" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Sell Close (Reduce Position)</th>
-                                                            <th class="text-center" colspan="3" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Post Trade Position</th>
-                                                        </tr>                                           
-                                                        <tr>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Balance</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Daily Interest</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Signal Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Margin Used</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Used</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Signal Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Avg Buy Price</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Payback</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Margin Return</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Balance</th>  
-                                                        </tr>                                            
-                                                    </thead>
-                                                    <tbody>                                                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div style="margin-left: 15px; margin-right: 15px; margin-top: 0px; background-color: #1b3636; height: 140px">
-                                                <table id="" style="width: 100%">                                        
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="text-center" rowspan="2" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 100px; padding: 2px 7px"><strong>ACCOUNT<br>SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 250px; padding: 2px 7px"><strong>PRE TRADE POSITION</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 267px; padding: 2px 7px"><strong>BUY OPEN TRADE SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 340px; padding: 2px 7px"><strong>SELL CLOSE TRADE SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 117px; padding: 2px 7px"><strong>POST TRADE POSITION</strong></td>                                                
-                                                        
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Cash Balance<br>Portfolio Market Value<br>Total Loan Balance<br>Equity Balance<br>Maintenance Margin<br>Margin Requirement<br>Margin Available<br>Buying Power</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Trade Value<br><br/>Margin Used<br><br/>Loan Used<br><br/>Trade Cost</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00</td>                                                
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Trade Value<br><br/>Margin Return<br><br/>Loan Payback<br><br/>Trade Cost</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00</td>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Cash Balance<br>Portfolio Market Value<br>Total Loan Balance<br>Equity Balance<br>Maintenance Margin<br>Margin Requirement<br>Margin Available<br>Buying Power</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
-                                                        </tr>                                            
-                                                    </tbody>
-                                                </table>
-                                            </div> 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h6 style="background-color: #808040; color: #ffffff; margin-left: 15px; margin-right: 15px; margin-top: 10px; font-size: 10px; padding: 3px 7px">Date : 23-01-2001 ---------------- Data ID : 293</h6>
-                                            <div class="table-hover" style="margin-left: 15px; margin-right: 15px; margin-top: -8px; background-color: #070914; overflow : auto; height: 200px">
-                                                <table id="account_trade_summary_tbl" style="width: 100%">
-                                                    <thead style="color:#d2d3d7">
-                                                        <tr>
-                                                            <th class="text-center" rowspan="2" style="position: sticky; top: 0px; padding: 3px 8px; background-color: #40446f; font-size: 9px">Portfolio</th>
-                                                            <th class="text-center" rowspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Price</th>
-                                                            <th class="text-center" colspan="4" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Pre Trade Position</th>
-                                                            <th class="text-center" colspan="5" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Buy Open (Add Position)</th>
-                                                            <th class="text-center" colspan="6" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Sell Close (Reduce Position)</th>
-                                                            <th class="text-center" colspan="3" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Post Trade Position</th>
-                                                        </tr>                                           
-                                                        <tr>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Balance</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Daily Interest</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Signal Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Margin Used</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Used</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Signal Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Avg Buy Price</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Payback</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Margin Return</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Balance</th>  
-                                                        </tr>                                            
-                                                    </thead>
-                                                    <tbody>                                                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div style="margin-left: 15px; margin-right: 15px; margin-top: 0px; background-color: #1b3636; height: 140px">
-                                                <table id="" style="width: 100%">                                        
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="text-center" rowspan="2" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 100px; padding: 2px 7px"><strong>ACCOUNT<br>SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 250px; padding: 2px 7px"><strong>PRE TRADE POSITION</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 267px; padding: 2px 7px"><strong>BUY OPEN TRADE SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 340px; padding: 2px 7px"><strong>SELL CLOSE TRADE SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 117px; padding: 2px 7px"><strong>POST TRADE POSITION</strong></td>                                                
-                                                        
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Cash Balance<br>Portfolio Market Value<br>Total Loan Balance<br>Equity Balance<br>Maintenance Margin<br>Margin Requirement<br>Margin Available<br>Buying Power</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Trade Value<br><br/>Margin Used<br><br/>Loan Used<br><br/>Trade Cost</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00</td>                                                
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Trade Value<br><br/>Margin Return<br><br/>Loan Payback<br><br/>Trade Cost</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00</td>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Cash Balance<br>Portfolio Market Value<br>Total Loan Balance<br>Equity Balance<br>Maintenance Margin<br>Margin Requirement<br>Margin Available<br>Buying Power</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
-                                                        </tr>                                            
-                                                    </tbody>
-                                                </table>
-                                            </div> 
-                                        </td>
-                                    </tr> 
-                                    <tr>
-                                        <td>
-                                            <h6 style="background-color: #0080c0; color: #ffffff; margin-left: 15px; margin-right: 15px; margin-top: 10px; font-size: 10px; padding: 3px 7px">Date : 23-01-2001 ---------------- Data ID : 293</h6>
-                                            <div class="table-hover" style="margin-left: 15px; margin-right: 15px; margin-top: -8px; background-color: #070914; overflow : auto; height: 200px">
-                                                <table id="account_trade_summary_tbl" style="width: 100%">
-                                                    <thead style="color:#d2d3d7">
-                                                        <tr>
-                                                            <th class="text-center" rowspan="2" style="position: sticky; top: 0px; padding: 3px 8px; background-color: #40446f; font-size: 9px">Portfolio</th>
-                                                            <th class="text-center" rowspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Price</th>
-                                                            <th class="text-center" colspan="4" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Pre Trade Position</th>
-                                                            <th class="text-center" colspan="5" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Buy Open (Add Position)</th>
-                                                            <th class="text-center" colspan="6" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Sell Close (Reduce Position)</th>
-                                                            <th class="text-center" colspan="3" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Post Trade Position</th>
-                                                        </tr>                                           
-                                                        <tr>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Balance</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Daily Interest</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Signal Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Margin Used</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Used</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Signal Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Avg Buy Price</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Payback</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Margin Return</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Cost</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-                                                            <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Loan Balance</th>  
-                                                        </tr>                                            
-                                                    </thead>
-                                                    <tbody>                                                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div style="margin-left: 15px; margin-right: 15px; margin-top: 0px; background-color: #1b3636; height: 140px">
-                                                <table id="" style="width: 100%">                                        
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="text-center" rowspan="2" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 100px; padding: 2px 7px"><strong>ACCOUNT<br>SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 250px; padding: 2px 7px"><strong>PRE TRADE POSITION</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 267px; padding: 2px 7px"><strong>BUY OPEN TRADE SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 340px; padding: 2px 7px"><strong>SELL CLOSE TRADE SUMMARY</strong></td>
-                                                            <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 117px; padding: 2px 7px"><strong>POST TRADE POSITION</strong></td>                                                
-                                                        
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Cash Balance<br>Portfolio Market Value<br>Total Loan Balance<br>Equity Balance<br>Maintenance Margin<br>Margin Requirement<br>Margin Available<br>Buying Power</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Trade Value<br><br/>Margin Used<br><br/>Loan Used<br><br/>Trade Cost</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00</td>                                                
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Trade Value<br><br/>Margin Return<br><br/>Loan Payback<br><br/>Trade Cost</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00<br><br/>100,000,000.00</td>
-                                                            <td class="text-left" style="font-size: 10px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">Cash Balance<br>Portfolio Market Value<br>Total Loan Balance<br>Equity Balance<br>Maintenance Margin<br>Margin Requirement<br>Margin Available<br>Buying Power</td>
-                                                            <td class="text-right" style="font-size: 10px; font-family: calibri; color:#d2d3d7; width: 130px; padding: 0px 12px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
-                                                        </tr>                                            
-                                                    </tbody>
-                                                </table>
-                                            </div> 
-                                        </td>
-                                    </tr>                                                                                                                            
-                                </tbody>
-                            </table>
-                        </div>
-                        
+                    <h6 style="font-size: 12px; color: #000000">Period : 01/01/1991 - 01/01/2001</h6>
+                    <ul id="pagination_trade_summary" class="pagination pagination-sm"></ul>
+                    <div style="background-color: #070914; overflow: auto; height: 440px">
+                        <table id="account_trade_summary_tbl" style="margin-bottom: 15px">                                        
+                            <tbody>                                
+                            </tbody>
+                        </table>                        
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -1314,32 +1055,100 @@
     </script>
 
     <script>
-        for (i=1; i<31; i++) {
-        var account_trade_summary_row =
-        `<tr>
-            <td class="text-center" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">Asset `+i+` AAPLAA</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">100,000,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">100,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">100,000,000.00</td>
-            <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000,000.00</td>                                                    
-        </tr>`           
-        $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
+        $("#pagination_trade_summary").twbsPagination({
+        totalPages: Math.ceil(2000/3),
+        visiblePages: 4,
+        onPageClick: function (event, page) {
+        $("#account_trade_summary_tbl>tbody").empty();
+          for (i=(page*3)-3; i<(page*3) && i<(2000); i++) {
+            var account_trade_summary_row =
+            `<tr>
+                <td>
+                    <div class="row" style="margin-left: 15px; margin-top: 15px">
+                        <a style="color: #ffffff; font-size: 11px;">Date : 23-01-2001</a>
+                    </div>                                            
+                    <div class="table-hover" style="margin-left: 15px; margin-top: 0px; background-color: #070914; overflow: auto; width: 1115px; height: 190px">
+                        <table id="account_trade_tbl">
+                            <thead style="color:#d2d3d7">
+                                <tr>
+                                    <th class="text-center" rowspan="2" style="position: sticky; top: 0px; padding: 3px 8px; background-color: #40446f; font-size: 9px">Portfolio</th>
+                                    <th class="text-center" rowspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Price</th>
+                                    <th class="text-center" colspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Pre Trade Position</th>
+                                    <th class="text-center" colspan="5" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Buy Open (Add Position)</th>
+                                    <th class="text-center" colspan="5" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Sell Close (Reduce Position)</th>
+                                    <th class="text-center" colspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Post Trade Position</th>
+                                </tr>                                           
+                                <tr>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Quantxi Signal</th>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Order</th>                                                        
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Price</th>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Com mision</th>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Quantxi Signal</th>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Order</th>                                                        
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Price</th>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Com mision</th>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th> 
+                                </tr>                                            
+                            </thead>
+                            <tbody>
+                                                                                                                                               
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-left: 15px; background-color: #1b3636; width: 1115px; height: 110px">
+                        <table>                                        
+                            <tbody>
+                                <tr>
+                                    <td class="text-center" rowspan="2" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 105px"><strong>Account<br>Summary<br>23/01/2001</strong></td>
+                                    <td class="text-center" colspan="4" style="font-size: 11px; border-left: 1px #070914 solid; border-bottom: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 515px; padding: 3px 0 2px 0"><strong>Pre Trade Position</strong></td>
+                                    <td class="text-center" colspan="4" style="font-size: 11px; border-left: 1px #070914 solid; border-bottom: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 515px; padding: 3px 0 2px 0"><strong>Post Trade Position</strong></td>                                              
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 150px; padding: 4px 10px 5px 10px">Cash Balance<br>MTD Acrued Interest<br>Long Market Value<br>Equity With Loan Value (ELV)<br>Net Liquidation Value</td>
+                                    <td class="text-right" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 104px; padding:  4px 10px 5px 10px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
+                                    <td class="text-left" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 150px; padding:  4px 10px 5px 10px">Maintenance Margin<br>Reg.T Margin Requirement<br>Excess Liquidity<br>SMA/Excess Equity<br>Buying Power</td>
+                                    <td class="text-right" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 104px; padding:  4px 10px 5px 10px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
+                                    <td class="text-left" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 150px; padding: 4px 10px 5px 10px">Cash Balance<br>MTD Acrued Interest<br>Long Market Value<br>Equity With Loan Value (ELV)<br>Net Liquidation Value</td>
+                                    <td class="text-right" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 104px; padding:  4px 10px 5px 10px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
+                                    <td class="text-left" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 150px; padding:  4px 10px 5px 10px">Maintenance Margin<br>Reg.T Margin Requirement<br>Excess Liquidity<br>SMA/Excess Equity<br>Buying Power</td>
+                                    <td class="text-right" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 104px; padding:  4px 10px 5px 10px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
+                                </tr>                                            
+                            </tbody>
+                        </table>
+                    </div> 
+                </td>
+            </tr>`
+            $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
+            for(x=0; x<30;x++) {
+            var trade_data =
+                `<tr>
+                    <td class="text-center" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">Asset 10</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000.00</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">100,000,000.00</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000</td>
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">100,000,000.00</td>                                                              
+                </tr>`
+            $("#account_trade_tbl>tbody").append(trade_data);
+            }
         }
+      }
+    });
     </script>
 </body>
 </html>

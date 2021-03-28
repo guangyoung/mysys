@@ -357,11 +357,11 @@ var port_data = new Array();
       // console.log(port_data);
 
       $("#pagination-demo").twbsPagination({
-        totalPages: Math.ceil(port_data[0].length/24),
+        totalPages: Math.ceil(port_data[0].length/23),
         visiblePages: 2,
         onPageClick: function (event, page) {
           $("#port_data_tbl>tbody").empty();
-            for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {
+            for (i=(page*23)-23; i<(page*23) && i<(port_data[0].length); i++) {
               var port_data_row =
               `<tr>
                   <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[0][i]+`</td>
@@ -464,11 +464,11 @@ var port_data = new Array();
   $("#period_data_dashboard").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
 
   $("#pagination-demo").twbsPagination({
-    totalPages: Math.ceil(port_data[0].length/24),
+    totalPages: Math.ceil(port_data[0].length/23),
     visiblePages: 2,
     onPageClick: function (event, page) {
       $("#port_data_tbl>tbody").empty();
-        for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {
+        for (i=(page*23)-23; i<(page*23) && i<(port_data[0].length); i++) {
           var port_data_row =
           `<tr>
               <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[0][i]+`</td>
@@ -557,11 +557,11 @@ $('#startDate').attr('min',"1990-12-01");//atur biar tgl otomatis
 $('#startDate').attr('max',"1991-02-01");//atur biar tgl otomatis
 
 $("#pagination-demo").twbsPagination({
-totalPages: Math.ceil(port_data[0].length/24),
+totalPages: Math.ceil(port_data[0].length/23),
 visiblePages: 2,
 onPageClick: function (event, page) {
   $("#port_data_tbl>tbody").empty();
-    for (i=(page*24)-24; i<(page*24) && i<(port_data[0].length); i++) {
+    for (i=(page*23)-23; i<(page*23) && i<(port_data[0].length); i++) {
       var port_data_row =
       `<tr>
           <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[0][i]+`</td>
