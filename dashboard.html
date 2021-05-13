@@ -58,12 +58,12 @@
                 <div class="row">
                     <img src="img/ai_gif_logo_1_statis.png" width="53" height="53">
                     <img src="img/quantxi5.png" width="127" height="47" style="margin-left: 3px; margin-top: 4px">
-                    <img src="img/signaltesting3.png" width="110" height="45" style="margin-left: 3px; margin-top: 5px">
+                    <img src="img/systemtesting.png" width="115" height="50" style="margin-left: 3px; margin-top: 3px">
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#setting" id="setting_button" style="margin-top: 16px; margin-left: 20px; padding: 1px 6px; height: 20px; font-size: 10px"><i class="fa fa-gear" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>SETTING</button>
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="margin-top: 16px; margin-left: 15px; padding: 1px 6px; height: 20px; font-size: 10px"><i class="fa fa-database" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>CREATE DATA</button>
                     <strong style="font-size: 12px; color: #c1c2c6; margin-top: 18px; margin-left: 15px">REPLAY DATA :</strong>
                     <!-- <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">Data Period</a> -->
-                    <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 5px; font-family: calibri; width: 115px; height: 18px; margin-top: 18px;">
+                    <!-- <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 5px; font-family: calibri; width: 115px; height: 18px; margin-top: 18px;"> -->
                     <input id="" type="text" class="form-text-sm" disabled value="No Data Period" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 8px; font-family: calibri; width: 130px; height: 18px; margin-top: 18px;">
                     <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">Start Date</a>
                     <input style="font-size: 10px; font-family: calibri; width: 112px; height: 17px; margin-top: 18px; margin-left: 5px; padding: 0 5px" type="date" class="form-control" id="startDate" aria-describedby="" required>
@@ -76,6 +76,8 @@
                     <button type="button" class="btn btn-danger btn-sm" id="refresh_button" style="margin-top: 16px; margin-left: 10px; padding: 0px 6px; height: 20px; font-size: 10px" disabled onclick="reset_test()">
                         <i class="fa fa-refresh" style="margin-top: 1px; font-size: 14px"></i>
                     </button>
+                    <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#statistik" id="statistik_button" style="margin-top: 16px; margin-left: 20px; height: 17px; padding: 1px 6px; font-size: 10px"><i class="fa fa-list" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 5px"></i>TEST HISTORY</button> -->
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#statistik" id="statistik_button" style="margin-top: 16px; margin-left: 20px; padding: 1px 6px; height: 20px; font-size: 10px"><i class="fa fa-list" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>TEST HISTORY</button>
                     <a href="how_to_use.html" target="_blank" style="margin-top: 14px; position: absolute; right: 70px"><i class="fa fa-question-circle" style="color: #c1c2c6; cursor: pointer; font-size: 25px"></i></a>
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-top: 14px; position: absolute; right: 35px"><i class="fa fa-github" style="color: #c1c2c6; cursor: pointer; font-size: 25px"></i></a>
                     <a onclick="logout_btn()" style="margin-top: 14px; position: absolute; right: 0px"><i class="fa fa-sign-out" style="color: #c1c2c6; cursor: pointer; font-size: 25px"></i></a>
@@ -103,7 +105,7 @@
             </div>
         </div>
         <div id="body_div" class="row" style="background-color: #0c0f23; border-right: 1px #1b1c2c solid; border-left: 1px #1b1c2c solid;">
-            <div style="width: 35%" >              
+            <div style="width: 35%" >
                 <div class="table-report" style="margin-top: 10px; margin-left: 15px; margin-bottom: 10px">
                     <table id="data_input_tbl" style="width: 96.5%">
                         <tbody style="font-size: 12px; font-family: calibri; color: #c1c2c6; ">
@@ -242,15 +244,15 @@
                                 <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 30</td>
                                 <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset30_price">0</span></td>
                                 <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset30_position_size">0</span></td>
-                            </tr>                                                       
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            
+
             <div style="width: 30%; text-align: center; border-left: 1px #858585 solid; border-right: 1px #858585 solid;">
-                <h6 style="font-size: 16px; color: #c1c2c6; margin-top: 20px">POST /api.quantxi.com</h6>
-                <h6 style="font-size: 11px; color: #c1c2c6; margin-top: 10px">Request Headers :<br>Content-Type : application/json<br>X-API-KEY : 1234567889njnjvjnvjnkcbkckjxkxkkxn</h6>
+                <h6 style="font-size: 16px; color: #c1c2c6; margin-top: 25px">POST /api.quantxi.com</h6>
+                <h6 style="font-size: 11px; color: #c1c2c6; margin-top: 10px">X-USER : point72_hedgefund<br>X-API-KEY : 1234567889njnjvjnvjnkcbkckjxkxkkxn</h6>
                 <div class="row" style="margin-top: 15px">
                     <!-- <img src="img/arrow.png" width="50" height="70" style="margin-top: 85px; margin-left: 37px"> -->
                     <img src="img/ai_gif_logo_1_crop.gif" class="img-fluid" width="210" height="210" style="margin : auto">
@@ -259,11 +261,11 @@
                 <!-- <div class="row" syle="margin: auto; width: 300px"> -->
                     <h6 style="font-size: 16px; color: #c1c2c6; margin-top: 15px">Total Post&nbsp;&nbsp;:&nbsp;&nbsp;<span id="total_post">0</span></h6>
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#view_allpost" id="viewpost_button" style="font-family: Acrom; margin-top: 10px; height: 25px; padding: 2px 12px; font-size: 13px">View Full Post Request Response</button>
-                    <h6 style="font-size: 10px; color: #c1c2c6; margin-top: 20px">Capture all HTTP(S) traffic Request with Quantxi server<br>using Fiddler Everywhere. Learn More</h6>
+                    <h6 style="font-size: 10px; color: #c1c2c6; margin-top: 20px">Capture all HTTP(S) traffic Request with Quantxi server<br>using Fiddler Everywhere. <a href="">Learn More</a></h6>
                 <!-- </div> -->
             </div>
             <!-- <div style="width: 35%" >                 -->
-                <div style="width: 35%" >              
+                <div style="width: 35%" >
                     <div class="table-report" style="margin-top: 10px; margin-left: 15px; margin-bottom: 10px">
                         <table id="signal_output_tbl" style="width: 96.5%">
                             <tbody style="font-size: 12px; font-family: calibri; color: #c1c2c6; ">
@@ -402,7 +404,7 @@
                                     <td style="text-align: center; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Asset 30</td>
                                     <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset30_signal_position">0</span></td>
                                     <td style="text-align: right; padding: 2px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;"><span id="asset30_signal_size">0</span></td>
-                                </tr>                                                       
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -412,18 +414,16 @@
         <div class="row alert alert mb-0" style="background-color:#272b43; height: 27px; border-radius: 0; padding: 1px 5px; color: #ffffff">
             <div style="text-align: left;">
                 <div class="row">
-                    <p style="margin-left: 15px; margin-top: 4px; font-family: Acrom; font-size: 11px;">TESTING PERIOD</p>
-                    <!-- <input id="tested_data_period" type="text" class="form-text-sm" disabled value="No Data Tested" style="text-align: center; font-size: 11.5px; background-color: #dbdbdb; color: #2a2a2a; margin-left: 5px; font-family: calibri; width: 135px; height: 18px; margin-top: 2px; margin-left: 5px"> -->
-                    <input id="tested_data_period" type="text" class="form-text-sm" disabled value="No Data Tested" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 5px; font-family: calibri; width: 130px; height: 18px; margin-top: 2px; margin-left: 5px">
-                    <p style="margin-left: 15px; margin-top: 4px; font-family: Acrom; font-size: 11px;">TESTING PROGRESS</p>
-                    <div class="progress" style="font-size: 11px; margin-top: 3px; margin-left: 5px; background-color: #ffffff; height: 17px; width: 140px">
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#trade_report" id="trade_report_button" style="font-family: Acrom; margin-left: 15px; margin-top: 3px; height: 17px; padding: 0px 5px; font-size: 10px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 5px"></i>TRADE TESTING REPORT</button>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#rasio_chart" id="chart_button" style="font-family: Acrom; margin-left: 15px; margin-top: 3px; height: 17px; padding: 0px 5px; font-size: 10px"><i class="fa fa-line-chart" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 5px"></i>PERFORMANCE CHART</button>
+                    <p style="position: absolute; right: 505px; margin-top: 4px; font-family: Acrom; font-size: 11px;">TESTING PROGRESS</p>
+                    <div class="progress" style="font-size: 11px; margin-top: 3px; position: absolute; right: 250px; background-color: #ffffff; height: 17px; width: 250px">
                         <div class="progress-bar" role="progressbar" id="progress_bar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="color: #4a4a4a; width:0%">
                             <span id="progress_bar_value"></span>
                         </div>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#trade_report" id="trade_report_button" style="font-family: Acrom; margin-left: 25px; margin-top: 3px; height: 17px; padding: 0px 5px; font-size: 10px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 5px"></i>TRADE TESTING REPORT</button>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#rasio_chart" id="chart_button" style="font-family: Acrom; margin-left: 25px; margin-top: 3px; height: 17px; padding: 0px 5px; font-size: 10px"><i class="fa fa-line-chart" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 5px"></i>PERFORMANCE CHART</button>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#statistik" id="statistik_button" style="margin-top: 3px; position: absolute; right: 10px; height: 17px; padding: 0px 5px; font-size: 10px"><i class="fa fa-list" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 5px"></i>TEST HISTORY</button>
+                    </div> 
+                    <p style="position: absolute; right: 140px; margin-top: 4px; font-family: Acrom; font-size: 11px;">TESTING PERIOD</p>
+                    <input id="tested_data_period" type="text" class="form-text-sm" disabled value="No Data Tested" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; position: absolute; right: 5px; font-family: calibri; width: 130px; height: 18px; margin-top: 2px; margin-left: 5px">                   
                 </div>
             </div>
         </div>
@@ -518,7 +518,7 @@
                                     <input style="font-size: 13px" type="number" class="form-control" id="initial_equity" aria-describedby="" value= "1000000" min="1000000" required>
                                 </div>
                                 <div class="spani form-group">
-                                    <label style="font-size: 13px; margin-top: 15px">Spread+Slippage/Trade
+                                    <label style="font-size: 13px; margin-top: 15px">Spread+Slippage/Trade/Side
                                         <a><i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i>
                                             <span>isi besaran spread</span>
                                         </a>
@@ -526,11 +526,11 @@
                                     <input style="font-size: 13px" type="number" class="form-control" id="bid_ask_spread" aria-describedby="" value= "0.001" min="0.001" max="0.005" required>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-size: 13px; margin-top: 15px">Commision/Share <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
+                                    <label style="font-size: 13px; margin-top: 15px">Commision/Share/Side <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                                     <input style="font-size: 13px" type="number" class="form-control" id="commision_share" aria-describedby="" value= "0.005" min="0.001" max="0.005" required>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-size: 13px; margin-top: 15px">Interest Rate <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
+                                    <label style="font-size: 13px; margin-top: 15px">Interest Rate/Year <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                                     <input style="font-size: 13px" type="number" class="form-control" id="interest_rate" aria-describedby="" value= "0.01" min="0.01" max="0.05" required>
                                 </div>
                                 <!-- <div class="form-group">
@@ -540,24 +540,24 @@
                             </div>
                             <div class="col-6">
                                 <div class="spani form-group">
-                                    <label style="font-size: 13px; margin-top: 5px">Reg.T Margin Req.
+                                    <label style="font-size: 13px; margin-top: 5px">Reg.T Margin Requirement
                                         <a><i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i>
                                             <span>margin yang digunakan berdasarkan reg t fed</span>
                                         </a>
                                     </label>
-                                    <input style="font-size: 13px" type="text" class="form-control"  id="regT_margin" readonly aria-describedby="" value= "0.5" required>
+                                    <input style="font-size: 13px" type="text" class="form-control"  id="regT_margin" readonly aria-describedby="" value= "50%" required>
                                 </div>
                                 <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Maintenaince Margin <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="text" class="form-control" id="maint_margin" readonly aria-describedby="" value= "0.3" required>
+                                    <input style="font-size: 13px" type="text" class="form-control" id="maint_margin" readonly aria-describedby="" value= "25%" required>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-size: 13px; margin-top: 15px">Min Data<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="text" class="form-control" id="min_data" readonly aria-describedby="" value= "1305" required>
+                                    <label style="font-size: 13px; margin-top: 15px">Min Data Process<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
+                                    <input style="font-size: 13px" type="text" class="form-control" id="min_data" readonly aria-describedby="" value= "261 Data (1 Year)" required>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-size: 13px; margin-top: 15px">Max Data<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="text" class="form-control" id="max_data" readonly aria-describedby="" value= "1305" required>
+                                    <label style="font-size: 13px; margin-top: 15px">Max Data Process<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
+                                    <input style="font-size: 13px" type="text" class="form-control" id="max_data" readonly aria-describedby="" value= "7803 Data (30 Years)" required>
                                 </div>
                                 <!-- <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Portfolio Size<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
@@ -584,18 +584,18 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">                    
+                <div class="modal-body">
                     <div class="row">
                         <div class="col" style="width : 37%">
                             <!-- <h6 style="font-size: 14px">Create Data</h6> -->
                             <div class="card text-center">
                                 <div class="card-header">
-                                    <ul class="nav nav-pills" id="create-tab" role="tablist">
+                                    <ul class="nav nav-pills nav-fill" id="create-tab" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" style="text-align: center; margin-top: 0px; margin-left: 0px; padding: 2px 12px; font-size: 12px;" id="pills-historical-tab" data-toggle="pill" href="#pills-historical" role="tab" aria-controls="pills-historical" aria-selected="true"><strong>Using Historical Data</strong></a>
+                                            <a class="nav-link active" style="margin-top: 0px; margin-left: 0px; padding: 2px 12px; font-size: 12px;" id="pills-historical-tab" data-toggle="pill" href="#pills-historical" role="tab" aria-controls="pills-historical" aria-selected="true"><strong>Using Historical Data</strong></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" style="text-align: center; margin-top: 0px; margin-left: 8px; padding: 2px 12px; font-size: 12px;" id="pills-montecarlo-tab" data-toggle="pill" href="#pills-montecarlo" role="tab" aria-controls="pills-montecarlo" aria-selected="false"><strong>Using Montecarlo Simulation</strong></a>
+                                            <a class="nav-link" style="margin-top: 0px; margin-left: 8px; padding: 2px 12px; font-size: 12px;" id="pills-montecarlo-tab" data-toggle="pill" href="#pills-montecarlo" role="tab" aria-controls="pills-montecarlo" aria-selected="false"><strong>Using Montecarlo Simulation</strong></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -616,9 +616,9 @@
                                                         <a class="nav-link" style="text-align: center; margin-left: 10px; width: 180px; padding: 1px 15px; font-size: 12px;" id="random-tab" data-toggle="tab" href="#random" role="tab" aria-controls="random" aria-selected="false"><strong>Random Select</strong></a>
                                                     </li>
                                                 </ul>
-                                            </div>                                    
+                                            </div>
                                             <div class="tab-content" id="select-tabContent">
-                                                <div class="tab-pane fade show active" id="manual" role="tabpanel" aria-labelledby="manual-tab">                              
+                                                <div class="tab-pane fade show active" id="manual" role="tabpanel" aria-labelledby="manual-tab">
                                                     <div class="row" style="margin-top: 3px" id="tt_dd">
                                                         <div class="dropdown" id="tickers_exchange">
                                                             <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 10px; width: 80px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
@@ -673,10 +673,10 @@
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 0px; margin-left: 18px; margin-top: 4px; height: 20px; width: 90px" onclick="add_data()">Add Data</button>                                                                                                
+                                                        <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 0px; margin-left: 18px; margin-top: 4px; height: 20px; width: 90px" onclick="add_data()">Add Data</button>
                                                     </div>
-                                                </div> 
-                                                <div class="tab-pane fade" id="random" role="tabpanel" aria-labelledby="random-tab">                                                   
+                                                </div>
+                                                <div class="tab-pane fade" id="random" role="tabpanel" aria-labelledby="random-tab">
                                                     <div class="row" style="margin-top: 3px" id="tt_dd_random">
                                                         <div class="dropdown" id="tickers_exchange_random">
                                                             <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn_random" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 10px; width: 100px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
@@ -701,7 +701,7 @@
                                             <div class="row">
                                                 <a style="margin-top: 8px; margin-left: 15px; font-size: 11px; color: #111111;">Portfolio Assets</a>
                                                 <button type="button" class="btn btn-danger btn-sm" style="margin-top: 8px; position: absolute; right: 20px; font-size: 10px; padding: 0px 3px; width: 50px" onclick="reset_portfolio()">Reset</button>
-                                                
+
                                             </div>
                                             <div class="row">
                                                 <div class="table-report" style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 2px; margin-left: 15px; margin-right: 15px; height: 198px; width: 100%; overflow-y: scroll">
@@ -721,7 +721,7 @@
                                                     </table>
                                                 </div>
                                             </div>
-                                            <div class="row">                                              
+                                            <div class="row">
                                                 <div class="progress" style="font-size: 12px; margin-left: 15px; margin-top: 5px; background-color: #c3c3c3; height: 20px; width: 230px">
                                                     <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="color: #4a4a4a; width:0%">
                                                     </div>
@@ -729,25 +729,25 @@
                                                 <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 5px; margin-left: 8px; margin-top: 5px; height: 20px; width: 130px" onclick="process_data_yahoo()">Create Data</button>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="pills-montecarlo" role="tabpanel" aria-labelledby="pills-montecarlo-tab">                            
+                                        <div class="tab-pane fade" id="pills-montecarlo" role="tabpanel" aria-labelledby="pills-montecarlo-tab">
                                             <h6 style="text-align: center; margin-top: -5px; font-size: 11.5px;">Create Your Testdata Using a Standart <strong>Montecarlo Simulation</strong></h6>
                                             <h6 style="text-align: center; font-size: 11.5px;">Create Portfolio As Much As You Can, Create With Optimisme</h6>
                                             <h6 style="text-align: center; font-size: 11.5px;">Create Portfolio As Much As You Can, Create With Optimisme</h6>
                                             <!-- <a href="how_to_use.html" target="_blank"><button type="button" class="btn btn-secondary btn-sm" style="margin-top: -15px; padding: 1px 10px; height: 18px; width: 100%; font-size: 11px">See Our Montecarlo Simulation Formula on GoogleSheet</button></a> -->
-                                            <hr style="width: 100%; margin-top: 0px; margin-bottom: 0px; line-height: 0.5px;background-color: #b2b2b2"/>                                        
-                                            <div class="col">   
+                                            <hr style="width: 100%; margin-top: 0px; margin-bottom: 0px; line-height: 0.5px;background-color: #b2b2b2"/>
+                                            <div class="col">
                                                 <div class="row">
                                                     <div class="form-group" style="text-align: left; font-size: 12px;">
                                                         <label style="margin-top: 5px;">Initial Capital <i class="fa fa-info-circle" style="margin-left: 5px"></i></label>
                                                         <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="number" class="form-control" id="initial_price" aria-describedby="" value= "100" min="100" disabled required>
                                                         <label style="margin-top: 5px">Start Date <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
-                                                        <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="text" class="form-control" id="startdate_simulation" value= "1991-01-01" aria-describedby="" disabled required>                                                            
-                                                    </div>                                                       
+                                                        <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="text" class="form-control" id="startdate_simulation" value= "1991-01-01" aria-describedby="" disabled required>
+                                                    </div>
                                                     <div class="form-group" style="text-align: left; margin-left: 34px; font-size: 12px">
                                                         <label style="margin-top: 5px;">Days/Year <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
                                                         <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="number" class="form-control" id="year_days" aria-describedby="" value= "261" disabled required>
                                                         <label style="margin-top: 5px">Steps <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
-                                                        <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="number" class="form-control" id="steps" aria-describedby="" value= "0.00383141762" disabled required>                                                            
+                                                        <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="number" class="form-control" id="steps" aria-describedby="" value= "0.00383141762" disabled required>
                                                     </div>
                                                     <div class="form-group" style="text-align: left; margin-left: 34px; font-size: 12px;">
                                                         <label style="margin-top: 5px">Drift <i class="fa fa-info-circle" style="margin-left: 5px"></i></label>
@@ -763,9 +763,12 @@
                                                     </div>
                                                 </div>
                                                 <button type="button" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 0px; margin-left: 10px; margin-top: -5px; height: 20px; width: 130px" onclick="process_montercarlo_simulation()">Create Data</button>
-                                            </div>                          
-                                            <div class="card container" style="margin-top: 7px; margin-left: 0px; width: 367px; height: 175px">
-                                                <canvas id="montecarlo_simulation_chart" width="12" height="6" class="chartjs-render-monitor"></canvas>
+                                            </div>                                            
+                                            <div class="card container" style="margin-top: 7px; margin-left: 100px; width: 260px; height: 120px">
+                                                <canvas id="montecarlo_simulation_chart" width="0" height="0" style="margin-top: -5px" class="chartjs-render-monitor"></canvas>
+                                            </div>
+                                            <div class="card container" style="margin-top: 0px; margin-left: 100px; width: 260px; height: 120px">
+                                                <canvas id="montecarlo_simulation_chart2" width="0" height="0" style="margin-top: -5px" class="chartjs-render-monitor"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -779,11 +782,11 @@
                             <div class="row">
                                 <!-- <strong style="margin-left: 0px; font-size: 12px;">Portfolio Data :</strong> -->
                                 <a style="margin-left: 0px; font-size: 12px;">Data Source</a>
-                                <input id="source_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 5px; height: 18px;  width: 130px; font-size: 10px"> 
+                                <input id="source_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 5px; height: 18px;  width: 130px; font-size: 10px">
                                 <a style="margin-left: 10px; font-size: 12px;">Data Period</a>
-                                <input id="period_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 5px; height: 18px;  width: 145px; font-size: 10px">                               
+                                <input id="period_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 5px; height: 18px;  width: 145px; font-size: 10px">
                                 <ul id="pagination-demo" class="pagination pagination-sm"></ul>
-                            </div>                           
+                            </div>
                             <div class="row">
                                 <div class="table-hover" style="font-family: calibri; font-size: 11px; background-color: #070914; margin-right: 15px; margin-top: 5px; overflow: auto; height: 427px">
                                     <table id="port_data_tbl">
@@ -827,8 +830,8 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>							
-                        </div> 
+                            </div>
+                        </div>
                     </div>
                 </div>
                                         <!-- <div class="tab-pane fade" id="pills-files" role="tabpanel" aria-labelledby="pills-files-tab">
@@ -878,9 +881,9 @@
                                                 <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 0px; margin-left: 10px; margin-top: 7px; height: 20px; width: 80px" onclick="process_data_files()">Process</button>
                                             </div>
                                         </div> -->
-                        
-                                                       
-					      
+
+
+
                 <div class="modal-footer">
                     <!-- <a style="position: absolute; left: 15px; font-size: 12px;">NB : Sebagai bentuk transparansi nama asset tidak ditampilkan dalam tabel data......</a>                                 -->
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
@@ -910,7 +913,7 @@
                         <h6 style="margin-left: 15px; margin-top: -5px; font-size: 13px">Test History</h6>
                         <ul id="pagination_test_history" class="pagination pagination-sm"></ul>
                     </div>
-                    <div style="overflow-y: auto; overflow-x: hidden; height: 420px">                        
+                    <div style="overflow-y: auto; overflow-x: hidden; height: 420px">
                         <table id="test_history_tbl" style="background-color: #070914">
                             <thead style="color:#d2d3d7">
                                 <tr>
@@ -928,10 +931,10 @@
                                 </tr>
                             </thead>
                             <tbody style="font-size: 10px; color:#d2d3d7; ">
-                                
+
                             </tbody>
                         </table>
-                    </div>                    
+                    </div>
 				</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger btn-sm">Reset</button>
@@ -947,7 +950,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <img src="img/rest_api_symbol_black.png" width="32" height="22" style="margin-top: 4px; margin-left: 0px; margin-right: 0px">
-                    <h5 class="modal-title"><strong style="margin-left: 10px">Full POST Request Response</strong></h5>                    
+                    <h5 class="modal-title"><strong style="margin-left: 10px">Full POST Request Response</strong></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -962,21 +965,21 @@
                              <div class="row" style="margin-left: 10px;">
                                 <i class="fa fa-sign-in" style="margin-top: 3px; font-size: 20px"></i>
                                 <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">DATA INPUT&nbsp;&nbsp;-&nbsp;&nbsp;REQUEST</strong>
-                            </div>                
-                        </div>                       
+                            </div>
+                        </div>
                         <div class="col" style="margin-right: 15px; background-color: #1b1d2d; color: #d2d3d7; height: 27px; border-radius: 0; padding: 1px 5px;">
                             <div class="row" style="margin-left: 10px;">
                                 <i class="fa fa-sign-in" style="margin-top: 3px; font-size: 20px"></i>
                                 <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">SIGNAL OUTPUT&nbsp;&nbsp;-&nbsp;&nbsp;RESPONSE</strong>
-                            </div> 
+                            </div>
                         </div>
-                    </div>                    
-                    <div class="row" style="margin-left: 0px; margin-right: 0px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid;overflow-y: auto; overflow-x: hidden; border-bottom: 1px #292b43 solid; height: 420px">                        
-                        <div class="col" id="request_area">                                          
-                           
+                    </div>
+                    <div class="row" style="margin-left: 0px; margin-right: 0px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid;overflow-y: auto; overflow-x: hidden; border-bottom: 1px #292b43 solid; height: 420px">
+                        <div class="col" id="request_area">
+
                         </div>
-                        <div class="col" id="response_area" style="border-left: 1px #292b43 solid;">                
-                           
+                        <div class="col" id="response_area" style="border-left: 1px #292b43 solid;">
+
                         </div>
                     </div>
                 </div>
@@ -1003,10 +1006,10 @@
                     <h6 style="font-size: 12px; color: #000000">Period : 01/01/1991 - 01/01/2001</h6>
                     <ul id="pagination_trade_summary" class="pagination pagination-sm"></ul>
                     <div style="background-color: #070914; overflow: auto; height: 440px">
-                        <table id="account_trade_summary_tbl" style="margin-bottom: 15px">                                        
-                            <tbody>                                
+                        <table id="account_trade_summary_tbl" style="margin-bottom: 15px">
+                            <tbody>
                             </tbody>
-                        </table>                        
+                        </table>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -1026,7 +1029,7 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">              
+            <div class="modal-body">
                 <div class="card" style="margin-top: 5px; margin-left: 0px; height: 430px">
                     <canvas id="performance_chart" width="11" height="4.5" class="chartjs-render-monitor"></canvas>
                 </div>
@@ -1041,14 +1044,14 @@
     <!-- view trade history -->
     <script>
         test_history = [];
-        
+
         var test_history_item = JSON.parse(localStorage.getItem("testhistory"));
-        
+
         if(test_history_item !== null) {
           for(i=0;i<test_history_item.length;i++) {
             test_history.push(test_history_item[i]);
           }
-        };  
+        };
 
         view_test_history();
 
@@ -1066,7 +1069,7 @@
                 <td>
                     <div class="row" style="margin-left: 15px; margin-top: 15px">
                         <a style="color: #ffffff; font-size: 11px;">Date : 23-01-2001</a>
-                    </div>                                            
+                    </div>
                     <div class="table-hover" style="margin-left: 15px; margin-top: 0px; background-color: #070914; overflow: auto; width: 1115px; height: 190px">
                         <table id="account_trade_tbl">
                             <thead style="color:#d2d3d7">
@@ -1077,36 +1080,36 @@
                                     <th class="text-center" colspan="5" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Buy Open (Add Position)</th>
                                     <th class="text-center" colspan="5" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Sell Close (Reduce Position)</th>
                                     <th class="text-center" colspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Post Trade Position</th>
-                                </tr>                                           
+                                </tr>
                                 <tr>
                                     <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
                                     <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
                                     <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Quantxi Signal</th>
-                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Order</th>                                                        
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Order</th>
                                     <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Price</th>
                                     <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
                                     <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Com mision</th>
                                     <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Quantxi Signal</th>
-                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Order</th>                                                        
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Order</th>
                                     <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Price</th>
                                     <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
                                     <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Com mision</th>
                                     <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th> 
-                                </tr>                                            
+                                    <th class="text-center" style="position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                                                                                                                               
+
                             </tbody>
                         </table>
                     </div>
                     <div style="margin-left: 15px; background-color: #1b3636; width: 1115px; height: 110px">
-                        <table>                                        
+                        <table>
                             <tbody>
                                 <tr>
                                     <td class="text-center" rowspan="2" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 105px"><strong>Account<br>Summary<br>23/01/2001</strong></td>
                                     <td class="text-center" colspan="4" style="font-size: 11px; border-left: 1px #070914 solid; border-bottom: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 515px; padding: 3px 0 2px 0"><strong>Pre Trade Position</strong></td>
-                                    <td class="text-center" colspan="4" style="font-size: 11px; border-left: 1px #070914 solid; border-bottom: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 515px; padding: 3px 0 2px 0"><strong>Post Trade Position</strong></td>                                              
+                                    <td class="text-center" colspan="4" style="font-size: 11px; border-left: 1px #070914 solid; border-bottom: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 515px; padding: 3px 0 2px 0"><strong>Post Trade Position</strong></td>
                                 </tr>
                                 <tr>
                                     <td class="text-left" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 150px; padding: 4px 10px 5px 10px">Cash Balance<br>MTD Acrued Interest<br>Long Market Value<br>Equity With Loan Value (ELV)<br>Net Liquidation Value</td>
@@ -1117,10 +1120,10 @@
                                     <td class="text-right" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 104px; padding:  4px 10px 5px 10px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
                                     <td class="text-left" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 150px; padding:  4px 10px 5px 10px">Maintenance Margin<br>Reg.T Margin Requirement<br>Excess Liquidity<br>SMA/Excess Equity<br>Buying Power</td>
                                     <td class="text-right" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 104px; padding:  4px 10px 5px 10px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
-                                </tr>                                            
+                                </tr>
                             </tbody>
                         </table>
-                    </div> 
+                    </div>
                 </td>
             </tr>`
             $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
@@ -1142,7 +1145,7 @@
                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000</td>
-                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">100,000,000.00</td>                                                              
+                    <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">100,000,000.00</td>
                 </tr>`
             $("#account_trade_tbl>tbody").append(trade_data);
             }

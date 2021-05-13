@@ -6,7 +6,8 @@ var startdate_choose_current;
 var startdate_choose;
 var asset_portfolio_yahoo = new Array();
 var asset_portfolio_files = new Array();
-var mychart;
+var mychart1;
+var mychart2;
 // var port_data = new Array();
 
 function exchange_list() {//cari solusi biar tdk double click, muncul berkali2 di console
@@ -791,9 +792,14 @@ var config = {
         display: false,
         labelString: 'Equity' } }] } } };
 
-    if(mychart!=null){
-        mychart.destroy();
+    if(mychart1!=null){
+        mychart1.destroy();
     }
+    if(mychart2!=null){
+      mychart2.destroy();
+  }
       var ctx = document.getElementById('montecarlo_simulation_chart').getContext('2d');
-      mychart = new Chart(ctx, config);
+      mychart1 = new Chart(ctx, config);
+      var ctx = document.getElementById('montecarlo_simulation_chart2').getContext('2d');
+      mychart2 = new Chart(ctx, config);
 }
