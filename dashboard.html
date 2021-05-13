@@ -63,10 +63,11 @@
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="margin-top: 16px; margin-left: 15px; padding: 1px 6px; height: 20px; font-size: 10px"><i class="fa fa-database" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>CREATE DATA</button>
                     <strong style="font-size: 12px; color: #c1c2c6; margin-top: 18px; margin-left: 15px">REPLAY DATA :</strong>
                     <!-- <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">Data Period</a> -->
-                    <!-- <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 5px; font-family: calibri; width: 115px; height: 18px; margin-top: 18px;"> -->
+                    <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 5px; font-family: calibri; width: 115px; height: 18px; margin-top: 18px;">
                     <input id="" type="text" class="form-text-sm" disabled value="No Data Period" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 8px; font-family: calibri; width: 130px; height: 18px; margin-top: 18px;">
-                    <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">Start Date</a>
-                    <input style="font-size: 10px; font-family: calibri; width: 112px; height: 17px; margin-top: 18px; margin-left: 5px; padding: 0 5px" type="date" class="form-control" id="startDate" aria-describedby="" required>
+                    <!-- <a style="font-size: 11px; color: #c1c2c6; margin-top: 20px; margin-left: 10px">Set Period</a> -->
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#" id="" style="margin-top: 16px; margin-left: 10px; padding: 1px 6px; height: 20px; font-size: 10px">Set Period</button>
+                    <!-- <input style="font-size: 10px; font-family: calibri; width: 112px; height: 17px; margin-top: 18px; margin-left: 5px; padding: 0 5px" type="date" class="form-control" id="startDate" aria-describedby="" required> -->
                     <!-- <button type="button" class="btn btn-success btn-sm" id="play_button" style="margin-left: 10px; margin-top: 16px; padding: 1px 6px; height: 20px; font-size: 10px" onclick="run_test()">
                         <i class="fa fa-play" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>PROCESS
                     </button> -->
@@ -87,9 +88,9 @@
 
         <div class="row" style="margin-top: 5px">
             <div style="width: 35%; background-color: #414870; color: #ffffff; height: 30px; border-radius: 0; padding: 1px 5px;">
-                 <div class="row" style="color: #ffffff; margin: auto; width: 233px">
+                 <div class="row" style="color: #ffffff; margin: auto; width: 271px">
                     <i class="fa fa-sign-in" style="margin-top: 2px; font-size: 23px"></i>
-                    <strong style="font-size: 15px; margin-left: 10px; margin-top: 3px">DATA INPUT&nbsp;&nbsp;-&nbsp;&nbsp;REQUEST</strong>
+                    <strong style="font-size: 15px; margin-left: 10px; margin-top: 3px">DATA INPUT&nbsp;&nbsp;-&nbsp;&nbsp;POST REQUEST</strong>
                 </div>
             </div>
             <div style="width: 30%; background-color: #414870; color: #ffffff; height: 30px; border-radius: 0; padding: 1px 5px; border-right: 1px #1b1c2c solid; border-left: 1px #1b1c2c solid;">
@@ -98,9 +99,9 @@
                 </div>
             </div>
             <div style="width: 35%; background-color: #414870; color: #ffffff; height: 30px; border-radius: 0; padding: 1px 5px;">
-                <div class="row" style="color: #ffffff; margin: auto; width: 280px">
+                <div class="row" style="color: #ffffff; margin: auto; width: 318px">
                     <i class="fa fa-sign-out" style="margin-top: 2px; font-size: 23px"></i>
-                    <strong style="font-size: 15px; margin-left: 10px; margin-top: 3px">SIGNAL OUTPUT&nbsp;&nbsp;-&nbsp;&nbsp;RESPONSE</strong>
+                    <strong style="font-size: 15px; margin-left: 10px; margin-top: 3px">SIGNAL OUTPUT&nbsp;&nbsp;-&nbsp;&nbsp;POST RESPONSE</strong>
                 </div>
             </div>
         </div>
@@ -261,7 +262,7 @@
                 <!-- <div class="row" syle="margin: auto; width: 300px"> -->
                     <h6 style="font-size: 16px; color: #c1c2c6; margin-top: 15px">Total Post&nbsp;&nbsp;:&nbsp;&nbsp;<span id="total_post">0</span></h6>
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#view_allpost" id="viewpost_button" style="font-family: Acrom; margin-top: 10px; height: 25px; padding: 2px 12px; font-size: 13px">View Full Post Request Response</button>
-                    <h6 style="font-size: 10px; color: #c1c2c6; margin-top: 20px">Capture all HTTP(S) traffic Request with Quantxi server<br>using Fiddler Everywhere. <a href="">Learn More</a></h6>
+                    <h6 style="font-size: 10px; color: #c1c2c6; margin-top: 20px">Capture HTTP traffic between your computer and<br>Quantxi server using <img src="img/Fiddler-Everywhere-Icon.png" class="img-fluid" width="18" height="18" style="margin : auto"> Fiddler Everywhere. <a href="">Learn More</a></h6>
                 <!-- </div> -->
             </div>
             <!-- <div style="width: 35%" >                 -->
@@ -531,7 +532,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Interest Rate/Year <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="number" class="form-control" id="interest_rate" aria-describedby="" value= "0.01" min="0.01" max="0.05" required>
+                                    <input style="font-size: 13px" type="percentage" class="form-control" id="interest_rate" aria-describedby="" value= "2%" min="0.1%" max="5%" required>
                                 </div>
                                 <!-- <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Risk Free Rate <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
@@ -545,31 +546,26 @@
                                             <span>margin yang digunakan berdasarkan reg t fed</span>
                                         </a>
                                     </label>
-                                    <input style="font-size: 13px" type="text" class="form-control"  id="regT_margin" readonly aria-describedby="" value= "50%" required>
+                                    <input style="font-size: 13px" type="percentage" class="form-control"  id="regT_margin" readonly aria-describedby="" value= "50%" required>
                                 </div>
                                 <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Maintenaince Margin <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="text" class="form-control" id="maint_margin" readonly aria-describedby="" value= "25%" required>
+                                    <input style="font-size: 13px" type="percentage" class="form-control" id="maint_margin" readonly aria-describedby="" value= "25%" required>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-size: 13px; margin-top: 15px">Min Data Process<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="text" class="form-control" id="min_data" readonly aria-describedby="" value= "261 Data (1 Year)" required>
+                                    <label style="font-size: 13px; margin-top: 15px">Min Post<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
+                                    <input style="font-size: 13px" type="text" class="form-control" id="min_data" readonly aria-describedby="" value= "261 Post (1 Year Data)" required>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-size: 13px; margin-top: 15px">Max Data Process<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="text" class="form-control" id="max_data" readonly aria-describedby="" value= "7803 Data (30 Years)" required>
+                                    <label style="font-size: 13px; margin-top: 15px">Max Post<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
+                                    <input style="font-size: 13px" type="text" class="form-control" id="max_data" readonly aria-describedby="" value= "13,050 Post (50 Years Data)" required>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <label style="font-size: 13px; margin-top: 15px">Portfolio Size<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="text" class="form-control" id="portfolio_size" readonly aria-describedby="" value= "30" required>
-                                </div> -->
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" onclick="test_setting_submit_btn()">Close</button>
                     </div>
-                <!-- </form> -->
             </div>
         </div>
     </div>
@@ -764,23 +760,19 @@
                                                 </div>
                                                 <button type="button" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 0px; margin-left: 10px; margin-top: -5px; height: 20px; width: 130px" onclick="process_montercarlo_simulation()">Create Data</button>
                                             </div>                                            
-                                            <div class="card container" style="margin-top: 7px; margin-left: 100px; width: 260px; height: 120px">
+                                            <div class="card container" style="margin-top: 7px; margin-left: 0px; width: 100%; height: 175px">
                                                 <canvas id="montecarlo_simulation_chart" width="0" height="0" style="margin-top: -5px" class="chartjs-render-monitor"></canvas>
                                             </div>
-                                            <div class="card container" style="margin-top: 0px; margin-left: 100px; width: 260px; height: 120px">
+                                            <!-- <div class="card container" style="margin-top: 0px; margin-left: 100px; width: 260px; height: 120px">
                                                 <canvas id="montecarlo_simulation_chart2" width="0" height="0" style="margin-top: -5px" class="chartjs-render-monitor"></canvas>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col" style="width : 63%">
-                            <!-- <div class="row">
-                                <h6 style="font-size: 14px">Data Created</h6>
-                            </div>                            -->
                             <div class="row">
-                                <!-- <strong style="margin-left: 0px; font-size: 12px;">Portfolio Data :</strong> -->
                                 <a style="margin-left: 0px; font-size: 12px;">Data Source</a>
                                 <input id="source_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 5px; height: 18px;  width: 130px; font-size: 10px">
                                 <a style="margin-left: 10px; font-size: 12px;">Data Period</a>
