@@ -8,7 +8,7 @@ var asset_portfolio_yahoo = new Array();
 var asset_portfolio_files = new Array();
 var mychart1;
 var mychart2;
-// var port_data = new Array();
+var port_data = new Array();
 
 function exchange_list() {//cari solusi biar tdk double click, muncul berkali2 di console
       $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
@@ -129,34 +129,6 @@ function add_data() {
         let tickere = ticker_list[i].split(', ')[0];
         let as_data_date = new Array();
         let as_data_price = new Array();
-
-        // const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        // const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
-
-        // $.getJSON(proxyurl+urls, function(result){
-        //     var yahoo_data = result;
-        //     let length_tm = yahoo_data.chart.result[0].timestamp.length;
-        //     for(i=0; i<length_tm; i++) {
-        //     var data_date = new Date(yahoo_data.chart.result[0].timestamp[i] * 1000);
-        //     var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
-        //     as_data_date.push(
-        //       appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
-        //     );
-        //     as_data_price.push(
-        //       data_price
-        //     );
-        //     }
-        //     asset_portfolio_yahoo.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
-        //     let al = asset_portfolio_yahoo.length;
-        //     let portfolio =
-        //     `<tr>
-        //         <td class="text-center">Asset `+al+`</td>
-        //         <td class="text-center">`+tickere+`</td>
-        //         <td class="text-center">`+as_data_date[0]+`</td>
-        //         <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
-        //     </tr>`;
-        //     $("#table_assets > tbody").append(portfolio);
-        //     });
 
         Papa.parse("dataset/"+exchange_choose+"/startdate_1990_under/"+tickere+".csv", {
             download: true,
@@ -403,115 +375,9 @@ var port_data = new Array();
         });
  }
 
- function process_data_files() {
-  if(asset_portfolio_files.length < 30) {
-      alert('total asset kurang dari 30');
-      return false;
-  } else {
-    port_data = [];
-    $("#port_data_tbl>tbody").empty();
-    $("#pagination-demo").twbsPagination("destroy");
-    $("#period_data").val("");
-    $("#period_data_dashboard").val("No Data Available");
-      var startdates= new Array();
-      var enddates= new Array();
-      for (i=0; i<asset_portfolio_files.length; i++) {
-          startdates.push(new Date(asset_portfolio_files[i].data.date[0]));
-          enddates.push(new Date(asset_portfolio_files[i].data.date[asset_portfolio_files[i].data.date.length-1]));
-      }
-      var startDate=new Date(Math.max.apply(null,startdates));
-      var endDate=new Date(Math.min.apply(null,enddates));
-      console.log(startDate);
-      console.log(endDate);
-
-      var dt = startDate;
-      var dtt_arr = new Array();
-      var dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
-      dt.toString().slice(0, 10);
-      dtt_arr.push(dtt);
-      while (dt < endDate) {
-          if (dt.getDay()==5) {
-              dt = new Date(dt.setDate(dt.getDate() + 3));
-              dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
-              dt.toString().slice(0, 10);
-              dtt_arr.push(dtt);
-          } else {
-              dt = new Date(dt.setDate(dt.getDate() + 1));
-              dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
-              dt.toString().slice(0, 10);
-              dtt_arr.push(dtt);
-          }
-      }
-      port_data.push(dtt_arr);
-      for (y=0; y<asset_portfolio_files.length; y++) {
-          var as_arr = new Array();
-          for (i=0; i<dtt_arr.length; i++) {
-              // var tgl = new Date(dtt_arr[i]);
-              // var tgl = (new Date(dtt_arr[i]).getFullYear() + "-" + appendLeadingZeroes(new Date(dtt_arr[i]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(dtt_arr[i]).getDate())).toString().slice(0, 10);
-              // tgl.toString().slice(0, 10);
-              var idx = asset_portfolio_files[y].data.date.indexOf(dtt_arr[i]);
-              if(idx == -1) {//jika idx tidak ditemukan
-                  as_arr.push(as_arr[as_arr.length-1]); //masukkan harga sebelumnya
-              } else {
-                  as_arr.push(asset_portfolio_files[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
-              }
-          }
-          port_data.push(as_arr);
-      }
-  }
-
-  $("#source_data").val("CSV Data Files");
-  $("#period_data").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
-  $("#period_data_dashboard").val(dtt_arr[0]+' - '+dtt_arr[dtt_arr.length-1]);
-
-  $("#pagination-demo").twbsPagination({
-    totalPages: Math.ceil(port_data[0].length/23),
-    visiblePages: 2,
-    onPageClick: function (event, page) {
-      $("#port_data_tbl>tbody").empty();
-        for (i=(page*23)-23; i<(page*23) && i<(port_data[0].length); i++) {
-          var port_data_row =
-          `<tr>
-              <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[0][i]+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[1][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[2][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[3][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[4][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[5][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[6][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[7][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[8][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[9][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[10][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[11][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[12][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[13][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[14][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[15][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[16][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[17][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[18][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[19][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[20][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[21][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[22][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[23][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[24][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[25][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[26][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[27][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[28][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[29][i]).toFixed(2))+`</td>
-              <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[30][i]).toFixed(2))+`</td>
-          </tr>`;
-          $("#port_data_tbl>tbody").append(port_data_row);
-          }
-    }
-    });
-}
-
 //montecarlo simulation proses
-function process_montercarlo_simulation() {
+function process_montercarlo_simulation() {  
+  $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0); 
   port_data = [];
   $("#port_data_tbl>tbody").empty();
   $("#pagination-demo").twbsPagination("destroy");
@@ -525,7 +391,7 @@ var steps = $("#steps").val();
 var startdate_simulation = new Date($("#startdate_simulation").val());
 var dt = startdate_simulation;
 var dt_arr = new Array();
-for (i=0;i<7830;i++) {
+for (i=0;i<7830;i++) { 
   if (dt.getDay()==5) {
     let dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
     dt_arr.push(dtt);
@@ -535,7 +401,24 @@ for (i=0;i<7830;i++) {
       dt_arr.push(dtt);
       dt = new Date(dt.setDate(dt.getDate() + 1));
   }
+
+  var step = 0;
+  if (step == 0) {
+  step = 1; 
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+      step = 0;
+    } else {
+      width++;
+      $('.progress-bar').css('width', width+'%').attr('aria-valuenow', width); 
+    }
+  }
 }
+}
+
 port_data.push(dt_arr);
 
 for (i=0;i<30;i++) {
@@ -550,12 +433,42 @@ port_data.push(price_sim_array);
 
 // console.log(port_data);
 
-$("#source_data").val("Montecarlo Simulation");
+$("#source_data").val("Geometric Brownian Motion");
 $("#period_data").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
-$("#period_data_dashboard").val("Montecarlo Simulation");
+$("#period_data_dashboard").val(dt_arr[0]+' - '+dt_arr[dt_arr.length-1]);
 $("#startDate").val(dt_arr[0].split("/")[2] + '-' + dt_arr[0].split("/")[0] + '-' + dt_arr[0].split("/")[1]);
-$('#startDate').attr('min',"1990-12-01");//atur biar tgl otomatis
-$('#startDate').attr('max',"1991-02-01");//atur biar tgl otomatis
+// $('#startDate').attr('min',"1990-12-01");//atur biar tgl otomatis
+// $('#startDate').attr('max',"1991-02-01");//atur biar tgl otomatis
+$('#stock1_ticker').html("GBM_1");
+$('#stock2_ticker').html("GBM_2");
+$('#stock3_ticker').html("GBM_3");
+$('#stock4_ticker').html("GBM_4");
+$('#stock5_ticker').html("GBM_5");
+$('#stock6_ticker').html("GBM_6");
+$('#stock7_ticker').html("GBM_7");
+$('#stock8_ticker').html("GBM_8");
+$('#stock9_ticker').html("GBM_9");
+$('#stock10_ticker').html("GBM_10");
+$('#stock11_ticker').html("GBM_11");
+$('#stock12_ticker').html("GBM_12");
+$('#stock13_ticker').html("GBM_13");
+$('#stock14_ticker').html("GBM_14");
+$('#stock15_ticker').html("GBM_15");
+$('#stock16_ticker').html("GBM_16");
+$('#stock17_ticker').html("GBM_17");
+$('#stock18_ticker').html("GBM_18");
+$('#stock19_ticker').html("GBM_19");
+$('#stock20_ticker').html("GBM_20");
+$('#stock21_ticker').html("GBM_21");
+$('#stock22_ticker').html("GBM_22");
+$('#stock23_ticker').html("GBM_23");
+$('#stock24_ticker').html("GBM_24");
+$('#stock25_ticker').html("GBM_25");
+$('#stock26_ticker').html("GBM_26");
+$('#stock27_ticker').html("GBM_27");
+$('#stock28_ticker').html("GBM_28");
+$('#stock29_ticker').html("GBM_29");
+$('#stock30_ticker').html("GBM_30");
 
 $("#pagination-demo").twbsPagination({
 totalPages: Math.ceil(port_data[0].length/23),
@@ -800,6 +713,6 @@ var config = {
   }
       var ctx = document.getElementById('montecarlo_simulation_chart').getContext('2d');
       mychart1 = new Chart(ctx, config);
-      var ctx = document.getElementById('montecarlo_simulation_chart2').getContext('2d');
-      mychart2 = new Chart(ctx, config);
+      // var ctx = document.getElementById('montecarlo_simulation_chart2').getContext('2d');
+      // mychart2 = new Chart(ctx, config);
 }

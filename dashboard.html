@@ -60,9 +60,9 @@
                     <img src="img/quantxi5.png" width="127" height="47" style="margin-left: 3px; margin-top: 4px">
                     <img src="img/systemtesting.png" width="115" height="50" style="margin-left: 3px; margin-top: 3px">
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#setting" id="setting_button" style="margin-top: 16px; margin-left: 25px; padding: 1px 6px; height: 20px; font-size: 10px"><i class="fa fa-gear" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>SETTING</button>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="margin-top: 16px; margin-left: 15px; padding: 1px 6px; height: 20px; font-size: 10px"><i class="fa fa-database" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>CREATE DATA</button>
-                    <strong style="font-size: 12px; color: #c1c2c6; margin-top: 17px; margin-left: 15px">PROCESS DATA :</strong>
-                    <a style="font-size: 11px; color: #c1c2c6; margin-top: 19px; margin-left: 10px">Period</a>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="margin-top: 16px; margin-left: 15px; padding: 1px 6px; height: 20px; font-size: 10px"><i class="fa fa-database" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>CREATE TEST DATA</button>
+                    <strong style="font-size: 12px; color: #c1c2c6; margin-top: 17px; margin-left: 15px">TESTING DATA :</strong>
+                    <a style="font-size: 11px; color: #c1c2c6; margin-top: 19px; margin-left: 5px">Period</a>
                     <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 8px; font-family: calibri; width: 140px; height: 18px; margin-top: 17px;">
                     <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#" id="" style="margin-top: 16px; margin-left: 10px; padding: 1px 6px; height: 20px; font-size: 10px">Set Period</button>
                     <button type="button" class="btn btn-success btn-sm" id="play_button" style="margin-top: 16px; margin-left: 10px; padding: 0px 6px; height: 20px; font-size: 10px" onclick="run_test()">
@@ -496,7 +496,7 @@
                 <!-- <form method="POST" id="frmSetting"> -->
                     <div class="modal-header">
                         <h5 class="modal-title"><i class="fa fa-gear"></i><strong style="margin-left: 10px">Setting</strong></h5>
-                        <button type="button" class="close" data-dismiss="modal" onclick="test_setting_submit_btn()" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -547,17 +547,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Portfolio Size<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="text" class="form-control" id="min_data" readonly aria-describedby="" value= "30" required>
+                                    <input style="font-size: 13px" type="text" class="form-control" id="port_size" readonly aria-describedby="" value= "30" required>
                                 </div>
                                 <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Min Post Request<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="text" class="form-control" id="max_data" readonly aria-describedby="" value= "261" required>
+                                    <input style="font-size: 13px" type="text" class="form-control" id="min_post" readonly aria-describedby="" value= "261" required>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" onclick="test_setting_submit_btn()">Close</button>
+                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="test_setting_submit_btn()">Save Setting</button>
                     </div>
             </div>
         </div>
@@ -567,7 +567,7 @@
         <div class="modal-dialog" style="min-width: 1200px;" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">Create Data</strong></h5>
+                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">Create Test Data</strong></h5>
                     <a href="how_to_use.html" target="_blank"><button type="button" class="btn btn-info btn-sm" style="margin-top: 3px; position: absolute; right: 50px; padding: 1px 10px; height: 25px; font-size: 13px"><i class="fa fa-question-circle" style="color: #ffffff; font-size: 15px; margin-top: 1px; margin-right: 6px"></i>Petunjuk Penggunaan</button></a>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -581,19 +581,19 @@
                                 <div class="card-header">
                                     <ul class="nav nav-pills nav-fill" id="create-tab" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" style="margin-top: 0px; margin-left: 0px; padding: 2px 12px; font-size: 12px;" id="pills-historical-tab" data-toggle="pill" href="#pills-historical" role="tab" aria-controls="pills-historical" aria-selected="true"><strong>Using Historical Data</strong></a>
+                                            <a class="nav-link active" style="margin-top: 0px; margin-left: 0px; padding: 2px 8px; font-size: 11.5px;" id="pills-historical-tab" data-toggle="pill" href="#pills-historical" role="tab" aria-controls="pills-historical" aria-selected="true"><strong>Using Historical Data</strong></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" style="margin-top: 0px; margin-left: 8px; padding: 2px 12px; font-size: 12px;" id="pills-montecarlo-tab" data-toggle="pill" href="#pills-montecarlo" role="tab" aria-controls="pills-montecarlo" aria-selected="false"><strong>Using Montecarlo Simulation</strong></a>
+                                            <a class="nav-link" style="margin-top: 0px; margin-left: 8px; padding: 2px 8px; font-size: 11.5px;" id="pills-montecarlo-tab" data-toggle="pill" href="#pills-montecarlo" role="tab" aria-controls="pills-montecarlo" aria-selected="false"><strong>Using Geometric Brownian Motion</strong></a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="card-body">
                                     <div class="tab-content" id="create-tabContent">
                                         <div class="tab-pane fade show active" id="pills-historical" role="tabpanel" aria-labelledby="pills-historical-tab">
-                                            <h6 style="text-align: center; margin-top: -5px; font-size: 11.5px;">Create Your Testdata Using <strong>Yahoo Finance Historical Data</strong></h6>
+                                            <h6 style="text-align: center; margin-top: -5px; font-size: 11.5px;">Create test data using <strong>Yahoo Finance historical data</strong></h6>
                                             <h6 style="text-align: center; font-size: 11.5px;"><strong>23.456 tickers</strong> available from <strong>24 exchanges</strong> across the world</h6>
-                                            <h6 style="text-align: center; font-size: 11.5px;">Data started from 1970 and Update through <strong>12 maret 2021</strong></h6>
+                                            <h6 style="text-align: center; font-size: 11.5px;">Data started from 1970 and update through <strong>12 maret 2021</strong></h6>
                                             <!-- <a href="how_to_use.html" target="_blank"><button type="button" class="btn btn-secondary btn-sm" style="margin-top: -15px; padding: 1px 10px; height: 18px; width: 100%; font-size: 11px">See Our Dataset on Github and Check It's Accuracy Data</button></a> -->
                                             <hr style="width: 100%; margin-top: 0px; margin-bottom: 0px; line-height: 0.5px;background-color: #b2b2b2"/>
                                             <div class="row">
@@ -719,41 +719,41 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="pills-montecarlo" role="tabpanel" aria-labelledby="pills-montecarlo-tab">
-                                            <h6 style="text-align: center; margin-top: -5px; font-size: 11.5px;">Create Your Testdata Using a Standart <strong>Montecarlo Simulation</strong></h6>
-                                            <h6 style="text-align: center; font-size: 11.5px;">Create Portfolio As Much As You Can, Create With Optimisme</h6>
+                                            <h6 style="text-align: center; margin-top: -5px; font-size: 11.5px;">Create test data using a standart <strong>Geometric Brownian Motion</strong></h6>
+                                            <h6 style="text-align: center; font-size: 11.5px;">Create test data as much as you Can, create with optimisme</h6>
                                             <h6 style="text-align: center; font-size: 11.5px;">Create Portfolio As Much As You Can, Create With Optimisme</h6>
                                             <!-- <a href="how_to_use.html" target="_blank"><button type="button" class="btn btn-secondary btn-sm" style="margin-top: -15px; padding: 1px 10px; height: 18px; width: 100%; font-size: 11px">See Our Montecarlo Simulation Formula on GoogleSheet</button></a> -->
                                             <hr style="width: 100%; margin-top: 0px; margin-bottom: 0px; line-height: 0.5px;background-color: #b2b2b2"/>
                                             <div class="col">
                                                 <div class="row">
-                                                    <div class="form-group" style="text-align: left; font-size: 12px;">
-                                                        <label style="margin-top: 5px;">Initial Capital <i class="fa fa-info-circle" style="margin-left: 5px"></i></label>
-                                                        <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="number" class="form-control" id="initial_price" aria-describedby="" value= "100" min="100" disabled required>
+                                                    <div class="form-group" style="text-align: left; font-size: 11px;">
+                                                        <label style="margin-top: 10px;">Initial Stock Price <i class="fa fa-info-circle" style="margin-left: 0px"></i></label>
+                                                        <input style="margin-top: -5px; font-size: 11px; width: 110px; height: 20px" type="number" class="form-control" id="initial_price" aria-describedby="" value= "100" min="100" disabled required>
                                                         <label style="margin-top: 5px">Start Date <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
-                                                        <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="text" class="form-control" id="startdate_simulation" value= "1991-01-01" aria-describedby="" disabled required>
+                                                        <input style="margin-top: -5px; font-size: 11px; width: 110px; height: 20px" type="text" class="form-control" id="startdate_simulation" value= "1991-01-01" aria-describedby="" disabled required>
                                                     </div>
-                                                    <div class="form-group" style="text-align: left; margin-left: 34px; font-size: 12px">
-                                                        <label style="margin-top: 5px;">Days/Year <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
-                                                        <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="number" class="form-control" id="year_days" aria-describedby="" value= "261" disabled required>
-                                                        <label style="margin-top: 5px">Steps <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 12px"></i></label>
-                                                        <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="number" class="form-control" id="steps" aria-describedby="" value= "0.00383141762" disabled required>
+                                                    <div class="form-group" style="text-align: left; margin-left: 19px; font-size: 11px">
+                                                        <label style="margin-top: 10px;">Days/Year <i class="fa fa-info-circle" style="margin-left: 0px"></i></label>
+                                                        <input style="margin-top: -5px; font-size: 11px; width: 110px; height: 20px" type="number" class="form-control" id="year_days" aria-describedby="" value= "261" disabled required>
+                                                        <label style="margin-top: 5px">Time Step <i class="fa fa-info-circle" style="margin-left: 0px"></i></label>
+                                                        <input style="margin-top: -5px; font-size: 11px; width: 110px; height: 20px" type="number" class="form-control" id="steps" aria-describedby="" value= "0.003831" disabled required>
                                                     </div>
-                                                    <div class="form-group" style="text-align: left; margin-left: 34px; font-size: 12px;">
-                                                        <label style="margin-top: 5px">Drift <i class="fa fa-info-circle" style="margin-left: 5px"></i></label>
-                                                        <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="number" class="form-control" id="drift" aria-describedby="" value= "0.1" min="5%" max="25%" required>
-                                                        <label style="margin-top: 5px">Volatibility <i class="fa fa-info-circle" style="margin-left: 5px"></i></label>
-                                                        <input style="margin-top: -5px; font-size: 11px; width: 100px; height: 20px" type="number" class="form-control" id="volatility" aria-describedby="" value= "0.3" min="10%" max="50%" required>
+                                                    <div class="form-group" style="text-align: left; margin-left: 19px; font-size: 11px;">
+                                                        <label style="margin-top: 10px">Drift <i class="fa fa-info-circle" style="margin-left: 0px"></i></label>
+                                                        <input style="margin-top: -5px; font-size: 11px; width: 110px; height: 20px" type="number" class="form-control" id="drift" aria-describedby="" value= "0.1" min="5%" max="25%" required>
+                                                        <label style="margin-top: 5px">Volatility <i class="fa fa-info-circle" style="margin-left: 0px"></i></label>
+                                                        <input style="margin-top: -5px; font-size: 11px; width: 110px; height: 20px" type="number" class="form-control" id="volatility" aria-describedby="" value= "0.3" min="10%" max="50%" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="progress" style="font-size: 12px; margin-left: 15px;  margin-top: -5px; background-color: #c3c3c3; height: 20px; width: 230px">
-                                                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="color: #4a4a4a; width:0%">
-                                                    </div>
+                                                    <div class="progress-bar bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">75%</div>
+                                                    <!-- <div class="progress-bar w-25" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div> -->
                                                 </div>
                                                 <button type="button" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 0px; margin-left: 10px; margin-top: -5px; height: 20px; width: 130px" onclick="process_montercarlo_simulation()">Create Data</button>
                                             </div>                                            
-                                            <div class="card container" style="margin-top: 7px; margin-left: 0px; width: 100%; height: 175px">
+                                            <div class="card container" style="margin-top: 7px; margin-left: 0px; width: 100%; height: 170px">
                                                 <canvas id="montecarlo_simulation_chart" width="0" height="0" style="margin-top: -5px" class="chartjs-render-monitor"></canvas>
                                             </div>
                                             <!-- <div class="card container" style="margin-top: 0px; margin-left: 100px; width: 260px; height: 120px">
@@ -767,9 +767,9 @@
                         <div class="col" style="width : 63%">
                             <div class="row">
                                 <a style="margin-left: 0px; font-size: 12px;">Data Source</a>
-                                <input id="source_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 5px; height: 18px;  width: 130px; font-size: 10px">
+                                <input id="source_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 3px; height: 18px; width: 155px; font-size: 10px">
                                 <a style="margin-left: 10px; font-size: 12px;">Data Period</a>
-                                <input id="period_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 5px; height: 18px;  width: 145px; font-size: 10px">
+                                <input id="period_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 3px; height: 18px; width: 140px; font-size: 10px">
                                 <ul id="pagination-demo" class="pagination pagination-sm"></ul>
                             </div>
                             <div class="row">
@@ -778,36 +778,36 @@
                                         <thead style="color:#d2d3d7">
                                             <tr>
                                                 <th class="text-center" style="position: sticky; left: 0px; top: 0px; z-index: 2; background-color: #2e3050; padding: 5px 18px;">Date</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;1 AAPL</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;2 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;3 SIM_1</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;4 SIM_2</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;5 SIM_3</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;6 ----</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;7 ----</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;8 ----</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;9 -</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;10 -</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;11 -</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;12 -</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;13 -</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;14 -</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;15 -</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;16 -</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;17 -</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;18 -</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;19 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;20 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;21 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;22 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;23 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;24 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;25 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;26 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;27 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;28 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;29 VLYXWW</th>
-                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;30 VLYXWW</th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;1 <span id="stock1_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;2 <span id="stock2_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;3 <span id="stock3_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;4 <span id="stock4_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;5 <span id="stock5_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;6 <span id="stock6_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;7 <span id="stock7_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;8 <span id="stock8_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;9 <span id="stock9_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;10 <span id="stock10_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;11 <span id="stock11_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;12 <span id="stock12_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;13 <span id="stock13_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;14 <span id="stock14_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;15 <span id="stock15_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;16 <span id="stock16_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;17 <span id="stock17_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;18 <span id="stock18_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;19 <span id="stock19_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;20 <span id="stock20_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;21 <span id="stock21_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;22 <span id="stock22_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;23 <span id="stock23_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;24 <span id="stock24_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;25 <span id="stock25_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;26 <span id="stock26_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;27 <span id="stock27_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;28 <span id="stock28_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;29 <span id="stock29_ticker">-</span></th>
+                                                <th class="text-center" style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">Stock&nbsp;30 <span id="stock30_ticker">-</span></th>
                                             </tr>
                                         </thead>
                                         <tbody>
