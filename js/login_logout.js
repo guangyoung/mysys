@@ -5,7 +5,7 @@ function start_quantxi_btn() {
   if (width < 1200) {
       open("img/ailogo2.png","_self");
   }  
-  var endpoint = "http://api.quantxi.com/get.php";
+  var endpoint = "https://api.quantxi.com/get.php";
   var api_key = $("#api_key").val();
     $.ajax({
         type: "GET",
