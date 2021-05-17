@@ -7,7 +7,7 @@ function start_quantxi_btn() {
   // }
   
   
-  var endpoint = "https://api.quantxi.com/get.php";
+  var endpoint = "http://api.quantxi.com/get.php";
   var api_key = $("#api_key").val();
     $.ajax({
         type: "GET",
