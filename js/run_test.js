@@ -1,7 +1,5 @@
  //RUN TEST -------------------------------------------------------------------------------
  
- //post request response array
- 
  //trade report array
  var asset_trade_details = new Array();
  var account_trade_summary = new Array();
@@ -57,21 +55,21 @@ var test_history = new Array();
      var sell_trade_cost = [];
 
      for (i=1;i<=30;i++) {
-     price[i] = 0;
-     position_size[i] = 0;
-     market_value[i] = 0;
-     margin_loan_balance[i] = 0;
-     buy_trade_size[i] = 0;
-     buy_trade_value[i] = 0;
-     buy_trade_margin_used[i] = 0;
-     buy_trade_margin_loan[i] = 0;
-     buy_trade_cost[i] = 0;
-     sell_trade_size[i] = 0;
-     sell_trade_value[i] = 0;
-     avg_buy_price[i] = 0;
-     sell_trade_loan_back[i] = 0;
-     sell_trade_margin_back[i] = 0;
-     sell_trade_cost[i] = 0;     
+      price[i] = 0;
+      position_size[i] = 0;
+      market_value[i] = 0;
+      margin_loan_balance[i] = 0;
+      buy_trade_size[i] = 0;
+      buy_trade_value[i] = 0;
+      buy_trade_margin_used[i] = 0;
+      buy_trade_margin_loan[i] = 0;
+      buy_trade_cost[i] = 0;
+      sell_trade_size[i] = 0;
+      sell_trade_value[i] = 0;
+      avg_buy_price[i] = 0;
+      sell_trade_loan_back[i] = 0;
+      sell_trade_margin_back[i] = 0;
+      sell_trade_cost[i] = 0;     
      }
      
      //account & trade summary variable
@@ -118,23 +116,23 @@ var test_history = new Array();
     }
    }
 
-   //reset your previous portfolio data in quantxi
-   await $.ajax({
-     type: "POST",
-     url: "http://localhost/rasio_server/api/reset.php",
-     headers:{
-       "Content-Type": "application/json",
-       "X-API-KEY": sessionStorage.getItem("api")
-     },
-     dataType: 'json',
-     success: function(result){
-      //  console.log(result);     
-     },
-     error: function() {      
-       alert(`koneksi ke server gagal, coba beberapa saat lagi`);
-       return false;
-     }
-   })
+   //reset your previous portfolio data in quantxi /////REST INI TIDAK PERLU KARENA ENGINE YG AKAN PROSES HAPUS DATA SETELAH 7830 ATAU DATAID==1
+  //  await $.ajax({
+  //    type: "POST",
+  //    url: "http://localhost/rasio_server/api/reset.php",
+  //    headers:{
+  //      "Content-Type": "application/json",
+  //      "X-API-KEY": sessionStorage.getItem("api")
+  //    },
+  //    dataType: 'json',
+  //    success: function(result){
+  //     //  console.log(result);     
+  //    },
+  //    error: function() {      
+  //      alert(`koneksi ke server gagal, coba beberapa saat lagi`);
+  //      return false;
+  //    }
+  //  })
 
    //Disable Button
   $('#setting_button').attr('disabled',true);
@@ -150,8 +148,8 @@ var test_history = new Array();
   // $('#logout_button').attr('disabled',true);
 
    //PROSES DATA
-     async function proses() {
-       if (data_id <= (data_length-idx_start)) {
+    //  async function proses() {
+       while (data_id <= (data_length-idx_start)) { //sbelumnya if bukan while
        
       //  var data_input;
        var signal_output = new Array();
@@ -163,7 +161,7 @@ var test_history = new Array();
          for (i=1;i<=30;i++) {  
             price[i]                = parseFloat(port_data[i][(idx_start+(data_id-1))]);
             position_size[i]        = position_size[i] + buy_trade_size[i] - sell_trade_size[i];              
-            market_value[i]        = position_size[i] * price[i];
+            market_value[i]         = position_size[i] * price[i];
             margin_loan_balance[i]  = margin_loan_balance[i] + buy_trade_margin_loan[i] - sell_trade_loan_back[i];            
          }
          //account summary
@@ -325,7 +323,8 @@ var test_history = new Array();
            if (result.status == "success") {           
              
              let asset_signal_position = new Array();
-             let asset_signal_size = new Array();                    
+             let asset_signal_size = new Array(); 
+                                
              asset_signal_position.push(
                result.data.asset1_signal_position,
                result.data.asset2_signal_position,
@@ -625,10 +624,10 @@ var test_history = new Array();
            //add data ID -------------------------------------------------------
            data_id++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?  
            //-----------------------------------------------------------     
-         }           
+         }     
+       } 
        
-   
-       } else {
+      //  else {
         //Enable Button
         $('#setting_button').attr('disabled',false);
         $('#data_button').attr('disabled',false);
@@ -698,10 +697,10 @@ var test_history = new Array();
      
         alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
         return false;
-       }
-       setTimeout(proses, 1/1000);
-     }
+      //  }
+    //    setTimeout(proses, 1/1000);
+    //  }
 
-   proses(); 
+  //  proses(); 
    
  }

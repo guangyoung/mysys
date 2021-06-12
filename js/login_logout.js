@@ -7,7 +7,7 @@ function start_quantxi_btn() {
   // }
   
   
-  var endpoint = "https://api.quantxi.com/get.php";
+  var endpoint = "https://api.quantxi.com/user";
   var api_key = $("#api_key").val();
     $.ajax({
         type: "GET",
@@ -16,7 +16,7 @@ function start_quantxi_btn() {
             // "Content-Type": "application/x-www-form-urlencoded",
             "X-API-KEY": api_key
         },
-        contentType: 'application/x-www-form-urlencoded',
+        // contentType: 'application/x-www-form-urlencoded',
         dataType: 'json',
         success: function(result){
         if (result.status == "success") {

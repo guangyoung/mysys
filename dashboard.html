@@ -626,10 +626,11 @@
                                                         </div>
                                                         <div class="dropdown" id="tickers_startdate">
                                                             <button class="btn btn-secondary btn-sm dropdown-toggle" id="startdt_btn" type="button" data-toggle="dropdown" style="margin-left: 10px; font-size: 10px; width: 80px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
-                                                                <span class="startdt">Startdate</span>
+                                                                <span class="startdt">Startyear</span>
                                                             </button>
                                                             <div class="dropdown-menu" onclick="startdate_list()" aria-labelledby="dropdownMenuButton" style="height: 300px; overflow: auto; font-size: 10px;">
-                                                                <a class="dropdown-item" href="#">Under 1990</a>
+                                                                <a class="dropdown-item" href="#">All Years</a>
+                                                                <a class="dropdown-item" href="#">&#8804; 1990</a>
                                                                 <a class="dropdown-item" href="#">1991</a>
                                                                 <a class="dropdown-item" href="#">1992</a>
                                                                 <a class="dropdown-item" href="#">1993</a>
@@ -668,19 +669,18 @@
                                                 <div class="tab-pane fade" id="random" role="tabpanel" aria-labelledby="random-tab">
                                                     <div class="row" style="margin-top: 3px" id="tt_dd_random">
                                                         <div class="dropdown" id="tickers_exchange_random">
-                                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn_random" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 10px; width: 100px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
+                                                            <!-- <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn_random" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 10px; width: 100px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
                                                                 <span class="Xchange">Exchange</span>
-                                                            </button>
-                                                            <div class="dropdown-menu" onclick="exchange_list()" aria-labelledby="dropdownMenuButton" style="text-align: left; font-size: 10px;">
-                                                            <a class="dropdown-item" href="#">MIX/RANDOM</a>
-                                                            <a class="dropdown-item" href="#">NASDAQ</a>
-                                                            <a class="dropdown-item" href="#">NYSE</a>
-                                                            <a class="dropdown-item" href="#">LSE</a>
-                                                            <a class="dropdown-item" href="#">EURONEXT</a>
-                                                            <a class="dropdown-item" href="#">SSE</a>
-                                                            <a class="dropdown-item" href="#">SZSE</a>
-                                                            <a class="dropdown-item" href="#">SEHK</a>
-                                                            <a class="dropdown-item" href="#">TSX</a>
+                                                            </button> -->
+                                                            <div id="exchange_list">
+                                                                <button class="btn btn-secondary btn-sm dropdown-toggle" id="exchange_list_btn" onclick="exchange_list_btn()" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 10px; width: 80px;padding: 1px 5px">
+                                                                    Exchange (<span class="quantity">0</span>)
+                                                                </button>
+                                                                <div id="div_xchange">
+                                                                    <ul id="xchange" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 10px; height: 300px; width: 100px; overflow: auto;">
+    
+                                                                    </ul>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 0px; margin-left: 13px; margin-top: 4px; height: 20px; width: 255px" onclick="">Randomly Add Data</button>

@@ -1,5 +1,6 @@
 //Function Portfolio Dataset
 var ticker_list = new Array();
+var xchange_list = new Array();
 var exchange_choose_current;
 var exchange_choose;
 var startdate_choose_current;
@@ -13,7 +14,7 @@ var port_data = new Array();
 function exchange_list() {//cari solusi biar tdk double click, muncul berkali2 di console
       $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
         var container_exchange = $(this).closest("#tickers_exchange");
-        exchange_choose_current = $(event.currentTarget)[0].innerHTML;
+        exchange_choose_current = $(event.currentTarget)[0].innerText;
         container_exchange.find('.Xchange').text( exchange_choose_current || 'Exchange');
         console.log(exchange_choose_current);
     });
@@ -22,7 +23,7 @@ function exchange_list() {//cari solusi biar tdk double click, muncul berkali2 d
 function startdate_list() {//cari solusi biar tdk double click, muncul berkali2 di console
   $("#tickers_startdate").on('click', '.dropdown-item', function (event) {
       var container_startdate = $(this).closest("#tickers_startdate");
-      startdate_choose_current = $(event.currentTarget)[0].innerHTML;
+      startdate_choose_current = $(event.currentTarget)[0].innerText;
       container_startdate.find('.startdt').text( startdate_choose_current || 'Startdate');
       console.log(startdate_choose_current);
   });
@@ -177,6 +178,62 @@ function add_data() {
     // $("#period_data").val("");
     // $("#start_date").val("");
     // localStorage.removeItem("portData");
+  }
+
+//random select
+function exchange_list_btn() {
+  // if(!exchange_choose_current || !startdate_choose_current) {
+  //    $('#ulul').empty();
+  //   var li = document.createElement('li').appendChild(document.createTextNode("silahkan pilih exchange & startdate"));
+  //   document.getElementById("ulul").appendChild(li);
+  //   return false;
+  // }
+  // if(exchange_choose_current == exchange_choose || startdate_choose_current == stardate_choose) {
+  //   return false;
+  // }
+  // if(xchange_list.length==0) { 
+    $('#xchange').empty();
+    exchange_list_filter();
+  // }
+    $("#exchange_list").on('click', '.dropdown-menu li', function (event) { //cari solusi biar tdk double click, muncul berkali2 di console
+      event.stopPropagation();
+      var container2 = $(this).closest("#exchange_list");
+      var numChecked2 = container2.find('[type="checkbox"]:checked').length;
+      container2.find('.quantity').text(numChecked2 || '0');
+      console.log(numChecked2);
+      var $target2 = $(event.currentTarget);
+      console.log($target2.text());
+      if(numChecked2 > xchange_list.length) {
+          xchange_list.push($target2.text());
+      } else if(numChecked2 < xchange_list.length){
+          var index = xchange_list.indexOf($target2.text());
+          xchange_list.splice(index, 1);
+      } else{}
+      console.log(xchange_list);
+  });
+}
+
+function exchange_list_filter() {
+    var Xchange = x_list;
+    for (i=0;i<Xchange.length;i++) {
+    var newLi = document.createElement('li');
+    var cb = document.createElement( "input" );
+    cb.type = "checkbox";
+    cb.id = "c1";
+    cb.checked = false;
+      //Append the checkbox to the li
+    newLi.appendChild(cb);
+    //Create the text node after the the checkbox
+    var text = document.createTextNode(Xchange[i]);
+      //  Append the text node to the <li>
+    newLi.appendChild(text);
+      //Append the <li> to the <ul>
+    // var ul = document.getElementById("ulul");
+    document.getElementById("xchange").appendChild(newLi);
+    }
+
+    //     }
+    // });
   }
 
  function appendLeadingZeroes(n){
