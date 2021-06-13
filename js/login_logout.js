@@ -10,7 +10,7 @@ function start_quantxi_btn() {
   var endpoint = "https://api.quantxi.com/user";
   var api_key = $("#api_key").val();
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: endpoint,
         headers:{
             // "Content-Type": "application/x-www-form-urlencoded",
@@ -20,10 +20,9 @@ function start_quantxi_btn() {
         dataType: 'json',
         success: function(result){
         if (result.status == "success") {
-            alert(result.data); //setting diserver u/tampilkan message nama user api
+            alert(`selamat datang point72`); //setting diserver u/tampilkan message nama user api
             sessionStorage.setItem("api", api_key);
             open("dashboard.html","_self");
-            console.log(result.data);
         }
         else {
             alert(`gagal koneksi, periksa api key anda`);
