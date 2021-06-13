@@ -17,7 +17,7 @@ function start_quantxi_btn() {
             "X-API-KEY": api_key
         },
         // contentType: 'application/x-www-form-urlencoded',
-        dataType: 'jsonp',
+        // dataType: 'json',
         success: function(result){
         if (result.status == "success") {
             alert(`selamat datang point72`); //setting diserver u/tampilkan message nama user api
