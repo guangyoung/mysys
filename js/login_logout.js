@@ -23,6 +23,7 @@ function start_quantxi_btn() {
             alert(`selamat datang point72`); //setting diserver u/tampilkan message nama user api
             sessionStorage.setItem("api", api_key);
             open("dashboard.html","_self");
+            console.log(result.data);
         }
         else {
             alert(`gagal koneksi, periksa api key anda`);
