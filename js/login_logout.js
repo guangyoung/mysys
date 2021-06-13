@@ -10,14 +10,14 @@ function start_quantxi_btn() {
   var endpoint = "https://api.quantxi.com/user";
   var api_key = $("#api_key").val();
     $.ajax({
-        type: "GET",
+        // type: "GET",
         url: endpoint,
         headers:{
             // "Content-Type": "application/x-www-form-urlencoded",
             "X-API-KEY": api_key
         },
         // contentType: 'application/x-www-form-urlencoded',
-        // dataType: 'json',
+        dataType: 'json',
         success: function(result){
         if (result.status == "success") {
             alert(`selamat datang point72`); //setting diserver u/tampilkan message nama user api
