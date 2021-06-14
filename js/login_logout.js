@@ -7,15 +7,15 @@ function start_quantxi_btn() {
   // }
   
   
-  var endpoint = "https://api.quantxi.com/user";
+  var endpoint = "https://api.quantxi.com/user?api=EUyzjr5WhxZ4GnCJs2rMJ0hjCx3sPntc2gssKLhC";
   var api_key = $("#api_key").val();
     $.ajax({
         type: "GET",
         url: endpoint,
-        headers:{
-            "Content-Type": "application/x-www-form-urlencoded",
-            "X-API-KEY": api_key
-        },
+        // headers:{
+        //     "Content-Type": "application/x-www-form-urlencoded",
+        //     "X-API-KEY": api_key
+        // },
         // contentType: 'application/x-www-form-urlencoded',
         dataType: 'json',
         success: function(result){
