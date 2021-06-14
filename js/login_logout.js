@@ -6,9 +6,8 @@ function start_quantxi_btn() {
   //     open("img/ailogo2.png","_self");
   // }
   
-  
-  var endpoint = "https://api.quantxi.com/user?api=EUyzjr5WhxZ4GnCJs2rMJ0hjCx3sPntc2gssKLhC";
   var api_key = $("#api_key").val();
+  var endpoint = "https://api.quantxi.com/user?api="+api_key;  
     $.ajax({
         type: "GET",
         url: endpoint,
@@ -20,7 +19,7 @@ function start_quantxi_btn() {
         dataType: 'json',
         success: function(result){
         if (result.status == "success") {
-            alert(`selamat datang point72`); //setting diserver u/tampilkan message nama user api
+            alert(`selamat datang `+result.data.nama); //setting diserver u/tampilkan message nama user api
             sessionStorage.setItem("api", api_key);
             open("dashboard.html","_self");
         }
