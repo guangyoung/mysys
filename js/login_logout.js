@@ -13,7 +13,7 @@ function start_quantxi_btn() {
         type: "GET",
         url: endpoint,
         headers:{
-            // "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/x-www-form-urlencoded",
             "X-API-KEY": api_key
         },
         // contentType: 'application/x-www-form-urlencoded',
