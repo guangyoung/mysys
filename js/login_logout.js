@@ -20,9 +20,9 @@ function start_quantxi_btn() {
         dataType: 'json',
         success: function(result){
         if (result.status == "success") {
-            // alert(`selamat datang point72`); //setting diserver u/tampilkan message nama user api
+            alert(`selamat datang point72`); //setting diserver u/tampilkan message nama user api
             sessionStorage.setItem("api", api_key);
-            // open("dashboard.html","_self");
+            open("dashboard.html","_self");
         }
         else {
             alert(`gagal koneksi, periksa api key anda`);
