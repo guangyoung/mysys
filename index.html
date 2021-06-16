@@ -9,7 +9,7 @@
         <!-- <link rel="shortcut icon" type="images/png" href="images/xi3.png"> -->
         <link rel="stylesheet" type="text/css" href="styles/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
-        <script src="scripts/login_logout.js"></script>
+        <!-- <script src="scripts/login_logout.js"></script> -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
@@ -37,5 +37,37 @@
             </div>
         </div>
     </body>
+
+    <!-- login -->
+    <script>
+        function start_quantxi_btn() {  
+  
+            let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            if (width < 1200) {
+                open("images/ailogo2.png","_self");
+            }
+            
+            var api_key = $("#api_key").val();
+            $.ajax({
+                type: "GET",
+                url: "https://api.quantxi.com/user?api="+api_key,
+                dataType: 'json',
+                success: function(result){
+                if (result.status == "success") {
+                    alert(`selamat datang `+result.data.nama); //setting diserver u/tampilkan message data user
+                    sessionStorage.setItem("api", api_key);
+                    open("dashboard.html","_self");
+                } else {
+                    alert(`gagal koneksi, periksa api key anda`);
+                    return false;
+                }
+                },
+                error: function() {
+                    alert(`gagal koneksi, periksa api key anda`);
+                    return false;
+                }
+            })
+        }
+    </script>
 
 </html>

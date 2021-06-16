@@ -625,13 +625,13 @@ var test_history = new Array();
         // clearTimeout();
 
         //view post json
-        post_request_response_json();
+        // post_request_response_json();
 
         //account trade summary
-        view_account_trade_summary();
+        // view_account_trade_summary();
 
         //performance_chart
-        performance_chart();
+        // performance_chart();
         
         // test_history();
         test_history = [];
@@ -675,7 +675,7 @@ var test_history = new Array();
 
         localStorage.setItem("testhistory",JSON.stringify(test_history));
 
-        view_test_history();
+        // view_test_history();
      
         alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
         return false;
