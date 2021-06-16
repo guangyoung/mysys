@@ -1174,7 +1174,7 @@
         </div>
     </div>
     <script>
-        // function view_account_trade_summary() {
+        function view_account_trade_summary() {
             $("#account_trade_summary_tbl>tbody").empty();
             $("#pagination_trade_summary").twbsPagination("destroy");
             if(account_trade_summary.length > 0) {
@@ -1271,7 +1271,8 @@
                 alert("belum ada data")
                 return false;
             } 
-        // }
+        }
+        view_account_trade_summary();
 
         var asset_choose_current;
         // function view_asset_trade_details() {//cari solusi biar tdk double click, muncul berkali2 di console
