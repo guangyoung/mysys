@@ -50,7 +50,7 @@
             var api_key = $("#api_key").val();
             $.ajax({
                 type: "GET",
-                url: "https://api.quantxi.com/user?api="+api_key,
+                url: "https://api.quantxi.com/user?api_key="+api_key,
                 dataType: 'json',
                 success: function(result){
                 if (result.status == "success") {
