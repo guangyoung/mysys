@@ -12,10 +12,44 @@ var port_data = new Array();//rubah pakai session storage
 
 function tickers_list_btn () {
   if(!exchange_choose_current || !startdate_choose_current) {
-      $('#ulul').empty();
-      var li = document.createElement('li').appendChild(document.createTextNode("silahkan pilih exchange & startdate"));
-      document.getElementById("ulul").appendChild(li);
-      return false;
+    $('#ulul').empty();
+    var li = document.createElement('li').appendChild(document.createTextNode("silahkan pilih exchange & startdate"));
+    document.getElementById("ulul").appendChild(li);
+    return false;
+  }
+  if(ticker_list.length>0) {
+    if (exchange_choose_current !== exchange_choose || startdate_choose_current !== startdate_choose) {
+      if (confirm("anda punya ticker yg dipilih blm di add, apa anda mau batalin") == true) {
+        ticker_list = [];
+        $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
+        exchange_choose = exchange_choose_current;
+        startdate_choose = startdate_choose_current;
+        $('#ulul').empty();
+        for (i=0;i< NYSE_ticker_list.length;i++) {
+          var newLi = document.createElement('li');
+          var cb = document.createElement( "input" );
+            cb.type = "checkbox";
+            cb.id = "c1";
+            cb.checked = false;
+            //Append the checkbox to the li
+            newLi.appendChild(cb);
+            //Create the text node after the the checkbox
+            var text = document.createTextNode(NYSE_ticker_list[i]);
+            //Append the text node to the <li>
+            newLi.appendChild(text);
+            //Append the <li> to the <ul>
+            document.getElementById("ulul").appendChild(newLi);
+        }
+      } else {
+        exchange_choose_current = exchange_choose;
+        startdate_choose_current = startdate_choose;
+        $("#Xchange_btn").html(`<span class="Xchange">`+exchange_choose+`</span>`);
+        $("#startdt_btn").html(`<span class="startdt">`+startdate_choose+`</span>`);
+        return false;
+      }
+    } else {
+      return false
+    }
   } else {
     exchange_choose = exchange_choose_current;
     startdate_choose = startdate_choose_current;
@@ -105,11 +139,14 @@ function add_data() {
 
   function reset_portfolio() {
     asset_portfolio_yahoo = [];
+    port_data = [];
     $("#table_assets > tbody").empty();
     $("#port_data_tbl>tbody").empty();
     $("#pagination-demo").twbsPagination("destroy");
     $("#period_data").val("");
-    $("#start_date").val("");
+    $("#period_data_dashboard").val("No Data Available");
+    $("#source_data").val("");
+    // $("#start_date").val("");
     // localStorage.removeItem("portData");
   }
 
@@ -132,6 +169,7 @@ var port_data = new Array();//session
         $("#pagination-demo").twbsPagination("destroy");
         $("#period_data").val("");
         $("#period_data_dashboard").val("No Data Available");
+        $("#source_data").val("");
           var startdates= new Array();
           var enddates= new Array();
           for (i=0; i<asset_portfolio_yahoo.length; i++) {
