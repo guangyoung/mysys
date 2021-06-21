@@ -106,10 +106,10 @@ function add_data() {
   function reset_portfolio() {
     asset_portfolio_yahoo = [];
     $("#table_assets > tbody").empty();
-    // $("#port_data_tbl>tbody").empty();
-    // $("#pagination-demo").twbsPagination("destroy");
-    // $("#period_data").val("");
-    // $("#start_date").val("");
+    $("#port_data_tbl>tbody").empty();
+    $("#pagination-demo").twbsPagination("destroy");
+    $("#period_data").val("");
+    $("#start_date").val("");
     // localStorage.removeItem("portData");
   }
 
@@ -140,8 +140,8 @@ var port_data = new Array();//session
           }
           var startDate=new Date(Math.max.apply(null,startdates));
           var endDate=new Date(Math.min.apply(null,enddates));
-          console.log(startDate);
-          console.log(endDate);
+          // console.log(startDate);
+          // console.log(endDate);
 
           // var dt = startDate;
           var dtt_arr = new Array();
