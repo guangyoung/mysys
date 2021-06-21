@@ -1,14 +1,13 @@
 //Function Portfolio Dataset
 var ticker_list = new Array();//session
-var xchange_list = new Array();
+// var xchange_list = new Array();
 var exchange_choose_current;//session
 var exchange_choose;//session
-var startdate_choose_current;
-var startdate_choose;
+var startdate_choose_current;//session
+var startdate_choose;//session
 var asset_portfolio_yahoo = new Array();//session
 // var asset_portfolio_files = new Array();
-var mychart1;
-var mychart2;
+var mychart;
 var port_data = new Array();//rubah pakai session storage
 
 function tickers_list_btn () {
@@ -107,153 +106,19 @@ function add_data() {
   function reset_portfolio() {
     asset_portfolio_yahoo = [];
     $("#table_assets > tbody").empty();
-    // $("#port_data_tbl>tbody").empty();
-    // $("#pagination-demo").twbsPagination("destroy");
-    // $("#period_data").val("");
-    // $("#start_date").val("");
-    // localStorage.removeItem("portData");
+    $("#port_data_tbl>tbody").empty();
+    $("#pagination-demo").twbsPagination("destroy");
+    $("#period_data").val("");
+    $("#start_date").val("");
+    localStorage.removeItem("portData");
   }
 
-//random select
-// function exchange_list_btn() {
-  // if(!exchange_choose_current || !startdate_choose_current) {
-  //    $('#ulul').empty();
-  //   var li = document.createElement('li').appendChild(document.createTextNode("silahkan pilih exchange & startdate"));
-  //   document.getElementById("ulul").appendChild(li);
-  //   return false;
-  // }
-  // if(exchange_choose_current == exchange_choose || startdate_choose_current == stardate_choose) {
-  //   return false;
-  // }
-  // if(xchange_list.length==0) { 
-//     $('#xchange').empty();
-//     exchange_list_filter();
-//   // }
-//     $("#exchange_list").on('click', '.dropdown-menu li', function (event) { //cari solusi biar tdk double click, muncul berkali2 di console
-//       event.stopPropagation();
-//       var container2 = $(this).closest("#exchange_list");
-//       var numChecked2 = container2.find('[type="checkbox"]:checked').length;
-//       container2.find('.quantity').text(numChecked2 || '0');
-//       console.log(numChecked2);
-//       var $target2 = $(event.currentTarget);
-//       console.log($target2.text());
-//       if(numChecked2 > xchange_list.length) {
-//           xchange_list.push($target2.text());
-//       } else if(numChecked2 < xchange_list.length){
-//           var index = xchange_list.indexOf($target2.text());
-//           xchange_list.splice(index, 1);
-//       } else{}
-//       console.log(xchange_list);
-//   });
-// }
-
-// function exchange_list_filter() {
-//     var Xchange = x_list;
-//     for (i=0;i<Xchange.length;i++) {
-//     var newLi = document.createElement('li');
-//     var cb = document.createElement( "input" );
-//     cb.type = "checkbox";
-//     cb.id = "c1";
-//     cb.checked = false;
-//       //Append the checkbox to the li
-//     newLi.appendChild(cb);
-//     //Create the text node after the the checkbox
-//     var text = document.createTextNode(Xchange[i]);
-//       //  Append the text node to the <li>
-//     newLi.appendChild(text);
-//       //Append the <li> to the <ul>
-//     // var ul = document.getElementById("ulul");
-//     document.getElementById("xchange").appendChild(newLi);
-//     }
-
-//     //     }
-//     // });
-//   }
-
- function appendLeadingZeroes(n){
-    if(n <= 9){
-      return "0" + n;
-    }
-    return n
+function appendLeadingZeroes(n){
+  if(n <= 9){
+    return "0" + n;
   }
-
-// function price_idx_list() {//cari solusi biar tdk double click, muncul berkali2 di console
-//   $("#price_idx").on('click', '.dropdown-item', function (event) {
-//     var container_price_idx = $(this).closest("#price_idx");
-//     price_idx = $(event.currentTarget)[0].innerHTML;
-//     container_price_idx.find('.price_idx_column').text( price_idx || '#');
-//     console.log(price_idx);
-// });
-// }
-
-// function add_data_files() {
-//   if(file.files.length==0) {
-//     alert("tidak ada file yg dipilih");
-//     return false;
-//   }
-//   if((file.files.length+asset_portfolio_files.length)>30) {
-//     alert("ticker yg anda pilih melebihi total ticker tersisa untuk portfolio")
-//     return false;
-//   }
-//   if(asset_portfolio_files.length>0) {
-//   for (i = 0; i<file.files.length; i++) {    //?????
-//       var tickere = file.files[i].split(', ')[0];
-//       for(x=0;x<asset_portfolio_files.length;x++) {
-//         let idx = asset_portfolio_files[x].ticker.indexOf(tickere);
-//         if (idx !== -1) {
-//           alert("ticker "+tickere+" sdh dipilih");
-//           return false;
-//         }
-//       }
-//     }
-//   }
-//   for (i = 0; i < file.files.length; i++) {
-//     let sFileName       = (file.files[i].name.split('\\').pop().split('/').pop().split('.'))[0];
-//     let sFileExtension  = file.files[i].name.split('.')[file.files[i].name.split('.').length - 1].toLowerCase();
-//     let sFileSize       = file.files[i].size / 1024 / 1024; // in MB
-//     if (!(sFileExtension === "csv" )) { /// 10 mb
-//         alert(`Format File ${file.files[i].name} Bukan CSV`);
-//         return false;
-//     }
-//     else if (sFileSize > 1) { /// 10 mb
-//         alert(`File Size ${file.files[i].name} Lebih dr 1 MB`);
-//         return false;
-//     } else {
-//       let as_data_date = new Array();
-//       let as_data_price = new Array();
-//         Papa.parse(file.files[i], {
-//             download: true,
-//             header: false,
-//             complete: function(result) {
-//               for(i=1; i<result.data.length; i++) {
-//                 let data_date = new Date(result.data[i][0]);
-//                 let data_price = result.data[i][5];
-//                 as_data_date.push(
-//                   appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
-//                 );
-//                 as_data_price.push(
-//                   data_price
-//                 );
-//                 }
-//                 asset_portfolio_files.push({ticker: sFileName, data: {date: as_data_date, price: as_data_price}});
-//                 console.log(asset_portfolio_files);
-//                 console.log(as_data_date);
-//                 let al = asset_portfolio_files.length;
-//                 // let ad = as_data.length-1;
-//                 let portfolio =
-//                 `<tr>
-//                     <td class="text-center">Asset `+al+`</td>
-//                     <td class="text-center">`+sFileName+`</td>
-//                     <td class="text-center">`+as_data_date[0]+`</td>
-//                     <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
-//                 </tr>`;
-//                 $("#table_assets2 > tbody").append(portfolio);
-//             }
-//         });
-//   }
-// }
-// $("#file").val(``);
-// }
+  return n
+}
 
 // tombol proses data utk data from yahoo and files
 var port_data = new Array();//session
@@ -278,21 +143,21 @@ var port_data = new Array();//session
           console.log(startDate);
           console.log(endDate);
 
-          var dt = startDate;
+          // var dt = startDate;
           var dtt_arr = new Array();
-          var dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
-          dt.toString().slice(0, 10);
+          var dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
+          startDate.toString().slice(0, 10);
           dtt_arr.push(dtt);
-          while (dt < endDate) {
-              if (dt.getDay()==5) {
-                  dt = new Date(dt.setDate(dt.getDate() + 3));
-                  dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
-                  dt.toString().slice(0, 10);
+          while (startDate < endDate) {
+              if (startDate.getDay()==5) {
+                  startDate = new Date(startDate.setDate(startDate.getDate() + 3));
+                  dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
+                  startDate.toString().slice(0, 10);
                   dtt_arr.push(dtt);
               } else {
-                  dt = new Date(dt.setDate(dt.getDate() + 1));
-                  dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
-                  dt.toString().slice(0, 10);
+                  startDate = new Date(startDate.setDate(startDate.getDate() + 1));
+                  dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
+                  startDate.toString().slice(0, 10);
                   dtt_arr.push(dtt);
               }
           }
@@ -503,204 +368,4 @@ onPageClick: function (event, page) {
 }
 });
 
-//montecarlo simulation chart
-chartColors = {
-red: 'rgb(255, 99, 132)',
-orange: 'rgb(255, 159, 64)',
-yellow: 'rgb(255, 205, 86)',
-green: 'rgb(75, 192, 192)',
-blue: 'rgb(54, 162, 235)',
-purple: 'rgb(153, 102, 255)',
-grey: 'rgb(201, 203, 207)' };
-
-data_chart = port_data;
-dataChart1 = new Array();
-dataChart2 = new Array();
-dataChart3 = new Array();
-dataChart4 = new Array();
-dataChart5 = new Array();
-dataChart6 = new Array();
-dataChart7 = new Array();
-dataChart8 = new Array();
-dataChart9 = new Array();
-dataChart10 = new Array();
-dataChart11 = new Array();
-dataChart12 = new Array();
-dataChart13 = new Array();
-dataChart14 = new Array();
-dataChart15 = new Array();
-dataChart16 = new Array();
-dataChart17 = new Array();
-dataChart18 = new Array();
-dataChart19 = new Array();
-dataChart20 = new Array();
-dataChart21 = new Array();
-dataChart22 = new Array();
-dataChart23 = new Array();
-dataChart24 = new Array();
-dataChart25 = new Array();
-dataChart26 = new Array();
-dataChart27 = new Array();
-dataChart28 = new Array();
-dataChart29 = new Array();
-dataChart30 = new Array();
-dataLabel = new Array();
-
-for (i=0; i<7830; i++) {
-dataLabel.push(data_chart[0][i]);
-dataChart1.push(data_chart[1][i]);
-dataChart2.push(data_chart[2][i]);
-dataChart3.push(data_chart[3][i]);
-dataChart4.push(data_chart[4][i]);
-dataChart5.push(data_chart[5][i]);
-dataChart6.push(data_chart[6][i]);
-dataChart7.push(data_chart[7][i]);
-dataChart8.push(data_chart[8][i]);
-dataChart9.push(data_chart[9][i]);
-dataChart10.push(data_chart[10][i]);
-dataChart11.push(data_chart[11][i]);
-dataChart12.push(data_chart[12][i]);
-dataChart13.push(data_chart[13][i]);
-dataChart14.push(data_chart[14][i]);
-dataChart15.push(data_chart[15][i]);
-dataChart16.push(data_chart[16][i]);
-dataChart17.push(data_chart[17][i]);
-dataChart18.push(data_chart[18][i]);
-dataChart19.push(data_chart[19][i]);
-dataChart20.push(data_chart[20][i]);
-dataChart21.push(data_chart[21][i]);
-dataChart22.push(data_chart[22][i]);
-dataChart23.push(data_chart[23][i]);
-dataChart24.push(data_chart[24][i]);
-dataChart25.push(data_chart[25][i]);
-dataChart26.push(data_chart[26][i]);
-dataChart27.push(data_chart[27][i]);
-dataChart28.push(data_chart[28][i]);
-dataChart29.push(data_chart[29][i]);
-dataChart30.push(data_chart[30][i]);
-}
-
-var config = {
-  type: 'line',
-  data: {
-    labels: dataLabel,
-    datasets: [{
-      label: 'Asset1',
-      pointRadius: 0,
-      borderWidth: 1,
-      backgroundColor: chartColors.red,
-      borderColor: chartColors.red,
-      data: dataChart1,
-      fill: false },
-    {
-      label: 'Asset2',
-      pointRadius: 0,
-      borderWidth: 1,
-      backgroundColor: chartColors.blue,
-      borderColor: chartColors.blue,
-      data: dataChart2,
-      fill: false},
-    {
-      label: 'Asset3',
-      pointRadius: 0,
-      borderWidth: 1,
-      backgroundColor: chartColors.blue,
-      borderColor: chartColors.blue,
-      data: dataChart3,
-      fill: false},
-    {
-      label: 'Asset4',
-      pointRadius: 0,
-      borderWidth: 1,
-      backgroundColor: chartColors.blue,
-      borderColor: chartColors.blue,
-      data: dataChart4,
-      fill: false},
-    {
-      label: 'Asset5',
-      pointRadius: 0,
-      borderWidth: 1,
-      backgroundColor: chartColors.blue,
-      borderColor: chartColors.blue,
-      data: dataChart5,
-      fill: false},
-    {
-      label: 'Asset6',
-      pointRadius: 0,
-      borderWidth: 1,
-      backgroundColor: chartColors.blue,
-      borderColor: chartColors.blue,
-      data: dataChart6,
-      fill: false},
-    {
-      label: 'Asset7',
-      pointRadius: 0,
-      borderWidth: 1,
-      backgroundColor: chartColors.blue,
-      borderColor: chartColors.blue,
-      data: dataChart7,
-      fill: false},
-    {
-      label: 'Asset8',
-      pointRadius: 0,
-      borderWidth: 1,
-      backgroundColor: chartColors.blue,
-      borderColor: chartColors.blue,
-      data: dataChart8,
-      fill: false},
-    {
-      label: 'Asset9',
-      pointRadius: 0,
-      borderWidth: 1,
-      backgroundColor: chartColors.blue,
-      borderColor: chartColors.blue,
-      data: dataChart9,
-      fill: false},
-    {
-      label: 'Asset10',
-      pointRadius: 0,
-      borderWidth: 1,
-      backgroundColor: chartColors.blue,
-      borderColor: chartColors.blue,
-      data: dataChart10,
-      fill: false}
-    ]},
-  options: {
-
-    responsive: true,
-    legend: {
-        display: false
-    },
-    title: {
-      display: true,
-      text: 'Montecarlo Simulation Stocks Chart' },
-
-    hover: {
-      mode: 'nearest',
-      intersect: true },
-      // events:[],
-    scales: {
-      xAxes: [{
-        display: false,
-        scaleLabel: {
-          display: false,
-          labelString: 'Years' } }],
-
-
-    yAxes: [{
-      display: false,
-      scaleLabel: {
-        display: false,
-        labelString: 'Equity' } }] } } };
-
-    if(mychart1!=null){
-        mychart1.destroy();
-    }
-    if(mychart2!=null){
-      mychart2.destroy();
-  }
-      var ctx = document.getElementById('montecarlo_simulation_chart').getContext('2d');
-      mychart1 = new Chart(ctx, config);
-      // var ctx = document.getElementById('montecarlo_simulation_chart2').getContext('2d');
-      // mychart2 = new Chart(ctx, config);
 }
