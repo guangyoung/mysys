@@ -183,20 +183,23 @@ var port_data = new Array();//session
 
           // var dt = startDate;
           var dtt_arr = new Array();
-          var dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
-          // startDate.toString().slice(0, 10);
-          dtt_arr.push(dtt);
+          // var dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
+          // // startDate.toString().slice(0, 10);
+          // dtt_arr.push(dtt);
           while (startDate < endDate) {
+              dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
+              // startDate.toString().slice(0, 10);
+              dtt_arr.push(dtt);
               if (startDate.getDay()==5) {
                   startDate = new Date(startDate.setDate(startDate.getDate() + 3));
-                  dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
-                  // startDate.toString().slice(0, 10);
-                  dtt_arr.push(dtt);
+                  // dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
+                  // // startDate.toString().slice(0, 10);
+                  // dtt_arr.push(dtt);
               } else {
                   startDate = new Date(startDate.setDate(startDate.getDate() + 1));
-                  dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
-                  // startDate.toString().slice(0, 10);
-                  dtt_arr.push(dtt);
+                  // dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
+                  // // startDate.toString().slice(0, 10);
+                  // dtt_arr.push(dtt);
               }
           }
           port_data.push(dtt_arr);
