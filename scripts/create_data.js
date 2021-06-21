@@ -86,7 +86,7 @@ function add_data() {
                 let al = asset_portfolio_yahoo.length;
                 let portfolio =
                 `<tr>
-                    <td class="text-center">Asset `+al+`</td>
+                    <td class="text-center">Stock `+al+`</td>
                     <td class="text-center">`+tickere+`</td>
                     <td class="text-center">`+as_data_date[0]+`</td>
                     <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
@@ -106,11 +106,11 @@ function add_data() {
   function reset_portfolio() {
     asset_portfolio_yahoo = [];
     $("#table_assets > tbody").empty();
-    $("#port_data_tbl>tbody").empty();
-    $("#pagination-demo").twbsPagination("destroy");
-    $("#period_data").val("");
-    $("#start_date").val("");
-    localStorage.removeItem("portData");
+    // $("#port_data_tbl>tbody").empty();
+    // $("#pagination-demo").twbsPagination("destroy");
+    // $("#period_data").val("");
+    // $("#start_date").val("");
+    // localStorage.removeItem("portData");
   }
 
 function appendLeadingZeroes(n){
