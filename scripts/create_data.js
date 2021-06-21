@@ -170,12 +170,12 @@ function add_data() {
 //     // });
 //   }
 
-//  function appendLeadingZeroes(n){
-//     if(n <= 9){
-//       return "0" + n;
-//     }
-//     return n
-//   }
+ function appendLeadingZeroes(n){
+    if(n <= 9){
+      return "0" + n;
+    }
+    return n
+  }
 
 // function price_idx_list() {//cari solusi biar tdk double click, muncul berkali2 di console
 //   $("#price_idx").on('click', '.dropdown-item', function (event) {
