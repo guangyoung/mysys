@@ -186,7 +186,7 @@ var port_data = new Array();//session
           // var dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
           // // startDate.toString().slice(0, 10);
           // dtt_arr.push(dtt);
-          while (startDate < endDate) {
+          while (startDate <= endDate) {
               dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
               // startDate.toString().slice(0, 10);
               dtt_arr.push(dtt);
