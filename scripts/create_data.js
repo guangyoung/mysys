@@ -184,18 +184,18 @@ var port_data = new Array();//session
           // var dt = startDate;
           var dtt_arr = new Array();
           var dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
-          startDate.toString().slice(0, 10);
+          // startDate.toString().slice(0, 10);
           dtt_arr.push(dtt);
           while (startDate < endDate) {
               if (startDate.getDay()==5) {
                   startDate = new Date(startDate.setDate(startDate.getDate() + 3));
                   dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
-                  startDate.toString().slice(0, 10);
+                  // startDate.toString().slice(0, 10);
                   dtt_arr.push(dtt);
               } else {
                   startDate = new Date(startDate.setDate(startDate.getDate() + 1));
                   dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
-                  startDate.toString().slice(0, 10);
+                  // startDate.toString().slice(0, 10);
                   dtt_arr.push(dtt);
               }
           }
