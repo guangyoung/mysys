@@ -34,9 +34,9 @@
 <body class="cover">
     <script>
         let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-        if (width < 1200) {
-            open("images/ailogo2.png","_self");
-        }
+        // if (width < 1200) {
+        //     open("images/ailogo2.png","_self");
+        // }
         let api_key = sessionStorage.getItem("api");
         if (!api_key) {
             open("index.html","_self");
@@ -609,7 +609,7 @@
                                                             <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 10px; width: 80px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
                                                                 <span class="Xchange">Exchange</span>
                                                             </button>
-                                                            <div class="dropdown-menu" onclick="exchange_list()" aria-labelledby="dropdownMenuButton" style="text-align: left; font-size: 10px;">
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-align: left; font-size: 10px;">
                                                                 <a class="dropdown-item" href="#">NASDAQ</a>
                                                                 <a class="dropdown-item" href="#">NYSE</a>
                                                                 <a class="dropdown-item" href="#">LSE</a>
@@ -624,7 +624,7 @@
                                                             <button class="btn btn-secondary btn-sm dropdown-toggle" id="startdt_btn" type="button" data-toggle="dropdown" style="margin-left: 10px; font-size: 10px; width: 80px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
                                                                 <span class="startdt">Startyear</span>
                                                             </button>
-                                                            <div class="dropdown-menu" onclick="startdate_list()" aria-labelledby="dropdownMenuButton" style="height: 300px; overflow: auto; font-size: 10px;">
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="height: 300px; overflow: auto; font-size: 10px;">
                                                                 <a class="dropdown-item" href="#">All Years</a>
                                                                 <a class="dropdown-item" href="#">&#8804; 1990</a>
                                                                 <a class="dropdown-item" href="#">1991</a>
@@ -649,8 +649,8 @@
                                                                 <a class="dropdown-item" href="#">2010</a>
                                                             </div>
                                                         </div>
-                                                        <div id="tickers_list">
-                                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick="tickers_list_btn()" type="button" data-toggle="dropdown" style="margin-left: 10px; font-size: 10px; width: 80px;padding: 1px 5px">
+                                                        <div class="dropdown" id="tickers_list">
+                                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick = "tickers_list_btn ()" type="button" data-toggle="dropdown" style="margin-left: 10px; font-size: 10px; width: 80px;padding: 1px 5px">
                                                                 Tickers (<span class="quantity">0</span>)
                                                             </button>
                                                             <div id="div_ulul">
@@ -926,9 +926,7 @@
                 }
             }
         });
-        } else {     
-        return false;
-        }
+        } 
     </script>
 
     <!-- MODAL VIEW ALL POST -->
@@ -1139,10 +1137,7 @@
                     }
                 }
                 });
-            } else {
-                alert("belum ada data")
-                return false;
-            }    
+            }   
         // }
     </script>
 
@@ -1269,7 +1264,7 @@
                 });
             } else {
                 alert("belum ada data")
-                return false;
+                // return false;
             } 
         // }
 
@@ -1437,6 +1432,38 @@
             sessionStorage.removeItem("api");
             open("index.html","_self");
         }
+    </script>
+
+    <script>
+        $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
+            var container_exchange = $(this).closest("#tickers_exchange");
+            exchange_choose_current = $(event.currentTarget)[0].innerText;
+            container_exchange.find('.Xchange').text( exchange_choose_current || 'Exchange');
+            console.log(exchange_choose_current);
+        });
+
+        $("#tickers_startdate").on('click', '.dropdown-item', function (event) {
+            var container_startdate = $(this).closest("#tickers_startdate");
+            startdate_choose_current = $(event.currentTarget)[0].innerText;
+            container_startdate.find('.startdt').text( startdate_choose_current || 'Startdate');
+            console.log(startdate_choose_current);
+        });        
+        $("#tickers_list").on('click', '.dropdown-menu li', function (event) { //cari solusi biar tdk double click, muncul berkali2 di console
+            event.stopPropagation();
+            var container2 = $(this).closest("#tickers_list");
+            var numChecked2 = container2.find('[type="checkbox"]:checked').length;
+            container2.find('.quantity').text(numChecked2 || '0');
+            console.log(numChecked2);
+            var $target2 = $(event.currentTarget);
+            console.log($target2.text());
+            if(numChecked2 > ticker_list.length) {
+                ticker_list.push($target2.text());
+            } else if(numChecked2 < ticker_list.length){
+                var index = ticker_list.indexOf($target2.text());
+                ticker_list.splice(index, 1);
+            } else{}
+            console.log(ticker_list);
+        });
     </script>
 </body>
 </html>

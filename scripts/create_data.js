@@ -1,109 +1,44 @@
 //Function Portfolio Dataset
-var ticker_list = new Array();
+var ticker_list = new Array();//session
 var xchange_list = new Array();
-var exchange_choose_current;
-var exchange_choose;
+var exchange_choose_current;//session
+var exchange_choose;//session
 var startdate_choose_current;
 var startdate_choose;
-var asset_portfolio_yahoo = new Array();
-var asset_portfolio_files = new Array();
+var asset_portfolio_yahoo = new Array();//session
+// var asset_portfolio_files = new Array();
 var mychart1;
 var mychart2;
 var port_data = new Array();//rubah pakai session storage
 
-function exchange_list() {//cari solusi biar tdk double click, muncul berkali2 di console
-      $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
-        var container_exchange = $(this).closest("#tickers_exchange");
-        exchange_choose_current = $(event.currentTarget)[0].innerText;
-        container_exchange.find('.Xchange').text( exchange_choose_current || 'Exchange');
-        console.log(exchange_choose_current);
-    });
-  }
-
-function startdate_list() {//cari solusi biar tdk double click, muncul berkali2 di console
-  $("#tickers_startdate").on('click', '.dropdown-item', function (event) {
-      var container_startdate = $(this).closest("#tickers_startdate");
-      startdate_choose_current = $(event.currentTarget)[0].innerText;
-      container_startdate.find('.startdt').text( startdate_choose_current || 'Startdate');
-      console.log(startdate_choose_current);
-  });
-  }
-
 function tickers_list_btn () {
   if(!exchange_choose_current || !startdate_choose_current) {
-     $('#ulul').empty();
-    var li = document.createElement('li').appendChild(document.createTextNode("silahkan pilih exchange & startdate"));
-    document.getElementById("ulul").appendChild(li);
-    return false;
-  }
-  // if(exchange_choose_current == exchange_choose || startdate_choose_current == stardate_choose) {
-  //   return false;
-  // }
-  if(ticker_list.length>0) {
-    if (exchange_choose_current !== exchange_choose || startdate_choose_current !== startdate_choose) {
-    if (confirm("anda punya ticker yg dipilih blm di add, apa anda mau batalin") == true) {
-        ticker_list = [];
-        $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
-        exchange_choose = exchange_choose_current;
-        startdate_choose = startdate_choose_current;
-        $('#ulul').empty();
-        tickers_list_filter();
-      } else {
-        exchange_choose_current = exchange_choose;
-        startdate_choose_current = startdate_choose;
-        $("#Xchange_btn").html(`<span class="Xchange">`+exchange_choose+`</span>`);
-        $("#startdt_btn").html(`<span class="startdt">`+startdate_choose+`</span>`);
-        return false;
-      }
+      $('#ulul').empty();
+      var li = document.createElement('li').appendChild(document.createTextNode("silahkan pilih exchange & startdate"));
+      document.getElementById("ulul").appendChild(li);
+      return false;
   } else {
-      return false
+    exchange_choose = exchange_choose_current;
+    startdate_choose = startdate_choose_current;
+    $('#ulul').empty();
+    for (i=0;i< NYSE_ticker_list.length;i++) {
+      var newLi = document.createElement('li');
+      var cb = document.createElement( "input" );
+        cb.type = "checkbox";
+        cb.id = "c1";
+        cb.checked = false;
+        //Append the checkbox to the li
+        newLi.appendChild(cb);
+        //Create the text node after the the checkbox
+        var text = document.createTextNode(NYSE_ticker_list[i]);
+        //Append the text node to the <li>
+        newLi.appendChild(text);
+        //Append the <li> to the <ul>
+        document.getElementById("ulul").appendChild(newLi);
+    }
   }
- } else {
-  exchange_choose = exchange_choose_current;
-  startdate_choose = startdate_choose_current;
-  $('#ulul').empty();
-  tickers_list_filter();
-  }
-    $("#tickers_list").on('click', '.dropdown-menu li', function (event) { //cari solusi biar tdk double click, muncul berkali2 di console
-      event.stopPropagation();
-      var container2 = $(this).closest("#tickers_list");
-      var numChecked2 = container2.find('[type="checkbox"]:checked').length;
-      container2.find('.quantity').text(numChecked2 || '0');
-      console.log(numChecked2);
-      var $target2 = $(event.currentTarget);
-      console.log($target2.text());
-      if(numChecked2 > ticker_list.length) {
-          ticker_list.push($target2.text());
-      } else if(numChecked2 < ticker_list.length){
-          var index = ticker_list.indexOf($target2.text());
-          ticker_list.splice(index, 1);
-      } else{}
-      console.log(ticker_list);
-  });
 }
 
-function tickers_list_filter() {
-    var tickers = NYSE_ticker_list;
-    for (i=0;i<tickers.length;i++) {
-    var newLi = document.createElement('li');
-    var cb = document.createElement( "input" );
-    cb.type = "checkbox";
-    cb.id = "c1";
-    cb.checked = false;
-      //Append the checkbox to the li
-    newLi.appendChild(cb);
-    //Create the text node after the the checkbox
-    var text = document.createTextNode(tickers[i]);
-      //  Append the text node to the <li>
-    newLi.appendChild(text);
-      //Append the <li> to the <ul>
-    // var ul = document.getElementById("ulul");
-    document.getElementById("ulul").appendChild(newLi);
-    }
-
-    //     }
-    // });
-  }
 
 function add_data() {
     if(ticker_list.length==0) {
@@ -167,11 +102,10 @@ function add_data() {
     $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
     $("#startdt_btn").html(`<span class="startdt">Startdate</span>`);
     ticker_list = [];
-    }
+}
 
   function reset_portfolio() {
     asset_portfolio_yahoo = [];
-    // port_data = [];
     $("#table_assets > tbody").empty();
     // $("#port_data_tbl>tbody").empty();
     // $("#pagination-demo").twbsPagination("destroy");
@@ -181,7 +115,7 @@ function add_data() {
   }
 
 //random select
-function exchange_list_btn() {
+// function exchange_list_btn() {
   // if(!exchange_choose_current || !startdate_choose_current) {
   //    $('#ulul').empty();
   //   var li = document.createElement('li').appendChild(document.createTextNode("silahkan pilih exchange & startdate"));
@@ -192,137 +126,137 @@ function exchange_list_btn() {
   //   return false;
   // }
   // if(xchange_list.length==0) { 
-    $('#xchange').empty();
-    exchange_list_filter();
-  // }
-    $("#exchange_list").on('click', '.dropdown-menu li', function (event) { //cari solusi biar tdk double click, muncul berkali2 di console
-      event.stopPropagation();
-      var container2 = $(this).closest("#exchange_list");
-      var numChecked2 = container2.find('[type="checkbox"]:checked').length;
-      container2.find('.quantity').text(numChecked2 || '0');
-      console.log(numChecked2);
-      var $target2 = $(event.currentTarget);
-      console.log($target2.text());
-      if(numChecked2 > xchange_list.length) {
-          xchange_list.push($target2.text());
-      } else if(numChecked2 < xchange_list.length){
-          var index = xchange_list.indexOf($target2.text());
-          xchange_list.splice(index, 1);
-      } else{}
-      console.log(xchange_list);
-  });
-}
+//     $('#xchange').empty();
+//     exchange_list_filter();
+//   // }
+//     $("#exchange_list").on('click', '.dropdown-menu li', function (event) { //cari solusi biar tdk double click, muncul berkali2 di console
+//       event.stopPropagation();
+//       var container2 = $(this).closest("#exchange_list");
+//       var numChecked2 = container2.find('[type="checkbox"]:checked').length;
+//       container2.find('.quantity').text(numChecked2 || '0');
+//       console.log(numChecked2);
+//       var $target2 = $(event.currentTarget);
+//       console.log($target2.text());
+//       if(numChecked2 > xchange_list.length) {
+//           xchange_list.push($target2.text());
+//       } else if(numChecked2 < xchange_list.length){
+//           var index = xchange_list.indexOf($target2.text());
+//           xchange_list.splice(index, 1);
+//       } else{}
+//       console.log(xchange_list);
+//   });
+// }
 
-function exchange_list_filter() {
-    var Xchange = x_list;
-    for (i=0;i<Xchange.length;i++) {
-    var newLi = document.createElement('li');
-    var cb = document.createElement( "input" );
-    cb.type = "checkbox";
-    cb.id = "c1";
-    cb.checked = false;
-      //Append the checkbox to the li
-    newLi.appendChild(cb);
-    //Create the text node after the the checkbox
-    var text = document.createTextNode(Xchange[i]);
-      //  Append the text node to the <li>
-    newLi.appendChild(text);
-      //Append the <li> to the <ul>
-    // var ul = document.getElementById("ulul");
-    document.getElementById("xchange").appendChild(newLi);
-    }
+// function exchange_list_filter() {
+//     var Xchange = x_list;
+//     for (i=0;i<Xchange.length;i++) {
+//     var newLi = document.createElement('li');
+//     var cb = document.createElement( "input" );
+//     cb.type = "checkbox";
+//     cb.id = "c1";
+//     cb.checked = false;
+//       //Append the checkbox to the li
+//     newLi.appendChild(cb);
+//     //Create the text node after the the checkbox
+//     var text = document.createTextNode(Xchange[i]);
+//       //  Append the text node to the <li>
+//     newLi.appendChild(text);
+//       //Append the <li> to the <ul>
+//     // var ul = document.getElementById("ulul");
+//     document.getElementById("xchange").appendChild(newLi);
+//     }
 
-    //     }
-    // });
-  }
+//     //     }
+//     // });
+//   }
 
- function appendLeadingZeroes(n){
-    if(n <= 9){
-      return "0" + n;
-    }
-    return n
-  }
+//  function appendLeadingZeroes(n){
+//     if(n <= 9){
+//       return "0" + n;
+//     }
+//     return n
+//   }
 
-function price_idx_list() {//cari solusi biar tdk double click, muncul berkali2 di console
-  $("#price_idx").on('click', '.dropdown-item', function (event) {
-    var container_price_idx = $(this).closest("#price_idx");
-    price_idx = $(event.currentTarget)[0].innerHTML;
-    container_price_idx.find('.price_idx_column').text( price_idx || '#');
-    console.log(price_idx);
-});
-}
+// function price_idx_list() {//cari solusi biar tdk double click, muncul berkali2 di console
+//   $("#price_idx").on('click', '.dropdown-item', function (event) {
+//     var container_price_idx = $(this).closest("#price_idx");
+//     price_idx = $(event.currentTarget)[0].innerHTML;
+//     container_price_idx.find('.price_idx_column').text( price_idx || '#');
+//     console.log(price_idx);
+// });
+// }
 
-function add_data_files() {
-  if(file.files.length==0) {
-    alert("tidak ada file yg dipilih");
-    return false;
-  }
-  if((file.files.length+asset_portfolio_files.length)>30) {
-    alert("ticker yg anda pilih melebihi total ticker tersisa untuk portfolio")
-    return false;
-  }
-  if(asset_portfolio_files.length>0) {
-  for (i = 0; i<file.files.length; i++) {    //?????
-      var tickere = file.files[i].split(', ')[0];
-      for(x=0;x<asset_portfolio_files.length;x++) {
-        let idx = asset_portfolio_files[x].ticker.indexOf(tickere);
-        if (idx !== -1) {
-          alert("ticker "+tickere+" sdh dipilih");
-          return false;
-        }
-      }
-    }
-  }
-  for (i = 0; i < file.files.length; i++) {
-    let sFileName       = (file.files[i].name.split('\\').pop().split('/').pop().split('.'))[0];
-    let sFileExtension  = file.files[i].name.split('.')[file.files[i].name.split('.').length - 1].toLowerCase();
-    let sFileSize       = file.files[i].size / 1024 / 1024; // in MB
-    if (!(sFileExtension === "csv" )) { /// 10 mb
-        alert(`Format File ${file.files[i].name} Bukan CSV`);
-        return false;
-    }
-    else if (sFileSize > 1) { /// 10 mb
-        alert(`File Size ${file.files[i].name} Lebih dr 1 MB`);
-        return false;
-    } else {
-      let as_data_date = new Array();
-      let as_data_price = new Array();
-        Papa.parse(file.files[i], {
-            download: true,
-            header: false,
-            complete: function(result) {
-              for(i=1; i<result.data.length; i++) {
-                let data_date = new Date(result.data[i][0]);
-                let data_price = result.data[i][5];
-                as_data_date.push(
-                  appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
-                );
-                as_data_price.push(
-                  data_price
-                );
-                }
-                asset_portfolio_files.push({ticker: sFileName, data: {date: as_data_date, price: as_data_price}});
-                console.log(asset_portfolio_files);
-                console.log(as_data_date);
-                let al = asset_portfolio_files.length;
-                // let ad = as_data.length-1;
-                let portfolio =
-                `<tr>
-                    <td class="text-center">Asset `+al+`</td>
-                    <td class="text-center">`+sFileName+`</td>
-                    <td class="text-center">`+as_data_date[0]+`</td>
-                    <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
-                </tr>`;
-                $("#table_assets2 > tbody").append(portfolio);
-            }
-        });
-  }
-}
-$("#file").val(``);
-}
+// function add_data_files() {
+//   if(file.files.length==0) {
+//     alert("tidak ada file yg dipilih");
+//     return false;
+//   }
+//   if((file.files.length+asset_portfolio_files.length)>30) {
+//     alert("ticker yg anda pilih melebihi total ticker tersisa untuk portfolio")
+//     return false;
+//   }
+//   if(asset_portfolio_files.length>0) {
+//   for (i = 0; i<file.files.length; i++) {    //?????
+//       var tickere = file.files[i].split(', ')[0];
+//       for(x=0;x<asset_portfolio_files.length;x++) {
+//         let idx = asset_portfolio_files[x].ticker.indexOf(tickere);
+//         if (idx !== -1) {
+//           alert("ticker "+tickere+" sdh dipilih");
+//           return false;
+//         }
+//       }
+//     }
+//   }
+//   for (i = 0; i < file.files.length; i++) {
+//     let sFileName       = (file.files[i].name.split('\\').pop().split('/').pop().split('.'))[0];
+//     let sFileExtension  = file.files[i].name.split('.')[file.files[i].name.split('.').length - 1].toLowerCase();
+//     let sFileSize       = file.files[i].size / 1024 / 1024; // in MB
+//     if (!(sFileExtension === "csv" )) { /// 10 mb
+//         alert(`Format File ${file.files[i].name} Bukan CSV`);
+//         return false;
+//     }
+//     else if (sFileSize > 1) { /// 10 mb
+//         alert(`File Size ${file.files[i].name} Lebih dr 1 MB`);
+//         return false;
+//     } else {
+//       let as_data_date = new Array();
+//       let as_data_price = new Array();
+//         Papa.parse(file.files[i], {
+//             download: true,
+//             header: false,
+//             complete: function(result) {
+//               for(i=1; i<result.data.length; i++) {
+//                 let data_date = new Date(result.data[i][0]);
+//                 let data_price = result.data[i][5];
+//                 as_data_date.push(
+//                   appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
+//                 );
+//                 as_data_price.push(
+//                   data_price
+//                 );
+//                 }
+//                 asset_portfolio_files.push({ticker: sFileName, data: {date: as_data_date, price: as_data_price}});
+//                 console.log(asset_portfolio_files);
+//                 console.log(as_data_date);
+//                 let al = asset_portfolio_files.length;
+//                 // let ad = as_data.length-1;
+//                 let portfolio =
+//                 `<tr>
+//                     <td class="text-center">Asset `+al+`</td>
+//                     <td class="text-center">`+sFileName+`</td>
+//                     <td class="text-center">`+as_data_date[0]+`</td>
+//                     <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
+//                 </tr>`;
+//                 $("#table_assets2 > tbody").append(portfolio);
+//             }
+//         });
+//   }
+// }
+// $("#file").val(``);
+// }
 
-//tombol proses data utk data from yahoo and files
-var port_data = new Array();
+// tombol proses data utk data from yahoo and files
+var port_data = new Array();//session
  function process_data_yahoo() {
       if(asset_portfolio_yahoo.length < 30) {
           alert('total asset kurang dari 30');
@@ -367,9 +301,6 @@ var port_data = new Array();
           for (y=0; y<asset_portfolio_yahoo.length; y++) {
               var as_arr = new Array();
               for (i=0; i<dtt_arr.length; i++) {
-                  // var tgl = new Date(dtt_arr[i]);
-                  // tgl = tgl.getFullYear() + "-" + appendLeadingZeroes(tgl.getMonth()+1) + "-" + appendLeadingZeroes(tgl.getDate());
-                  // tgl.toString().slice(0, 10);
                   var idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt_arr[i])
                   if(idx == -1) {//jika idx tidak ditemukan
                       as_arr.push(as_arr[as_arr.length-1]); //masukkan harga sebelumnya
