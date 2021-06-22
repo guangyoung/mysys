@@ -277,8 +277,10 @@ function process_montercarlo_simulation() {
   for (i=0;i<30;i++) {
       dt_arr.push(price_sim)      
   }
+  port_data.push(dt_arr);
   //next row
   for (i=1;i<7830;i++) {
+    var dt_arr = new Array();
     //date
     if (dt.getDay()==5) {
       dt = new Date(dt.setDate(dt.getDate() + 3));
@@ -292,8 +294,9 @@ function process_montercarlo_simulation() {
       price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
       dt_arr.push(price_sim)
     }
+    port_data.push(dt_arr);
   }
-  port_data.push(dt_arr);
+  
 console.log(port_data);
 
 $("#source_data").val("Geometric Brownian Motion");
