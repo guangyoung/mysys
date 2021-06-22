@@ -194,39 +194,39 @@ var port_data = new Array();//session
                   as_arr.push(asset_portfolio_yahoo[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
               }
             }
-            port_data.push({
-              date : as_arr[0],
-              stock1_price : as_arr[1],
-              stock2_price : as_arr[2],
-              stock3_price : as_arr[3],
-              stock4_price : as_arr[4],
-              stock5_price : as_arr[5],
-              stock6_price : as_arr[6],
-              stock7_price : as_arr[7],
-              stock8_price : as_arr[8],
-              stock9_price : as_arr[9],
-              stock10_price : as_arr[10],
-              stock11_price : as_arr[11],
-              stock12_price : as_arr[12],
-              stock13_price : as_arr[13],
-              stock14_price : as_arr[14],
-              stock15_price : as_arr[15],
-              stock16_price : as_arr[16],
-              stock17_price : as_arr[17],
-              stock18_price : as_arr[18],
-              stock19_price : as_arr[19],
-              stock20_price : as_arr[20],
-              stock21_price : as_arr[21],
-              stock22_price : as_arr[22],
-              stock23_price : as_arr[23],
-              stock24_price : as_arr[24],
-              stock25_price : as_arr[25],
-              stock26_price : as_arr[26],
-              stock27_price : as_arr[27],
-              stock28_price : as_arr[28],
-              stock29_price : as_arr[29],
-              stock30_price : as_arr[30]
-            });
+            port_data.push(
+              as_arr[0],
+              as_arr[1],
+              as_arr[2],
+              as_arr[3],
+              as_arr[4],
+              as_arr[5],
+              as_arr[6],
+              as_arr[7],
+              as_arr[8],
+              as_arr[9],
+              as_arr[10],
+              as_arr[11],
+              as_arr[12],
+              as_arr[13],
+              as_arr[14],
+              as_arr[15],
+              as_arr[16],
+              as_arr[17],
+              as_arr[18],
+              as_arr[19],
+              as_arr[20],
+              as_arr[21],
+              as_arr[22],
+              as_arr[23],
+              as_arr[24],
+              as_arr[25],
+              as_arr[26],
+              as_arr[27],
+              as_arr[28],
+              as_arr[29],
+              as_arr[30]
+            );
 
             if (startDate.getDay()==5) {
                 startDate = new Date(startDate.setDate(startDate.getDate() + 3));
@@ -236,8 +236,8 @@ var port_data = new Array();//session
           }
 
           $("#source_data").val("Yahoo Finance");
-          $("#period_data").val(port_data[0].date+' - '+port_data[port_data.length-1].date);
-          $("#period_data_dashboard").val(port_data[0].date+' - '+port_data[port_data.length-1].date);
+          $("#period_data").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);
+          $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);
           console.log(port_data);
     
           $("#pagination-demo").twbsPagination({
@@ -248,37 +248,37 @@ var port_data = new Array();//session
                 for (i=(page*23)-23; i<(page*23) && i<(port_data.length); i++) {
                   var port_data_row =
                   `<tr>
-                      <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[i].date+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock1_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock2_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock3_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock4_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock5_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock6_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock7_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock8_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock9_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock10_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock11_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock12_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock13_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock14_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock15_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock16_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock17_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock18_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock19_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock20_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock21_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock22_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock23_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock24_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock25_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock26_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock27_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock28_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock29_price).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i].stock30_price).toFixed(2))+`</td>
+                      <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[i][0]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][1]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][2]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][3]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][4]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][5]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][6]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][7]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][8]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][9]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][10]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][11]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][12]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][13]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][14]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][15]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][16]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][17]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][18]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][19]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][20]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][21]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][22]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][23]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][24]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][25]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][26]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][27]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][28]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][29]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][30]).toFixed(2))+`</td>
                   </tr>`;
                   $("#port_data_tbl>tbody").append(port_data_row);
                   }
