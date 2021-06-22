@@ -6,10 +6,9 @@ var exchange_choose;//session
 var startdate_choose_current;//session
 var startdate_choose;//session
 var asset_portfolio_yahoo = new Array();//session
+var port_data = new Array();//session
 // var asset_portfolio_files = new Array();
 var mychart;
-var port_data = new Array();//rubah pakai session storage
-
 function tickers_list_btn () {
   if(!exchange_choose_current || !startdate_choose_current) {
     $('#ulul').empty();
@@ -158,7 +157,6 @@ function appendLeadingZeroes(n){
 }
 
 // tombol proses data utk data from yahoo and files
-var port_data = new Array();//session
  function process_data_yahoo() {
       if(asset_portfolio_yahoo.length < 30) {
           alert('total asset kurang dari 30');
@@ -180,8 +178,6 @@ var port_data = new Array();//session
           }
           var startDate=new Date(Math.max.apply(null,startdates));
           var endDate=new Date(Math.min.apply(null,enddates));
-          // console.log(startDate);
-          // console.log(endDate);         
           while (startDate <= endDate) {
             var as_arr = new Array();
             dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
