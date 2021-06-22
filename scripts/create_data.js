@@ -186,10 +186,10 @@ var port_data = new Array();//session
             var as_arr = new Array();
             dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
             as_arr.push(dtt);          
-            for (i=1,y=0; i<31 && y<30; i++, y++) {
+            for (y=0; y<30; y++) {
               var idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
               if(idx == -1) {//jika idx tidak ditemukan
-                  as_arr.push(port_data[port_data.length-1][i]); //masukkan harga sebelumnya
+                  as_arr.push(port_data[port_data.length-1][y+1]); //masukkan harga sebelumnya
               } else {
                   as_arr.push(asset_portfolio_yahoo[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
               }
