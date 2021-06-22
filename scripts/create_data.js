@@ -186,7 +186,7 @@ var port_data = new Array();//session
             var as_arr = new Array();
             dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
             as_arr.push(dtt);          
-            for (y=0; y<asset_portfolio_yahoo.length; y++) {
+            for (y=0; y<30; y++) {
               var idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
               if(idx == -1) {//jika idx tidak ditemukan
                   as_arr.push(as_arr[as_arr.length-1]); //masukkan harga sebelumnya
@@ -238,7 +238,7 @@ var port_data = new Array();//session
           $("#source_data").val("Yahoo Finance");
           $("#period_data").val(port_data[0].date+' - '+port_data[port_data.length-1].date);
           $("#period_data_dashboard").val(port_data[0].date+' - '+port_data[port_data.length-1].date);
-          // console.log(port_data);
+          console.log(port_data);
     
           $("#pagination-demo").twbsPagination({
             totalPages: Math.ceil(port_data.length/23),
