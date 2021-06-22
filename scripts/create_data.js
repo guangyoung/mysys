@@ -178,8 +178,9 @@ function appendLeadingZeroes(n){
           }
           var startDate=new Date(Math.max.apply(null,startdates));
           var endDate=new Date(Math.min.apply(null,enddates));
+          var as_arr = new Array();
           while (startDate <= endDate) {
-            var as_arr = new Array();
+            as_arr = [];
             dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
             as_arr.push(dtt);          
             for (y=0; y<30; y++) {
