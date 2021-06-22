@@ -189,7 +189,7 @@ var port_data = new Array();//session
             for (i=1,y=0; i<31 && y<30; i++, y++) {
               var idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
               if(idx == -1) {//jika idx tidak ditemukan
-                  as_arr.push(port_data[port_data.length-1][i]); //masukkan harga sebelumnya
+                  as_arr.push(port_data[1][i]); //masukkan harga sebelumnya
               } else {
                   as_arr.push(asset_portfolio_yahoo[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
               }
