@@ -509,7 +509,7 @@ var test_history = new Array();
                avg_buy_price : avg_buy_price[i],
                sell_trade_loan_back : sell_trade_loan_back[i],
                sell_trade_margin_back : sell_trade_margin_back[i],
-               sell_trade_cost : sell_trade_cost[i],
+               sell_trade_cost : sell_trade_cost[i]
              })
            }
            asset_trade_details.push(asset_trade);
