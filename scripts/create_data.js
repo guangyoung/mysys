@@ -272,25 +272,22 @@ function process_montercarlo_simulation() {
       dt_arr.push(dtt);
     if (dt.getDay()==5) {      
       dt = new Date(dt.setDate(dt.getDate() + 3));
-    } else {          
-      // let dtt = appendLeadingZeroes(dt.getMonth()+1) + "/" + appendLeadingZeroes(dt.getDate()) + "/" + dt.getFullYear();
-      //   dt_arr.push(dtt);
+    } else {   
         dt = new Date(dt.setDate(dt.getDate() + 1));
     }
+  }
 
-}
+  port_data.push(dt_arr);
 
-port_data.push(dt_arr);
-
-for (i=0;i<30;i++) {
-var price_sim_array = new Array ();
-var price_sim = parseFloat(initial_price);
-for (x=0;x<7830;x++) {
-  price_sim_array.push(price_sim)
-  price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
-}
-port_data.push(price_sim_array);
-}
+  for (i=0;i<30;i++) {
+    var price_sim_array = new Array ();
+    var price_sim = parseFloat(initial_price);
+    for (x=0;x<7830;x++) {
+      price_sim_array.push(price_sim)
+      price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
+    }
+    port_data.push(price_sim_array);
+  }
 
 // console.log(port_data);
 
@@ -375,5 +372,203 @@ onPageClick: function (event, page) {
       }
 }
 });
+
+//montecarlo simulation chart
+chartColors = {
+  red: 'rgb(255, 99, 132)',
+  orange: 'rgb(255, 159, 64)',
+  yellow: 'rgb(255, 205, 86)',
+  green: 'rgb(75, 192, 192)',
+  blue: 'rgb(54, 162, 235)',
+  purple: 'rgb(153, 102, 255)',
+  grey: 'rgb(201, 203, 207)' };
+
+  data_chart = port_data;
+  dataChart1 = new Array();
+  dataChart2 = new Array();
+  dataChart3 = new Array();
+  dataChart4 = new Array();
+  dataChart5 = new Array();
+  dataChart6 = new Array();
+  dataChart7 = new Array();
+  dataChart8 = new Array();
+  dataChart9 = new Array();
+  dataChart10 = new Array();
+  dataChart11 = new Array();
+  dataChart12 = new Array();
+  dataChart13 = new Array();
+  dataChart14 = new Array();
+  dataChart15 = new Array();
+  dataChart16 = new Array();
+  dataChart17 = new Array();
+  dataChart18 = new Array();
+  dataChart19 = new Array();
+  dataChart20 = new Array();
+  dataChart21 = new Array();
+  dataChart22 = new Array();
+  dataChart23 = new Array();
+  dataChart24 = new Array();
+  dataChart25 = new Array();
+  dataChart26 = new Array();
+  dataChart27 = new Array();
+  dataChart28 = new Array();
+  dataChart29 = new Array();
+  dataChart30 = new Array();
+  dataLabel = new Array();
+
+  for (i=0; i<7830; i++) {
+  dataLabel.push(data_chart[0][i]);
+  dataChart1.push(data_chart[1][i]);
+  dataChart2.push(data_chart[2][i]);
+  dataChart3.push(data_chart[3][i]);
+  dataChart4.push(data_chart[4][i]);
+  dataChart5.push(data_chart[5][i]);
+  dataChart6.push(data_chart[6][i]);
+  dataChart7.push(data_chart[7][i]);
+  dataChart8.push(data_chart[8][i]);
+  dataChart9.push(data_chart[9][i]);
+  dataChart10.push(data_chart[10][i]);
+  dataChart11.push(data_chart[11][i]);
+  dataChart12.push(data_chart[12][i]);
+  dataChart13.push(data_chart[13][i]);
+  dataChart14.push(data_chart[14][i]);
+  dataChart15.push(data_chart[15][i]);
+  dataChart16.push(data_chart[16][i]);
+  dataChart17.push(data_chart[17][i]);
+  dataChart18.push(data_chart[18][i]);
+  dataChart19.push(data_chart[19][i]);
+  dataChart20.push(data_chart[20][i]);
+  dataChart21.push(data_chart[21][i]);
+  dataChart22.push(data_chart[22][i]);
+  dataChart23.push(data_chart[23][i]);
+  dataChart24.push(data_chart[24][i]);
+  dataChart25.push(data_chart[25][i]);
+  dataChart26.push(data_chart[26][i]);
+  dataChart27.push(data_chart[27][i]);
+  dataChart28.push(data_chart[28][i]);
+  dataChart29.push(data_chart[29][i]);
+  dataChart30.push(data_chart[30][i]);
+  }
+
+  var config = {
+  type: 'line',
+  data: {
+      labels: dataLabel,
+      datasets: [{
+      label: 'Asset1',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.red,
+      borderColor: chartColors.red,
+      data: dataChart1,
+      fill: false },
+      {
+      label: 'Asset2',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart2,
+      fill: false},
+      {
+      label: 'Asset3',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart3,
+      fill: false},
+      {
+      label: 'Asset4',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart4,
+      fill: false},
+      {
+      label: 'Asset5',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart5,
+      fill: false},
+      {
+      label: 'Asset6',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart6,
+      fill: false},
+      {
+      label: 'Asset7',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart7,
+      fill: false},
+      {
+      label: 'Asset8',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart8,
+      fill: false},
+      {
+      label: 'Asset9',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart9,
+      fill: false},
+      {
+      label: 'Asset10',
+      pointRadius: 0,
+      borderWidth: 1,
+      backgroundColor: chartColors.blue,
+      borderColor: chartColors.blue,
+      data: dataChart10,
+      fill: false}
+      ]},
+  options: {
+
+      responsive: true,
+      legend: {
+          display: false
+      },
+      title: {
+      display: true,
+      text: 'Montecarlo Simulation Stocks Chart' },
+
+      hover: {
+      mode: 'nearest',
+      intersect: true },
+      // events:[],
+      scales: {
+      xAxes: [{
+          display: false,
+          scaleLabel: {
+          display: false,
+          labelString: 'Years' } }],
+
+
+      yAxes: [{
+      display: false,
+      scaleLabel: {
+          display: false,
+          labelString: 'Equity' } }] } } };
+
+      if(mychart!=null){
+          mychart.destroy();
+      }
+
+      var ctx = document.getElementById('montecarlo_simulation_chart').getContext('2d');
+      mychart = new Chart(ctx, config);
+      
 
 }
