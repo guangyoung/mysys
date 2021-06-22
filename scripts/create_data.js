@@ -186,46 +186,17 @@ var port_data = new Array();//session
             var as_arr = new Array();
             dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
             as_arr.push(dtt);          
-            for (y=0; y<30; y++) {
+            for (i=1,y=0; i<31 && y<30; i++, y++) {
               var idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
               if(idx == -1) {//jika idx tidak ditemukan
-                  as_arr.push(port_data[port_data.length-1][y+1]); //masukkan harga sebelumnya
+                  as_arr.push(port_data[port_data.length-1][i]); //masukkan harga sebelumnya
               } else {
                   as_arr.push(asset_portfolio_yahoo[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
               }
             }
-            port_data.push(
-              as_arr[0],
-              as_arr[1],
-              as_arr[2],
-              as_arr[3],
-              as_arr[4],
-              as_arr[5],
-              as_arr[6],
-              as_arr[7],
-              as_arr[8],
-              as_arr[9],
-              as_arr[10],
-              as_arr[11],
-              as_arr[12],
-              as_arr[13],
-              as_arr[14],
-              as_arr[15],
-              as_arr[16],
-              as_arr[17],
-              as_arr[18],
-              as_arr[19],
-              as_arr[20],
-              as_arr[21],
-              as_arr[22],
-              as_arr[23],
-              as_arr[24],
-              as_arr[25],
-              as_arr[26],
-              as_arr[27],
-              as_arr[28],
-              as_arr[29],
-              as_arr[30]
+            port_data.push(as_arr[0],as_arr[1],as_arr[2],as_arr[3],as_arr[4],as_arr[5],as_arr[6],as_arr[7],as_arr[8],as_arr[9],as_arr[10],
+              as_arr[11],as_arr[12],as_arr[13],as_arr[14],as_arr[15],as_arr[16],as_arr[17],as_arr[18],as_arr[19],as_arr[20],
+              as_arr[21],as_arr[22],as_arr[23],as_arr[24],as_arr[25],as_arr[26],as_arr[27],as_arr[28],as_arr[29],as_arr[30]
             );
 
             if (startDate.getDay()==5) {
