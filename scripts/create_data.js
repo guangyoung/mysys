@@ -209,7 +209,7 @@ function appendLeadingZeroes(n){
             visiblePages: 2,
             onPageClick: function (event, page) {
               $("#port_data_tbl>tbody").empty();
-                for (i=(page*23)-23; i<(page*23) && i<(port_data.length); i++) {
+                for (i=(page-1)*23; i<(page*23); i++) {
                   var port_data_row =
                   `<tr>
                       <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[i][0]+`</td>
@@ -248,9 +248,7 @@ function appendLeadingZeroes(n){
                   }
             }
             });  
-      }
-
-      
+      }      
  }
 
 //montecarlo simulation proses
