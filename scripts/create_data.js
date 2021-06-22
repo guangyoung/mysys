@@ -183,22 +183,12 @@ function appendLeadingZeroes(n){
             dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
             as_arr.push(dtt);          
             for (y=0; y<30; y++) {
-              // var idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
-              var i = 0;
-              while (i<asset_portfolio_yahoo[y].data.date.length) {
-                if(asset_portfolio_yahoo[y].data.date[i] === dtt) {
-                  as_arr.push(asset_portfolio_yahoo[y].data.price[i]);
-                  i = asset_portfolio_yahoo[y].data.date.length;
-                } else {
-                  i++;
-                  as_arr.push(port_data[port_data.length-1][y+1]);
-                }
+              var idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
+              if(idx == -1) {//jika idx tidak ditemukan
+                  as_arr.push(port_data[port_data.length-1][y+1]); //masukkan harga sebelumnya
+              } else {
+                  as_arr.push(asset_portfolio_yahoo[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
               }
-              // if(idx == -1) {//jika idx tidak ditemukan
-              //     as_arr.push(port_data[port_data.length-1][y+1]); //masukkan harga sebelumnya
-              // } else {
-              //     as_arr.push(asset_portfolio_yahoo[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
-              // }
             }
             port_data.push(as_arr);
 
