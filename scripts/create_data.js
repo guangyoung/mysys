@@ -183,7 +183,8 @@ function appendLeadingZeroes(n){
             dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
             as_arr.push(dtt);          
             for (y=0; y<30; y++) {
-              var idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
+              // var idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
+              var idx = asset_portfolio_yahoo[y].findIndex(dat => dat.data.date === dtt); 
               if(idx == -1) {//jika idx tidak ditemukan
                   as_arr.push(port_data[port_data.length-1][y+1]); //masukkan harga sebelumnya
               } else {
