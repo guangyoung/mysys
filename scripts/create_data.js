@@ -213,36 +213,36 @@ function appendLeadingZeroes(n){
                   var port_data_row =
                   `<tr>
                       <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[i][0]+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][1]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][2]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][3]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][4]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][5]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][6]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][7]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][8]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][9]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][10]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][11]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][12]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][13]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][14]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][15]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][16]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][17]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][18]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][19]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][20]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][21]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][22]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][23]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][24]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][25]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][26]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][27]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][28]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][29]).toFixed(2))+`</td>
-                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][30]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][1]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][2]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][3]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][4]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][5]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][6]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][7]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][8]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][9]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][10]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][11]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][12]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][13]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][14]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][15]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][16]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][17]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][18]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][19]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][20]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][21]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][22]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][23]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][24]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][25]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][26]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][27]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][28]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][29]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+port_data[i][30]+`</td>
                   </tr>`;
                   $("#port_data_tbl>tbody").append(port_data_row);
                   }
