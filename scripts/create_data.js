@@ -275,9 +275,9 @@ function process_montercarlo_simulation() {
     //price
   var price_sim = parseFloat(initial_price);
   for (i=0;i<30;i++) {
-      dt_arr.push(price_sim)      
+      dt_arr.push(price_sim);      
   }
-  port_data.push(dt_arr);
+  port_data.push(dt_arr);;
   //next row
   for (i=1;i<7830;i++) {
     var dt_arr = new Array();
@@ -292,7 +292,7 @@ function process_montercarlo_simulation() {
     //price
     for (i=0;i<30;i++) {        
       price_sim = price_sim+((price_sim*(drift*steps))+((volatility*((Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()+Math.random()-6)*Math.sqrt(steps)))*price_sim));
-      dt_arr.push(price_sim)
+      dt_arr.push(price_sim);
     }
     port_data.push(dt_arr);
   }
