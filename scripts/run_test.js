@@ -1,21 +1,13 @@
  //RUN TEST -------------------------------------------------------------------------------
  //GLOBAL VARIABLE
- //trade report array
  var asset_trade_details = new Array();
  var account_trade_summary = new Array();
-
- //post_request_response
  var data_input_array = new Array();
  var signal_output_array = new Array();
-
- //performance_chart_array
  var date_array = new Array();
  var quantxi_equity_array = new Array();
  var buyandhold_equity_array = new Array();
-
-//  //test history array 
-var test_history = new Array();
- 
+ var test_history = new Array(); 
  
  async function run_test() {
    //-----------------------------------------------------------------------------------
