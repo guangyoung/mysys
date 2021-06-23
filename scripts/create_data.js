@@ -6,11 +6,10 @@ var asset_portfolio_yahoo = new Array();//session
 var port_data = new Array();//session
 var exchange_choose_current;//session
 var startdate_choose_current;//session
+var exchange_choose;//session
+var startdate_choose;//session
 
-function tickers_list_btn () {
- 
-  var exchange_choose;//session
-  var startdate_choose;//session
+function tickers_list_btn () {  
   if(!exchange_choose_current || !startdate_choose_current) {
     $('#ulul').empty();
     var li = document.createElement('li').appendChild(document.createTextNode("silahkan pilih exchange & startdate"));
