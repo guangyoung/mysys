@@ -1,6 +1,5 @@
 //Function Reset Test
 async function reset_test() {
-  // reset your previous portfolio data in quantxi
    await $.ajax({
      type: "DELETE",
      url: "https://api.quantxi.com/reset?api="+sessionStorage.getItem("api"),    

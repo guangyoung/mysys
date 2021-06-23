@@ -1,5 +1,5 @@
  //RUN TEST -------------------------------------------------------------------------------
- 
+ //GLOBAL VARIABLE
  //trade report array
  var asset_trade_details = new Array();
  var account_trade_summary = new Array();
@@ -19,18 +19,7 @@ var test_history = new Array();
  
  async function run_test() {
    //-----------------------------------------------------------------------------------
-     //test setting variable
-     var initial_equity = parseFloat($("#initial_equity").val());
-     var bidask_spread = parseFloat($("#bid_ask_spread").val());
-     var commision_share = parseFloat($("#commision_share").val());
-     var interest_rate = parseFloat($("#interest_rate").val());
-     var riskfree_rate = parseFloat($("#risk_free_rate").val());
-     var regTmargin_rate = parseFloat($("#regT_margin").val());
-     var maintmargin_rate = parseFloat($("#maint_margin").val());
-     var mindata = parseInt($("#min_data").val());
-     var maxdata = parseInt($("#max_data").val());
-     // var portfoliosize = parseInt($("#portfolio_size").val());
-     
+      
      var start_date = $('#startDate').val().split("-")[1] + '/' + $('#startDate').val().split("-")[2] + '/' + $('#startDate').val().split("-")[0];
      
      var data_id = 1;
@@ -621,19 +610,7 @@ var test_history = new Array();
         $('#trade_report_button').attr('disabled',false);
         $('#chart_button').attr('disabled',false);
         $('#statistik_button').attr('disabled',false);
-     
-        // clearTimeout();
-
-        //view post json
-        // post_request_response_json();
-
-        //account trade summary
-        // view_account_trade_summary();
-
-        //performance_chart
-        // performance_chart();
         
-        // test_history();
         test_history = [];
         
         var test_history_item = JSON.parse(localStorage.getItem("testhistory"));      
@@ -674,15 +651,7 @@ var test_history = new Array();
         });
 
         localStorage.setItem("testhistory",JSON.stringify(test_history));
-
-        // view_test_history();
      
         alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
-        return false;
-      //  }
-    //    setTimeout(proses, 1/1000);
-    //  }
-
-  //  proses(); 
-   
+        return false;   
  }

@@ -1,15 +1,16 @@
 //Function Portfolio Dataset
+
+//GLOBAL VARIABLE
 var ticker_list = new Array();//session
-// var xchange_list = new Array();
-var exchange_choose_current;//session
-var exchange_choose;//session
-var startdate_choose_current;//session
-var startdate_choose;//session
 var asset_portfolio_yahoo = new Array();//session
 var port_data = new Array();//session
-// var asset_portfolio_files = new Array();
-var mychart;
+var exchange_choose_current;//session
+var startdate_choose_current;//session
+
 function tickers_list_btn () {
+ 
+  var exchange_choose;//session
+  var startdate_choose;//session
   if(!exchange_choose_current || !startdate_choose_current) {
     $('#ulul').empty();
     var li = document.createElement('li').appendChild(document.createTextNode("silahkan pilih exchange & startdate"));
@@ -69,6 +70,8 @@ function tickers_list_btn () {
         document.getElementById("ulul").appendChild(newLi);
     }
   }
+  exchange_choose_current = "";
+  startdate_choose_current = "";
 }
 
 
@@ -127,9 +130,7 @@ function add_data() {
                 $("#table_assets > tbody").append(portfolio);
             }
         });
-    }
-    exchange_choose_current = "";
-    startdate_choose_current = "";
+    }   
     $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
     $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
     $("#startdt_btn").html(`<span class="startdt">Startdate</span>`);
@@ -375,6 +376,7 @@ onPageClick: function (event, page) {
 });
 
 //montecarlo simulation chart
+var mychart;
 chartColors = {
   red: 'rgb(255, 99, 132)',
   orange: 'rgb(255, 159, 64)',
