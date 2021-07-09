@@ -107,7 +107,7 @@ function reset_portfolio() {
   $("#pagination-demo").twbsPagination("destroy");
   $("#period_data").val("");
   $("#period_data_dashboard").val("No Data Available");
-  $("#source_data").val("");
+  $("#test_startdate").val("");
 }
 
 function appendLeadingZeroes(n){
@@ -127,7 +127,8 @@ function appendLeadingZeroes(n){
         $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
         $("#period_data").val("");
-        $("#period_data_dashboard").val("No Data Available");
+        $("#period_data_dashboard").val("No Data Available");        
+        $("#test_startdate").val("");
           
         //cek periode data yg tercover oleh semua stocks
           var startdates= new Array();
@@ -161,7 +162,8 @@ function appendLeadingZeroes(n){
           }
 
           $("#period_data").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);
-          $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);
+          $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);          
+          $("#test_startdate").val(port_data[0][0]);
           console.log(port_data);
     
           $("#pagination-demo").twbsPagination({
