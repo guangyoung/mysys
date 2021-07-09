@@ -163,7 +163,7 @@ function appendLeadingZeroes(n){
 
           $("#period_data").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);
           $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);          
-          $("#test_startdate").val(2013-01-08);
+          $("#test_startdate").val("2013-01-08");
           console.log(port_data);
     
           $("#pagination-demo").twbsPagination({
