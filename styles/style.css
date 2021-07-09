@@ -34,14 +34,14 @@
 
 .buy{
     background-color: blue;
-} 
+}
 
 .sell{
     background-color: red;
-} 
+}
 
 #select-tab>li>a.active {
-    background-color: #555555 !important;
+    background-color: #757575 !important;
     color: #fff;
 }
 
@@ -66,8 +66,9 @@
 
 .cover {
     background-color: #070914;
-    margin-left: 10px;
-    margin-right: 10px;
+    /* margin-top: 12px;
+    margin-right: 0px; */
+    /* margin-bottom: 15px; */
     font-family: Acrom;
 }
 
@@ -416,13 +417,13 @@ body { background: #0b0d15; }
 }
 
 /* .dropdown-menu {
-   
+
     padding: 0px 10px;
   }
-  
+
 .dropdown-menu input[type="search"] {
 padding: 3px 5px;
-width: 100%; 
+width: 100%;
 margin: 10px 10px 10px 0px;
 } */
 
@@ -501,7 +502,7 @@ margin: 10px 10px 10px 0px;
 
   }
   #pagination-demo li{
-    display: inline-block;  
+    display: inline-block;
   }
 
   #pagination-demo li a{
@@ -518,7 +519,7 @@ margin: 10px 10px 10px 0px;
 
   }
   #pagination_trade_summary li{
-    display: inline-block;  
+    display: inline-block;
   }
 
   #pagination_trade_summary li a{
@@ -535,7 +536,7 @@ margin: 10px 10px 10px 0px;
   }
 
   #pagination_trade_details li{
-    display: inline-block;  
+    display: inline-block;
   }
 
   #pagination_trade_details li a{
@@ -552,7 +553,7 @@ margin: 10px 10px 10px 0px;
   }
 
   #pagination_post_request_response li{
-    display: inline-block;  
+    display: inline-block;
   }
 
   #pagination_post_request_response li a{
@@ -569,7 +570,7 @@ margin: 10px 10px 10px 0px;
   }
 
   #pagination_test_history li{
-    display: inline-block;  
+    display: inline-block;
   }
 
   #pagination_test_history li a{
@@ -577,7 +578,7 @@ margin: 10px 10px 10px 0px;
     padding: 1px 8px;
     /* margin-bottom: 5px; */
   }
-  
+
   .page-content{
     background: #eee;
     display: inline-block;
