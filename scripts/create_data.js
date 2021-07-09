@@ -93,7 +93,6 @@ function add_data() {
     }   
     $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
     $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
-    $("#startdt_btn").html(`<span class="startdt">Startdate</span>`);
     ticker_list = [];
     exchange_choose_current="";
     exchange_choose ="";
@@ -129,7 +128,6 @@ function appendLeadingZeroes(n){
         $("#pagination-demo").twbsPagination("destroy");
         $("#period_data").val("");
         $("#period_data_dashboard").val("No Data Available");
-        $("#source_data").val("");
           
         //cek periode data yg tercover oleh semua stocks
           var startdates= new Array();
@@ -162,7 +160,6 @@ function appendLeadingZeroes(n){
             }
           }
 
-          $("#source_data").val("Yahoo Finance");
           $("#period_data").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);
           $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);
           console.log(port_data);
