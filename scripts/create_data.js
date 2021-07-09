@@ -95,6 +95,7 @@ function add_data() {
     $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
     $("#startdt_btn").html(`<span class="startdt">Startdate</span>`);
     ticker_list = [];
+    exchange_choose_current="";
   }
 }
 
