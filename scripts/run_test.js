@@ -88,11 +88,11 @@
     var data_length = port_data[0].length;
 
     if (data_length < 1000) { //30 ganti jadi mindata
-      alert(`data test anda kurang dari `+mindata+` data baris`);
+      alert(`data test anda kurang dari 1000 data baris`);
       return false;
     } else {
       if (data_length > 7830) {
-        alert(`data test anda lebih dari `+maxdata+` data baris`);
+        alert(`data test anda lebih dari 7830 data baris`);
         return false;
       }  
     }
