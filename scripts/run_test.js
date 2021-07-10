@@ -7,12 +7,12 @@
  var date_array = new Array();
  var quantxi_equity_array = new Array();
  var buyandhold_equity_array = new Array();
- var test_history = new Array(); 
  
  async function run_test() {
    //-----------------------------------------------------------------------------------
       
-     var start_date = $('#startDate').val().split("-")[1] + '/' + $('#startDate').val().split("-")[2] + '/' + $('#startDate').val().split("-")[0];
+     var start_date = $('#test_startdate').val().split("-")[1] + '/' + $('#test_startdate').val().split("-")[2] + '/' + $('#test_startdate').val().split("-")[0];
+     //cek lagi stardate diatas
      
      var data_id = 1;
      
@@ -58,8 +58,8 @@
      var market_value_summary = 0;
      var margin_loan_balance_summary = 0;
      var equity = cash + market_value_summary - margin_loan_balance_summary;            
-     var maintenance_margin = market_value_summary * maintmargin_rate;
-     var regT_margin_req = market_value_summary * regTmargin_rate;
+     var maintenance_margin = market_value_summary * maintmargin;
+     var regT_margin_req = market_value_summary * regTmargin;
      var margin_available = equity - regT_margin_req;
      var margin_used = 0;
      var margin_back = 0;
@@ -84,13 +84,14 @@
    } else {
     
     var idx_start = port_data[0].indexOf(start_date);
+    console.log(idx_start);
     var data_length = port_data[0].length;
 
-    if (data_length < 30) { //30 ganti jadi mindata
+    if (data_length < 1000) { //30 ganti jadi mindata
       alert(`data test anda kurang dari `+mindata+` data baris`);
       return false;
     } else {
-      if (data_length > 5000) {
+      if (data_length > 7830) {
         alert(`data test anda lebih dari `+maxdata+` data baris`);
         return false;
       }  
@@ -107,7 +108,7 @@
   $('#viewpost_button').attr('disabled',true);
   $('#trade_report_button').attr('disabled',true);
   $('#chart_button').attr('disabled',true);
-  $('#statistik_button').attr('disabled',true);
+  // $('#statistik_button').attr('disabled',true);
   // $('#logout_button').attr('disabled',true);
 
    //PROSES DATA
@@ -602,47 +603,6 @@
         $('#trade_report_button').attr('disabled',false);
         $('#chart_button').attr('disabled',false);
         $('#statistik_button').attr('disabled',false);
-        
-        test_history = [];
-        
-        var test_history_item = JSON.parse(localStorage.getItem("testhistory"));      
-        
-        if(test_history_item !== null) {
-          for(i=0;i<test_history_item.length;i++) {
-            test_history.push(test_history_item[i]);
-          }
-        };       
-
-        test_history.push({
-          test_no : test_history.length+1,
-          date_time_testing : Date.now(),
-          test_setting : {
-            spread_side : 0,
-            commision_share : 0,
-            interest_rate : 0
-          },
-          data_source : "montecarlo simulation",
-          ticker : "AAPL, AMZN",
-          period_of_data : "23/01/20 - 23/01/21",
-          quantxi_return : {
-            total_return : "100%",
-            cagr : "100%",
-            max_dd : "100%",
-            mar_ratio : "100%",
-            sharpe_ratio : "100%",
-            treynor_ratio : "100%"
-          },
-          buyandhold_return : {
-            total_return : "100%",
-            cagr : "100%",
-            max_dd : "100%",
-            mar_ratio : "100%",
-            sharpe_ratio : "100%",
-            treynor_ratio : "100%"
-          }
-        });
-
-        localStorage.setItem("testhistory",JSON.stringify(test_history));
      
         alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
         return false;   
