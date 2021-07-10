@@ -150,7 +150,7 @@ function process_data_yahoo() {
               if(asset_portfolio_yahoo[y].data.date.indexOf(dtt) == -1) {//jika idx tidak ditemukan
                 as_arr.push(port_data[port_data.length-1][y+1]); //masukkan harga sebelumnya
               } else {
-                as_arr.push(asset_portfolio_yahoo[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
+                as_arr.push(asset_portfolio_yahoo[y].data.price[asset_portfolio_yahoo[y].data.date.indexOf(dtt) ]); //jika idx ketemu masukkan harga berdasarkan idx
               }
               y++;
             }
