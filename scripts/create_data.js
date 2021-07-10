@@ -145,15 +145,12 @@ function process_data_yahoo() {
             dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
             as_arr.push(dtt);          
             for (y=0; y<30; y++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
-              for(i=0;i<asset_portfolio_yahoo[y].data.date.length;i++) {
-                if(asset_portfolio_yahoo[y].data.date[i] !== dtt) {//jika idx tidak ditemukan
-                  as_arr.push(port_data[port_data.length-1][y]); //masukkan harga sebelumnya
-                } else {
-                  as_arr.push(asset_portfolio_yahoo[y].data.price[i]); //jika idx ketemu masukkan harga berdasarkan idx
-                }
+              let idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
+              if(idx == -1) {//jika idx tidak ditemukan
+                  as_arr.push(port_data[port_data.length-1][y+1]); //masukkan harga sebelumnya
+              } else {
+                  as_arr.push(asset_portfolio_yahoo[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
               }
-              // let idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
-             
             }
             port_data.push(as_arr);
 
