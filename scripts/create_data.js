@@ -146,8 +146,8 @@ function process_data_yahoo() {
             as_arr.push(dtt);
             var y = 0;          
             while (y<30) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
-              let idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
-              if(idx == -1) {//jika idx tidak ditemukan
+              // let idx = asset_portfolio_yahoo[y].data.date.indexOf(dtt);
+              if(asset_portfolio_yahoo[y].data.date.indexOf(dtt) == -1) {//jika idx tidak ditemukan
                 as_arr.push(port_data[port_data.length-1][y+1]); //masukkan harga sebelumnya
               } else {
                 as_arr.push(asset_portfolio_yahoo[y].data.price[idx]); //jika idx ketemu masukkan harga berdasarkan idx
