@@ -15,6 +15,7 @@ function tickers_list_btn () {
     return false;
   } else if (exchange_choose_current !== exchange_choose) {
     ticker_list = [];
+    console.log(exchange_choose);
     $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
     exchange_choose = exchange_choose_current;
     $('#ulul').empty();
