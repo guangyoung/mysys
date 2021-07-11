@@ -61,6 +61,7 @@ function add_data() {
       let tickere = ticker_list[i].split(', ')[0];
       let as_data_date = new Array();
       let as_data_price = new Array();
+      let ex_choo = exchange_choose_current;
 
       Papa.parse("dataset/"+exchange_choose+"/"+tickere+".csv", {
           download: true,
@@ -85,7 +86,7 @@ function add_data() {
               `<tr>
                   <td class="text-center">Stock `+al+`</td>
                   <td class="text-center">`+tickere+`</td>
-                  <td class="text-center">`+exchange_choose_current+`</td>
+                  <td class="text-center">`+ex_choo+`</td>
                   <td class="text-center">`+as_data_date[0]+`</td>
                   <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
               </tr>`;
