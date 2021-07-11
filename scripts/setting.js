@@ -10,7 +10,7 @@ var portsize;
 var minpost;
 
 function test_setting_submit_btn() {
-
+    
     initialequity = $("#initial_equity").val();
     bidaskspread = $("#bid_ask_spread").val();
     commisionshare = $("#commision_share").val();
