@@ -140,7 +140,7 @@ function process_data_yahoo() {
           var startDate=new Date(Math.max.apply(null,startdates));
           var endDate=new Date(Math.min.apply(null,enddates));
           var as_arr = new Array();
-          do {
+          while (startDate <= endDate) {
             as_arr = [];
             dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
             as_arr.push(dtt);          
@@ -159,7 +159,7 @@ function process_data_yahoo() {
             } else {
                 startDate = new Date(startDate.setDate(startDate.getDate() + 1));
             }
-          } while (startDate <= endDate)
+          }
 
           $("#period_data").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);
           $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);  
