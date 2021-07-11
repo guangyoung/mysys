@@ -140,7 +140,7 @@ function process_data_yahoo() {
           var startDate=new Date(Math.max.apply(null,startdates));
           var endDate=new Date(Math.min.apply(null,enddates));
           var as_arr = new Array();
-          while (startDate !== endDate) {
+          while (startDate <= endDate) {
             as_arr = [];
             dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
             as_arr.push(dtt);          
