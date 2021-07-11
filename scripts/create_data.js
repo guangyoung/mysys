@@ -108,7 +108,7 @@ function reset_portfolio() {
   $("#port_data_tbl>tbody").empty();
   $("#pagination-demo").twbsPagination("destroy");
   $("#period_data").val("");
-  $("#period_data_dashboard").val("No Data Available");
+  $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");
   $("#test_startdate").val("");
 }
 
