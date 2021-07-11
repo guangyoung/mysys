@@ -3,9 +3,9 @@
 //GLOBAL VARIABLE
 var ticker_list = new Array();//session
 var asset_portfolio_yahoo = new Array();//session
-var port_data = new Array();//session
 var exchange_choose_current;
 var exchange_choose;
+var port_data = new Array();//session
 
 function tickers_list_btn () {
   if(!exchange_choose_current) {
