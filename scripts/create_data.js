@@ -44,7 +44,6 @@ function add_data() {
     alert("ticker yg anda pilih melebihi total ticker tersisa untuk portfolio")
     return false;
   } else {
-    console.log(exchange_choose_current);
     if(asset_portfolio_yahoo.length>0) {
       for (i = 0; i<ticker_list.length; i++) {    //?????
         var tickere = ticker_list[i].split(', ')[0];
@@ -170,11 +169,11 @@ function process_data_yahoo() {
           console.log(port_data);
     
           $("#pagination-demo").twbsPagination({
-            totalPages: Math.ceil(port_data.length/23),
+            totalPages: Math.ceil(port_data.length/22),
             visiblePages: 2,
             onPageClick: function (event, page) {
               $("#port_data_tbl>tbody").empty();
-                for (i=(page-1)*23; i<(page*23) && i<(port_data.length); i++) {
+                for (i=(page-1)*22; i<(page*22) && i<(port_data.length); i++) {
                   var port_data_row =
                   `<tr>
                       <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[i][0]+`</td>
