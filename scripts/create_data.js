@@ -169,6 +169,36 @@ function process_data_yahoo() {
           $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);  
           $("#test_startdate").val(new Date(port_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(port_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(port_data[0][0]).getDate()));
           $('#data_available_alert').html("You Have Data Available To Test");
+          $('#stock1_ticker').html(asset_portfolio_yahoo[0].ticker);
+          $('#stock2_ticker').html(asset_portfolio_yahoo[1].ticker);
+          $('#stock3_ticker').html(asset_portfolio_yahoo[2].ticker);
+          $('#stock4_ticker').html(asset_portfolio_yahoo[3].ticker);
+          $('#stock5_ticker').html(asset_portfolio_yahoo[4].ticker);
+          $('#stock6_ticker').html(asset_portfolio_yahoo[5].ticker);
+          $('#stock7_ticker').html(asset_portfolio_yahoo[6].ticker);
+          $('#stock8_ticker').html(asset_portfolio_yahoo[7].ticker);
+          $('#stock9_ticker').html(asset_portfolio_yahoo[8].ticker);
+          $('#stock10_ticker').html(asset_portfolio_yahoo[9].ticker);
+          $('#stock11_ticker').html(asset_portfolio_yahoo[10].ticker);
+          $('#stock12_ticker').html(asset_portfolio_yahoo[11].ticker);
+          $('#stock13_ticker').html(asset_portfolio_yahoo[12].ticker);
+          $('#stock14_ticker').html(asset_portfolio_yahoo[13].ticker);
+          $('#stock15_ticker').html(asset_portfolio_yahoo[14].ticker);
+          $('#stock16_ticker').html(asset_portfolio_yahoo[15].ticker);
+          $('#stock17_ticker').html(asset_portfolio_yahoo[16].ticker);
+          $('#stock18_ticker').html(asset_portfolio_yahoo[17].ticker);
+          $('#stock19_ticker').html(asset_portfolio_yahoo[18].ticker);
+          $('#stock20_ticker').html(asset_portfolio_yahoo[19].ticker);
+          $('#stock21_ticker').html(asset_portfolio_yahoo[20].ticker);
+          $('#stock22_ticker').html(asset_portfolio_yahoo[21].ticker);
+          $('#stock23_ticker').html(asset_portfolio_yahoo[22].ticker);
+          $('#stock24_ticker').html(asset_portfolio_yahoo[23].ticker);
+          $('#stock25_ticker').html(asset_portfolio_yahoo[24].ticker);
+          $('#stock26_ticker').html(asset_portfolio_yahoo[25].ticker);
+          $('#stock27_ticker').html(asset_portfolio_yahoo[26].ticker);
+          $('#stock28_ticker').html(asset_portfolio_yahoo[27].ticker);
+          $('#stock29_ticker').html(asset_portfolio_yahoo[28].ticker);
+          $('#stock30_ticker').html(asset_portfolio_yahoo[29].ticker);
           console.log(port_data);
     
           $("#pagination-demo").twbsPagination({
