@@ -110,6 +110,7 @@ function reset_portfolio() {
   $("#period_data").val("");
   $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");
   $("#test_startdate").val("");
+  $('#data_available_alert').html("No Data Available To Test");
 }
 
 function appendLeadingZeroes(n){
@@ -131,6 +132,7 @@ function process_data_yahoo() {
         $("#period_data").val("");
         $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");        
         $("#test_startdate").val("");
+        $('#data_available_alert').html("No Data Available To Test");
           
         //cek periode data yg tercover oleh semua stocks
           var startdates= new Array();
