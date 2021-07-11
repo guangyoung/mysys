@@ -129,7 +129,7 @@ function process_data_yahoo() {
         $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
         $("#period_data").val("");
-        $("#period_data_dashboard").val("No Data Available");        
+        $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");        
         $("#test_startdate").val("");
           
         //cek periode data yg tercover oleh semua stocks
@@ -166,6 +166,7 @@ function process_data_yahoo() {
           $("#period_data").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);
           $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);  
           $("#test_startdate").val(new Date(port_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(port_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(port_data[0][0]).getDate()));
+          $('#data_available_alert').html("You Have Data Available To Test");
           console.log(port_data);
     
           $("#pagination-demo").twbsPagination({
