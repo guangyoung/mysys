@@ -14,8 +14,7 @@ function tickers_list_btn () {
     document.getElementById("ulul").appendChild(li);
     return false;
   } else if (exchange_choose_current !== exchange_choose) {
-    ticker_list = [];
-    console.log(exchange_choose);
+    ticker_list = [];    
     $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
     exchange_choose = exchange_choose_current;
     $('#ulul').empty();
@@ -45,6 +44,7 @@ function add_data() {
     alert("ticker yg anda pilih melebihi total ticker tersisa untuk portfolio")
     return false;
   } else {
+    console.log(exchange_choose_current);
     if(asset_portfolio_yahoo.length>0) {
       for (i = 0; i<ticker_list.length; i++) {    //?????
         var tickere = ticker_list[i].split(', ')[0];
