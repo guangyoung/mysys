@@ -110,7 +110,7 @@ function reset_portfolio() {
   $("#period_data").val("");
   $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");
   $("#test_startdate").val("");
-  $('#data_available_alert').html("No Data Available To Test");
+  $('#data_available_alert').html("No Test Data Available To Test");
   $('#stock1_ticker').html("");
   $('#stock2_ticker').html("");
   $('#stock3_ticker').html("");
@@ -162,7 +162,7 @@ function process_data_yahoo() {
         $("#period_data").val("");
         $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");        
         $("#test_startdate").val("");
-        $('#data_available_alert').html("No Data Available To Test");
+        $('#data_available_alert').html("No Test Data Available To Test");
           
         //cek periode data yg tercover oleh semua stocks
           var startdates= new Array();
