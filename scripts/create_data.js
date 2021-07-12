@@ -230,6 +230,7 @@ function process_data_yahoo() {
           $('#stock29_ticker').html(asset_portfolio_yahoo[28].ticker);
           $('#stock30_ticker').html(asset_portfolio_yahoo[29].ticker);
           console.log(port_data);
+          $('#market_data').modal('toggle'); 
     
           $("#pagination-demo").twbsPagination({
             totalPages: Math.ceil(port_data.length/22),
