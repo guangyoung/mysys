@@ -199,81 +199,81 @@ function process_data_yahoo() {
           $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);  
           $("#test_startdate").val(new Date(port_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(port_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(port_data[0][0]).getDate()));
           $('#data_available_alert').html("You Have Data Available To Test");
-          // $('#stock1_ticker').html(asset_portfolio_yahoo[0].ticker);
-          // $('#stock2_ticker').html(asset_portfolio_yahoo[1].ticker);
-          // $('#stock3_ticker').html(asset_portfolio_yahoo[2].ticker);
-          // $('#stock4_ticker').html(asset_portfolio_yahoo[3].ticker);
-          // $('#stock5_ticker').html(asset_portfolio_yahoo[4].ticker);
-          // $('#stock6_ticker').html(asset_portfolio_yahoo[5].ticker);
-          // $('#stock7_ticker').html(asset_portfolio_yahoo[6].ticker);
-          // $('#stock8_ticker').html(asset_portfolio_yahoo[7].ticker);
-          // $('#stock9_ticker').html(asset_portfolio_yahoo[8].ticker);
-          // $('#stock10_ticker').html(asset_portfolio_yahoo[9].ticker);
-          // $('#stock11_ticker').html(asset_portfolio_yahoo[10].ticker);
-          // $('#stock12_ticker').html(asset_portfolio_yahoo[11].ticker);
-          // $('#stock13_ticker').html(asset_portfolio_yahoo[12].ticker);
-          // $('#stock14_ticker').html(asset_portfolio_yahoo[13].ticker);
-          // $('#stock15_ticker').html(asset_portfolio_yahoo[14].ticker);
-          // $('#stock16_ticker').html(asset_portfolio_yahoo[15].ticker);
-          // $('#stock17_ticker').html(asset_portfolio_yahoo[16].ticker);
-          // $('#stock18_ticker').html(asset_portfolio_yahoo[17].ticker);
-          // $('#stock19_ticker').html(asset_portfolio_yahoo[18].ticker);
-          // $('#stock20_ticker').html(asset_portfolio_yahoo[19].ticker);
-          // $('#stock21_ticker').html(asset_portfolio_yahoo[20].ticker);
-          // $('#stock22_ticker').html(asset_portfolio_yahoo[21].ticker);
-          // $('#stock23_ticker').html(asset_portfolio_yahoo[22].ticker);
-          // $('#stock24_ticker').html(asset_portfolio_yahoo[23].ticker);
-          // $('#stock25_ticker').html(asset_portfolio_yahoo[24].ticker);
-          // $('#stock26_ticker').html(asset_portfolio_yahoo[25].ticker);
-          // $('#stock27_ticker').html(asset_portfolio_yahoo[26].ticker);
-          // $('#stock28_ticker').html(asset_portfolio_yahoo[27].ticker);
-          // $('#stock29_ticker').html(asset_portfolio_yahoo[28].ticker);
-          // $('#stock30_ticker').html(asset_portfolio_yahoo[29].ticker);
+          $('#stock1_ticker').html(asset_portfolio_yahoo[0].ticker);
+          $('#stock2_ticker').html(asset_portfolio_yahoo[1].ticker);
+          $('#stock3_ticker').html(asset_portfolio_yahoo[2].ticker);
+          $('#stock4_ticker').html(asset_portfolio_yahoo[3].ticker);
+          $('#stock5_ticker').html(asset_portfolio_yahoo[4].ticker);
+          $('#stock6_ticker').html(asset_portfolio_yahoo[5].ticker);
+          $('#stock7_ticker').html(asset_portfolio_yahoo[6].ticker);
+          $('#stock8_ticker').html(asset_portfolio_yahoo[7].ticker);
+          $('#stock9_ticker').html(asset_portfolio_yahoo[8].ticker);
+          $('#stock10_ticker').html(asset_portfolio_yahoo[9].ticker);
+          $('#stock11_ticker').html(asset_portfolio_yahoo[10].ticker);
+          $('#stock12_ticker').html(asset_portfolio_yahoo[11].ticker);
+          $('#stock13_ticker').html(asset_portfolio_yahoo[12].ticker);
+          $('#stock14_ticker').html(asset_portfolio_yahoo[13].ticker);
+          $('#stock15_ticker').html(asset_portfolio_yahoo[14].ticker);
+          $('#stock16_ticker').html(asset_portfolio_yahoo[15].ticker);
+          $('#stock17_ticker').html(asset_portfolio_yahoo[16].ticker);
+          $('#stock18_ticker').html(asset_portfolio_yahoo[17].ticker);
+          $('#stock19_ticker').html(asset_portfolio_yahoo[18].ticker);
+          $('#stock20_ticker').html(asset_portfolio_yahoo[19].ticker);
+          $('#stock21_ticker').html(asset_portfolio_yahoo[20].ticker);
+          $('#stock22_ticker').html(asset_portfolio_yahoo[21].ticker);
+          $('#stock23_ticker').html(asset_portfolio_yahoo[22].ticker);
+          $('#stock24_ticker').html(asset_portfolio_yahoo[23].ticker);
+          $('#stock25_ticker').html(asset_portfolio_yahoo[24].ticker);
+          $('#stock26_ticker').html(asset_portfolio_yahoo[25].ticker);
+          $('#stock27_ticker').html(asset_portfolio_yahoo[26].ticker);
+          $('#stock28_ticker').html(asset_portfolio_yahoo[27].ticker);
+          $('#stock29_ticker').html(asset_portfolio_yahoo[28].ticker);
+          $('#stock30_ticker').html(asset_portfolio_yahoo[29].ticker);
           console.log(port_data);
     
-          // $("#pagination-demo").twbsPagination({
-          //   totalPages: Math.ceil(port_data.length/22),
-          //   visiblePages: 2,
-          //   onPageClick: function (event, page) {
-          //     $("#port_data_tbl>tbody").empty();
-          //       for (i=(page-1)*22; i<(page*22) && i<(port_data.length); i++) {
-          //         var port_data_row =
-          //         `<tr>
-          //             <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[i][0]+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][1]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][2]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][3]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][4]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][5]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][6]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][7]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][8]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][9]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][10]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][11]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][12]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][13]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][14]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][15]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][16]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][17]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][18]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][19]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][20]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][21]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][22]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][23]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][24]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][25]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][26]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][27]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][28]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][29]).toFixed(2))+`</td>
-          //             <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][30]).toFixed(2))+`</td>
-          //         </tr>`;
-          //         $("#port_data_tbl>tbody").append(port_data_row);
-          //         }
-          //   }
-          //   });  
+          $("#pagination-demo").twbsPagination({
+            totalPages: Math.ceil(port_data.length/22),
+            visiblePages: 2,
+            onPageClick: function (event, page) {
+              $("#port_data_tbl>tbody").empty();
+                for (i=(page-1)*22; i<(page*22) && i<(port_data.length); i++) {
+                  var port_data_row =
+                  `<tr>
+                      <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[i][0]+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][1]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][2]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][3]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][4]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][5]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][6]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][7]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][8]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][9]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][10]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][11]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][12]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][13]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][14]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][15]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][16]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][17]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][18]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][19]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][20]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][21]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][22]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][23]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][24]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][25]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][26]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][27]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][28]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][29]).toFixed(2))+`</td>
+                      <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(port_data[i][30]).toFixed(2))+`</td>
+                  </tr>`;
+                  $("#port_data_tbl>tbody").append(port_data_row);
+                  }
+            }
+            });  
       }      
  }
