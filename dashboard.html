@@ -353,12 +353,13 @@
             </div>
         </div>
     </div>
-    <!-- MODAL CREATE DATA -->
+    <!-- MODAL TEST DATA -->
     <div class="modal" id="market_data" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="market_dataLabel" aria-hidden="true">
         <div class="modal-dialog" style="min-width: 1200px;" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">Test Data</strong></h5>
+                    <a data-toggle="modal" data-dismiss="modal" href="#create_data" class="btn btn-primary" style="margin-top: 3px; padding: 1px 10px; height: 25px; font-size: 13px; margin-left: 20px">Create New Data</a>
                     <a href="how_to_use.html" target="_blank"><button type="button" class="btn btn-info btn-sm" style="margin-top: 3px; position: absolute; right: 50px; padding: 1px 10px; height: 25px; font-size: 13px"><i class="fa fa-question-circle" style="color: #ffffff; font-size: 15px; margin-top: 1px; margin-right: 6px"></i>Petunjuk Penggunaan</button></a>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -366,7 +367,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col" style="width : 33%">
+                        <!-- <div class="col" style="width : 33%"> -->
                             <!-- <h6 style="font-size: 14px">Create Data</h6> -->
                               <!-- <h6 style="text-align: center; margin-top: 0px; font-size: 11.5px;">Create test data using <strong>Yahoo Finance historical data</strong></h6>
                               <h6 style="text-align: center; font-size: 11.5px;"><strong>23.456 tickers</strong> available from <strong>24 exchanges</strong> across the world</h6>
@@ -385,7 +386,7 @@
                               </div> -->
                               <!-- <div class="tab-content" id="select-tabContent">
                                   <div class="tab-pane fade show active" id="manual" role="tabpanel" aria-labelledby="manual-tab"> -->
-                                      <div class="row" style="margin-top: 0px" id="tt_dd">
+                                      <!-- <div class="row" style="margin-top: 0px" id="tt_dd">
                                           <div class="dropdown" id="tickers_exchange">
                                               <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 10px; width: 100px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
                                                   <span class="Xchange">Exchange</span>
@@ -412,7 +413,7 @@
                                               </div>
                                           </div>
                                           <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 0px; margin-left: 15px; margin-top: 4px; height: 20px; width: 140px" onclick="add_data()">Add Stock</button>
-                                      </div>
+                                      </div> -->
                                   <!-- </div>
                                   <div class="tab-pane fade" id="random" role="tabpanel" aria-labelledby="random-tab">
                                       <div class="row" style="margin-top: 10px" id="tt_dd_random">
@@ -437,7 +438,7 @@
                                   <button type="button" class="btn btn-danger btn-sm" style="margin-top: 15px; position: absolute; right: 15px; font-size: 10px; padding: 0px 3px; width: 50px" onclick="reset_portfolio()">Reset</button>
 
                               </div> -->
-                              <div class="row">
+                              <!-- <div class="row">
                                   <div class="table-report" style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 5px; margin-left: 15px; margin-right: 15px; height: 380px; width: 100%; overflow-y: scroll">
                                       <table id="table_assets">
                                           <thead style="font-size: 12px; font-family: calibri">
@@ -454,25 +455,25 @@
                                           </tbody>
                                       </table>
                                   </div>
-                              </div>
-                              <div class="row">
+                              </div> -->
+                              <!-- <div class="row"> -->
                                   <!-- <div class="progress" style="font-size: 12px; margin-left: 15px; margin-top: 5px; background-color: #c3c3c3; height: 20px; width: 230px">
                                       <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="color: #4a4a4a; width:0%">
                                       </div>
                                   </div> -->
-                                  <button type="submit" class="btn btn-danger btn-sm" style="font-size: 12px; padding: 0px 5px; margin-left: 15px; margin-top: 5px; height: 20px; width: 175px" onclick="reset_portfolio()">Reset</button>
+                                  <!-- <button type="submit" class="btn btn-danger btn-sm" style="font-size: 12px; padding: 0px 5px; margin-left: 15px; margin-top: 5px; height: 20px; width: 175px" onclick="reset_portfolio()">Reset</button>
                                   <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 5px; margin-left: 15px; margin-top: 5px; height: 20px; width: 175px" onclick="process_data_yahoo()">Create Data</button>
                               </div>
 
-                        </div>
-                        <div class="col" style="width : 67%">
+                        </div> -->
+                        <div class="col" style="width : 100%">
                             <div class="row">
-                                <a style="font-size: 12px;">Period of Data</a>
+                                <a style="margin-left: 15px; font-size: 12px;">Period of Data</a>
                                 <input id="period_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 3px; height: 18px; width: 150px; font-size: 10px">
                                 <ul id="pagination-demo" class="pagination pagination-sm"></ul>
                             </div>
                             <div class="row">
-                                <div class="table-hover" style="font-family: calibri; font-size: 11px; background-color: #070914; margin-right: 15px; margin-top: 5px; overflow: auto; height: 413px">
+                                <div class="table-hover" style="font-family: calibri; font-size: 11px; background-color: #070914; margin-left: 15px; margin-right: 15px; margin-top: 5px; overflow: auto; height: 413px">
                                     <table id="port_data_tbl">
                                         <thead style="color:#d2d3d7">
                                             <tr>
@@ -521,6 +522,82 @@
                 <div class="modal-footer">
                     <!-- <a style="position: absolute; left: 15px; font-size: 12px;">NB : Sebagai bentuk transparansi nama asset tidak ditampilkan dalam tabel data......</a>                                 -->
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                </div>
+			</div>
+		</div>
+    </div>
+
+    <!-- MODAL CREATE DATA -->
+    <div class="modal" id="create_data" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="create_dataLabel" aria-hidden="true">
+        <div class="modal-dialog" style="min-width: 350px;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">Create Data</strong></h5>
+                    <button type="button" class="close" data-dismiss="modal" data-toggle="modal" href="#market_data" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col" style="width : 33%">
+                            <h6 style="font-size: 14px">Create Data</h6>                             
+                                <div class="row" style="margin-top: 0px" id="tt_dd">
+                                    <div class="dropdown" id="tickers_exchange">
+                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 10px; width: 100px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
+                                            <span class="Xchange">Exchange</span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-align: left; font-size: 10px;">
+                                            <a class="dropdown-item" href="#">NASDAQ</a>
+                                            <a class="dropdown-item" href="#">NYSE</a>
+                                            <a class="dropdown-item" href="#">LSE</a>
+                                            <a class="dropdown-item" href="#">EURONEXT</a>
+                                            <a class="dropdown-item" href="#">SSE</a>
+                                            <a class="dropdown-item" href="#">SZSE</a>
+                                            <a class="dropdown-item" href="#">SEHK</a>
+                                            <a class="dropdown-item" href="#">TSX</a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown" id="tickers_list">
+                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick = "tickers_list_btn ()" type="button" data-toggle="dropdown" style="margin-left: 10px; font-size: 10px; width: 100px;padding: 1px 5px">
+                                            Tickers (<span class="quantity">0</span>)
+                                        </button>
+                                        <div id="div_ulul">
+                                            <ul id="ulul" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 10px; height: 300px; width: 100px; overflow: auto;">
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 0px; margin-left: 15px; margin-top: 4px; height: 20px; width: 140px" onclick="add_data()">Add Stock</button>
+                                </div>                                 
+                              
+                                <div class="row">
+                                    <div class="table-report" style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 5px; margin-left: 15px; margin-right: 15px; height: 360px; width: 100%; overflow-y: scroll">
+                                        <table id="table_assets">
+                                            <thead style="font-size: 12px; font-family: calibri">
+                                                <tr>
+                                                    <th style="position: sticky; top: 0px; background-color: #ffffff; width: 7%; padding: 0 5px; text-align: center">#Stock</th>
+                                                    <th style="position: sticky; top: 0px; background-color: #ffffff; width: 15%; padding: 0 5x; text-align: center">Ticker</th>
+                                                    <th style="position: sticky; top: 0px; background-color: #ffffff; width: 19%; padding: 0 5px; text-align: center">Exchange</th>
+                                                    <th style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">Start&nbsp;Date</th>
+                                                    <th style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">End&nbsp;Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="font-size: 12px; font-family: calibri">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">                                 
+                                    <button type="submit" class="btn btn-danger btn-sm" style="font-size: 12px; padding: 0px 5px; margin-left: 15px; margin-top: 5px; height: 20px; width: 175px" onclick="reset_portfolio()">Reset</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 5px; margin-left: 15px; margin-top: 5px; height: 20px; width: 175px" onclick="process_data_yahoo()">Create Data</button>
+                                </div>
+
+                        </div>                        
+                    </div>
+                </div>
+                <div class="modal-footer">                    
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" data-toggle="modal" href="#market_data" >Close</button>
                 </div>
 			</div>
 		</div>
