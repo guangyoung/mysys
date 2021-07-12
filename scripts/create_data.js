@@ -232,6 +232,7 @@ function process_data_yahoo() {
           console.log(port_data);
           $('#create_data').modal('toggle'); 
           $("#table_assets > tbody").empty();
+          asset_portfolio_yahoo = [];
     
           $("#pagination-demo").twbsPagination({
             totalPages: Math.ceil(port_data.length/22),
