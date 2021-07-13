@@ -46,14 +46,16 @@
                 </div>
                 <hr style="margin-top: 10px; width: 100%; height:1px;border-width:0;color:gray;background-color:gray">
                 <div class="row" style="margin: auto; width: 100%">
-                  <img src="images/simulation_testing2.png" height="20" style="width: 100%; margin-top: 0px">
+                  <img src="images/simulation_testing2.png" height="25" style="width: 100%; margin-top: 0px">
                 </div>                
-                <div class="row" style="margin: auto; width: 245px">
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#setting" id="setting_button" style="margin-top: 15px; width: 110px; padding: 1px 5px; font-size: 10px"><i class="fa fa-gear" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>TEST SETTING</button>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="margin-top: 15px; margin-left: 25px; width: 110px; padding: 1px 5px; font-size: 10px"><i class="fa fa-database" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>TEST DATA</button>
+                <div class="row" style="margin: auto; width: 150px">
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#setting" id="setting_button" style="margin-top: 15px; width: 170px; padding: 1px 5px; font-size: 13px"><i class="fa fa-gear" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>TEST SETTING</button>
+                </div>
+                <div class="row" style="margin: auto; width: 150px">                   
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#market_data" id="data_button" style="margin-top: 15px; width: 170px; padding: 1px 5px; font-size: 13px"><i class="fa fa-database" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>TEST DATA</button>
                 </div>
                 <!-- <h6 style="margin-top: 15px; color:#c1c2c6; text-align: center"><u>DATA TESTING</u></h6> -->
-                <h6 style="margin-top: 15px; font-size: 14px; color:#c1c2c6; text-align: center"><span id="data_available_alert">No Test Data Available To Test</span></h6>
+                <!-- <h6 style="margin-top: 15px; font-size: 14px; color:#c1c2c6; text-align: center"><span id="data_available_alert">No Test Data Available To Test</span></h6>
                 <div class="row" style="margin: auto; width: 230px">
                     <a style="font-size: 11px; color: #c1c2c6; margin-top: 7px; margin-left: 0px">Period of Data</a>
                     <input id="period_data_dashboard" type="text" class="form-text-sm" disabled value="mm/dd/yyyy - mm/dd/yyyy" style="text-align: center; font-size: 11px; background-color: #ffffff; color: #2a2a2a; margin-left: 8px; font-family: calibri; width: 140px; height: 18px; margin-top: 5px;">
@@ -64,7 +66,7 @@
                 </div>
                 <div class="row" style="margin: auto; width: 245px">
                     <a style="font-size: 9px; color: #c1c2c6; font-family: calibri; margin-top: 5px; text-align: center; margin-left: 0px">Set your test startdate. Pastikan startdate tidak melebihi 23/01/21</a>
-                </div>               
+                </div>                -->
                 <div class="row" style="margin: auto; width: 220px">
                     <button type="button" class="btn btn-success btn-sm" id="play_button" style="margin-top: 15px; margin-left:0px; padding: 0px 10px; width: 100px; font-size: 14px" onclick="run_test()"><strong>RUN TEST</strong></button>
                     <button type="button" class="btn btn-danger btn-sm" id="refresh_button" style="margin-top: 15px; margin-left:20px; padding: 0px 10px; width: 100px; font-size: 14px" disabled onclick="reset_data_replay()"><strong>RESET</strong></button>
@@ -75,87 +77,89 @@
                     </div>
                 </div>
                 <hr style="margin-top: 15px; width: 100%; height:1px;border-width:0;color:gray;background-color:gray">
-                <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 0px; font-family: Acrom; font-size: 12px;">PERFORMANCE COMPARISON</h6>
+                <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 0px; font-family: Acrom; font-size: 14px;">PERFORMANCE COMPARISON</h6>
                 <div class="row">
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;"><u>QUANTXI</u></h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;"><u>QUANTXI</u></h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">VS</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">VS</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;"><u>BUY&HOLD</u></h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;"><u>BUY&HOLD</u></h6>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">TotalReturn</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">TotalReturn</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">CAGR</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">CAGR</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">Max DD</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">Max DD</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">MAR</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">MAR</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">Sharpe</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">Sharpe</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">Treynor</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">Treynor</h6>
                     </div>
                     <div class="col">
-                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 12px;">0.00%</h6>
+                        <h6 style="text-align: center; color:#c1c2c6; margin-left: 0px; margin-top: 3px; font-family: Acrom; font-size: 14px;">0.00%</h6>
                     </div>
                 </div>
-                <div class="row" style="margin: auto; width: 275px">
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#trade_report" id="trade_report_button"  style="margin-top: 10px; width: 130px; padding: 1px 5px; font-size: 10px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>TRADE REPORT</button>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#rasio_chart" id="chart_button" style="margin-top: 10px; margin-left: 15px; width: 130px; padding: 1px 5px; font-size: 10px"><i class="fa fa-line-chart" style="color: #ffffff; font-size: 12px; margin-top: 2px; margin-right: 4px"></i>PERFORMANCE</button>
+                <div class="row" style="margin: auto; width: 200px">
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#trade_report" id="trade_report_button"  style="margin-top: 10px; width: 200px; padding: 1px 5px; font-size: 13px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>TRADE TESTING REPORT</button>
+                </div>
+                <div class="row" style="margin: auto; width: 200px">
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#rasio_chart" id="chart_button" style="margin-top: 10px; width: 200px; padding: 1px 5px; font-size: 13px"><i class="fa fa-line-chart" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>PERFORMANCE CHART</button>
                 </div>
                 <hr style="margin-top: 15px; width: 100%; height:1px;border-width:0;color:gray;background-color:gray">
                 <div class="row" style="margin: auto; width: 213px">
@@ -168,21 +172,21 @@
             <div class="col-9">
                 <div class="row" style="background-color: #444444;">
                     <div style="width: 32%; color: #ffffff; height: 35px; padding: 1px 5px;">
-                        <div class="row" style="margin: auto; width: 210px">
+                        <div class="row" style="margin: auto; width: 223px">
                             <i class="fa fa-sign-in" style="margin-top: 4px; font-size: 23px"></i>
-                            <strong style="font-size: 14px; margin-left: 10px; margin-top: 6px">DATA INPUT&nbsp;&nbsp;-&nbsp;&nbsp;REQUEST</strong>
+                            <strong style="font-size: 15px; margin-left: 10px; margin-top: 6px">DATA INPUT&nbsp;&nbsp;-&nbsp;&nbsp;REQUEST</strong>
                         </div>
                     </div>
                     <div style="width: 36%; color: #ffffff; height: 35px; padding: 1px 5px; border-right: 1px #1b1c2c solid; border-left: 1px #1b1c2c solid;">
-                        <div class="row" style="margin: auto; width: 205px">
+                        <div class="row" style="margin: auto; width: 217px">
                             <img src="images/rest_api_symbol.png" width="25" height="18" style="margin-top: 7px">
-                            <strong style="font-size: 14px; margin-left: 10px; margin-top: 6px">QUANTXI RESTFUL API</strong>
+                            <strong style="font-size: 15px; margin-left: 10px; margin-top: 6px">QUANTXI RESTFUL API</strong>
                         </div>
                     </div>
                     <div style="width: 32%; color: #ffffff; height: 35px; padding: 1px 5px;">
-                        <div class="row" style="margin: auto; width: 253px">
+                        <div class="row" style="margin: auto; width: 269px">
                             <i class="fa fa-sign-in" style="margin-top: 4px; font-size: 23px"></i>
-                            <strong style="font-size: 14px; margin-left: 10px; margin-top: 6px">SIGNAL OUTPUT&nbsp;&nbsp;-&nbsp;&nbsp;RESPONSE</strong>
+                            <strong style="font-size: 15px; margin-left: 10px; margin-top: 6px">SIGNAL OUTPUT&nbsp;&nbsp;-&nbsp;&nbsp;RESPONSE</strong>
                         </div>
                     </div>
                 </div>
@@ -227,7 +231,7 @@
         }</pre>
                     </div>
                     <div style="width: 36%; text-align: center; border-left: 1px #1b1c2c solid; border-right: 1px #1b1c2c solid;">
-                        <h6 style="font-size: 16px; color: #181a1b; margin-top: 2px; margin-top: 40px"><strong>POST /api.quantxi.com</strong></h6>
+                        <h6 style="font-size: 16px; color: #181a1b; margin-top: 2px; margin-top: 50px"><strong>POST /api.quantxi.com</strong></h6>
                         <h6 style="font-size: 11px; color: #181a1b; margin-top: 2px; margin-top: 20px">X-USER : Point72 Asset Management</h6>
                         <h6 style="font-size: 11px; color: #181a1b; margin-top: 2px; margin-top: 10px">X-API-KEY : 1234567889njnjvjnvjnkcbkckjxkxkkxn</h6>
 
@@ -236,9 +240,9 @@
                             <img src="images/ai_gif_logo_1_crop.gif" width="200" height="200" style="margin-left: 20px; margin-right: 0px; margin-top: 25px">
                             <img src="images/arrow.png" width="40" height="80" style="margin-top: 85px; margin-left: 10px">
                         </div>
-                        <h6 style="font-size: 16px; color: #181a1b; margin-top: 2px; margin-top: 30px"><strong>Total Post&nbsp;&nbsp;:&nbsp;&nbsp;<span id="total_post">0</span></strong></h6>
+                        <h6 style="font-size: 16px; color: #181a1b; margin-top: 40px"><strong>Total Post&nbsp;&nbsp;:&nbsp;&nbsp;<span id="total_post">0</span></strong></h6>
                         <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#view_allpost" id="viewpost_button" style="font-family: Acrom; margin-top: 5px; height: 25px; padding: 2px 12px; font-size: 13px">View All Request & Response</button>
-                        <h6 style="font-size: 11px; color: #181a1b; margin-top: 15px">Capture HTTP traffic between your computer and<br>Quantxi server using <img src="images/Fiddler-Everywhere-Icon.png" class="img-fluid" width="18" height="18" style="margin : auto"> Fiddler Everywhere. <a href="">Learn More</a></h6>
+                        <h6 style="font-size: 11px; color: #181a1b; margin-top: 25px">Capture HTTP traffic between your computer<br>and Quantxi server using <img src="images/Fiddler-Everywhere-Icon.png" class="img-fluid" width="18" height="18" style="margin : auto"> Fiddler Everywhere.<br><a href="" style="font-size: 12px"><u>Learn More</u></a></h6>
 
                     </div>
                     <div style="width: 32%;">
