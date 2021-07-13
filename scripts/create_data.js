@@ -198,7 +198,7 @@ function process_data_yahoo() {
           $("#period_data").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);
           $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);  
           $("#test_startdate").val(new Date(port_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(port_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(port_data[0][0]).getDate()));
-          $("#test_startdate").datepicker({ minDate: new Date(port_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(port_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(port_data[0][0]).getDate())});
+          // $("#test_startdate").datepicker({ minDate: new Date(port_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(port_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(port_data[0][0]).getDate())});
           $('#data_available_alert').html("You Have Data Available To Test");
           $('#stock1_ticker').html(asset_portfolio_yahoo[0].ticker);
           $('#stock2_ticker').html(asset_portfolio_yahoo[1].ticker);
