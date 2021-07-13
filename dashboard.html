@@ -543,10 +543,10 @@
                             <!-- <h6 style="font-size: 14px">Create Data</h6>                              -->
                                 <div class="row" style="margin-top: 0px" id="tt_dd">
                                     <div class="dropdown" id="tickers_exchange">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 10px; width: 100px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" style="margin-left: 14px; font-size: 13px; width: 120px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
                                             <span class="Xchange">Exchange</span>
                                         </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-align: left; font-size: 10px;">
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-align: left; font-size: 13px;">
                                             <a class="dropdown-item" href="#">NASDAQ</a>
                                             <a class="dropdown-item" href="#">NYSE</a>
                                             <a class="dropdown-item" href="#">LSE</a>
@@ -558,22 +558,23 @@
                                         </div>
                                     </div>
                                     <div class="dropdown" id="tickers_list">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick = "tickers_list_btn ()" type="button" data-toggle="dropdown" style="margin-left: 10px; font-size: 10px; width: 100px;padding: 1px 5px">
+                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick = "tickers_list_btn ()" type="button" data-toggle="dropdown" style="margin-left: 10px; font-size: 13px; width: 120px; padding: 1px 5px">
                                             Tickers (<span class="quantity">0</span>)
                                         </button>
                                         <div id="div_ulul">
-                                            <ul id="ulul" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 10px; height: 300px; width: 100px; overflow: auto;">
+                                            <ul id="ulul" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 13px; height: 350px; width: 100px; overflow: auto;">
 
                                             </ul>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 0px; margin-left: 15px; margin-top: 4px; height: 20px; width: 140px" onclick="add_data()">Add Stock</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 15px; margin-top: 1px; height: 25px; width: 100px" onclick="add_data()">Add Stock</button>
+                                    <button type="submit" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 15px; margin-top: 1px; height: 25px; width: 85px" onclick="reset_portfolio()">Reset</button>
                                 </div>                                 
                               
                                 <div class="row">
                                     <div class="table-report" style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 5px; margin-left: 15px; margin-right: 15px; height: 360px; width: 100%; overflow-y: scroll">
                                         <table id="table_assets">
-                                            <thead style="font-size: 12px; font-family: calibri">
+                                            <thead style="font-size: 14px; font-family: calibri">
                                                 <tr>
                                                     <th style="position: sticky; top: 0px; background-color: #ffffff; width: 7%; padding: 0 5px; text-align: center">#Stock</th>
                                                     <th style="position: sticky; top: 0px; background-color: #ffffff; width: 15%; padding: 0 5x; text-align: center">Ticker</th>
@@ -590,7 +591,7 @@
                                 </div>
                                 <div class="row">                                 
                                     <!-- <button type="submit" class="btn btn-danger btn-sm" style="font-size: 12px; padding: 0px 5px; margin-left: 15px; margin-top: 5px; height: 20px; width: 175px" onclick="reset_portfolio()">Reset</button> -->
-                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 12px; padding: 0px 5px; margin-left: 15px; margin-top: 5px; height: 20px; width: 365px" onclick="process_data_yahoo()">Create Data</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 2px; height: 26px; width: 467px" onclick="process_data_yahoo()">Create Data</button>
                                 </div>
 
                         </div>                        
