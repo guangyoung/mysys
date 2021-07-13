@@ -107,6 +107,9 @@ function reset_portfolio() {
   $("#table_assets > tbody").empty();
   exchange_choose_current="";
   exchange_choose ="";
+  ticker_list = [];    
+  $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
+  $('#ulul').empty();
   // $("#port_data_tbl>tbody").empty();
   // $("#pagination-demo").twbsPagination("destroy");
   // $("#period_data").val("");
