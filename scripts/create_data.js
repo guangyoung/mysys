@@ -105,6 +105,8 @@ function reset_portfolio() {
   asset_portfolio_yahoo = [];
   // port_data = [];
   $("#table_assets > tbody").empty();
+  exchange_choose_current="";
+  exchange_choose ="";
   // $("#port_data_tbl>tbody").empty();
   // $("#pagination-demo").twbsPagination("destroy");
   // $("#period_data").val("");
