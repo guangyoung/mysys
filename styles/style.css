@@ -501,9 +501,9 @@ margin: 10px 10px 10px 0px;
   } */
   #pagination-demo{
     display: inline-block;
-    margin: auto;
-    /* position: absolute;
-    right: 15px; */
+    margin-top: -4px;
+    position: absolute;
+    right: 15px;
 
   }
   #pagination-demo li{
