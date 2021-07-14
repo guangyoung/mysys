@@ -241,11 +241,11 @@ function process_data_yahoo() {
           asset_portfolio_yahoo = [];
     
           $("#pagination-demo").twbsPagination({
-            totalPages: Math.ceil(port_data.length/22),
+            totalPages: Math.ceil(port_data.length/20),
             visiblePages: 4,
             onPageClick: function (event, page) {
               $("#port_data_tbl>tbody").empty();
-                for (i=(page-1)*22; i<(page*22) && i<(port_data.length); i++) {
+                for (i=(page-1)*20; i<(page*20) && i<(port_data.length); i++) {
                   var port_data_row =
                   `<tr>
                       <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+port_data[i][0]+`</td>
