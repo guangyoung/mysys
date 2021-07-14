@@ -242,7 +242,7 @@ function process_data_yahoo() {
     
           $("#pagination-demo").twbsPagination({
             totalPages: Math.ceil(port_data.length/22),
-            visiblePages: 2,
+            visiblePages: 4,
             onPageClick: function (event, page) {
               $("#port_data_tbl>tbody").empty();
                 for (i=(page-1)*22; i<(page*22) && i<(port_data.length); i++) {
