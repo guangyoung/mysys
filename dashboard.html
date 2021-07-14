@@ -191,44 +191,8 @@
                     </div>
                 </div>
                 <div class="row" style="background-color: #ebebeb;">
-                    <div style="width: 32%">
-                            <pre style="margin-top: 5px; overflow: hidden; font-size: 11px; color: #000000;">
-
-        {
-            "data_id": "3000",
-            "timestamp": "25-12-1981 13:00:00",
-            "buying_power": "100,000,000",
-            "stock1_data_price": "100,00",
-            "stock2_data_price": "100,00",
-            "stock3_data_price": "100,00",
-            "stock4_data_price": "100,00",
-            "stock5_data_price": "100,00",
-            "stock6_data_price": "100,00",
-            "stock7_data_price": "100,00",
-            "stock8_data_price": "100,00",
-            "stock9_data_price": "100,00",
-            "stock10_data_price": "100,00",
-            "stock11_data_price": "100,00",
-            "stock12_data_price": "100,00",
-            "stock13_data_price": "100,00",
-            "stock14_data_price": "100,00",
-            "stock15_data_price": "100,00",
-            "stock16_data_price": "100,00",
-            "stock17_data_price": "100,00",
-            "stock18_data_price": "100,00",
-            "stock19_data_price": "100,00",
-            "stock20_data_price": "100,00",
-            "stock21_data_price": "100,00",
-            "stock22_data_price": "100,00",
-            "stock23_data_price": "100,00",
-            "stock24_data_price": "100,00",
-            "stock25_data_price": "100,00",
-            "stock26_data_price": "100,00",
-            "stock27_data_price": "100,00",
-            "stock28_data_price": "100,00",
-            "stock29_data_price": "100,00",
-            "stock30_data_price": "100,00"
-        }</pre>
+                    <div style="width: 32%"  id="input">
+                           
                     </div>
                     <div style="width: 36%; text-align: center; border-left: 1px #1b1c2c solid; border-right: 1px #1b1c2c solid;">
                         <h6 style="font-size: 16px; color: #181a1b; margin-top: 2px; margin-top: 50px"><strong>POST /api.quantxi.com</strong></h6>
@@ -245,43 +209,8 @@
                         <h6 style="font-size: 11px; color: #181a1b; margin-top: 25px">Capture HTTP traffic between your computer<br>and Quantxi server using <img src="images/Fiddler-Everywhere-Icon.png" class="img-fluid" width="18" height="18" style="margin : auto"> Fiddler Everywhere.<br><a href="" style="font-size: 12px"><u>Learn More</u></a></h6>
 
                     </div>
-                    <div style="width: 32%;">
-                        <pre style="margin-top: 20px; overflow: hidden; font-size: 11px; color: #000000;">
-        {
-            "data_id": "3000",
-            "timestamp": "25-12-1981 13:00:00",
-            "total_signal_output": "30",
-            "stock1_signal_size": "12,000",
-            "stock2_signal_size": "12,000",
-            "stock3_signal_size": "12,000",
-            "stock4_signal_size": "12,000",
-            "stock5_signal_size": "12,000",
-            "stock6_signal_size": "12,000",
-            "stock7_signal_size": "12,000",
-            "stock8_signal_size": "12,000",
-            "stock9_signal_size": "12,000",
-            "stock10_signal_size": "12,000",
-            "stock11_signal_size": "12,000",
-            "stock12_signal_size": "12,000",
-            "stock13_signal_size": "12,000",
-            "stock14_signal_size": "12,000",
-            "stock15_signal_size": "12,000",
-            "stock16_signal_size": "12,000",
-            "stock17_signal_size": "12,000",
-            "stock18_signal_size": "12,000",
-            "stock19_signal_size": "12,000",
-            "stock20_signal_size": "12,000",
-            "stock21_signal_size": "12,000",
-            "stock22_signal_size": "12,000",
-            "stock23_signal_size": "12,000",
-            "stock24_signal_size": "12,000",
-            "stock25_signal_size": "12,000",
-            "stock26_signal_size": "12,000",
-            "stock27_signal_size": "12,000",
-            "stock28_signal_size": "12,000",
-            "stock29_signal_size": "12,000",
-            "stock30_signal_size": "12,000"
-        } </pre>
+                    <div style="width: 32%;" id="output">
+                        
                     </div>
                 </div>
             </div>
@@ -1824,6 +1753,43 @@
         var x_list =
         ["EURONEXT","LSE","NASDAQ","NYSE","SEHK","SSE","SZSE","TSX"];
 
+        var input =
+        {
+            "data_id": "3000",
+            "timestamp": "25-12-1981 13:00:00",
+            "total_signal_output": "30",
+            "stock1_signal_size": "12,000",
+            "stock2_signal_size": "12,000",
+            "stock3_signal_size": "12,000",
+            "stock4_signal_size": "12,000",
+            "stock5_signal_size": "12,000",
+            "stock6_signal_size": "12,000",
+            "stock7_signal_size": "12,000",
+            "stock8_signal_size": "12,000",
+            "stock9_signal_size": "12,000",
+            "stock10_signal_size": "12,000",
+            "stock11_signal_size": "12,000",
+            "stock12_signal_size": "12,000",
+            "stock13_signal_size": "12,000",
+            "stock14_signal_size": "12,000",
+            "stock15_signal_size": "12,000",
+            "stock16_signal_size": "12,000",
+            "stock17_signal_size": "12,000",
+            "stock18_signal_size": "12,000",
+            "stock19_signal_size": "12,000",
+            "stock20_signal_size": "12,000",
+            "stock21_signal_size": "12,000",
+            "stock22_signal_size": "12,000",
+            "stock23_signal_size": "12,000",
+            "stock24_signal_size": "12,000",
+            "stock25_signal_size": "12,000",
+            "stock26_signal_size": "12,000",
+            "stock27_signal_size": "12,000",
+            "stock28_signal_size": "12,000",
+            "stock29_signal_size": "12,000",
+            "stock30_signal_size": "12,000"
+            };
+
         $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
             let container_exchange = $(this).closest("#tickers_exchange");
             exchange_choose_current = $(event.currentTarget)[0].innerText;
@@ -2169,6 +2135,21 @@
             sessionStorage.removeItem("api");
             open("index.html","_self");
         }
+    </script>
+
+    <script>
+         var input_element =
+        '<pre style="font-size: 11px; color: #70727a; margin-left: 50px; margin-top: 15px;">'
+            + JSON.stringify(input, null, 4) +
+        '</pre>';
+        
+        $("#input").html(input_element);
+        var output_element =
+        '<pre style="font-size: 11px; color: #70727a; margin-left: 50px; margin-top: 15px;">'
+            + JSON.stringify(input, null, 4) +
+        '</pre>';
+        
+        $("#output").html(output_element);
     </script>
 
 </body>
