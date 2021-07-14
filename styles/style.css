@@ -32,6 +32,10 @@
     background-color: #111631;
 }
 
+.element{
+    filter: grayscale(1) blur(10px);
+}
+
 
 .buy{
     background-color: blue;

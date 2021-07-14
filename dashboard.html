@@ -239,7 +239,7 @@
                             <img src="images/arrow.png" width="40" height="80" style="margin-top: 85px; margin-left: 40px">
                             <img src="images/ai_gif_logo_1_crop.gif" width="200" height="200" style="margin-left: 20px; margin-right: 0px; margin-top: 25px">
                             <img src="images/arrow.png" width="40" height="80" style="margin-top: 85px; margin-left: 10px">
-                        </div>
+                        </div>peu
                         <h6 style="font-size: 16px; color: #181a1b; margin-top: 40px"><strong>Total Post&nbsp;&nbsp;:&nbsp;&nbsp;<span id="total_post">0</span></strong></h6>
                         <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#view_allpost" id="viewpost_button" style="font-family: Acrom; margin-top: 5px; height: 25px; padding: 2px 12px; font-size: 13px">View All Request & Response</button>
                         <h6 style="font-size: 11px; color: #181a1b; margin-top: 25px">Capture HTTP traffic between your computer<br>and Quantxi server using <img src="images/Fiddler-Everywhere-Icon.png" class="img-fluid" width="18" height="18" style="margin : auto"> Fiddler Everywhere.<br><a href="" style="font-size: 12px"><u>Learn More</u></a></h6>
@@ -295,7 +295,7 @@
                 <!-- <form method="POST" id="frmSetting"> -->
                     <div class="modal-header">
                         <h5 class="modal-title"><i class="fa fa-gear"></i><strong style="margin-left: 10px">Test Setting</strong></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="test_setting_submit_btn()">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -352,7 +352,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="test_setting_submit_btn()">Save Setting</button>
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" onclick="test_setting_submit_btn()">Close</button>
                     </div>
             </div>
         </div>
@@ -363,8 +363,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">Test Data</strong></h5>
-                    <a data-toggle="modal" href="#create_data" class="btn btn-primary" style="margin-top: 3px; padding: 1px 10px; height: 25px; font-size: 13px; margin-left: 20px">Create New Data</a>
-                    <!-- <a href="how_to_use.html" target="_blank"><button type="button" class="btn btn-info btn-sm" style="margin-top: 3px; position: absolute; right: 50px; padding: 1px 10px; height: 25px; font-size: 13px"><i class="fa fa-question-circle" style="color: #ffffff; font-size: 15px; margin-top: 1px; margin-right: 6px"></i>Petunjuk Penggunaan</button></a> -->
+                    <a data-toggle="modal" href="#create_data" class="btn btn-primary" style="margin-top: 3px; padding: 1px 10px; height: 25px; font-size: 13px; margin-left: 20px">Create New Test Data</a>
+                    <a href="how_to_use.html" target="_blank"><button type="button" class="btn btn-info btn-sm" style="margin-top: 3px; position: absolute; right: 50px; padding: 1px 10px; height: 25px; font-size: 13px"><i class="fa fa-question-circle" style="color: #ffffff; font-size: 15px; margin-top: 1px; margin-right: 6px"></i>Petunjuk Penggunaan</button></a>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -472,9 +472,14 @@
                         </div> -->
                         <div class="col" style="width : 100%">
                             <div class="row">
-                                <a style="margin-left: 15px; font-size: 12px;">Period of Data</a>
+                                <strong style="margin-left: 15px; font-size: 12px;">Period of Data :</strong>
                                 <input id="period_data" type="text" class="form-text-sm" disabled value="" style="text-align: center; margin-left: 5px; padding: 0 3px; height: 18px; width: 150px; font-size: 10px">
-                                <ul id="pagination-demo" class="pagination pagination-sm"></ul>
+                                <strong style="margin-left: 15px; font-size: 12px;">Period of Testing :</strong>
+                                <a style="font-size: 11px; margin-top: 3px; margin-left: 10px">Start date</a>
+                                <input type="date" id="test_startdate" style="width: 110px; font-family: calibri; height: 18px; margin-left: 2px;  margin-top: 2px; font-size: 11px;">
+                                <a style="font-size: 11px; margin-top: 3px; margin-left: 10px">End date</a>
+                                <input type="date" id="test_enddate" style="width: 110px; font-family: calibri; height: 18px; margin-left: 2px;  margin-top: 2px; font-size: 11px;">
+                                <!-- <ul id="pagination-demo" class="pagination pagination-sm"></ul> -->
                             </div>
                             <div class="row">
                                 <div class="table-hover" style="font-family: calibri; font-size: 11px; background-color: #070914; margin-left: 15px; margin-right: 15px; margin-top: 5px; overflow: auto; height: 413px">
@@ -520,6 +525,7 @@
                                     </table>
                                 </div>
                             </div>
+                            <ul id="pagination-demo" class="pagination pagination-sm"></ul>
                         </div>
                     </div>
                 </div>
@@ -536,7 +542,7 @@
         <div class="modal-dialog" style="min-width: 350px;" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">Create Data</strong></h5>
+                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">Create Test Data</strong></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -576,7 +582,7 @@
                                 </div>                                 
                               
                                 <div class="row">
-                                    <div class="table-report" style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 5px; margin-left: 15px; margin-right: 15px; height: 360px; width: 100%; overflow-y: scroll">
+                                    <div class="table-report" style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 15px; margin-left: 15px; margin-right: 15px; height: 400px; width: 100%; overflow-y: scroll">
                                         <table id="table_assets">
                                             <thead style="font-size: 14px; font-family: calibri">
                                                 <tr>
@@ -595,15 +601,15 @@
                                 </div>
                                 <div class="row">                                 
                                     <!-- <button type="submit" class="btn btn-danger btn-sm" style="font-size: 12px; padding: 0px 5px; margin-left: 15px; margin-top: 5px; height: 20px; width: 175px" onclick="reset_portfolio()">Reset</button> -->
-                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 2px; height: 26px; width: 467px" onclick="process_data_yahoo()">Create Data</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 15px; height: 26px; width: 467px" onclick="process_data_yahoo()">Create Test Data</button>
                                 </div>
 
                         </div>                        
                     </div>
                 </div>
-                <div class="modal-footer">                    
+                <!-- <div class="modal-footer">                    
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                </div>
+                </div> -->
 			</div>
 		</div>
     </div>
