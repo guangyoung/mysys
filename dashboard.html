@@ -1659,7 +1659,7 @@
         });
 
         $("#tickers_list").on('click', '.dropdown-menu li', function (event) { //cari solusi biar tdk double click, muncul berkali2 di console
-            // event.stopPropagation();
+            event.stopPropagation();
             var container2 = $(this).closest("#tickers_list");
             var numChecked2 = container2.find('[type="checkbox"]:checked').length;
             container2.find('.quantity').text(numChecked2 || '0');
@@ -1675,11 +1675,11 @@
             console.log(ticker_list);
         });
         //mencegah dropdown close if click outside
-        $('#tickers_list').on('hide.bs.dropdown', function (e) {
-            if (e.clickEvent) {
-            e.preventDefault();
-            }
-        });
+        // $('#tickers_list').on('hide.bs.dropdown', function (e) {
+        //     if (e.clickEvent) {
+        //     e.preventDefault();
+        //     }
+        // });
     </script>
 
     <!--view test history-->

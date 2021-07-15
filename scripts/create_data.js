@@ -92,7 +92,7 @@ function add_data() {
               $("#table_assets > tbody").append(portfolio);
           }
       });
-    }   
+    }      
     $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
     $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
     ticker_list = [];
