@@ -32,19 +32,6 @@
     background-color: #111631;
 }
 
-.element{
-    filter: grayscale(1) blur(10px);
-}
-
-
-.buy{
-    background-color: blue;
-}
-
-.sell{
-    background-color: red;
-}
-
 #select-tab>li>a.active {
     background-color: #757575 !important;
     color: #fff;
