@@ -108,6 +108,7 @@ function reset_portfolio() {
   exchange_choose ="";
   ticker_list = [];    
   $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
+  $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
   $('#ulul').empty();
 }
 
