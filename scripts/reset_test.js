@@ -1,7 +1,5 @@
 //Function Reset Test
 async function reset_test() {
-    $("#account_trade_summary_tbl>tbody").empty();
-        $("#pagination_trade_summary").twbsPagination("destroy");
    await $.ajax({
      type: "DELETE",
      url: "https://api.quantxi.com/reset?api="+sessionStorage.getItem("api"),    
@@ -19,7 +17,8 @@ async function reset_test() {
 
         account_trade_summary = [];
         asset_trade_details = [];
-      
+        $("#account_trade_summary_tbl>tbody").empty();
+        $("#pagination_trade_summary").twbsPagination("destroy");
 
         performance_chart.destroy();
 
