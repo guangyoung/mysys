@@ -1,11 +1,13 @@
 //Function Reset Test
 async function reset_test() {
+    $("#account_trade_summary_tbl>tbody").empty();
+        $("#pagination_trade_summary").twbsPagination("destroy");
    await $.ajax({
      type: "DELETE",
      url: "https://api.quantxi.com/reset?api="+sessionStorage.getItem("api"),    
      dataType: 'json',
      success: function(result){
-      if (result.status !== "success") {
+      if (result.status == "success") {
         
         $('#setting_button, #data_button, #play_button, #viewpost_button, #trade_report_button, #chart_button').attr('disabled',false);
         $('#refresh_button').attr('disabled',true);
@@ -17,8 +19,7 @@ async function reset_test() {
 
         account_trade_summary = [];
         asset_trade_details = [];
-        $("#account_trade_summary_tbl>tbody").empty();
-        $("#pagination_trade_summary").twbsPagination("destroy");
+      
 
         performance_chart.destroy();
 
