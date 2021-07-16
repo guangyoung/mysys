@@ -5,7 +5,7 @@ async function reset_test() {
      url: "https://api.quantxi.com/reset?api="+sessionStorage.getItem("api"),    
      dataType: 'json',
      success: function(result){
-      if (result.status == "success") {
+      if (result.status !== "success") {
         
         $('#setting_button, #data_button, #play_button, #viewpost_button, #trade_report_button, #chart_button').attr('disabled',false);
         $('#refresh_button').attr('disabled',true);
