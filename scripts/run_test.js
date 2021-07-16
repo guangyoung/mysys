@@ -2,100 +2,97 @@
  //GLOBAL VARIABLE
  var asset_trade_details = new Array();
  var account_trade_summary = new Array();
- var data_input_array = new Array();
- var signal_output_array = new Array();
- var date_array = new Array();
- var quantxi_equity_array = new Array();
- var buyandhold_equity_array = new Array();
  
  async function run_test() {
    //-----------------------------------------------------------------------------------
       
-     var start_date = $('#test_startdate').val().split("-")[1] + '/' + $('#test_startdate').val().split("-")[2] + '/' + $('#test_startdate').val().split("-")[0];
+    var date_array = new Array();
+    var quantxi_equity_array = new Array();
+    var buyandhold_equity_array = new Array();
+    // var data_input_array = new Array();
+    // var signal_output_array = new Array();
+
+    //  var start_date = $('#test_startdate').val().split("-")[1] + '/' + $('#test_startdate').val().split("-")[2] + '/' + $('#test_startdate').val().split("-")[0];
      //cek lagi stardate diatas
      
-     var data_id = 1;
+    //  var data_id = 1;
      
      var date;
 
      //trade details variable
-     var price = [];
-     var position_size = [];
-     var market_value = [];
-     var margin_loan_balance = [];
-     var buy_trade_size = [];
-     var buy_trade_value = [];
-     var buy_trade_margin_used = [];
-     var buy_trade_margin_loan = [];
-     var buy_trade_cost = [];
-     var sell_trade_size = [];
-     var sell_trade_value = [];
-     var avg_buy_price = [];
-     var sell_trade_loan_back = [];
-     var sell_trade_margin_back = [];
-     var sell_trade_cost = [];
+     var price = new Array();
+     var pretrade_position_size = new Array();
+     var pretrade_market_value = new Array();
+     var buy_quantxi_signal = new Array();
+     var buy_filled_order = new Array();
+     var buy_filled_price = new Array();
+     var buy_trade_value = new Array();
+     var buy_commision = new Array();
+     var sell_quantxi_signal = new Array();
+     var sell_filled_order = new Array();
+     var sell_filled_price = new Array();
+     var sell_trade_value = new Array();
+     var sell_commision = new Array();
+     var posttrade_position_size = new Array();
+     var posttrade_market_value = new Array();
 
      for (i=1;i<=30;i++) {
       price[i] = 0;
-      position_size[i] = 0;
-      market_value[i] = 0;
-      margin_loan_balance[i] = 0;
-      buy_trade_size[i] = 0;
+      pretrade_position_size[i] = 0;
+      pretrade_market_value[i] = 0;
+      buy_quantxi_signal[i] = 0;
+      buy_filled_order[i] = 0;
+      buy_filled_price[i] = 0;
       buy_trade_value[i] = 0;
-      buy_trade_margin_used[i] = 0;
-      buy_trade_margin_loan[i] = 0;
-      buy_trade_cost[i] = 0;
-      sell_trade_size[i] = 0;
+      buy_commision[i] = 0;
+      sell_quantxi_signal[i] = 0;
+      sell_filled_order[i] = 0;
+      sell_filled_price[i] = 0;
       sell_trade_value[i] = 0;
-      avg_buy_price[i] = 0;
-      sell_trade_loan_back[i] = 0;
-      sell_trade_margin_back[i] = 0;
-      sell_trade_cost[i] = 0;     
+      sell_commision[i] = 0;
+      posttrade_position_size
+      posttrade_market_value[i] = 0;
      }
      
-     //account & trade summary variable
-     var cash = initial_equity;
-     var market_value_summary = 0;
-     var margin_loan_balance_summary = 0;
-     var equity = cash + market_value_summary - margin_loan_balance_summary;            
-     var maintenance_margin = market_value_summary * maintmargin;
-     var regT_margin_req = market_value_summary * regTmargin;
-     var margin_available = equity - regT_margin_req;
-     var margin_used = 0;
-     var margin_back = 0;
-     var loan_used = 0;
-     var loan_back = 0;
-     var trade_cost_summary = 0;
-     var daily_interest = 0;  
-     
+     //account & trade summary variable  
+     var pretrade_cash_balance = initial_equity;
+     var pretrade_mtd_acrued_interest = 0;
+     var pretrade_long_market_value = 0;
+     var pretrade_equity_with_loan_value = 0;
+     var pretrade_net_liquidation_value = 0;
+     var pretrade_maintenance_margin = 0;
+     var pretrade_regT_margin_req = 0;
+     var pretrade_excess_liquidity = 0;
+     var pretrade_sma_excess_equity = 0;
+     var pretrade_buying_power = 0;
+     var posttrade_cash_balance = 0;
+     var posttrade_mtd_acrued_interest = 0;
+     var posttrade_long_market_value = 0;
+     var posttrade_equity_with_loan_value = 0;
+     var posttrade_net_liquidation_value = 0;
+     var posttrade_maintenance_margin = 0;
+     var posttrade_regT_margin_req = 0;
+     var posttrade_excess_liquidity = 0;
+     var posttrade_sma_excess_equity = 0;
+     var posttrade_buying_power = 0; 
+
      //Buy & Hold Variable
-     var asset_invest = [];
+     var stock_invest = new Array();
      for(i=1;i<=30;i++) {
-      asset_invest[i] = initial_equity/30;
+      stock_invest[i] = initial_equity/30;
      } 
-    //  console.log(asset_invest);   
 
    //------------------------------------------------------------------------------------------------------------  
-   
+   //cek test setting
+
    //cek test data
-   if (port_data.length == 0) {
-     alert(`tidak ada data untuk test`);
+   if (port_data.length < 1000) {
+     alert(`tidak ada data untuk test atau data kurang`);
      return false;
-   } else {
-    
+   } else {    
     var idx_start = port_data[0].indexOf(start_date);
     console.log(idx_start);
-    var data_length = port_data[0].length;
-
-    if (data_length < 1000) { //30 ganti jadi mindata
-      alert(`data test anda kurang dari 1000 data baris`);
-      return false;
-    } else {
-      if (data_length > 7830) {
-        alert(`data test anda lebih dari 7830 data baris`);
-        return false;
-      }  
-    }
+    var data_length = port_data[0].length;    
    }
 
    //Disable Button
@@ -209,70 +206,6 @@
                     asset30_price: price[30],
                     asset30_position_size: position_size[30]
                   };
-
-         $('#data_id_input').html(data_id);
-         $('#equity_balance').html(Intl.NumberFormat().format(parseFloat(equity).toFixed(2)));
-         $('#asset1_price').html(Intl.NumberFormat().format(parseFloat(price[1]).toFixed(2)));
-         $('#asset1_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[1]).toFixed(2)));
-         $('#asset2_price').html(Intl.NumberFormat().format(parseFloat(price[2]).toFixed(2)));
-         $('#asset2_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[2]).toFixed(2)));
-         $('#asset3_price').html(Intl.NumberFormat().format(parseFloat(price[3]).toFixed(2)));
-         $('#asset3_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[3]).toFixed(2)));
-         $('#asset4_price').html(Intl.NumberFormat().format(parseFloat(price[4]).toFixed(2)));
-         $('#asset4_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[4]).toFixed(2)));
-         $('#asset5_price').html(Intl.NumberFormat().format(parseFloat(price[5]).toFixed(2)));
-         $('#asset5_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[5]).toFixed(2)));
-         $('#asset6_price').html(Intl.NumberFormat().format(parseFloat(price[6]).toFixed(2)));
-         $('#asset6_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[6]).toFixed(2)));
-         $('#asset7_price').html(Intl.NumberFormat().format(parseFloat(price[7]).toFixed(2)));
-         $('#asset7_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[7]).toFixed(2)));
-         $('#asset8_price').html(Intl.NumberFormat().format(parseFloat(price[8]).toFixed(2)));
-         $('#asset8_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[8]).toFixed(2)));
-         $('#asset9_price').html(Intl.NumberFormat().format(parseFloat(price[9]).toFixed(2)));
-         $('#asset9_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[9]).toFixed(2)));
-         $('#asset10_price').html(Intl.NumberFormat().format(parseFloat(price[10]).toFixed(2)));
-         $('#asset10_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[10]).toFixed(2)));
-         $('#asset11_price').html(Intl.NumberFormat().format(parseFloat(price[11]).toFixed(2)));
-         $('#asset11_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[11]).toFixed(2)));
-         $('#asset12_price').html(Intl.NumberFormat().format(parseFloat(price[12]).toFixed(2)));
-         $('#asset12_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[12]).toFixed(2)));
-         $('#asset13_price').html(Intl.NumberFormat().format(parseFloat(price[13]).toFixed(2)));
-         $('#asset13_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[13]).toFixed(2)));
-         $('#asset14_price').html(Intl.NumberFormat().format(parseFloat(price[14]).toFixed(2)));
-         $('#asset14_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[14]).toFixed(2)));
-         $('#asset15_price').html(Intl.NumberFormat().format(parseFloat(price[15]).toFixed(2)));
-         $('#asset15_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[15]).toFixed(2)));
-         $('#asset16_price').html(Intl.NumberFormat().format(parseFloat(price[16]).toFixed(2)));
-         $('#asset16_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[16]).toFixed(2)));
-         $('#asset17_price').html(Intl.NumberFormat().format(parseFloat(price[17]).toFixed(2)));
-         $('#asset17_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[17]).toFixed(2)));
-         $('#asset18_price').html(Intl.NumberFormat().format(parseFloat(price[18]).toFixed(2)));
-         $('#asset18_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[18]).toFixed(2)));
-         $('#asset19_price').html(Intl.NumberFormat().format(parseFloat(price[19]).toFixed(2)));
-         $('#asset19_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[19]).toFixed(2)));
-         $('#asset20_price').html(Intl.NumberFormat().format(parseFloat(price[20]).toFixed(2)));
-         $('#asset20_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[20]).toFixed(2)));
-         $('#asset21_price').html(Intl.NumberFormat().format(parseFloat(price[21]).toFixed(2)));
-         $('#asset21_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[21]).toFixed(2)));
-         $('#asset22_price').html(Intl.NumberFormat().format(parseFloat(price[22]).toFixed(2)));
-         $('#asset22_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[22]).toFixed(2)));
-         $('#asset23_price').html(Intl.NumberFormat().format(parseFloat(price[23]).toFixed(2)));
-         $('#asset23_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[23]).toFixed(2)));
-         $('#asset24_price').html(Intl.NumberFormat().format(parseFloat(price[24]).toFixed(2)));
-         $('#asset24_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[24]).toFixed(2)));
-         $('#asset25_price').html(Intl.NumberFormat().format(parseFloat(price[25]).toFixed(2)));
-         $('#asset25_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[25]).toFixed(2)));
-         $('#asset26_price').html(Intl.NumberFormat().format(parseFloat(price[26]).toFixed(2)));
-         $('#asset26_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[26]).toFixed(2)));
-         $('#asset27_price').html(Intl.NumberFormat().format(parseFloat(price[27]).toFixed(2)));
-         $('#asset27_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[27]).toFixed(2)));
-         $('#asset28_price').html(Intl.NumberFormat().format(parseFloat(price[28]).toFixed(2)));
-         $('#asset28_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[28]).toFixed(2)));
-         $('#asset29_price').html(Intl.NumberFormat().format(parseFloat(price[29]).toFixed(2)));
-         $('#asset29_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[29]).toFixed(2)));
-         $('#asset30_price').html(Intl.NumberFormat().format(parseFloat(price[30]).toFixed(2)));
-         $('#asset30_position_size').html(Intl.NumberFormat().format(parseFloat(position_size[30]).toFixed(2)));
-         
          var post_process = "run";
 
          while (post_process == "run") {
@@ -286,42 +219,8 @@
                 
             if (result.status == "success") {
               
-              post_process = "stop";              
-              let asset_signal_position = new Array();
+              post_process = "stop";        
               let asset_signal_size = new Array(); 
-                                 
-              asset_signal_position.push(
-                result.data.asset1_signal_position,
-                result.data.asset2_signal_position,
-                result.data.asset3_signal_position,
-                result.data.asset4_signal_position,
-                result.data.asset5_signal_position,
-                result.data.asset6_signal_position,
-                result.data.asset7_signal_position,
-                result.data.asset8_signal_position,
-                result.data.asset9_signal_position,
-                result.data.asset10_signal_position,
-                result.data.asset11_signal_position,
-                result.data.asset12_signal_position,
-                result.data.asset13_signal_position,
-                result.data.asset14_signal_position,
-                result.data.asset15_signal_position,
-                result.data.asset16_signal_position,
-                result.data.asset17_signal_position,
-                result.data.asset18_signal_position,
-                result.data.asset19_signal_position,
-                result.data.asset20_signal_position,
-                result.data.asset21_signal_position,
-                result.data.asset22_signal_position,
-                result.data.asset23_signal_position,
-                result.data.asset24_signal_position,
-                result.data.asset25_signal_position,
-                result.data.asset26_signal_position,
-                result.data.asset27_signal_position,
-                result.data.asset28_signal_position,
-                result.data.asset29_signal_position,
-                result.data.asset30_signal_position
-              );
               asset_signal_size.push(
                 result.data.asset1_signal_size,
                 result.data.asset2_signal_size,
@@ -356,71 +255,7 @@
               );
               signal_output.push({data_id: result.data.data_id});
               signal_output.push({signal_timestamp: result.data.signal_timestamp});
-              signal_output.push({asset_signal_position: asset_signal_position});
               signal_output.push({asset_signal_size: asset_signal_size});
- 
-              $('#data_id_output').html(signal_output[0].data_id);
-              $('#asset_signal_created').html(signal_output[1].signal_timestamp);
-              $('#asset1_signal_position').html(signal_output[2].asset_signal_position[0]);
-              $('#asset1_signal_size').html(signal_output[3].asset_signal_size[0]); 
-              $('#asset2_signal_position').html(signal_output[2].asset_signal_position[1]);
-              $('#asset2_signal_size').html(signal_output[3].asset_signal_size[1]); 
-              $('#asset3_signal_position').html(signal_output[2].asset_signal_position[2]);
-              $('#asset3_signal_size').html(signal_output[3].asset_signal_size[2]); 
-              $('#asset4_signal_position').html(signal_output[2].asset_signal_position[3]);
-              $('#asset4_signal_size').html(signal_output[3].asset_signal_size[3]); 
-              $('#asset5_signal_position').html(signal_output[2].asset_signal_position[4]);
-              $('#asset5_signal_size').html(signal_output[3].asset_signal_size[4]); 
-              $('#asset6_signal_position').html(signal_output[2].asset_signal_position[5]);
-              $('#asset6_signal_size').html(signal_output[3].asset_signal_size[5]); 
-              $('#asset7_signal_position').html(signal_output[2].asset_signal_position[6]);
-              $('#asset7_signal_size').html(signal_output[3].asset_signal_size[6]); 
-              $('#asset8_signal_position').html(signal_output[2].asset_signal_position[7]);
-              $('#asset8_signal_size').html(signal_output[3].asset_signal_size[7]); 
-              $('#asset9_signal_position').html(signal_output[2].asset_signal_position[8]);
-              $('#asset9_signal_size').html(signal_output[3].asset_signal_size[8]); 
-              $('#asset10_signal_position').html(signal_output[2].asset_signal_position[9]);
-              $('#asset10_signal_size').html(signal_output[3].asset_signal_size[9]);
-              $('#asset11_signal_position').html(signal_output[2].asset_signal_position[10]);
-              $('#asset11_signal_size').html(signal_output[3].asset_signal_size[10]); 
-              $('#asset12_signal_position').html(signal_output[2].asset_signal_position[11]);
-              $('#asset12_signal_size').html(signal_output[3].asset_signal_size[11]); 
-              $('#asset13_signal_position').html(signal_output[2].asset_signal_position[12]);
-              $('#asset13_signal_size').html(signal_output[3].asset_signal_size[12]); 
-              $('#asset14_signal_position').html(signal_output[2].asset_signal_position[13]);
-              $('#asset14_signal_size').html(signal_output[3].asset_signal_size[13]); 
-              $('#asset15_signal_position').html(signal_output[2].asset_signal_position[14]);
-              $('#asset15_signal_size').html(signal_output[3].asset_signal_size[14]); 
-              $('#asset16_signal_position').html(signal_output[2].asset_signal_position[15]);
-              $('#asset16_signal_size').html(signal_output[3].asset_signal_size[15]); 
-              $('#asset17_signal_position').html(signal_output[2].asset_signal_position[16]);
-              $('#asset17_signal_size').html(signal_output[3].asset_signal_size[16]); 
-              $('#asset18_signal_position').html(signal_output[2].asset_signal_position[17]);
-              $('#asset18_signal_size').html(signal_output[3].asset_signal_size[17]); 
-              $('#asset19_signal_position').html(signal_output[2].asset_signal_position[18]);
-              $('#asset19_signal_size').html(signal_output[3].asset_signal_size[18]); 
-              $('#asset20_signal_position').html(signal_output[2].asset_signal_position[19]);
-              $('#asset20_signal_size').html(signal_output[3].asset_signal_size[19]); 
-              $('#asset21_signal_position').html(signal_output[2].asset_signal_position[20]);
-              $('#asset21_signal_size').html(signal_output[3].asset_signal_size[20]); 
-              $('#asset22_signal_position').html(signal_output[2].asset_signal_position[21]);
-              $('#asset22_signal_size').html(signal_output[3].asset_signal_size[21]); 
-              $('#asset23_signal_position').html(signal_output[2].asset_signal_position[22]);
-              $('#asset23_signal_size').html(signal_output[3].asset_signal_size[22]); 
-              $('#asset24_signal_position').html(signal_output[2].asset_signal_position[23]);
-              $('#asset24_signal_size').html(signal_output[3].asset_signal_size[23]); 
-              $('#asset25_signal_position').html(signal_output[2].asset_signal_position[24]);
-              $('#asset25_signal_size').html(signal_output[3].asset_signal_size[24]); 
-              $('#asset26_signal_position').html(signal_output[2].asset_signal_position[25]);
-              $('#asset26_signal_size').html(signal_output[3].asset_signal_size[25]); 
-              $('#asset27_signal_position').html(signal_output[2].asset_signal_position[26]);
-              $('#asset27_signal_size').html(signal_output[3].asset_signal_size[26]); 
-              $('#asset28_signal_position').html(signal_output[2].asset_signal_position[27]);
-              $('#asset28_signal_size').html(signal_output[3].asset_signal_size[27]); 
-              $('#asset29_signal_position').html(signal_output[2].asset_signal_position[28]);
-              $('#asset29_signal_size').html(signal_output[3].asset_signal_size[28]); 
-              $('#asset30_signal_position').html(signal_output[2].asset_signal_position[29]);
-              $('#asset30_signal_size').html(signal_output[3].asset_signal_size[29]); 
               }         
             }
           })
@@ -476,46 +311,50 @@
            var asset_trade = new Array();
            for(i=1;i<=30;i++) {             
              asset_trade.push({
-               date : date,
                price : price[i],
-               position_size : position_size[i],
-               market_value : market_value[i],
-               margin_loan_balance : margin_loan_balance[i],
-               buy_trade_size : buy_trade_size[i],
+               pretrade_position_size : pretrade_position_size[i],
+               pretrade_market_value : pretrade_market_value[i],
+               buy_quantxi_signal : buy_quantxi_signal[i],
+               buy_filled_order : buy_filled_order[i],
+               buy_filled_price : buy_filled_price[i],
                buy_trade_value : buy_trade_value[i],
-               buy_trade_margin_used : buy_trade_margin_used[i],
-               buy_trade_margin_loan : buy_trade_margin_loan[i],
-               buy_trade_cost : buy_trade_cost[i],
-               sell_trade_size : sell_trade_size[i],
+               buy_commision : buy_commision[i],
+               sell_quantxi_signal : sell_quantxi_signal[i],
+               sell_filled_order : sell_filled_order[i],
+               sell_filled_price : sell_filled_price[i],
                sell_trade_value : sell_trade_value[i],
-               avg_buy_price : avg_buy_price[i],
-               sell_trade_loan_back : sell_trade_loan_back[i],
-               sell_trade_margin_back : sell_trade_margin_back[i],
-               sell_trade_cost : sell_trade_cost[i]
+               sell_commision : sell_commision[i],
+               posttrade_position_size : posttrade_position_size[i],
+               posttrade_market_value : posttrade_market_value[i]
              })
            }
-           asset_trade_details.push(asset_trade);
+           asset_trade_details.push({date: date, trade_details: asset_trade});
            
            //acount summary array
            account_trade_summary.push({
-             date : date,
-             //Pre Trade Account Position
-             cash : cash,
-             market_value_summary : market_value_summary,
-             margin_loan_balance_summary : margin_loan_balance_summary,
-             equity : equity,
-             //Pre Trade Margin Position
-             maintenance_margin : maintenance_margin,
-             regT_margin_req : regT_margin_req,
-             margin_available : margin_available,
-             //Trade Summary
-             margin_used : margin_used,
-             margin_back : margin_back,
-             loan_used : loan_used,
-             loan_back : loan_back,
-             trade_cost_summary : trade_cost_summary,
-             //Daily Interest
-             daily_interest : daily_interest      
+            date : date,
+            //Pre Trade Account Position
+            pretrade_cash_balance : pretrade_cash_balance,
+            pretrade_mtd_acrued_interest : pretrade_mtd_acrued_interest,
+            pretrade_long_market_value : pretrade_long_market_value,
+            pretrade_equity_with_loan_value : pretrade_equity_with_loan_value,
+            pretrade_net_liquidation_value : pretrade_net_liquidation_value,
+            pretrade_maintenance_margin : pretrade_maintenance_margin,
+            pretrade_regT_margin_req : pretrade_regT_margin_req,
+            pretrade_excess_liquidity : pretrade_excess_liquidity,
+            pretrade_sma_excess_equity : pretrade_sma_excess_equity,
+            pretrade_buying_power : pretrade_buying_power, 
+            //Post Trade Account Position
+            posttrade_cash_balance : posttrade_cash_balance,
+            posttrade_mtd_acrued_interest : posttrade_mtd_acrued_interest,
+            posttrade_long_market_value : posttrade_long_market_value,
+            posttrade_equity_with_loan_value : posttrade_equity_with_loan_value,
+            posttrade_net_liquidation_value : posttrade_net_liquidation_value,
+            posttrade_maintenance_margin : posttrade_maintenance_margin,
+            posttrade_regT_margin_req : posttrade_regT_margin_req,
+            posttrade_excess_liquidity : posttrade_excess_liquidity,
+            posttrade_sma_excess_equity : posttrade_sma_excess_equity,
+            posttrade_buying_power : posttrade_buying_power    
            });
            //-------------------------------------------------------------------
            // view....---------------------------------------------------------------------
@@ -532,7 +371,7 @@
 
            var asset_equity_buyandhold = [];
            for(i=1;i<31;i++) {
-              asset_equity_buyandhold[i] = (asset_invest[i]/parseFloat(port_data[i][idx_start]))*parseFloat(port_data[i][(idx_start+(data_id-1))]); 
+              asset_equity_buyandhold[i] = (stock_invest[i]/parseFloat(port_data[i][idx_start]))*parseFloat(port_data[i][(idx_start+(data_id-1))]); 
            }
            
            var buyandhold_equity = asset_equity_buyandhold.reduce(function (accumulator, current) { return accumulator + current; });           
