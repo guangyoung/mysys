@@ -723,54 +723,6 @@
         // });
     </script>
 
-    <!--view test history-->
-    <script>
-        test_history = [];
-        var test_history_item = JSON.parse(localStorage.getItem("testhistory"));
-        if(test_history_item !== null) {
-          for(i=0;i<test_history_item.length;i++) {
-            test_history.push(test_history_item[i]);
-          }
-        };
-
-        $("#test_history_tbl>tbody").empty();
-        $("#pagination_test_history").twbsPagination("destroy");
-        if(test_history.length > 0) {
-        $("#pagination_test_history").twbsPagination({
-            totalPages: Math.ceil(test_history.length/20),
-            visiblePages: 4,
-            onPageClick: function (event, page) {
-            $("#test_history_tbl>tbody").empty();
-                for (i=(page*20)-20; i<(page*20) && i<(test_history.length); i++) {
-                var test_history_row =
-                    `<tr>
-                        <td style="text-align: center; ; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; position: sticky; left: 0px; padding: 5px 5px; color:#d2d3d7;">`+test_history[i].test_no+`</td>
-                        <td style="text-align: center; padding: 0px 10px; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">`+test_history[i].date_time_testing+`</td>
-                        <td style="text-align: left; padding: 0px 10px; border-bottom: 1px #292b43 solid">Spread/side<br>Commision/trade<br>Interest rate/year</td>
-                        <td style="text-align: left; padding: 0px 10px; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">`+test_history[i].test_setting.spread_side+`<br>`+test_history[i].test_setting.commision_share+`<br>`+test_history[i].test_setting.interest_rate+`</td>
-                        <td style="text-align: center; padding: 0px 10px; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">`+test_history[i].data_source+`</td>
-                        <td style="text-align: center; padding: 10px 10px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">`+test_history[i].ticker+`</td>
-                        <td style="text-align: center; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">`+test_history[i].period_of_data+`</td>
-                        <td style="text-align: left; padding: 0px 10px; border-bottom: 1px #292b43 solid">
-                        Total Return<br>CAGR<br>Max DD<br>MAR Ratio<br>Sharpe Ratio
-                        </td>
-                        <td style="text-align: left; padding: 0px 10px; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid">
-                        `+test_history[i].quantxi_return.total_return+`<br>`+test_history[i].quantxi_return.cagr+`<br>`+test_history[i].quantxi_return.max_dd+`<br>`+test_history[i].quantxi_return.mar_ratio+`<br>`+test_history[i].quantxi_return.sharpe_ratio+`
-                        </td>
-                        <td style="text-align: left; padding: 0px 10px; border-bottom: 1px #292b43 solid">
-                        Total Return<br>CAGR<br>Max DD<br>MAR Ratio<br>Sharpe Ratio
-                        </td>
-                        <td style="text-align: left; padding: 0px 10px; border-bottom: 1px #292b43 solid">
-                        `+test_history[i].buyandhold_return.total_return+`<br>`+test_history[i].buyandhold_return.cagr+`<br>`+test_history[i].buyandhold_return.max_dd+`<br>`+test_history[i].buyandhold_return.mar_ratio+`<br>`+test_history[i].buyandhold_return.sharpe_ratio+`
-                        </td>
-                    </tr>`
-                $("#test_history_tbl>tbody").append(test_history_row);
-                }
-            }
-        });
-        }
-    </script>
-
     <!-- view post-->
     <!-- <script>
         // function post_request_response_json() {
@@ -798,84 +750,6 @@
                 });
             }
     </script> -->
-
-    <!-- performance chart -->
-    <script>
-        function performance_chart() {
-            var performance_chart;
-
-            chartColors = {
-            red: 'rgb(255, 99, 132)',
-            orange: 'rgb(255, 159, 64)',
-            yellow: 'rgb(255, 205, 86)',
-            green: 'rgb(75, 192, 192)',
-            blue: 'rgb(54, 162, 235)',
-            purple: 'rgb(153, 102, 255)',
-            grey: 'rgb(201, 203, 207)' };
-
-            var config = {
-            type: 'line',
-            data: {
-                labels: date_array,
-                datasets: [{
-                label: 'Quantxi',
-                pointRadius: 1,
-                borderWidth: 1,
-                backgroundColor: chartColors.red,
-                borderColor: chartColors.red,
-                data: quantxi_equity_array,
-                fill: false },
-                {
-                label: 'Buy & Hold',
-                pointRadius: 1,
-                borderWidth: 1,
-                backgroundColor: chartColors.blue,
-                borderColor: chartColors.blue,
-                data: buyandhold_equity_array,
-                fill: false}
-                ]},
-            options: {
-
-                responsive: true,
-                legend: {
-                    display: true
-                },
-                title: {
-                display: true,
-                text: 'Performance Comparison' },
-                tooltips: {
-                    mode: 'index',
-                    intersect: true },
-                hover: {
-                mode: 'nearest',
-                intersect: true },
-                // events:[],
-                scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                    display: true,
-                    labelString: 'Years' } }],
-
-
-                yAxes: [{
-                display: true,
-                ticks: {
-                    callback: function(value, index, values) {
-                    return value.toLocaleString("en-US",{style:"currency", currency:"USD"});
-                    }
-                },
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Equity' } }] } } };
-
-                if(performance_chart!=null){
-                    performance_chart.destroy();
-                }
-                var ctx = document.getElementById('performance_chart').getContext('2d');
-                performance_chart = new Chart(ctx, config);
-        }
-    </script>
 
     <!-- logout -->
     <script>
