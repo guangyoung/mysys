@@ -5,7 +5,7 @@
  
  async function run_test() {
    //-----------------------------------------------------------------------------------
-      
+    port_data = [];  
     var date_array = new Array();
     var quantxi_equity_array = new Array();
     var buyandhold_equity_array = new Array();

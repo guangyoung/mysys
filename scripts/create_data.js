@@ -250,6 +250,7 @@ function process_data_yahoo() {
             });  
       } 
 
+      //trade testing report
        $("#account_trade_summary_tbl>tbody").empty();
             $("#pagination_trade_summary").twbsPagination("destroy");
             if(port_data.length > 0) {
