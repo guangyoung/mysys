@@ -5,8 +5,7 @@
  
  async function run_test() {
    //-----------------------------------------------------------------------------------
-    $("#account_trade_summary_tbl>tbody").empty();
-    $("#pagination_trade_summary").twbsPagination("destroy");
+    
     var date_array = new Array();
     var quantxi_equity_array = new Array();
     var buyandhold_equity_array = new Array();
