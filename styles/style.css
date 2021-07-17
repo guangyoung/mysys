@@ -54,7 +54,12 @@
     vertical-align: middle;
 }
 
-
+.dropdown-menu > a:hover,
+.dropdown-menu > a:focus {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #7a7a7a;
+}
 
 .cover {
     background-color: #070914;
@@ -123,13 +128,13 @@ body { background: #0b0d15; }
     border: 0;
 }
 
-.uli li {
+/* .uli li {
     margin-left: 5px;
-}
+} */
 
-.uli label {
-    margin-left: 5px;
-}
+/* .uli label {
+    margin-left: 15px;
+} */
 .push2 { margin-bottom: 30px}
 .margintop { margin-top: 10%}
 

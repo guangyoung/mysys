@@ -10,8 +10,10 @@ var port_data = new Array();//session
 function tickers_list_btn () {
   if(!exchange_choose_current) {
      $('#ulul').empty();
-    var li = document.createElement('li').appendChild(document.createTextNode("silahkan pilih exchange & startdate"));
-    document.getElementById("ulul").appendChild(li);
+    var newLi = document.createElement('li');
+    var li = document.createTextNode("\u00A0\u00A0Please Choose Your \u00A0\u00A0Exchange !!");
+    newLi.appendChild(li);
+    document.getElementById("ulul").appendChild(newLi);
     return false;
   } else if (exchange_choose_current !== exchange_choose) {
     ticker_list = [];    
@@ -23,8 +25,10 @@ function tickers_list_btn () {
     var newLi = document.createElement('li');
     var cb = document.createElement( "input" );
     cb.type = "checkbox";
-    cb.id = "c1";
-    cb.checked = false;
+    cb.style.marginLeft = '15px';
+    cb.style.marginRight = '5px';
+    // cb.id = "c1";
+    // cb.checked = false;
     newLi.appendChild(cb);
     var text = document.createTextNode(tickers[i]);
     newLi.appendChild(text);
