@@ -1,85 +1,70 @@
  //RUN TEST -------------------------------------------------------------------------------
  //GLOBAL VARIABLE
- var asset_trade_details = new Array();
- var account_trade_summary = new Array();
+ var tradeTesting_report = new Array();
  
  async function run_test() {
    //-----------------------------------------------------------------------------------
-    
-    var date_array = new Array();
-    var quantxi_equity_array = new Array();
-    var buyandhold_equity_array = new Array();
-    // var data_input_array = new Array();
-    // var signal_output_array = new Array();
-
-    //  var start_date = $('#test_startdate').val().split("-")[1] + '/' + $('#test_startdate').val().split("-")[2] + '/' + $('#test_startdate').val().split("-")[0];
-     //cek lagi stardate diatas
-     
-    //  var data_id = 1;
-     
-     var date;
+    var startDate = $("#test_startdate").val();
+    var endDate = $("#test_enddate").val();
+    var date;
 
      //trade details variable
      var price = new Array();
-     var pretrade_position_size = new Array();
-     var pretrade_market_value = new Array();
-     var buy_quantxi_signal = new Array();
-     var buy_filled_order = new Array();
-     var buy_filled_price = new Array();
-     var buy_trade_value = new Array();
+     var preTrade_positionSize = new Array();
+     var preTrade_marketValue = new Array();
+     var buy_filledOrder = new Array();
+     var buy_filledPrice = new Array();
+     var buy_tradeValue = new Array();
      var buy_commision = new Array();
-     var sell_quantxi_signal = new Array();
-     var sell_filled_order = new Array();
-     var sell_filled_price = new Array();
-     var sell_trade_value = new Array();
+     var sell_filledOrder = new Array();
+     var sell_filledPrice = new Array();
+     var sell_tradeValue = new Array();
      var sell_commision = new Array();
-     var posttrade_position_size = new Array();
-     var posttrade_market_value = new Array();
+     var postTrade_positionSize = new Array();
+     var postTrade_marketValue = new Array();
 
      for (i=1;i<=30;i++) {
       price[i] = 0;
-      pretrade_position_size[i] = 0;
-      pretrade_market_value[i] = 0;
-      buy_quantxi_signal[i] = 0;
-      buy_filled_order[i] = 0;
-      buy_filled_price[i] = 0;
-      buy_trade_value[i] = 0;
+      preTrade_positionSize[i] = 0;
+      preTrade_marketValue[i] = 0;
+      buy_filledOrder[i] = 0;
+      buy_filledPrice[i] = 0;
+      buy_tradeValue[i] = 0;
       buy_commision[i] = 0;
-      sell_quantxi_signal[i] = 0;
-      sell_filled_order[i] = 0;
-      sell_filled_price[i] = 0;
-      sell_trade_value[i] = 0;
+      sell_filledOrder[i] = 0;
+      sell_filledPrice[i] = 0;
+      sell_tradeValue[i] = 0;
       sell_commision[i] = 0;
-      posttrade_position_size
-      posttrade_market_value[i] = 0;
+      postTrade_positionSize
+      postTrade_marketValue[i] = 0;
      }
      
      //account & trade summary variable  
-     var pretrade_cash_balance = initial_equity;
-     var pretrade_mtd_acrued_interest = 0;
-     var pretrade_long_market_value = 0;
-     var pretrade_equity_with_loan_value = 0;
-     var pretrade_net_liquidation_value = 0;
-     var pretrade_maintenance_margin = 0;
-     var pretrade_regT_margin_req = 0;
-     var pretrade_excess_liquidity = 0;
-     var pretrade_sma_excess_equity = 0;
-     var pretrade_buying_power = 0;
-     var posttrade_cash_balance = 0;
-     var posttrade_mtd_acrued_interest = 0;
-     var posttrade_long_market_value = 0;
-     var posttrade_equity_with_loan_value = 0;
-     var posttrade_net_liquidation_value = 0;
-     var posttrade_maintenance_margin = 0;
-     var posttrade_regT_margin_req = 0;
-     var posttrade_excess_liquidity = 0;
-     var posttrade_sma_excess_equity = 0;
-     var posttrade_buying_power = 0; 
+     var preTrade_cashBalance = initial_equity;
+     var preTrade_mtd_acruedInterest = 0;
+     var preTrade_long_marketValue = 0;
+     var preTrade_equity_with_loanValue = 0;
+     var preTrade_net_liquidationValue = 0;
+     var preTrade_maintenanceMargin = 0;
+     var preTrade_regT_marginReq = 0;
+     var preTrade_excessLiquidity = 0;
+     var preTrade_sma_excessEquity = 0;
+     var preTrade_buyingPower = 0;
+     var postTrade_cashBalance = 0;
+     var postTrade_mtd_acruedInterest = 0;
+     var postTrade_long_marketValue = 0;
+     var postTrade_equity_with_loanValue = 0;
+     var postTrade_net_liquidationValue = 0;
+     var postTrade_maintenanceMargin = 0;
+     var postTrade_regT_marginReq = 0;
+     var postTrade_excessLiquidity = 0;
+     var postTrade_sma_excessEquity = 0;
+     var postTrade_buyingPower = 0; 
 
      //Buy & Hold Variable
-     var stock_invest = new Array();
+     var stock_buyHold = new Array();
      for(i=1;i<=30;i++) {
-      stock_invest[i] = initial_equity/30;
+      stock_buyHold[i] = initial_equity/30;
      } 
 
    //------------------------------------------------------------------------------------------------------------  
@@ -87,46 +72,39 @@
 
    //cek test data
    if (port_data.length < 1000) {
-     alert(`tidak ada data untuk test atau data kurang`);
+     alert(`tidak ada data atau data kurang untuk test `);
      return false;
    } else {    
-    var idx_start = port_data[0].indexOf(start_date);
-    console.log(idx_start);
-    var data_length = port_data[0].length;    
+    var idx_start = port_data[0].indexOf(startDate);
+    var idx_end = port_data[0].indexOf(endDate);
+    var data_length = port_data[0].length;
+    var test_length = idx_end-idx_start;    
    }
 
    //Disable Button
   $('#setting_button').attr('disabled',true);
   $('#data_button').attr('disabled',true);
-  $('#start_date').val('');
   $('#play_button').attr('disabled',true);
-  $('#pause_button').attr('disabled',false);
   $('#refresh_button').attr('disabled',true);
   $('#viewpost_button').attr('disabled',true);
   $('#trade_report_button').attr('disabled',true);
   $('#chart_button').attr('disabled',true);
-  // $('#statistik_button').attr('disabled',true);
-  // $('#logout_button').attr('disabled',true);
 
    //PROSES DATA
     //  async function proses() {
-       while (data_id <= (data_length-idx_start)) { //sbelumnya if bukan while
-       
-      //  var data_input;
-       var signal_output = new Array();
-      
+       while (data_id <= test_length) { //sbelumnya if bukan while
+          
        date = port_data[0][(idx_start+(data_id-1))];
            
        //PRE TRADE POSITION          
-         //asset trade details
+         //stocks price & position size
          for (i=1;i<=30;i++) {  
-            price[i]                = parseFloat(port_data[i][(idx_start+(data_id-1))]);
-            position_size[i]        = position_size[i] + buy_trade_size[i] - sell_trade_size[i];              
-            market_value[i]         = position_size[i] * price[i];
-            margin_loan_balance[i]  = margin_loan_balance[i] + buy_trade_margin_loan[i] - sell_trade_loan_back[i];            
+            price[i]                        = parseFloat(port_data[i][(idx_start+(data_id-1))]);
+            preTrade_positionSize[i]        = postTrade_positionSize[i]               
+            preTrade_marketValue[i]         = preTrade_positionSize[i]  * price[i];            
          }
          //account summary
-            cash                          = cash - margin_used + margin_back - trade_cost_summary - daily_interest;                             
+            preTrade_cashBalance          = cash - margin_used + margin_back - trade_cost_summary - daily_interest;                             
          
             market_value_summary          = market_value.reduce(function (accumulator, current) { return accumulator + current; });
          
@@ -141,71 +119,43 @@
             margin_available              = equity - regT_margin_req;
 
        //POST REST API 
-         var data_input = 
-                  {
-                    data_id: data_id,
-                    equity_balance: equity,
-                    asset1_price: price[1],
-                    asset1_position_size: position_size[1],
-                    asset2_price: price[2],
-                    asset2_position_size: position_size[2],
-                    asset3_price: price[3],
-                    asset3_position_size: position_size[3],
-                    asset4_price: price[4],
-                    asset4_position_size: position_size[4],
-                    asset5_price: price[5],
-                    asset5_position_size: position_size[5],
-                    asset6_price: price[6],
-                    asset6_position_size: position_size[6],
-                    asset7_price: price[7],
-                    asset7_position_size: position_size[7],
-                    asset8_price: price[8],
-                    asset8_position_size: position_size[8],
-                    asset9_price: price[9],
-                    asset9_position_size: position_size[9],
-                    asset10_price: price[10],
-                    asset10_position_size: position_size[10],
-                    asset11_price: price[11],
-                    asset11_position_size: position_size[11],
-                    asset12_price: price[12],
-                    asset12_position_size: position_size[12],
-                    asset13_price: price[13],
-                    asset13_position_size: position_size[13],
-                    asset14_price: price[14],
-                    asset14_position_size: position_size[14],
-                    asset15_price: price[15],
-                    asset15_position_size: position_size[15],
-                    asset16_price: price[16],
-                    asset16_position_size: position_size[16],
-                    asset17_price: price[17],
-                    asset17_position_size: position_size[17],
-                    asset18_price: price[18],
-                    asset18_position_size: position_size[18],
-                    asset19_price: price[19],
-                    asset19_position_size: position_size[19],
-                    asset20_price: price[20],
-                    asset20_position_size: position_size[20],
-                    asset21_price: price[21],
-                    asset21_position_size: position_size[21],
-                    asset22_price: price[22],
-                    asset22_position_size: position_size[22],
-                    asset23_price: price[23],
-                    asset23_position_size: position_size[23],
-                    asset24_price: price[24],
-                    asset24_position_size: position_size[24],
-                    asset25_price: price[25],
-                    asset25_position_size: position_size[25],
-                    asset26_price: price[26],
-                    asset26_position_size: position_size[26],
-                    asset27_price: price[27],
-                    asset27_position_size: position_size[27],
-                    asset28_price: price[28],
-                    asset28_position_size: position_size[28],
-                    asset29_price: price[29],
-                    asset29_position_size: position_size[29],
-                    asset30_price: price[30],
-                    asset30_position_size: position_size[30]
-                  };
+            var dataInput = 
+            {
+              data_id: data_id,
+              timeStamp: timeStamp,
+              buyingPower: preTrade_buyingPower,
+              stock1_price: price[1],
+              stock2_price: price[2],
+              stock3_price: price[3],
+              stock4_price: price[4],
+              stock5_price: price[5],
+              stock6_price: price[6],
+              stock7_price: price[7],
+              stock8_price: price[8],
+              stock9_price: price[9],
+              stock10_price: price[10],
+              stock11_price: price[11],
+              stock12_price: price[12],
+              stock13_price: price[13],
+              stock14_price: price[14],
+              stock15_price: price[15],
+              stock16_price: price[16],
+              stock17_price: price[17],
+              stock18_price: price[18],
+              stock19_price: price[19],
+              stock20_price: price[20],
+              stock21_price: price[21],
+              stock22_price: price[22],
+              stock23_price: price[23],
+              stock24_price: price[24],
+              stock25_price: price[25],
+              stock26_price: price[26],
+              stock27_price: price[27],
+              stock28_price: price[28],
+              stock29_price: price[29],
+              stock30_price: price[30]
+            };
+
          var post_process = "run";
 
          while (post_process == "run") {
@@ -219,43 +169,43 @@
                 
             if (result.status == "success") {
               
-              post_process = "stop";        
-              let asset_signal_size = new Array(); 
-              asset_signal_size.push(
-                result.data.asset1_signal_size,
-                result.data.asset2_signal_size,
-                result.data.asset3_signal_size,
-                result.data.asset4_signal_size,
-                result.data.asset5_signal_size,
-                result.data.asset6_signal_size,
-                result.data.asset7_signal_size,
-                result.data.asset8_signal_size,
-                result.data.asset9_signal_size,
-                result.data.asset10_signal_size,
-                result.data.asset11_signal_size,
-                result.data.asset12_signal_size,
-                result.data.asset13_signal_size,
-                result.data.asset14_signal_size,
-                result.data.asset15_signal_size,
-                result.data.asset16_signal_size,
-                result.data.asset17_signal_size,
-                result.data.asset18_signal_size,
-                result.data.asset19_signal_size,
-                result.data.asset20_signal_size,
-                result.data.asset21_signal_size,
-                result.data.asset22_signal_size,
-                result.data.asset23_signal_size,
-                result.data.asset24_signal_size,
-                result.data.asset25_signal_size,
-                result.data.asset26_signal_size,
-                result.data.asset27_signal_size,
-                result.data.asset28_signal_size,
-                result.data.asset29_signal_size,
-                result.data.asset30_signal_size
+              post_process = "stop";  
+
+              signal_output.push(
+                result.dataID,
+                result.timeStamp,
+                result.totalSignal_output,
+                result.stock1_signal_size,
+                result.stock2_signal_size,
+                result.stock3_signal_size,
+                result.stock4_signal_size,
+                result.stock5_signal_size,
+                result.stock6_signal_size,
+                result.stock7_signal_size,
+                result.stock8_signal_size,
+                result.stock9_signal_size,
+                result.stock10_signal_size,
+                result.stock11_signal_size,
+                result.stock12_signal_size,
+                result.stock13_signal_size,
+                result.stock14_signal_size,
+                result.stock15_signal_size,
+                result.stock16_signal_size,
+                result.stock17_signal_size,
+                result.stock18_signal_size,
+                result.stock19_signal_size,
+                result.stock20_signal_size,
+                result.stock21_signal_size,
+                result.stock22_signal_size,
+                result.stock23_signal_size,
+                result.stock24_signal_size,
+                result.stock25_signal_size,
+                result.stock26_signal_size,
+                result.stock27_signal_size,
+                result.stock28_signal_size,
+                result.stock29_signal_size,
+                result.stock30_signal_size
               );
-              signal_output.push({data_id: result.data.data_id});
-              signal_output.push({signal_timestamp: result.data.signal_timestamp});
-              signal_output.push({asset_signal_size: asset_signal_size});
               }         
             }
           })
@@ -264,33 +214,60 @@
         //  if(signal_output.length > 0) { 
          //TRADE ---------------------------------------------------------------------
            //asset trade details          
-           for (i=1, x=0; i<=30, x<30; i++, x++) {  
+           for (i=1, x=3; i<=30 && x<33; i++, x++) {  
 
-            if(signal_output[2].asset_signal_position[x] == "BUY") {
-              buy_trade_size[i]  = parseInt(signal_output[3].asset_signal_size[x]);
-              sell_trade_size[i] = 0;
+            if(signal_output[x] > 0) {
+              buy_filledOrder[i]  = parseInt(signal_output[x]);
+              buy_filledPrice[i]  = price[i] * (1+bidaskspread);
+              buy_tradeValue[i] = buy_filledOrder[i] * buy_filledPrice[i];
+              buy_commision[i] = buy_tradeValue[i] * commisionshare;
+              sell_filledOrder[i]  = 0;
+              sell_filledPrice[i]  = 0;
+              sell_tradeValue[i] = 0;
+              sell_commision[i] = 0;
             
-            } else if(signal_output[2].asset_signal_position[x] == "SELL") {
-              buy_trade_size[i] = 0;
-              sell_trade_size[i] = parseInt(signal_output[3].asset_signal_size[x]);              
+            } else if(signal_output[x] < 0) {
+              buy_filledOrder[i]  = 0;
+              buy_filledPrice[i]  = 0;
+              buy_tradeValue[i] = 0;
+              buy_commision[i] = 0; 
+              sell_filledOrder[i]  = parseInt(signal_output[x]);
+              sell_filledPrice[i]  = price[i] * (1+bidaskspread);
+              sell_tradeValue[i] = sell_filledOrder[i] * sell_filledPrice[i];
+              sell_commision[i] = sell_tradeValue[i] * commisionshare;           
             
-            } else if(signal_output[2].asset_signal_position[x] == "HOLD"){
-              buy_trade_size[i] = 0;
-              sell_trade_size[i] = 0;
+            } else if(signal_output[x] == 0){
+              buy_filledOrder[i]  = 0;
+              buy_filledPrice[i]  = 0;
+              buy_tradeValue[i] = 0;
+              buy_commision[i] = 0;
+              sell_filledOrder[i]  = 0;
+              sell_filledPrice[i]  = 0;
+              sell_tradeValue[i] = 0;
+              sell_commision[i] = 0; 
             }
-
-            buy_trade_value[i]        = buy_trade_size[i] * price[i];        
-            buy_trade_margin_used[i]   = buy_trade_value[i] * regTmargin_rate;
-            buy_trade_margin_loan[i]  = buy_trade_value[i] - buy_trade_margin_used[i];
-            buy_trade_cost[i]         = (buy_trade_value[i] * bidask_spread) + (buy_trade_value[i] * commision_share);
-            
-            sell_trade_value[i]        = sell_trade_size[i] * price[i];    
-            avg_buy_price[i]            = price[i] * sell_trade_size[i];//dicek lagi rumus ini, hanya sementara saja    
-            sell_trade_loan_back[i]   = (avg_buy_price[i] * sell_trade_size[i]) * regTmargin_rate;
-            sell_trade_margin_back[i]  = sell_trade_value[i] - sell_trade_loan_back[i];
-            sell_trade_cost[i]         = (sell_trade_value[i] * bidask_spread) + (sell_trade_value[i] * commision_share);
-
            }  
+
+        //POST TRADE POSITION         
+            //stocks price & position size
+         for (i=1;i<=30;i++) { 
+          postTrade_positionSize[i]        = preTrade_positionSize[i] + buy_filledOrder[i] - sell_filledOrder[i];              
+          postTrade_marketValue[i]         = postTrade_positionSize[i]  * price[i];            
+       }
+       //account summary
+          preTrade_cashBalance          = cash - margin_used + margin_back - trade_cost_summary - daily_interest;                             
+       
+          market_value_summary          = market_value.reduce(function (accumulator, current) { return accumulator + current; });
+       
+          margin_loan_balance_summary   = margin_loan_balance.reduce(function (accumulator, current) { return accumulator + current; });
+       
+          equity                        = cash + market_value_summary - margin_loan_balance_summary;
+          
+          maintenance_margin            = market_value_summary * maintmargin_rate;
+
+          regT_margin_req               = market_value_summary * regTmargin_rate;
+
+          margin_available              = equity - regT_margin_req;
 
            //trade summary
            margin_used    = buy_trade_margin_used.reduce(function (accumulator, current) { return accumulator + current; });
@@ -301,38 +278,37 @@
                                 sell_trade_cost.reduce(function (accumulator, current) { return accumulator + current; });
            daily_interest = (margin_loan_balance_summary + loan_used - loan_back) * interest_rate;//cek lagi rumus dan posisi kolom
         //-------------------------------------------------------------   
-          //post request response ----------------------------------------------
+         
+        //post request response ----------------------------------------------
           data_input_array.push(data_input);//diatur lagi susunan jsonnya
           signal_output_array.push(signal_output);//diatur lagi susunan jsonnya
           //---------------------------------------------------------------
            
           // TRADE REPORT ---------------------------------------------------------------
            //asset trade details array
-           var asset_trade = new Array();
+           var trade_details = new Array();
            for(i=1;i<=30;i++) {             
-             asset_trade.push({
-               price : price[i],
-               pretrade_position_size : pretrade_position_size[i],
-               pretrade_market_value : pretrade_market_value[i],
-               buy_quantxi_signal : buy_quantxi_signal[i],
-               buy_filled_order : buy_filled_order[i],
-               buy_filled_price : buy_filled_price[i],
-               buy_trade_value : buy_trade_value[i],
-               buy_commision : buy_commision[i],
-               sell_quantxi_signal : sell_quantxi_signal[i],
-               sell_filled_order : sell_filled_order[i],
-               sell_filled_price : sell_filled_price[i],
-               sell_trade_value : sell_trade_value[i],
-               sell_commision : sell_commision[i],
-               posttrade_position_size : posttrade_position_size[i],
-               posttrade_market_value : posttrade_market_value[i]
+            trade_details.push({
+              stocks : stock1,
+              price : price[i],
+              pretrade_position_size : pretrade_position_size[i],
+              pretrade_market_value : pretrade_market_value[i],
+              buy_filled_order : buy_filled_order[i],
+              buy_filled_price : buy_filled_price[i],
+              buy_trade_value : buy_trade_value[i],
+              buy_commision : buy_commision[i],
+              sell_filled_order : sell_filled_order[i],
+              sell_filled_price : sell_filled_price[i],
+              sell_trade_value : sell_trade_value[i],
+              sell_commision : sell_commision[i],
+              posttrade_position_size : posttrade_position_size[i],
+              posttrade_market_value : posttrade_market_value[i]
              })
            }
-           asset_trade_details.push({date: date, trade_details: asset_trade});
-           
+
+           var account_summary = new Array();           
            //acount summary array
-           account_trade_summary.push({
-            date : date,
+           account_summary.push({
             //Pre Trade Account Position
             pretrade_cash_balance : pretrade_cash_balance,
             pretrade_mtd_acrued_interest : pretrade_mtd_acrued_interest,
@@ -356,6 +332,8 @@
             posttrade_sma_excess_equity : posttrade_sma_excess_equity,
             posttrade_buying_power : posttrade_buying_power    
            });
+
+           tradeTesting_report.push({date: date, trade_details: trade_details, account_summary: account_summary});
            //-------------------------------------------------------------------
            // view....---------------------------------------------------------------------
           $('#total_post').html(data_id); 
