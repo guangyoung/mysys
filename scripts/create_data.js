@@ -259,11 +259,11 @@ function process_data_yahoo() {
             $("#pagination_trade_summary").twbsPagination("destroy");
             if(port_data.length > 0) {
                 $("#pagination_trade_summary").twbsPagination({
-                totalPages: Math.ceil(50/5),
+                totalPages: Math.ceil(5000/5),
                 visiblePages: 4,
                 onPageClick: function (event, page) {
                     $("#account_trade_summary_tbl>tbody").empty();
-                    for (i=(page*5)-5; i<(page*5) && i<(50); i++) {
+                    for (i=(page*5)-5; i<(page*5) && i<(5000); i++) {
                         var account_trade_summary_row =
                         `<tr>
                             <td>
