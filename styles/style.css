@@ -523,6 +523,7 @@ margin: 10px 10px 10px 0px;
   #pagination_trade_summary li a{
     font-size: 11px;
     padding: 1px 8px;
+    font-weight: 500;
     /* margin-bottom: 5px; */
   }
 
