@@ -505,6 +505,7 @@ margin: 10px 10px 10px 0px;
   #pagination-demo li a{
     font-size: 11px;
     padding: 1px 8px;
+    font-weight: bold;
     /* margin-bottom: 5px; */
   }
 
