@@ -1,7 +1,7 @@
 //Function Reset Test
 async function reset_test() {
    await $.ajax({
-     type: "POST",
+     type: "PUT",
      url: "https://api.quantxi.com/reset?api_key="+sessionStorage.getItem("api"),    
      dataType: 'json',
      success: function(result){
