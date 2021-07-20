@@ -20,7 +20,7 @@ async function reset_test() {
         $("#account_trade_summary_tbl>tbody").empty();
         $("#pagination_trade_summary").twbsPagination("destroy");
 
-        performance_chart = new Chart();
+        // performance_chart = new Chart();
 
       } else {
         alert(`gagal koneksi, periksa api key anda`);

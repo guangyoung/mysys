@@ -1,7 +1,6 @@
  //RUN TEST -------------------------------------------------------------------------------
  //GLOBAL VARIABLE
  var tradeTesting_report = new Array();
- var performance_chart;
  
  async function run_test() {
    //-----------------------------------------------------------------------------------
