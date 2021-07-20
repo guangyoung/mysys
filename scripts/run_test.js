@@ -1,6 +1,7 @@
  //RUN TEST -------------------------------------------------------------------------------
  //GLOBAL VARIABLE
  var tradeTesting_report = new Array();
+ var performance_chart;
  
  async function run_test() {
    //-----------------------------------------------------------------------------------
@@ -980,7 +981,7 @@
        } 
 
       //performance chart
-      var performance_chart;
+      
 
       chartColors = {
       red: 'rgb(255, 99, 132)',
