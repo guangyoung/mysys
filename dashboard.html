@@ -152,7 +152,7 @@
                 <hr style="margin-top: 15px; width: 100%; height:1px;border-width:0;color:gray;background-color:gray">
                 <div class="row" style="margin: auto; width: 213px">
                     <a href="how_to_use.html" target="_blank" style="margin-top: -5px;"><i class="fa fa-question-circle" style="color: #c1c2c6; cursor: pointer; font-size: 35px"></i></a>
-                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-top: -2px; margin-left: 30px"><i class="fa fa-file-o" style="color: #c1c2c6; cursor: pointer; font-size: 30px"></i></a>
+                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-top: -2px; margin-left: 30px"><i class="fa fa-google" style="color: #c1c2c6; cursor: pointer; font-size: 30px"></i></a>
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-top: -5px; margin-left: 30px"><i class="fa fa-github" style="color: #c1c2c6; cursor: pointer; font-size: 35px"></i></a>
                     <a onclick="logout_btn()" style="margin-top: -5px; margin-left: 30px"><i class="fa fa-sign-out" style="color: #c1c2c6; cursor: pointer; font-size: 35px"></i></a>
                 </div>
@@ -185,12 +185,10 @@
                         <h6 style="font-size: 16px; color: #181a1b; margin-top: 2px; margin-top: 50px"><strong>POST /api.quantxi.com</strong></h6>
                         <h6 style="font-size: 11px; color: #181a1b; margin-top: 2px; margin-top: 20px">X-USER : Point72 Asset Management</h6>
                         <h6 style="font-size: 11px; color: #181a1b; margin-top: 2px; margin-top: 10px">X-API-KEY : 1234567889njnjvjnvjnkcbkckjxkxkkxn</h6>
-                        <div class="row">
-                            <img src="images/arrow.png" width="40" height="80" style="margin-top: 85px; margin-left: 40px">
-                            <img src="images/ai_gif_logo_1_crop.gif" width="200" height="200" style="margin-left: 20px; margin-right: 0px; margin-top: 25px">
-                            <img src="images/arrow.png" width="40" height="80" style="margin-top: 85px; margin-left: 10px">
+                        <div class="row" style="margin: auto; width: 85%">
+                           <img src="images/quantxi_in_out.png" class="img-fluid" style="margin-top: 50px">
                         </div>
-                        <h6 style="font-size: 16px; color: #181a1b; margin-top: 40px"><strong>Total Post&nbsp;&nbsp;:&nbsp;&nbsp;<span id="total_post">0</span></strong></h6>
+                        <h6 style="font-size: 16px; color: #181a1b; margin-top: 50px"><strong>Total Post&nbsp;&nbsp;:&nbsp;&nbsp;<span id="total_post">0</span></strong></h6>
                         <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#view_allpost" id="viewpost_button" style="font-family: Acrom; margin-top: 5px; height: 25px; padding: 2px 12px; font-size: 13px">View All Request & Response</button>
                         <h6 style="font-size: 11px; color: #181a1b; margin-top: 40px">Capture HTTP traffic between your computer<br>and Quantxi server using <img src="images/Fiddler-Everywhere-Icon.png" class="img-fluid" width="18" height="18" style="margin : auto"> Fiddler Everywhere.<br><a href="" style="font-size: 12px"><u>Learn More</u></a></h6>
                     </div>
@@ -540,6 +538,19 @@
             sessionStorage.removeItem("api");
             open("index.html","_self");
         }
+
+        var input_element =
+        '<pre style="font-size: 11px; color: #70727a; margin-left: 50px; margin-top: 15px;">'
+            + JSON.stringify(input, null, 4) +
+        '</pre>';        
+        $("#input").html(input_element);
+
+        var output_element =
+        '<pre style="font-size: 11px; color: #70727a; margin-left: 50px; margin-top: 15px;">'
+            + JSON.stringify(output, null, 4) +
+        '</pre>';
+        $("#output").html(output_element);
+
     </script>
 </body>
 </html>
