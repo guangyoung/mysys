@@ -206,7 +206,7 @@
                 <!-- <form method="POST" id="frmSetting"> -->
                     <div class="modal-header">
                         <h5 class="modal-title"><i class="fa fa-gear"></i><strong style="margin-left: 10px">Test Setting</strong></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="test_setting_submit_btn()">
+                        <button type="button" class="close" aria-label="Close" onclick="test_setting_submit_btn()">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -241,7 +241,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" onclick="test_setting_submit_btn()">Close</button>
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="test_setting_submit_btn()">Close</button>
                     </div>
             </div>
         </div>
@@ -539,15 +539,89 @@
             open("index.html","_self");
         }
 
+        var input_start =
+            {
+                data_id: "No Data",
+                timeStamp: "No Data",
+                buyingPower: "No Data",
+                stock1_price: "No Data",
+                stock2_price: "No Data",
+                stock3_price: "No Data",
+                stock4_price: "No Data",
+                stock5_price: "No Data",
+                stock6_price: "No Data",
+                stock7_price: "No Data",
+                stock8_price: "No Data",
+                stock9_price: "No Data",
+                stock10_price: "No Data",
+                stock11_price: "No Data",
+                stock12_price: "No Data",
+                stock13_price: "No Data",
+                stock14_price: "No Data",
+                stock15_price: "No Data",
+                stock16_price: "No Data",
+                stock17_price: "No Data",
+                stock18_price: "No Data",
+                stock19_price: "No Data",
+                stock20_price: "No Data",
+                stock21_price: "No Data",
+                stock22_price: "No Data",
+                stock23_price: "No Data",
+                stock24_price: "No Data",
+                stock25_price: "No Data",
+                stock26_price: "No Data",
+                stock27_price: "No Data",
+                stock28_price: "No Data",
+                stock29_price: "No Data",
+                stock30_price: "No Data",
+            }
+
+        var output_start =
+            {
+                data_id: "No Data",
+                timeStamp: "No Data",
+                buyingPower: "No Data",
+                stock1_price: "No Data",
+                stock2_price: "No Data",
+                stock3_price: "No Data",
+                stock4_price: "No Data",
+                stock5_price: "No Data",
+                stock6_price: "No Data",
+                stock7_price: "No Data",
+                stock8_price: "No Data",
+                stock9_price: "No Data",
+                stock10_price: "No Data",
+                stock11_price: "No Data",
+                stock12_price: "No Data",
+                stock13_price: "No Data",
+                stock14_price: "No Data",
+                stock15_price: "No Data",
+                stock16_price: "No Data",
+                stock17_price: "No Data",
+                stock18_price: "No Data",
+                stock19_price: "No Data",
+                stock20_price: "No Data",
+                stock21_price: "No Data",
+                stock22_price: "No Data",
+                stock23_price: "No Data",
+                stock24_price: "No Data",
+                stock25_price: "No Data",
+                stock26_price: "No Data",
+                stock27_price: "No Data",
+                stock28_price: "No Data",
+                stock29_price: "No Data",
+                stock30_price: "No Data",
+              }
+
         var input_element =
         '<pre style="font-size: 11px; color: #70727a; margin-left: 50px; margin-top: 15px;">'
-            + JSON.stringify(input, null, 4) +
+            + JSON.stringify(input_start, null, 4) +
         '</pre>';        
         $("#input").html(input_element);
 
         var output_element =
         '<pre style="font-size: 11px; color: #70727a; margin-left: 50px; margin-top: 15px;">'
-            + JSON.stringify(output, null, 4) +
+            + JSON.stringify(output_start, null, 4) +
         '</pre>';
         $("#output").html(output_element);
 
