@@ -211,7 +211,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
+                        <div class="row" style="background-color: #070914; color:#d2d3d7">
                             <div class="col">
                                 <div class="spani form-group">
                                     <label style="font-size: 13px; margin-top: 5px">Initial Capital
@@ -219,7 +219,7 @@
                                             <span>isi nilai equity awal anda, minimum 1,000,000 dan tanpa batas maksimum</span>
                                         </a>
                                     </label>
-                                    <input style="font-size: 13px" type="number" class="form-control" id="initial_equity" aria-describedby="" value= "1000000" min="1000000" required>
+                                    <input style="font-size: 13px; background-color: #d2d3d7" type="number" class="form-control" id="initial_equity" aria-describedby="" value= "1000000" min="1000000" required>
                                 </div>
                                 <div class="spani form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Spread+Slippage/Trade/Side
@@ -227,15 +227,15 @@
                                             <span>isi besaran spread</span>
                                         </a>
                                     </label>
-                                    <input style="font-size: 13px" type="number" class="form-control" id="bid_ask_spread" aria-describedby="" value= "0.001" min="0.001" max="0.005" required>
+                                    <input style="font-size: 13px; background-color: #d2d3d7" type="number" class="form-control" id="bid_ask_spread" aria-describedby="" value= "0.001" min="0.001" max="0.005" required>
                                 </div>
                                 <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Commision/Share/Side <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="number" class="form-control" id="commision_share" aria-describedby="" value= "0.005" min="0.001" max="0.005" required>
+                                    <input style="font-size: 13px; background-color: #d2d3d7" type="number" class="form-control" id="commision_share" aria-describedby="" value= "0.004" min="0.001" max="0.005" required>
                                 </div>
                                 <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Interest Rate/Year <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="percentage" class="form-control" id="interest_rate" aria-describedby="" value= "2%" min="0.1%" max="5%" required>
+                                    <input style="font-size: 13px; background-color: #d2d3d7" type="percentage" class="form-control" id="interest_rate" aria-describedby="" value= "2%" min="0.1%" max="5%" required>
                                 </div>
                             </div>
                         </div>
@@ -418,26 +418,31 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                <div style="overflow-y: auto; overflow-x: hidden; height: 420px">
-                    <table style="background-color: #070914">
-                        <thead style="color:#d2d3d7">
-                            <tr>
-                                <th style="position: sticky; top: 0px; border-left: 1px #292b43 solid; padding: 5px 0; width: 655px; background-color: #1b1d2d; ">
+                <div class="row">
+                    <strong style="margin-left: 15px; font-size: 12px;">Period of Testing :</strong>
+                    <input id="period_report" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; color: #000000; margin-top: 1px; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 170px; font-size: 10px">
+                    <ul id="pagination_trade_summary" class="pagination pagination-sm"></ul>
+                </div> 
+                <div class="card" style="background-color: #070914; margin-top: 5px; overflow-y: auto; overflow-x: hidden; height: 420px">
+                    <table>
+                        <thead>
+                            <!-- <tr>
+                                <th style="position: sticky; top: 0px; border-left: 1px #292b43 solid; padding: 5px 0; width: 655px; color:#d2d3d7; background-color: #1b1d2d; ">
                                     <div class="row" style="margin-left: 10px;">
                                         <i class="fa fa-sign-in" style="margin-top: 3px; font-size: 20px"></i>
                                         <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">DATA INPUT&nbsp;&nbsp;-&nbsp;&nbsp;POST REQUEST</strong>
                                     </div>
                                 </th>
-                                <th style="position: sticky; top: 0px; border-left: 1px #292b43 solid; width: 655px;  background-color: #1b1d2d; font-size: 12px">
+                                <th style="position: sticky; top: 0px; border-left: 1px #292b43 solid; width: 655px; color:#d2d3d7; background-color: #1b1d2d; font-size: 12px">
                                     <div class="row" style="margin-left: 10px;">
                                         <i class="fa fa-sign-in" style="margin-top: 3px; font-size: 20px"></i>
                                         <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">SIGNAL OUTPUT&nbsp;&nbsp;-&nbsp;&nbsp;POST RESPONSE</strong>
                                     </div>
                                 </th>
-                            </tr>
+                            </tr> -->
                         </thead>
                         <tbody>
-                            <tr style="border-bottom: 1px #292b43 solid;">
+                            <!-- <tr style="border-bottom: 1px #292b43 solid;">
                                 <td style="border-right: 1px #292b43 solid">
                                     <pre style="margin-top: 15px; font-size: 10px; color: #c1c2c6">                                    
                                     </pre>
@@ -446,13 +451,13 @@
                                     <pre style="margin-top: 15px; font-size: 10px; color: #c1c2c6">                                    
                                     </pre>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
                 </div>
                 <div class="modal-footer">
-                    <h6 style="font-size: 13px; margin-top: 5px; position: absolute; left: 15px">For more details about HTTP Request, use Fiddler or Httpwatch or open it directly from a network browser</h6>
+                    <!-- <h6 style="font-size: 13px; margin-top: 5px; position: absolute; left: 15px">For more details about HTTP Request, use Fiddler or Httpwatch or open it directly from a network browser</h6> -->
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                 </div>
             </div>
