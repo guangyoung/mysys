@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="data:,">
+    <link rel="icon" type="image/png" href="images/ai_gif_logo_1_statis.png">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -510,29 +510,7 @@
     </div>
 
     <script>
-        $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
-            let container_exchange = $(this).closest("#tickers_exchange");
-            exchange_choose_current = $(event.currentTarget)[0].innerText;
-            container_exchange.find('.Xchange').text( exchange_choose_current || 'Exchange');
-            console.log(exchange_choose_current);
-        });
-
-        $("#tickers_list").on('click', '.dropdown-menu li', function (event) { //cari solusi biar tdk double click, muncul berkali2 di console
-            event.stopPropagation();
-            var container2 = $(this).closest("#tickers_list");
-            var numChecked2 = container2.find('[type="checkbox"]:checked').length;
-            container2.find('.quantity').text(numChecked2 || '0');
-            console.log(numChecked2);
-            var $target2 = $(event.currentTarget);
-            console.log($target2.text());
-            if(numChecked2 > ticker_list.length) {
-                ticker_list.push($target2.text());
-            } else if(numChecked2 < ticker_list.length){
-                var index = ticker_list.indexOf($target2.text());
-                ticker_list.splice(index, 1);
-            } else{}
-            console.log(ticker_list);
-        });    
+        
 
         function logout_btn() {
             sessionStorage.removeItem("api");
