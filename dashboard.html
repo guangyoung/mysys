@@ -532,12 +532,7 @@
                 ticker_list.splice(index, 1);
             } else{}
             console.log(ticker_list);
-        }); 
-
-        function logout_btn() {
-            sessionStorage.removeItem("api");
-            open("index.html","_self");
-        }
+        });
 
         var input_start =
             {
@@ -624,6 +619,12 @@
             + JSON.stringify(output_start, null, 4) +
         '</pre>';
         $("#output").html(output_element);
+
+        
+        function logout_btn() {
+            sessionStorage.removeItem("api");
+            open("index.html","_self");
+        }
 
     </script>
 </body>
