@@ -50,9 +50,8 @@ function tickers_list_btn () {
   } else {
     return false;
   }
-}
 
-$("#tickers_exchange").on('click', '.dropdown-item', function (event) {
+  $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
     let container_exchange = $(this).closest("#tickers_exchange");
     exchange_choose_current = $(event.currentTarget)[0].innerText;
     container_exchange.find('.Xchange').text( exchange_choose_current || 'Exchange');
@@ -76,6 +75,7 @@ $("#tickers_list").on('click', '.dropdown-menu li', function (event) { //cari so
     console.log(ticker_list);
 }); 
 
+}
 
 function add_data() {
   if(ticker_list.length==0) {
