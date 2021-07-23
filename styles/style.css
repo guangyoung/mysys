@@ -58,6 +58,7 @@
 .cover-index {
     background-color: #070914;
     background-image: url("../images/bg1.jpg");
+    font-family: Acrom;
 }
 
 .cover-dashboard {
@@ -66,7 +67,7 @@
     /* margin-top: 12px;
     margin-right: 0px; */
     /* margin-bottom: 15px; */
-    /* font-family: Acrom; */
+    font-family: Acrom;
 }
 
 .container-fluid {
