@@ -57,7 +57,7 @@
                 </div>
                 <div class="row" style="margin: auto; width: 240px">
                     <button type="button" class="btn btn-success btn-sm" id="play_button" style="margin-top: 15px; margin-left:0px; padding: 0px 10px; width: 110px; font-size: 14px" onclick="run_test()"><strong><i class="fa fa-play" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 6px"></i>RUN TEST</strong></button>
-                    <button type="button" class="btn btn-danger btn-sm" id="refresh_button" style="margin-top: 15px; margin-left:20px; padding: 0px 10px; width: 110px; font-size: 14px" onclick="reset_test()"><strong><i class="fa fa-refresh" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 6px"></i>RESET</strong></button>
+                    <button type="button" class="btn btn-danger btn-sm" id="refresh_button" style="margin-top: 15px; margin-left:20px; padding: 0px 10px; width: 110px; font-size: 14px" disabled onclick="reset_test()"><strong><i class="fa fa-refresh" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 6px"></i>RESET</strong></button>
                 </div>
                 <div class="progress" style="margin: auto; font-size: 11px; margin-top: 15px; background-color: #d6d6d6; height: 18px; width: 95%">
                     <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated" role="progressbar" id="progress_bar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="color: #4a4a4a; width:0%">
@@ -506,6 +506,8 @@
                 </button>
             </div>
             <div class="modal-body">
+                <strong style="margin-left: 0px; font-size: 12px;">Period of Testing :</strong>
+                <input id="period_chart" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; color: #000000; margin-top: 1px; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 170px; font-size: 10px">
                 <div class="card" style="background-color: #070914; margin-top: 5px; margin-left: 0px; height: 430px">
                     <canvas id="performance_chart" width="11" height="4.5" class="chartjs-render-monitor"></canvas>
                 </div>

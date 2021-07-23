@@ -3,7 +3,7 @@
 //...................................................................................
 //...................................................................................
    
-    //Variables
+    //Global Variables
     var initialequity;
     var bidaskspread;
     var commisionshare;
@@ -40,7 +40,6 @@
             bidaskspread = $("#bid_ask_spread").val();
             commisionshare = $("#commision_share").val();
             interestrate = $("#interest_rate").val();
-
             $('#setting').modal('hide');
         }  
     }

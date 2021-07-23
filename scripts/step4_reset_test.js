@@ -1,4 +1,8 @@
-//Function Reset Test
+//STEP 4. RESET TEST
+//Ini adalah step reset test ..........................,.............................
+//...................................................................................
+//...................................................................................
+
 async function reset_test() {
    await $.ajax({
      type: "DELETE",
@@ -8,18 +12,13 @@ async function reset_test() {
       if (result.status == "success") {
         
         $('#setting_button, #data_button, #play_button, #viewpost_button, #trade_report_button, #chart_button').attr('disabled',false);
-        $('#refresh_button').attr('disabled',true);
-        
-               
-        
+        $('#refresh_button').attr('disabled',true);        
         $("#progress_bar_value").html("0%"); 
-        $("#progress_bar").css("width","0%")
-
+        $("#progress_bar").css("width","0%");
         account_trade_summary = [];
         asset_trade_details = [];
         $("#account_trade_summary_tbl>tbody").empty();
         $("#pagination_trade_summary").twbsPagination("destroy");
-
         // performance_chart = new Chart();
 
       } else {

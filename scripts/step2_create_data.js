@@ -3,7 +3,7 @@
 //...................................................................................
 //...................................................................................
 
-    //Variables    
+    //Global Variables    
     var asset_portfolio_yahoo = new Array();    
     var port_data = new Array();
 
@@ -150,7 +150,7 @@
         $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);  
         $("#test_startdate").val(new Date(port_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(port_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(port_data[0][0]).getDate()));
         // $("#test_startdate").datepicker({ minDate: new Date(port_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(port_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(port_data[0][0]).getDate())});
-        $('#data_available_alert').html("You Have Data Available To Test");
+        // $('#data_available_alert').html("You Have Data Available To Test");
         $('#stock1_ticker').html(asset_portfolio_yahoo[0].ticker);
         $('#stock2_ticker').html(asset_portfolio_yahoo[1].ticker);
         $('#stock3_ticker').html(asset_portfolio_yahoo[2].ticker);
