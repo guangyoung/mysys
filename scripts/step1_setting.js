@@ -1,6 +1,9 @@
-//Function Test Setting
+//STEP 1. SETTING
+//Ini adalah step setting initial equity.............................................
+//...................................................................................
+//...................................................................................
    
-    //GLOBAL VARIABLE
+    //Variables
     var initialequity;
     var bidaskspread;
     var commisionshare;
@@ -12,19 +15,19 @@
             alert(`initial equity yg anda input kurang dari 1 juta`);
             return false;
         } else if( $("#initial_equity").val() > 100000000 ) {
-            alert(`initial equity yg anda input kurang dari 100 juta`);
+            alert(`initial equity yg anda input lebih dari 100 juta`);//angka ini dipikirkan lagi baiknya seperti apa
             return false;
         } else if ( $("#bid_ask_spread").val() < 0.001 ) {
             alert(`spread+slippage yg anda input kurang dari 0.001`);
             return false;
-        } else if ( $("#bid_ask_spread").val() > 0.004 ) {
-            alert(`spread+slippage yg anda input lebih dari 0.004`);
+        } else if ( $("#bid_ask_spread").val() > 0.005 ) {
+            alert(`spread+slippage yg anda input lebih dari 0.005`);
             return false;
         } else if ( $("#commision_share").val() < 0.001 ) {
             alert(`commision/share yg anda input kurang dari 0.001`);
             return false;
-        } else if ( $("#commision_share").val() > 0.004 ) {
-            alert(`commision/share yg anda input lebih dari 0.004`);
+        } else if ( $("#commision_share").val() > 0.005 ) {
+            alert(`commision/share yg anda input lebih dari 0.005`);
             return false;
         } else if ( $("#interest_rate").val() < 0.001 ) {
             alert(`interest rate yg anda input kurang dari 1%`);
