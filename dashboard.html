@@ -28,10 +28,12 @@
         // if (width < 1200) {
         //     open("images/ailogo2.png","_self");
         // }
-        let api_key = sessionStorage.getItem("api");
+        let api_key = sessionStorage.getItem("apiKey");
+        let user = sessionStorage.getItem("user");
         if (!api_key) {
             open("index.html","_self");
         }
+       
         //koding dibawah ini ada error di inspect...di cek lagi...
         window.onbeforeunload = function(){ //this function for if we refresh or exit, there is alert
             return "";
@@ -183,8 +185,8 @@
                     </div>
                     <div style="width: 36%; text-align: center; border-left: 1px #1b1c2c solid; border-right: 1px #1b1c2c solid;">
                         <h6 style="font-size: 16px; color: #181a1b; margin-top: 2px; margin-top: 50px"><strong>POST /api.quantxi.com</strong></h6>
-                        <h6 style="font-size: 11px; color: #181a1b; margin-top: 2px; margin-top: 20px">X-USER : Point72 Asset Management</h6>
-                        <h6 style="font-size: 11px; color: #181a1b; margin-top: 2px; margin-top: 10px">X-API-KEY : 1234567889njnjvjnvjnkcbkckjxkxkkxn</h6>
+                        <h6 style="font-size: 11px; color: #181a1b; margin-top: 2px; margin-top: 20px">X-USER : <span id="x_user">-</span></h6>
+                        <h6 style="font-size: 11px; color: #181a1b; margin-top: 2px; margin-top: 10px">X-API-KEY : <span id="x_apiKey">-</span></h6>
                         <div class="row" style="margin: auto; width: 85%">
                            <img src="images/quantxi_in_out.png" class="img-fluid" style="margin-top: 50px">
                         </div>
@@ -521,6 +523,9 @@
 
     <script>
 
+        $("#x_user").html(user);
+        $("#x_apiKey").html(api_key);
+
         var ticker_list = new Array();
         var exchange_choose_current;
         var exchange_choose;
@@ -669,7 +674,8 @@
 
         
         function logout_btn() {
-            sessionStorage.removeItem("api");
+            sessionStorage.removeItem("apiKey");
+            sessionStorage.removeItem("user");
             open("index.html","_self");
         }
 

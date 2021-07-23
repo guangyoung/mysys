@@ -36,6 +36,7 @@
 
     <!-- login -->
     <script>
+
         function start_quantxi_btn() {  
   
             let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -43,21 +44,21 @@
             //     open("images/ailogo2.png","_self");
             // }
             
-            var api_key = $("#api_key").val();
 
-            if(!api_key) {
+            if(!$("#api_key").val()) {
                 alert(`Silahkan isi dulu Api Key anda !`);
                 return false;
             } else {
                 $.ajax({
                 type: "GET",
-                url: "https://api.quantxi.com/user?api_key="+api_key,
+                url: "https://api.quantxi.com/user?api_key="+$("#api_key").val(),
                 dataType: 'json',
                 success: function(result){
-                    console.log(result);
-                if (result.status == "success") {
-                    alert(`selamat datang `+result.data.nama); //setting diserver u/tampilkan message data user
-                    sessionStorage.setItem("api", api_key);
+                if (result.status == "success") {                    
+                    alert(`selamat datang `+result.data.nama+`, api key :` +$("#api_key").val()); //setting diserver u/tampilkan message data user
+                    sessionStorage.setItem("user", result.data.nama);
+                    sessionStorage.setItem("apiKey", $("#api_key").val());
+                   
                     open("dashboard.html","_self");
                 } else {
                     alert(`gagal koneksi, periksa api key anda`);
