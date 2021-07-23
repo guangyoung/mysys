@@ -518,8 +518,10 @@
     </div>
 
     <script>
+        
 
         $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
+        var exchange_choose_current;
         let container_exchange = $(this).closest("#tickers_exchange");
         exchange_choose_current = $(event.currentTarget)[0].innerText;
         container_exchange.find('.Xchange').text( exchange_choose_current || 'Exchange');
@@ -527,6 +529,7 @@
         });    
 
         $("#tickers_list").on('click', '.dropdown-toggle', function (event) {
+        var exchange_choose;
         if(!exchange_choose_current) {
             $('#ulul').empty();
             var newLi = document.createElement('li');
@@ -560,6 +563,7 @@
 
         $("#tickers_list").on('click', '.dropdown-menu li', function (event) { 
         event.stopPropagation();
+        var ticker_list = new Array();
         var container2 = $(this).closest("#tickers_list");
         var numChecked2 = container2.find('[type="checkbox"]:checked').length;
         container2.find('.quantity').text(numChecked2 || '0');
