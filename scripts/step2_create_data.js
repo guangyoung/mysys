@@ -3,11 +3,8 @@
 //...................................................................................
 //...................................................................................
 
-    //Variables
-    var ticker_list = new Array();
-    var asset_portfolio_yahoo = new Array();
-    var exchange_choose_current;
-    var exchange_choose;
+    //Variables    
+    var asset_portfolio_yahoo = new Array();    
     var port_data = new Array();
 
     var exchange_list =
