@@ -37,18 +37,12 @@
     color: #fff;
 }
 
-.bg {
-    /* The image used */
-    background-image: url("images/img04.png");
-
-    /* Full height */
+/* .bg {
     height: 100%;
-
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
+  } */
 
 .container-index {
     vertical-align: middle;
@@ -61,12 +55,18 @@
   background-color: #7a7a7a;
 }
 
-.cover {
+.cover-index {
     background-color: #070914;
+    background-image: url("C:/Users/Heri Yang/Documents/GitHub/mysys/images/bg1.jpg");
+}
+
+.cover-dashboard {
+    background-color: #070914;
+    background-image: url("C:/Users/Heri Yang/Documents/GitHub/mysys/images/bg_ai32.jpg");
     /* margin-top: 12px;
     margin-right: 0px; */
     /* margin-bottom: 15px; */
-    font-family: Acrom;
+    /* font-family: Acrom; */
 }
 
 .container-fluid {
