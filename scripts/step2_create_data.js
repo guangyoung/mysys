@@ -78,7 +78,7 @@
           let ex_choo = exchange_choose_current;
 
           const proxyurl = "https://jsonp.afeld.me/?url=";
-          const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
+          const urls = "https://query2.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
 
           $.getJSON(proxyurl+urls, function(result){
             console.log(result);
