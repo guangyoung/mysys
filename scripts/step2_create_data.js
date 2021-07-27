@@ -87,7 +87,7 @@
             for(i=0; i<length_tm; i++) {
             var data_date = new Date(yahoo_data.chart.result[0].timestamp[i] * 1000);
             // console.log(yahoo_data.chart.result[0].indicators.adjclose[0]);
-            var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
+            var data_price = yahoo_data.chart.result[0].indicators.quote[0].close[i];
             console.log(data_price);
             as_data_date.push(
               appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
