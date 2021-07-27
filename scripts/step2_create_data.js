@@ -77,7 +77,7 @@
           let as_data_price = new Array();
           let ex_choo = exchange_choose_current;
 
-          const proxyurl = "https://cors-anywhere.herokuapp.com/";
+          const proxyurl = "https://test.cors.workers.dev/?";
           const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
 
           $.getJSON(proxyurl+urls, function(result){
