@@ -83,7 +83,7 @@
           $.getJSON(proxyurl+urls, function(result){
             // console.log(result);
             console.log(result.contents);
-            console.log(result.contents[0]);
+            console.log(result.contents[1]);
             var yahoo_data = result.contents;
             let length_tm = yahoo_data.chart.result[0].timestamp.length;
             for(i=0; i<length_tm; i++) {
