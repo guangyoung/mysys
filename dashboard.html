@@ -156,7 +156,7 @@
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-top: -5px;"><i class="fa fa-github" style="color: #ffffff; cursor: pointer; font-size: 35px"></i></a>
                     <!-- <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-top: -2px; margin-left: 30px"><i class="fa fa-google" style="color: #ffffff; cursor: pointer; font-size: 30px"></i></a> -->
                     <!-- <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-top: -5px; margin-left: 30px"><i class="fa fa-github" style="color: #ffffff; cursor: pointer; font-size: 35px"></i></a> -->
-                    <a href="https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb" target="_blank" style="margin-left: 15px"><img src="https://colab.research.google.com/assets/colab-badge.svg" width="130" alt="Open In Colab"/></a>
+                    <a href="https://colab.research.google.com/github/heriyang9000/test2/blob/main/test1.ipynb" target="_blank" style="margin-left: 15px"><img src="https://colab.research.google.com/assets/colab-badge.svg" width="130" alt="Open In Colab"/></a>
                     <a onclick="logout_btn()" style="margin-top: -5px; margin-left: 15px"><i class="fa fa-sign-out" style="color: #ffffff; cursor: pointer; font-size: 35px"></i></a>
                 </div>
             </div>
@@ -367,7 +367,7 @@
                                         </div>
                                     </div>
                                     <div class="dropdown" id="tickers_list">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" type="button" data-toggle="dropdown" style="margin-left: 10px; font-size: 13px; width: 120px; padding: 1px 5px">
+                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick = "tickers_list_btn ()" type="button" data-toggle="dropdown" style="margin-left: 10px; font-size: 13px; width: 120px; padding: 1px 5px">
                                             Tickers (<span class="quantity">0</span>)
                                         </button>
                                         <div id="div_ulul">
@@ -536,37 +536,37 @@
         console.log(exchange_choose_current);
         });    
 
-        $("#tickers_list").on('click', '.dropdown-toggle', function (event) {
-        if(!exchange_choose_current) {
-            $('#ulul').empty();
-            var newLi = document.createElement('li');
-            var li = document.createTextNode("\u00A0\u00A0Please Choose Your \u00A0\u00A0Exchange !!");
-            newLi.appendChild(li);
-            document.getElementById("ulul").appendChild(newLi);
-            return false;
-        } else if (exchange_choose_current !== exchange_choose) {
-            ticker_list = [];    
-            $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
-            exchange_choose = exchange_choose_current;
-            $('#ulul').empty();
-            var tickers = eval(exchange_choose_current+"_ticker_list");
-            for (i=0;i<tickers.length;i++) {
-            var newLi = document.createElement('li');
-            var cb = document.createElement( "input" );
-            cb.type = "checkbox";
-            cb.style.marginLeft = '15px';
-            cb.style.marginRight = '5px';
-            // cb.id = "c1";
-            // cb.checked = false;
-            newLi.appendChild(cb);
-            var text = document.createTextNode(tickers[i]);
-            newLi.appendChild(text);
-            document.getElementById("ulul").appendChild(newLi);
-            }
-        } else {
-            return false;
-        }
-        });
+        // $("#tickers_list").on('click', '.dropdown-toggle', function (event) {
+        // if(!exchange_choose_current) {
+        //     $('#ulul').empty();
+        //     var newLi = document.createElement('li');
+        //     var li = document.createTextNode("\u00A0\u00A0Please Choose Your \u00A0\u00A0Exchange !!");
+        //     newLi.appendChild(li);
+        //     document.getElementById("ulul").appendChild(newLi);
+        //     return false;
+        // } else if (exchange_choose_current !== exchange_choose) {
+        //     ticker_list = [];    
+        //     $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
+        //     exchange_choose = exchange_choose_current;
+        //     $('#ulul').empty();
+        //     var tickers = eval(exchange_choose_current+"_ticker_list");
+        //     for (i=0;i<tickers.length;i++) {
+        //     var newLi = document.createElement('li');
+        //     var cb = document.createElement( "input" );
+        //     cb.type = "checkbox";
+        //     cb.style.marginLeft = '15px';
+        //     cb.style.marginRight = '5px';
+        //     // cb.id = "c1";
+        //     // cb.checked = false;
+        //     newLi.appendChild(cb);
+        //     var text = document.createTextNode(tickers[i]);
+        //     newLi.appendChild(text);
+        //     document.getElementById("ulul").appendChild(newLi);
+        //     }
+        // } else {
+        //     return false;
+        // }
+        // });
 
         $("#tickers_list").on('click', '.dropdown-menu li', function (event) { 
         event.stopPropagation();
