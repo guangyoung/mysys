@@ -81,13 +81,12 @@
           const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
 
           $.getJSON(proxyurl+urls, function(result){
-            // console.log(result);
-            console.log(result.contents);
             console.log(result.contents);
             var yahoo_data = JSON.parse(result.contents);
             let length_tm = yahoo_data.chart.result[0].timestamp.length;
             for(i=0; i<length_tm; i++) {
             var data_date = new Date(yahoo_data.chart.result[0].timestamp[i] * 1000);
+            console.log(data_date);
             var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
             as_data_date.push(
               appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
