@@ -86,7 +86,7 @@
             let length_tm = yahoo_data.chart.result[0].timestamp.length;
             for(i=0; i<length_tm; i++) {
             var data_date = new Date(yahoo_data.chart.result[0].timestamp[i] * 1000);
-            console.log(yahoo_data.chart.result[0].indicators);
+            console.log(yahoo_data.chart.result[0].indicators[0].adjclose);
             var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
             console.log(data_price);
             as_data_date.push(
