@@ -81,7 +81,7 @@
           const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
 
           $.getJSON(proxyurl+urls, function(result){
-            console.log(result);
+            console.log(result.chart);
             var yahoo_data = result;
             let length_tm = yahoo_data.chart.result[0].timestamp.length;
             for(i=0; i<length_tm; i++) {
