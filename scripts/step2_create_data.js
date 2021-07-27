@@ -77,8 +77,22 @@
           let as_data_price = new Array();
           let ex_choo = exchange_choose_current;
 
-          const proxyurl = "https://api.allorigins.win/get?url=";
+          const proxyurl = "https://api.allorigins.win/get?callback=myFunc&url=";
           const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
+
+          // var url = "http://service.example.com";
+              $.ajax({
+                  type:"GET",
+                  url:urls,
+                  async:true,
+                  dataType: "json",
+                    success: function(json) {
+                       console.log(json);
+                    },
+                    error: function(xhr, status, err) {
+                        // This is where we end up! 
+                      }
+              });
 
           $.getJSON(proxyurl+urls, function(result){
             console.log(result.contents);
@@ -86,7 +100,7 @@
             let length_tm = yahoo_data.chart.result[0].timestamp.length;
             for(i=0; i<length_tm; i++) {
             var data_date = new Date(yahoo_data.chart.result[0].timestamp[i] * 1000);
-            console.log(yahoo_data.chart.result[0].indicators.adjclose[0]);
+            // console.log(yahoo_data.chart.result[0].indicators.adjclose[0]);
             var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
             console.log(data_price);
             as_data_date.push(
