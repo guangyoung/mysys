@@ -77,22 +77,8 @@
           let as_data_price = new Array();
           let ex_choo = exchange_choose_current;
 
-          const proxyurl = "https://api.allorigins.win/get?callback=myFunc&url=";
+          const proxyurl = "https://myorg-test.apigee.net/v1/";
           const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
-
-          // var url = "http://service.example.com";
-              $.ajax({
-                  type:"GET",
-                  url:urls,
-                  async:true,
-                  dataType: "json",
-                    success: function(json) {
-                       console.log(json);
-                    },
-                    error: function(xhr, status, err) {
-                        // This is where we end up! 
-                      }
-              });
 
           $.getJSON(proxyurl+urls, function(result){
             console.log(result.contents);
