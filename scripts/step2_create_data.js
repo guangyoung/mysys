@@ -77,11 +77,11 @@
           let as_data_price = new Array();
           let ex_choo = exchange_choose_current;
 
-          const proxyurl = "https://jsonp.afeld.me/?url=";
-          const urls = "https://query1.finance.yahoo.com/v8/finance/chart/aapl?symbol=aapl&period1=0&period2=9999999999&interval=1d";
+          const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
+          const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
 
           $.getJSON(proxyurl+urls, function(result){
-            console.log(result.chart.result[0].indicators);
+            console.log(result);
             var yahoo_data = result;
             let length_tm = yahoo_data.chart.result[0].timestamp.length;
             for(i=0; i<length_tm; i++) {
