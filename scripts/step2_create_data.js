@@ -78,7 +78,7 @@
           let ex_choo = exchange_choose_current;
 
           const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
-          const urls = "https://query2.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
+          const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
 
           $.getJSON(proxyurl+urls, function(result){
             console.log(result);
@@ -147,13 +147,13 @@
     }
 
     function reset_portfolio() {
-      asset_portfolio_yahoo = [];
-      $("#table_assets > tbody").empty();
-      exchange_choose_current="";
-      exchange_choose ="";
-      ticker_list = [];    
       $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
       $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
+      ticker_list = [];
+      exchange_choose_current="";
+      exchange_choose ="";
+      asset_portfolio_yahoo = [];
+      $("#table_assets > tbody").empty();
       $('#ulul').empty();
     }
 
