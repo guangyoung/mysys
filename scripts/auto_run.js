@@ -26,7 +26,7 @@ function autorun() {
     // console.log(tickers);
     // console.log(descriptions);
 
-    for(i=0; i<30; i++) {
+    for(i=0; i<3; i++) {
         // console.log(tickers[0]);
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/aapl?symbol=aapl&period1=0&period2=9999999999&interval=1d";
