@@ -17,14 +17,14 @@ function autorun() {
         complete: function(result) {
             for(i=1; i<31; i++) {
                 exchanges.push(result.data[i][1]);
-                tickers.push(result.data[i][2]);
-                descriptions.push(result.data[i][3]);
+                exchanges.push(result.data[i][2]);
+                exchanges.push(result.data[i][3]);
             }        
         }
     });
     console.log(exchanges);
-    console.log(tickers);
-    console.log(descriptions);
+    // console.log(tickers);
+    // console.log(descriptions);
 
     for(i=0; i<30; i++) {
         // console.log(tickers[0]);
