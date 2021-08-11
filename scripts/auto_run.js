@@ -17,7 +17,7 @@ function autorun() {
             const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i][2]+"?symbol="+result.data[i][2]+"&period1=0&period2=9999999999&interval=1d";
 
             $.getJSON(proxyurl+urls, function(result){
-                console.log(result);
+                console.log(result.chart.result[0].indicators.adjclose[0].adjclose);
                 // var yahoo_data = result;
                 // let length_tm = yahoo_data.chart.result[0].timestamp.length;
                 // for(i=0; i<length_tm; i++) {
