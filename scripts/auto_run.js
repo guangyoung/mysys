@@ -7,9 +7,9 @@ var interestrate = 0.02;
 //data
 
 function autorun() {    
-    var exchanges = new Array();
-    var tickers = new Array();
-    var descriptions = new Array();
+    var exchanges = [];
+    var tickers = [];
+    var descriptions = [];
     var eoddata;
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
@@ -23,7 +23,7 @@ function autorun() {
         }
     });
     console.log(exchanges);
-    console.log(tickers[0]);
+    console.log(tickers);
     console.log(descriptions);
 
     for(i=0; i<30; i++) {
