@@ -14,10 +14,6 @@ function autorun() {
             
             for(i=0; i<3; i++) {
                 var eoddata= new Array();
-                // console.log(tickers[0]);
-                // let exc = datdat[i].exchange;
-                // let tickere = datdat[i].ticker;
-                // let des = datdat[i].description;
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i].Symbol+"?symbol="+result.data[i].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){ 
@@ -25,12 +21,11 @@ function autorun() {
                     eoddata.push(data.chart.result[0].indicators.adjclose[0].adjclose); 
                     console.log(eoddata);               
                 });
-                console.log(eoddata);
                 historical_data = {
                     exchange: "NYSE",
                     ticker: result.data[i].Symbol,
                     description: "des",
-                    data: eoddata.toString()
+                    data: eoddata[0].toString()
                 }              
                 console.log(historical_data);
                 $.ajax({
