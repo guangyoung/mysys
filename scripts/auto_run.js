@@ -13,7 +13,7 @@ function autorun() {
         complete: function(result) {
             
             for(i=0; i<3; i++) {
-                var eoddata;
+                var eoddata=[];
                 // console.log(tickers[0]);
                 // let exc = datdat[i].exchange;
                 // let tickere = datdat[i].ticker;
@@ -22,7 +22,7 @@ function autorun() {
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i].Symbol+"?symbol="+result.data[i].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){ 
 
-                    eoddata = data.chart.result[0].indicators.adjclose[0].adjclose; 
+                    eoddata.push(data.chart.result[0].indicators.adjclose[0].adjclose); 
                                         
                 });
                 console.log(eoddata);
