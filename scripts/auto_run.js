@@ -14,7 +14,7 @@ function autorun() {
         for(i=1; i<30; i++) {
             const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
             const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i][2]+"?symbol="+result.data[i][2]+"&period1=0&period2=9999999999&interval=1d";
-            const dat;
+            var dat;
             $.getJSON(proxyurl+urls, function(data){
                 dat = data.chart.result[0].indicators.adjclose[0].adjclose;
             });
