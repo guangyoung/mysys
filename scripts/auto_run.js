@@ -6,7 +6,7 @@ var interestrate = 0.02;
 
 //data
 function autorun() {
-    Papa.parse("dataset/stock_tickers.csv", {
+    Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: false,
         complete: function(result) {
