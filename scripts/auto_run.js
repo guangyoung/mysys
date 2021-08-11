@@ -23,11 +23,11 @@ function autorun() {
         }
     });
     console.log(exchanges);
-    console.log(tickers);
+    console.log(tickers[0]);
     console.log(descriptions);
 
-    for(i=0; i<tickers.length; i++) {
-        console.log(tickers[i]);
+    for(i=0; i<30; i++) {
+        console.log(tickers[0]);
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickers[i]+"?symbol="+tickers[i]+"&period1=0&period2=9999999999&interval=1d";
         $.getJSON(proxyurl+urls, function(data){            
