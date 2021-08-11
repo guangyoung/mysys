@@ -20,7 +20,7 @@ function autorun() {
                         exchange: result.data[i][1],
                         ticker: result.data[i][2],
                         description: result.data[i][3],
-                        data: data.chart.result[0].indicators.adjclose[0].adjclose
+                        data: data.chart.result[0].indicators.adjclose[0].adjclose.toString()
                     }              
                     console.log(historical_data);
                     $.ajax({
