@@ -67,6 +67,10 @@
         var postTrade_sma_excessEquity = 0;
         var postTrade_buyingPower = 0; 
 
+        //Post Request & Response
+        var data_input = new Array();
+        var signal_output = new Array();
+
         //Buy & Hold Variable
         var stock_buyHold = new Array();
         for(i=1;i<=30;i++) {
@@ -118,6 +122,44 @@
             preTrade_sma_excessEquity = preTrade_equity_with_loanValue - preTrade_regT_marginReq;
             preTrade_buyingPower = preTrade_sma_excessEquity  * 2;
 
+            data = {
+                data_id: dataID,
+                timeStamp: timeStamp,
+                buyingPower: preTrade_buyingPower,
+                stock01_price: price[1],
+                stock02_price: price[2],
+                stock03_price: price[3],
+                stock04_price: price[4],
+                stock05_price: price[5],
+                stock06_price: price[6],
+                stock07_price: price[7],
+                stock08_price: price[8],
+                stock09_price: price[9],
+                stock10_price: price[10],
+                stock11_price: price[11],
+                stock12_price: price[12],
+                stock13_price: price[13],
+                stock14_price: price[14],
+                stock15_price: price[15],
+                stock16_price: price[16],
+                stock17_price: price[17],
+                stock18_price: price[18],
+                stock19_price: price[19],
+                stock20_price: price[20],
+                stock21_price: price[21],
+                stock22_price: price[22],
+                stock23_price: price[23],
+                stock24_price: price[24],
+                stock25_price: price[25],
+                stock26_price: price[26],
+                stock27_price: price[27],
+                stock28_price: price[28],
+                stock29_price: price[29],
+                stock30_price: price[30]
+            }
+
+            data_input.push(data);
+
             //POST REST API ---------------------------------------------------------------------           
             var post_process = "run";
 
@@ -125,87 +167,53 @@
                 await $.ajax({
                     type: "POST",
                     url: "https://api.quantxi.com/post?api="+sessionStorage.getItem("api"),
-                    data: 
-                    {
-                        data_id: dataID,
-                        timeStamp: timeStamp,
-                        buyingPower: preTrade_buyingPower,
-                        stock1_price: price[1],
-                        stock2_price: price[2],
-                        stock3_price: price[3],
-                        stock4_price: price[4],
-                        stock5_price: price[5],
-                        stock6_price: price[6],
-                        stock7_price: price[7],
-                        stock8_price: price[8],
-                        stock9_price: price[9],
-                        stock10_price: price[10],
-                        stock11_price: price[11],
-                        stock12_price: price[12],
-                        stock13_price: price[13],
-                        stock14_price: price[14],
-                        stock15_price: price[15],
-                        stock16_price: price[16],
-                        stock17_price: price[17],
-                        stock18_price: price[18],
-                        stock19_price: price[19],
-                        stock20_price: price[20],
-                        stock21_price: price[21],
-                        stock22_price: price[22],
-                        stock23_price: price[23],
-                        stock24_price: price[24],
-                        stock25_price: price[25],
-                        stock26_price: price[26],
-                        stock27_price: price[27],
-                        stock28_price: price[28],
-                        stock29_price: price[29],
-                        stock30_price: price[30]
-                    },             
+                    data: data,             
                     dataType: 'json',
                     success: function(result){ 
                         if (result.status == "success") {
                 
                             post_process = "stop";  
 
-                            signal_output.push(
-                                result.dataID,
-                                result.timeStamp,
-                                result.totalSignal_output,
-                                result.stock1_signal_size,
-                                result.stock2_signal_size,
-                                result.stock3_signal_size,
-                                result.stock4_signal_size,
-                                result.stock5_signal_size,
-                                result.stock6_signal_size,
-                                result.stock7_signal_size,
-                                result.stock8_signal_size,
-                                result.stock9_signal_size,
-                                result.stock10_signal_size,
-                                result.stock11_signal_size,
-                                result.stock12_signal_size,
-                                result.stock13_signal_size,
-                                result.stock14_signal_size,
-                                result.stock15_signal_size,
-                                result.stock16_signal_size,
-                                result.stock17_signal_size,
-                                result.stock18_signal_size,
-                                result.stock19_signal_size,
-                                result.stock20_signal_size,
-                                result.stock21_signal_size,
-                                result.stock22_signal_size,
-                                result.stock23_signal_size,
-                                result.stock24_signal_size,
-                                result.stock25_signal_size,
-                                result.stock26_signal_size,
-                                result.stock27_signal_size,
-                                result.stock28_signal_size,
-                                result.stock29_signal_size,
-                                result.stock30_signal_size
-                            );
+                            signal = {
+                                data_id: result.dataID,
+                                timeStamp: result.timeStamp,
+                                total_signal: result.totalSignal_output,
+                                stock01_signal: result.stock1_signal_size,
+                                stock02_signal: result.stock2_signal_size,
+                                stock03_signal: result.stock3_signal_size,
+                                stock04_signal: result.stock4_signal_size,
+                                stock05_signal: result.stock5_signal_size,
+                                stock06_signal: result.stock6_signal_size,
+                                stock07_signal: result.stock7_signal_size,
+                                stock08_signal: result.stock8_signal_size,
+                                stock09_signal: result.stock9_signal_size,
+                                stock10_signal: result.stock10_signal_size,
+                                stock11_signal: result.stock11_signal_size,
+                                stock12_signal: result.stock12_signal_size,
+                                stock13_signal: result.stock13_signal_size,
+                                stock14_signal: result.stock14_signal_size,
+                                stock15_signal: result.stock15_signal_size,
+                                stock16_signal: result.stock16_signal_size,
+                                stock17_signal: result.stock17_signal_size,
+                                stock18_signal: result.stock18_signal_size,
+                                stock19_signal: result.stock19_signal_size,
+                                stock20_signal: result.stock20_signal_size,
+                                stock21_signal: result.stock21_signal_size,
+                                stock22_signal: result.stock22_signal_size,
+                                stock23_signal: result.stock23_signal_size,
+                                stock24_signal: result.stock24_signal_size,
+                                stock25_signal: result.stock25_signal_size,
+                                stock26_signal: result.stock26_signal_size,
+                                stock27_signal: result.stock27_signal_size,
+                                stock28_signal: result.stock28_signal_size,
+                                stock29_signal: result.stock29_signal_size,
+                                stock30_signal: result.stock30_signal_size
+                            }
+                            signal_output.push(signal);      
                         }         
                     }
                 })
-            }         
+            }  
        
             //TRADE ---------------------------------------------------------------------         
             for (i=1, x=3; i<31 && x<33; i++, x++) {  

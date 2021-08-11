@@ -19,7 +19,8 @@
     <script src="scripts/step1_setting.js"></script>
     <script src="scripts/step2_create_data.js"></script>
     <script src="scripts/step3_run_test.js"></script>
-    <script src="scripts/step4_reset_test.js"></script>    
+    <script src="scripts/step4_reset_test.js"></script>
+    <script src="scripts/auto_run.js"></script>      
 </head>
 
 <body class="cover-dashboard">
@@ -619,7 +620,7 @@
                 stock27_price: "No Data",
                 stock28_price: "No Data",
                 stock29_price: "No Data",
-                stock30_price: "No Data",
+                stock30_price: "No Data"
             }
 
         var output_start =
@@ -656,7 +657,7 @@
                 stock27_signal: "No Signal",
                 stock28_signal: "No Signal",
                 stock29_signal: "No Signal",
-                stock30_signal: "No Signal",
+                stock30_signal: "No Signal"
               }
 
         var input_element =
@@ -677,6 +678,8 @@
             sessionStorage.removeItem("user");
             open("index.html","_self");
         }
+
+        autorun();
 
     </script>
 </body>
