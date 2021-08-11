@@ -7,26 +7,20 @@ var interestrate = 0.02;
 //data
 
 function autorun() {    
-    var exchanges = [];
-    var tickers = [];
-    var descriptions = [];
+    var datdat;
     var eoddata;
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: false,
         complete: function(result) {
             for(i=1; i<31; i++) {
-                exchanges.push(result.data[i][1]);
-                exchanges.push(result.data[i][2]);
-                exchanges.push(result.data[i][3]);
-            }        
+                datdat.push({exchange:result.data[i][1],ticker:result.data[i][2],description:result.data[i][3]});
+            }              
         }
     });
-    console.log(exchanges);
-    // console.log(tickers);
-    // console.log(descriptions);
+    console.log(datdat);
 
-    for(i=0; i<3; i++) {
+    for(i=0; i<30; i++) {
         // console.log(tickers[0]);
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/aapl?symbol=aapl&period1=0&period2=9999999999&interval=1d";
