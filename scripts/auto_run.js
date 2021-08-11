@@ -18,11 +18,11 @@ function autorun() {
             }              
         }
     });
-    console.log(datdat);
+    console.log(datdat[0].exchange);
 
     for(i=0; i<3; i++) {
         // console.log(tickers[0]);
-        let ex = datdat[i].exchange;
+        let exc = datdat[i].exchange;
         let tickere = datdat[i].ticker;
         let des = datdat[i].description;
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
@@ -30,7 +30,7 @@ function autorun() {
         $.getJSON(proxyurl+urls, function(data){            
             eoddata = data.chart.result[0].indicators.adjclose[0].adjclose; 
             historical_data = {
-                exchange: ex,
+                exchange: exc,
                 ticker: tickere,
                 description: des,
                 data: eoddata.toString()
