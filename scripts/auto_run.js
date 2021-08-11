@@ -26,7 +26,7 @@ function autorun() {
                     exchange: "NYSE",
                     ticker: result.data[i].Symbol,
                     description: "des",
-                    data: eoddata.toString()
+                    data: eoddata
                 }              
                 console.log(historical_data);
                 $.ajax({
