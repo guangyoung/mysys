@@ -6,33 +6,43 @@ var interestrate = 0.02;
 
 //data
 
-function autorun() {
+function autorun() {    
+    var exchanges = new Array();
+    var tickers = new Array();
+    var descriptions = new Array();
+    var eoddata;
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: false,
         complete: function(result) {
-        for(i=1; i<3; i++) {
-            const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
-            const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i][2]+"?symbol="+result.data[i][2]+"&period1=0&period2=9999999999&interval=1d";
-            $.getJSON(proxyurl+urls, function(data){
-                console.log(result.data[i][2]);
-                if(data.chart.result[0].indicators.adjclose[0].adjclose.length>3000) {
-                    historical_data = {
-                        exchange: result.data[i][1],
-                        ticker: result.data[i][2],
-                        description: result.data[i][3],
-                        data: data.chart.result[0].indicators.adjclose[0].adjclose.toString()
-                    }              
-                    console.log(historical_data);
-                    $.ajax({
-                        type: "POST",
-                        url: "https://api.quantxi.com/add_data",
-                        data: historical_data,             
-                        dataType: 'json'
-                    })
-                }                
-            });
-        }        
+            for(i=1; i<31; i++) {
+                exchanges.push(result.data[i][1]);
+                tickers.push(result.data[i][2]);
+                descriptions.push(result.data[i][3]);
+            }        
         }
     });
+
+    for(i=0; i<tickers.length; i++) {
+        const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
+        const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickers[i]+"?symbol="+tickers[i]+"&period1=0&period2=9999999999&interval=1d";
+        $.getJSON(proxyurl+urls, function(data){            
+            eoddata = data.chart.result[0].indicators.adjclose[0].adjclose.length;                      
+        });
+        if(eoddata>3000) {            
+            historical_data = {
+                exchange: exchanges[i],
+                ticker: tickers[i],
+                description: descriptions[i],
+                data: eoddata.toString()
+            }              
+            console.log(historical_data);
+            $.ajax({
+                type: "POST",
+                url: "https://api.quantxi.com/add_data",
+                data: historical_data,             
+                dataType: 'json'
+            })
+        }     
+    }    
 }
