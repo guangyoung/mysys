@@ -6,7 +6,7 @@ var interestrate = 0.02;
 
 //data
 
-async function autorun() {
+function autorun() {
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: false,
@@ -23,7 +23,7 @@ async function autorun() {
                         data: data.chart.result[0].indicators.adjclose[0].adjclose
                     }              
                     
-                    await $.ajax({
+                    $.ajax({
                         type: "POST",
                         url: "https://api.quantxi.com/add_data",
                         data: historical_data,             
