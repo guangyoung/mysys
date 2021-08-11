@@ -23,7 +23,7 @@ function autorun() {
                 $.getJSON(proxyurl+urls, function(data){ 
 
                     eoddata.push(data.chart.result[0].indicators.adjclose[0].adjclose); 
-                                        
+                    console.log(eoddata);               
                 });
                 console.log(eoddata);
                 historical_data = {
