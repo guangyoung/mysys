@@ -23,12 +23,13 @@ function autorun() {
 
                     eoddata.push(data.chart.result[0].indicators.adjclose[0].adjclose); 
                                         
-                }); 
+                });
+                console.log(eoddata);
                 historical_data = {
                     exchange: "NYSE",
                     ticker: result.data[i].Symbol,
                     description: "des",
-                    data: eoddata
+                    data: eoddata.toString()
                 }              
                 console.log(historical_data);
                 $.ajax({
