@@ -22,14 +22,14 @@ function autorun() {
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i].Symbol+"?symbol="+result.data[i].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){ 
 
-                    eoddata = data.chart.result[0].indicators.adjclose[0].adjclose; 
+                    eoddata = data.chart.result[0].indicators.adjclose[0].adjclose.toString(); 
                                         
                 }); 
                 historical_data = {
                     exchange: "NYSE",
                     ticker: result.data[i].Symbol,
                     description: "des",
-                    data: eoddata.toString()
+                    data: eoddata
                 }              
                 console.log(historical_data);
                 $.ajax({
