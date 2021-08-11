@@ -23,17 +23,17 @@ function autorun() {
         }
     });
     console.log(tickers);
-    for(i=0; i<tickers.length; i++) {
+    // for(i=0; i<tickers.length; i++) {
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
-        const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickers[i]+"?symbol="+tickers[i]+"&period1=0&period2=9999999999&interval=1d";
+        const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickers[0]+"?symbol="+tickers[0]+"&period1=0&period2=9999999999&interval=1d";
         $.getJSON(proxyurl+urls, function(data){            
            console.log(data.chart.result[0].indicators.adjclose[0].adjclose);                      
         });
         if(eoddata.length>3000) {            
             historical_data = {
-                exchange: exchanges[i],
-                ticker: tickers[i],
-                description: descriptions[i],
+                exchange: exchanges[0],
+                ticker: tickers[0],
+                description: descriptions[0],
                 data: eoddata.toString()
             }              
             console.log(historical_data);
@@ -44,5 +44,5 @@ function autorun() {
                 dataType: 'json'
             })
         }     
-    }    
+    // }    
 }
