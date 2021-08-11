@@ -11,7 +11,7 @@ function autorun() {
         download: true,
         header: false,
         complete: function(result) {
-        for(i=1; i<2; i++) {
+        for(i=1; i<30; i++) {
             const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
             const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i][2]+"?symbol="+result.data[i][2]+"&period1=0&period2=9999999999&interval=1d";
             $.getJSON(proxyurl+urls, function(data){
