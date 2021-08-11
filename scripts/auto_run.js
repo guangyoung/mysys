@@ -27,9 +27,9 @@ function autorun() {
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickers[i]+"?symbol="+tickers[i]+"&period1=0&period2=9999999999&interval=1d";
         $.getJSON(proxyurl+urls, function(data){            
-            eoddata = data.chart.result[0].indicators.adjclose[0].adjclose.length;                      
+            eoddata = data.chart.result[0].indicators.adjclose[0].adjclose;                      
         });
-        // if(eoddata>3000) {            
+        if(eoddata.length>3000) {            
             historical_data = {
                 exchange: exchanges[i],
                 ticker: tickers[i],
@@ -43,6 +43,6 @@ function autorun() {
                 data: historical_data,             
                 dataType: 'json'
             })
-        // }     
+        }     
     }    
 }
