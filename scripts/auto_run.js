@@ -12,7 +12,7 @@ function autorun() {
         header: false,
         complete: function(result) {
         console.log(result.data);
-        for(i=1; i<result.data.length; i++) {
+        for(i=1; i<5; i++) {
             const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
             const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i][2]+"?symbol="+result.data[i][2]+"&period1=0&period2=9999999999&interval=1d";
 
