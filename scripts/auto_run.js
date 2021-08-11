@@ -10,7 +10,7 @@ function autorun() {
         download: true,
         header: false,
         complete: function(result) {
-        console.log(result.data);
+        console.log(result.data[2]);
         // for(i=1; i<result.data.length; i++) {
         //     var data_date = new Date(result.data[i][0]);
         //     var data_price = result.data[i][5];
