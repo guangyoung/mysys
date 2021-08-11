@@ -22,14 +22,17 @@ function autorun() {
 
     for(i=0; i<3; i++) {
         // console.log(tickers[0]);
+        let ex = datdat[i].exchange;
+        let tickere = datdat[i].ticker;
+        let des = datdat[i].description;
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
-        const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+datdat[i].ticker+"?symbol="+datdat[i].ticker+"&period1=0&period2=9999999999&interval=1d";
+          const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
         $.getJSON(proxyurl+urls, function(data){            
             eoddata = data.chart.result[0].indicators.adjclose[0].adjclose; 
             historical_data = {
-                exchange: datdat[i].exchange,
-                ticker: datdat[i].ticker,
-                description: datdat[i].description,
+                exchange: ex,
+                ticker: tickere,
+                description: des,
                 data: eoddata.toString()
             }              
             console.log(historical_data);
