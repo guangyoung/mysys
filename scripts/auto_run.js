@@ -13,13 +13,13 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            console.log(result);
-            for(i=1; i<31; i++) {
-                datdat.push({exchange:result.data[i][1],ticker:result.data[i][2],description:result.data[i][3]});
-            }              
+            console.log(result.data[0].Symbol);
+            // for(i=1; i<31; i++) {
+            //     datdat.push({exchange:result.data[i][1],ticker:result.data[i][2],description:result.data[i][3]});
+            // }              
         }
     });
-    console.log(datdat[0]);
+    // console.log(datdat[0]);
 
     for(i=0; i<3; i++) {
         // console.log(tickers[0]);
