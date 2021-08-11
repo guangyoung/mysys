@@ -29,7 +29,7 @@ function autorun() {
         $.getJSON(proxyurl+urls, function(data){            
             eoddata = data.chart.result[0].indicators.adjclose[0].adjclose.length;                      
         });
-        if(eoddata>3000) {            
+        // if(eoddata>3000) {            
             historical_data = {
                 exchange: exchanges[i],
                 ticker: tickers[i],
@@ -43,6 +43,6 @@ function autorun() {
                 data: historical_data,             
                 dataType: 'json'
             })
-        }     
+        // }     
     }    
 }
