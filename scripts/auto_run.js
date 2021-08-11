@@ -11,8 +11,9 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            var eoddata=[];
+            
             for(i=0; i<3; i++) {
+                var eoddata=[];
                 // console.log(tickers[0]);
                 // let exc = datdat[i].exchange;
                 // let tickere = datdat[i].ticker;
