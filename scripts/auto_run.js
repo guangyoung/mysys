@@ -22,7 +22,7 @@ function autorun() {
                         description: result.data[i][3],
                         data: data.chart.result[0].indicators.adjclose[0].adjclose
                     }              
-                    
+                    console.log(historical_data);
                     $.ajax({
                         type: "POST",
                         url: "https://api.quantxi.com/add_data",
