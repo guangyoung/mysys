@@ -11,14 +11,15 @@ function autorun() {
     var eoddata;
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
-        header: false,
+        header: true,
         complete: function(result) {
+            console.log(result);
             for(i=1; i<31; i++) {
                 datdat.push({exchange:result.data[i][1],ticker:result.data[i][2],description:result.data[i][3]});
             }              
         }
     });
-    console.log(datdat[0].exchange);
+    console.log(datdat[0]);
 
     for(i=0; i<3; i++) {
         // console.log(tickers[0]);
