@@ -31,9 +31,7 @@ function autorun() {
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/aapl?symbol=aapl&period1=0&period2=9999999999&interval=1d";
         $.getJSON(proxyurl+urls, function(data){            
-            eoddata = data.chart.result[0].indicators.adjclose[0].adjclose;                      
-        });
-        if(eoddata.length>3000) {            
+            eoddata = data.chart.result[0].indicators.adjclose[0].adjclose; 
             historical_data = {
                 exchange: "nyse",
                 ticker: "aapl",
@@ -46,7 +44,10 @@ function autorun() {
                 url: "https://api.quantxi.com/add_data",
                 data: historical_data,             
                 dataType: 'json'
-            })
-        }     
+            })                     
+        });
+        // if(eoddata.length>3000) {            
+           
+        // }     
     }    
 }
