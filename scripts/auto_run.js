@@ -13,7 +13,7 @@ function autorun() {
         complete: function(result) {
             
             for(i=0; i<3; i++) {
-                var eoddata=[];
+                var eoddata= new Array();
                 // console.log(tickers[0]);
                 // let exc = datdat[i].exchange;
                 // let tickere = datdat[i].ticker;
