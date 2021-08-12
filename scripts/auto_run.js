@@ -6,16 +6,19 @@ var interestrate = 0.02;
 
 //data
 var tick_list = new Array();
-function autorun() {     
+function autorun() {    
+    var tl = new Array();
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
         complete: function(result) {            
-            for(i=0; i<3; i++) {
-                tick_list.push(result.data[i].Symbol);
+            for(i=0; i<10; i++) {
+                tl.push(result.data[i].Symbol);
+               
             }                  
         }
     });
+    tick_list.push(tl);
     console.log(tick_list);
     for(i=0; i<3; i++) {
         console.log(tick_list[0]);
