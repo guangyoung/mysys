@@ -11,7 +11,7 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {             
-            for(i=0; i<30; i++) {
+            for(i=0; i<300; i++) {
                 let exchange= result.data[i].Exchange;
                 let ticker= result.data[i].Symbol;
                 let description= result.data[i].Description;             
