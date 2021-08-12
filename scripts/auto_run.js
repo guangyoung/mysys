@@ -24,7 +24,7 @@ function autorun() {
                         );
                     }
                 });     
-                console.log(as_data_price);  
+                // console.log(as_data_price);  
                 historical_data = {
                     exchange: result.data[i].Exchange,
                     ticker: result.data[i].Symbol,
