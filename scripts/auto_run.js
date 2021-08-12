@@ -25,22 +25,26 @@ function autorun() {
             // console.log(exch_list);
            
             for(i=0; i<3; i++) {
-                // let exchange = tl[0].exchange[i];
-                // let tickere = tl[0].ticker[i];
-                // let descrip = tl[0].description[i];
+                let as_data_price = new Array();
                 
                 
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i].Symbol+"?symbol="+result.data[i].Symbol+"&period1=0&period2=9999999999&interval=1d";
-                $.getJSON(proxyurl+urls, function(data){                 
-                    data_price.push(data.chart.result[0].indicators.adjclose[0].adjclose);
+                $.getJSON(proxyurl+urls, function(data){
+                    let length_tm = data.chart.result[0].timestamp.length;
+                    for(i=0; i<length_tm; i++) {                 
+                        var data_price = data.chart.result[0].indicators.adjclose[0].adjclose[i];
+                        as_data_price.push(
+                            data_price
+                        );
+                    }
                 });     
-                console.log(data_price[0]);  
+                console.log(as_data_price);  
                 historical_data = {
                     exchange: result.data[i].Exchange,
                     ticker: result.data[i].Symbol,
                     description: result.data[i].Description,
-                    data: data_price[i]
+                    data: as_data_price
                 }              
                 console.log(historical_data);
                 $.ajax({
