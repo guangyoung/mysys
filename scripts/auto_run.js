@@ -26,9 +26,9 @@ function autorun() {
     console.log(tl);
    
     for(i=0; i<3; i++) {
-        let exchange = tl.exchange[i];
-        let tickere = tl.ticker[i];
-        let descrip = tl.description[i];
+        let exchange = tl[0].exchange[i];
+        let tickere = tl[0].ticker[i];
+        let descrip = tl[0].description[i];
         
         var data_price;
         // let as_data_price = new Array();
