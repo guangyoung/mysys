@@ -12,25 +12,26 @@ function autorun() {
         header: true,
         complete: function(result) {             
             for(i=0; i<3; i++) {
-                let as_data_price = new Array();                
+                let as_data_price = new Array();  
+                let exchange= result.data[i].Exchange;
+                let ticker= result.data[i].Symbol;
+                let description= result.data[i].Description;             
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i].Symbol+"?symbol="+result.data[i].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){
                     // let length_tm = data.chart.result[0].timestamp.length;
                     // for(i=0; i<length_tm; i++) {                 
-                        var data_price = data.chart.result[0].indicators.adjclose[0].adjclose;
-                        as_data_price.push(
-                            data_price
-                        );
+                        // var data_price = data.chart.result[0].indicators.adjclose[0].adjclose;
+                        historical_data = {
+                            exchange: exchange,
+                            ticker: ticker,
+                            description: description,
+                            data: data.chart.result[0].indicators.adjclose[0].adjclose.toString()
+                        } 
                     // }
                 });     
                 // console.log(as_data_price);  
-                historical_data = {
-                    exchange: result.data[i].Exchange,
-                    ticker: result.data[i].Symbol,
-                    description: result.data[i].Description,
-                    data: as_data_price
-                }              
+                             
                 console.log(historical_data);
                 $.ajax({
                     type: "POST",
