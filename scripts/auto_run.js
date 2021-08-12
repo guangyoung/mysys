@@ -21,10 +21,11 @@ function autorun() {
                 des_list.push(result.data[i].Description);                 
             } 
             tl.push({exchange: exch_list, ticker: tick_list, description: des_list});
+            console.log(tl[0].exchange);
         }
     });
     console.log(tl);
-    console.log(tl[0].exchange);
+    
     for(i=0; i<3; i++) {
         let exchange = tl[0].exchange[i];
         let tickere = tl[0].ticker[i];
