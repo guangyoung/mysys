@@ -19,6 +19,7 @@ function autorun() {
 
     for(i=0; i<3; i++) {
         let tickere = tick_list[i];
+        console.log(tickere);
         let as_data_price = new Array();
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
@@ -26,7 +27,7 @@ function autorun() {
             var yahoo_data = result;
             console.log(yahoo_data);
             let length_tm = 1000;
-            for(i=1; i<length_tm; i++) {
+            for(i=0; i<length_tm; i++) {
                 var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
                 as_data_price.push(
                     data_price
