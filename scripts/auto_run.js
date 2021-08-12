@@ -55,6 +55,7 @@ function autorun() {
             }   
         }
     });
+    console.log(tickers_list);
     for(i=0; i<20; i++) {
         let exchange= exchanges_list[i];
         let ticker= tickers_list[i];
