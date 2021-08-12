@@ -29,17 +29,18 @@ function autorun() {
                             data: data.chart.result[0].indicators.adjclose[0].adjclose.toString()
                         } 
                         console.log(historical_data);
+                        $.ajax({
+                            type: "POST",
+                            url: "https://api.quantxi.com/add_data",
+                            data: historical_data,             
+                            dataType: 'json'
+                        }) 
                     // }
                 });     
                 // console.log(as_data_price);  
                              
                 
-                $.ajax({
-                    type: "POST",
-                    url: "https://api.quantxi.com/add_data",
-                    data: historical_data,             
-                    dataType: 'json'
-                }) 
+                
             }
         }
     });
