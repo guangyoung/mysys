@@ -13,21 +13,19 @@ function autorun() {
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
-        complete: function(result) { 
-              
+        complete: function(result) {               
             for(i=0; i<10; i++) {
                 exch_list.push(result.data[i].Exchange);
                 tick_list.push(result.data[i].Symbol);  
                 des_list.push(result.data[i].Description);                 
             } 
-            
-            
         }
     });
     tl.push({exchange: exch_list, ticker: tick_list, description: des_list});
     console.log(tl);
     console.log(tl[0].exchange);
     for(i=0; i<3; i++) {
+        console.log(tl[0].exchange[i]);
         let exchange = tl[0].exchange[i];
         let tickere = tl[0].ticker[i];
         let descrip = tl[0].description[i];
