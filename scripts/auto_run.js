@@ -7,27 +7,12 @@ var interestrate = 0.02;
 //data
 var tl = new Array();
 function autorun() {  
-    var tick_list = [];
-    var exch_list = []; 
-    var des_list = [];    
-    var data_price = [];
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
-        complete: function(result) {               
-            // for(i=0; i<10; i++) {
-            //     exch_list.push(result.data[i].Exchange);
-            //     tick_list.push(result.data[i].Symbol);  
-            //     des_list.push(result.data[i].Description);                 
-            // } 
-            // tl.push({exchanges: exch_list, ticker: tick_list, description: des_list});
-            // console.log(tl.exchanges);
-            // console.log(exch_list);
-           
+        complete: function(result) {             
             for(i=0; i<3; i++) {
-                let as_data_price = new Array();
-                
-                
+                let as_data_price = new Array();                
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i].Symbol+"?symbol="+result.data[i].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){
@@ -44,7 +29,7 @@ function autorun() {
                     exchange: result.data[i].Exchange,
                     ticker: result.data[i].Symbol,
                     description: result.data[i].Description,
-                    data: as_data_price
+                    data: as_data_price.toString()
                 }              
                 console.log(historical_data);
                 $.ajax({
