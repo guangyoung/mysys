@@ -18,7 +18,7 @@ function autorun() {
     });
     console.log(tick_list);
     for(i=0; i<3; i++) {
-        console.log(tick_list);
+        console.log(tick_list[0]);
         let tickere = tick_list[i].split(',')[0];
         
         let as_data_price = new Array();
