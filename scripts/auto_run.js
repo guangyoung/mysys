@@ -21,6 +21,7 @@ function autorun() {
             } 
             tl.push({exchanges: exch_list, ticker: tick_list, description: des_list});
             console.log(tl.exchanges);
+            console.log(exch_list);
             for(i=0; i<3; i++) {
                 let exchange = tl[0].exchange[i];
                 let tickere = tl[0].ticker[i];
