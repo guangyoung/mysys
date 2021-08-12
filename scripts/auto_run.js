@@ -17,8 +17,8 @@ function autorun() {
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[i].Symbol+"?symbol="+result.data[i].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){ 
                     eoddata.push(data.chart.result[0].indicators.adjclose[0].adjclose);
-                    eod.push(eoddata);                                
                 });
+                eod.push(eoddata);
                 console.log(eod);
                 historical_data = {
                     exchange: "NYSE",
