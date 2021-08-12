@@ -13,7 +13,7 @@ function autorun() {
         header: true,
         complete: function(result) {            
             for(i=0; i<10; i++) {
-                vartick_list.push(result.data[i].Symbol);               
+                var tick_list.push(result.data[i].Symbol);               
             }                  
         }
     });
