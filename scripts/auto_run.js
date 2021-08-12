@@ -13,7 +13,7 @@ function autorun() {
         header: true,
         complete: function(result) {            
             for(i=0; i<10; i++) {
-                tick_lis.push(result.data[i].Symbol);
+                tick_list.push({ticker: result.data[i].Symbol});
                
             }                  
         }
