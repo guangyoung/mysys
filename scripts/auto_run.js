@@ -18,7 +18,7 @@ function autorun() {
     });
     console.log(tick_list);
     for(i=0; i<3; i++) {
-        let tickere = tick_list[i];
+        let tickere = ticker_list[i].split(', ')[0];
         console.log(tickere);
         let as_data_price = new Array();
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
