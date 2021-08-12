@@ -26,28 +26,30 @@ function autorun() {
     console.log(tl);
    
     for(i=0; i<3; i++) {
-        // console.log(tick_list[0]);
-        let tickere = tick_list[i].split(',')[0];
+        let exchange = tl.exchange[i];
+        let tickere = tl.ticker[i];
+        let descrip = tl.description[i];
         
-        let as_data_price = new Array();
+        var data_price;
+        // let as_data_price = new Array();
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
         $.getJSON(proxyurl+urls, function(result){ 
-            var yahoo_data = result;
-            console.log(yahoo_data);
-            let length_tm = 1000;
-            for(i=0; i<length_tm; i++) {
-                var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
-                as_data_price.push(
-                    data_price
-                );
-            }
+            // var yahoo_data = result;
+            // console.log(yahoo_data);
+            // let length_tm = 1000;
+            // for(i=0; i<length_tm; i++) {
+                data_price = result.chart.result[0].indicators.adjclose[0].adjclose;
+                // as_data_price.push(
+                //     data_price
+                // );
+            // }
         });       
         historical_data = {
-            exchange: "NYSE",
+            exchange: exchange,
             ticker: tickere,
-            description: "des",
-            data: as_data_price
+            description: descrip,
+            data: data_price
         }              
         console.log(historical_data);
         $.ajax({
