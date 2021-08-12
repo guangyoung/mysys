@@ -13,6 +13,7 @@ function autorun() {
         header: true,
         complete: function(result) {            
             for(i=0; i<10; i++) {
+                console.log(result.data[i].Symbol);
                 tick_list.push(result.data[i].Symbol);               
             }                  
         }
