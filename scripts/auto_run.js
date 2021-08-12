@@ -5,9 +5,8 @@ var commisionshare = 0.01;
 var interestrate = 0.02;
 
 //data
-
-function autorun() {    
-    var tl = new Array();
+var tl = new Array();
+function autorun() {  
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
@@ -21,11 +20,11 @@ function autorun() {
                 des_list.push(result.data[i].Description);                 
             } 
             tl.push({exchange: exch_list, ticker: tick_list, description: des_list});
-            console.log(tl[0].exchange);
+            
         }
     });
     console.log(tl);
-    
+    console.log(tl[0].exchange);
     for(i=0; i<3; i++) {
         let exchange = tl[0].exchange[i];
         let tickere = tl[0].ticker[i];
