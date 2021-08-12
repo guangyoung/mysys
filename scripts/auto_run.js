@@ -24,7 +24,7 @@ function autorun() {
         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
         $.getJSON(proxyurl+urls, function(result){ 
             var yahoo_data = result;
-            let length_tm = 1000;
+            let length_tm = 10;
             for(i=0; i<length_tm; i++) {
                 var data_price = yahoo_data.chart.result[0].indicators.adjclose[0].adjclose[i];
                 as_data_price.push(
