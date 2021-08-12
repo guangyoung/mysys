@@ -20,7 +20,7 @@ function autorun() {
                 tick_list.push(result.data[i].Symbol);  
                 des_list.push(result.data[i].Description);                 
             } 
-            tl.push({exchange: exch_list,ticker: tick_list, description: des_list});
+            tl.push({exchange: exch_list, ticker: tick_list, description: des_list});
         }
     });
     console.log(tl);
