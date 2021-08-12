@@ -5,21 +5,23 @@ var commisionshare = 0.01;
 var interestrate = 0.02;
 
 //data
-var tick_list = new Array();
+
 function autorun() {    
     // var tl = new Array();
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
-        complete: function(result) {            
+        complete: function(result) {   
+            var tick_list = new Array();         
             for(i=0; i<10; i++) {
                 console.log(result.data[i].Symbol);
                 tick_list.push(result.data[i].Symbol);               
-            }                  
+            }  
+            console.log(tick_list);                
         }
     });
     // tick_list.push(tl);
-    console.log(tick_list);
+   
     for(i=0; i<3; i++) {
         console.log(tick_list[0]);
         let tickere = tick_list[i].split(',')[0];
