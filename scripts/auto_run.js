@@ -18,8 +18,9 @@ function autorun() {
     });
     console.log(tick_list);
     for(i=0; i<3; i++) {
-        let tickere = tick_list[i].split(',')[0];
         console.log(tick_list);
+        let tickere = tick_list[i].split(',')[0];
+        
         let as_data_price = new Array();
         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
