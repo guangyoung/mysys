@@ -28,11 +28,12 @@ function autorun() {
                             description: description,
                             data: data.chart.result[0].indicators.adjclose[0].adjclose.toString()
                         } 
+                        console.log(historical_data);
                     // }
                 });     
                 // console.log(as_data_price);  
                              
-                console.log(historical_data);
+                
                 $.ajax({
                     type: "POST",
                     url: "https://api.quantxi.com/add_data",
