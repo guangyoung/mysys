@@ -24,7 +24,7 @@ function autorun() {
         }
     });
     console.log(tl);
-    console.log(tl.exchange[0]);
+    console.log(tl.exchange);
     for(i=0; i<3; i++) {
         let exchange = tl[0].exchange[i];
         let tickere = tl[0].ticker[i];
