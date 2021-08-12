@@ -17,7 +17,7 @@ function autorun() {
                 console.log(result.data[i].Symbol);
                 tick_list.push(result.data[i].Symbol);               
             }  
-            console.log(tick_list);                
+            console.log(tick_list[1]);                
         }
     });
     // tick_list.push(tl);
