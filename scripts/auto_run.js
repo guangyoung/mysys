@@ -10,6 +10,7 @@ function autorun() {
     var tick_list = [];
     var exch_list = []; 
     var des_list = [];    
+    var data_price = [];
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
@@ -22,7 +23,7 @@ function autorun() {
             // tl.push({exchanges: exch_list, ticker: tick_list, description: des_list});
             // console.log(tl.exchanges);
             // console.log(exch_list);
-            var data_price = [];
+           
             for(i=0; i<3; i++) {
                 // let exchange = tl[0].exchange[i];
                 // let tickere = tl[0].ticker[i];
@@ -34,7 +35,7 @@ function autorun() {
                 $.getJSON(proxyurl+urls, function(data){                 
                     data_price.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                 });     
-                console.log(data_price);  
+                console.log(data_price[0]);  
                 historical_data = {
                     exchange: result.data[i].Exchange,
                     ticker: result.data[i].Symbol,
