@@ -7,22 +7,24 @@ var interestrate = 0.02;
 //data
 var tl = new Array();
 function autorun() {  
+    var tick_list = new Array();
+    var exch_list = new Array(); 
+    var des_list = new Array();    
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
-        complete: function(result) {   
-            var tick_list = new Array();
-            var exch_list = new Array(); 
-            var des_list = new Array();      
+        complete: function(result) { 
+              
             for(i=0; i<10; i++) {
                 exch_list.push(result.data[i].Exchange);
                 tick_list.push(result.data[i].Symbol);  
                 des_list.push(result.data[i].Description);                 
             } 
-            tl.push({exchange: exch_list, ticker: tick_list, description: des_list});
+            
             
         }
     });
+    tl.push({exchange: exch_list, ticker: tick_list, description: des_list});
     console.log(tl);
     console.log(tl[0].exchange);
     for(i=0; i<3; i++) {
