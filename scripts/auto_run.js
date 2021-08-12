@@ -24,7 +24,7 @@ function autorun() {
                             exchange: exchange,
                             ticker: ticker,
                             description: description,
-                            data: data.chart.result[0].indicators.adjclose[0].adjclose.toString()
+                            data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)
                         } 
                         console.log(historical_data);
                         $.ajax({
