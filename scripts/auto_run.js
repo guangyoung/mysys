@@ -16,7 +16,7 @@ function autorun() {
             }                  
         }
     });
-
+    console.log(tick_list);
     for(i=0; i<3; i++) {
         let tickere = tick_list[i];
         console.log(tickere);
