@@ -13,13 +13,12 @@ function autorun() {
         header: true,
         complete: function(result) {            
             for(i=0; i<10; i++) {
-                tick_list.push(result.data[i].Symbol);
-               
+                tick_list.push(result.data[i].Symbol.text());               
             }                  
         }
     });
     // tick_list.push(tl);
-    console.log(tick_list[0]);
+    console.log(tick_list);
     for(i=0; i<3; i++) {
         console.log(tick_list[0]);
         let tickere = tick_list[i].split(',')[0];
