@@ -12,7 +12,6 @@ function autorun() {
         header: true,
         complete: function(result) {             
             for(i=0; i<30; i++) {
-                let as_data_price = new Array();  
                 let exchange= result.data[i].Exchange;
                 let ticker= result.data[i].Symbol;
                 let description= result.data[i].Description;             
@@ -23,7 +22,7 @@ function autorun() {
                             exchange: exchange,
                             ticker: ticker,
                             description: description,
-                            data: data.chart.result[0].indicators.adjclose[0].adjclose.toString()
+                            data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)
                         } 
                         console.log(historical_data);
                         $.ajax({
