@@ -37,7 +37,7 @@ function autorun() {
                     exchange: result.data[i].Exchange,
                     ticker: result.data[i].Symbol,
                     description: result.data[i].Description,
-                    data: data_price
+                    data: data_price.toString()
                 }              
                 console.log(historical_data);
                 $.ajax({
