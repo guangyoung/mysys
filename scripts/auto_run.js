@@ -35,23 +35,24 @@ function autorun() {
                             ticker: ticker,
                             description: description,
                             data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)
-                        } 
-                        console.log(historical_data);
-                        stock_data.push({exchange: exchange, ticker: ticker, description: description, data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)});
-                        console.log(stock_data);
-                        $.ajax({
-                            type: "POST",
-                            url: "https://api.quantxi.com/add_data",
-                            data: historical_data,             
-                            dataType: 'json'
-                        })                        
-                        // console.log(stock_data);
+                        }                         
+                        if(stock_data.length<30) {
+                            stock_data.push({exchange: exchange, ticker: ticker, description: description, data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)});
+                            console.log(stock_data.length);
+                            $.ajax({
+                                type: "POST",
+                                url: "https://api.quantxi.com/add_data",
+                                data: historical_data,             
+                                dataType: 'json'
+                            }) 
+                            console.log(historical_data);  
+                        }
                     } else {
                         return false;
                     }
                 });
                 i++;
-                console.log(stock_data.length);
+                // console.log(stock_data.length);
                 // console.log(i); 
             }
         }
