@@ -22,6 +22,7 @@ function autorun() {
             while(stock_data<30) {                
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
+                console.log(exchange);
                 console.log(ticker);
                 let description= result.data[arr[i]].Description;             
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
