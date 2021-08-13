@@ -18,8 +18,9 @@ function autorun() {
             }
             console.log(arr);  
             var stock_data = 0; 
-            var i = 0;        
-            while(stock_data == 0) {
+            var i = 0; 
+            sessionStorage.setItem("stop", 0);       
+            while(sessionStorage.getItem("stop") == 0) {
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 console.log(exchange);
@@ -51,10 +52,10 @@ function autorun() {
                         return false;
                     }
                 });
-                if(sessionStorage.getItem("stop") == 1) {
-                    sessionStorage.removeItem("stop");    
-                    return;
-                }
+                // if(sessionStorage.getItem("stop") == 1) {
+                //     sessionStorage.removeItem("stop");    
+                //     return;
+                // }
                 i++;   
                 console.log(i); 
             }
