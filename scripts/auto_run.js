@@ -52,10 +52,10 @@ function autorun() {
                         return false;
                     }
                 });
-                // if(sessionStorage.getItem("stop") == 1) {
-                //     sessionStorage.removeItem("stop");    
-                //     return;
-                // }
+                if(sessionStorage.getItem("stop") == 1) {
+                    sessionStorage.removeItem("stop");    
+                    return;
+                }
                 i++;   
                 console.log(i); 
             }
