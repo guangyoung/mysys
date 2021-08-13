@@ -42,14 +42,14 @@ function autorun() {
                             data: historical_data,             
                             dataType: 'json'
                         })
-                        // stock_data++; 
-                        // console.log(stock_data);
+                        stock_data++; 
+                        return stock_data;
                     } else {
                         return false;
                     }
                 });
                 i++;  
-                stock_data++;  
+                return stock_data; 
                 console.log(i); 
                 console.log(stock_data);
             }
