@@ -45,7 +45,7 @@ function autorun() {
                         stock_data++; 
                         console.log(stock_data);
                         if(stock_data == 30) {
-                            return;
+                            throw new Error("Here we stop");
                         }                        
                     } else {
                         return false;
