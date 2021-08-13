@@ -17,9 +17,9 @@ function autorun() {
                 if(arr.indexOf(r) === -1) arr.push(r);
             }
             console.log(arr);  
-            var stock_data = 0; 
+            var stock_data = new Array(); 
             var i = 0;        
-            while(stock_data < 30) {                
+            while(stock_data.length < 30) {                
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 // console.log(exchange);
@@ -36,19 +36,20 @@ function autorun() {
                             data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)
                         } 
                         console.log(historical_data);
+                        stock_data.push(historical_data);
                         $.ajax({
                             type: "POST",
                             url: "https://api.quantxi.com/add_data",
                             data: historical_data,             
                             dataType: 'json'
                         })                        
-                        console.log(stock_data);
+                        // console.log(stock_data);
                     } else {
                         return false;
                     }
                 });
                 i++;
-                stock_data++;    
+                console.log(stock_data.length);
                 // console.log(i); 
             }
         }
