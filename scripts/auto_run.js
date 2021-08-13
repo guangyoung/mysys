@@ -42,17 +42,16 @@ function autorun() {
                             data: historical_data,             
                             dataType: 'json'
                         })
-                        stock_data++; 
-                        if(stock_data == 30) {
-                            break;
-                        }
-                        console.log(stock_data);
+                        // stock_data++; 
+                        // console.log(stock_data);
                     } else {
                         return false;
                     }
                 });
-                i++;   
+                i++;  
+                stock_data++;  
                 console.log(i); 
+                console.log(stock_data);
             }
         }
     });
