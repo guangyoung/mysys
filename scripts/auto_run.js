@@ -12,9 +12,12 @@ function autorun() {
         header: true,
         complete: function(result) {  
             var stock_data = 0;
-            for(i=0;i<30;i++) {
-                console.log(Math.round(Math.random() * (30 - 0.1) + 0.1));
-            }            
+            var arr = [];
+            while(arr.length < 30){
+                var r = Math.floor(Math.random() * 1000) + 1;
+                if(arr.indexOf(r) === -1) arr.push(r);
+            }
+            console.log(arr);           
             for(i=0; i<5; i++) {
                 let exchange= result.data[i].Exchange;
                 let ticker= result.data[i].Symbol;
