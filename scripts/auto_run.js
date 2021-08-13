@@ -12,19 +12,19 @@ function autorun() {
         header: true,
         complete: function(result) {
             var arr = [];
-            while(arr.length < 30){
+            while(arr.length < 300){
                 var r = Math.floor(Math.random() * 1000) + 1;
                 if(arr.indexOf(r) === -1) arr.push(r);
             }
-            console.log(arr);           
-            for(i=0; i<arr.length; i++) {
+            console.log(arr);  
+            var stock_data = 0;         
+            while(stock_data<30) {
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 let description= result.data[arr[i]].Description;             
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){
-                    // console.log(data.chart.result[0].indicators.adjclose[0].adjclose);
                     if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
                         historical_data = {
                             exchange: exchange,
@@ -38,7 +38,8 @@ function autorun() {
                             url: "https://api.quantxi.com/add_data",
                             data: historical_data,             
                             dataType: 'json'
-                        }) 
+                        })
+                        stock_data++; 
                     }
                 });    
             }
