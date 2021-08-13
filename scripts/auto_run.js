@@ -12,7 +12,7 @@ function autorun() {
         header: true,
         complete: function(result) {
             var arr = [];
-            while(arr.length < 300){
+            while(arr.length < 40){
                 var r = Math.floor(Math.random() * 1000) + 1;
                 if(arr.indexOf(r) === -1) arr.push(r);
             }
