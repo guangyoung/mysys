@@ -20,7 +20,7 @@ function autorun() {
             var stock_data = 0; 
             var i = 0;        
             while(stock_data < 30) { 
-                var x = 0;               
+                // var x = 0;               
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 console.log(exchange);
@@ -43,8 +43,9 @@ function autorun() {
                             data: historical_data,             
                             dataType: 'json'
                         })                        
-                        x = 1;
+                        globalThis.x = 1;
                     } else {
+                        globalThis.x = 0;
                         return false;
                     }
                 });
