@@ -46,7 +46,7 @@ function autorun() {
                     }
                 });
                 i++;   
-                console.log(i); 
+                console.log(stock_data); 
             }
         }
     });
