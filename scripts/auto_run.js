@@ -10,7 +10,9 @@ function autorun() {
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
-        complete: function(result) {             
+        complete: function(result) {  
+            var stock_data = 0;
+            console.log(Math.random() * (100 - 1) + 1);
             for(i=0; i<5; i++) {
                 let exchange= result.data[i].Exchange;
                 let ticker= result.data[i].Symbol;
