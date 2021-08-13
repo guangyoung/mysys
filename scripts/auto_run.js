@@ -52,7 +52,7 @@ function autorun() {
                     }
                 });
                 if(sessionStorage.getItem("stop") == "true") {
-                    stock_data = 1;
+                    break;
                 }
                 i++;   
                 console.log(i); 
