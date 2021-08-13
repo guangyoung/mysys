@@ -44,7 +44,9 @@ function autorun() {
                         })
                         stock_data++; 
                         console.log(stock_data);
-                        return;
+                        if(stock_data == 30) {
+                            return;
+                        }                        
                     } else {
                         return false;
                     }
