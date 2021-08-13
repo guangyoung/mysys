@@ -19,7 +19,8 @@ function autorun() {
             console.log(arr);  
             var stock_data = 0; 
             var i = 0;        
-            while(stock_data < 30) {                
+            while(stock_data < 30) { 
+                var x = 0;               
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 console.log(exchange);
@@ -41,16 +42,16 @@ function autorun() {
                             url: "https://api.quantxi.com/add_data",
                             data: historical_data,             
                             dataType: 'json'
-                        })
-                        stock_data++; 
-                        console.log(stock_data);
-                        if(stock_data == 30) {
-                            throw new Error("Here we stop");
-                        }                        
+                        })                        
+                        x = 1;
                     } else {
                         return false;
                     }
                 });
+                if(x==1) {
+                    stock_data++; 
+                    console.log(stock_data);
+                }
                 i++;   
                 console.log(i); 
             }
