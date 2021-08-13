@@ -29,7 +29,7 @@ function autorun() {
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){
                     if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                        historical_data = {
+                        var historical_data = {
                             exchange: exchange,
                             ticker: ticker,
                             description: description,
