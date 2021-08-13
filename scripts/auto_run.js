@@ -17,8 +17,9 @@ function autorun() {
                 if(arr.indexOf(r) === -1) arr.push(r);
             }
             console.log(arr);  
-            var stock_data = 0;         
-            while(stock_data<30) {
+            var stock_data = 0; 
+            var i = 0;        
+            while(stock_data<30) {                
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 let description= result.data[arr[i]].Description;             
@@ -41,7 +42,8 @@ function autorun() {
                         })
                         stock_data++; 
                     }
-                });    
+                });
+                i++;    
             }
         }
     });
