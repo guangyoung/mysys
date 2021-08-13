@@ -6,6 +6,7 @@ var interestrate = 0.02;
 
 //data
 var tl = new Array();
+var stock_data = 0; 
 function autorun() {  
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
@@ -17,7 +18,7 @@ function autorun() {
                 if(arr.indexOf(r) === -1) arr.push(r);
             }
             console.log(arr);  
-            var stock_data = 0; 
+           
             var i = 0;        
             while(stock_data < 30) {                
                 let exchange= result.data[arr[i]].Exchange;
