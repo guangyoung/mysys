@@ -54,6 +54,7 @@ function autorun() {
                     }
                 });
                 f = sessionStorage.getItem("stop");
+                console.log(sessionStorage.getItem("stop"));
                 // if(f == 1) {
                 //     // sessionStorage.removeItem("stop");    
                 //     return false;
