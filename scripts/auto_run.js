@@ -43,10 +43,11 @@ function autorun() {
                             dataType: 'json'
                         })
                         stock_data++; 
+                        console.log(stock_data);
                     }
                 });
                 i++;   
-                console.log(stock_data); 
+                console.log(i); 
             }
         }
     });
