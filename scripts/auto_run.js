@@ -19,7 +19,7 @@ function autorun() {
             console.log(arr);  
             var stock_data = 0; 
             var i = 0;        
-            while(stock_data < 30) {                
+            while(stock_data < 31) {                
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 console.log(exchange);
