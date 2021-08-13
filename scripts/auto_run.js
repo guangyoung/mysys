@@ -18,7 +18,8 @@ function autorun() {
             }
             console.log(arr);  
             var stock_data = 0; 
-            var i = 0;        
+            var i = 0;
+            var stop = false;        
             while(stock_data < 30) {                
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
@@ -44,7 +45,7 @@ function autorun() {
                         })
                         stock_data++; 
                         if(stock_data == 30) {
-                            alert('wut?');
+                           stop = true;
                         }                       
                     } else {
                         return false;
