@@ -41,14 +41,14 @@ function autorun() {
                             url: "https://api.quantxi.com/add_data",
                             data: historical_data,             
                             dataType: 'json'
-                        })
-                        stock_data++; 
+                        })                        
                         console.log(stock_data);
                     } else {
                         return false;
                     }
                 });
-                i++;   
+                i++;
+                stock_data++;    
                 // console.log(i); 
             }
         }
