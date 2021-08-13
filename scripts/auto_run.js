@@ -38,6 +38,7 @@ function autorun() {
                         } 
                         console.log(historical_data);
                         stock_data.push({exchange: exchange, ticker: ticker, description: description, data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)});
+                        console.log(stock_data);
                         $.ajax({
                             type: "POST",
                             url: "https://api.quantxi.com/add_data",
