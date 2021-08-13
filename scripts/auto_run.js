@@ -52,6 +52,9 @@ function autorun() {
                         return false;
                     }
                 });
+                if(stop == true) {
+                    break;
+                }
                 i++;   
                 console.log(i); 
             }
