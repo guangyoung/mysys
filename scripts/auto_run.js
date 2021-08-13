@@ -21,11 +21,11 @@ function autorun() {
             
             var i = 0;        
             while(stock_data.length < 30) {                
-                var exchange= result.data[arr[i]].Exchange;
-                var ticker= result.data[arr[i]].Symbol;
+                let exchange= result.data[arr[i]].Exchange;
+                let ticker= result.data[arr[i]].Symbol;
                 // console.log(exchange);
                 // console.log(ticker);
-                var description= result.data[arr[i]].Description;             
+                let description= result.data[arr[i]].Description;             
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){
