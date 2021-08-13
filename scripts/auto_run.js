@@ -49,7 +49,7 @@ function autorun() {
                     }
                 });
                 i++;  
-                return stock_data; 
+                // return stock_data; 
                 console.log(i); 
                 console.log(stock_data);
             }
