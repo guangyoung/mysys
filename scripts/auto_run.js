@@ -42,8 +42,10 @@ function autorun() {
                             data: historical_data,             
                             dataType: 'json'
                         })
-                        stock_data = stock_data+1; 
+                        stock_data++; 
                         console.log(stock_data);
+                    } else {
+                        return false;
                     }
                 });
                 i++;   
