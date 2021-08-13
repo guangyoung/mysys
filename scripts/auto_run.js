@@ -12,7 +12,7 @@ function autorun() {
         header: true,
         complete: function(result) {  
             var stock_data = 0;
-            console.log(Math.random() * (30 - 0.1) + 0.1);
+            console.log(Math.round(Math.random() * (30 - 0.1) + 0.1));
             for(i=0; i<5; i++) {
                 let exchange= result.data[i].Exchange;
                 let ticker= result.data[i].Symbol;
