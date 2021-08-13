@@ -6,6 +6,7 @@ var interestrate = 0.02;
 
 //data
 var tl = new Array();
+var stock_data = new Array(); 
 function autorun() {  
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
@@ -17,26 +18,26 @@ function autorun() {
                 if(arr.indexOf(r) === -1) arr.push(r);
             }
             console.log(arr);  
-            var stock_data = new Array(); 
+            
             var i = 0;        
             while(stock_data.length < 30) {                
-                let exchange= result.data[arr[i]].Exchange;
-                let ticker= result.data[arr[i]].Symbol;
+                var exchange= result.data[arr[i]].Exchange;
+                var ticker= result.data[arr[i]].Symbol;
                 // console.log(exchange);
                 // console.log(ticker);
-                let description= result.data[arr[i]].Description;             
+                var description= result.data[arr[i]].Description;             
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){
                     if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                        var historical_data = {
+                        historical_data = {
                             exchange: exchange,
                             ticker: ticker,
                             description: description,
                             data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)
                         } 
                         console.log(historical_data);
-                        stock_data.push(historical_data);
+                        stock_data.push({exchange: exchange, ticker: ticker, description: description, data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)});
                         $.ajax({
                             type: "POST",
                             url: "https://api.quantxi.com/add_data",
