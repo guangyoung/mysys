@@ -17,13 +17,13 @@ function autorun() {
                 if(arr.indexOf(r) === -1) arr.push(r);
             }
             console.log(arr);  
-            globalThis.stock_data = 0; 
+            var stock_data = 0; 
             var i = 0;        
-            while(stock_data < 30) {                             
+            while(stock_data < 30) {                
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 console.log(exchange);
-                console.log(ticker);                
+                console.log(ticker);
                 let description= result.data[arr[i]].Description;             
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
@@ -43,11 +43,14 @@ function autorun() {
                             dataType: 'json'
                         })
                         stock_data++; 
+                        if(stock_data == 30) {
+                            alert('wut?');
+                        }                       
                     } else {
                         return false;
                     }
                 });
-                i++;  
+                i++;   
                 console.log(i); 
                 console.log(stock_data);
             }
