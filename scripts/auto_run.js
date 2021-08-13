@@ -43,7 +43,8 @@ function autorun() {
                             data: historical_data,             
                             dataType: 'json'
                         })
-                        stock_data++; 
+                        stock_data++;                         
+                        console.log(stock_data);
                         if(stock_data == 30) {
                            stop = true;
                         }                       
@@ -53,7 +54,6 @@ function autorun() {
                 });
                 i++;   
                 console.log(i); 
-                console.log(stock_data);
             }
         }
     });
