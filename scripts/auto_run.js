@@ -43,9 +43,9 @@ function autorun() {
                             data: historical_data,             
                             dataType: 'json'
                         })                        
-                        globalThis.x = 1;
+                        window.x = 1;
                     } else {
-                        globalThis.x = 0;
+                        window.x = 0;
                         return false;
                     }
                 });
