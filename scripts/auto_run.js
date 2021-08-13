@@ -6,7 +6,7 @@ var interestrate = 0.02;
 
 //data
 var tl = new Array();
-var stock_data = 0; 
+
 function autorun() {  
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
@@ -18,9 +18,10 @@ function autorun() {
                 if(arr.indexOf(r) === -1) arr.push(r);
             }
             console.log(arr);  
-           
+            var stock_data = 0; 
             var i = 0;        
-            while(stock_data < 30) {                
+            while(stock_data < 30) {   
+                let z = 0;             
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 console.log(exchange);
@@ -43,12 +44,13 @@ function autorun() {
                             data: historical_data,             
                             dataType: 'json'
                         })
-                        stock_data++; 
-                        console.log(stock_data);
+                        z++;                         
                     } else {
                         return false;
                     }
                 });
+                stock_data =  stock_data+z;
+                console.log(stock_data);
                 i++;   
                 console.log(i); 
             }
