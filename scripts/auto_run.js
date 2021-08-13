@@ -52,8 +52,9 @@ function autorun() {
                         return false;
                     }
                 });
-                if(sessionStorage.getItem("stop") == 1) {
-                    sessionStorage.removeItem("stop");    
+                var f = sessionStorage.getItem("stop");
+                if(f == 1) {
+                    // sessionStorage.removeItem("stop");    
                     return false;
                 }
                 i++;   
