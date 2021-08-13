@@ -29,24 +29,23 @@ function autorun() {
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){
-                    if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
+                    if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500 && stock_data.length<30) {
                         historical_data = {
                             exchange: exchange,
                             ticker: ticker,
                             description: description,
                             data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)
-                        }                         
-                        if(stock_data.length<30) {
-                            stock_data.push({exchange: exchange, ticker: ticker, description: description, data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)});
-                            console.log(stock_data.length);
-                            $.ajax({
-                                type: "POST",
-                                url: "https://api.quantxi.com/add_data",
-                                data: historical_data,             
-                                dataType: 'json'
-                            }) 
-                            console.log(historical_data);  
-                        }
+                        } 
+                        console.log(historical_data);
+                        stock_data.push({exchange: exchange, ticker: ticker, description: description, data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)});
+                        console.log(stock_data.length);
+                        $.ajax({
+                            type: "POST",
+                            url: "https://api.quantxi.com/add_data",
+                            data: historical_data,             
+                            dataType: 'json'
+                        })                        
+                        // console.log(stock_data);
                     } else {
                         return false;
                     }
