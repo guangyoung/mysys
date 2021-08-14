@@ -13,7 +13,7 @@ function autorun() {
         complete: function(result) {
             var arr = [];
             let i = 0;     
-            while(i < 30){
+            for (i=0; i< 30; i++){
                 var r = Math.floor(Math.random() * 1000) + 1;
                 if(arr.indexOf(r) === -1) {
                     let dat = new Array();      
@@ -26,7 +26,7 @@ function autorun() {
                     $.getJSON(proxyurl+urls, function(data){
                         if(data.chart.result !== null) {
                             if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                                arr.push(r); 
+                                arr.push(r);  
                                 i++; 
                                 dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                 console.log(exchange);
@@ -37,7 +37,6 @@ function autorun() {
                             }                        
                         } 
                     });
-                 
                 
                 }                
             }                           
