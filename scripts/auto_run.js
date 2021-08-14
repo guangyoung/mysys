@@ -26,9 +26,8 @@ function autorun() {
                     $.getJSON(proxyurl+urls, function(data){
                         if(data.chart.result !== null) {
                             if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                                
-                                
-                                // console.log(i); 
+                                arr.push(r); 
+                                i++; 
                                 dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                 console.log(exchange);
                                 console.log(ticker);
@@ -38,15 +37,10 @@ function autorun() {
                             }                        
                         } 
                     });
-                arr.push(r);  
-                i++; 
-                    
-
-                }
+                 
                 
-            }            
-            // var i = 0;        
-            // while(i < 30) {                 
+                }                
+            }                           
                             
                 
                  
