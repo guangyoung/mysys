@@ -17,9 +17,8 @@ function autorun() {
                 if(arr.indexOf(r) === -1) arr.push(r);
             }            
             var i = 0;  
-            var datdat = 0;      
-            while(datdat == 0) { 
-                let stoctot = 0;               
+            let datdat = stock_data.length;      
+            while(datdat < 30) { 
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 // console.log(exchange);
@@ -28,7 +27,7 @@ function autorun() {
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){
-                    if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500 && stock_data.length<30) {
+                    if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
                         // historical_data = {
                         //     exchange: exchange,
                         //     ticker: ticker,
@@ -39,9 +38,9 @@ function autorun() {
                         stock_data.push({exchange: exchange, ticker: ticker, description: description, data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)});
                         // stoctot = 1;
                         console.log(stock_data.length);
-                        if(stock_data.length==30) {
-                            stoctot = 1;
-                        }
+                        // if(stock_data.length==30) {
+                        //     stoctot = 1;
+                        // }
                         // $.ajax({
                         //     type: "POST",
                         //     url: "https://api.quantxi.com/add_data",
@@ -53,8 +52,8 @@ function autorun() {
                     }
                 });
                 i++;
-                datdat = stoctot;
-                console.log(stoctot);
+                datdat = stock_data.length;
+                // console.log(stoctot);
                 console.log(datdat);
                 
                 // console.log("no: "+stock_data.length);
