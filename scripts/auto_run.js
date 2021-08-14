@@ -12,8 +12,8 @@ function autorun() {
         header: true,
         complete: function(result) {
             var arr = [];
-            var i = 0;     
-            while(i < 30){
+            // var i = 0;     
+            // while(i < 30){
                 var r = Math.floor(Math.random() * 1000) + 1;
                 if(arr.indexOf(r) === -1) {
                     let dat = new Array();      
@@ -39,12 +39,12 @@ function autorun() {
                         } 
                     });
                    
-                    i++;
+                    
                     
 
                 }
                 
-            }            
+            // }            
             // var i = 0;        
             // while(i < 30) {                 
                             
