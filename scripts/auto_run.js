@@ -37,7 +37,7 @@ function autorun() {
                         // console.log(historical_data);
                         stock_data.push({exchange: exchange, ticker: ticker, description: description, data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)});
                         // stoctot = 1;
-                        // console.log(stock_data.length);
+                        console.log(stock_data.length);
                         // $.ajax({
                         //     type: "POST",
                         //     url: "https://api.quantxi.com/add_data",
@@ -50,7 +50,7 @@ function autorun() {
                 });
                 i++;
                 
-                console.log("no: "+stock_data.length);
+                // console.log("no: "+stock_data.length);
                 // console.log(i); 
             }
         }
