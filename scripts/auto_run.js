@@ -45,9 +45,11 @@ function autorun() {
                     // } else {
                     //     return false;
                     // }
-                });
-                console.log(dat);
+                });                
+                console.log(exchange);
                 console.log(ticker);
+                console.log(description);
+                console.log(dat);
                 stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
                 console.log(stock_data.ticker);
                 i++;
