@@ -12,29 +12,44 @@ function autorun() {
         header: true,
         complete: function(result) {
             var arr = [];
-            while(arr.length < 100){
+            var i = 0;     
+            while(i < 30){
                 var r = Math.floor(Math.random() * 1000) + 1;
-                if(arr.indexOf(r) === -1) arr.push(r);
+                if(arr.indexOf(r) === -1) {
+                    let dat = new Array();      
+                    let exchange= result.data[arr[i]].Exchange;
+                    let ticker= result.data[arr[i]].Symbol;
+                    let description= result.data[arr[i]].Description; 
+                    const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
+                    const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
+
+                    $.getJSON(proxyurl+urls, function(data){
+                        if(data.chart.result !== null) {
+                            if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
+                                arr.push(r);
+                                i++;
+                                console.log(i); 
+                                dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
+                                console.log(exchange);
+                                console.log(ticker);
+                                console.log(description);                
+                                stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
+                                console.log(stock_data[stock_data.length-1].data[0].length);
+                            }                        
+                        } 
+                    });
+                   
+                    
+                    
+
+                }
+                
             }            
-            var i = 0;        
-            while(i < 30) {                 
-                let dat = new Array();      
-                let exchange= result.data[arr[i]].Exchange;
-                let ticker= result.data[arr[i]].Symbol;
-                let description= result.data[arr[i]].Description;             
-                const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
-                const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
-                $.getJSON(proxyurl+urls, function(data){
-                    if(data.chart.result !== null) {
-                        if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                            dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
-                            console.log(exchange);
-                            console.log(ticker);
-                            console.log(description);                
-                            stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
-                            console.log(stock_data[stock_data.length-1].data[0].length);
-                        }                        
-                    }  
+            // var i = 0;        
+            // while(i < 30) {                 
+                            
+                
+                 
                    
                     
                     // // if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
@@ -57,20 +72,8 @@ function autorun() {
                     // // } else {
                     // //     return false;
                     // // }
-                });
-                // let dat = new Array();                  
-                // console.log(exchange);
-                // console.log(ticker);
-                // console.log(description);
-                // let dat = JSON.parse(sessionStorage.getItem("data"));                
-                // stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
-                // console.log(stock_data[stock_data.length-1].data.length);
-                // console.log(stock_data.length);
-                // console.log(stock_data);  
-                i++;
-                // console.log(stock_data.length);
-                console.log(i); 
-            }
+                
+            // }
         }
     });
 }
