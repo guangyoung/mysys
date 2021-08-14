@@ -18,7 +18,7 @@ function autorun() {
             }            
             var i = 0;        
             while(stock_data.length < 30) {   
-                let dat;             
+                let dat = new Array();             
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 let description= result.data[arr[i]].Description;             
@@ -26,7 +26,7 @@ function autorun() {
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){
                     if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                        dat = JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose);
+                        dat.push(JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose));
                         // historical_data = {
                         //     exchange: exchange,
                         //     ticker: ticker,
