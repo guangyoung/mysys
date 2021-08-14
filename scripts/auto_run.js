@@ -17,7 +17,7 @@ function autorun() {
                 if(arr.indexOf(r) === -1) arr.push(r);
             }            
             var i = 0;        
-            while(stock_data.length < 30) {                 
+            while(i < 30) {                 
                 let dat = new Array();      
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
