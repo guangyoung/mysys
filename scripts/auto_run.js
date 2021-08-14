@@ -55,7 +55,7 @@ function autorun() {
                 // console.log(dat);
                 stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
                 console.log(stock_data.length);
-                console.log(stock_data);
+                console.log(stock_data[0]);
                 i++;
                 // console.log(stock_data.length);
                 // console.log(i); 
