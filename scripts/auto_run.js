@@ -27,14 +27,14 @@ function autorun() {
                     $.getJSON(proxyurl+urls, function(data){                                              
                         if(data.chart.result !== null) {
                             if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                                var data_price = data.chart.result[0].indicators.adjclose[0].adjclose[i];  
-                                dat.push(
-                                    data_price
-                                ); 
+                                var data_price = data.chart.result[0].indicators.adjclose[0].adjclose;  
+                                // dat.push(
+                                //     data_price
+                                // ); 
                                 console.log(exchange);
                                 console.log(ticker);
                                 console.log(description);                
-                                stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
+                                stock_data.push({exchange: exchange, ticker: ticker, description: description, data: data_price});
                                 console.log(stock_data[stock_data.length-1].data[0].length);
 
                             }                        
