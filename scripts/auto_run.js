@@ -31,7 +31,15 @@ function autorun() {
                             // console.log(data.chart.result[0].indicators.adjclose[0].adjclose.length);
                             sessionStorage.setItem("data", JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose));
                         }                        
-                    }                    
+                    }  
+                    console.log(exchange);
+                    console.log(ticker);
+                    console.log(description);
+                    let dat = JSON.parse(sessionStorage.getItem("data"));                
+                    stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
+                    console.log(stock_data[stock_data.length-1].data.length);
+                    console.log(stock_data.length);
+                    console.log(stock_data);                  
                     // // if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
                     //     dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                     //     // console.log(dat[0]);
@@ -54,15 +62,14 @@ function autorun() {
                     // // }
                 });
                 // let dat = new Array();                  
-                console.log(exchange);
-                console.log(ticker);
-                console.log(description);
-                let dat = JSON.parse(sessionStorage.getItem("data"));                
-                stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
-                console.log(stock_data[stock_data.length-1].data.length);
-                console.log(stock_data.length);
-                console.log(stock_data);
-                sessionStorage.removeItem("data");  
+                // console.log(exchange);
+                // console.log(ticker);
+                // console.log(description);
+                // let dat = JSON.parse(sessionStorage.getItem("data"));                
+                // stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
+                // console.log(stock_data[stock_data.length-1].data.length);
+                // console.log(stock_data.length);
+                // console.log(stock_data);  
                 i++;
                 // console.log(stock_data.length);
                 // console.log(i); 
