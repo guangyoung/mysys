@@ -49,7 +49,7 @@ function autorun() {
                 console.log(dat);
                 console.log(ticker);
                 stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
-                console.log(stock_data.data);
+                console.log(stock_data.ticker);
                 i++;
                 // console.log(stock_data.length);
                 // console.log(i); 
