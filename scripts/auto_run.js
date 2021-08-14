@@ -69,7 +69,7 @@ function autorun() {
                 // console.log(stock_data);  
                 i++;
                 // console.log(stock_data.length);
-                // console.log(i); 
+                console.log(i); 
             }
         }
     });
