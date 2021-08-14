@@ -54,6 +54,8 @@ function autorun() {
                 });
                 i++;
                 datdat = stoctot;
+                console.log(stoctot);
+                console.log(datdat);
                 
                 // console.log("no: "+stock_data.length);
                 // console.log(i); 
