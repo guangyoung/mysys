@@ -25,7 +25,7 @@ function autorun() {
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){
-                    sessionStorage.setItem("data", data);
+                    sessionStorage.setItem("data", JSON.stringify(data));
                     // // if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
                     //     dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                     //     // console.log(dat[0]);
