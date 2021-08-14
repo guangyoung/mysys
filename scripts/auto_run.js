@@ -17,8 +17,7 @@ function autorun() {
                 if(arr.indexOf(r) === -1) arr.push(r);
             }            
             var i = 0;        
-            while(stock_data.length < 30) { 
-                sessionStorage.removeItem("data");  
+            while(stock_data.length < 30) {                 
                 // let dat;      
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
@@ -63,6 +62,7 @@ function autorun() {
                 console.log(stock_data[stock_data.length-1].data.length);
                 console.log(stock_data.length);
                 console.log(stock_data);
+                sessionStorage.removeItem("data");  
                 i++;
                 // console.log(stock_data.length);
                 // console.log(i); 
