@@ -27,6 +27,7 @@ function autorun() {
                 $.getJSON(proxyurl+urls, function(data){
                     // if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
                         dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
+                        console.log(dat[0]);
                         // historical_data = {
                         //     exchange: exchange,
                         //     ticker: ticker,
