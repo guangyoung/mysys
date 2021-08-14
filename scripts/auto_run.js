@@ -18,28 +18,25 @@ function autorun() {
             }            
             var i = 0;        
             while(stock_data.length < 30) {                 
-                // let dat;      
+                let dat = new Array();      
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 let description= result.data[arr[i]].Description;             
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
                 $.getJSON(proxyurl+urls, function(data){
-                    // console.log(data);
                     if(data.chart.result !== null) {
                         if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                            // console.log(data.chart.result[0].indicators.adjclose[0].adjclose.length);
-                            sessionStorage.setItem("data", JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose));
+                            dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
+                            console.log(exchange);
+                            console.log(ticker);
+                            console.log(description);                
+                            stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
+                            console.log(stock_data.length);
                         }                        
                     }  
-                    console.log(exchange);
-                    console.log(ticker);
-                    console.log(description);
-                    let dat = JSON.parse(sessionStorage.getItem("data"));                
-                    stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
-                    console.log(stock_data[stock_data.length-1].data.length);
-                    console.log(stock_data.length);
-                    console.log(stock_data);                  
+                   
+                    
                     // // if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
                     //     dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                     //     // console.log(dat[0]);
