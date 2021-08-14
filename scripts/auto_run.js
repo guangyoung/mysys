@@ -23,21 +23,23 @@ function autorun() {
                     const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                     const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[r].Symbol+"?symbol="+result.data[r].Symbol+"&period1=0&period2=9999999999&interval=1d";
 
-                    $.getJSON(proxyurl+urls, function(data){
+                    $.getJSON(proxyurl+urls, function(data){ 
+                        var d = new Array();                       
                         if(data.chart.result !== null) {
                             if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                                arr.push(r);  
-                                i++; 
-                                dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
-                                console.log(exchange);
-                                console.log(ticker);
-                                console.log(description);                
-                                stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
-                                console.log(stock_data[stock_data.length-1].data[0].length);
+                                d.push(data.chart.result[0].indicators.adjclose[0].adjclose);
+                                
                             }                        
                         } 
                     });
-                
+                    dat.push(d);
+                    console.log(exchange);
+                    console.log(ticker);
+                    console.log(description);                
+                    stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
+                    console.log(stock_data[stock_data.length-1].data[0].length);
+                    arr.push(r);  
+                    i++;                 
                 }                
             }                           
                             
