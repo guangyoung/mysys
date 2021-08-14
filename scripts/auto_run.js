@@ -19,7 +19,7 @@ function autorun() {
             var i = 0;        
             while(stock_data.length < 30) { 
                 sessionStorage.removeItem("data");  
-                let dat;      
+                // let dat;      
                 let exchange= result.data[arr[i]].Exchange;
                 let ticker= result.data[arr[i]].Symbol;
                 let description= result.data[arr[i]].Description;             
