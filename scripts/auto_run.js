@@ -27,10 +27,10 @@ function autorun() {
                         if(data.chart.result !== null) {
                             if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
                                 dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
-                                console.log(exchange);
-                                console.log(ticker);
-                                console.log(description);                
                                 stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
+                                console.log(stock_data[stock_data.length-1].exchange[0]);
+                                console.log(stock_data[stock_data.length-1].ticker[0]);
+                                console.log(stock_data[stock_data.length-1].description[0]);
                                 console.log(stock_data[stock_data.length-1].data[0].length);
                             }                        
                         } 
