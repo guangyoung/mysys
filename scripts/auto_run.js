@@ -12,8 +12,8 @@ function autorun() {
         header: true,
         complete: function(result) {
             var arr = [];
-            // var i = 0;     
-            // while(i < 30){
+            let i = 0;     
+            while(i < 30){
                 var r = Math.floor(Math.random() * 1000) + 1;
                 if(arr.indexOf(r) === -1) {
                     let dat = new Array();      
@@ -26,7 +26,7 @@ function autorun() {
                     $.getJSON(proxyurl+urls, function(data){
                         if(data.chart.result !== null) {
                             if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                                arr.push(r);
+                                
                                 
                                 // console.log(i); 
                                 dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
@@ -38,13 +38,13 @@ function autorun() {
                             }                        
                         } 
                     });
-                   
-                    
+                arr.push(r);  
+                i++; 
                     
 
                 }
                 
-            // }            
+            }            
             // var i = 0;        
             // while(i < 30) {                 
                             
