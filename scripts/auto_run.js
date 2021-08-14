@@ -22,7 +22,7 @@ function autorun() {
                     let description= result.data[r].Description; 
                     const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                     const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[r].Symbol+"?symbol="+result.data[r].Symbol+"&period1=0&period2=9999999999&interval=1d";
-                    var d = new Array(); 
+                    let d = new Array(); 
                     $.getJSON(proxyurl+urls, function(data){ 
                                              
                         if(data.chart.result !== null) {
