@@ -28,7 +28,7 @@ function autorun() {
                     // console.log(data);
                     if(data.chart.result !== null) {
                         if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                            console.log(data.chart.result[0].indicators.adjclose[0].adjclose.length);
+                            // console.log(data.chart.result[0].indicators.adjclose[0].adjclose.length);
                             sessionStorage.setItem("data", JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose));
                         }                        
                     }                    
@@ -57,8 +57,8 @@ function autorun() {
                 console.log(exchange);
                 console.log(ticker);
                 console.log(description);
-                let dat = sessionStorage.getItem("data");
-                // console.log(dat);
+                let dat = JSON.parse(sessionStorage.getItem("data"));
+                console.log(dat.length);
                 stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
                 console.log(stock_data.length);
                 console.log(stock_data[stock_data.length-1]);
