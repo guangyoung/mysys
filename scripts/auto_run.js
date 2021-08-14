@@ -14,24 +14,27 @@ function autorun() {
             var arr = [];
             let i = 0;     
             for (i=0; i< 30; i++){
-                var r = Math.floor(Math.random() * 1000) + 1;
-                var dat = new Array();      
-                var exchange= result.data[r].Exchange;
-                var ticker= result.data[r].Symbol;
-                var description= result.data[r].Description; 
+                let r = Math.floor(Math.random() * 1000) + 1;
+                let dat = new Array();      
+                let exchange= result.data[r].Exchange;
+                let ticker= result.data[r].Symbol;
+                let description= result.data[r].Description; 
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[r].Symbol+"?symbol="+result.data[r].Symbol+"&period1=0&period2=9999999999&interval=1d";
-                var d = new Array(); 
+                let d = new Array(); 
                 if(arr.indexOf(r) === -1) {
                    
                     $.getJSON(proxyurl+urls, function(data){                                              
                         if(data.chart.result !== null) {
                             if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                                d.push(data.chart.result[0].indicators.adjclose[0].adjclose);                                
+                                var data_price = data.chart.result[0].indicators.adjclose[0].adjclose[i];  
+                                dat.push(
+                                    data_price
+                                ); 
+
                             }                        
                         } 
                     });
-                    dat.push(d);
                     console.log(exchange);
                     console.log(ticker);
                     console.log(description);                
