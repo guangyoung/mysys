@@ -6,7 +6,7 @@ var interestrate = 0.02;
 
 //data
 var stock_data = new Array(); 
-function autorun() {  
+async function autorun() {  
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
@@ -26,7 +26,7 @@ function autorun() {
                 let description= result.data[arr[i]].Description;             
                 const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                 const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
-                $.getJSON(proxyurl+urls, function(data){
+                await $.getJSON(proxyurl+urls, function(data){
                     if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
                         // historical_data = {
                         //     exchange: exchange,
