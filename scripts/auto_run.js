@@ -28,6 +28,7 @@ function autorun() {
                     // console.log(data);
                     if(data.chart.result !== null) {
                         if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
+                            console.log(data.chart.result[0].indicators.adjclose[0].adjclose.length);
                             sessionStorage.setItem("data", JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose));
                         }                        
                     }                    
