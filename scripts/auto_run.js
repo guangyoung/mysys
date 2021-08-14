@@ -27,7 +27,7 @@ function autorun() {
                         if(data.chart.result !== null) {
                             if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
                                 arr.push(r);
-                                i++;
+                                
                                 console.log(i); 
                                 dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                 console.log(exchange);
@@ -39,7 +39,7 @@ function autorun() {
                         } 
                     });
                    
-                    
+                    i++;
                     
 
                 }
