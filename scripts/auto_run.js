@@ -52,9 +52,10 @@ function autorun() {
                 console.log(ticker);
                 console.log(description);
                 let dat = sessionStorage.getItem("data");
-                console.log(dat);
+                // console.log(dat);
                 stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
-                console.log(stock_data.ticker);
+                console.log(stock_data.length);
+                console.log(stock_data.data);
                 i++;
                 // console.log(stock_data.length);
                 // console.log(i); 
