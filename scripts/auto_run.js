@@ -17,11 +17,11 @@ function autorun() {
                 var r = Math.floor(Math.random() * 1000) + 1;
                 if(arr.indexOf(r) === -1) {
                     let dat = new Array();      
-                    let exchange= result.data[arr[i]].Exchange;
-                    let ticker= result.data[arr[i]].Symbol;
-                    let description= result.data[arr[i]].Description; 
+                    let exchange= result.data[r].Exchange;
+                    let ticker= result.data[r].Symbol;
+                    let description= result.data[r].Description; 
                     const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
-                    const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[arr[i]].Symbol+"?symbol="+result.data[arr[i]].Symbol+"&period1=0&period2=9999999999&interval=1d";
+                    const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[r].Symbol+"?symbol="+result.data[r].Symbol+"&period1=0&period2=9999999999&interval=1d";
 
                     $.getJSON(proxyurl+urls, function(data){
                         if(data.chart.result !== null) {
