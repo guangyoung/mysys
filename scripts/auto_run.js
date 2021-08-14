@@ -51,7 +51,8 @@ function autorun() {
                 console.log(exchange);
                 console.log(ticker);
                 console.log(description);
-                console.log(sessionStorage.getItem("data"));
+                let dat = sessionStorage.getItem("data");
+                console.log(dat);
                 stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
                 console.log(stock_data.ticker);
                 i++;
