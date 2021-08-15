@@ -34,7 +34,7 @@ function autorun() {
                                         description: description,
                                         exchange: exchange,
                                         country: country,
-                                        startdate: data.chart.result[0].timestamp[0],                                        
+                                        startdate: dat.date[0],                                        
                                         data: JSON.stringify(dat)
                                     } 
                                     $.ajax({
