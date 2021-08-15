@@ -5,7 +5,7 @@ var commisionshare = 0.01;
 var interestrate = 0.02;
 
 //data
-var stock_data = new Array(); 
+// var stock_data = new Array(); 
 function autorun() {     
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
@@ -13,7 +13,7 @@ function autorun() {
         complete: function(result) {
             // var arr = [];
             // let i = 0;     
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 50; i++) {
                 setTimeout(function timer() {
                     console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
@@ -25,10 +25,9 @@ function autorun() {
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=9999999999&interval=1d";
                         $.getJSON(proxyurl+urls, function(data){
-                            console.log(data.chart.result);
                             if(data.chart.result !== null) {
-                                if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2000) {
-                                    dat.push({date: data.chart.result[0].indicators.adjclose[0].adjclose, price: data.chart.result[0].indicators.adjclose[0].adjclose})
+                                if(data.chart.result[0].timestamp.length>2000) {
+                                    dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose})
                                     historical_data = {
                                         exchange: exchange,
                                         ticker: ticker,
@@ -51,9 +50,9 @@ function autorun() {
                                 }                        
                             } 
                         }); 
-                }, i * 500);           
+                }, 1 * 500);           
             } 
-            alert(`selesai`);
+            // alert(`selesai`);
         }
     });   
 }
