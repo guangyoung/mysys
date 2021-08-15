@@ -12,14 +12,16 @@ function autorun() {
         header: true,
         complete: function(result) {
             var arr = [];
-            let i = 0;     
-            for (i=0; i< 30; i++){
+            let i = 0;   
+            var stop = "false";  
+            while (stop == "false"){
                 var r = Math.floor(Math.random() * 1000) + 1;
+                
                 if(arr.indexOf(r) === -1) {
                     let dat = new Array();      
                     let exchange= result.data[r].Exchange;
                     let ticker= result.data[r].Symbol;
-                    let description= result.data[r].Description; 
+                    let description= result.data[r].Description;                    
                     const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                     const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[r].Symbol+"?symbol="+result.data[r].Symbol+"&period1=0&period2=9999999999&interval=1d";
                     $.getJSON(proxyurl+urls, function(data){
@@ -31,16 +33,15 @@ function autorun() {
                                 console.log(stock_data[stock_data.length-1].ticker);
                                 console.log(stock_data[stock_data.length-1].description);
                                 console.log(stock_data[stock_data.length-1].data[0].length);
+                                stop = "true";
+                                arr.push(r);
                             } else {
-
+                                
                             }                        
-                        } else {
-                            i=i-1;
-                        }                     
+                        }                  
                     });
-                arr.push(r);  
-                i++;
-                console.log(i);
+                  
+                // console.log(i);
                 }                
             }                           
                             
