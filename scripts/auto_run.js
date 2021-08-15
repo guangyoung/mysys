@@ -14,7 +14,7 @@ function autorun() {
             var arr = [];
             // let i = 0;   
             var stop = "false";  
-            while (stop == "false"){
+            if(stop == "false"){
                 var r = Math.floor(Math.random() * 1000) + 1;                
                 if(arr.indexOf(r) === -1) {
                     let dat = new Array();  
