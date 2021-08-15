@@ -65,16 +65,18 @@ function autorun() {
 }
 
 function autorun2() { 
-    var tick_data = new Array();
+    var tick_data;
     var stock_data = new Array();
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
         complete: function(result) {
+            tick_data = result.data;
+            console.log(tick_data);
             // console.log(result);
-            for (i=0;i<result.data.length;i++) {
-                tick_data.push({ticker: result.data[i].Symbol, exchange: result.data[i].Exchange, description: result.data[i].Description})
-            }
+            // for (i=0;i<result.data.length;i++) {
+            //     tick_data.push({ticker: result.data[i].Symbol, exchange: result.data[i].Exchange, description: result.data[i].Description})
+            // }
         }
     });  
       
