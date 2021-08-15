@@ -15,6 +15,7 @@ function autorun() {
             // let i = 0;     
             for (let i = 1; i < 300; i++) {
                 setTimeout(function timer() {
+                    console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
                         // let dat = new Array();      
@@ -47,10 +48,7 @@ function autorun() {
                                     // console.log(stock_data.length);
                                 }                        
                             } 
-                        });
-                    // arr.push(r);
-                    // } 
-                    console.log(i);    
+                        }); 
                 }, i * 500);           
             } 
         }
