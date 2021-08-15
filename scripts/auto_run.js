@@ -34,9 +34,12 @@ function autorun() {
                             } else {
 
                             }                        
-                        } i++;                       
+                        } else {
+                            i=i-1;
+                        }                     
                     });
                 arr.push(r);  
+                i++;
                 console.log(i);
                 }                
             }                           
