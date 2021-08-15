@@ -13,7 +13,7 @@ function autorun() {
         complete: function(result) {
             // var arr = [];
             // let i = 0;     
-            for (let i = 1000; i < 6000; i++) {
+            for (let i = 0; i < 10000; i++) {
                 setTimeout(function timer() {
                     console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
@@ -49,7 +49,7 @@ function autorun() {
                                 }                        
                             } 
                         }); 
-                }, i * 250);           
+                }, i * 500);           
             } 
             alert(`selesai`);
         }
