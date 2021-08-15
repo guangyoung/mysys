@@ -17,7 +17,8 @@ function autorun() {
             while (stop == "false"){
                 var r = Math.floor(Math.random() * 1000) + 1;                
                 if(arr.indexOf(r) === -1) {
-                    let dat = new Array();                      
+                    let dat = new Array();  
+                    let stop2 = "false";                    
                     let exchange= result.data[r].Exchange;
                     let ticker= result.data[r].Symbol;
                     let description= result.data[r].Description;                    
@@ -38,10 +39,10 @@ function autorun() {
                                 
                             }                        
                         } 
-                        stop = stop1;                  
-                        console.log(stop);                 
+                        stop2 = stop1;             
                     });
-                   
+                    stop = stop2;                  
+                    console.log(stop);  
                 }    
                 if(stop == "true") {
                     arr.push(r);
