@@ -25,7 +25,7 @@ function autorun() {
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=9999999999&interval=1d";
                         $.getJSON(proxyurl+urls, function(data){
                             if(data.chart.result !== null) {
-                                if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
+                                if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2000) {
                                     historical_data = {
                                         exchange: exchange,
                                         ticker: ticker,
