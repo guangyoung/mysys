@@ -28,7 +28,7 @@ function autorun() {
                             console.log(data.result);
                             if(data.chart.result !== null) {
                                 if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2000) {
-                                    dat.push({date: data.chart.result[0].indicators.adjclose[0].adjclose, data: data.chart.result[0].indicators.adjclose[0].adjclose})
+                                    dat.push({date: data.chart.result[0].indicators.adjclose[0].adjclose, price: data.chart.result[0].indicators.adjclose[0].adjclose})
                                     historical_data = {
                                         exchange: exchange,
                                         ticker: ticker,
