@@ -6,7 +6,8 @@ var interestrate = 0.02;
 
 //data
 var stock_data = new Array(); 
-async function autorun() {  
+async function autorun() { 
+    await timer(3000);    
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
@@ -48,8 +49,7 @@ async function autorun() {
                     });
                 arr.push(r);  
                 i++; 
-                } 
-                await timer(3000);               
+                }                             
             } 
         }
     });
