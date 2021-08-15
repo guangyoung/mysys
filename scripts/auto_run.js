@@ -25,6 +25,18 @@ function autorun() {
                     $.getJSON(proxyurl+urls, function(data){
                         // if(data.chart.result !== null) {
                             // if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
+                                historical_data = {
+                                    exchange: exchange,
+                                    ticker: ticker,
+                                    description: description,
+                                    data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)
+                                } 
+                                $.ajax({
+                                    type: "POST",
+                                    url: "https://api.quantxi.com/add_data",
+                                    data: historical_data,             
+                                    dataType: 'json'
+                                })
                                 dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                 stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
                                 console.log(stock_data[stock_data.length-1].exchange);
