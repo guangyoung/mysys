@@ -114,7 +114,7 @@ function autorun2() {
     while (i< 30){
         var r = Math.floor(Math.random() * 1000) + 1;
         if(arr.indexOf(r) === -1) {
-            console.log(tick_data);
+            console.log(tick_data[r]);
             let dat = new Array();      
             let exchange= tick_data[r].exchange;
             let ticker= tick_data[r].ticker;
