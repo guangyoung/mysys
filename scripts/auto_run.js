@@ -11,8 +11,8 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            var arr = [];
-            let i = 0;     
+            // var arr = [];
+            // let i = 0;     
             for (let i = 1; i < 300; i++) {
                 setTimeout(function timer() {
                     // var r = Math.floor(Math.random() * 1000) + 1;
