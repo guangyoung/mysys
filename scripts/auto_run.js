@@ -13,25 +13,27 @@ function autorun() {
         complete: function(result) {
             // var arr = [];
             // let i = 0;     
-            for (let i = 0; i < 5000; i++) {
+            for (let i = 0; i < 5; i++) {
                 setTimeout(function timer() {
                     console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
-                        // let dat = new Array();      
-                        let exchange= result.data[i+10000].Exchange;
-                        let ticker= result.data[i+10000].Symbol;
-                        let description= result.data[i+10000].Description; 
+                        let dat = new Array();      
+                        let exchange= result.data[i].Exchange;
+                        let ticker= result.data[i].Symbol;
+                        let description= result.data[i].Description; 
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=9999999999&interval=1d";
                         $.getJSON(proxyurl+urls, function(data){
+                            console.log(data.result);
                             if(data.chart.result !== null) {
                                 if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2000) {
+                                    dat.push({date: data.chart.result[0].indicators.adjclose[0].adjclose, data: data.chart.result[0].indicators.adjclose[0].adjclose})
                                     historical_data = {
                                         exchange: exchange,
                                         ticker: ticker,
                                         description: description,
-                                        data: JSON.stringify(data.chart.result[0].indicators.adjclose[0].adjclose)
+                                        data: JSON.stringify(dat)
                                     } 
                                     $.ajax({
                                         type: "POST",
