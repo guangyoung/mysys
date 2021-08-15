@@ -24,7 +24,7 @@ function autorun() {
                     const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[r].Symbol+"?symbol="+result.data[r].Symbol+"&period1=0&period2=9999999999&interval=1d";
                     $.getJSON(proxyurl+urls, function(data){
                         if(data.chart.result !== null) {
-                            if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
+                            if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500 && stock_data.length<30) {
                                 dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                 stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
                                 console.log(stock_data[stock_data.length-1].exchange);
