@@ -41,7 +41,7 @@ function autorun() {
                         }                  
                     });
                   
-                // console.log(i);
+                console.log(stop);
                 }                
             }                           
                             
