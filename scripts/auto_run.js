@@ -13,7 +13,7 @@ function autorun() {
         complete: function(result) {
             var arr = [];
             let i = 0;     
-            for (i=0; i< 30; i++){
+            while (i< 30){
                 var r = Math.floor(Math.random() * 1000) + 1;
                 if(arr.indexOf(r) === -1) {
                     let dat = new Array();      
