@@ -65,7 +65,7 @@ function autorun() {
 }
 
 function autorun2() { 
-    var tick_data = new Array();
+    let tick_data = new Array();
     var stock_data = new Array();
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
