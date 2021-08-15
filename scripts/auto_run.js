@@ -75,6 +75,7 @@ function autorun2() {
             for (i=0;i<result.data.length;i++) {
                 tick_data.push({ticker: result.data[i].Symbol, exchange: result.data[i].Exchange, description: result.data[i].Description})
             }
+            console.log(tick_data[1]);
         }
     });  
       
@@ -114,7 +115,7 @@ function autorun2() {
     while (i< 30){
         var r = Math.floor(Math.random() * 1000) + 1;
         if(arr.indexOf(r) === -1) {
-            console.log(tick_data[r]);
+            
             let dat = new Array();      
             let exchange= tick_data[r].exchange;
             let ticker= tick_data[r].ticker;
