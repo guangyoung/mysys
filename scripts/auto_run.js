@@ -27,7 +27,7 @@ function autorun() {
                         $.getJSON(proxyurl+urls, function(data){
                             if(data.chart.result !== null) {
                                 if(data.chart.result[0].timestamp.length>2000) {
-                                    dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose})
+                                    dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
                                         exchange: exchange,
                                         ticker: ticker,
