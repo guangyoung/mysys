@@ -71,9 +71,9 @@ function autorun2() {
         download: true,
         header: true,
         complete: function(result) {
-            console.log(result);
+            // console.log(result);
             for (i=0;i<result.data.length;i++) {
-                tick_data.push({ticker: result.data[i].Symbol, exchange: result.data[i].Exchange, description= result.data[i].Description})
+                tick_data.push({ticker: result.data[i].Symbol, exchange: result.data[i].Exchange, description: result.data[i].Description})
             }
         }
     });  
