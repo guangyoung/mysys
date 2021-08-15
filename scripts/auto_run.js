@@ -23,19 +23,24 @@ function autorun() {
                     let description= result.data[r].Description; 
                     const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                     const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[r].Symbol+"?symbol="+result.data[r].Symbol+"&period1=0&period2=9999999999&interval=1d";
-                    $.getJSON(proxyurl+urls, function(data){
-                        if(data.chart.result !== null) {
-                            if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
-                                dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
-                                stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
-                                console.log(stock_data[stock_data.length-1].exchange);
-                                console.log(stock_data[stock_data.length-1].ticker);
-                                console.log(stock_data[stock_data.length-1].description);
-                                console.log(stock_data[stock_data.length-1].data[0].length);
-                                x = 1;
-                            }                        
-                        } 
-                    });
+                    function get() {
+                        $.getJSON(proxyurl+urls, function(data){
+                            if(data.chart.result !== null) {
+                                if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
+                                    dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
+                                    stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
+                                    console.log(stock_data[stock_data.length-1].exchange);
+                                    console.log(stock_data[stock_data.length-1].ticker);
+                                    console.log(stock_data[stock_data.length-1].description);
+                                    console.log(stock_data[stock_data.length-1].data[0].length);
+                                    x = 1;
+                                }                        
+                            } 
+                        });
+                    }
+
+                    get();
+                    
                     if(x === 1) {
                         arr.push(r);  
                         i++; 
