@@ -50,7 +50,7 @@ function autorun() {
                                 }                        
                             } 
                         }); 
-                }, i * 300);           
+                }, i * 500);           
             } 
             // alert(`selesai`);
         }
