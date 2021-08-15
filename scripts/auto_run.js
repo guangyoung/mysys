@@ -65,18 +65,16 @@ function autorun() {
 }
 
 function autorun2() { 
-    var tick_data;
+    var tick_data = new Array();
     var stock_data = new Array();
     Papa.parse("dataset/stock_tickers_list.csv", {
         download: true,
         header: true,
         complete: function(result) {
-            tick_data = result.data;
-            console.log(tick_data);
             // console.log(result);
-            // for (i=0;i<result.data.length;i++) {
-            //     tick_data.push({ticker: result.data[i].Symbol, exchange: result.data[i].Exchange, description: result.data[i].Description})
-            // }
+            for (i=0;i<result.data.length;i++) {
+                tick_data.push({ticker: result.data[i].Symbol, exchange: result.data[i].Exchange, description: result.data[i].Description})
+            }
         }
     });  
       
@@ -118,9 +116,9 @@ function autorun2() {
         if(arr.indexOf(r) === -1) {
             console.log(tick_data);
             let dat = new Array();      
-            let exchange= tick_data.exchange[r];
-            let ticker= tick_data.ticker[r];
-            let description= tick_data.description[r]; 
+            let exchange= tick_data[r].exchange;
+            let ticker= tick_data[r].ticker;
+            let description= tick_data[r].description; 
             const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
             const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=9999999999&interval=1d";
             $.getJSON(proxyurl+urls, function(data){
