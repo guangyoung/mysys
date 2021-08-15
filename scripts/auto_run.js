@@ -14,7 +14,6 @@ function autorun() {
             var arr = [];
             let i = 0;     
             for (let i = 1; i < 300; i++) {
-                console.log(i);
                 setTimeout(function timer() {
                     var r = Math.floor(Math.random() * 1000) + 1;
                     if(arr.indexOf(r) === -1) {
@@ -45,6 +44,7 @@ function autorun() {
                                     console.log(stock_data[stock_data.length-1].ticker);
                                     console.log(stock_data[stock_data.length-1].description);
                                     console.log(stock_data[stock_data.length-1].data[0].length);
+                                    console.log(stock_data.length);
                             //     }                        
                             // } 
                         });
