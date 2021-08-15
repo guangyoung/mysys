@@ -13,7 +13,7 @@ function autorun() {
         complete: function(result) {
             // var arr = [];
             // let i = 0;     
-            for (let i = 0; i < 10000; i++) {
+            for (let i = 0; i < 10; i++) {
                 setTimeout(function timer() {
                     console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
@@ -36,6 +36,7 @@ function autorun() {
                                         country: country,                                        
                                         data: JSON.stringify(dat)
                                     } 
+                                    console.log(historical_data);
                                     $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_data",
