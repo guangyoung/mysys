@@ -13,7 +13,7 @@ function autorun() {
         complete: function(result) {
             var arr = [];
             let i = 0;     
-            for (let i = 1; i < 30; i++) {
+            for (let i = 1; i < 300; i++) {
                 setTimeout(function timer() {
                     var r = Math.floor(Math.random() * 1000) + 1;
                     if(arr.indexOf(r) === -1) {
@@ -50,7 +50,7 @@ function autorun() {
                     arr.push(r);  
                     // i++; 
                     }     
-                }, i * 3000);           
+                }, i * 500);           
             } 
         }
     });   
