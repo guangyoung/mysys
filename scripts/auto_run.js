@@ -15,7 +15,7 @@ function autorun() {
             let i = 0;     
             while (i< 30){
                 var r = Math.floor(Math.random() * 1000) + 1;
-                if(arr.indexOf(r) === -1) {
+                while(arr.indexOf(r) === -1) {
                     let dat = new Array();      
                     let exchange= result.data[r].Exchange;
                     let ticker= result.data[r].Symbol;
@@ -23,19 +23,21 @@ function autorun() {
                     const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                     const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+result.data[r].Symbol+"?symbol="+result.data[r].Symbol+"&period1=0&period2=9999999999&interval=1d";
                     $.getJSON(proxyurl+urls, function(data){
-                        if(data.chart.result !== null) {
-                            if(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
+                        while(data.chart.result !== null) {
+                            while(data.chart.result[0].indicators.adjclose[0].adjclose.length>2500) {
                                 dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                 stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
                                 console.log(stock_data[stock_data.length-1].exchange);
                                 console.log(stock_data[stock_data.length-1].ticker);
                                 console.log(stock_data[stock_data.length-1].description);
                                 console.log(stock_data[stock_data.length-1].data[0].length);
+                                arr.push(r);  
+                                i++; 
                             }                        
                         } 
+                       
                     });
-                arr.push(r);  
-                i++; 
+              
                 }                
             }                           
                             
