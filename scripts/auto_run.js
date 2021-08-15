@@ -37,7 +37,7 @@ function autorun() {
                         } i++;                       
                     });
                 arr.push(r);  
-                i++; 
+                console.log(i);
                 }                
             }                           
                             
