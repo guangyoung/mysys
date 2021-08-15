@@ -12,13 +12,13 @@ function autorun() {
         header: true,
         complete: function(result) {
             var arr = [];
-            let i = 0;   
+            // let i = 0;   
             var stop = "false";  
             while (stop == "false"){
-                var r = Math.floor(Math.random() * 1000) + 1;
-                
+                var r = Math.floor(Math.random() * 1000) + 1;                
                 if(arr.indexOf(r) === -1) {
-                    let dat = new Array();      
+                    let dat = new Array();
+                    let stop1 = "false";      
                     let exchange= result.data[r].Exchange;
                     let ticker= result.data[r].Symbol;
                     let description= result.data[r].Description;                    
@@ -33,16 +33,18 @@ function autorun() {
                                 console.log(stock_data[stock_data.length-1].ticker);
                                 console.log(stock_data[stock_data.length-1].description);
                                 console.log(stock_data[stock_data.length-1].data[0].length);
-                                stop = "true";
-                                arr.push(r);
+                                stop1 = "true";                                
                             } else {
                                 
                             }                        
                         }                  
                     });
-                  
-                console.log(stop);
-                }                
+                    stop = stop1;                  
+                    console.log(stop);
+                }    
+                if(stop == "true") {
+                    arr.push(r);
+                }            
             }                           
                             
                 
