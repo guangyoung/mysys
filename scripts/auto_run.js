@@ -13,15 +13,15 @@ function autorun() {
         complete: function(result) {
             // var arr = [];
             // let i = 0;     
-            for (let i = 10000; i < 15000; i++) {
+            for (let i = 0; i < 5000; i++) {
                 setTimeout(function timer() {
                     console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
                         // let dat = new Array();      
-                        let exchange= result.data[i].Exchange;
-                        let ticker= result.data[i].Symbol;
-                        let description= result.data[i].Description; 
+                        let exchange= result.data[i+10000].Exchange;
+                        let ticker= result.data[i+10000].Symbol;
+                        let description= result.data[i+10000].Description; 
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=9999999999&interval=1d";
                         $.getJSON(proxyurl+urls, function(data){
