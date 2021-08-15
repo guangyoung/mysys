@@ -7,7 +7,7 @@ var interestrate = 0.02;
 //data
 // var stock_data = new Array(); 
 function autorun() {     
-    Papa.parse("dataset/stock_tickers_list.csv", {
+    Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
         header: true,
         complete: function(result) {
@@ -18,10 +18,11 @@ function autorun() {
                     console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
-                        let dat = new Array();      
-                        let exchange= result.data[i].Exchange;
+                        let dat = new Array();
                         let ticker= result.data[i].Symbol;
-                        let description= result.data[i].Description; 
+                        let description= result.data[i].Description;
+                        let exchange= result.data[i].Exchange;
+                        let country= result.data[i].Country; 
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=9999999999&interval=1d";
                         $.getJSON(proxyurl+urls, function(data){
@@ -29,9 +30,10 @@ function autorun() {
                                 if(data.chart.result[0].timestamp.length>2000) {
                                     dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
-                                        exchange: exchange,
                                         ticker: ticker,
                                         description: description,
+                                        exchange: exchange,
+                                        country: country,                                        
                                         data: JSON.stringify(dat)
                                     } 
                                     $.ajax({
