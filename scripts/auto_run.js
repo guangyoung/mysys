@@ -36,7 +36,6 @@ function autorun() {
                                         country: country,                                        
                                         data: JSON.stringify(dat)
                                     } 
-                                    console.log(historical_data);
                                     $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_data",
