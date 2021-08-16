@@ -13,7 +13,7 @@ function autorun() {
         complete: function(result) {
             // var arr = [];
             // let i = 0;     
-            for (let i = 0; i < 20000; i++) {
+            for (let i = 0; i < 100; i++) {
                 setTimeout(function timer() {
                     console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
