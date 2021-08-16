@@ -29,6 +29,7 @@ function autorun() {
                             if(data.chart.result !== null) {
                                 let sd = data.chart.result[0].timestamp[0];
                                 console.log(sd);   
+                                console.log(data.chart.result[0]); 
                                 // if(data.chart.result[0].timestamp.length>1000) {
                                     dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
