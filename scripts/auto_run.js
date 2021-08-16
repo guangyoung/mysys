@@ -25,9 +25,9 @@ function autorun() {
                         let country= result.data[i].Country; 
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=9999999999&interval=1d";
-                        $.getJSON(proxyurl+urls, function(data){  
-                           if(data.chart.result[0].indicators.adjclose[0].length > 0) {
-                                console.log(data.chart.result[0]);      
+                        $.getJSON(proxyurl+urls, function(data){    
+                            console.log(data.chart.result[0]);                                       
+                            if(data.chart.result[0].indicators.adjclose[0].length > 0) {
                                 let sd = data.chart.result[0].timestamp[0];
                                 console.log(sd);
                                 // if(data.chart.result[0].timestamp.length>1000) {
