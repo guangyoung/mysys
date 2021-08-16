@@ -29,12 +29,13 @@ function autorun() {
                             if(data.chart.result !== null) {
                                 if(data.chart.result[0].timestamp.length>1000) {
                                     dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
+                                    console.log(dat);
                                     historical_data = {
                                         ticker: ticker,
                                         description: description,
                                         exchange: exchange,
                                         country: country,
-                                        startdate: dat.date[0],                                        
+                                        startdate: dat[0].date[0],                                        
                                         data: JSON.stringify(dat)
                                     } 
                                     $.ajax({
