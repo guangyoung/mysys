@@ -35,7 +35,7 @@ function autorun() {
                                         description: description,
                                         exchange: exchange,
                                         country: country,
-                                        startdate: dat.date[0],                                        
+                                        startdate: 100,                                        
                                         data: JSON.stringify(dat)
                                     } 
                                     $.ajax({
