@@ -19,10 +19,10 @@ function autorun() {
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
                         let dat = new Array();
-                        let ticker= result.data[i+20000].Symbol;
-                        let description= result.data[i+20000].Description;
-                        let exchange= result.data[i+20000].Exchange;
-                        let country= result.data[i+20000].Country; 
+                        let ticker= result.data[i+60000].Symbol;
+                        let description= result.data[i+60000].Description;
+                        let exchange= result.data[i+60000].Exchange;
+                        let country= result.data[i+60000].Country; 
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=9999999999&interval=1d";
                         $.getJSON(proxyurl+urls, function(data){ 
