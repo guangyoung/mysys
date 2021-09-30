@@ -21,7 +21,7 @@
 
     function tickers_list_btn () {
       if(!exchange_choose_current) {
-         $('#ulul').empty();
+        $('#ulul').empty();
         var newLi = document.createElement('li');
         var li = document.createTextNode("\u00A0\u00A0Please Choose Your \u00A0\u00A0Exchange !!");
         newLi.appendChild(li);
@@ -185,6 +185,8 @@
             enddates.push(new Date(asset_portfolio_yahoo[i].data.date[asset_portfolio_yahoo[i].data.date.length-1]));
         }
         var startDate=new Date(Math.max.apply(null,startdates));
+        console.log(startDate);
+        console.log(endDate);
         var endDate=new Date(Math.min.apply(null,enddates));
         var as_arr = new Array();
         var idx = new Array();
