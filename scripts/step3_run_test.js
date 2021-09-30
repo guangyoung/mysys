@@ -8,8 +8,9 @@
  
     async function run_test() {
         //-----------------------------------------------------------------------------------
+        //tarik data startdate dan enddate berdasarkan periode yg ditentukan user...
         var startDate = $("#test_startdate").val();
-        var endDate = $("#test_enddate").val();
+        var endDate = $("#test_enddate").val();        
 
         var dataID = 0;
         var date;

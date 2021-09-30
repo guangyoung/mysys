@@ -185,9 +185,7 @@
             enddates.push(new Date(asset_portfolio_yahoo[i].data.date[asset_portfolio_yahoo[i].data.date.length-1]));
         }
         var startDate=new Date(Math.max.apply(null,startdates));
-        console.log(startDate);
-        console.log(endDate);
-        var endDate=new Date(Math.min.apply(null,enddates));
+        var endDate=new Date(Math.min.apply(null,enddates)); 
         var as_arr = new Array();
         var idx = new Array();
           for (i=0;i<30;i++) {
@@ -219,6 +217,7 @@
         $("#period_data").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);
         $("#period_data_dashboard").val(port_data[0][0]+' - '+port_data[port_data.length-1][0]);  
         $("#test_startdate").val(new Date(port_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(port_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(port_data[0][0]).getDate()));
+        $("#test_enddate").val(new Date(port_data[port_data.length-1][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(port_data[port_data.length-1][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(port_data[port_data.length-1][0]).getDate()));
         // $("#test_startdate").datepicker({ minDate: new Date(port_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(port_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(port_data[0][0]).getDate())});
         // $('#data_available_alert').html("You Have Data Available To Test");
         $('#stock1_ticker').html(asset_portfolio_yahoo[0].ticker);
