@@ -172,7 +172,7 @@
                 <!-- <div class="row" style="margin: auto; width: 200px">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rasio_chart" id="chart_button" style="margin-top: 10px; width: 200px; padding: 1px 5px; font-size: 13px"><i class="fa fa-line-chart" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>PERFORMANCE DETAILS</button>
                 </div> -->
-                <hr style="margin-top: 20px; width: 100%; height:1px; border-width:0; color:#ffffff; background-color:#ffffff">
+                <hr style="margin-top: 15px; width: 100%; height:1px; border-width:0; color:#ffffff; background-color:#ffffff">
                 
             </div>
             <div class="col-9">
@@ -288,13 +288,18 @@
                                 <input type="date" id="test_startdate" style="width: 110px; font-family: calibri; color: #555555; font-weight: 500; height: 18px; margin-left: 5px;  margin-top: 2px; font-size: 11px;">
                                 <a style="font-size: 11px; color: #000000; font-weight: 500; margin-top: 3px; margin-left: 10px">End date</a>
                                 <input type="date" id="test_enddate" style="width: 110px; font-family: calibri; color: #555555; font-weight: 500; height: 18px; margin-left: 5px;  margin-top: 2px; font-size: 11px;">
+                                <div class="spani" style="margin-top: 0px">
+                                        <a><i class="fa fa-info-circle" style="margin-left: 10px; color: blue; font-size: 17px"></i>
+                                            <span>isi nilai equity awal anda, minimum 1,000,000 dan tanpa batas maksimum, isi nilai equity awal anda, minimum 1,000,000 dan tanpa batas maksimum,</span>
+                                        </a>
+                                </div>
                                 <ul id="pagination-demo" class="pagination pagination-sm"></ul>
                             </div>   
-                            <div class="row">
+                            <!-- <div class="row">
                             <a style="font-size: 10px; margin-top: 5px; font-weight: 500; color: #000000; margin-left: 15px"><strong><u>Attention :</u></strong> You can set your period of testing by set start date and end date. the range of period of testing is minimum 300 days of data and no more than period of data. You can change period of testing as you like.</a>                         
-                            </div>
+                            </div> -->
                             <div class="row">
-                                <div class="table-hover" style="font-family: calibri; font-size: 11px; background-color: #070914; margin-left: 15px; margin-right: 15px; margin-top: 5px; overflow: auto; height: 380px">
+                                <div class="table-hover" style="font-family: calibri; font-size: 11px; background-color: #070914; margin-left: 15px; margin-right: 15px; margin-top: 5px; overflow: auto; height: 400px">
                                     <table id="port_data_tbl">
                                         <thead style="color:#d2d3d7">
                                             <tr>
@@ -393,8 +398,8 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 15px; margin-top: 1px; height: 25px; width: 100px" onclick="add_data()">Add Stock</button>
-                                    <button type="submit" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 15px; margin-top: 1px; height: 25px; width: 85px" onclick="reset_portfolio()">Reset</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 15px; margin-top: 1px; height: 25px; width: 200px" onclick="add_data()">Add Stock</button>
+                                    <!-- <button type="submit" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 15px; margin-top: 1px; height: 25px; width: 85px" onclick="reset_portfolio()">Reset</button> -->
                                 </div>   
                                 <div class="row">
                                     <div class="table-report" style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 15px; margin-left: 15px; margin-right: 15px; height: 405px; width: 100%; overflow-y: scroll">
@@ -414,7 +419,8 @@
                                     </div>
                                 </div>
                                 <div class="row">                                 
-                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 15px; height: 26px; width: 467px" onclick="process_data_yahoo()">Create Test Data</button>
+                                    <button type="submit" class="btn btn-danger btn-sm" style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 15px; height: 26px; width: 150px" onclick="reset_portfolio()">Reset Stock</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 14px; padding: 0px 5px; margin-left: 10px; margin-top: 15px; height: 26px; width: 305px" onclick="process_data_yahoo()">Create Test Data</button>
                                 </div>
                         </div>                        
                     </div>
@@ -694,6 +700,11 @@
             sessionStorage.removeItem("user");
             open("index.html","_self");
         }
+
+        $("#pagination-demo").twbsPagination({
+        //   totalPages: 4,
+          visiblePages: 1
+        });
 
         // autorun();
 

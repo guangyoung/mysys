@@ -431,14 +431,15 @@ margin: 10px 10px 10px 0px;
     pointer-events: none;
     background: #003535;
     padding: 5px 5px;
-    text-align: center;
+    text-align: left;
     float: left;
     /* width: 170px; */
     position: absolute;
     /* left: 50%; */
-    /* margin-left: -40px; */
+    margin-top: -35px;
+    margin-left: 5px;
     border-radius: 5px;
-    font-size: 8pt;
+    font-size: 9px;
     /* bottom: 30px; */
     color: #fcfcfc;
     font-weight: bold;
