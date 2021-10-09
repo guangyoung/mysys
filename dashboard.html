@@ -290,14 +290,11 @@
                                 <input type="date" id="test_enddate" style="width: 110px; font-family: calibri; color: #555555; font-weight: 500; height: 18px; margin-left: 5px;  margin-top: 2px; font-size: 11px;">
                                 <div class="spani" style="margin-top: 0px">
                                         <a><i class="fa fa-info-circle" style="margin-left: 10px; color: blue; font-size: 17px"></i>
-                                            <span>isi nilai equity awal anda, minimum 1,000,000 dan tanpa batas maksimum, isi nilai equity awal anda, minimum 1,000,000 dan tanpa batas maksimum,</span>
+                                            <span>You can change periode of testing manually</span>
                                         </a>
                                 </div>
                                 <ul id="pagination-demo" class="pagination pagination-sm"></ul>
-                            </div>   
-                            <!-- <div class="row">
-                            <a style="font-size: 10px; margin-top: 5px; font-weight: 500; color: #000000; margin-left: 15px"><strong><u>Attention :</u></strong> You can set your period of testing by set start date and end date. the range of period of testing is minimum 300 days of data and no more than period of data. You can change period of testing as you like.</a>                         
-                            </div> -->
+                            </div>  
                             <div class="row">
                                 <div class="table-hover" style="font-family: calibri; font-size: 11px; background-color: #070914; margin-left: 15px; margin-right: 15px; margin-top: 5px; overflow: auto; height: 412px">
                                     <table id="port_data_tbl">
@@ -364,64 +361,101 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col" style="width : 33%">
-                                <div class="row" style="margin-top: 0px" id="tt_dd">
-                                    <div class="dropdown" id="tickers_exchange">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" style="margin-left: 14px; font-size: 13px; width: 120px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
-                                            <span class="Xchange">Exchange</span>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: left; font-size: 13px; height: 410px; width: 100px; overflow: auto;">
-                                            <a class="dropdown-item" href="#" style="color: #ffff">NASDAQ</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">NYSE</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">LSE</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">EURONEXT</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">SSE</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">SZSE</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">SEHK</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">TSX</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">NASDAQ</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">NYSE</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">LSE</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">EURONEXT</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">SSE</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">SZSE</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">SEHK</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">TSX</a>
+                            <nav style="font-size: 13px">
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-manual-tab" data-toggle="tab" href="#nav-manual" role="tab" aria-controls="nav-manual" aria-selected="true">Select Stock Manually</a>
+                                <a class="nav-item nav-link" id="nav-random-tab" data-toggle="tab" href="#nav-random" role="tab" aria-controls="nav-random" aria-selected="false">Select Stock Randomly</a>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-manual" role="tabpanel" aria-labelledby="nav-manua-tab">
+                                    <div class="row" style="margin-top: 5px" id="tt_dd">
+                                        <div class="dropdown" id="tickers_exchange">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" style="margin-left: 14px; font-size: 13px; width: 120px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
+                                                <span class="Xchange">Exchange</span>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: left; font-size: 13px; height: 410px; width: 100px; overflow: auto;">
+                                                <a class="dropdown-item" href="#" style="color: #ffff">NASDAQ</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">NYSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">LSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">EURONEXT</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SZSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SEHK</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">TSX</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">NASDAQ</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">NYSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">LSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">EURONEXT</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SZSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SEHK</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">TSX</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="dropdown" id="tickers_list">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick = "tickers_list_btn ()" type="button" data-toggle="dropdown" style="margin-left: 10px; font-size: 13px; width: 120px; padding: 1px 5px">
-                                            Tickers (<span class="quantity">0</span>)
-                                        </button>
-                                        <div id="div_ulul">
-                                            <ul id="ulul" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 13px; height: 410px; width: 100px; overflow: auto;">
-
-                                            </ul>
+                                        <div class="dropdown" id="tickers_list">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick = "tickers_list_btn ()" type="button" data-toggle="dropdown" style="margin-left: 10px; font-size: 13px; width: 120px; padding: 1px 5px">
+                                                Tickers (<span class="quantity">0</span>)
+                                            </button>
+                                            <div id="div_ulul">
+                                                <ul id="ulul" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 13px; height: 410px; width: 100px; overflow: auto;">
+    
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 15px; margin-top: 1px; height: 25px; width: 200px" onclick="add_data()">Add Stock</button>
-                                    <!-- <button type="submit" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 15px; margin-top: 1px; height: 25px; width: 85px" onclick="reset_portfolio()">Reset</button> -->
-                                </div>   
-                                <div class="row">
-                                    <div class="table-report" style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 15px; margin-left: 15px; margin-right: 15px; height: 405px; width: 100%; overflow-y: scroll">
-                                        <table id="table_assets">
-                                            <thead style="font-size: 14px; font-family: calibri">
-                                                <tr>
-                                                    <th style="position: sticky; top: 0px; background-color: #ffffff; width: 7%; padding: 0 5px; text-align: center">#Stock</th>
-                                                    <th style="position: sticky; top: 0px; background-color: #ffffff; width: 15%; padding: 0 5x; text-align: center">Ticker</th>
-                                                    <th style="position: sticky; top: 0px; background-color: #ffffff; width: 19%; padding: 0 5px; text-align: center">Exchange</th>
-                                                    <th style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">Start&nbsp;Date</th>
-                                                    <th style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">End&nbsp;Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody style="font-size: 12px; font-family: calibri">
-                                            </tbody>
-                                        </table>
+                                        <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 15px; margin-top: 1px; height: 25px; width: 200px" onclick="add_data()">Add Stock</button>
                                     </div>
                                 </div>
-                                <div class="row">                                 
-                                    <button type="submit" class="btn btn-danger btn-sm" style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 15px; height: 26px; width: 150px" onclick="reset_portfolio()">Reset Stock</button>
-                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 14px; padding: 0px 5px; margin-left: 10px; margin-top: 15px; height: 26px; width: 305px" onclick="process_data_yahoo()">Create Test Data</button>
+                                <div class="tab-pane fade" id="nav-random" role="tabpanel" aria-labelledby="nav-random-tab">
+                                    <div class="row" style="margin-top: 5px" id="tt_dd2">
+                                        <div class="dropdown" id="tickers_exchange2">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn2" type="button" data-toggle="dropdown" style="margin-left: 14px; font-size: 13px; width: 120px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
+                                                <span class="Xchange">Exchange</span>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: left; font-size: 13px; height: 410px; width: 100px; overflow: auto;">
+                                                <a class="dropdown-item" href="#" style="color: #ffff">NASDAQ</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">NYSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">LSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">EURONEXT</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SZSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SEHK</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">TSX</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">NASDAQ</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">NYSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">LSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">EURONEXT</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SZSE</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">SEHK</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff">TSX</a>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 15px; margin-top: 1px; height: 25px; width: 330px" onclick="add_data()">Add Stock</button>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="table-report" style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 15px; margin-left: 15px; margin-right: 15px; height: 380px; width: 100%; overflow-y: scroll">
+                                    <table id="table_assets">
+                                        <thead style="font-size: 14px; font-family: calibri">
+                                            <tr>
+                                                <th style="position: sticky; top: 0px; background-color: #ffffff; width: 7%; padding: 0 5px; text-align: center">#Stock</th>
+                                                <th style="position: sticky; top: 0px; background-color: #ffffff; width: 15%; padding: 0 5x; text-align: center">Ticker</th>
+                                                <th style="position: sticky; top: 0px; background-color: #ffffff; width: 19%; padding: 0 5px; text-align: center">Exchange</th>
+                                                <th style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">Start&nbsp;Date</th>
+                                                <th style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">End&nbsp;Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="font-size: 12px; font-family: calibri">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">                                 
+                                <button type="submit" class="btn btn-danger btn-sm" style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 15px; height: 26px; width: 150px" onclick="reset_portfolio()">Reset Stock</button>
+                                <button type="submit" class="btn btn-primary btn-sm" style="font-size: 14px; padding: 0px 5px; margin-left: 10px; margin-top: 15px; height: 26px; width: 305px" onclick="process_data_yahoo()">Create Test Data</button>
+                            </div>
                         </div>                        
                     </div>
                 </div>

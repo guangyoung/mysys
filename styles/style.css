@@ -430,13 +430,13 @@ margin: 10px 10px 10px 0px;
     opacity: 0;
     pointer-events: none;
     background: #003535;
-    padding: 5px 5px;
+    padding: 4px 10px;
     text-align: left;
     float: left;
     /* width: 170px; */
     position: absolute;
     /* left: 50%; */
-    margin-top: -35px;
+    margin-top: -38px;
     margin-left: 5px;
     border-radius: 5px;
     font-size: 9px;
@@ -495,7 +495,7 @@ margin: 10px 10px 10px 0px;
   } */
   #pagination-demo{
     display: inline-block;
-    margin-top: -4px;
+    margin-top: -3px;
     position: absolute;
     right: 15px;
 
