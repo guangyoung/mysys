@@ -511,18 +511,18 @@ margin: 10px 10px 10px 0px;
     /* margin-bottom: 5px; */
   }
 
-  #pagination_trade_summary{
+  #pagination_trade_report{
     display: inline-block;
-    margin-top: -30px;
+    margin-top: -5px;
     position: absolute;
     right: 15px;
 
   }
-  #pagination_trade_summary li{
+  #pagination_trade_report li{
     display: inline-block;
   }
 
-  #pagination_trade_summary li a{
+  #pagination_trade_report li a{
     font-size: 11px;
     padding: 1px 8px;
     font-weight: 500;
@@ -548,7 +548,7 @@ margin: 10px 10px 10px 0px;
 
   #pagination_post_request_response{
     display: inline-block;
-    margin-top: -12px;
+    margin-top: -5px;
     position: absolute;
     right: 15px;
   }
