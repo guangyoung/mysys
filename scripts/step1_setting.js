@@ -29,10 +29,10 @@
         } else if ( $("#commision_share").val() > 0.005 ) {
             alert(`commision/share yg anda input lebih dari 0.005`);
             return false;
-        } else if ( $("#interest_rate").val() < 0.001 ) {
+        } else if ( $("#interest_rate").val() < 0.01 ) {
             alert(`interest rate yg anda input kurang dari 1%`);
             return false;
-        } else if ( $("#interest_rate").val() > 0.005 ) {
+        } else if ( $("#interest_rate").val() > 0.05 ) {
             alert(`interest rate yg anda input lebih dari 5%`);
             return false;
         } else {

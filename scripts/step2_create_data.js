@@ -164,7 +164,7 @@
       return n
     }
 
-    function process_data_yahoo() {
+    function process_data_yahoo() {      
       if(asset_portfolio_yahoo.length < 30) {
           alert('total asset kurang dari 30');
           return false;
@@ -197,13 +197,17 @@
           as_arr.push(dtt);              
           for (y=0; y<30; y++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
             let id = asset_portfolio_yahoo[y].data.date.indexOf(dtt, idx[y]);
+            // console.log(id, y);
             if(id == -1) {//jika idx tidak ditemukan
               as_arr.push(port_data[port_data.length-1][y+1]); //masukkan harga sebelumnya
-              // as_arr.push(asset_portfolio_yahoo[y].data.price[idx[y]-1]);
             } else {
-              as_arr.push(asset_portfolio_yahoo[y].data.price[id]); //jika idx ketemu masukkan harga berdasarkan idx
-              idx[y] = id+1;
-            }           
+              if(asset_portfolio_yahoo[y].data.price[id] == null) {
+                as_arr.push(port_data[port_data.length-1][y+1]); 
+              } else {
+                as_arr.push(asset_portfolio_yahoo[y].data.price[id]); //jika idx ketemu masukkan harga berdasarkan idx
+                idx[y] = id+1;
+              }   
+            }        
           }
           port_data.push(as_arr);
 
