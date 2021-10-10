@@ -5,15 +5,26 @@
 
     //Global Variables
     var tradeTesting_report = new Array();
+    var tradeTesting_performance = new Array();
+
+    function test_period_setting() {
+        if (test_data.length !== 0) {
+            alert(`tidak ada data untuk test `);
+            return false;
+        } else {
+            $('#period_testing_setting').modal('toggle');
+        }
+    }
  
     async function run_test() {
         //-----------------------------------------------------------------------------------
         //tarik data startdate dan enddate berdasarkan periode yg ditentukan user...   
 
-        if (test_data.length == 0) {
-            alert(`tidak ada data untuk test `);
-            return false;
-        } else {
+        // if (test_data.length !== 0) {
+        //     alert(`tidak ada data untuk test `);
+        //     return false;
+        // } else {
+           
             var startDate = appendLeadingZeroes(new Date($("#test_startdate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_startdate").val()).getDate()) + "/" + new Date($("#test_startdate").val()).getFullYear();
             var endDate = appendLeadingZeroes(new Date($("#test_enddate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_enddate").val()).getDate()) + "/" + new Date($("#test_enddate").val()).getFullYear();
             var idx_start, idx_end;
@@ -36,7 +47,7 @@
             $('#viewpost_button').attr('disabled',true);
             $('#trade_report_button').attr('disabled',true);
             $('#chart_button').attr('disabled',true);            
-        }
+        // }
 
         
 

@@ -66,7 +66,7 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#market_data" id="data_button" style="margin-top: 15px; width: 200px; padding: 1px 5px; font-size: 13px"><i class="fa fa-database" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>TEST DATA</button>
                 </div>
                 <div class="row" style="margin: auto; width: 200px">
-                    <button type="button" class="btn btn-success" id="play_button" style="margin-top: 15px; margin-left:0px; padding: 0px 10px; width: 200px; font-size: 13px" onclick="run_test()"><strong><i class="fa fa-play" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>RUN TEST</strong></button>
+                    <button type="button" class="btn btn-success" id="play_button" style="margin-top: 15px; margin-left:0px; padding: 0px 10px; width: 200px; font-size: 13px" onclick="test_period_setting()"><strong><i class="fa fa-play" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>RUN TEST</strong></button>
                 </div>                
                 <div class="progress" style="margin: auto; font-size: 11px; margin-top: 15px; background-color: #d6d6d6; height: 18px; width: 95%">
                     <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated" role="progressbar" id="progress_bar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="color: #4a4a4a; width:0%">
@@ -156,7 +156,7 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trade_report" id="trade_report_button"  style="margin-top: 5px; width: 200px; padding: 1px 5px; font-size: 13px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>TEST REPORT</button>
                 </div>
                 <div class="row" style="margin: auto; width: 200px">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trade_report" id="test_history_button"  style="margin-top: 15px; width: 200px; padding: 1px 5px; font-size: 13px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>TEST HISTORY</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trade_report" id="test_history_button"  style="margin-top: 15px; width: 200px; padding: 1px 5px; font-size: 13px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>TEST STATISTIC</button>
                 </div>
                 <hr style="margin-top: 15px; width: 100%; height:1px; border-width:0; color:#ffffff; background-color:#ffffff">
                 
@@ -207,7 +207,7 @@
 
     <!-- MODAL SETTING -->
     <div class="modal" id="setting" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="trade_settingLabel" aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 550px" role="document">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title"><i class="fa fa-gear"></i><strong style="margin-left: 10px">Test Setting</strong></h5>
@@ -227,7 +227,7 @@
                                     <input style="font-size: 13px" type="number" class="form-control" id="initial_equity" aria-describedby="" value= "1000000" min="1000000" required>
                                 </div>
                                 <div class="spani form-group">
-                                    <label style="font-size: 13px; margin-top: 15px">Spread+Slippage/Trade/Side
+                                    <label style="font-size: 13px; margin-top: 15px">Spread+Slippage/Side
                                         <a><i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i>
                                             <span>isi besaran spread</span>
                                         </a>
@@ -235,7 +235,7 @@
                                     <input style="font-size: 13px" type="number" class="form-control" id="bid_ask_spread" aria-describedby="" value= "0.005" min="0.001" max="0.005" required>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-size: 13px; margin-top: 15px">Commision/Share/Side <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
+                                    <label style="font-size: 13px; margin-top: 15px">Commision/Share <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                                     <input style="font-size: 13px" type="number" class="form-control" id="commision_share" aria-describedby="" value= "0.001" min="0.001" max="0.005" required>
                                 </div>
                                 <div class="form-group">
@@ -269,7 +269,7 @@
                             <div class="row">
                                 <strong style="margin-left: 15px; font-size: 12px;">Period of Data :</strong>
                                 <input id="period_data" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 150px; font-size: 10px">
-                                <strong style="margin-left: 15px; font-size: 12px;">Period of Testing :</strong>
+                                <!-- <strong style="margin-left: 15px; font-size: 12px;">Period of Testing :</strong>
                                 <a style="font-size: 11px; color: #000000; font-weight: 500; margin-top: 3px; margin-left: 10px">Start date</a>
                                 <input type="date" id="test_startdate" style="width: 110px; font-family: calibri; color: #555555; font-weight: 500; height: 18px; margin-left: 5px;  margin-top: 2px; font-size: 11px;">
                                 <a style="font-size: 11px; color: #000000; font-weight: 500; margin-top: 3px; margin-left: 10px">End date</a>
@@ -278,7 +278,7 @@
                                         <a><i class="fa fa-info-circle" style="margin-left: 10px; color: blue; font-size: 17px"></i>
                                             <span>You can change periode of testing manually</span>
                                         </a>
-                                </div>
+                                </div> -->
                                 <ul id="pagination-demo" class="pagination pagination-sm"></ul>
                             </div>  
                             <div class="row">
@@ -444,6 +444,39 @@
                             </div>
                         </div>                        
                     </div>
+                </div>
+			</div>
+		</div>
+    </div>
+
+    <!-- MODAL SET PERIOD OF TESTING -->
+    <div class="modal" id="period_testing_setting" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="period_testing_settingLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-calendar"></i><strong style="margin-left: 10px">Set Period of Testing</strong></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6 style="text-align: center; font-size: 14px;">Period of Data</h6>
+                    <div class="row" style="margin: auto; width: 400px">
+                        <a style="font-size: 11px; color: #000000; font-weight: 500; margin-top: 6px; margin-left: 10px">Start date</a>
+                        <input id="data_startdate" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; color: #000000; font-weight: 500; margin-top: 5px; margin-left: 5px; padding: 0 3px; height: 18px; width: 130px; font-size: 10px">
+                        <a style="font-size: 11px; color: #000000; font-weight: 500; margin-top: 6px; margin-left: 10px">End date</a>
+                        <input id="data_enddate" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; color: #000000; font-weight: 500; margin-top: 5px; margin-left: 5px; padding: 0 3px; height: 18px; width: 130px; font-size: 10px">
+                    </div>
+                    <h6 style="text-align: center; font-size: 14px; margin-top: 25px">Period of Data</h6>
+                    <div class="row" style="margin: auto; width: 400px">
+                        <a style="font-size: 11px; color: #000000; font-weight: 500; margin-top: 6px; margin-left: 10px">Start date</a>
+                        <input type="date" id="test_startdate" style="width: 110px; font-family: calibri; color: #555555; font-weight: 500; height: 18px; margin-left: 5px;  margin-top: 5px; font-size: 11px;">
+                        <a style="font-size: 11px; color: #000000; font-weight: 500; margin-top: 6px; margin-left: 10px">End date</a>
+                        <input type="date" id="test_enddate" style="width: 110px; font-family: calibri; color: #555555; font-weight: 500; height: 18px; margin-left: 5px;  margin-top: 5px; font-size: 11px;">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-sm" data-dismiss="modal" style="font-size: 14px; padding: 1px 15px; margin: auto; width: 100px; height: 26px;" onclick="run_test()">Submit</button>
                 </div>
 			</div>
 		</div>
