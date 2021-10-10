@@ -4,10 +4,10 @@
 //...................................................................................
    
     //Global Variables
-    var initialequity;
-    var bidaskspread;
-    var commisionshare;
-    var interestrate;
+    var initial_equity;
+    var spread_slippage;
+    var commission;
+    var interest_rate;
 
     function test_setting_submit_btn() {
 
@@ -36,10 +36,10 @@
             alert(`interest rate yg anda input lebih dari 5%`);
             return false;
         } else {
-            initialequity = $("#initial_equity").val();
-            bidaskspread = $("#bid_ask_spread").val();
-            commisionshare = $("#commision_share").val();
-            interestrate = $("#interest_rate").val();
+            initial_equity = $("#initial_equity").val();
+            spread_slippage = $("#bid_ask_spread").val();
+            commission = $("#commision_share").val();
+            interest_rate = $("#interest_rate").val();
             $('#setting').modal('hide');
         }  
     }

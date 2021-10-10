@@ -8,8 +8,9 @@
  
     async function run_test() {
         //-----------------------------------------------------------------------------------
-        //tarik data startdate dan enddate berdasarkan periode yg ditentukan user...       
-        if (port_data.length == 0) {
+        //tarik data startdate dan enddate berdasarkan periode yg ditentukan user...   
+
+        if (test_data.length == 0) {
             alert(`tidak ada data untuk test `);
             return false;
         } else {
@@ -18,11 +19,11 @@
             var idx_start, idx_end;
             var test_length;
             
-            for(i=0;i<port_data.length;i++)  {
-                if(port_data[i].indexOf(startDate) !== -1)  {
+            for(i=0;i<test_data.length;i++)  {
+                if(test_data[i].indexOf(startDate) !== -1)  {
                     idx_start = i;
                 }
-                if(port_data[i].indexOf(endDate) !== -1)  {
+                if(test_data[i].indexOf(endDate) !== -1)  {
                     idx_end = i;
                 }
             } 
@@ -75,38 +76,38 @@
 
             dataID_input++;
 
-            date = port_data[dataID_input+idx_start][0];
+            date = test_data[dataID_input+idx_start][0];
 
-            stock01_price = parseFloat(port_data[dataID_input+idx_start][1]);
-            stock02_price = parseFloat(port_data[dataID_input+idx_start][2]);
-            stock03_price = parseFloat(port_data[dataID_input+idx_start][3]);
-            stock04_price = parseFloat(port_data[dataID_input+idx_start][4]);
-            stock05_price = parseFloat(port_data[dataID_input+idx_start][5]);
-            stock06_price = parseFloat(port_data[dataID_input+idx_start][6]);
-            stock07_price = parseFloat(port_data[dataID_input+idx_start][7]);
-            stock08_price = parseFloat(port_data[dataID_input+idx_start][8]);
-            stock09_price = parseFloat(port_data[dataID_input+idx_start][9]);
-            stock10_price = parseFloat(port_data[dataID_input+idx_start][10]);
-            stock11_price = parseFloat(port_data[dataID_input+idx_start][11]);
-            stock12_price = parseFloat(port_data[dataID_input+idx_start][12]);
-            stock13_price = parseFloat(port_data[dataID_input+idx_start][13]);
-            stock14_price = parseFloat(port_data[dataID_input+idx_start][14]);
-            stock15_price = parseFloat(port_data[dataID_input+idx_start][15]);
-            stock16_price = parseFloat(port_data[dataID_input+idx_start][16]);
-            stock17_price = parseFloat(port_data[dataID_input+idx_start][17]);
-            stock18_price = parseFloat(port_data[dataID_input+idx_start][18]);
-            stock19_price = parseFloat(port_data[dataID_input+idx_start][19]);
-            stock20_price = parseFloat(port_data[dataID_input+idx_start][20]);
-            stock21_price = parseFloat(port_data[dataID_input+idx_start][21]);
-            stock22_price = parseFloat(port_data[dataID_input+idx_start][22]);
-            stock23_price = parseFloat(port_data[dataID_input+idx_start][23]);
-            stock24_price = parseFloat(port_data[dataID_input+idx_start][24]);
-            stock25_price = parseFloat(port_data[dataID_input+idx_start][25]);
-            stock26_price = parseFloat(port_data[dataID_input+idx_start][26]);
-            stock27_price = parseFloat(port_data[dataID_input+idx_start][27]);
-            stock28_price = parseFloat(port_data[dataID_input+idx_start][28]);
-            stock29_price = parseFloat(port_data[dataID_input+idx_start][29]);
-            stock30_price = parseFloat(port_data[dataID_input+idx_start][30]);
+            stock01_price = parseFloat(test_data[dataID_input+idx_start][1]);
+            stock02_price = parseFloat(test_data[dataID_input+idx_start][2]);
+            stock03_price = parseFloat(test_data[dataID_input+idx_start][3]);
+            stock04_price = parseFloat(test_data[dataID_input+idx_start][4]);
+            stock05_price = parseFloat(test_data[dataID_input+idx_start][5]);
+            stock06_price = parseFloat(test_data[dataID_input+idx_start][6]);
+            stock07_price = parseFloat(test_data[dataID_input+idx_start][7]);
+            stock08_price = parseFloat(test_data[dataID_input+idx_start][8]);
+            stock09_price = parseFloat(test_data[dataID_input+idx_start][9]);
+            stock10_price = parseFloat(test_data[dataID_input+idx_start][10]);
+            stock11_price = parseFloat(test_data[dataID_input+idx_start][11]);
+            stock12_price = parseFloat(test_data[dataID_input+idx_start][12]);
+            stock13_price = parseFloat(test_data[dataID_input+idx_start][13]);
+            stock14_price = parseFloat(test_data[dataID_input+idx_start][14]);
+            stock15_price = parseFloat(test_data[dataID_input+idx_start][15]);
+            stock16_price = parseFloat(test_data[dataID_input+idx_start][16]);
+            stock17_price = parseFloat(test_data[dataID_input+idx_start][17]);
+            stock18_price = parseFloat(test_data[dataID_input+idx_start][18]);
+            stock19_price = parseFloat(test_data[dataID_input+idx_start][19]);
+            stock20_price = parseFloat(test_data[dataID_input+idx_start][20]);
+            stock21_price = parseFloat(test_data[dataID_input+idx_start][21]);
+            stock22_price = parseFloat(test_data[dataID_input+idx_start][22]);
+            stock23_price = parseFloat(test_data[dataID_input+idx_start][23]);
+            stock24_price = parseFloat(test_data[dataID_input+idx_start][24]);
+            stock25_price = parseFloat(test_data[dataID_input+idx_start][25]);
+            stock26_price = parseFloat(test_data[dataID_input+idx_start][26]);
+            stock27_price = parseFloat(test_data[dataID_input+idx_start][27]);
+            stock28_price = parseFloat(test_data[dataID_input+idx_start][28]);
+            stock29_price = parseFloat(test_data[dataID_input+idx_start][29]);
+            stock30_price = parseFloat(test_data[dataID_input+idx_start][30]);
 
             //POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI ---------------------------------------------------------------------           
             while (dataID_output < dataID_input) {
