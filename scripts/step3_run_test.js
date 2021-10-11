@@ -18,13 +18,10 @@
  
     async function run_test() {
         //-----------------------------------------------------------------------------------
-        //tarik data startdate dan enddate berdasarkan periode yg ditentukan user...   
+        //tarik data startdate dan enddate berdasarkan periode yg ditentukan user... 
+                        
+            alert(`Anda akan terhubung dengan Quantxi, Extra Intelligent Quant Trade System, walaupun ini adalah simulasi, anda terhubung dengan kecerdasan Quantxi yang sama.`);
 
-        // if (test_data.length !== 0) {
-        //     alert(`tidak ada data untuk test `);
-        //     return false;
-        // } else {
-           
             var startDate = appendLeadingZeroes(new Date($("#test_startdate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_startdate").val()).getDate()) + "/" + new Date($("#test_startdate").val()).getFullYear();
             var endDate = appendLeadingZeroes(new Date($("#test_enddate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_enddate").val()).getDate()) + "/" + new Date($("#test_enddate").val()).getFullYear();
             var idx_start, idx_end;
