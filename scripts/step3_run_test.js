@@ -121,7 +121,7 @@
             while (dataID_output < dataID_input) {
                 await $.ajax({
                     type: "POST",
-                    url: "https://api.quantxi.com/post?api_key="+sessionStorage.getItem("apiKey"),
+                    url: "https://api.quantxi.com/post?api_key="+localStorage.getItem("apiKey"),
                     data: {
                         data_id: dataID_input,
                         // timeStamp: Math.floor(Date.now() /1000),

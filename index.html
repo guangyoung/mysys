@@ -16,7 +16,7 @@
         <div class="d-flex align-items-center min-vh-100">
             <div class="container text-center" style="margin-top: 20px; margin-bottom: 20px">
                 <div class="container" style="width: 100%">
-                    <h3 style="text-align: center; color: #b9b9b9">QUANTXI OPEN SOURCE<br>SYSTEM TESTING TOOL</h3>
+                    <h3 style="text-align: center; color: #b9b9b9">OPEN SOURCE<br>QUANTXI TESTING TOOL</h3>
                     <p style="text-align: center; font-size: 14px; color: #7c7e89;">Start testing to find out how Quantxi with A.I can generate trading signals accurately<br>Test with transparent, open source and 100% unseen data proccess</p>
                     <img src="images/bg-2-11.png" class="img-fluid center" style="margin-top: 35px">
                 </div>
@@ -53,8 +53,8 @@
                 success: function(result){
                 if (result.status == "success") {                    
                     alert(`selamat datang `+result.data.nama+`, api key :` +$("#api_key").val()); //setting diserver u/tampilkan message data user
-                    sessionStorage.setItem("user", result.data.nama);
-                    sessionStorage.setItem("apiKey", $("#api_key").val());
+                    localStorage.setItem("user", result.data.nama);
+                    localStorage.setItem("apiKey", $("#api_key").val());
                    
                     open("dashboard.html","_self");
                 } else {

@@ -6,7 +6,7 @@
 async function reset_test() {
    await $.ajax({
      type: "DELETE",
-     url: "https://api.quantxi.com/reset?api_key="+sessionStorage.getItem("apiKey"),    
+     url: "https://api.quantxi.com/reset?api_key="+localStorage.getItem("apiKey"),    
      dataType: 'json',
      success: function(result){
       if (result.status == "success") {
