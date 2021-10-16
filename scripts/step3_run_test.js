@@ -20,7 +20,7 @@
         //-----------------------------------------------------------------------------------
         //tarik data startdate dan enddate berdasarkan periode yg ditentukan user... 
                         
-            alert(`Anda akan terhubung dengan Quantxi, Extra Intelligent Quant Trade System, walaupun ini adalah simulasi, anda terhubung dengan kecerdasan Quantxi yang sama.`);
+            alert(`Anda akan terhubung dengan Quantxi AI Engine Version 1.1.5, walaupun ini adalah simulasi, anda terhubung dengan kecerdasan Quantxi yang sama. (Kasih gambar grafik terhubung dengan Quantxi AI Engine 1.1.5)`);
 
             var startDate = appendLeadingZeroes(new Date($("#test_startdate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_startdate").val()).getDate()) + "/" + new Date($("#test_startdate").val()).getFullYear();
             var endDate = appendLeadingZeroes(new Date($("#test_enddate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_enddate").val()).getDate()) + "/" + new Date($("#test_enddate").val()).getFullYear();
