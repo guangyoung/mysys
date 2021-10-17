@@ -157,17 +157,14 @@
                 <div class="row" style="margin: auto; width: 200px">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trade_report" id="test_history_button"  style="margin-top: 15px; width: 200px; padding: 1px 5px; font-size: 13px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>TEST STATISTIC</button>
                 </div>
-                <!-- <div class="row" style="margin: auto; width: 200px">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trade_report" id=""  style="margin-top: 15px; width: 200px; padding: 1px 5px; font-size: 13px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>EXIT TEST</button>
-                </div> -->
                 <hr style="margin-top: 14px; width: 100%; height:1px; border-width:0; color:#ffffff; background-color:#ffffff">
                 
             </div>
             <div class="col-9">
                 <div class="row" style="background-color: #444444;">
                     <div style="width: 32%; color: #ffffff; height: 35px; padding: 1px 5px;">
-                        <div class="row" style="margin: auto; width: 223px">
-                            <i class="fa fa-sign-in" style="margin-top: 4px; font-size: 23px"></i>
+                        <div class="row" style="margin: auto; width: 231px">
+                            <img src="images/rest_api_symbol.png" width="28" height="20" style="margin-top: 6px">
                             <strong style="font-size: 15px; margin-left: 10px; margin-top: 6px">DATA INPUT&nbsp;&nbsp;-&nbsp;&nbsp;REQUEST</strong>
                         </div>
                     </div>
@@ -178,8 +175,8 @@
                         </div>
                     </div>
                     <div style="width: 32%; color: #ffffff; height: 35px; padding: 1px 5px;">
-                        <div class="row" style="margin: auto; width: 269px">
-                            <i class="fa fa-sign-in" style="margin-top: 4px; font-size: 23px"></i>
+                        <div class="row" style="margin: auto; width: 278px">
+                            <img src="images/rest_api_symbol.png" width="28" height="20" style="margin-top: 6px">
                             <strong style="font-size: 15px; margin-left: 10px; margin-top: 6px">SIGNAL OUTPUT&nbsp;&nbsp;-&nbsp;&nbsp;RESPONSE</strong>
                         </div>
                     </div>
@@ -187,8 +184,7 @@
                 <div class="row" style="background-color: #ebebeb; height: 600px">
                     <div style="width: 32%"  id="input">                           
                     </div>
-                    <div style="width: 36%; text-align: center; border-left: 1px #1b1c2c solid; border-right: 1px #1b1c2c solid;">                    
-                        <!-- <h6 style="font-size: 11px; color: #101214; margin-top: 2px; margin-top: 25px"><strong>Data Communication Method :</strong> REST API</h6>                         -->
+                    <div style="width: 36%; text-align: center; border-left: 1px #1b1c2c solid; border-right: 1px #1b1c2c solid;"> 
                         <h6 style="font-size: 12px; color: #101214; margin-top: 2px; margin-top: 30px"><strong>X-UserID :</strong> Point72 Asset Management</h6>
                         <h6 style="font-size: 12px; color: #101214; margin-top: 2px; margin-top: 8px"><strong>REST API Endpoint :</strong> api.quantxi.com</h6>
                         <h6 style="font-size: 12px; color: #101214; margin-top: 2px; margin-top: 8px"><strong>Quantxi AI Engine Version Used :</strong> QUANTXI 1.1.5</h6>
@@ -197,13 +193,91 @@
                            <img src="images/quantxi_in_out.png" class="img-fluid" style="margin-top: 30px">
                         </div>
                         <h6 style="font-size: 16px; color: #101214; margin-top: 35px"><strong>Total Request&nbsp;&nbsp;:&nbsp;&nbsp;<span id="total_post">0</span></strong></h6>
-                        <h6 style="font-size: 9px; color: #000000; margin-top: 15px">#Request&nbsp;&nbsp;Timestamp&nbsp;&nbsp;HTTPStatus&nbsp;&nbsp;Request&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response</h6>
+                        <div class="table-report" style="margin-top: 10px; margin-left: 15px; margin-right: 15px; height: 140px">
+                            <table id="">
+                                <thead style="font-size: 10px; font-family: calibri; border-top: 1px #bfbfbf solid; border-bottom: 1px #bfbfbf solid; ">
+                                    <tr>
+                                        <th style="position: sticky; top: 0px; width: 1%; padding: 0 5px; text-align: center">#</th>
+                                        <th style="position: sticky; top: 0px; width: 25%; padding: 0 5x; text-align: center">Timestamp</th>
+                                        <th style="position: sticky; top: 0px; width: 10%; padding: 0 5px; text-align: center">Status</th>
+                                        <th style="position: sticky; top: 0px; width: 35%; padding: 0 5px; text-align: center">Request</th>
+                                        <th style="position: sticky; top: 0px; width: 10%; padding: 0 5px; text-align: center">Response</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="font-size: 9px; font-family: calibri">
+                                    <tr>
+                                        <td>1000</td>
+                                        <td>23-01-0113:00:00</td>
+                                        <td>200 (OK)</td>
+                                        <td>POST http://api.quantxi.com</td>
+                                        <td>200 (OK)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>23-01-0113:00:00</td>
+                                        <td>200 (OK)</td>
+                                        <td>POST http://api.quantxi.com</td>
+                                        <td>200 (OK)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1002</td>
+                                        <td>23-01-0113:00:00</td>
+                                        <td>200 (OK)</td>
+                                        <td>POST http://api.quantxi.com</td>
+                                        <td>200 (OK)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1003</td>
+                                        <td>23-01-0113:00:00</td>
+                                        <td>200 (OK)</td>
+                                        <td>POST http://api.quantxi.com</td>
+                                        <td>200 (OK)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1004</td>
+                                        <td>23-01-0113:00:00</td>
+                                        <td>200 (OK)</td>
+                                        <td>POST http://api.quantxi.com</td>
+                                        <td>200 (OK)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1005</td>
+                                        <td>23-01-0113:00:00</td>
+                                        <td>200 (OK)</td>
+                                        <td>POST http://api.quantxi.com</td>
+                                        <td>200 (OK)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1006</td>
+                                        <td>23-01-0113:00:00</td>
+                                        <td>200 (OK)</td>
+                                        <td>POST http://api.quantxi.com</td>
+                                        <td>200 (OK)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1007</td>
+                                        <td>23-01-0113:00:00</td>
+                                        <td>200 (OK)</td>
+                                        <td>POST http://api.quantxi.com</td>
+                                        <td>200 (OK)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1008</td>
+                                        <td>23-01-0113:00:00</td>
+                                        <td>200 (OK)</td>
+                                        <td>POST http://api.quantxi.com</td>
+                                        <td>200 (OK)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- <h6 style="font-size: 9px; color: #000000; margin-top: 15px">#Request&nbsp;&nbsp;Timestamp&nbsp;&nbsp;HTTPStatus&nbsp;&nbsp;Request&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response</h6>
                         <h6 style="font-size: 9px; color: #000000; margin-top: 0px">#Request&nbsp;&nbsp;Timestamp&nbsp;&nbsp;HTTPStatus&nbsp;&nbsp;Request&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response</h6>
                         <h6 style="font-size: 9px; color: #000000; margin-top: 0px">#Request&nbsp;&nbsp;Timestamp&nbsp;&nbsp;HTTPStatus&nbsp;&nbsp;Request&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response</h6>
                         <h6 style="font-size: 9px; color: #000000; margin-top: 0px">#Request&nbsp;&nbsp;Timestamp&nbsp;&nbsp;HTTPStatus&nbsp;&nbsp;Request&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response</h6>
                         <h6 style="font-size: 9px; color: #000000; margin-top: 0px">#Request&nbsp;&nbsp;Timestamp&nbsp;&nbsp;HTTPStatus&nbsp;&nbsp;Request&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response</h6>
                         <h6 style="font-size: 9px; color: #000000; margin-top: 0px">#Request&nbsp;&nbsp;Timestamp&nbsp;&nbsp;HTTPStatus&nbsp;&nbsp;Request&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response</h6>
-                        <h6 style="font-size: 9px; color: #000000; margin-top: 0px">#Request&nbsp;&nbsp;Timestamp&nbsp;&nbsp;HTTPStatus&nbsp;&nbsp;Request&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response</h6>
+                        <h6 style="font-size: 9px; color: #000000; margin-top: 0px">#Request&nbsp;&nbsp;Timestamp&nbsp;&nbsp;HTTPStatus&nbsp;&nbsp;Request&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response</h6> -->
                         <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#view_allpost" id="viewpost_button" style="font-family: Acrom; margin-top: 5px; padding: 2px 12px; font-size: 11px">View All Request & Response</button>
                         <h6 style="font-size: 9px; color: #101214; margin-top: 15px">Capture HTTP traffic between your computer<br>and Quantxi server using <img src="images/Fiddler-Everywhere-Icon.png" class="img-fluid" width="18" height="18" style="margin : auto"> Fiddler Everywhere.<a href="" style="font-size: 9px"><u> Learn More</u></a></h6>
                         
