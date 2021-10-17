@@ -143,7 +143,7 @@
           return false;
       } else {
         // portfolio_data = [];
-        test_data = [];
+        // test_data = [];
         // $("#table_assets > tbody").empty();
         // $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
