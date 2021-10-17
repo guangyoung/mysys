@@ -163,8 +163,8 @@
         }
         var startDate=new Date(Math.max.apply(null,startdates));
         var endDate=new Date(Math.min.apply(null,enddates));
-        // console.log(startDate);
-        // console.log(endDate);
+        console.log(startDate);
+        console.log(endDate);
         var as_arr = new Array();
         var idx = new Array();
           for (i=0;i<30;i++) {
@@ -180,16 +180,19 @@
             console.log(id, y);
             if(id == -1) {//jika idx tidak ditemukan
               as_arr.push(test_data[test_data.length-1][y+1]); //masukkan harga sebelumnya
+              console.log(as_arr);
             } else {
               if(portfolio_data[y].data.price[id] == null) {
                 as_arr.push(test_data[test_data.length-1][y+1]); 
+                console.log(as_arr);
               } else {
                 as_arr.push(portfolio_data[y].data.price[id]); //jika idx ketemu masukkan harga berdasarkan idx
                 idx[y] = id+1;
+                console.log(as_arr);
               }   
             }        
           }
-          console.log(as_arr);
+          
           test_data.push(as_arr);
 
           if (startDate.getDay()==5) {
