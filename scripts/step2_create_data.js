@@ -163,7 +163,7 @@
         var enddates= new Array();
         for (i=0; i<portfolio_data.length; i++) {
             startdates.push(new Date(portfolio_data[i].data.date[0]));
-            // enddates.push(new Date(portfolio_data[i].data.date[portfolio_data[i].data.date.length-1]));
+            enddates.push(new Date(portfolio_data[i].data.date[portfolio_data[i].data.date.length-1]));
         }
         var startDate=new Date(Math.max.apply(null,startdates));
         var endDate=new Date(Math.min.apply(null,enddates));
