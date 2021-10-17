@@ -139,7 +139,7 @@
           return false;
       } else {
         test_data = [];
-        // $("#port_data_tbl>tbody").empty();
+        $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
         $("#period_data").val("");
         // $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");        
@@ -222,9 +222,9 @@
         $('#stock29_ticker').html(portfolio_data[28].ticker);
         $('#stock30_ticker').html(portfolio_data[29].ticker);
         console.log(test_data);
-        $('#create_data').modal('toggle'); 
-        $("#table_assets > tbody").empty();
-        portfolio_data = [];
+        // $('#create_data').modal('toggle'); 
+        // $("#table_assets > tbody").empty();
+        // portfolio_data = [];
     
         $("#pagination-demo").twbsPagination({
           totalPages: Math.ceil(test_data.length/22),
