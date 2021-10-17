@@ -142,13 +142,12 @@
           alert('total asset kurang dari 30');
           return false;
       } else {
-        // test_data = [];
-        // $("#port_data_tbl>tbody").empty();
-        // $("#pagination-demo").twbsPagination("destroy");
-        // $("#period_data").val("");
-        // $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");        
-        // $("#test_startdate").val("");
-        // $('#data_available_alert').html("No Test Data Available To Test");
+        // portfolio_data = [];
+        test_data = [];
+        // $("#table_assets > tbody").empty();
+        $("#port_data_tbl>tbody").empty();
+        $("#pagination-demo").twbsPagination("destroy");
+        $("#period_data").val("");
           
         //cek periode data yg tercover oleh semua stocks
         var startdates= new Array();
@@ -234,7 +233,7 @@
           totalPages: Math.ceil(test_data.length/22),
           visiblePages: 4,
           onPageClick: function (event, page) {
-            // $("#port_data_tbl>tbody").empty();
+            $("#port_data_tbl>tbody").empty();
             for (i=(page-1)*22; i<(page*22) && i<(test_data.length); i++) {
               var test_data_row =
               `<tr>
