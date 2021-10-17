@@ -186,15 +186,15 @@
               as_arr.push(test_data[test_data.length-1][y+1]); //masukkan harga sebelumnya
               console.log(as_arr);
             } else {
-              if(portfolio_data[y].data.price[id] == null) {
-                as_arr.push(test_data[test_data.length-1][y+1]); 
-                console.log(as_arr);
-              } else {
+              // if(portfolio_data[y].data.price[id] == null) {
+              //   as_arr.push(test_data[test_data.length-1][y+1]); 
+              //   console.log(as_arr);
+              // } else {
                 as_arr.push(portfolio_data[y].data.price[id]); //jika idx ketemu masukkan harga berdasarkan idx
                 idx[y] = id+1;
                 console.log(as_arr);
               }   
-            }        
+            // }        
           }
           
           test_data.push(as_arr);
