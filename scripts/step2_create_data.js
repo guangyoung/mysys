@@ -160,7 +160,9 @@
             enddates.push(new Date(portfolio_data[i].data.date[portfolio_data[i].data.date.length-1]));
         }
         var startDate=new Date(Math.max.apply(null,startdates));
-        var endDate=new Date(Math.min.apply(null,enddates)); 
+        var endDate=new Date(Math.min.apply(null,enddates));
+        console.log(startDate);
+        console.log(endDate);
         var as_arr = new Array();
         var idx = new Array();
           for (i=0;i<30;i++) {
@@ -169,6 +171,7 @@
         while (startDate <= endDate) {
           as_arr = [];
           dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
+          // console.log(dtt);
           as_arr.push(dtt);              
           for (y=0; y<30; y++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
             let id = portfolio_data[y].data.date.indexOf(dtt, idx[y]);
@@ -184,6 +187,7 @@
               }   
             }        
           }
+          console.log(as_arr);
           test_data.push(as_arr);
 
           if (startDate.getDay()==5) {
@@ -192,7 +196,7 @@
               startDate = new Date(startDate.setDate(startDate.getDate() + 1));
           }
         }
-        console.log(test_data);
+        // console.log(test_data);
         $("#period_data").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
        
         // $("#period_data_dashboard").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);  
