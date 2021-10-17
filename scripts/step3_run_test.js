@@ -8,7 +8,7 @@
     var tradeTesting_performance = new Array();
 
     function test_period_setting() {
-        if (test_data.length !== 0) {
+        if (test_data.length == 0) {
             alert(`tidak ada data untuk test `);
             return false;
         } else {
