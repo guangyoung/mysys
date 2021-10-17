@@ -104,7 +104,6 @@
                 <td class="text-center">`+tickere+`</td>
                 <td class="text-center">`+ex_choo+`</td>
                 <td class="text-center">`+as_data_date[0]+`</td>
-                <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
             </tr>`;
             $("#table_assets > tbody").append(portfolio);
             });
@@ -159,10 +158,10 @@
         var enddates= new Array();
         for (i=0; i<portfolio_data.length; i++) {
             startdates.push(new Date(portfolio_data[i].data.date[0]));
-            enddates.push(new Date(portfolio_data[i].data.date[portfolio_data[i].data.date.length-1]));
+            // enddates.push(new Date(portfolio_data[i].data.date[portfolio_data[i].data.date.length-1]));
         }
         var startDate=new Date(Math.max.apply(null,startdates));
-        var endDate=new Date(Math.min.apply(null,enddates));
+        var endDate= date.now();
         console.log(startDate);
         console.log(endDate);
         var as_arr = new Array();
