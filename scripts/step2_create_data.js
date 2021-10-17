@@ -176,12 +176,12 @@
             if(id == -1) {//jika idx tidak ditemukan
               as_arr.push(test_data[test_data.length-1][y+1]); //masukkan harga sebelumnya
             } else {
-              // if(portfolio_data[y].data.price[id] == null) {
-              //   as_arr.push(test_data[test_data.length-1][y+1]); 
-              // } else {
+              if(portfolio_data[y].data.price[id] <= 0) {
+                as_arr.push(test_data[test_data.length-1][y+1]); 
+              } else {
                 as_arr.push(portfolio_data[y].data.price[id]); //jika idx ketemu masukkan harga berdasarkan idx
                 idx[y] = id+1;
-              // }   
+              }   
             }        
           }
           test_data.push(as_arr);
