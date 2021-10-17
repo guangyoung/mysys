@@ -141,7 +141,10 @@
       if(portfolio_data.length < 30) {
           alert('total asset kurang dari 30');
           return false;
-      } else {
+      } else if(test_data.length > 0) {
+          alert('anda punya portfolio data, silahkan reset data terlebih dahulu');
+          return false;
+        } else {
         // portfolio_data = [];
         // test_data = [];
         // $("#table_assets > tbody").empty();
