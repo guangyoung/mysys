@@ -123,14 +123,18 @@
     }
 
     function reset_stock() {
-      $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
-      $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
-      ticker_list = [];
-      exchange_choose_current="";
-      exchange_choose_previous ="";
+      // $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
+      // $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
+      // ticker_list = [];
+      // exchange_choose_current="";
+      // exchange_choose_previous ="";
       portfolio_data = [];
+      test_data = [];
       $("#table_assets > tbody").empty();
-      $('#ulul').empty();
+      $("#port_data_tbl>tbody").empty();
+      $("#pagination-demo").twbsPagination("destroy");
+      $("#period_data").val("");
+      // $('#ulul').empty();
     }
 
     function create_test_data() {      
@@ -138,10 +142,10 @@
           alert('total asset kurang dari 30');
           return false;
       } else {
-        test_data = [];
-        $("#port_data_tbl>tbody").empty();
-        $("#pagination-demo").twbsPagination("destroy");
-        $("#period_data").val("");
+        // test_data = [];
+        // $("#port_data_tbl>tbody").empty();
+        // $("#pagination-demo").twbsPagination("destroy");
+        // $("#period_data").val("");
         // $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");        
         // $("#test_startdate").val("");
         // $('#data_available_alert').html("No Test Data Available To Test");
