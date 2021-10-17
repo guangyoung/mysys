@@ -142,7 +142,7 @@
           alert('total asset kurang dari 30');
           return false;
       } else {
-        test_data = [];
+        // test_data = [];
         // $("#port_data_tbl>tbody").empty();
         // $("#pagination-demo").twbsPagination("destroy");
         // $("#period_data").val("");
@@ -193,8 +193,8 @@
 
         $("#period_data").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
         // $("#period_data_dashboard").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);  
-        $("#test_startdate").val(new Date(test_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(test_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(test_data[0][0]).getDate()));
-        $("#test_enddate").val(new Date(test_data[test_data.length-1][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(test_data[test_data.length-1][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(test_data[test_data.length-1][0]).getDate()));
+        // $("#test_startdate").val(new Date(test_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(test_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(test_data[0][0]).getDate()));
+        // $("#test_enddate").val(new Date(test_data[test_data.length-1][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(test_data[test_data.length-1][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(test_data[test_data.length-1][0]).getDate()));
         $('#stock1_ticker').html(portfolio_data[0].ticker);
         $('#stock2_ticker').html(portfolio_data[1].ticker);
         $('#stock3_ticker').html(portfolio_data[2].ticker);
@@ -234,7 +234,7 @@
           totalPages: Math.ceil(test_data.length/22),
           visiblePages: 4,
           onPageClick: function (event, page) {
-            $("#port_data_tbl>tbody").empty();
+            // $("#port_data_tbl>tbody").empty();
             for (i=(page-1)*22; i<(page*22) && i<(test_data.length); i++) {
               var test_data_row =
               `<tr>
