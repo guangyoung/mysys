@@ -171,11 +171,11 @@
         while (startDate <= endDate) {
           as_arr = [];
           dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
-          // console.log(dtt);
+          console.log(dtt);
           as_arr.push(dtt);              
           for (y=0; y<30; y++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
             let id = portfolio_data[y].data.date.indexOf(dtt, idx[y]);
-            // console.log(id, y);
+            console.log(id, y);
             if(id == -1) {//jika idx tidak ditemukan
               as_arr.push(test_data[test_data.length-1][y+1]); //masukkan harga sebelumnya
             } else {
