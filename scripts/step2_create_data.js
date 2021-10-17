@@ -139,12 +139,12 @@
           return false;
       } else {
         test_data = [];
-        $("#port_data_tbl>tbody").empty();
+        // $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
         $("#period_data").val("");
-        $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");        
-        $("#test_startdate").val("");
-        $('#data_available_alert').html("No Test Data Available To Test");
+        // $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");        
+        // $("#test_startdate").val("");
+        // $('#data_available_alert').html("No Test Data Available To Test");
           
         //cek periode data yg tercover oleh semua stocks
         var startdates= new Array();
@@ -188,7 +188,7 @@
         }
 
         $("#period_data").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
-        $("#period_data_dashboard").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);  
+        // $("#period_data_dashboard").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);  
         $("#test_startdate").val(new Date(test_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(test_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(test_data[0][0]).getDate()));
         $("#test_enddate").val(new Date(test_data[test_data.length-1][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(test_data[test_data.length-1][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(test_data[test_data.length-1][0]).getDate()));
         $('#stock1_ticker').html(portfolio_data[0].ticker);
