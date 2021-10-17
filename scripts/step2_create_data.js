@@ -144,7 +144,7 @@
       } else {
         // test_data = [];
         // $("#port_data_tbl>tbody").empty();
-        // $("#pagination-demo").twbsPagination("destroy");
+        $("#pagination-demo").twbsPagination("destroy");
         // $("#period_data").val("");
         // $("#period_data_dashboard").val("mm/dd/yyyy - mm/dd/yyyy");        
         // $("#test_startdate").val("");
