@@ -176,7 +176,7 @@
             if(id == -1) {//jika idx tidak ditemukan
               as_arr.push(test_data[test_data.length-1][y+1]); //masukkan harga sebelumnya
             } else {
-              if(portfolio_data[y].data.price[id] <= 0) {
+              if(portfolio_data[y].data.price[id] == null) {
                 as_arr.push(test_data[test_data.length-1][y+1]); 
               } else {
                 as_arr.push(portfolio_data[y].data.price[id]); //jika idx ketemu masukkan harga berdasarkan idx
