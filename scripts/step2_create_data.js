@@ -86,13 +86,13 @@
             let length_tm = market_data.chart.result[0].timestamp.length;
             for(i=0; i<length_tm; i++) {
             var data_date = new Date(market_data.chart.result[0].timestamp[i] * 1000);
-            var data_price = market_data.chart.result[0].indicators.adjclose[0].adjclose[i];
-              if(data_price !== null) {
+            var data_price = market_data.chart.result[0].indicators.adjclose[0].adjclose[i];             
                 as_data_date.push(
                   appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
                 );
+              if(data_price !== null) {
                 as_data_price.push(
-                  data_price
+                  as_data_price[as_data_price.length-1]
                 );
               }            
             }
