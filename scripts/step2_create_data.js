@@ -153,7 +153,7 @@
         // $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
         // $("#period_data").val("");
-          
+        console.log(portfolio_data);
         //cek periode data yg tercover oleh semua stocks
         var startdates= new Array();
         var enddates= new Array();
