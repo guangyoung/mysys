@@ -192,7 +192,7 @@
               startDate = new Date(startDate.setDate(startDate.getDate() + 1));
           }
         }
-        console.log(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
+        console.log(test_data);
         $("#period_data").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
        
         // $("#period_data_dashboard").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);  
