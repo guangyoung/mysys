@@ -87,12 +87,14 @@
             for(i=0; i<length_tm; i++) {
             var data_date = new Date(market_data.chart.result[0].timestamp[i] * 1000);
             var data_price = market_data.chart.result[0].indicators.adjclose[0].adjclose[i];
-            as_data_date.push(
-              appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
-            );
-            as_data_price.push(
-              data_price
-            );
+              if(data_price !== null) {
+                as_data_date.push(
+                  appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
+                );
+                as_data_price.push(
+                  data_price
+                );
+              }            
             }
             portfolio_data.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
             let al = portfolio_data.length;
@@ -161,8 +163,8 @@
         }
         var startDate=new Date(Math.max.apply(null,startdates));
         var endDate=new Date(Math.min.apply(null,enddates));
-        console.log(startDate);
-        console.log(endDate);
+        // console.log(startDate);
+        // console.log(endDate);
         var as_arr = new Array();
         var idx = new Array();
           for (i=0;i<30;i++) {
