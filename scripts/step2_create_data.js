@@ -90,11 +90,15 @@
                 as_data_date.push(
                   appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
                 );
-              if(data_price !== null) {
+              if(data_price == null) {
                 as_data_price.push(
                   as_data_price[as_data_price.length-1]
                 );
-              }            
+              } else {
+                as_data_price.push(
+                  data_price
+                );
+              }           
             }
             portfolio_data.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
             let al = portfolio_data.length;
