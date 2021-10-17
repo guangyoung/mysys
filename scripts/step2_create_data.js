@@ -161,7 +161,7 @@
             // enddates.push(new Date(portfolio_data[i].data.date[portfolio_data[i].data.date.length-1]));
         }
         var startDate=new Date(Math.max.apply(null,startdates));
-        var endDate= date.now();
+        var endDate= new Date(date.now());
         console.log(startDate);
         console.log(endDate);
         var as_arr = new Array();
