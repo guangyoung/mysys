@@ -194,6 +194,7 @@
         }
 
         $("#period_data").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
+        console.log(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
         // $("#period_data_dashboard").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);  
         // $("#test_startdate").val(new Date(test_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(test_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(test_data[0][0]).getDate()));
         // $("#test_enddate").val(new Date(test_data[test_data.length-1][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(test_data[test_data.length-1][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(test_data[test_data.length-1][0]).getDate()));
