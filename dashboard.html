@@ -611,10 +611,10 @@
                     <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>TEST REPORT</strong></a>
                     <ul class="nav nav-pills" id="pills-tab" role="tablist" style="font-size: 13px; margin-top: 0px; margin-left: 25px">
                         <li class="nav-item">
-                          <a style="margin-top: 1px; padding: 4px 20px" class="nav-link active" id="pills-trade-tab" data-toggle="pill" href="#pills-trade" role="tab" aria-controls="pills-trade" aria-selected="true">Trade Report</a>
+                          <a style="margin-top: 1px; padding: 4px 20px" class="nav-link active" id="pills-performance-tab" data-toggle="pill" href="#pills-performance" role="tab" aria-controls="pills-performance" aria-selected="true">Performance Report</a>
                         </li>
                         <li class="nav-item">
-                          <a style="margin-left: 25px; margin-top: 1px; padding: 4px 20px" class="nav-link" id="pills-performance-tab" data-toggle="pill" href="#pills-performance" role="tab" aria-controls="pills-performance" aria-selected="false">Performance Report</a>
+                          <a style="margin-left: 25px; margin-top: 1px; padding: 4px 20px" class="nav-link" id="pills-trade-tab" data-toggle="pill" href="#pills-trade" role="tab" aria-controls="pills-trade" aria-selected="false">Trade Report</a>
                         </li>
                     </ul>
                     <!-- <a href="how_to_use.html" target="_blank"><button type="button" class="btn btn-info btn-sm" style="margin-top: 1px; position: absolute; right: 50px; padding: 4px 20px; font-size: 13px"><i class="fa fa-question-circle" style="color: #ffffff; font-size: 15px; margin-top: 1px; margin-right: 6px"></i>Petunjuk Perhitungan</button></a> -->
@@ -635,7 +635,6 @@
                                     <th rowspan="2" style="position: sticky; top: 0px; padding: 5px 5px; width: 70px; text-align: center">Date</th>
                                     <th colspan="7" style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid; border-bottom: 1px #a3a3a3 solid;">Pre Trade Position</th>
                                     <th colspan="3" style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid; border-bottom: 1px #a3a3a3 solid;">Trade Summary</th>
-                                    <!-- <th colspan="6" style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid; border-bottom: 1px #a3a3a3 solid;">Post Trade Position</th> -->
                                     <th rowspan="2" style="position: sticky; top: 0px; padding: 5px 5px; width: 80px; text-align: center; border-left: 1px #a3a3a3 solid">View Trade<br>Details</th>
                                 </tr>
                                 <tr>
@@ -647,15 +646,8 @@
                                     <th style="position: sticky; top: 0px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #a3a3a3 solid;">Reg.T Margin<br>Req.</th>
                                     <th style="position: sticky; top: 0px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #a3a3a3 solid;">Margin<br>Available</th>
                                     <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Total<br>Trade Value</th>
-                                    <!-- <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Total Sell Trade<br>Value</th> -->
                                     <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Total<br>Commission</th>
                                     <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Total<br>Margin Used</th>
-                                    <!-- <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Cash</th>
-                                    <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Market Value</th>
-                                    <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Equity With Loan Value</th>
-                                    <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Current Margin</th>
-                                    <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Reg.T&nbsp;Margin Req.</th>
-                                    <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Margin Available</th> -->
                                 </tr>
                                 <tr style="color: #000000; background-color: #ffffff; font-family: calibri; font-weight: bold; text-align: center; font-size: 9px">
                                     <td style="padding: 5px 10px"></td>
@@ -667,15 +659,8 @@
                                     <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Market&nbsp;Value&nbsp;x<br>50 %</td>
                                     <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</td>
                                     <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Total&nbsp;Trade&nbsp;Value<br>of&nbsp;All&nbsp;Stock</td>
-                                    <!-- <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Total&nbsp;Sell&nbsp;Trade&nbsp;Value<br>of&nbsp;All&nbsp;Stock</td> -->
                                     <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Total&nbsp;Commision&nbsp;of<br>All&nbsp;Stock&nbsp;Traded</td>
                                     <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Total&nbsp;Margin&nbsp;Used<br>of&nbsp;All&nbsp;Stock&nbsp;Traded</td>
-                                    <!-- <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Cash&nbsp;Pretrade&nbsp;Position-Total&nbsp;Buy&nbsp;Trade+Total&nbsp;Sell<br>Trade-<br>Trade&nbsp;Commision</td>
-                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Total&nbsp;Market&nbsp;Value<br>(Posttrade&nbsp;Position)<br>of&nbsp;All&nbsp;Stock</td>
-                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Cash&nbsp;Posttrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Posttrade<br>Position</td>
-                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</td>
-                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Market&nbsp;Value&nbsp;x<br>50&nbsp;%</td>
-                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin&nbsp;Req.</td> -->
                                     <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid"></td>
                                 </tr>
                             </thead>
