@@ -628,7 +628,7 @@
                         <input id="period_testing" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; color: #000000; margin-top: 1px; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 170px; font-size: 10px">
                         <ul id="pagination_trade_report" class="pagination pagination-sm"></ul>
                     </div>
-                    <div class="table-responsive" style="background-color: #070914; overflow: auto; width: 1165px; margin-top: 5px; height: 410px">
+                    <div class="table-responsive table-hover" style="overflow: auto; width: 1165px; margin-top: 5px; height: 410px">
                         <table id="account_trade_summary_tbl" style="margin-bottom: 20px">
                             <thead style="font-size: 12px; font-family: calibri; background-color: #242424; color: #ebebeb">
                                 <tr>
@@ -649,7 +649,7 @@
                                     <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Total<br>Commission</th>
                                     <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Total<br>Margin Used</th>
                                 </tr>
-                                <tr style="color: #000000; background-color: #ffffff; font-family: calibri; font-weight: bold; text-align: center; font-size: 9px">
+                                <tr style="color: #000000; background-color: #ffffff; font-weight: bold; text-align: center; font-size: 9px">
                                     <td style="padding: 5px 10px"></td>
                                     <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</td>
                                     <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge</td>
@@ -664,8 +664,155 @@
                                     <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid"></td>
                                 </tr>
                             </thead>
-                            <tbody>
-                                
+                            <tbody style="background-color: #091111; font-size: 11px; font-family: calibri; color: #ebebeb">
+                                <tr style>
+                                    <td style="text-align: center">23/01/01</td>
+                                    <td style="text-align: right">100.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">100.00%</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: center"><a href="#" data-toggle="modal" data-target="#trade_details" ><u>View Details</u></a></td>
+                                </tr>
+                                <tr style>
+                                    <td style="text-align: center">23/01/01</td>
+                                    <td style="text-align: right">100.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">100.00%</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: center"><a href="#"><u>View Details</u></a></td>
+                                </tr>
+                                <tr style>
+                                    <td style="text-align: center">23/01/01</td>
+                                    <td style="text-align: right">100.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">100.00%</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: center"><a href="#"><u>View Details</u></a></td>
+                                </tr>
+                                <tr style>
+                                    <td style="text-align: center">23/01/01</td>
+                                    <td style="text-align: right">100.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">100.00%</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: center"><a href="#"><u>View Details</u></a></td>
+                                </tr>
+                                <tr style>
+                                    <td style="text-align: center">23/01/01</td>
+                                    <td style="text-align: right">100.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">100.00%</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: center"><a href="#"><u>View Details</u></a></td>
+                                </tr>
+                                <tr style>
+                                    <td style="text-align: center">23/01/01</td>
+                                    <td style="text-align: right">100.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">100.00%</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">1,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: center"><a href="#"><u>View Details</u></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TRADE DETAILS -->
+    <div class="modal" id="trade_details" data-backdrop="static" data-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="trade_reportLabel" aria-hidden="true">
+        <div class="modal-dialog" style="min-width: 1000px" role="document">
+            <div class="modal-content" style="background-color: #b6b6b6;">
+                <div class="modal-header">   
+                    <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>TRADE DETAILS</strong></a>                
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">                   
+                    <div class="table-responsive table-hover" style="overflow: auto; margin-top: 5px; height: 320px">
+                        <table style="margin-bottom: 20px">
+                            <thead style="font-size: 12px; font-family: calibri; background-color: #242424; color: #ebebeb">
+                                <tr>
+                                    <th rowspan="2" style="position: sticky; top: 0px; padding: 5px 5px; width: 70px; text-align: center">Portfolio</th>
+                                    <th rowspan="2" style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid; border-bottom: 1px #a3a3a3 solid;">Stock Price</th>
+                                    <th colspan="2" style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid; border-bottom: 1px #a3a3a3 solid;">Pre Trade Position</th>
+                                    <th colspan="5" style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid; border-bottom: 1px #a3a3a3 solid;">Trade Transaction</th>
+                                </tr>
+                                <tr>
+                                    <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Position<br>Size</th>
+                                    <th style="position: sticky; top: 0px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #a3a3a3 solid;">Market<br>Value</th>
+                                    <th style="position: sticky; top: 0px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #a3a3a3 solid;">Filled<br>Order</th>
+                                    <th style="position: sticky; top: 0px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #a3a3a3 solid;">Filled<br>Price</th>
+                                    <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Trade<br>Value</th>
+                                    <th style="position: sticky; top: 0px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #a3a3a3 solid;">Commission</th>
+                                    <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Total<br>Margin<br>Used</th>
+                                </tr>
+                                <tr style="color: #000000; background-color: #ffffff; font-weight: bold; text-align: center; font-size: 9px">
+                                    <td style="padding: 5px 10px"></td>
+                                    <td style="padding: 5px 10px"></td>
+                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</td>
+                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge</td>
+                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Total&nbsp;Market&nbsp;Value<br>(Pretrade&nbsp;Position)<br>of&nbsp;All&nbsp;Stock</td>
+                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position</td>
+                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</td>
+                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Market&nbsp;Value&nbsp;x<br>50 %</td>
+                                    <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</td>
+                                </tr>
+                            </thead>
+                            <tbody style="background-color: #091111; font-size: 11px; font-family: calibri; color: #ebebeb">
+                                <tr style>
+                                    <td style="text-align: center">Stock01</td>
+                                    <td style="text-align: right">10,000.00</td>
+                                    <td style="text-align: right">1,000,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">100,000.00</td>
+                                    <td style="text-align: right">10,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                    <td style="text-align: right">100,000.00</td>
+                                    <td style="text-align: right">1,000,000,000.00</td>
+                                </tr>                                
                             </tbody>
                         </table>
                     </div>
