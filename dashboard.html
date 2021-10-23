@@ -50,11 +50,11 @@
                     <img src="images/simulation_testing2.png" height="25" style="width: 100%; margin-top: 5px">
                 </div>
                 <div class="row" style="margin: auto; width: 280px">
-                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-top: 16px;"><i class="fa fa-github" style="color: #ffffff; font-size: 30px"></i></a>
-                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-left: 25px; margin-top: 7px"><img src="images/colab.png" height="48" width="48"></a>
-                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" style="margin-left: 25px; margin-top: 12px"><img src="images/kaggle.png" height="40" width="100"></a>
+                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip" data-placement="top" title="View Source Code" style="margin-top: 16px;"><i class="fa fa-github" style="color: #ffffff; font-size: 30px"></i></a>
+                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip" data-placement="top" title="Test With Google Colab" style="margin-left: 25px; margin-top: 7px"><img src="images/colab.png" height="48" width="48"></a>
+                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip" data-placement="top" title="Test With Kaggle" style="margin-left: 25px; margin-top: 12px"><img src="images/kaggle.png" height="40" width="100"></a>
 
-                    <a onclick="logout_btn()" style="margin-top: 16px; margin-left: 25px"><i class="fa fa-sign-out" style="color: #ffffff; cursor: pointer; font-size: 33px"></i></a>
+                    <a onclick="logout_btn()" data-toggle="tooltip" data-placement="top" title="Logout" style="margin-top: 16px; margin-left: 25px"><i class="fa fa-sign-out" style="color: #ffffff; cursor: pointer; font-size: 33px"></i></a>
                 </div>
                 <hr style="margin-top: 7px; width: 100%; height:1px;border-width:0;color:gray;background-color:gray">
 
@@ -627,39 +627,45 @@
                         <div class="tab-pane fade show active" id="pills-performance" role="tabpanel" aria-labelledby="pills-performance-tab">
                             <div class="row">
                                 <div class="col-3">
-                                    <h6 style="text-align: center; margin-left: 0px; margin-top: 5px; font-family: Acrom; font-size: 14px;">PERFORMANCE COMPARISON</h6>
+                                    <h6 style="text-align: center; margin-left: 0px; margin-top: 5px; font-family: Acrom; font-size: 14px;"><strong>PERFORMANCE COMPARISON</strong></h6>
                                     <div class="row">
                                         <div class="col-4">
                                             <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;"><u>QUANTXI</u></h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
                                         </div>
                                         <div class="col-4">
                                             <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">VS</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">Total&nbsp;Return</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">CAGR</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">Max DD</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">MAR</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">Sharpe</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">Treynor</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">Total&nbsp;Return</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">CAGR</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">Max DD</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">MAR</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">Sharpe</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">Treynor</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">MAR</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">Sharpe</h6>
                                         </div>
                                         <div class="col-4">
                                             <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;"><u>BUY&HOLD</u></h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
-                                            <h6 style="text-align: center; margin-top: 10px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
+                                            <h6 style="text-align: center; margin-top: 15px; font-family: Acrom; font-size: 13px;">0.00%</h6>
                                         </div>
                                     </div>                                    
                                 </div>
                                 <div class="col-9">
-                                    <ul class="nav nav-pills" id="chart-tab" role="tablist" style="font-size: 13px; margin-top: 0px; margin-left: 0px">
+                                    <!-- <ul class="nav nav-pills" id="chart-tab" role="tablist" style="font-size: 13px; margin-top: 0px; margin-left: 0px">
                                         <li class="nav-item">
                                           <a style="padding: 4px 20px" class="nav-link active" id="chart-performance-tab" data-toggle="pill" href="#chart-performance" role="tab" aria-controls="chart-performance" aria-selected="true">Total Return</a>
                                         </li>
@@ -678,8 +684,8 @@
                                         <li class="nav-item">
                                             <a style="margin-left: 65px; padding: 4px 20px" class="nav-link" id="chart-trade-tab" data-toggle="pill" href="#chart-trade" role="tab" aria-controls="chart-trade" aria-selected="false">Treynor</a>
                                         </li>
-                                    </ul>
-                                    <div class="card" style="background-color: #070914; margin-top: 15px; margin-left: 0px; height: 392px">
+                                    </ul> -->
+                                    <div class="card" style="background-color: #070914; margin-top: 0px; margin-left: 0px; height: 435px">
                                         <canvas id="" width="11" height="4.5" class="chartjs-render-monitor"></canvas>
                                     </div>
                                 </div>

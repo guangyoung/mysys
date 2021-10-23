@@ -110,7 +110,7 @@ body { background: #0b0d15; }
 .logo-m { display: block; width: 85%; margin: 0 auto; padding: 25px 0 0 0; }
 .auth { width: 275px; margin: 0 auto; padding: 30px 0; }
 @media (min-width: 992px){
-    .auth { width: 370px; margin: 0 auto; padding: 30px 0; }
+    .auth { width: 370px; margin: 0 auto; padding: 0px 0; }
 }
 .auth-item { position: relative; margin: 0 0 0 0; }
 .auth input { width: 265px; height: 30px; border: 0; border-bottom: 1px solid #6a6c77; background: transparent; font: 14px 'Acrom', sans-serif; color: #7d7f89; }
