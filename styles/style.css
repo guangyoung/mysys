@@ -91,6 +91,28 @@ width: 90%;
     overflow: auto;
 }
 
+.tooltip-inner {
+    background-color: #f00 !important;
+    color: #f00 ;
+  }
+  .bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before {
+    border-top-color: #f00 !important;
+  }
+  
+  .bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^="right"] .arrow::before {
+    border-right-color: #f00 !important;
+  }
+  
+  
+  .bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+    border-bottom-color: #f00 !important;
+  }
+  
+  
+  .bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^="left"] .arrow::before {
+    border-left-color: #f00 !important;
+  }
+
 @media(max-width: 768px) {
     .modal-dialog {
       min-height: calc(100vh - 20px);
