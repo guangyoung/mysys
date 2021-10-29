@@ -100,8 +100,8 @@
             $("#table_assets > tbody").append(portfolio);
             });
         }      
-        $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
-        $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
+        $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
+        $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
         ticker_list = [];
         exchange_choose_current="";
         exchange_choose_previous ="";
