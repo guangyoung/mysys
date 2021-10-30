@@ -32,6 +32,11 @@
     background-color: #959fdb;
 }
 
+/* table striped css */
+.table-striped tr:nth-child(even) {
+    background-color: #79ffff;
+}
+
 #select-tab>li>a.active {
     background-color: #757575 !important;
     color: #fff;

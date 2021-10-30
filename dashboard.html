@@ -343,7 +343,7 @@
                         <h6 style="font-size: 16px; color: #c1c2c6; margin-top: 50px"><strong>Total Request&nbsp;&nbsp;:&nbsp;&nbsp;<span id="total_post">0</span></strong></h6>
                         <h6 style="font-size: 10px; color: #0053a6; margin-top: 8px"><strong>Last Request : 12.01.01 13:00:01 || Response : <img src="images/green icon.png" height="12" width="12" style="margin-top: -1px"> 200 (OK)</strong></h6>
                         <h6 style="font-size: 10px; color: #0053a6; margin-top: 8px"><strong>Last Request : 12.01.01 13:00:01 || Response : <img src="images/green icon.png" height="12" width="12" style="margin-top: -1px"> 200 (OK)</strong></h6>
-                        <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#view_allpost" id="viewpost_button" style="font-family: Acrom; margin-top: 10px; padding: 2px 12px; font-size: 11px">View All Request in JSON</button>
+                        <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#view_allpost" id="viewpost_button" style="font-family: Acrom; margin-top: 10px; padding: 2px 12px; font-size: 11px">View All Request In JSON Format</button>
                         
                     </div>
                     <div style="width: 32%;">
@@ -505,7 +505,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title"><i class="fa fa-gear"></i><strong style="margin-left: 10px">Test Setting</strong></h5>
+                        <h5 class="modal-title"><i class="fa fa-gear"></i><strong style="margin-left: 10px">Trade Setting</strong></h5>
                         <button type="button" class="close" aria-label="Close" onclick="test_setting_submit_btn()">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -551,7 +551,7 @@
         <div class="modal-dialog" style="min-width: 1200px;" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">Test Data</strong></h5>
+                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">Market Data</strong></h5>
                     <!-- <a data-toggle="modal" href="#create_data" class="btn btn-primary" style="margin-top: 1px; padding: 4px 20px; font-size: 13px; margin-left: 20px">Create New Test Data</a> -->
                     <!-- <a href="how_to_use.html" target="_blank"><button type="button" class="btn btn-info btn-sm" style="margin-top: 1px; position: absolute; right: 50px; padding: 4px 20px; font-size: 13px"><i class="fa fa-question-circle" style="color: #ffffff; font-size: 15px; margin-top: 1px; margin-right: 6px"></i>Petunjuk Penggunaan</button></a> -->
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -637,19 +637,29 @@
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="vienna_stock_exchange">Vienna Stock Exchange - Austria</a>
                                         </div>
                                     </div>
-                                    <div class="row" style="margin-top: 5px" id="tt_dd">                                        
-                                        <div class="dropdown" id="tickers_list">
+                                    <div class="row" style="margin-top: 2px" id="tt_dd">
+                                        <div class="dropdown" id="">
                                             <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick = "tickers_list_btn ()" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 13px; width: 170px; padding: 1px 5px">
-                                                Select Tickers (<span class="quantity">0</span>)
+                                                Select Start Date
                                             </button>
-                                            <div id="div_ulul">
-                                                <ul id="ulul" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 13px; height: 410px; width: 170px; overflow: auto;">
+                                            <div id="">
+                                                <ul id="" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 13px; height: 410px; width: 170px; overflow: auto;">
 
                                                 </ul>
                                             </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 10px; margin-top: 0px; height: 25px; width: 190px" onclick="add_data()">Add Stock</button>                                        
-                                    </div>                                    
+                                        </div>  
+                                        <div class="dropdown" id="tickers_list">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick = "tickers_list_btn ()" type="button" data-toggle="dropdown" style="margin-left: 5px; font-size: 13px; width: 195px; padding: 1px 5px">
+                                                Select Tickers (<span class="quantity">0</span>)
+                                            </button>
+                                            <div id="div_ulul">
+                                                <ul id="ulul" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 13px; height: 410px; width: 195px; overflow: auto;">
+
+                                                </ul>
+                                            </div>
+                                        </div>                                                                              
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 0px; margin-top: 5px; height: 25px; width: 370px" onclick="add_data()">Add Stock</button>                                    
                                 </div>
                                 <div class="tab-pane fade" id="nav-random" role="tabpanel" aria-labelledby="nav-random-tab">
                                     <!-- <div class="row" style="margin-top: 5px" id="tt_dd2"> -->
@@ -721,12 +731,22 @@
                                                 <a class="dropdown-item" href="#" style="color: #ffff">Vienna Stock Exchange - Austria</a>
                                             </div>
                                         </div>
+                                        <div class="dropdown" id="">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="" onclick = "tickers_list_btn ()" type="button" data-toggle="dropdown" style="margin-top: 4px; font-size: 13px; width: 370px; padding: 1px 5px">
+                                                Select Start Date
+                                            </button>
+                                            <div id="">
+                                                <ul id="" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 13px; height: 410px; width: 370px; overflow: auto;">
+
+                                                </ul>
+                                            </div>
+                                        </div> 
                                         <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 0px; margin-top: 5px; height: 25px; width: 370px" onclick="add_data()">Add Stock</button>
                                     <!-- </div> -->
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="table-report" style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 10px; margin-left: 15px; margin-right: 15px; height: 300px; width: 100%; overflow-y: scroll">
+                                <div class="table-report" style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 10px; margin-left: 15px; margin-right: 15px; height: 275px; width: 100%; overflow-y: scroll">
                                     <table id="table_assets">
                                         <thead style="font-size: 12px; font-family: calibri">
                                             <tr>
@@ -845,46 +865,35 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <img src="images/rest_api_symbol_black.png" width="32" height="22" style="margin-top: 4px">
-                    <h5 class="modal-title"><strong style="margin-left: 10px">All POST In JSON Format</strong></h5>
+                    <h5 class="modal-title"><strong style="margin-left: 10px">All Request In JSON Format</strong></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                 <div class="row">
-                    <strong style="margin-left: 15px; font-size: 12px;">Total Post :</strong>
-                    <input id="period_report" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; color: #000000; margin-top: 1px; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 170px; font-size: 10px">
+                    <strong style="margin-left: 17px; font-size: 14px;">Total Request : <span style="font-size: 15px; margin-left: 5px">200</span></strong>
                     <ul id="pagination_post_request_response" class="pagination pagination-sm"></ul>
                 </div>
-                <div class="card" style="background-color: #070914; margin-top: 5px; overflow-y: auto; overflow-x: hidden; height: 420px">
-                    <table>
+                <div class="card" style="margin-top: 0px; overflow-y: auto; overflow-x: hidden; height: 420px">
+                    <table class="table-striped">
                         <thead>
                             <tr>
                                 <th style="position: sticky; top: 0px; border-left: 1px #292b43 solid; padding: 5px 0; width: 655px; color:#d2d3d7; background-color: #1b1d2d; ">
                                     <div class="row" style="margin-left: 10px;">
                                         <i class="fa fa-sign-in" style="margin-top: 3px; font-size: 20px"></i>
-                                        <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">DATA INPUT&nbsp;&nbsp;-&nbsp;&nbsp;POST REQUEST</strong>
+                                        <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">DATA INPUT - REQUEST</strong>
                                     </div>
                                 </th>
                                 <th style="position: sticky; top: 0px; border-left: 1px #292b43 solid; width: 655px; color:#d2d3d7; background-color: #1b1d2d; font-size: 12px">
                                     <div class="row" style="margin-left: 10px;">
-                                        <i class="fa fa-sign-in" style="margin-top: 3px; font-size: 20px"></i>
-                                        <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">SIGNAL OUTPUT&nbsp;&nbsp;-&nbsp;&nbsp;POST RESPONSE</strong>
+                                        <i class="fa fa-sign-out" style="margin-top: 3px; font-size: 20px"></i>
+                                        <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">SIGNAL OUTPUT - RESPONSE</strong>
                                     </div>
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px #292b43 solid;">
-                                <td style="border-right: 1px #292b43 solid">
-                                    <pre style="margin-top: 15px; font-size: 10px; color: #c1c2c6">
-                                    </pre>
-                                </td>
-                                <td>
-                                    <pre style="margin-top: 15px; font-size: 10px; color: #c1c2c6">
-                                    </pre>
-                                </td>
-                            </tr>
+                        <tbody id="request">
                         </tbody>
                     </table>
                 </div>
@@ -922,433 +931,447 @@
                                 <ul id="pagination_trade_report" class="pagination pagination-sm" style="margin-top: 10px"></ul>
                             </div>
                             <div class="table-responsive table-hover" style="overflow: auto; width: 1165px; margin-top: 5px; height: 365px">
-                                <table id="account_trade_summary_tbl" style="margin-bottom: 20px">
-                                    <thead style="font-size: 12px; font-family: calibri; background-color: #242424; color: #ebebeb">
+                                <table id="account_trade_summary_tbl">
+                                    <thead style="font-size: 12px; font-family: calibri;">
                                         <tr>
-                                            <th rowspan="2" style="position: sticky; top: 0px; padding: 5px 5px; width: 70px; text-align: center">Date</th>
-                                            <th colspan="7" style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid; border-bottom: 1px #a3a3a3 solid;">Pre Trade Position</th>
-                                            <th colspan="3" style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid; border-bottom: 1px #a3a3a3 solid;">Trade Summary</th>
-                                            <th rowspan="2" style="position: sticky; top: 0px; padding: 5px 5px; width: 80px; text-align: center; border-left: 1px #a3a3a3 solid">View Trade<br>Details</th>
+                                            <th rowspan="2" style="background-color: #242424; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; width: 70px; text-align: center">Date</th>
+                                            <th colspan="7" style="background-color: #242424; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">Pre Trade Position</th>
+                                            <th colspan="3" style="background-color: #242424; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">Trade Summary</th>
+                                            <th rowspan="2" style="background-color: #242424; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid; ">View Trade<br>Details</th>
                                         </tr>
                                         <tr>
-                                            <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Daily<br>Interest</th>
-                                            <th style="position: sticky; top: 0px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #a3a3a3 solid;">Cash<br>Balance</th>
-                                            <th style="position: sticky; top: 0px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #a3a3a3 solid;">Long Market<br>Value</th>
-                                            <th style="position: sticky; top: 0px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #a3a3a3 solid;">Equity With<br>Loan Value</th>
-                                            <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Current<br>Margin</th>
-                                            <th style="position: sticky; top: 0px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #a3a3a3 solid;">Reg.T Margin<br>Req.</th>
-                                            <th style="position: sticky; top: 0px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #a3a3a3 solid;">Margin<br>Available</th>
-                                            <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Total<br>Trade Value</th>
-                                            <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Total<br>Commission</th>
-                                            <th style="position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #a3a3a3 solid;">Total<br>Margin Used</th>
+                                            <th style="background-color: #242424; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">Daily<br>Interest</th>
+                                            <th style="background-color: #242424; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">Cash<br>Balance</th>
+                                            <th style="background-color: #242424; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">Long Market<br>Value</th>
+                                            <th style="background-color: #242424; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">Equity With<br>Loan Value</th>
+                                            <th style="background-color: #242424; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">Current<br>Margin</th>
+                                            <th style="background-color: #242424; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">Reg.T Margin<br>Req.</th>
+                                            <th style="background-color: #242424; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">Margin<br>Available</th>
+                                            <th style="background-color: #242424; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">Total<br>Trade Value</th>
+                                            <th style="background-color: #242424; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">Total<br>Commission</th>
+                                            <th style="background-color: #242424; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">Total<br>Margin Used</th>
                                         </tr>
-                                        <tr style="color: #000000; background-color: #ffffff; font-weight: bold; text-align: center; font-size: 9px">
-                                            <td style="padding: 5px 10px"></td>
-                                            <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</td>
-                                            <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge</td>
-                                            <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Total&nbsp;Market&nbsp;Value<br>(Pretrade&nbsp;Position)<br>of&nbsp;All&nbsp;Stock</td>
-                                            <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position</td>
-                                            <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</td>
-                                            <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Market&nbsp;Value&nbsp;x<br>50 %</td>
-                                            <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</td>
-                                            <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Total&nbsp;Trade&nbsp;Value<br>of&nbsp;All&nbsp;Stock</td>
-                                            <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Total&nbsp;Commision&nbsp;of<br>All&nbsp;Stock&nbsp;Traded</td>
-                                            <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid">Total&nbsp;Margin&nbsp;Used<br>of&nbsp;All&nbsp;Stock&nbsp;Traded</td>
-                                            <td style="padding: 5px 10px; border-left: 1px #1d1d1d solid"></td>
+                                        <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px"></td>
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</td>
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge</td>
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">Total&nbsp;Market&nbsp;Value<br>(Pretrade&nbsp;Position)<br>of&nbsp;All&nbsp;Stock</td>
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position</td>
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</td>
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">Market&nbsp;Value&nbsp;x<br>50 %</td>
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</td>
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">Total&nbsp;Trade&nbsp;Value<br>of&nbsp;All&nbsp;Stock</td>
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">Total&nbsp;Commision&nbsp;of<br>All&nbsp;Stock&nbsp;Traded</td>
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">Total&nbsp;Margin&nbsp;Used<br>of&nbsp;All&nbsp;Stock&nbsp;Traded</td>
+                                            <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;"></td>
                                         </tr>
                                     </thead>
                                     <tbody style="background-color: #2c5252; font-size: 11px; font-family: calibri; color: #ebebeb">
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center">23/01/01</td>
-                                            <td style="text-align: right">100.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">100.00%</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td style="text-align: right">1,000,000.00</td>
-                                            <td style="text-align: right">1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)" style="text-align: center; padding: 3px 5px"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00%</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
+                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
+                                            <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1796,32 +1819,32 @@
                     </div>
                 </div>
                 <div style="margin-top: 10px; overflow-x: hidden; overflow-y: scroll; height: 375px">
-                    <table class="table-hover table-striped">
+                    <table class="table-hover table-striped" style="border-left: 1px #242424 solid; border-right: 1px #242424 solid; ">
                         <thead style="font-size: 12px; font-family: calibri; color: #ffffff">
                             <tr>
-                                <th rowspan="2" style="background-color: #000000; position: sticky; top: 0px; padding: 5px 5px; text-align: center; width: 60px">#Test</th>
-                                <th rowspan="2" style="background-color: #000000; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px;">Test Date</th>
-                                <th rowspan="2" colspan="2" style="background-color: #000000; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 210px; ">Test Parameter</th>
-                                <th rowspan="2" colspan="6" style="background-color: #000000; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 300px; ">Portfolio</th>
-                                <th rowspan="2" style="background-color: #000000; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 100px; ">Period od Data</th>                                
-                                <th colspan="4" style="background-color: #000000; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 400px; ">Performance Comparison</th>
+                                <th rowspan="2" style="background-color: #242424; position: sticky; top: 0px; padding: 5px 5px; text-align: center; width: 60px">#Test</th>
+                                <th rowspan="2" style="background-color: #242424; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 80px;">Test Date</th>
+                                <th rowspan="2" colspan="2" style="background-color: #242424; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 210px; ">Test Parameter</th>
+                                <th rowspan="2" colspan="6" style="background-color: #242424; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 300px; ">Portfolio</th>
+                                <th rowspan="2" style="background-color: #242424; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 100px; ">Period od Data</th>                                
+                                <th colspan="4" style="background-color: #242424; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 400px; ">Performance Comparison</th>
                             </tr>
                             <tr>
-                                <th colspan="2" style="background-color: #000000; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">Quantxi AI</th>
-                                <th colspan="2" style="background-color: #000000; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">Buy & Hold</th>
+                                <th colspan="2" style="background-color: #242424; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 80px">Quantxi AI</th>
+                                <th colspan="2" style="background-color: #242424; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 110px">Buy & Hold</th>
                             </tr>
                         </thead>
                         <tbody style="font-size: 11px; font-family: calibri;">
                             <tr>
                                 <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
-                                <td style="text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
-                                <td style="text-align: left; padding: 5px 10px; width: 105px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">                                    
                                     Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
                                 </td>
                                 <td style="text-align: right; padding: 5px 10px; width: 105px">
                                     1,000,000<br>0.005<br>0.001<br>0.02
                                 </td>
-                                <td style="text-align: center; padding: 5px 5px; width: 50px">
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
                                 <td style="text-align: center; padding: 5px 0px; width: 50px">
@@ -1839,55 +1862,14 @@
                                 <td style="text-align: center; padding: 5px 5px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
                                     Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
                                 </td>
                                 <td style="text-align: right; width: 100px; padding: 5px 10px">         
                                     100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%                                       
                                 </td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
-                                    Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
-                                </td>
-                                <td style="text-align: right; width: 100px; padding: 5px 10px">         
-                                    100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%                                       
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
-                                <td style="text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
-                                <td style="text-align: left; padding: 5px 10px; width: 105px">                                    
-                                    Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
-                                </td>
-                                <td style="text-align: right; padding: 5px 10px; width: 105px">
-                                    1,000,000<br>0.005<br>0.001<br>0.02
-                                </td>
-                                <td style="padding: 5px 5px; width: 50px">
-                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                </td> 
-                                <td style="padding: 5px 0px; width: 50px">
-                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                </td> 
-                                <td style="padding: 5px 0px; width: 50px">
-                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                </td> 
-                                <td style="padding: 5px 0px; width: 50px">
-                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                </td> 
-                                <td style="padding: 5px 0px; width: 50px">
-                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                </td> 
-                                <td style="padding: 5px 5px; width: 50px">
-                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                </td> 
-                                <td style="text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
-                                    Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
-                                </td>
-                                <td style="text-align: right; width: 100px; padding: 5px 10px">         
-                                    100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%                                       
-                                </td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
                                     Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
                                 </td>
                                 <td style="text-align: right; width: 100px; padding: 5px 10px">         
@@ -1896,39 +1878,39 @@
                             </tr>
                             <tr>
                                 <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
-                                <td style="text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
-                                <td style="text-align: left; padding: 5px 10px; width: 105px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">                                    
                                     Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
                                 </td>
                                 <td style="text-align: right; padding: 5px 10px; width: 105px">
                                     1,000,000<br>0.005<br>0.001<br>0.02
                                 </td>
-                                <td style="padding: 5px 5px; width: 50px">
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 5px; width: 50px">
+                                <td style="text-align: center; padding: 5px 5px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
                                     Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
                                 </td>
                                 <td style="text-align: right; width: 100px; padding: 5px 10px">         
                                     100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%                                       
                                 </td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
                                     Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
                                 </td>
                                 <td style="text-align: right; width: 100px; padding: 5px 10px">         
@@ -1937,39 +1919,39 @@
                             </tr>
                             <tr>
                                 <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
-                                <td style="text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
-                                <td style="text-align: left; padding: 5px 10px; width: 105px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">                                    
                                     Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
                                 </td>
                                 <td style="text-align: right; padding: 5px 10px; width: 105px">
                                     1,000,000<br>0.005<br>0.001<br>0.02
                                 </td>
-                                <td style="padding: 5px 5px; width: 50px">
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 5px; width: 50px">
+                                <td style="text-align: center; padding: 5px 5px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
                                     Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
                                 </td>
                                 <td style="text-align: right; width: 100px; padding: 5px 10px">         
                                     100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%                                       
                                 </td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
                                     Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
                                 </td>
                                 <td style="text-align: right; width: 100px; padding: 5px 10px">         
@@ -1978,39 +1960,39 @@
                             </tr>
                             <tr>
                                 <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
-                                <td style="text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
-                                <td style="text-align: left; padding: 5px 10px; width: 105px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">                                    
                                     Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
                                 </td>
                                 <td style="text-align: right; padding: 5px 10px; width: 105px">
                                     1,000,000<br>0.005<br>0.001<br>0.02
                                 </td>
-                                <td style="padding: 5px 5px; width: 50px">
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 5px; width: 50px">
+                                <td style="text-align: center; padding: 5px 5px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
                                     Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
                                 </td>
                                 <td style="text-align: right; width: 100px; padding: 5px 10px">         
                                     100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%                                       
                                 </td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
                                     Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
                                 </td>
                                 <td style="text-align: right; width: 100px; padding: 5px 10px">         
@@ -2019,39 +2001,80 @@
                             </tr>
                             <tr>
                                 <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
-                                <td style="text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
-                                <td style="text-align: left; padding: 5px 10px; width: 105px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">                                    
                                     Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
                                 </td>
                                 <td style="text-align: right; padding: 5px 10px; width: 105px">
                                     1,000,000<br>0.005<br>0.001<br>0.02
                                 </td>
-                                <td style="padding: 5px 5px; width: 50px">
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 0px; width: 50px">
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="padding: 5px 5px; width: 50px">
+                                <td style="text-align: center; padding: 5px 5px; width: 50px">
                                     AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
                                 </td> 
-                                <td style="text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
                                     Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
                                 </td>
                                 <td style="text-align: right; width: 100px; padding: 5px 10px">         
                                     100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%                                       
                                 </td>
-                                <td style="text-align: left; width: 100px; padding: 5px 10px">                                    
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
+                                    Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
+                                </td>
+                                <td style="text-align: right; width: 100px; padding: 5px 10px">         
+                                    100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%                                       
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">23/01/01 13:00:00</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">                                    
+                                    Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
+                                </td>
+                                <td style="text-align: right; padding: 5px 10px; width: 105px">
+                                    1,000,000<br>0.005<br>0.001<br>0.02
+                                </td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
+                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
+                                </td> 
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
+                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
+                                </td> 
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
+                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
+                                </td> 
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
+                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
+                                </td> 
+                                <td style="text-align: center; padding: 5px 0px; width: 50px">
+                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
+                                </td> 
+                                <td style="text-align: center; padding: 5px 5px; width: 50px">
+                                    AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
+                                </td> 
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">01/01/01 - 01/01/21</td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
+                                    Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
+                                </td>
+                                <td style="text-align: right; width: 100px; padding: 5px 10px">         
+                                    100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%                                       
+                                </td>
+                                <td style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">                                    
                                     Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Treynor&nbsp;Ratio
                                 </td>
                                 <td style="text-align: right; width: 100px; padding: 5px 10px">         
@@ -2127,6 +2150,334 @@
 
         // $('[data-toggle="tooltip"]').tooltip({ "show": 100, "hide": 500});
         $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" });
+
+        var input_start =
+            {
+                "data_input_id": "D00001",
+                "timestamp": "mm/dd/yyy 00:00:00",
+                "stock01": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock02": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock03": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock04": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock05": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock06": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock07": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock08": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock09": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock10": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                },
+                "stock11": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock12": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock13": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock14": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock15": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock16": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock17": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock18": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock19": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock20": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock21": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock22": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock23": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock24": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock25": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock26": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock27": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock28": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock29": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }, 
+                "stock30": {
+                    "price": "123456",
+                    "position_size": "123456789000"
+                }
+            }
+
+        var output_start =
+            {
+                "signal_output_id": "S00001",
+                "timestamp": "mm/dd/yyy 00:00:00",
+                "stock01": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock02": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock03": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock04": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock05": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock06": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock07": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock08": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock09": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock10": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                },
+                "stock11": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock12": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock13": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock14": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock15": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock16": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock17": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock18": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock19": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock20": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock21": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock22": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock23": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock24": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock25": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock26": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock27": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock28": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock29": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }, 
+                "stock30": {
+                    "signal_position": "BUY OPEN",
+                    "signal_size": "123456789"
+                }
+            }
+
+        var request_element =
+        `<tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+            <td style="border-right: 1px #292b43 solid">
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(input_start, null, 4) +`
+                </pre>; 
+            </td>
+            <td>  
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(output_start, null, 4) +`
+                </pre>;                                  
+            </td>
+        </tr>
+        <tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+            <td style="border-right: 1px #292b43 solid">
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(input_start, null, 4) +`
+                </pre>; 
+            </td>
+            <td>  
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(output_start, null, 4) +`
+                </pre>;                                  
+            </td>
+        </tr>
+        <tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+            <td style="border-right: 1px #292b43 solid">
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(input_start, null, 4) +`
+                </pre>; 
+            </td>
+            <td>  
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(output_start, null, 4) +`
+                </pre>;                                  
+            </td>
+        </tr>
+        <tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+            <td style="border-right: 1px #292b43 solid">
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(input_start, null, 4) +`
+                </pre>; 
+            </td>
+            <td>  
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(output_start, null, 4) +`
+                </pre>;                                  
+            </td>
+        </tr>
+        <tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+            <td style="border-right: 1px #292b43 solid">
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(input_start, null, 4) +`
+                </pre>; 
+            </td>
+            <td>  
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(output_start, null, 4) +`
+                </pre>;                                  
+            </td>
+        </tr>
+        <tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+            <td style="border-right: 1px #292b43 solid">
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(input_start, null, 4) +`
+                </pre>; 
+            </td>
+            <td>  
+                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">`
+                    + JSON.stringify(output_start, null, 4) +`
+                </pre>;                                  
+            </td>
+        </tr>`
+        $("#request").html(request_element);
+
 
     </script>
 </body>
