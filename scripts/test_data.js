@@ -7,20 +7,20 @@
     var portfolio_data = new Array();    
     var test_data = new Array();
 
-    function tickers_list_btn () {
-      if(!exchange_choose_current) {
+    function tickers_list_btn() {
+      if(!exchange_choose_current || !startdate_select) {
         $('#ulul').empty();
         var newLi = document.createElement('li');
-        var li = document.createTextNode("\u00A0\u00A0Please Choose Your \u00A0\u00A0Exchange !!");
+        var li = document.createTextNode("\u00A0\u00A0Please Choose Your \u00A0\u00A0Exchange & Startdate !!!");
         newLi.appendChild(li);
         document.getElementById("ulul").appendChild(newLi);
         return false;
-      } else if (exchange_choose_current !== exchange_choose_previous) {
+      } else {
         ticker_list = [];    
         $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
-        exchange_choose_previous = exchange_choose_current;
+        // exchange_choose_previous = exchange_choose_current;
         $('#ulul').empty();
-        var tickers = eval(exchange_choose_current);
+        var tickers = eval(exchange_choose_current+'_'+startdate_select);
         for (i=0;i<tickers.length;i++) {
         var newLi = document.createElement('li');
         var cb = document.createElement( "input" );
@@ -34,9 +34,7 @@
         newLi.appendChild(text);
         document.getElementById("ulul").appendChild(newLi);
         }
-      } else {
-        return false;
-      }
+      } 
     }
 
     function add_data() {
@@ -102,9 +100,10 @@
         }      
         $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
         $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
+        $("#startdate_btn").html(`<span class="Sdate">Select Start Date</span>`);
         ticker_list = [];
         exchange_choose_current="";
-        exchange_choose_previous ="";
+        // exchange_choose_previous ="";
       }
     }
 
@@ -116,10 +115,11 @@
     }
 
     function reset_stock() {
-      // $("#tiingo_tickers_btn").html(`Tickers (<span class="quantity">0</span>)`);
-      // $("#Xchange_btn").html(`<span class="Xchange">Exchange</span>`);
-      // ticker_list = [];
-      // exchange_choose_current="";
+      $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
+      $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
+      $("#startdate_btn").html(`<span class="Sdate">Select Start Date</span>`);
+      ticker_list = [];
+      exchange_choose_current="";
       // exchange_choose_previous ="";
       portfolio_data = [];
       test_data = [];
