@@ -724,7 +724,7 @@
                                 <div class="tab-pane fade" id="nav-random" role="tabpanel" aria-labelledby="nav-random-tab">
                                     <!-- <div class="row" style="margin-top: 5px" id="tt_dd2"> -->
                                         <div class="dropdown" id="tickers_exchange_select_random">
-                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn2" type="button" data-toggle="dropdown" style="margin-top: 5px; font-size: 13px; width: 370px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn_random" type="button" data-toggle="dropdown" style="margin-top: 5px; font-size: 13px; width: 370px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
                                                 <span class="Xchange_random">Select Exchange</span>
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 410px; width: 370px; overflow: auto;">
@@ -803,7 +803,7 @@
                                                 <a class="dropdown-item" href="#" style="color: #ffff" id="2006_2010">2006 - 2010</a>
                                             </div>
                                         </div> 
-                                        <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 0px; margin-top: 5px; height: 25px; width: 370px" onclick="add_data()">Add Stock</button>
+                                        <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 0px; margin-top: 5px; height: 25px; width: 370px" onclick="add_data_random()">Add Stock</button>
                                     <!-- </div> -->
                                 </div>
                             </div>
@@ -2723,6 +2723,9 @@
 
         var ticker_list = new Array();
         var exchange_choose_current;
+        var exchange_choose_current_random;
+        var startdate_select;
+        var startdate_select_random;
         // var exchange_choose_previous;
 
         $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
@@ -2741,16 +2744,16 @@
 
         $("#tickers_exchange_select_random").on('click', '.dropdown-item', function (event) {
         let container_exchange = $(this).closest("#tickers_exchange_select_random");
-        exchange_choose_current = $(event.currentTarget)[0].id;
+        exchange_choose_current_random = $(event.currentTarget)[0].id;
         container_exchange.find('.Xchange_random').text( $(event.currentTarget)[0].innerText || 'Select Exchange');
-        console.log(exchange_choose_current);
+        console.log(exchange_choose_current_random);
         });
 
         $("#select_startdate_select_random").on('click', '.dropdown-item', function (event) {
         let container_exchange = $(this).closest("#select_startdate_select_random");
-        startdate_select = $(event.currentTarget)[0].id;
+        startdate_select_random = $(event.currentTarget)[0].id;
         container_exchange.find('.Sdate_random').text( $(event.currentTarget)[0].innerText || 'Select Start Date');
-        console.log(startdate_select);
+        console.log(startdate_select_random);
         });
 
         $("#tickers_list").on('click', '.dropdown-menu li', function (event) {
