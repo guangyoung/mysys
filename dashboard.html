@@ -513,11 +513,11 @@
                                             <span>isi besaran spread</span>
                                         </a>
                                     </label>
-                                    <input style="font-size: 13px" type="number" class="form-control" id="bid_ask_spread" aria-describedby="" value= "0.001" min="0.001" max="0.005" required>
+                                    <input style="font-size: 13px" type="number" class="form-control" id="spread_slippage" aria-describedby="" value= "0.001" min="0.001" max="0.005" required>
                                 </div>
                                 <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Commision/Share <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="number" class="form-control" id="commision_share" aria-describedby="" value= "0.005" min="0.001" max="0.005" required>
+                                    <input style="font-size: 13px" type="number" class="form-control" id="commision" aria-describedby="" value= "0.005" min="0.001" max="0.005" required>
                                 </div>
                                 <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Interest Rate <i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
@@ -543,7 +543,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label style="font-size: 13px; margin-top: 15px">Max Data<i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                    <input style="font-size: 13px" type="text" class="form-control" id="max_data" readonly aria-describedby="" value= "1305" required>
+                                    <input style="font-size: 13px" type="text" class="form-control" id="max_data" readonly aria-describedby="" value= "7830" required>
                                 </div>
                             </div>
                         </div>
@@ -578,11 +578,11 @@
                             <div class="tab-content" id="nav-tabContent">
                                 <div class="tab-pane fade show active" id="nav-manual" role="tabpanel" aria-labelledby="nav-manua-tab">
                                     <div class="dropdown" id="tickers_exchange">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" style="margin-top: 5px; font-size: 13px; width: 370px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" onclick = "tickers_exchange_btn()" style="margin-top: 5px; font-size: 13px; width: 370px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
                                             <span class="Xchange">Select Exchange</span>
                                         </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 410px; width: 370px; overflow: auto;">
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_amsterdam">Euronext Amsterdam - Netherlands</a>
+                                        <div class="dropdown-menu" id="ex_dd" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 400px; width: 370px; overflow: auto;">
+                                            <a class="dropdown-item" href="#" style="margin-top: -8px; color: #ffff" id="euronext_amsterdam">Euronext Amsterdam - Netherlands</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="american_stock_exchange">American Stock Exchange - USA</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="australian_stock_exchange">Australian Stock Exchange - Australia</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="athens_stock_exchange">Athens Stock Exchange - Greece</a>
@@ -659,7 +659,7 @@
                                             </div>
                                         </div>  
                                         <div class="dropdown" id="tickers_list">
-                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick = "tickers_list_btn ()" type="button" data-toggle="dropdown" style="margin-left: 5px; font-size: 13px; width: 195px; padding: 1px 5px">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="tiingo_tickers_btn" onclick = "tickers_list_btn()" type="button" data-toggle="dropdown" style="margin-left: 5px; font-size: 13px; width: 195px; padding: 1px 5px">
                                                 Select Tickers (<span class="quantity">0</span>)
                                             </button>
                                             <div id="div_ulul">
@@ -674,71 +674,71 @@
                                 <div class="tab-pane fade" id="nav-random" role="tabpanel" aria-labelledby="nav-random-tab">
                                     <!-- <div class="row" style="margin-top: 5px" id="tt_dd2"> -->
                                         <div class="dropdown" id="tickers_exchange_select_random">
-                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn_random" type="button" data-toggle="dropdown" style="margin-top: 5px; font-size: 13px; width: 370px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn_random" type="button" data-toggle="dropdown" onclick = "tickers_exchange_btn_random()" style="margin-top: 5px; font-size: 13px; width: 370px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
                                                 <span class="Xchange_random">Select Exchange</span>
                                             </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 410px; width: 370px; overflow: auto;">
+                                            <div class="dropdown-menu" id="ex_dd_random" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 410px; width: 370px; overflow: auto;">
                                                 <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_amsterdam">Euronext Amsterdam - Netherlands</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="american_stock_exchange">American Stock Exchange - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="australian_stock_exchange">Australian Stock Exchange - Australia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="athens_stock_exchange">Athens Stock Exchange - Greece</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="berlin_stock_exchange">Berlin Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_brussels">Euronext Brussels - Belgium</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="bombay_stock_exchange">Bombay Stock Exchange - India</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="buenos_aires_stock_exchange">Buenos Aires Stock Exchange - Argentina</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="caracas_stock_exchange">Caracas Stock Exchange - Venezuela</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="canadian_securities_exchange">Canadian Securities Exchange - Canada</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_copenhagen">Nasdaq OMX Copenhagen - Denmark</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="qatar_stock_exchange">Qatar Stock Exchange - Qatar</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="dusseldorf_stock_exchange">Dusseldorf Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="swiss_exchange">Swiss Exchange - Switzerland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="frankfurt_stock_exchange">Frankfurt Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="deutsche_boerse_xetra">Deutsche Boerse XETRA - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="hamburg_stock_exchange">Hamburg Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="hanover_stock_exchange">Hanover Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_helsinki">Nasdaq OMX Helsinki - Finland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="hong_kong_stock_exchange">Hong Kong Stock Exchange - Hong Kong</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_iceland">Nasdaq OMX Iceland - Iceland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="london_stock_exchange">London Stock Exchange - United Kingdom</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_dublin">Euronext Dublin - Ireland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="borsa_istanbul">Borsa Istanbul - Turkey</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="indonesia_stock_exchange">Indonesia Stock Exchange - Indonesia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="malaysian_stock_exchange">Malaysian Stock Exchange - Malaysia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="kosdaq">KOSDAQ - South Korea</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="korea_stock_exchange">Korea Stock Exchange - South Korea</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_lisbon">Euronext Lisbon - Portugal</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_vilnius">Nasdaq OMX Vilnius - Lithuania</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="madrid_se_cats">Madrid SE CATS - Spain</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="moscow_exchange">Moscow Exchange - Russia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="mexico_stock_exchange">Mexico Stock Exchange - Mexico</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="italian_stock_exchange">Italian Stock Exchange - Italy</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="munich_stock_exchange">Munich Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_capital_market">Nasdaq Capital Market - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_global_market">Nasdaq Global Market - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_national_market">Nasdaq National Market - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="national_stock_exchange_of_india">National Stock Exchange of India - India</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="new_york_stock_exchange">New York Stock Exchange - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="new_zealand_stock_exchange">New Zealand Stock Exchange - New Zealand</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_otc_bulletin_board">Nasdaq OTC Bulletin Board - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="oslo_stock_exchange">Oslo Stock Exchange - Norway</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_paris">Euronext Paris - France</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nyse_arca">NYSE Arca - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="otc_markets">OTC Markets - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_riga">Nasdaq OMX Riga - Latvia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="sao_paolo_stock_exchange">Sao Paolo Stock Exchange - Brazil</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="singapore_stock_exchange">Singapore Stock Exchange - Singapore</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="stock_exchange_of_thailand">Stock Exchange of Thailand - Thailand</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="shanghai_stock_exchange">Shanghai Stock Exchange - China</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="shenzhen_stock_exchange">Shenzhen Stock Exchange - China</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_stockholm">Nasdaq OMX Stockholm - Sweden</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="stuttgart_stock_exchange">Stuttgart Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="taiwan_stock_exchange">Taiwan Stock Exchange - Taiwan</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_tallinn">Nasdaq OMX Tallinn - Estonia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="tel_aviv_stock_exchange">Tel Aviv Stock Exchange - Israel</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="toronto_stock_exchange">Toronto Stock Exchange - Canada</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="taiwan_otc_exchange">Taiwan OTC Exchange - Taiwan</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="tsx_venture_exchange">TSX Venture Exchange - Canada</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="vienna_stock_exchange">Vienna Stock Exchange - Austria</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="american_stock_exchange">American Stock Exchange - USA</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="australian_stock_exchange">Australian Stock Exchange - Australia</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="athens_stock_exchange">Athens Stock Exchange - Greece</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="berlin_stock_exchange">Berlin Stock Exchange - Germany</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_brussels">Euronext Brussels - Belgium</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="bombay_stock_exchange">Bombay Stock Exchange - India</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="buenos_aires_stock_exchange">Buenos Aires Stock Exchange - Argentina</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="caracas_stock_exchange">Caracas Stock Exchange - Venezuela</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="canadian_securities_exchange">Canadian Securities Exchange - Canada</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_copenhagen">Nasdaq OMX Copenhagen - Denmark</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="qatar_stock_exchange">Qatar Stock Exchange - Qatar</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="dusseldorf_stock_exchange">Dusseldorf Stock Exchange - Germany</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="swiss_exchange">Swiss Exchange - Switzerland</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="frankfurt_stock_exchange">Frankfurt Stock Exchange - Germany</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="deutsche_boerse_xetra">Deutsche Boerse XETRA - Germany</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="hamburg_stock_exchange">Hamburg Stock Exchange - Germany</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="hanover_stock_exchange">Hanover Stock Exchange - Germany</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_helsinki">Nasdaq OMX Helsinki - Finland</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="hong_kong_stock_exchange">Hong Kong Stock Exchange - Hong Kong</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_iceland">Nasdaq OMX Iceland - Iceland</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="london_stock_exchange">London Stock Exchange - United Kingdom</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_dublin">Euronext Dublin - Ireland</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="borsa_istanbul">Borsa Istanbul - Turkey</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="indonesia_stock_exchange">Indonesia Stock Exchange - Indonesia</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="malaysian_stock_exchange">Malaysian Stock Exchange - Malaysia</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="kosdaq">KOSDAQ - South Korea</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="korea_stock_exchange">Korea Stock Exchange - South Korea</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_lisbon">Euronext Lisbon - Portugal</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_vilnius">Nasdaq OMX Vilnius - Lithuania</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="madrid_se_cats">Madrid SE CATS - Spain</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="moscow_exchange">Moscow Exchange - Russia</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="mexico_stock_exchange">Mexico Stock Exchange - Mexico</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="italian_stock_exchange">Italian Stock Exchange - Italy</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="munich_stock_exchange">Munich Stock Exchange - Germany</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_capital_market">Nasdaq Capital Market - USA</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_global_market">Nasdaq Global Market - USA</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_national_market">Nasdaq National Market - USA</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="national_stock_exchange_of_india">National Stock Exchange of India - India</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="new_york_stock_exchange">New York Stock Exchange - USA</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="new_zealand_stock_exchange">New Zealand Stock Exchange - New Zealand</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_otc_bulletin_board">Nasdaq OTC Bulletin Board - USA</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="oslo_stock_exchange">Oslo Stock Exchange - Norway</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_paris">Euronext Paris - France</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nyse_arca">NYSE Arca - USA</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="otc_markets">OTC Markets - USA</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_riga">Nasdaq OMX Riga - Latvia</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="sao_paolo_stock_exchange">Sao Paolo Stock Exchange - Brazil</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="singapore_stock_exchange">Singapore Stock Exchange - Singapore</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="stock_exchange_of_thailand">Stock Exchange of Thailand - Thailand</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="shanghai_stock_exchange">Shanghai Stock Exchange - China</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="shenzhen_stock_exchange">Shenzhen Stock Exchange - China</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_stockholm">Nasdaq OMX Stockholm - Sweden</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="stuttgart_stock_exchange">Stuttgart Stock Exchange - Germany</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="taiwan_stock_exchange">Taiwan Stock Exchange - Taiwan</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="nasdaq_omx_tallinn">Nasdaq OMX Tallinn - Estonia</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="tel_aviv_stock_exchange">Tel Aviv Stock Exchange - Israel</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="toronto_stock_exchange">Toronto Stock Exchange - Canada</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="taiwan_otc_exchange">Taiwan OTC Exchange - Taiwan</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="tsx_venture_exchange">TSX Venture Exchange - Canada</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="vienna_stock_exchange">Vienna Stock Exchange - Austria</a>
                                             </div>
                                         </div>
                                         <div class="dropdown" id="select_startdate_select_random">
@@ -953,7 +953,7 @@
                                     <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">Margin<br>Available</th>
                                     <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">Total<br>Trade Value</th>
                                     <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">Total<br>Commission</th>
-                                    <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">Total<br>Margin Used</th>
+                                    <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">Total<br>Initial Margin</th>
                                 </tr>
                                 <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
                                     <td style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 10px"></td>
@@ -2041,7 +2041,7 @@
                                     <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">Filled<br>Price</th>
                                     <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">Trade<br>Value</th>
                                     <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">Commission</th>
-                                    <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;width: 110px">Margin<br>Used</th>
+                                    <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;width: 110px">Initial<br>Margin</th>
                                 </tr>
                                 <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
                                     <th style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 5px; "></th>
@@ -2679,17 +2679,18 @@
 
         var ticker_list = new Array();
         var exchange_choose_current;
-        var exchange_choose_current_random;
+        // var exchange_choose_current_random;
         var startdate_select;
-        var startdate_select_random;
-        // var exchange_choose_previous;
+        var startdate_select_previous;
+        // var startdate_select_random;
+        var exchange_choose_previous;
 
-        $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
-        let container_exchange = $(this).closest("#tickers_exchange");
-        exchange_choose_current = $(event.currentTarget)[0].id;
-        container_exchange.find('.Xchange').text( $(event.currentTarget)[0].innerText || 'Select Exchange');
-        console.log(exchange_choose_current);
-        });
+        // $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
+        // let container_exchange = $(this).closest("#tickers_exchange");
+        // exchange_choose_current = $(event.currentTarget)[0].id;
+        // container_exchange.find('.Xchange').text( $(event.currentTarget)[0].innerText || 'Select Exchange');
+        // console.log(exchange_choose_current);
+        // });
 
         $("#select_startdate").on('click', '.dropdown-item', function (event) {
         let container_exchange = $(this).closest("#select_startdate");
@@ -2698,18 +2699,18 @@
         console.log(startdate_select);
         });
 
-        $("#tickers_exchange_select_random").on('click', '.dropdown-item', function (event) {
-        let container_exchange = $(this).closest("#tickers_exchange_select_random");
-        exchange_choose_current_random = $(event.currentTarget)[0].id;
-        container_exchange.find('.Xchange_random').text( $(event.currentTarget)[0].innerText || 'Select Exchange');
-        console.log(exchange_choose_current_random);
-        });
+        // $("#tickers_exchange_select_random").on('click', '.dropdown-item', function (event) {
+        // let container_exchange = $(this).closest("#tickers_exchange_select_random");
+        // exchange_choose_current = $(event.currentTarget)[0].id;
+        // container_exchange.find('.Xchange_random').text( $(event.currentTarget)[0].innerText || 'Select Exchange');
+        // console.log(exchange_choose_current);
+        // });
 
         $("#select_startdate_select_random").on('click', '.dropdown-item', function (event) {
         let container_exchange = $(this).closest("#select_startdate_select_random");
-        startdate_select_random = $(event.currentTarget)[0].id;
+        startdate_select = $(event.currentTarget)[0].id;
         container_exchange.find('.Sdate_random').text( $(event.currentTarget)[0].innerText || 'Select Start Date');
-        console.log(startdate_select_random);
+        console.log(startdate_select);
         });
 
         $("#tickers_list").on('click', '.dropdown-menu li', function (event) {

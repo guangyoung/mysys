@@ -8,6 +8,10 @@
     var spread_slippage;
     var commission;
     var interest_rate;
+    var regT_margin;
+    var maint_margin;
+    var min_data;
+    var max_data;
 
     function test_setting_submit_btn() {
 
@@ -37,9 +41,23 @@
             return false;
         } else {
             initial_equity = $("#initial_equity").val();
-            spread_slippage = $("#bid_ask_spread").val();
-            commission = $("#commision_share").val();
+            spread_slippage = $("#spread_slippage").val();
+            commission = $("#commision").val();
             interest_rate = $("#interest_rate").val();
+            regT_margin = $("#regT_margin").val();
+            maint_margin = $("#maint_margin").val();
+            min_data = $("#min_data").val();
+            max_data = $("#max_data").val();
+
             $('#setting').modal('hide');
+
+            console.log(initial_equity);
+            console.log(spread_slippage);
+            console.log(commission);
+            console.log(interest_rate);
+            console.log(regT_margin);
+            console.log(maint_margin);
+            console.log(min_data);
+            console.log(max_data);
         }  
     }

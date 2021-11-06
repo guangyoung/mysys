@@ -7,7 +7,7 @@
     var portfolio_data = new Array();    
     var test_data = new Array();
 
-    function tickers_list_btn() {
+    function tickers_list_btn () {
       if(!exchange_choose_current || !startdate_select) {
         $('#ulul').empty();
         var newLi = document.createElement('li');
@@ -15,10 +15,13 @@
         newLi.appendChild(li);
         document.getElementById("ulul").appendChild(newLi);
         return false;
-      } else {
+      } else if (exchange_choose_current !== exchange_choose_previous || startdate_select !== startdate_select_previous) {
+        console.log(exchange_choose_current);
+        console.log(startdate_select);
         ticker_list = [];    
         $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
-        // exchange_choose_previous = exchange_choose_current;
+        exchange_choose_previous = exchange_choose_current;
+        startdate_select_previous = startdate_select;
         $('#ulul').empty();
         var tickers = eval(exchange_choose_current+'_'+startdate_select);
         for (i=0;i<tickers.length;i++) {
@@ -34,10 +37,47 @@
         newLi.appendChild(text);
         document.getElementById("ulul").appendChild(newLi);
         }
-      } 
+      } else {
+        return false;
+      }
     }
 
-    function add_data() {      
+  function getEventTarget(e) {
+      e = e || window.event;
+      return e.target || e.srcElement; 
+  }
+
+    function tickers_exchange_btn() {
+      var ul = document.getElementById('ex_dd');
+      ul.onclick = function(event) {
+          var target = getEventTarget(event);
+          let container_exchange = $(this).closest("#tickers_exchange");
+          exchange_choose_current = target.id;
+          container_exchange.find('.Xchange').text( target.innerText || 'Select Exchange' );
+          console.log(target.id);
+      };       
+    }
+
+    function tickers_exchange_btn_random() {
+      var ul = document.getElementById('ex_dd_random');
+      ul.onclick = function(event) {
+          var target = getEventTarget(event);
+          let container_exchange = $(this).closest("#tickers_exchange_select_random");
+          exchange_choose_current = target.id;
+          container_exchange.find('.Xchange_random').text( target.innerText || 'Select Exchange' );
+          console.log(target.id);
+      };       
+    }
+
+    // $("#tickers_exchange_select_random").on('click', '.dropdown-item', function (event) {
+    //   let container_exchange = $(this).closest("#tickers_exchange_select_random");
+    //   exchange_choose_current = $(event.currentTarget)[0].id;
+    //   container_exchange.find('.Xchange_random').text( $(event.currentTarget)[0].innerText || 'Select Exchange');
+    //   console.log(exchange_choose_current);
+    //   });
+
+
+ async function add_data() {      
       if(ticker_list.length==0) {
           alert("tidak ada ticker yg dipilih");
           return false;
@@ -57,8 +97,10 @@
             }
           }
         } 
-        for (i = 0; i < ticker_list.length && i < (30 - portfolio_data.length); i++) {
-          let tickere = ticker_list[i].split(', ')[0];
+        $(':button').prop('disabled', true); 
+        var t = 0;
+        while (t < ticker_list.length && t < (30 - portfolio_data.length)) {
+          let tickere = ticker_list[t].split(', ')[0];
           let as_data_date = new Array();
           let as_data_price = new Array();
           let ex_choo = exchange_choose_current.split('-')[0];
@@ -66,7 +108,7 @@
           const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
           const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
 
-          $.getJSON(proxyurl+urls, function(result){
+          await $.getJSON(proxyurl+urls, function(result){
             console.log(result);
             var market_data = result;
             let length_tm = market_data.chart.result[0].timestamp.length;
@@ -97,39 +139,48 @@
             </tr>`;
             $("#table_assets > tbody").append(portfolio);
             });
-        }      
+            t++;           
+        }
+        $(':button').prop('disabled', false); 
+                
         $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
         $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
         $("#startdate_btn").html(`<span class="Sdate">Select Start Date</span>`);
         ticker_list = [];
         exchange_choose_current="";
-        // exchange_choose_previous ="";
+        exchange_choose_previous ="";
+        startdate_select ="";
+        startdate_select_previous ="";
       }
     }
 
-    function add_data_random() { 
-      if(!exchange_choose_current_random || !startdate_select_random) {
+  async function add_data_random() { 
+      if(!exchange_choose_current || !startdate_select) {
         alert("Please select exchange and startdate");
         return false;
       } else {
-          var tickers_random = eval(exchange_choose_current_random+'_'+startdate_select_random);
-          
+          var tickers_random = eval(exchange_choose_current+'_'+startdate_select);
 
           for (i=0;i<tickers_random.length && i<30;i++) {
-              ticker_list.push(tickers_random[i]);
+              let tick_no = Math.floor(Math.random() * tickers_random.length);
+              ticker_list.push(tickers_random[tick_no]);
+              console.log(tickers_random[tick_no]);
+              tickers_random.splice(tick_no,1);              
           }
-          console.log(ticker_list);
+          console.log(ticker_list); 
 
-          for (i = 0; i < ticker_list.length && i < (30 - portfolio_data.length); i++) {
-            let tickere = ticker_list[i].split(', ')[0];
+          $(':button').prop('disabled', true); 
+          var t = 0;
+          while (t < ticker_list.length && t < (30 - portfolio_data.length)) {
+            let tickere = ticker_list[t].split(', ')[0];
             let as_data_date = new Array();
             let as_data_price = new Array();
-            let ex_choo = exchange_choose_current_random.split('-')[0];
+            let ex_choo = exchange_choose_current.split('-')[0];
 
             const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
             const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
 
-            $.getJSON(proxyurl+urls, function(result){
+            await $.getJSON(proxyurl+urls, function(result){
               console.log(result);
               var market_data = result;
               let length_tm = market_data.chart.result[0].timestamp.length;
@@ -160,12 +211,17 @@
               </tr>`;
               $("#table_assets > tbody").append(portfolio);
               });
-          }      
-          // $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
-          $("#Xchange_btn_random").html(`<span class="Xchange">Select Exchange</span>`);
-          $("#startdate_btn_random").html(`<span class="Sdate">Select Start Date</span>`);
+              t++;         
+          } 
+          $(':button').prop('disabled', false);    
+          
+          $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
+          $("#startdate_btn_random").html(`<span class="Sdate_random">Select Start Date</span>`);
           ticker_list = [];
-          exchange_choose_current_random="";
+          exchange_choose_current="";
+          exchange_choose_previous ="";
+          startdate_select ="";
+          startdate_select_previous ="";
         }
       }
 
@@ -180,9 +236,13 @@
       $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
       $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
       $("#startdate_btn").html(`<span class="Sdate">Select Start Date</span>`);
+      $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
+      $("#startdate_btn_random").html(`<span class="Sdate_random">Select Start Date</span>`);
       ticker_list = [];
       exchange_choose_current="";
-      // exchange_choose_previous ="";
+      exchange_choose_previous ="";
+      startdate_select ="";
+      startdate_select_previous="";
       portfolio_data = [];
       test_data = [];
       $("#table_assets > tbody").empty();
