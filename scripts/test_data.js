@@ -79,10 +79,10 @@
 
  async function add_data() {      
       if(ticker_list.length==0) {
-          alert("tidak ada ticker yg dipilih");
+        Swal.fire('tidak ada ticker yg dipilih');
           return false;
       } else if((ticker_list.length+portfolio_data.length)>30) {
-        alert("ticker yg anda pilih melebihi total ticker tersisa untuk portfolio")
+        Swal.fire('ticker yg anda pilih melebihi total ticker tersisa untuk portfolio')
         return false;
       } else {
         if(portfolio_data.length>0) {
@@ -91,7 +91,7 @@
             for(x=0;x<portfolio_data.length;x++) {
               let idx = portfolio_data[x].ticker.indexOf(tickere);
               if (idx !== -1) {
-                alert("ticker "+tickere+" sdh dipilih");
+                Swal.fire('ticker '+tickere+' sdh dipilih');
                 return false;
               }
             }
@@ -156,7 +156,7 @@
 
   async function add_data_random() { 
       if(!exchange_choose_current || !startdate_select) {
-        alert("Please select exchange and startdate");
+        Swal.fire('Please select exchange and startdate');
         return false;
       } else {
           var tickers_random = eval(exchange_choose_current+'_'+startdate_select);
@@ -254,10 +254,12 @@
 
     function create_test_data() {      
       if(portfolio_data.length < 30) {
-          alert('total asset kurang dari 30');
+          // alert('total asset kurang dari 30');
+          // swal("total asset kurang dari 30");
+          Swal.fire('total asset kurang dari 30');
           return false;
       } else if(test_data.length > 0) {
-          alert('anda punya portfolio data, silahkan reset data terlebih dahulu');
+        Swal.fire('anda punya portfolio data, silahkan reset data terlebih dahulu');
           return false;
         } else {
         // portfolio_data = [];
