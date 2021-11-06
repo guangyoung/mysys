@@ -157,7 +157,7 @@
           //   $("#table_assets > tbody").append(portfolio);
           //   });  
           
-          Papa.parse("dataset/"+exchange_choose_current+"/"+tickere+".csv", {
+          await Papa.parse("dataset/"+exchange_choose_current+"/"+tickere+".csv", {
               download: true,
               header: false,
               complete: function(result) {
