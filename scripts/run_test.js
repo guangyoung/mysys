@@ -379,10 +379,10 @@
         // } 
         // Swal.fire('tidak ada data untuk test ');
         Swal.fire(
-            'No Test Data',
+            'No Test Data !',
             'Please click Market Data and Create It',
-            'question'
-          )
+            'warning'
+        )
         return false;
         } else {
             $('#period_testing_setting').modal('toggle');

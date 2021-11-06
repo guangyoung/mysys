@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.js" integrity="sha512-xfE8+/0EojbhXfgBvoCNfb2GC0Bg1ua299QrbC8HojJYPFYcMsdm/K4omieNQzFeLVOBANTtyW2e0MsYAvLYow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -63,7 +64,11 @@
             // }            
 
             if(!$("#api_key").val()) {
-                alert(`Silahkan isi dulu Api Key anda !`);
+                Swal.fire(
+                    'Quantxi API ?',
+                    'Please input your Quantxi API',
+                    'question'
+                )
                 return false;
             } else {
                 $.ajax({
@@ -72,18 +77,28 @@
                 dataType: 'json',
                 success: function(result){
                 if (result.status == "success") {                    
-                    alert(`selamat datang `+result.data.nama+`, api key :` +$("#api_key").val()); //setting diserver u/tampilkan message data user
+                    // alert(`selamat datang `+result.data.nama+`, api key :` +$("#api_key").val()); //setting diserver u/tampilkan message data user
+                    
                     localStorage.setItem("user", result.data.nama);
                     localStorage.setItem("apiKey", $("#api_key").val());
                    
                     open("dashboard.html","_self");
+                    
                 } else {
-                    alert(`gagal koneksi, periksa api key anda`);
+                    Swal.fire(
+                        'Connection Failed',
+                        'Please check your Quantxi API',
+                        'error'
+                    )
                     return false;
                 }
                 },
                 error: function() {
-                    alert(`gagal koneksi, periksa api key anda`);
+                    Swal.fire(
+                        'Connection Failed',
+                        'Please check your Quantxi API',
+                        'error'
+                    )
                     return false;
                 }
             })

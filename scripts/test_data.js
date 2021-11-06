@@ -9,11 +9,16 @@
 
     function tickers_list_btn () {
       if(!exchange_choose_current || !startdate_select) {
+        Swal.fire(
+          'No Exchange and Start Date Selected !',
+          'Please select your exchange and startdate before',
+          'warning'
+        )
         $('#ulul').empty();
-        var newLi = document.createElement('li');
-        var li = document.createTextNode("\u00A0\u00A0Please Choose Your \u00A0\u00A0Exchange & Startdate !!!");
-        newLi.appendChild(li);
-        document.getElementById("ulul").appendChild(newLi);
+        // var newLi = document.createElement('li');
+        // var li = document.createTextNode("\u00A0\u00A0Please Choose Your \u00A0\u00A0Exchange & Startdate !!!");
+        // newLi.appendChild(li);
+        // document.getElementById("ulul").appendChild(newLi);
         return false;
       } else if (exchange_choose_current !== exchange_choose_previous || startdate_select !== startdate_select_previous) {
         console.log(exchange_choose_current);
@@ -79,10 +84,18 @@
 
  async function add_data() {      
       if(ticker_list.length==0) {
-        Swal.fire('tidak ada ticker yg dipilih');
-          return false;
-      } else if((ticker_list.length+portfolio_data.length)>30) {
-        Swal.fire('ticker yg anda pilih melebihi total ticker tersisa untuk portfolio')
+        Swal.fire(
+          'No Ticker Selected !',
+          'Please select your tickers to test',
+          'warning'
+        )
+        return false;
+      } else if(portfolio_data.length==30) {
+        Swal.fire(
+          '30 Stocks has been selected !',
+          'Please select your tickers to test',
+          'warning'
+        )
         return false;
       } else {
         if(portfolio_data.length>0) {
@@ -91,61 +104,100 @@
             for(x=0;x<portfolio_data.length;x++) {
               let idx = portfolio_data[x].ticker.indexOf(tickere);
               if (idx !== -1) {
-                Swal.fire('ticker '+tickere+' sdh dipilih');
+                Swal.fire(
+                  'ticker '+tickere+' has been selected !',
+                  'Please choose another ticker',
+                  'warning'
+                )
                 return false;
               }
             }
           }
         } 
         $(':button').prop('disabled', true); 
-        var t = 0;
-        while (t < ticker_list.length && t < (30 - portfolio_data.length)) {
+        // var t = 0;
+        for (t=0;t < ticker_list.length && t < (30 - portfolio_data.length);t++) {
           let tickere = ticker_list[t].split(', ')[0];
           let as_data_date = new Array();
           let as_data_price = new Array();
           let ex_choo = exchange_choose_current.split('-')[0];
 
-          const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
-          const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
+          // const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
+          // const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
 
-          await $.getJSON(proxyurl+urls, function(result){
-            console.log(result);
-            var market_data = result;
-            let length_tm = market_data.chart.result[0].timestamp.length;
-            for(i=0; i<length_tm; i++) {
-            var data_date = new Date(market_data.chart.result[0].timestamp[i] * 1000);
-            var data_price = market_data.chart.result[0].indicators.adjclose[0].adjclose[i];             
-                as_data_date.push(
-                  appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
-                );
-              if(data_price == null) {
-                as_data_price.push(
-                  as_data_price[as_data_price.length-1]
-                );
-              } else {
-                as_data_price.push(
-                  data_price
-                );
-              }           
-            }
-            portfolio_data.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
-            let al = portfolio_data.length;
-            let portfolio =            
-            `<tr>
-                <td class="text-center">`+al+`</td>
-                <td class="text-center">`+tickere+`</td>
-                <td class="text-center">`+ex_choo+`</td>
-                <td class="text-center">`+as_data_date[0]+`</td>
-            </tr>`;
-            $("#table_assets > tbody").append(portfolio);
-            });
-            t++;           
+          // await $.getJSON(proxyurl+urls, function(result){
+          //   console.log(result);
+          //   var market_data = result;
+          //   let length_tm = market_data.chart.result[0].timestamp.length;
+          //   for(i=0; i<length_tm; i++) {
+          //   var data_date = new Date(market_data.chart.result[0].timestamp[i] * 1000);
+          //   var data_price = market_data.chart.result[0].indicators.adjclose[0].adjclose[i];             
+          //       as_data_date.push(
+          //         appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
+          //       );
+          //     if(data_price == null) {
+          //       as_data_price.push(
+          //         as_data_price[as_data_price.length-1]
+          //       );
+          //     } else {
+          //       as_data_price.push(
+          //         data_price
+          //       );
+          //     }           
+          //   }
+          //   portfolio_data.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
+          //   let al = portfolio_data.length;
+          //   let portfolio =            
+          //   `<tr>
+          //       <td class="text-center">`+al+`</td>
+          //       <td class="text-center">`+tickere+`</td>
+          //       <td class="text-center">`+ex_choo+`</td>
+          //       <td class="text-center">`+as_data_date[0]+`</td>
+          //   </tr>`;
+          //   $("#table_assets > tbody").append(portfolio);
+          //   });  
+          
+          Papa.parse("dataset/"+exchange_choose_current+"/"+tickere+".csv", {
+              download: true,
+              header: false,
+              complete: function(result) {
+                console.log(result.data);
+                for(i=1; i<result.data.length; i++) {
+                  var data_date = new Date(result.data[i][0]);
+                  var data_price = result.data[i][5];
+                  as_data_date.push(
+                    appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
+                  );
+                   if(data_price == null) {
+                      as_data_price.push(
+                        as_data_price[as_data_price.length-1]
+                      );
+                    } else {
+                      as_data_price.push(
+                        data_price
+                      );
+                    }   
+                  }
+                  portfolio_data.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
+                  let al = portfolio_data.length;
+                  let portfolio =            
+                  `<tr>
+                      <td class="text-center">`+al+`</td>
+                      <td class="text-center">`+tickere+`</td>
+                      <td class="text-center">`+ex_choo+`</td>
+                      <td class="text-center">`+as_data_date[0]+`</td>
+                  </tr>`;
+                  $("#table_assets > tbody").append(portfolio);
+                }
+          });
         }
         $(':button').prop('disabled', false); 
                 
         $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
         $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
         $("#startdate_btn").html(`<span class="Sdate">Select Start Date</span>`);
+        $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
+        $("#startdate_btn_random").html(`<span class="Sdate_random">Select Start Date</span>`);
         ticker_list = [];
         exchange_choose_current="";
         exchange_choose_previous ="";
@@ -156,12 +208,16 @@
 
   async function add_data_random() { 
       if(!exchange_choose_current || !startdate_select) {
-        Swal.fire('Please select exchange and startdate');
+        Swal.fire(
+          'No Exchange and Start Date Selected !',
+          'Please select your exchange and startdate before',
+          'warning'
+        )
         return false;
       } else {
           var tickers_random = eval(exchange_choose_current+'_'+startdate_select);
 
-          for (i=0;i<tickers_random.length && i<30;i++) {
+          for (i=0;i<tickers_random.length && i<(30-portfolio_data.length);i++) {
               let tick_no = Math.floor(Math.random() * tickers_random.length);
               ticker_list.push(tickers_random[tick_no]);
               console.log(tickers_random[tick_no]);
@@ -170,8 +226,8 @@
           console.log(ticker_list); 
 
           $(':button').prop('disabled', true); 
-          var t = 0;
-          while (t < ticker_list.length && t < (30 - portfolio_data.length)) {
+          // var t = 0;
+          for (t=0;t < ticker_list.length;t++) {
             let tickere = ticker_list[t].split(', ')[0];
             let as_data_date = new Array();
             let as_data_price = new Array();
@@ -211,10 +267,13 @@
               </tr>`;
               $("#table_assets > tbody").append(portfolio);
               });
-              t++;         
+              // t++;         
           } 
           $(':button').prop('disabled', false);    
           
+          $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
+          $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
+          $("#startdate_btn").html(`<span class="Sdate">Select Start Date</span>`);
           $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
           $("#startdate_btn_random").html(`<span class="Sdate_random">Select Start Date</span>`);
           ticker_list = [];
@@ -250,13 +309,22 @@
       $("#pagination-demo").twbsPagination("destroy");
       $("#period_data").val("");
       // $('#ulul').empty();
+
+      Swal.fire(
+        'Reset Saved!',
+        'Your Stock data has been reset!',
+        'success'
+      )
+
     }
 
     function create_test_data() {      
       if(portfolio_data.length < 30) {
-          // alert('total asset kurang dari 30');
-          // swal("total asset kurang dari 30");
-          Swal.fire('total asset kurang dari 30');
+          Swal.fire(
+            'Portfolio < 30 Stocks !',
+            'Please select more stocks',
+            'warning'
+          )
           return false;
       } else if(test_data.length > 0) {
         Swal.fire('anda punya portfolio data, silahkan reset data terlebih dahulu');

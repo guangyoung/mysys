@@ -42,6 +42,12 @@
         window.onbeforeunload = function(){ //this function for if we refresh or exit, there is alert
             return "";
         };
+
+        Swal.fire(
+            'Welcome to Quantxi AI Testing Tool',
+            'User : '+user,
+            'success'
+        )
     </script>
 
     <!--  -->
@@ -584,7 +590,8 @@
                                             <span class="Xchange">Select Exchange</span>
                                         </button>
                                         <div class="dropdown-menu" id="ex_dd" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 400px; width: 370px; overflow: auto;">
-                                            <a class="dropdown-item" href="#" style="margin-top: -8px; color: #ffff" id="euronext_amsterdam">Euronext Amsterdam - Netherlands</a>
+                                            <a class="dropdown-item" href="#" style="margin-top: -8px; color: #ffff" id="NASDAQ">NASDAQ - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_amsterdam">Euronext Amsterdam - Netherlands</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="american_stock_exchange">American Stock Exchange - USA</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="australian_stock_exchange">Australian Stock Exchange - Australia</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="athens_stock_exchange">Athens Stock Exchange - Greece</a>
