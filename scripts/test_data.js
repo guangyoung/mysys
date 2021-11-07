@@ -442,9 +442,11 @@
         });  
       }  
       
-      Swal.fire(
-        'Market Data Created',
-        'Your market data already created',
-        'success'
-      )
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your Market Data Created',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
