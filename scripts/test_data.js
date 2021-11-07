@@ -68,7 +68,7 @@
       ul.onclick = function(event) {
           var target = getEventTarget(event);
           let container_exchange = $(this).closest("#tickers_exchange_select_random");
-          exchange_choose_current = target.id;
+          exchange_choose_current = target.id2;
           container_exchange.find('.Xchange_random').text( target.innerText || 'Select Exchange' );
           console.log(target.id);
       };       
