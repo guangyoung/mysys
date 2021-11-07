@@ -116,10 +116,7 @@
         } 
         $(':button').prop('disabled', true); 
         var t = 0;
-        while (t < ticker_list.length && t < (30 - portfolio_data.length)) {
-          if(t==ticker_list.length) {
-            $(':button').prop('disabled', false); 
-          };
+        while (t < ticker_list.length && t < (30 - portfolio_data.length)) {         
 
           let tickere = ticker_list[t].split(', ')[0];
           let as_data_date = new Array();
@@ -159,7 +156,10 @@
                   $("#table_assets > tbody").append(portfolio);
                 }
           });
-          t++;          
+          t++;    
+          if(t==ticker_list.length) {
+            $(':button').prop('disabled', false); 
+          };      
         }
         
                 
