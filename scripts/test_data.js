@@ -296,8 +296,12 @@
             'warning'
           )
           return false;
-      } else if(test_data.length > 0) {
-        Swal.fire('anda punya portfolio data, silahkan reset data terlebih dahulu');
+      } else if(test_data.length > 0) {        
+          Swal.fire(
+            'Portfolio data already',
+            'Please click reset to start new',
+            'warning'
+          )
           return false;
         } else {
         // portfolio_data = [];
@@ -357,9 +361,6 @@
         // console.log(test_data);
         $("#period_data").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
        
-        // $("#period_data_dashboard").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);  
-        // $("#test_startdate").val(new Date(test_data[0][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(test_data[0][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(test_data[0][0]).getDate()));
-        // $("#test_enddate").val(new Date(test_data[test_data.length-1][0]).getFullYear() + "-"+ appendLeadingZeroes(new Date(test_data[test_data.length-1][0]).getMonth()+1) + "-" + appendLeadingZeroes(new Date(test_data[test_data.length-1][0]).getDate()));
         $('#stock1_ticker').html(portfolio_data[0].ticker);
         $('#stock2_ticker').html(portfolio_data[1].ticker);
         $('#stock3_ticker').html(portfolio_data[2].ticker);
@@ -439,5 +440,11 @@
             }
           }
         });  
-      }           
+      }  
+      
+      Swal.fire(
+        'Market Data Created',
+        'Your market data already created',
+        'success'
+      )
     }
