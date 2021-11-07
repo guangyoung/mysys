@@ -82,7 +82,7 @@
     //   });
 
 
-    function add_data() {      
+  async function add_data() {      
       if(portfolio_data.length==30) {
         Swal.fire(
           '30 Stocks has been selected !',
