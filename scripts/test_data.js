@@ -82,7 +82,8 @@
     //   });
 
 
-    function add_data() {      
+    function add_data() {   
+      $(':button').prop('disabled', true);    
       if(portfolio_data.length==30) {
         Swal.fire(
           '30 Stocks has been selected !',
@@ -113,8 +114,8 @@
               }
             }
           }
-        } 
-        $(':button').prop('disabled', true); 
+        }
+        
         // var t = 0;
         for (t=0;t < ticker_list.length && t < (30 - portfolio_data.length);t++) {
           let tickere = ticker_list[t].split(', ')[0];
@@ -156,7 +157,7 @@
                 }
           });
         }
-        $(':button').prop('disabled', false); 
+        
                 
         $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
         $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
@@ -169,6 +170,7 @@
         startdate_select ="";
         startdate_select_previous ="";
       }
+      $(':button').prop('disabled', false); 
     }
 
     function add_data_random() { 
