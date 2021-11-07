@@ -114,10 +114,9 @@
             }
           }
         }
-        
+        $(':button').prop('disabled', true);    
         // var t = 0;
-        for (t=0;t < ticker_list.length && t < (30 - portfolio_data.length);t++) {
-          $(':button').prop('disabled', true);    
+        for (t=0;t < ticker_list.length && t < (30 - portfolio_data.length);t++) {          
           let tickere = ticker_list[t].split(', ')[0];
           let as_data_date = new Array();
           let as_data_price = new Array();
