@@ -364,6 +364,8 @@
         }
         // console.log(test_data);
         $("#period_data").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
+        $("#data_startdate").val(test_data[0][0]);
+        $("#data_enddate").val(test_data[test_data.length-1][0]);
        
         $('#stock1_ticker').html(portfolio_data[0].ticker);
         $('#stock2_ticker').html(portfolio_data[1].ticker);
