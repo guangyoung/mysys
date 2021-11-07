@@ -82,7 +82,7 @@
     //   });
 
 
- async function add_data() {      
+    function add_data() {      
       if(portfolio_data.length==30) {
         Swal.fire(
           '30 Stocks has been selected !',
@@ -122,7 +122,7 @@
           let as_data_price = new Array();
           let ex_choo = exchange_choose_current.split('-')[0];
           
-          await Papa.parse("dataset/"+exchange_choose_current+"/"+tickere+".csv", {
+            Papa.parse("dataset/"+exchange_choose_current+"/"+tickere+".csv", {
               download: true,
               header: false,
               complete: function(result) {
@@ -239,7 +239,7 @@
                 }
               });        
           } 
-             
+          $(':button').prop('disabled', false);    
           
           $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
           $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
