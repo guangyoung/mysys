@@ -156,6 +156,9 @@
                   $("#table_assets > tbody").append(portfolio);
                 }
           });
+          if(t==ticker_list.length) {
+            $(':button').prop('disabled', false);     
+          }
         }
         
                 
