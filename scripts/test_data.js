@@ -93,7 +93,7 @@
       } else if(portfolio_data.length==30) {
         Swal.fire(
           '30 Stocks has been selected !',
-          'Please select your tickers to test',
+          'Please click reset stock to start new',
           'warning'
         )
         return false;
