@@ -170,7 +170,7 @@
         startdate_select ="";
         startdate_select_previous ="";
       }
-      $(':button').prop('disabled', false); 
+      // $(':button').prop('disabled', false); 
     }
 
     function add_data_random() { 
