@@ -156,11 +156,13 @@
                   $("#table_assets > tbody").append(portfolio);
                 }
           });
-          t++;    
-          if(t==ticker_list.length) {
-            $(':button').prop('disabled', false); 
-          };      
+          t++; 
         }
+        console.log(t);
+        console.log(ticker_list.length);
+        if(t == ticker_list.length) {
+          $(':button').prop('disabled', false); 
+        };    
         
                 
         $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
