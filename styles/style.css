@@ -60,7 +60,7 @@
   background-color: #7a7a7a;
 }
 
-/* .cover-index {
+.cover-index {
     background-color: #070914;
     background-image: url("../images/bg1.jpg");
     font-family: Acrom;
@@ -71,7 +71,7 @@
     background-image: url("../images/bg_ai32.jpg");
     
     font-family: Acrom;
-} */
+}
 
 .container-fluid {
     min-width:1280px;
