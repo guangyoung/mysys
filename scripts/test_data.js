@@ -83,17 +83,17 @@
 
 
  async function add_data() {      
-      if(ticker_list.length==0) {
-        Swal.fire(
-          'No Ticker Selected !',
-          'Please select your tickers to test',
-          'warning'
-        )
-        return false;
-      } else if(portfolio_data.length==30) {
+      if(portfolio_data.length==30) {
         Swal.fire(
           '30 Stocks has been selected !',
           'Please click reset stock to start new',
+          'warning'
+        )
+        return false;
+      } else if(ticker_list.length==0) {
+        Swal.fire(
+          'No Ticker Selected !',
+          'Please select your tickers to test',
           'warning'
         )
         return false;
@@ -121,41 +121,6 @@
           let as_data_date = new Array();
           let as_data_price = new Array();
           let ex_choo = exchange_choose_current.split('-')[0];
-
-          // const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
-          // const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+tickere+"?symbol="+tickere+"&period1=0&period2=9999999999&interval=1d";
-
-          // await $.getJSON(proxyurl+urls, function(result){
-          //   console.log(result);
-          //   var market_data = result;
-          //   let length_tm = market_data.chart.result[0].timestamp.length;
-          //   for(i=0; i<length_tm; i++) {
-          //   var data_date = new Date(market_data.chart.result[0].timestamp[i] * 1000);
-          //   var data_price = market_data.chart.result[0].indicators.adjclose[0].adjclose[i];             
-          //       as_data_date.push(
-          //         appendLeadingZeroes(data_date.getMonth()+1) + "/" + appendLeadingZeroes(data_date.getDate()).toString().slice(0, 10) + "/" + data_date.getFullYear()
-          //       );
-          //     if(data_price == null) {
-          //       as_data_price.push(
-          //         as_data_price[as_data_price.length-1]
-          //       );
-          //     } else {
-          //       as_data_price.push(
-          //         data_price
-          //       );
-          //     }           
-          //   }
-          //   portfolio_data.push({ticker: tickere, data: {date: as_data_date, price: as_data_price}});
-          //   let al = portfolio_data.length;
-          //   let portfolio =            
-          //   `<tr>
-          //       <td class="text-center">`+al+`</td>
-          //       <td class="text-center">`+tickere+`</td>
-          //       <td class="text-center">`+ex_choo+`</td>
-          //       <td class="text-center">`+as_data_date[0]+`</td>
-          //   </tr>`;
-          //   $("#table_assets > tbody").append(portfolio);
-          //   });  
           
           await Papa.parse("dataset/"+exchange_choose_current+"/"+tickere+".csv", {
               download: true,
@@ -207,17 +172,17 @@
     }
 
   async function add_data_random() { 
-      if(!exchange_choose_current || !startdate_select) {
-        Swal.fire(
-          'No Exchange and Start Date Selected !',
-          'Please select your exchange and startdate before',
-          'warning'
-        )
-        return false;
-      } else if(portfolio_data.length==30) {
+      if(portfolio_data.length==30) {
         Swal.fire(
           '30 Stocks has been selected !',
           'Please click reset stock to start new',
+          'warning'
+        )
+        return false;
+      } else if(!exchange_choose_current || !startdate_select) {
+        Swal.fire(
+          'No Exchange and Start Date Selected !',
+          'Please select your exchange and startdate before',
           'warning'
         )
         return false;
