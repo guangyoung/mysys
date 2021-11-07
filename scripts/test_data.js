@@ -366,6 +366,10 @@
         $("#period_data").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
         $("#data_startdate").val(test_data[0][0]);
         $("#data_enddate").val(test_data[test_data.length-1][0]);
+        $("#test_startdate").datepicker({
+          minDate: -3,
+          maxDate: "1w"
+      });
         // $("#test_startdate").attr("min", test_data[0][0]);
         // $("#test_startdate").attr("max", test_data[test_data.length-1][0]);
         // $("#test_enddate").attr("min", test_data[0][0]);
