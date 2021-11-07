@@ -156,7 +156,7 @@
                   $("#table_assets > tbody").append(portfolio);
                 }
           });
-          if(t==(ticker_list.length-1)) {
+          if(ticker_list.length==portfolio_data.length) {
             $(':button').prop('disabled', false);     
           }
         }
