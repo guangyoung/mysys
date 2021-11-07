@@ -280,11 +280,13 @@
       $("#period_data").val("");
       // $('#ulul').empty();
 
-      Swal.fire(
-        'Reset Saved!',
-        'Your Stock data has been reset!',
-        'success'
-      )
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Porfolio Stock Reseted',
+        showConfirmButton: false,
+        timer: 1500
+      });
 
     }
 
