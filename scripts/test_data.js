@@ -214,6 +214,13 @@
           'warning'
         )
         return false;
+      } else if(portfolio_data.length==30) {
+        Swal.fire(
+          '30 Stocks has been selected !',
+          'Please click reset stock to start new',
+          'warning'
+        )
+        return false;
       } else {
           var tickers_random = eval(exchange_choose_current+'_'+startdate_select);
 
