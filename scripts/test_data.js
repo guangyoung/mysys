@@ -82,7 +82,7 @@
     //   });
 
 
-    async function add_data() {         
+    function add_data() {         
       if(portfolio_data.length==30) {
         Swal.fire(
           '30 Stocks has been selected !',
@@ -116,8 +116,7 @@
         }
         $(':button').prop('disabled', true);    
         // var t = 0;
-        for (t=0;t < ticker_list.length && t < (30 - portfolio_data.length);t++) { 
-          await asynchronousProcess();         
+        for (t=0;t < ticker_list.length && t < (30 - portfolio_data.length);t++) {          
           let tickere = ticker_list[t].split(', ')[0];
           let as_data_date = new Array();
           let as_data_price = new Array();
