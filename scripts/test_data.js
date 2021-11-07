@@ -367,8 +367,8 @@
         $("#data_startdate").val(test_data[0][0]);
         $("#data_enddate").val(test_data[test_data.length-1][0]);
         $("#test_startdate").attr({
-          min: "2010-01-01",
-          max: "2010-12-31"
+          min: test_data[0][0],
+          max: test_data[test_data.length-1][0]
       });
         // $("#test_startdate").attr("min", test_data[0][0]);
         // $("#test_startdate").attr("max", test_data[test_data.length-1][0]);
