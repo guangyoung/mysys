@@ -117,10 +117,10 @@
         $(':button').prop('disabled', true); 
         var t = 0;
         while (t < ticker_list.length && t < (30 - portfolio_data.length)) {
-          if(t==30) {
+          if(t==ticker_list.length) {
             $(':button').prop('disabled', false); 
           };
-          
+
           let tickere = ticker_list[t].split(', ')[0];
           let as_data_date = new Array();
           let as_data_price = new Array();
