@@ -82,7 +82,7 @@
     //   });
 
 
-  async function add_data() {      
+ async function add_data() {      
       if(portfolio_data.length==30) {
         Swal.fire(
           '30 Stocks has been selected !',
@@ -115,9 +115,8 @@
           }
         } 
         $(':button').prop('disabled', true); 
-        var t = 0;
-        while (t < ticker_list.length && t < (30 - portfolio_data.length)) {         
-
+        // var t = 0;
+        for (t=0;t < ticker_list.length && t < (30 - portfolio_data.length);t++) {
           let tickere = ticker_list[t].split(', ')[0];
           let as_data_date = new Array();
           let as_data_price = new Array();
@@ -156,14 +155,8 @@
                   $("#table_assets > tbody").append(portfolio);
                 }
           });
-          t++; 
         }
-        console.log(t);
-        console.log(ticker_list.length);
-        if(t == ticker_list.length) {
-          $(':button').prop('disabled', false); 
-        };    
-        
+        $(':button').prop('disabled', false); 
                 
         $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
         $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
@@ -178,7 +171,7 @@
       }
     }
 
-  async function add_data_random() { 
+    function add_data_random() { 
       if(portfolio_data.length==30) {
         Swal.fire(
           '30 Stocks has been selected !',
@@ -212,7 +205,7 @@
             let as_data_price = new Array();
             let ex_choo = exchange_choose_current.split('-')[0];
 
-            await Papa.parse("dataset/"+exchange_choose_current+"/"+tickere+".csv", {
+            Papa.parse("dataset/"+exchange_choose_current+"/"+tickere+".csv", {
               download: true,
               header: false,
               complete: function(result) {
@@ -246,7 +239,7 @@
                 }
               });        
           } 
-          $(':button').prop('disabled', false);    
+             
           
           $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
           $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
@@ -259,6 +252,7 @@
           startdate_select ="";
           startdate_select_previous ="";
         }
+        $(':button').prop('disabled', false); 
       }
 
     function appendLeadingZeroes(n){
