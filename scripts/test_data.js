@@ -123,7 +123,7 @@
           let as_data_price = new Array();
           let ex_choo = exchange_choose_current.split('-')[0];
           
-          Papa.parse("dataset/"+exchange_choose_current+"/"+tickere+".csv", {
+          await Papa.parse("dataset/"+exchange_choose_current+"/"+tickere+".csv", {
               download: true,
               header: false,
               complete: function(result) {
