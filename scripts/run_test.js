@@ -32,7 +32,15 @@
             return false;
             }
 
-            Swal.fire('Anda akan terhubung dengan Quantxi AI Engine Version 1.1.5, walaupun ini adalah simulasi, anda terhubung dengan kecerdasan Quantxi yang sama. (Kasih gambar grafik terhubung dengan Quantxi AI Engine 1.1.5)');
+            // Swal.fire('Anda akan terhubung dengan Quantxi AI Engine Version 1.1.5, walaupun ini adalah simulasi, anda terhubung dengan kecerdasan Quantxi yang sama. (Kasih gambar grafik terhubung dengan Quantxi AI Engine 1.1.5)');
+            Swal.fire({
+                title: 'Connect to Quantxi AI',
+                text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
+                imageUrl: 'https://unsplash.it/400/200',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+            })
 
             var startDate = appendLeadingZeroes(new Date($("#test_startdate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_startdate").val()).getDate()) + "/" + new Date($("#test_startdate").val()).getFullYear();
             var endDate = appendLeadingZeroes(new Date($("#test_enddate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_enddate").val()).getDate()) + "/" + new Date($("#test_enddate").val()).getFullYear();
