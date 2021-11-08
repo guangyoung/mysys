@@ -11,7 +11,6 @@
  
     async function run_test() {        
         //-----------------------------------------------------------------------------------
-        //tarik data startdate dan enddate berdasarkan periode yg ditentukan user... 
             if (test_data.length == 0) {
                 Swal.fire(
                     'No Test Data !',
@@ -60,7 +59,8 @@
 
         //PROSES DATA
 
-        var dataID_input = 0, dataID_output = 0;
+        var dataID_input = 0;
+        var dataID_output = 0;
         var date;
 
         //trade details variable
