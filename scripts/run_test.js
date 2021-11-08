@@ -7,23 +7,31 @@
     var tradeTesting_report = new Array();
     var tradeTesting_performance = new Array();
 
-    function test_period_setting() {        
-        if (test_data.length == 0) {
-        Swal.fire(
-            'No Test Data !',
-            'Please click Market Data and Create It',
-            'warning'
-        )
-        return false;
-        } else {
-            $('#period_testing_setting').modal('toggle');
-        }
-    }
+    // function test_period_setting() {        
+    //     if (test_data.length == 0) {
+    //     Swal.fire(
+    //         'No Test Data !',
+    //         'Please click Market Data and Create It',
+    //         'warning'
+    //     )
+    //     return false;
+    //     } else {
+    //         $('#period_testing_setting').modal('toggle');
+    //     }
+    // }
  
     async function run_test() {        
         //-----------------------------------------------------------------------------------
         //tarik data startdate dan enddate berdasarkan periode yg ditentukan user... 
-                        
+            if (test_data.length == 0) {
+                Swal.fire(
+                    'No Test Data !',
+                    'Please click Market Data and Create It',
+                    'warning'
+                )
+            return false;
+            }
+
             Swal.fire('Anda akan terhubung dengan Quantxi AI Engine Version 1.1.5, walaupun ini adalah simulasi, anda terhubung dengan kecerdasan Quantxi yang sama. (Kasih gambar grafik terhubung dengan Quantxi AI Engine 1.1.5)');
 
             var startDate = appendLeadingZeroes(new Date($("#test_startdate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_startdate").val()).getDate()) + "/" + new Date($("#test_startdate").val()).getFullYear();
