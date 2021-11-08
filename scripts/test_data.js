@@ -74,13 +74,6 @@
       };       
     }
 
-    // $("#tickers_exchange_select_random").on('click', '.dropdown-item', function (event) {
-    //   let container_exchange = $(this).closest("#tickers_exchange_select_random");
-    //   exchange_choose_current = $(event.currentTarget)[0].id;
-    //   container_exchange.find('.Xchange_random').text( $(event.currentTarget)[0].innerText || 'Select Exchange');
-    //   console.log(exchange_choose_current);
-    //   });
-
 
     function add_data() {         
       if(portfolio_data.length==30) {
@@ -169,7 +162,6 @@
         startdate_select ="";
         startdate_select_previous ="";
       }
-      // $(':button').prop('disabled', false); 
     }
 
     function add_data_random() { 
@@ -362,18 +354,10 @@
               startDate = new Date(startDate.setDate(startDate.getDate() + 1));
           }
         }
-        // console.log(test_data);
+        
         $("#period_data").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
         $("#data_startdate").val(test_data[0][0]);
         $("#data_enddate").val(test_data[test_data.length-1][0]);
-        $("#test_startdate").attr({
-          min: "2010-01-01",
-          max: "2010-12-31"
-      });
-        // $("#test_startdate").attr("min", test_data[0][0]);
-        // $("#test_startdate").attr("max", test_data[test_data.length-1][0]);
-        // $("#test_enddate").attr("min", test_data[0][0]);
-        // $("#test_enddate").attr("max", test_data[test_data.length-1][0]);
        
         $('#stock1_ticker').html(portfolio_data[0].ticker);
         $('#stock2_ticker').html(portfolio_data[1].ticker);
@@ -406,9 +390,6 @@
         $('#stock29_ticker').html(portfolio_data[28].ticker);
         $('#stock30_ticker').html(portfolio_data[29].ticker);
         console.log(test_data);
-        // $('#create_data').modal('toggle'); 
-        // $("#table_assets > tbody").empty();
-        // portfolio_data = [];
     
         $("#pagination-demo").twbsPagination({
           totalPages: Math.ceil(test_data.length/22),

@@ -4,8 +4,11 @@
 //...................................................................................
 
     //Global Variables
-    var tradeTesting_report = new Array();
-    var tradeTesting_performance = new Array();
+    var margin_trade_report_details = new Array();
+    var performance_comparison_details = new Array();
+    var test_history_and_statistic = new Array();
+    var all_request_inJSON_format = new Array();
+
 
     // function test_period_setting() {        
     //     if (test_data.length == 0) {
