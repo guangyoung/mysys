@@ -8,20 +8,6 @@
     var performance_comparison_details = new Array();
     var test_history_and_statistic = new Array();
     var all_request_inJSON_format = new Array();
-
-
-    // function test_period_setting() {        
-    //     if (test_data.length == 0) {
-    //     Swal.fire(
-    //         'No Test Data !',
-    //         'Please click Market Data and Create It',
-    //         'warning'
-    //     )
-    //     return false;
-    //     } else {
-    //         $('#period_testing_setting').modal('toggle');
-    //     }
-    // }
  
     async function run_test() {        
         //-----------------------------------------------------------------------------------
@@ -35,7 +21,6 @@
             return false;
             }
 
-            // Swal.fire('Anda akan terhubung dengan Quantxi AI Engine Version 1.1.5, walaupun ini adalah simulasi, anda terhubung dengan kecerdasan Quantxi yang sama. (Kasih gambar grafik terhubung dengan Quantxi AI Engine 1.1.5)');
             Swal.fire({
                 title: 'Connect to Quantxi AI',
                 text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
@@ -45,28 +30,30 @@
                 imageAlt: 'Custom image',
             })
 
-            var startDate = appendLeadingZeroes(new Date($("#test_startdate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_startdate").val()).getDate()) + "/" + new Date($("#test_startdate").val()).getFullYear();
-            var endDate = appendLeadingZeroes(new Date($("#test_enddate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_enddate").val()).getDate()) + "/" + new Date($("#test_enddate").val()).getFullYear();
-            var idx_start, idx_end;
-            var test_length;
+            // var startDate = appendLeadingZeroes(new Date($("#test_startdate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_startdate").val()).getDate()) + "/" + new Date($("#test_startdate").val()).getFullYear();
+            // var endDate = appendLeadingZeroes(new Date($("#test_enddate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_enddate").val()).getDate()) + "/" + new Date($("#test_enddate").val()).getFullYear();
+            // var idx_start, idx_end;
+            // var test_length;
             
-            for(i=0;i<test_data.length;i++)  {
-                if(test_data[i].indexOf(startDate) !== -1)  {
-                    idx_start = i;
-                }
-                if(test_data[i].indexOf(endDate) !== -1)  {
-                    idx_end = i;
-                }
-            } 
-            test_length = idx_end-idx_start;
+            // for(i=0;i<test_data.length;i++)  {
+            //     if(test_data[i].indexOf(startDate) !== -1)  {
+            //         idx_start = i;
+            //     }
+            //     if(test_data[i].indexOf(endDate) !== -1)  {
+            //         idx_end = i;
+            //     }
+            // } 
+            // test_length = idx_end-idx_start;
             //Disable Button
-            $('#setting_button').attr('disabled',true);
-            $('#data_button').attr('disabled',true);
-            $('#play_button').attr('disabled',true);
-            $('#refresh_button').attr('disabled',true);
-            $('#viewpost_button').attr('disabled',true);
-            $('#trade_report_button').attr('disabled',true);
-            $('#chart_button').attr('disabled',true);            
+            // $('#setting_button').attr('disabled',true);
+            // $('#data_button').attr('disabled',true);
+            // $('#play_button').attr('disabled',true);
+            // $('#refresh_button').attr('disabled',true);
+            // $('#viewpost_button').attr('disabled',true);
+            // $('#trade_report_button').attr('disabled',true);
+            // $('#chart_button').attr('disabled',true); 
+            
+            $(':button').prop('disabled', true); 
         // }
 
         
