@@ -65,7 +65,7 @@
         // stock_buyHold[i] = initial_equity/30;
         // } 
 
-        while (data_id < test_length) { 
+        while (data_id < test_data.length) { 
 
             data_id++;
 
