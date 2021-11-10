@@ -29,226 +29,260 @@
                 imageAlt: 'Custom image',
             })
 
-            // var startDate = appendLeadingZeroes(new Date($("#test_startdate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_startdate").val()).getDate()) + "/" + new Date($("#test_startdate").val()).getFullYear();
-            // var endDate = appendLeadingZeroes(new Date($("#test_enddate").val()).getMonth()+1) + "/" + appendLeadingZeroes(new Date($("#test_enddate").val()).getDate()) + "/" + new Date($("#test_enddate").val()).getFullYear();
-            // var idx_start, idx_end;
-            // var test_length;
-            
-            // for(i=0;i<test_data.length;i++)  {
-            //     if(test_data[i].indexOf(startDate) !== -1)  {
-            //         idx_start = i;
-            //     }
-            //     if(test_data[i].indexOf(endDate) !== -1)  {
-            //         idx_end = i;
-            //     }
-            // } 
-            // test_length = idx_end-idx_start;
             //Disable Button
-            // $('#setting_button').attr('disabled',true);
-            // $('#data_button').attr('disabled',true);
-            // $('#play_button').attr('disabled',true);
-            // $('#refresh_button').attr('disabled',true);
-            // $('#viewpost_button').attr('disabled',true);
-            // $('#trade_report_button').attr('disabled',true);
-            // $('#chart_button').attr('disabled',true); 
-            
             $(':button').prop('disabled', true); 
-        // }
+      
 
-        
-
-        //PROSES DATA
-
-        var dataID_input = 0;
-        var dataID_output = 0;
+        //variable
+        var data_id = 0;
         var date;
+        var stock_price = new Array();
+        var stock_position_size = new Array();
 
-        //trade details variable
-        var stock01_price, stock02_price, stock03_price, stock04_price, stock05_price, stock06_price, stock07_price, stock08_price, stock09_price, stock10_price, stock11_price, stock12_price, stock13_price, stock14_price, stock15_price, stock16_price, stock17_price, stock18_price, stock19_price, stock20_price, stock21_price, stock22_price, stock23_price, stock24_price, stock25_price, stock26_price, stock27_price, stock28_price, stock29_price, stock30_price; 
-        var stock01_positionSize = 0, stock02_positionSize = 0, stock03_positionSize = 0, stock04_positionSize = 0, stock05_positionSize = 0, stock06_positionSize = 0, stock07_positionSize = 0, stock08_positionSize = 0, stock09_positionSize = 0, stock10_positionSize = 0, stock11_positionSize = 0, stock12_positionSize = 0, stock13_positionSize = 0, stock14_positionSize = 0, stock15_positionSize = 0, stock16_positionSize = 0, stock17_positionSize = 0, stock18_positionSize = 0, stock19_positionSize = 0, stock20_positionSize = 0, stock21_positionSize = 0, stock22_positionSize = 0, stock23_positionSize = 0, stock24_positionSize = 0, stock25_positionSize = 0, stock26_positionSize = 0, stock27_positionSize = 0, stock28_positionSize = 0, stock29_positionSize = 0, stock30_positionSize = 0;
-        var stock01_marketValue, stock02_marketValue, stock03_marketValue, stock04_marketValue, stock05_marketValue, stock06_marketValue, stock07_marketValue, stock08_marketValue, stock09_marketValue, stock10_marketValue, stock11_marketValue, stock12_marketValue, stock13_marketValue, stock14_marketValue, stock15_marketValue, stock16_marketValue, stock17_marketValue, stock18_marketValue, stock19_marketValue, stock20_marketValue, stock21_marketValue, stock22_marketValue, stock23_marketValue, stock24_marketValue, stock25_marketValue, stock26_marketValue, stock27_marketValue, stock28_marketValue, stock29_marketValue, stock30_marketValue;
-        
-     
-        //account summary pre trade  
-        var cashBalance = initial_equity;
-        var mtd_acruedInterest = 0;
-        var long_marketValue = 0;
-        var equity_with_loanValue = cashBalance - mtd_acruedInterest + long_marketValue;
-        var maintenanceMargin = equity_with_loanValue * 0.25;
-        var regT_marginReq = equity_with_loanValue * 0.5;
-        var excessLiquidity = equity_with_loanValue - maintenanceMargin;
-        var sma_excessEquity = equity_with_loanValue - regT_marginReq;
-        var buyingPower = sma_excessEquity * 2;
+        for (i=0;i<30;i++) {
+            stock_price[i] = 0;
+            stock_position_size[i] = 0;
+        }
+
+        var daily_Interest = 0;
+        var cash_balance = initial_equity;    
+        var market_value = 0;
+        var equity_with_loanValue = cash_balance + market_value;
+        var maintenance_margin_reserved = market_value * 0.30;
+        var maintenance_margin_available = equity_with_loanValue -  maintenance_margin_reserved;
+        var initial_margin_reserved = market_value * 0.50;
+        var initial_margin_available = equity_with_loanValue - initial_margin_reserved;
+        var total_trade_value;
+        var total_commission;
+        var total_initial_margin;
 
         //Post Request & Response
-        var data_input;
-        var signal_output;
+        var data_input = new Array();
+        var signal_output = new Array();
 
-        //Buy & Hold Variable
         var stock_buyHold = new Array();
-        for(i=1;i<=30;i++) {
-        stock_buyHold[i] = initial_equity/30;
-        } 
+        // for(i=1;i<=30;i++) {
+        // stock_buyHold[i] = initial_equity/30;
+        // } 
 
-        while (dataID_input < test_length) { 
+        while (data_id < test_length) { 
 
-            dataID_input++;
+            data_id++;
 
-            date = test_data[dataID_input+idx_start][0];
+            date = test_data[data_id][0];
 
-            stock01_price = parseFloat(test_data[dataID_input+idx_start][1]);
-            stock02_price = parseFloat(test_data[dataID_input+idx_start][2]);
-            stock03_price = parseFloat(test_data[dataID_input+idx_start][3]);
-            stock04_price = parseFloat(test_data[dataID_input+idx_start][4]);
-            stock05_price = parseFloat(test_data[dataID_input+idx_start][5]);
-            stock06_price = parseFloat(test_data[dataID_input+idx_start][6]);
-            stock07_price = parseFloat(test_data[dataID_input+idx_start][7]);
-            stock08_price = parseFloat(test_data[dataID_input+idx_start][8]);
-            stock09_price = parseFloat(test_data[dataID_input+idx_start][9]);
-            stock10_price = parseFloat(test_data[dataID_input+idx_start][10]);
-            stock11_price = parseFloat(test_data[dataID_input+idx_start][11]);
-            stock12_price = parseFloat(test_data[dataID_input+idx_start][12]);
-            stock13_price = parseFloat(test_data[dataID_input+idx_start][13]);
-            stock14_price = parseFloat(test_data[dataID_input+idx_start][14]);
-            stock15_price = parseFloat(test_data[dataID_input+idx_start][15]);
-            stock16_price = parseFloat(test_data[dataID_input+idx_start][16]);
-            stock17_price = parseFloat(test_data[dataID_input+idx_start][17]);
-            stock18_price = parseFloat(test_data[dataID_input+idx_start][18]);
-            stock19_price = parseFloat(test_data[dataID_input+idx_start][19]);
-            stock20_price = parseFloat(test_data[dataID_input+idx_start][20]);
-            stock21_price = parseFloat(test_data[dataID_input+idx_start][21]);
-            stock22_price = parseFloat(test_data[dataID_input+idx_start][22]);
-            stock23_price = parseFloat(test_data[dataID_input+idx_start][23]);
-            stock24_price = parseFloat(test_data[dataID_input+idx_start][24]);
-            stock25_price = parseFloat(test_data[dataID_input+idx_start][25]);
-            stock26_price = parseFloat(test_data[dataID_input+idx_start][26]);
-            stock27_price = parseFloat(test_data[dataID_input+idx_start][27]);
-            stock28_price = parseFloat(test_data[dataID_input+idx_start][28]);
-            stock29_price = parseFloat(test_data[dataID_input+idx_start][29]);
-            stock30_price = parseFloat(test_data[dataID_input+idx_start][30]);
+            for (i=0;i<30;i++) {  
+                stock_price[i] = parseFloat(test_data[i+1][1]);                    
+            }
 
-            //POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI ---------------------------------------------------------------------           
-            while (dataID_output < dataID_input) {
+    //PRE TRADE POSITION CALCULATION
+    // ----------------------------------------------------------------------------------
+            if(cash_balance < 0) {
+                daily_Interest = cash_balance * (interest_rate/360); //cek lagi rumusnya
+            } else {
+                daily_Interest = 0;
+            }           
+
+            cash_balance -= daily_Interest;
+
+            for (i=0;i<30;i++) {  
+                market_value += (stock_position_size[i] * stock_price[i]);                  
+            }
+
+            equity_with_loanValue = cash_balance + market_value;
+
+            maintenance_margin_reserved = market_value * 0.30;
+
+            maintenance_margin_available = equity_with_loanValue - maintenance_margin_reserved;
+
+            initial_margin_reserved = market_value * 0.50;
+
+            initial_margin_available = equity_with_loanValue - initial_margin_reserved;
+
+            //save data to array
+
+            data_input = {
+                data_id: data_id,
+                stock01_price: stock01_price,
+                stock01_positionSize: stock01_positionSize,
+                stock02_price: stock02_price,
+                stock02_positionSize: stock02_positionSize,          
+                stock03_price: stock03_price,
+                stock03_positionSize: stock03_positionSize,          
+                stock04_price: stock04_price,
+                stock04_positionSize: stock04_positionSize,          
+                stock05_price: stock05_price,
+                stock05_positionSize: stock05_positionSize,          
+                stock06_price: stock06_price,
+                stock06_positionSize: stock06_positionSize,          
+                stock07_price: stock07_price,
+                stock07_positionSize: stock07_positionSize,          
+                stock08_price: stock08_price,
+                stock08_positionSize: stock08_positionSize,          
+                stock09_price: stock09_price,
+                stock09_positionSize: stock09_positionSize,          
+                stock10_price: stock10_price,
+                stock10_positionSize: stock10_positionSize, 
+                stock11_price: stock11_price,
+                stock11_positionSize: stock11_positionSize,
+                stock12_price: stock12_price,
+                stock12_positionSize: stock12_positionSize,          
+                stock13_price: stock13_price,
+                stock13_positionSize: stock13_positionSize,          
+                stock14_price: stock14_price,
+                stock14_positionSize: stock14_positionSize,          
+                stock15_price: stock15_price,
+                stock15_positionSize: stock15_positionSize,          
+                stock16_price: stock16_price,
+                stock16_positionSize: stock16_positionSize,          
+                stock17_price: stock17_price,
+                stock17_positionSize: stock17_positionSize,          
+                stock18_price: stock18_price,
+                stock18_positionSize: stock18_positionSize,          
+                stock19_price: stock19_price,
+                stock19_positionSize: stock19_positionSize,          
+                stock20_price: stock20_price,
+                stock20_positionSize: stock20_positionSize, 
+                stock21_price: stock21_price,
+                stock21_positionSize: stock21_positionSize,
+                stock22_price: stock22_price,
+                stock22_positionSize: stock22_positionSize,          
+                stock23_price: stock23_price,
+                stock23_positionSize: stock23_positionSize,          
+                stock24_price: stock24_price,
+                stock24_positionSize: stock24_positionSize,          
+                stock25_price: stock25_price,
+                stock25_positionSize: stock25_positionSize,          
+                stock26_price: stock26_price,
+                stock26_positionSize: stock26_positionSize,          
+                stock27_price: stock27_price,
+                stock27_positionSize: stock27_positionSize,          
+                stock28_price: stock28_price,
+                stock28_positionSize: stock28_positionSize,          
+                stock29_price: stock29_price,
+                stock29_positionSize: stock29_positionSize,          
+                stock30_price: stock30_price,
+                stock30_positionSize: stock30_positionSize                    
+            };
+
+            data_input.push(data_input);
+
+
+    //POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
+    // ----------------------------------------------------------------------------------           
+        var post_process = "run";
+
+            while (post_process == "run") {
                 await $.ajax({
                     type: "POST",
                     url: "https://api.quantxi.com/post?api_key="+localStorage.getItem("apiKey"),
-                    data: {
-                        data_id: dataID_input,
-                        // timeStamp: Math.floor(Date.now() /1000),
-                        buyingPower: buyingPower,
-                        stock01_signal: stock01_price,
-                        stock02_signal: stock02_price,
-                        stock03_signal: stock03_price,
-                        stock04_signal: stock04_price,
-                        stock05_signal: stock05_price,
-                        stock06_signal: stock06_price,
-                        stock07_signal: stock07_price,
-                        stock08_signal: stock08_price,
-                        stock09_signal: stock09_price,
-                        stock10_signal: stock10_price, 
-                        stock11_signal: stock11_price,
-                        stock12_signal: stock12_price,
-                        stock13_signal: stock13_price,
-                        stock14_signal: stock14_price,
-                        stock15_signal: stock15_price,
-                        stock16_signal: stock16_price,
-                        stock17_signal: stock17_price,
-                        stock18_signal: stock18_price,
-                        stock19_signal: stock19_price,
-                        stock20_signal: stock20_price, 
-                        stock21_signal: stock21_price,
-                        stock22_signal: stock22_price,
-                        stock23_signal: stock23_price,
-                        stock24_signal: stock24_price,
-                        stock25_signal: stock25_price,
-                        stock26_signal: stock26_price,
-                        stock27_signal: stock27_price,
-                        stock28_signal: stock28_price,
-                        stock29_signal: stock29_price,
-                        stock30_signal: stock30_price              
-                    },             
+                    data: data_input,           
                     dataType: 'json',
                     success: function(result){ 
                         if (result.status == "success") {
 
+                            post_process = "stop";  
+
                             signal_output = {
                                 data_id: result.data.data_id,
-                                // timeStamp: Math.floor(Date.now() /1000),
-                                total_signal: result.data.total_signal,
-                                stock01_signal: result.data.stock01_signal,
-                                stock02_signal: result.data.stock02_signal,
-                                stock03_signal: result.data.stock03_signal,
-                                stock04_signal: result.data.stock04_signal,
-                                stock05_signal: result.data.stock05_signal,
-                                stock06_signal: result.data.stock06_signal,
-                                stock07_signal: result.data.stock07_signal,
-                                stock08_signal: result.data.stock08_signal,
-                                stock09_signal: result.data.stock09_signal,
-                                stock10_signal: result.data.stock10_signal,
-                                stock11_signal: result.data.stock11_signal,
-                                stock12_signal: result.data.stock12_signal,
-                                stock13_signal: result.data.stock13_signal,
-                                stock14_signal: result.data.stock14_signal,
-                                stock15_signal: result.data.stock15_signal,
-                                stock16_signal: result.data.stock16_signal,
-                                stock17_signal: result.data.stock17_signal,
-                                stock18_signal: result.data.stock18_signal,
-                                stock19_signal: result.data.stock19_signal,
-                                stock20_signal: result.data.stock20_signal,
-                                stock21_signal: result.data.stock21_signal,
-                                stock22_signal: result.data.stock22_signal,
-                                stock23_signal: result.data.stock23_signal,
-                                stock24_signal: result.data.stock24_signal,
-                                stock25_signal: result.data.stock25_signal,
-                                stock26_signal: result.data.stock26_signal,
-                                stock27_signal: result.data.stock27_signal,
-                                stock28_signal: result.data.stock28_signal,
-                                stock29_signal: result.data.stock29_signal,
-                                stock30_signal: result.data.stock30_signal
+                                stock01_signal_position: result.data.stock01_signal_position,
+                                stock01_signal_size: result.data.stock01_signal_size,
+                                stock02_signal_position: result.data.stock02_signal_position,
+                                stock02_signal_size: result.data.stock02_signal_size,
+                                stock03_signal_position: result.data.stock03_signal_position,
+                                stock03_signal_size: result.data.stock03_signal_size,
+                                stock04_signal_position: result.data.stock04_signal_position,
+                                stock04_signal_size: result.data.stock04_signal_size,
+                                stock05_signal_position: result.data.stock05_signal_position,
+                                stock05_signal_size: result.data.stock05_signal_size,
+                                stock06_signal_position: result.data.stock06_signal_position,
+                                stock06_signal_size: result.data.stock06_signal_size,
+                                stock07_signal_position: result.data.stock07_signal_position,
+                                stock07_signal_size: result.data.stock07_signal_size,
+                                stock08_signal_position: result.data.stock08_signal_position,
+                                stock08_signal_size: result.data.stock08_signal_size,
+                                stock09_signal_position: result.data.stock09_signal_position,
+                                stock09_signal_size: result.data.stock09_signal_size,
+                                stock10_signal_position: result.data.stock10_signal_position,
+                                stock10_signal_size: result.data.stock10_signal_size,
+                                stock11_signal_position: result.data.stock11_signal_position,
+                                stock11_signal_size: result.data.stock11_signal_size,
+                                stock12_signal_position: result.data.stock12_signal_position,
+                                stock12_signal_size: result.data.stock12_signal_size,
+                                stock13_signal_position: result.data.stock13_signal_position,
+                                stock13_signal_size: result.data.stock13_signal_size,
+                                stock14_signal_position: result.data.stock14_signal_position,
+                                stock14_signal_size: result.data.stock14_signal_size,
+                                stock15_signal_position: result.data.stock15_signal_position,
+                                stock15_signal_size: result.data.stock15_signal_size,
+                                stock16_signal_position: result.data.stock16_signal_position,
+                                stock16_signal_size: result.data.stock16_signal_size,
+                                stock17_signal_position: result.data.stock17_signal_position,
+                                stock17_signal_size: result.data.stock17_signal_size,
+                                stock18_signal_position: result.data.stock18_signal_position,
+                                stock18_signal_size: result.data.stock18_signal_size,
+                                stock19_signal_position: result.data.stock19_signal_position,
+                                stock19_signal_size: result.data.stock19_signal_size,
+                                stock20_signal_position: result.data.stock20_signal_position,
+                                stock20_signal_size: result.data.stock20_signal_size,
+                                stock21_signal_position: result.data.stock21_signal_position,
+                                stock21_signal_size: result.data.stock21_signal_size,
+                                stock22_signal_position: result.data.stock22_signal_position,
+                                stock22_signal_size: result.data.stock22_signal_size,
+                                stock23_signal_position: result.data.stock23_signal_position,
+                                stock23_signal_size: result.data.stock23_signal_size,
+                                stock24_signal_position: result.data.stock24_signal_position,
+                                stock24_signal_size: result.data.stock24_signal_size,
+                                stock25_signal_position: result.data.stock25_signal_position,
+                                stock25_signal_size: result.data.stock25_signal_size,
+                                stock26_signal_position: result.data.stock26_signal_position,
+                                stock26_signal_size: result.data.stock26_signal_size,
+                                stock27_signal_position: result.data.stock27_signal_position,
+                                stock27_signal_size: result.data.stock27_signal_size,
+                                stock28_signal_position: result.data.stock28_signal_position,
+                                stock28_signal_size: result.data.stock28_signal_size,
+                                stock29_signal_position: result.data.stock29_signal_position,
+                                stock29_signal_size: result.data.stock29_signal_size,
+                                stock30_signal_position: result.data.stock30_signal_position,
+                                stock30_signal_size: result.data.stock30_signal_size
                             };
-
-                            dataID_output++;
+                            signal_output.push(signal_output); 
                         }         
                     }
                 })
             } 
            
-            //TRADE
-            //calculated filled order
+    // TRADE TRANSACTION 
+    // ----------------------------------------------------------------------------------
+        var filledOrder = new Array();
+        var filledPrice = new Array();
+        var tradeValue = new Array();
+        var commision = new Array();
+        var initialMargin = new Array();
 
-            // var imr = ((stock01_price*stock01_signal)+(stock01_price*stock01_signal)+(stock01_price*stock01_signal)+(stock01_price*stock01_signal));
-            // var trade_
-            //trade transaction
-            stock01_marketValue = stock01_price * stock01_positionSize;
-            stock02_marketValue = stock02_price * stock02_positionSize;
-            stock03_marketValue = stock03_price * stock03_positionSize;
-            stock04_marketValue = stock04_price * stock04_positionSize;
-            stock05_marketValue = stock05_price * stock05_positionSize;
-            stock06_marketValue = stock06_price * stock06_positionSize;
-            stock07_marketValue = stock07_price * stock07_positionSize;
-            stock08_marketValue = stock08_price * stock08_positionSize;
-            stock09_marketValue = stock09_price * stock09_positionSize;
-            stock10_marketValue = stock10_price * stock10_positionSize;
-            stock11_marketValue = stock11_price * stock11_positionSize;
-            stock12_marketValue = stock12_price * stock12_positionSize;
-            stock13_marketValue = stock13_price * stock13_positionSize;
-            stock14_marketValue = stock14_price * stock14_positionSize;
-            stock15_marketValue = stock15_price * stock15_positionSize;
-            stock16_marketValue = stock16_price * stock16_positionSize;
-            stock17_marketValue = stock17_price * stock17_positionSize;
-            stock18_marketValue = stock18_price * stock18_positionSize;
-            stock19_marketValue = stock19_price * stock19_positionSize;
-            stock20_marketValue = stock20_price * stock20_positionSize;
-            stock21_marketValue = stock21_price * stock21_positionSize;
-            stock22_marketValue = stock22_price * stock22_positionSize;
-            stock23_marketValue = stock23_price * stock23_positionSize;
-            stock24_marketValue = stock24_price * stock24_positionSize;
-            stock25_marketValue = stock25_price * stock25_positionSize;
-            stock26_marketValue = stock26_price * stock26_positionSize;
-            stock27_marketValue = stock27_price * stock27_positionSize;
-            stock28_marketValue = stock28_price * stock28_positionSize;
-            stock29_marketValue = stock29_price * stock29_positionSize;
-            stock30_marketValue = stock30_price * stock30_positionSize;
+        for (i=0;i<30;i++) {            
+            filledOrder[i] = 0;
+            filledPrice[i] = 0;
+            tradeValue[i] = 0;
+            commision[i] = 0;
+            initialMargin[i] = 0;
+        }
+        
+            //calculated signal imr
+            let imr = 0;            
+            for (i=0, x=1; i<30 && x<61; i++, x+2) {
+                if(signal_output[x] > 0) {
+                    imr+= (parseInt(signal_output[x])*(stock_price[i]*(1+spread_slippage)))*regT_margin;
+                } else if(signal_output[x] < 0) {
+                    imr+= (parseInt(signal_output[x])*(stock_price[i]*(1-spread_slippage)))*regT_margin;
+                } else {
+                    imr+= 0;
+                } 
+            } 
+
+            //calculate filled percentarge   
+            //  if(imr)       
+            
             
             //TRADE BASED SIGNAL RECEIVE---------------------------------------------------------------------         
             // for (i=1, x=3; i<31 && x<33; i++, x++) {  
