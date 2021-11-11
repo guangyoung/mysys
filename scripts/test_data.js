@@ -355,9 +355,9 @@
           }
         }
         
-        $("#period_data").val(test_data[0][0]+' - '+test_data[test_data.length-1][0]);
-        $("#data_startdate").val(test_data[0][0]);
-        $("#data_enddate").val(test_data[test_data.length-1][0]);
+        $("#period_data").val(test_data[0][0].date+' - '+test_data[test_data.length-1][0].date);
+        $("#data_startdate").val(test_data[0][0].date);
+        $("#data_enddate").val(test_data[test_data.length-1][0].date);
        
         $('#stock1_ticker').html(portfolio_data[0].ticker);
         $('#stock2_ticker').html(portfolio_data[1].ticker);
@@ -399,37 +399,37 @@
             for (i=(page-1)*22; i<(page*22) && i<(test_data.length); i++) {
               var test_data_row =
               `<tr>
-                <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+test_data[i][0]+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][1]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][2]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][3]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][4]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][5]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][6]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][7]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][8]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][9]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][10]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][11]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][12]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][13]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][14]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][15]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][16]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][17]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][18]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][19]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][20]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][21]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][22]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][23]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][24]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][25]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][26]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][27]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][28]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][29]).toFixed(2))+`</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][30]).toFixed(2))+`</td>
+                <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+test_data[i][0].date+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][1].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][2].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][3].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][4].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][5].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][6].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][7].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][8].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][9].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][10].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][11].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][12].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][13].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][14].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][15].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][16].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][17].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][18].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][19].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][20].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][21].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][22].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][23].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][24].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][25].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][26].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][27].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][28].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][29].price).toFixed(2))+`</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+Intl.NumberFormat().format(parseFloat(test_data[i][30].price).toFixed(2))+`</td>
               </tr>`;
               $("#port_data_tbl>tbody").append(test_data_row);
             }
