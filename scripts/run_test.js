@@ -52,6 +52,8 @@
             data_id++;
 
             date = test_data[data_id-1][0].date; 
+
+            console.log(parseFloat(test_data[data_id-1][i+1].price));
             
             for (i=0;i<30;i++) {  
                 stock_price[i] = parseFloat(test_data[data_id-1][i+1].price);                    
@@ -114,69 +116,132 @@
         
         data_input = {
             data_id: data_id,
-            stock01_price: stock01_price,
-            stock01_positionSize: stock01_positionSize,
-            stock02_price: stock02_price,
-            stock02_positionSize: stock02_positionSize,          
-            stock03_price: stock03_price,
-            stock03_positionSize: stock03_positionSize,          
-            stock04_price: stock04_price,
-            stock04_positionSize: stock04_positionSize,          
-            stock05_price: stock05_price,
-            stock05_positionSize: stock05_positionSize,          
-            stock06_price: stock06_price,
-            stock06_positionSize: stock06_positionSize,          
-            stock07_price: stock07_price,
-            stock07_positionSize: stock07_positionSize,          
-            stock08_price: stock08_price,
-            stock08_positionSize: stock08_positionSize,          
-            stock09_price: stock09_price,
-            stock09_positionSize: stock09_positionSize,          
-            stock10_price: stock10_price,
-            stock10_positionSize: stock10_positionSize, 
-            stock11_price: stock11_price,
-            stock11_positionSize: stock11_positionSize,
-            stock12_price: stock12_price,
-            stock12_positionSize: stock12_positionSize,          
-            stock13_price: stock13_price,
-            stock13_positionSize: stock13_positionSize,          
-            stock14_price: stock14_price,
-            stock14_positionSize: stock14_positionSize,          
-            stock15_price: stock15_price,
-            stock15_positionSize: stock15_positionSize,          
-            stock16_price: stock16_price,
-            stock16_positionSize: stock16_positionSize,          
-            stock17_price: stock17_price,
-            stock17_positionSize: stock17_positionSize,          
-            stock18_price: stock18_price,
-            stock18_positionSize: stock18_positionSize,          
-            stock19_price: stock19_price,
-            stock19_positionSize: stock19_positionSize,          
-            stock20_price: stock20_price,
-            stock20_positionSize: stock20_positionSize, 
-            stock21_price: stock21_price,
-            stock21_positionSize: stock21_positionSize,
-            stock22_price: stock22_price,
-            stock22_positionSize: stock22_positionSize,          
-            stock23_price: stock23_price,
-            stock23_positionSize: stock23_positionSize,          
-            stock24_price: stock24_price,
-            stock24_positionSize: stock24_positionSize,          
-            stock25_price: stock25_price,
-            stock25_positionSize: stock25_positionSize,          
-            stock26_price: stock26_price,
-            stock26_positionSize: stock26_positionSize,          
-            stock27_price: stock27_price,
-            stock27_positionSize: stock27_positionSize,          
-            stock28_price: stock28_price,
-            stock28_positionSize: stock28_positionSize,          
-            stock29_price: stock29_price,
-            stock29_positionSize: stock29_positionSize,          
-            stock30_price: stock30_price,
-            stock30_positionSize: stock30_positionSize                    
+            stock01_price: stock_price[0],
+            stock01_positionSize: stock_position_size[0],
+            stock02_price: stock_price[1],
+            stock02_positionSize: stock_position_size[1],          
+            stock03_price: stock_price[2],
+            stock03_positionSize: stock_position_size[2],          
+            stock04_price: stock_price[3],
+            stock04_positionSize: stock_position_size[3],          
+            stock05_price: stock_price[4],
+            stock05_positionSize: stock_position_size[4],          
+            stock06_price: stock_price[5],
+            stock06_positionSize: stock_position_size[5],          
+            stock07_price: stock_price[6],
+            stock07_positionSize: stock_position_size[6],          
+            stock08_price: stock_price[7],
+            stock08_positionSize: stock_position_size[7],          
+            stock09_price: stock_price[8],
+            stock09_positionSize: stock_position_size[8],          
+            stock10_price: stock_price[9],
+            stock10_positionSize: stock_position_size[9], 
+            stock11_price: stock_price[10],
+            stock11_positionSize: stock_position_size[10],
+            stock12_price: stock_price[11],
+            stock12_positionSize: stock_position_size[11],          
+            stock13_price: stock_price[12],
+            stock13_positionSize: stock_position_size[12],          
+            stock14_price: stock_price[13],
+            stock14_positionSize: stock_position_size[13],          
+            stock15_price: stock_price[14],
+            stock15_positionSize: stock_position_size[14],          
+            stock16_price: stock_price[15],
+            stock16_positionSize: stock_position_size[15],          
+            stock17_price: stock_price[16],
+            stock17_positionSize: stock_position_size[16],          
+            stock18_price: stock_price[17],
+            stock18_positionSize: stock_position_size[17],          
+            stock19_price: stock_price[18],
+            stock19_positionSize: stock_position_size[18],          
+            stock20_price: stock_price[19],
+            stock20_positionSize: stock_position_size[19], 
+            stock21_price: stock_price[20],
+            stock21_positionSize: stock_position_size[20],
+            stock22_price: stock_price[21],
+            stock22_positionSize: stock_position_size[21],          
+            stock23_price: stock_price[22],
+            stock23_positionSize: stock_position_size[22],          
+            stock24_price: stock_price[23],
+            stock24_positionSize: stock_position_size[23],          
+            stock25_price: stock_price[24],
+            stock25_positionSize: stock_position_size[24],          
+            stock26_price: stock_price[25],
+            stock26_positionSize: stock_position_size[25],          
+            stock27_price: stock_price[26],
+            stock27_positionSize: stock_position_size[26],          
+            stock28_price: stock_price[27],
+            stock28_positionSize: stock_position_size[27],          
+            stock29_price: stock_price[28],
+            stock29_positionSize: stock_position_size[28],          
+            stock30_price: stock_price[29],
+            stock30_positionSize: stock_position_size[29]                    
         };
 
         data_input.push(data_input); //save data to array data_input_history
+
+         //update signal....
+         $('#data_id_input').html(data_id);
+         $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(stock_price[0]).toFixed(2)));
+         $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[0]).toFixed(0)));
+         $('#stock2_price').html(Intl.NumberFormat().format(parseFloat(stock_price[1]).toFixed(2)));
+         $('#stock2_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[1]).toFixed(0)));
+         $('#stock3_price').html(Intl.NumberFormat().format(parseFloat(stock_price[2]).toFixed(2)));
+         $('#stock3_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[2]).toFixed(0)));
+         $('#stock4_price').html(Intl.NumberFormat().format(parseFloat(stock_price[3]).toFixed(2)));
+         $('#stock4_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[3]).toFixed(0)));
+         $('#stock5_price').html(Intl.NumberFormat().format(parseFloat(stock_price[4]).toFixed(2)));
+         $('#stock5_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[4]).toFixed(0)));
+         $('#stock6_price').html(Intl.NumberFormat().format(parseFloat(stock_price[5]).toFixed(2)));
+         $('#stock6_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[5]).toFixed(0)));
+         $('#stock7_price').html(Intl.NumberFormat().format(parseFloat(stock_price[6]).toFixed(2)));
+         $('#stock7_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[6]).toFixed(0)));
+         $('#stock8_price').html(Intl.NumberFormat().format(parseFloat(stock_price[7]).toFixed(2)));
+         $('#stock8_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[7]).toFixed(0)));
+         $('#stock9_price').html(Intl.NumberFormat().format(parseFloat(stock_price[8]).toFixed(2)));
+         $('#stock9_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[8]).toFixed(0)));
+         $('#stock10_price').html(Intl.NumberFormat().format(parseFloat(stock_price[9]).toFixed(2)));
+         $('#stock10_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[9]).toFixed(0)));
+         $('#stock11_price').html(Intl.NumberFormat().format(parseFloat(stock_price[10]).toFixed(2)));
+         $('#stock11_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[10]).toFixed(0)));
+         $('#stock12_price').html(Intl.NumberFormat().format(parseFloat(stock_price[11]).toFixed(2)));
+         $('#stock12_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[11]).toFixed(0)));
+         $('#stock13_price').html(Intl.NumberFormat().format(parseFloat(stock_price[12]).toFixed(2)));
+         $('#stock13_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[12]).toFixed(0)));
+         $('#stock14_price').html(Intl.NumberFormat().format(parseFloat(stock_price[13]).toFixed(2)));
+         $('#stock14_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[13]).toFixed(0)));
+         $('#stock15_price').html(Intl.NumberFormat().format(parseFloat(stock_price[14]).toFixed(2)));
+         $('#stock15_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[14]).toFixed(0)));
+         $('#stock16_price').html(Intl.NumberFormat().format(parseFloat(stock_price[15]).toFixed(2)));
+         $('#stock16_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[15]).toFixed(0)));
+         $('#stock17_price').html(Intl.NumberFormat().format(parseFloat(stock_price[16]).toFixed(2)));
+         $('#stock17_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[16]).toFixed(0)));
+         $('#stock18_price').html(Intl.NumberFormat().format(parseFloat(stock_price[17]).toFixed(2)));
+         $('#stock18_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[17]).toFixed(0)));
+         $('#stock19_price').html(Intl.NumberFormat().format(parseFloat(stock_price[18]).toFixed(2)));
+         $('#stock19_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[18]).toFixed(0)));
+         $('#stock20_price').html(Intl.NumberFormat().format(parseFloat(stock_price[19]).toFixed(2)));
+         $('#stock20_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[19]).toFixed(0)));
+         $('#stock21_price').html(Intl.NumberFormat().format(parseFloat(stock_price[20]).toFixed(2)));
+         $('#stock21_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[20]).toFixed(0)));
+         $('#stock22_price').html(Intl.NumberFormat().format(parseFloat(stock_price[21]).toFixed(2)));
+         $('#stock22_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[21]).toFixed(0)));
+         $('#stock23_price').html(Intl.NumberFormat().format(parseFloat(stock_price[22]).toFixed(2)));
+         $('#stock23_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[22]).toFixed(0)));
+         $('#stock24_price').html(Intl.NumberFormat().format(parseFloat(stock_price[23]).toFixed(2)));
+         $('#stock24_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[23]).toFixed(0)));
+         $('#stock25_price').html(Intl.NumberFormat().format(parseFloat(stock_price[24]).toFixed(2)));
+         $('#stock25_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[24]).toFixed(0)));
+         $('#stock26_price').html(Intl.NumberFormat().format(parseFloat(stock_price[25]).toFixed(2)));
+         $('#stock26_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[25]).toFixed(0)));
+         $('#stock27_price').html(Intl.NumberFormat().format(parseFloat(stock_price[26]).toFixed(2)));
+         $('#stock27_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[26]).toFixed(0)));
+         $('#stock28_price').html(Intl.NumberFormat().format(parseFloat(stock_price[27]).toFixed(2)));
+         $('#stock28_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[27]).toFixed(0)));
+         $('#stock29_price').html(Intl.NumberFormat().format(parseFloat(stock_price[28]).toFixed(2)));
+         $('#stock29_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[28]).toFixed(0)));
+         $('#stock30_price').html(Intl.NumberFormat().format(parseFloat(stock_price[29]).toFixed(2)));
+         $('#stock30_position_size').html(Intl.NumberFormat().format(parseFloat(stock_position_size[29]).toFixed(0)));
 
         var post_process = "run";
 
@@ -341,7 +406,9 @@
                     total_commission: commission.reduce(function (accumulator, current) { return accumulator + current}),
                     total_initial_margin: initialMargin.reduce(function (accumulator, current) { return accumulator + current})
                 })
-            }          
+            } 
+            
+            
            
             //TRADE PERFORMANCE COMPARISON
             

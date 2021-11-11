@@ -62,13 +62,13 @@
 
 .cover-index {
     background-color: #070914;
-    background-image: url("../images/bg1.jpg");
+    background-image: url("../styles/image/bg1.jpg");
     font-family: Acrom;
 }
 
 .cover-dashboard {
     background-color: #070914;
-    background-image: url("../images/bg_ai32.jpg");
+    background-image: url("../styles/image/bg_ai32.jpg");
     
     font-family: Acrom;
 }
