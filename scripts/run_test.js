@@ -28,7 +28,7 @@
         async function proses() {
             let i=0;
             if (i<7000) {
-                
+            i++
             $('#data_id_input').html(i);
             $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(2)));
             $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(0)));
