@@ -49,10 +49,10 @@
         var daily_stock_transaction = new Array();
         var daily_trade_summary = new Array();
 
-        let i = 0;
-        while(i<7000) {
-            setTimeout(function timer() {
-            i++;
+        // let i = 0;
+        for(i=0;i<20;i++){
+            // setTimeout(function timer() {
+            // i++;
             $('#data_id_input').html(i);
             $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(2)));
             $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(0)));
@@ -176,7 +176,7 @@
             $('#stock29_signal_size').html(Intl.NumberFormat().format(parseFloat(123+i).toFixed(0)));
             $('#stock30_signal__position').html("BUY");
             $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+i).toFixed(0)));
-        }, i * 500);           
+        // }, i * 500);           
         }
 
         while (data_id < test_data.length) { 
