@@ -5,55 +5,28 @@
  
     async function run_test() {        
         //-----------------------------------------------------------------------------------
-        // if (test_data.length == 0) {
-        //     Swal.fire(
-        //         'No Test Data !',
-        //         'Please click Market Data and Create It',
-        //         'warning'
-        //     )
-        // return false;
-        // } else {
-        //     Swal.fire({
-        //         title: 'Connect to Quantxi AI',
-        //         text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
-        //         imageUrl: 'https://www.fundcalibre.com/wp-content/uploads/2020/04/AdobeStock_323829966-956x377.jpeg',
-        //         imageWidth: 400,
-        //         imageHeight: 200,
-        //         imageAlt: 'Custom image',
-        //     })
+        if (test_data.length == 0) {
+            Swal.fire(
+                'No Test Data !',
+                'Please click Market Data and Create It',
+                'warning'
+            )
+        return false;
+        } else {
+            Swal.fire({
+                title: 'Connect to Quantxi AI',
+                text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
+                imageUrl: 'https://www.fundcalibre.com/wp-content/uploads/2020/04/AdobeStock_323829966-956x377.jpeg',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+            })
             
-        //     $(':button').prop('disabled', true); //Disable All Button
-        // }
+            $(':button').prop('disabled', true); //Disable All Button
+        }
 
-        
-      
-        //variable
-        var data_id = 0;
-        var date;
-        var stock_price = new Array();
-        var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-        var daily_Interest = 0;
-        var cash_balance = initial_equity;    
-        var market_value;
-        var equity_with_loanValue;
-        var maintenance_margin_reserved;
-        var maintenance_margin_available;
-        var initial_margin_reserved;
-        var initial_margin_available; 
-        var buying_power;
-        var data_input = new Array();
-        var signal_output = new Array();
-        var stock_buyHold = new Array();
-        var daily_stock_pretrade_position = new Array();
-        var daily_account_pretrade_position = new Array();
-        var daily_stock_transaction = new Array();
-        var daily_trade_summary = new Array();
-
-        // let i = 0;
-        for(i=0;i<20;i++){
-            // setTimeout(function timer() {
-            // i++;
-            $('#data_id_input').html(i);
+        for(i=0;i<7000;i++) {
+            $('#data_id_input').html(data_id);
             $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(2)));
             $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(0)));
             $('#stock2_price').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(2)));
@@ -115,7 +88,7 @@
             $('#stock30_price').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(2)));
             $('#stock30_position_size').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(0)));
 
-            $('#data_id_input').html(i);
+            $('#data_id_input').html(data_id);
             $('#stock1_signal__position').html("BUY");
             $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(123+i).toFixed(0)));
             $('#stock2_signal__position').html("BUY");
@@ -176,8 +149,31 @@
             $('#stock29_signal_size').html(Intl.NumberFormat().format(parseFloat(123+i).toFixed(0)));
             $('#stock30_signal__position').html("BUY");
             $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+i).toFixed(0)));
-        // }, i * 500);           
+
+            setTimeout(proses, 1/1000);
         }
+      
+        //variable
+        var data_id = 0;
+        var date;
+        var stock_price = new Array();
+        var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        var daily_Interest = 0;
+        var cash_balance = initial_equity;    
+        var market_value;
+        var equity_with_loanValue;
+        var maintenance_margin_reserved;
+        var maintenance_margin_available;
+        var initial_margin_reserved;
+        var initial_margin_available; 
+        var buying_power;
+        var data_input = new Array();
+        var signal_output = new Array();
+        var stock_buyHold = new Array();
+        var daily_stock_pretrade_position = new Array();
+        var daily_account_pretrade_position = new Array();
+        var daily_stock_transaction = new Array();
+        var daily_trade_summary = new Array();
 
         while (data_id < test_data.length) { 
 
