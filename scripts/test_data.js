@@ -300,14 +300,7 @@
           )
           return false;
         } else {
-        // portfolio_data = [];
-        // test_data = [];
-        // $("#table_assets > tbody").empty();
-        // $("#port_data_tbl>tbody").empty();
         $("#pagination-demo").twbsPagination("destroy");
-        // $("#period_data").val("");
-        // console.log(portfolio_data);
-        //cek periode data yg tercover oleh semua stocks
         var startdates= new Array();
         var enddates= new Array();
         for (i=0; i<portfolio_data.length; i++) {
@@ -315,10 +308,7 @@
             enddates.push(new Date(portfolio_data[i].data.date[portfolio_data[i].data.date.length-1]));
         }
         var startDate=new Date(Math.max.apply(null,startdates));
-        var endDate=new Date(Math.min.apply(null,enddates));
-        // console.log(startDate);
-        // console.log(endDate);
-       
+        var endDate=new Date(Math.min.apply(null,enddates));       
         var idx = new Array();
           for (i=0;i<30;i++) {
             idx[i] = 0;
@@ -326,28 +316,17 @@
         while (startDate <= endDate) {
           var as_arr = new Array();
           dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
-          // console.log(dtt);
           as_arr.push({date:dtt});              
           for (y=0; y<30; y++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
             let id = portfolio_data[y].data.date.indexOf(dtt, idx[y]);
-            // console.log(id, y);
             if(id == -1) {//jika idx tidak ditemukan
-              as_arr.push({ticker: ticker_list[y].split(', ')[0], price: test_data[test_data.length-1][y+1]}); //masukkan harga sebelumnya
-              // console.log(as_arr);
+              as_arr.push({ticker: ticker_list[y].split(', ')[0], price: test_data[test_data.length-1][y+1].price}); //masukkan harga sebelumnya
             } else {
-              // if(portfolio_data[y].data.price[id] == null) {
-              //   as_arr.push(test_data[test_data.length-1][y+1]); 
-              //   // console.log(as_arr);
-              // } else {
                 as_arr.push({ticker: ticker_list[y].split(', ')[0], price: portfolio_data[y].data.price[id]}); //jika idx ketemu masukkan harga berdasarkan idx
                 idx[y] = id+1;
-                // console.log(as_arr);
-              // }   
             }        
-          }
-          
+          }          
           test_data.push(as_arr);
-
           if (startDate.getDay()==5) {
               startDate = new Date(startDate.setDate(startDate.getDate() + 3));
           } else {
