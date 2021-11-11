@@ -150,7 +150,7 @@
             $('#stock30_signal__position').html("BUY");
             $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+i).toFixed(0)));
 
-            setTimeout(proses, 1/1000);
+            setTimeout(run_test, 1/1000);
         }
       
         //variable
