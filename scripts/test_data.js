@@ -15,10 +15,6 @@
           'warning'
         )
         $('#ulul').empty();
-        // var newLi = document.createElement('li');
-        // var li = document.createTextNode("\u00A0\u00A0Please Choose Your \u00A0\u00A0Exchange & Startdate !!!");
-        // newLi.appendChild(li);
-        // document.getElementById("ulul").appendChild(newLi);
         return false;
       } else if (exchange_choose_current !== exchange_choose_previous || startdate_select !== startdate_select_previous) {
         console.log(exchange_choose_current);
@@ -322,8 +318,8 @@
             if(id == -1) {//jika idx tidak ditemukan
               as_arr.push({ticker: ticker_list[y].split(', ')[0], price: test_data[test_data.length-1][y+1].price}); //masukkan harga sebelumnya
             } else {
-                as_arr.push({ticker: ticker_list[y].split(', ')[0], price: portfolio_data[y].data.price[id]}); //jika idx ketemu masukkan harga berdasarkan idx
-                idx[y] = id+1;
+              as_arr.push({ticker: ticker_list[y].split(', ')[0], price: portfolio_data[y].data.price[id]}); //jika idx ketemu masukkan harga berdasarkan idx
+              idx[y] = id+1;
             }        
           }          
           test_data.push(as_arr);

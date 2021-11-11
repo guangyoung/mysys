@@ -1,13 +1,7 @@
  //STEP 4. RESET TEST
-//Ini adalah step reset test ..........................,.............................
+//Ini adalah step run test ..........................,.............................
 //...................................................................................
 //...................................................................................
-
-    //Global Variables
-    var margin_trade_report_details = new Array();
-    var performance_comparison_details = new Array();
-    var test_history_and_statistic = new Array();
-    var all_request_inJSON_format = new Array();
  
     async function run_test() {        
         //-----------------------------------------------------------------------------------
@@ -44,19 +38,23 @@
         var maintenance_margin_available;
         var initial_margin_reserved;
         var initial_margin_available; 
+        var buying_power;
         var data_input = new Array();
         var signal_output = new Array();
         var stock_buyHold = new Array();
+        var daily_stock_pretrade_position = new Array();
+        var daily_account_pretrade_position = new Array();
+        var daily_stock_transaction = new Array();
+        var daily_trade_summary = new Array();
 
         while (data_id < test_data.length) { 
 
             data_id++;
 
             date = test_data[data_id-1][0].date; 
-            console.log(date);
             
             for (i=0;i<30;i++) {  
-                stock_price[i] = parseFloat(test_data[data_id][i+1]);                    
+                stock_price[i] = parseFloat(test_data[data_id-1][i+1].price);                    
             }
 
             //PRE TRADE POSITION CALCULATION
@@ -84,11 +82,33 @@
 
             initial_margin_available = equity_with_loanValue - initial_margin_reserved;
 
-            //save data to array
+            buying_power = initial_margin_available * 2;
 
+            //save daily pretrade stock position to array            
+            for (i=0;i<30;i++) {
+                daily_stock_pretrade_position.push({
+                    stock_ticker: portfolio_data[0].ticker,
+                    stock_price : stock_price[i],
+                    position_size: stock_position_size[i],
+                    market_value:  stock_price[i]*stock_position_size[i]
+                })
+            }
+            //save daily pretrade account summary to array    
+            for (i=0;i<30;i++) {
+                daily_account_pretrade_position.push({
+                    daily_Interest:  daily_Interest,
+                    cash_balance : cash_balance,
+                    market_value: market_value,
+                    equity_with_loanValue:  equity_with_loanValue,
+                    maintenance_margin_reserved: maintenance_margin_reserved,
+                    maintenance_margin_available: maintenance_margin_available,
+                    initial_margin_reserved: initial_margin_reserved,
+                    initial_margin_available: initial_margin_available,
+                    buying_power: buying_power
+                })
+            }
             
-
-
+    // ----------------------------------------------------------------------------------  
     //POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
     // ----------------------------------------------------------------------------------           
         
@@ -156,7 +176,7 @@
             stock30_positionSize: stock30_positionSize                    
         };
 
-        data_input.push(data_input);
+        data_input.push(data_input); //save data to array data_input_history
 
         var post_process = "run";
 
@@ -168,7 +188,6 @@
                 dataType: 'json',
                 success: function(result){ 
                     if (result.status == "success") {
-
                         signal_output = {
                             data_id: result.data.data_id,
                             stock01_signal_position: result.data.stock01_signal_position,
@@ -232,19 +251,21 @@
                             stock30_signal_position: result.data.stock30_signal_position,
                             stock30_signal_size: result.data.stock30_signal_size
                         };
-                        signal_output.push(signal_output); 
-                        post_process = "stop";  
+                        signal_output.push(signal_output);//save data to array signal_output_history 
+                        post_process = "stop"; //stop post process......
                     }         
                 }
             })
         } 
-           
+     
+    
+    // ----------------------------------------------------------------------------------  
     // TRADE TRANSACTION 
     // ----------------------------------------------------------------------------------
         var filledOrder = new Array();
         var filledPrice = new Array();
         var tradeValue = new Array();
-        var commision = new Array();
+        var commission = new Array();
         var initialMargin = new Array();
         
             //calculated all stock signal initial_margin_required
@@ -272,45 +293,59 @@
              }
             
             
-            //TRADE BASED SIGNAL RECEIVE---------------------------------------------------------------------         
+            //trade transaction         
             for (i=0, x=2; i<30 && x<61; i++, x+2) { 
 
                 if(signal_output[x] == "Buy") {
                 filledOrder[i]  = parseInt(signal_output[x])*filled_percentage;
                 filledPrice[i]  = stock_price[i]*(1+spread_slippage);
                 tradeValue[i] = filledOrder[i] * filledPrice[i];
-                commision[i] = tradeValue[i] * commision;
+                commission[i] = tradeValue[i] * commision;
                 initialMargin[i] = tradeValue[i] * 0.50;
                 } else if(signal_output[x] == "Sell") {
                 filledOrder[i]  = parseInt(signal_output[x])*filled_percentage;
                 filledPrice[i]  = stock_price[i]*(1-spread_slippage);
                 tradeValue[i] = filledOrder[i] * filledPrice[i];
-                commision[i] = tradeValue[i] * commision;
+                commission[i] = tradeValue[i] * commision;
                 initialMargin[i] = tradeValue[i] * 0.50;
                 } else {
                 filledOrder[i]  = 0;
                 filledPrice[i]  = 0;
                 tradeValue[i] = 0;
-                commision[i] = 0; 
+                commission[i] = 0; 
                 initialMargin[i] = 0;     
                 }
             } 
-            
-            // total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current; });
-            // total_commission = commision.reduce(function (accumulator, current) { return accumulator + current; });
-            // total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current; });
-                
+
+            //update stock position & cash balance
             for (i=0;i<30;i++) {  
                 stock_position_size[i] += filledOrder[i];                  
             }
-
             cash_balance -= (total_trade_value + total_commission);
 
+            //save daily stock transaction data to array  
+            for (i=0;i<30;i++) {
+                daily_stock_transaction.push({
+                    stock_ticker: portfolio_data[0].ticker,
+                    filledOrder: filledOrder[i],
+                    filledPrice: filledPrice[i],
+                    tradeValue: tradeValue[i],
+                    commission: commission[i],
+                    initialMargin: initialMargin[i]
+                })
+            }
+            //save daily trade summary data to array  
+            for (i=0;i<30;i++) {
+                daily_trade_summary.push({
+                    total_trade_value: tradeValue.reduce(function (accumulator, current) { return accumulator + current}),
+                    total_commission: commission.reduce(function (accumulator, current) { return accumulator + current}),
+                    total_initial_margin: initialMargin.reduce(function (accumulator, current) { return accumulator + current})
+                })
+            }          
+           
             //TRADE PERFORMANCE COMPARISON
             
             //post request response ----------------------------------------------
-
-            $('#total_post').html(dataID); 
         
             // var input_element =
             // '<pre style="font-size: 11px; color: #70727a; margin-left: 50px; margin-top: 15px;">'
