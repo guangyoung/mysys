@@ -29,7 +29,7 @@
             let i=0;
             if (i<7000) {
                 
-                $('#data_id_input').html(data_id);
+            $('#data_id_input').html(i);
             $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(2)));
             $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(0)));
             $('#stock2_price').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(2)));
@@ -91,7 +91,7 @@
             $('#stock30_price').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(2)));
             $('#stock30_position_size').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(0)));
 
-            $('#data_id_input').html(data_id);
+            $('#data_id_input').html(i);
             $('#stock1_signal__position').html("BUY");
             $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(123+i).toFixed(0)));
             $('#stock2_signal__position').html("BUY");
