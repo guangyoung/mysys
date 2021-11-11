@@ -1026,7 +1026,7 @@
                                     <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
                                     <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000.00</td>
                                     <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">1,000,000,000.00</td>
-                                    <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" data-toggle="modal" data-target="#trade_details">View Details</button></td>
+                                    <td onclick="myFunction(event)" style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;"><button type="button" class="btn btn-primary btn-sm" style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px" id="230101" data-toggle="modal" data-target="#trade_details">View Details</button></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
@@ -2778,10 +2778,8 @@
 
         var ticker_list = new Array();
         var exchange_choose_current;
-        // var exchange_choose_current_random;
         var startdate_select;
         var startdate_select_previous;
-        // var startdate_select_random;
         var exchange_choose_previous;
 
         // $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
@@ -2851,9 +2849,9 @@
           visiblePages: 1
         });
 
-        // function myFunction(event) {
-        //    console.log(event.target.id);
-        // }
+        function myFunction(event) {
+           console.log(event.target.id);
+        }
 
         // $('[data-toggle="tooltip"]').tooltip({ "show": 100, "hide": 500});
         $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" });

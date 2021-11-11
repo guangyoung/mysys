@@ -11,15 +11,14 @@
  
     async function run_test() {        
         //-----------------------------------------------------------------------------------
-            if (test_data.length == 0) {
-                Swal.fire(
-                    'No Test Data !',
-                    'Please click Market Data and Create It',
-                    'warning'
-                )
-            return false;
-            }
-
+        if (test_data.length == 0) {
+            Swal.fire(
+                'No Test Data !',
+                'Please click Market Data and Create It',
+                'warning'
+            )
+        return false;
+        } else {
             Swal.fire({
                 title: 'Connect to Quantxi AI',
                 text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
@@ -29,42 +28,39 @@
                 imageAlt: 'Custom image',
             })
             
-            $(':button').prop('disabled', true); //Disable All Button 
+            $(':button').prop('disabled', true); //Disable All Button
+        }
       
-
         //variable
         var data_id = 0;
         var date;
         var stock_price = new Array();
         var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-
         var daily_Interest = 0;
         var cash_balance = initial_equity;    
-        var market_value = 0;
-        var equity_with_loanValue = cash_balance + market_value;
-        var maintenance_margin_reserved = market_value * 0.30;
-        var maintenance_margin_available = equity_with_loanValue -  maintenance_margin_reserved;
-        var initial_margin_reserved = market_value * 0.50;
-        var initial_margin_available = equity_with_loanValue - initial_margin_reserved; 
-        var total_trade_value;
-        var total_commission;
-        var total_initial_margin; 
+        var market_value;
+        var equity_with_loanValue;
+        var maintenance_margin_reserved;
+        var maintenance_margin_available;
+        var initial_margin_reserved;
+        var initial_margin_available; 
         var data_input = new Array();
         var signal_output = new Array();
         var stock_buyHold = new Array();
 
         while (data_id < test_data.length) { 
 
-            data_id++;
+            // data_id++;
 
-            date = test_data[data_id][0];
-
+            date = test_data[data_id][0]; 
+            
             for (i=0;i<30;i++) {  
-                stock_price[i] = parseFloat(test_data[i+1][1]);                    
+                stock_price[i] = parseFloat(test_data[data_id][i+1]);                    
             }
 
-    //PRE TRADE POSITION CALCULATION
-    // ----------------------------------------------------------------------------------
+            //PRE TRADE POSITION CALCULATION
+            // ----------------------------------------------------------------------------------
+            
             if(cash_balance < 0) {
                 daily_Interest = cash_balance * (interest_rate/360); //cek lagi rumusnya
             } else {
@@ -87,158 +83,162 @@
 
             initial_margin_available = equity_with_loanValue - initial_margin_reserved;
 
+            data_id++
+
             //save data to array
 
-            data_input = {
-                data_id: data_id,
-                stock01_price: stock01_price,
-                stock01_positionSize: stock01_positionSize,
-                stock02_price: stock02_price,
-                stock02_positionSize: stock02_positionSize,          
-                stock03_price: stock03_price,
-                stock03_positionSize: stock03_positionSize,          
-                stock04_price: stock04_price,
-                stock04_positionSize: stock04_positionSize,          
-                stock05_price: stock05_price,
-                stock05_positionSize: stock05_positionSize,          
-                stock06_price: stock06_price,
-                stock06_positionSize: stock06_positionSize,          
-                stock07_price: stock07_price,
-                stock07_positionSize: stock07_positionSize,          
-                stock08_price: stock08_price,
-                stock08_positionSize: stock08_positionSize,          
-                stock09_price: stock09_price,
-                stock09_positionSize: stock09_positionSize,          
-                stock10_price: stock10_price,
-                stock10_positionSize: stock10_positionSize, 
-                stock11_price: stock11_price,
-                stock11_positionSize: stock11_positionSize,
-                stock12_price: stock12_price,
-                stock12_positionSize: stock12_positionSize,          
-                stock13_price: stock13_price,
-                stock13_positionSize: stock13_positionSize,          
-                stock14_price: stock14_price,
-                stock14_positionSize: stock14_positionSize,          
-                stock15_price: stock15_price,
-                stock15_positionSize: stock15_positionSize,          
-                stock16_price: stock16_price,
-                stock16_positionSize: stock16_positionSize,          
-                stock17_price: stock17_price,
-                stock17_positionSize: stock17_positionSize,          
-                stock18_price: stock18_price,
-                stock18_positionSize: stock18_positionSize,          
-                stock19_price: stock19_price,
-                stock19_positionSize: stock19_positionSize,          
-                stock20_price: stock20_price,
-                stock20_positionSize: stock20_positionSize, 
-                stock21_price: stock21_price,
-                stock21_positionSize: stock21_positionSize,
-                stock22_price: stock22_price,
-                stock22_positionSize: stock22_positionSize,          
-                stock23_price: stock23_price,
-                stock23_positionSize: stock23_positionSize,          
-                stock24_price: stock24_price,
-                stock24_positionSize: stock24_positionSize,          
-                stock25_price: stock25_price,
-                stock25_positionSize: stock25_positionSize,          
-                stock26_price: stock26_price,
-                stock26_positionSize: stock26_positionSize,          
-                stock27_price: stock27_price,
-                stock27_positionSize: stock27_positionSize,          
-                stock28_price: stock28_price,
-                stock28_positionSize: stock28_positionSize,          
-                stock29_price: stock29_price,
-                stock29_positionSize: stock29_positionSize,          
-                stock30_price: stock30_price,
-                stock30_positionSize: stock30_positionSize                    
-            };
-
-            data_input.push(data_input);
+            
 
 
     //POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
     // ----------------------------------------------------------------------------------           
+        
+        data_input = {
+            data_id: data_id,
+            stock01_price: stock01_price,
+            stock01_positionSize: stock01_positionSize,
+            stock02_price: stock02_price,
+            stock02_positionSize: stock02_positionSize,          
+            stock03_price: stock03_price,
+            stock03_positionSize: stock03_positionSize,          
+            stock04_price: stock04_price,
+            stock04_positionSize: stock04_positionSize,          
+            stock05_price: stock05_price,
+            stock05_positionSize: stock05_positionSize,          
+            stock06_price: stock06_price,
+            stock06_positionSize: stock06_positionSize,          
+            stock07_price: stock07_price,
+            stock07_positionSize: stock07_positionSize,          
+            stock08_price: stock08_price,
+            stock08_positionSize: stock08_positionSize,          
+            stock09_price: stock09_price,
+            stock09_positionSize: stock09_positionSize,          
+            stock10_price: stock10_price,
+            stock10_positionSize: stock10_positionSize, 
+            stock11_price: stock11_price,
+            stock11_positionSize: stock11_positionSize,
+            stock12_price: stock12_price,
+            stock12_positionSize: stock12_positionSize,          
+            stock13_price: stock13_price,
+            stock13_positionSize: stock13_positionSize,          
+            stock14_price: stock14_price,
+            stock14_positionSize: stock14_positionSize,          
+            stock15_price: stock15_price,
+            stock15_positionSize: stock15_positionSize,          
+            stock16_price: stock16_price,
+            stock16_positionSize: stock16_positionSize,          
+            stock17_price: stock17_price,
+            stock17_positionSize: stock17_positionSize,          
+            stock18_price: stock18_price,
+            stock18_positionSize: stock18_positionSize,          
+            stock19_price: stock19_price,
+            stock19_positionSize: stock19_positionSize,          
+            stock20_price: stock20_price,
+            stock20_positionSize: stock20_positionSize, 
+            stock21_price: stock21_price,
+            stock21_positionSize: stock21_positionSize,
+            stock22_price: stock22_price,
+            stock22_positionSize: stock22_positionSize,          
+            stock23_price: stock23_price,
+            stock23_positionSize: stock23_positionSize,          
+            stock24_price: stock24_price,
+            stock24_positionSize: stock24_positionSize,          
+            stock25_price: stock25_price,
+            stock25_positionSize: stock25_positionSize,          
+            stock26_price: stock26_price,
+            stock26_positionSize: stock26_positionSize,          
+            stock27_price: stock27_price,
+            stock27_positionSize: stock27_positionSize,          
+            stock28_price: stock28_price,
+            stock28_positionSize: stock28_positionSize,          
+            stock29_price: stock29_price,
+            stock29_positionSize: stock29_positionSize,          
+            stock30_price: stock30_price,
+            stock30_positionSize: stock30_positionSize                    
+        };
+
+        data_input.push(data_input);
+
         var post_process = "run";
 
-            while (post_process == "run") {
-                await $.ajax({
-                    type: "POST",
-                    url: "https://api.quantxi.com/post?api_key="+localStorage.getItem("apiKey"),
-                    data: data_input,           
-                    dataType: 'json',
-                    success: function(result){ 
-                        if (result.status == "success") {
+        while (post_process == "run") {
+            await $.ajax({
+                type: "POST",
+                url: "https://api.quantxi.com/post?api_key="+localStorage.getItem("apiKey"),
+                data: data_input,           
+                dataType: 'json',
+                success: function(result){ 
+                    if (result.status == "success") {
 
-                            post_process = "stop";  
-
-                            signal_output = {
-                                data_id: result.data.data_id,
-                                stock01_signal_position: result.data.stock01_signal_position,
-                                stock01_signal_size: result.data.stock01_signal_size,
-                                stock02_signal_position: result.data.stock02_signal_position,
-                                stock02_signal_size: result.data.stock02_signal_size,
-                                stock03_signal_position: result.data.stock03_signal_position,
-                                stock03_signal_size: result.data.stock03_signal_size,
-                                stock04_signal_position: result.data.stock04_signal_position,
-                                stock04_signal_size: result.data.stock04_signal_size,
-                                stock05_signal_position: result.data.stock05_signal_position,
-                                stock05_signal_size: result.data.stock05_signal_size,
-                                stock06_signal_position: result.data.stock06_signal_position,
-                                stock06_signal_size: result.data.stock06_signal_size,
-                                stock07_signal_position: result.data.stock07_signal_position,
-                                stock07_signal_size: result.data.stock07_signal_size,
-                                stock08_signal_position: result.data.stock08_signal_position,
-                                stock08_signal_size: result.data.stock08_signal_size,
-                                stock09_signal_position: result.data.stock09_signal_position,
-                                stock09_signal_size: result.data.stock09_signal_size,
-                                stock10_signal_position: result.data.stock10_signal_position,
-                                stock10_signal_size: result.data.stock10_signal_size,
-                                stock11_signal_position: result.data.stock11_signal_position,
-                                stock11_signal_size: result.data.stock11_signal_size,
-                                stock12_signal_position: result.data.stock12_signal_position,
-                                stock12_signal_size: result.data.stock12_signal_size,
-                                stock13_signal_position: result.data.stock13_signal_position,
-                                stock13_signal_size: result.data.stock13_signal_size,
-                                stock14_signal_position: result.data.stock14_signal_position,
-                                stock14_signal_size: result.data.stock14_signal_size,
-                                stock15_signal_position: result.data.stock15_signal_position,
-                                stock15_signal_size: result.data.stock15_signal_size,
-                                stock16_signal_position: result.data.stock16_signal_position,
-                                stock16_signal_size: result.data.stock16_signal_size,
-                                stock17_signal_position: result.data.stock17_signal_position,
-                                stock17_signal_size: result.data.stock17_signal_size,
-                                stock18_signal_position: result.data.stock18_signal_position,
-                                stock18_signal_size: result.data.stock18_signal_size,
-                                stock19_signal_position: result.data.stock19_signal_position,
-                                stock19_signal_size: result.data.stock19_signal_size,
-                                stock20_signal_position: result.data.stock20_signal_position,
-                                stock20_signal_size: result.data.stock20_signal_size,
-                                stock21_signal_position: result.data.stock21_signal_position,
-                                stock21_signal_size: result.data.stock21_signal_size,
-                                stock22_signal_position: result.data.stock22_signal_position,
-                                stock22_signal_size: result.data.stock22_signal_size,
-                                stock23_signal_position: result.data.stock23_signal_position,
-                                stock23_signal_size: result.data.stock23_signal_size,
-                                stock24_signal_position: result.data.stock24_signal_position,
-                                stock24_signal_size: result.data.stock24_signal_size,
-                                stock25_signal_position: result.data.stock25_signal_position,
-                                stock25_signal_size: result.data.stock25_signal_size,
-                                stock26_signal_position: result.data.stock26_signal_position,
-                                stock26_signal_size: result.data.stock26_signal_size,
-                                stock27_signal_position: result.data.stock27_signal_position,
-                                stock27_signal_size: result.data.stock27_signal_size,
-                                stock28_signal_position: result.data.stock28_signal_position,
-                                stock28_signal_size: result.data.stock28_signal_size,
-                                stock29_signal_position: result.data.stock29_signal_position,
-                                stock29_signal_size: result.data.stock29_signal_size,
-                                stock30_signal_position: result.data.stock30_signal_position,
-                                stock30_signal_size: result.data.stock30_signal_size
-                            };
-                            signal_output.push(signal_output); 
-                        }         
-                    }
-                })
-            } 
+                        signal_output = {
+                            data_id: result.data.data_id,
+                            stock01_signal_position: result.data.stock01_signal_position,
+                            stock01_signal_size: result.data.stock01_signal_size,
+                            stock02_signal_position: result.data.stock02_signal_position,
+                            stock02_signal_size: result.data.stock02_signal_size,
+                            stock03_signal_position: result.data.stock03_signal_position,
+                            stock03_signal_size: result.data.stock03_signal_size,
+                            stock04_signal_position: result.data.stock04_signal_position,
+                            stock04_signal_size: result.data.stock04_signal_size,
+                            stock05_signal_position: result.data.stock05_signal_position,
+                            stock05_signal_size: result.data.stock05_signal_size,
+                            stock06_signal_position: result.data.stock06_signal_position,
+                            stock06_signal_size: result.data.stock06_signal_size,
+                            stock07_signal_position: result.data.stock07_signal_position,
+                            stock07_signal_size: result.data.stock07_signal_size,
+                            stock08_signal_position: result.data.stock08_signal_position,
+                            stock08_signal_size: result.data.stock08_signal_size,
+                            stock09_signal_position: result.data.stock09_signal_position,
+                            stock09_signal_size: result.data.stock09_signal_size,
+                            stock10_signal_position: result.data.stock10_signal_position,
+                            stock10_signal_size: result.data.stock10_signal_size,
+                            stock11_signal_position: result.data.stock11_signal_position,
+                            stock11_signal_size: result.data.stock11_signal_size,
+                            stock12_signal_position: result.data.stock12_signal_position,
+                            stock12_signal_size: result.data.stock12_signal_size,
+                            stock13_signal_position: result.data.stock13_signal_position,
+                            stock13_signal_size: result.data.stock13_signal_size,
+                            stock14_signal_position: result.data.stock14_signal_position,
+                            stock14_signal_size: result.data.stock14_signal_size,
+                            stock15_signal_position: result.data.stock15_signal_position,
+                            stock15_signal_size: result.data.stock15_signal_size,
+                            stock16_signal_position: result.data.stock16_signal_position,
+                            stock16_signal_size: result.data.stock16_signal_size,
+                            stock17_signal_position: result.data.stock17_signal_position,
+                            stock17_signal_size: result.data.stock17_signal_size,
+                            stock18_signal_position: result.data.stock18_signal_position,
+                            stock18_signal_size: result.data.stock18_signal_size,
+                            stock19_signal_position: result.data.stock19_signal_position,
+                            stock19_signal_size: result.data.stock19_signal_size,
+                            stock20_signal_position: result.data.stock20_signal_position,
+                            stock20_signal_size: result.data.stock20_signal_size,
+                            stock21_signal_position: result.data.stock21_signal_position,
+                            stock21_signal_size: result.data.stock21_signal_size,
+                            stock22_signal_position: result.data.stock22_signal_position,
+                            stock22_signal_size: result.data.stock22_signal_size,
+                            stock23_signal_position: result.data.stock23_signal_position,
+                            stock23_signal_size: result.data.stock23_signal_size,
+                            stock24_signal_position: result.data.stock24_signal_position,
+                            stock24_signal_size: result.data.stock24_signal_size,
+                            stock25_signal_position: result.data.stock25_signal_position,
+                            stock25_signal_size: result.data.stock25_signal_size,
+                            stock26_signal_position: result.data.stock26_signal_position,
+                            stock26_signal_size: result.data.stock26_signal_size,
+                            stock27_signal_position: result.data.stock27_signal_position,
+                            stock27_signal_size: result.data.stock27_signal_size,
+                            stock28_signal_position: result.data.stock28_signal_position,
+                            stock28_signal_size: result.data.stock28_signal_size,
+                            stock29_signal_position: result.data.stock29_signal_position,
+                            stock29_signal_size: result.data.stock29_signal_size,
+                            stock30_signal_position: result.data.stock30_signal_position,
+                            stock30_signal_size: result.data.stock30_signal_size
+                        };
+                        signal_output.push(signal_output); 
+                        post_process = "stop";  
+                    }         
+                }
+            })
+        } 
            
     // TRADE TRANSACTION 
     // ----------------------------------------------------------------------------------
@@ -248,20 +248,29 @@
         var commision = new Array();
         var initialMargin = new Array();
         
-            //calculated signal imr
-            let imr = 0;            
+            //calculated all stock signal initial_margin_required
+            let initial_margin_required = 0;            
             for (i=0, x=1; i<30 && x<61; i++, x+2) {
-                if(signal_output[x] > 0) {
-                    imr+= (parseInt(signal_output[x])*(stock_price[i]*(1+spread_slippage)))*regT_margin;
-                } else if(signal_output[x] < 0) {
-                    imr+= (parseInt(signal_output[x])*(stock_price[i]*(1-spread_slippage)))*regT_margin;
+                if(signal_output[x] == "Buy") {
+                    initial_margin_required+= (parseInt(signal_output[x])*(stock_price[i]*(1+spread_slippage)))*regT_margin;
+                } else if(signal_output[x] == "Sell") {
+                    initial_margin_required+= (parseInt(signal_output[x])*(stock_price[i]*(1-spread_slippage)))*regT_margin;
                 } else {
-                    imr+= 0;
+                    initial_margin_required+= 0;
                 } 
             } 
 
             //calculate filled percentarge   
-            //  if(imr)       
+            let filled_percentage;
+             if(initial_margin_required <= 0) {
+                filled_percentage = 1;
+             } else if(initial_margin_available <= 0) {
+                filled_percentage = 0;
+             } else if(initial_margin_available > initial_margin_required) {
+                filled_percentage = 1;
+             } else {
+                filled_percentage = initial_margin_available / initial_margin_required;
+             }
             
             
             //TRADE BASED SIGNAL RECEIVE---------------------------------------------------------------------         
@@ -279,7 +288,7 @@
                 tradeValue[i] = filledOrder[i] * filledPrice[i];
                 commision[i] = tradeValue[i] * commision;
                 initialMargin[i] = tradeValue[i] * 0.50;
-                } else if(signal_output[x] == "Hold"){
+                } else {
                 filledOrder[i]  = 0;
                 filledPrice[i]  = 0;
                 tradeValue[i] = 0;
@@ -288,9 +297,9 @@
                 }
             } 
             
-            total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current; });
-            total_commission = commision.reduce(function (accumulator, current) { return accumulator + current; });
-            total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current; });
+            // total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current; });
+            // total_commission = commision.reduce(function (accumulator, current) { return accumulator + current; });
+            // total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current; });
                 
             for (i=0;i<30;i++) {  
                 stock_position_size[i] += filledOrder[i];                  
