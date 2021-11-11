@@ -50,9 +50,10 @@
 
         while (data_id < test_data.length) { 
 
-            // data_id++;
+            data_id++;
 
-            date = test_data[data_id][0]; 
+            date = test_data[data_id-1][0].date; 
+            console.log(date);
             
             for (i=0;i<30;i++) {  
                 stock_price[i] = parseFloat(test_data[data_id][i+1]);                    
@@ -82,8 +83,6 @@
             initial_margin_reserved = market_value * 0.50;
 
             initial_margin_available = equity_with_loanValue - initial_margin_reserved;
-
-            data_id++
 
             //save data to array
 
