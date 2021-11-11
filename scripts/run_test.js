@@ -25,10 +25,34 @@
             $(':button').prop('disabled', true); //Disable All Button
         }
 
-        let io = 0;
-        while(io<7000) {
-            io++;
-            $('#data_id_input').html(data_id);
+        
+      
+        //variable
+        var data_id = 0;
+        var date;
+        var stock_price = new Array();
+        var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        var daily_Interest = 0;
+        var cash_balance = initial_equity;    
+        var market_value;
+        var equity_with_loanValue;
+        var maintenance_margin_reserved;
+        var maintenance_margin_available;
+        var initial_margin_reserved;
+        var initial_margin_available; 
+        var buying_power;
+        var data_input = new Array();
+        var signal_output = new Array();
+        var stock_buyHold = new Array();
+        var daily_stock_pretrade_position = new Array();
+        var daily_account_pretrade_position = new Array();
+        var daily_stock_transaction = new Array();
+        var daily_trade_summary = new Array();
+
+        let i = 0;
+        while(i<7000) {
+            i++;
+            $('#data_id_input').html(i);
             $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(2)));
             $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(0)));
             $('#stock2_price').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(2)));
@@ -90,7 +114,7 @@
             $('#stock30_price').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(2)));
             $('#stock30_position_size').html(Intl.NumberFormat().format(parseFloat(1000+i).toFixed(0)));
 
-            $('#data_id_input').html(data_id);
+            $('#data_id_input').html(i);
             $('#stock1_signal__position').html("BUY");
             $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(123+i).toFixed(0)));
             $('#stock2_signal__position').html("BUY");
@@ -152,28 +176,6 @@
             $('#stock30_signal__position').html("BUY");
             $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+i).toFixed(0)));
         }
-      
-        //variable
-        var data_id = 0;
-        var date;
-        var stock_price = new Array();
-        var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-        var daily_Interest = 0;
-        var cash_balance = initial_equity;    
-        var market_value;
-        var equity_with_loanValue;
-        var maintenance_margin_reserved;
-        var maintenance_margin_available;
-        var initial_margin_reserved;
-        var initial_margin_available; 
-        var buying_power;
-        var data_input = new Array();
-        var signal_output = new Array();
-        var stock_buyHold = new Array();
-        var daily_stock_pretrade_position = new Array();
-        var daily_account_pretrade_position = new Array();
-        var daily_stock_transaction = new Array();
-        var daily_trade_summary = new Array();
 
         while (data_id < test_data.length) { 
 
