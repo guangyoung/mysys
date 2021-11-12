@@ -171,7 +171,7 @@
               alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
               return false;           
             }
-            myvm=setTimeout(proses, 1/1000);
+            var myvm=setTimeout(proses, 1/1000);
           }
 
         
