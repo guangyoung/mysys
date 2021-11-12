@@ -164,7 +164,7 @@
             
         
             } else if(y==200) {
-                clearTimeout();
+                clearTimeout(proses);
             } else {
              
               clearTimeout();
