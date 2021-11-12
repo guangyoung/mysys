@@ -162,16 +162,16 @@
             $('#stock29_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
             $('#stock30_signal__position').html("BUY");
             $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0))); 
-            clearTimeout(proses);
+            clearTimeout(myvm);
             } else {             
-              clearTimeout(proses);
+              clearTimeout(myvm);
 
               $(':button').prop('disabled', false); //Disable All Button
           
               alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
               return false;           
             }
-            setTimeout(proses, 1/1000);
+            myvm=setTimeout(proses, 1/1000);
           }
 
         
