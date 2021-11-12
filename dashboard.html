@@ -848,40 +848,6 @@
 			</div>
 		</div>
     </div>
-
-    <!-- MODAL SET PERIOD OF TESTING -->
-    <!-- <div class="modal" id="period_testing_setting" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="period_testing_settingLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa fa-calendar"></i><strong style="margin-left: 10px">Set Period of Testing</strong></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h6 style="text-align: center; font-size: 14px; height: 20px">Period of Data</h6>
-                    <div class="row" style="margin: auto; width: 375px">
-                        <a style="font-size: 11px; color: #000000; font-weight: 500; margin-top: 6px; margin-left: 10px">Start date</a>
-                        <input id="data_startdate" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; color: #000000; font-weight: 500; margin-top: 5px; margin-left: 5px; padding: 0 3px; height: 18px; width: 110px; font-size: 10px">
-                        <a style="font-size: 11px; color: #000000; font-weight: 500; margin-top: 6px; margin-left: 30px">End date</a>
-                        <input id="data_enddate" type="text" class="form-text-sm" disabled value="No Data Available" style="text-align: center; color: #000000; font-weight: 500; margin-top: 5px; margin-left: 5px; padding: 0 3px; height: 18px; width: 110px; font-size: 10px">
-                    </div>
-                    <h6 style="text-align: center; font-size: 14px; margin-top: 25px">Period of Testing</h6>
-                    <div class="row" style="margin: auto; width: 375px">
-                        <a style="font-size: 11px; color: #000000; font-weight: 500; margin-top: 6px; margin-left: 10px">Start date</a>
-                        <input type="date" id="test_startdate" min="2001-01-01" max="2011-12-31" style="width: 110px; font-family: calibri; color: #555555; font-weight: 500; height: 18px; margin-left: 5px;  margin-top: 5px; font-size: 11px;">
-                        <a style="font-size: 11px; color: #000000; font-weight: 500; margin-top: 6px; margin-left: 30px">End date</a>
-                        <input type="date" id="test_enddate" min="2001-01-01" max="2011-12-31" style="width: 110px; font-family: calibri; color: #555555; font-weight: 500; height: 18px; margin-left: 5px;  margin-top: 5px; font-size: 11px;">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-sm" data-dismiss="modal" style="font-size: 14px; padding: 1px 15px; margin: auto; width: 100px; height: 26px;" onclick="run_test()">Submit</button>
-                </div>
-			</div>
-		</div>
-    </div> -->
-
     <!-- MODAL VIEW ALL POST -->
     <div class="modal" id="view_allpost" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="dataLabel" aria-hidden="true">
         <div class="modal-dialog" style="min-width: 1200px" role="document">
@@ -2089,7 +2055,7 @@
 
     <!-- MODAL TRADE DETAILS -->
     <div class="modal" id="trade_details" data-backdrop="static" data-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="trade_reportLabel" aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 900px" role="document">
+        <div class="modal-dialog" style="min-width: 850px" role="document">
             <div class="modal-content" style="background-color: #b6b6b6;">
                 <div class="modal-header">   
                     <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>STOCK POSITION AND TRADE DETAILS, 23/01/01</strong></a>                
@@ -2106,7 +2072,7 @@
                                     <th rowspan="2" style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">Stock Price</th>
                                     <th colspan="2" style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">Pre Trade Position</th>
                                     <th colspan="5" style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">Trade Transaction</th>
-                                    <th colspan="2" style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">Post Trade Position</th>
+                                    <!-- <th colspan="2" style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">Post Trade Position</th> -->
                                 </tr>
                                 <tr>
                                     <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">Position<br>Size</th>
@@ -2116,8 +2082,8 @@
                                     <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">Trade<br>Value</th>
                                     <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">Commission</th>
                                     <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;width: 110px">Initial<br>Margin</th>
-                                    <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">Position<br>Size</th>
-                                    <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">Market<br>Value</th>
+                                    <!-- <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">Position<br>Size</th>
+                                    <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">Market<br>Value</th> -->
                                 </tr>
                                 <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
                                     <th style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 5px; "></th>
@@ -2129,8 +2095,8 @@
                                     <th style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</th>
                                     <th style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">Market&nbsp;Value&nbsp;x<br>50 %</th>
                                     <th style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</th>
-                                    <th style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
-                                    <th style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge</th>
+                                    <!-- <th style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
+                                    <th style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge</th> -->
                                 </tr>
                             </thead>
                             <tbody style="font-size: 11px; font-family: calibri; color: #ebebeb">
@@ -2144,7 +2110,16 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                </tr>  
+                                <tr style>
+                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
@@ -2157,7 +2132,16 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                </tr>  
+                                <tr style>
+                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
@@ -2170,8 +2154,6 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
                                     <td style="text-align: center; padding: 1px 1px">Stock01</td>
@@ -2182,34 +2164,6 @@
                                     <td style="text-align: right; padding: 1px 1px">10,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                </tr>  
-                                <tr style>
-                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                </tr>  
-                                <tr style>
-                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>   
                                 <tr style>
@@ -2222,7 +2176,16 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                </tr>  
+                                <tr style>
+                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
@@ -2235,8 +2198,6 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
                                     <td style="text-align: center; padding: 1px 1px">Stock01</td>
@@ -2248,8 +2209,6 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
                                     <td style="text-align: center; padding: 1px 1px">Stock01</td>
@@ -2260,21 +2219,6 @@
                                     <td style="text-align: right; padding: 1px 1px">10,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                </tr>  
-                                <tr style>
-                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>   
                                 <tr style>
@@ -2287,7 +2231,16 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                </tr>  
+                                <tr style>
+                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
@@ -2300,8 +2253,6 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
                                     <td style="text-align: center; padding: 1px 1px">Stock01</td>
@@ -2313,8 +2264,6 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
                                     <td style="text-align: center; padding: 1px 1px">Stock01</td>
@@ -2325,21 +2274,6 @@
                                     <td style="text-align: right; padding: 1px 1px">10,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                </tr>  
-                                <tr style>
-                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>   
                                 <tr style>
@@ -2352,7 +2286,16 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                </tr>  
+                                <tr style>
+                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
@@ -2365,8 +2308,6 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
                                     <td style="text-align: center; padding: 1px 1px">Stock01</td>
@@ -2378,8 +2319,6 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
                                     <td style="text-align: center; padding: 1px 1px">Stock01</td>
@@ -2390,21 +2329,6 @@
                                     <td style="text-align: right; padding: 1px 1px">10,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                </tr>  
-                                <tr style>
-                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>   
                                 <tr style>
@@ -2417,7 +2341,16 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                </tr>  
+                                <tr style>
+                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
@@ -2430,8 +2363,6 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>  
                                 <tr style>
                                     <td style="text-align: center; padding: 1px 1px">Stock01</td>
@@ -2442,21 +2373,6 @@
                                     <td style="text-align: right; padding: 1px 1px">10,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                </tr>  
-                                <tr style>
-                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>                             
                             </tbody>
