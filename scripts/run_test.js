@@ -24,142 +24,16 @@
               }).then((result) => {
                 if(result.isConfirmed) {
                     $(':button').prop('disabled', true); //Disable All Button
-                    var y = 0;
-            setTimeout(async function(){ 
-                if (y<1000) {
-                    y++;
-                    $('#data_id_input').html(i);
-                    $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock2_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock2_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock3_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock3_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock4_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock4_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock5_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock5_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock6_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock6_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock7_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock7_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock8_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock8_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock9_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock9_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock10_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock10_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock11_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock11_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock12_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock12_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock13_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock13_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock14_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock14_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock15_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock15_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock16_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock16_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock17_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock17_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock18_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock18_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock19_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock19_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock20_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock20_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock21_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock21_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock22_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock22_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock23_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock23_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock24_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock24_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock25_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock25_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock26_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock26_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock27_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock27_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock28_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock28_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock29_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock29_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-                    $('#stock30_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
-                    $('#stock30_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
-        
-                    $('#data_id_input').html(y);
-                    $('#stock1_signal__position').html("BUY");
-                    $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock2_signal__position').html("BUY");
-                    $('#stock2_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock3_signal__position').html("BUY");
-                    $('#stock3_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock4_signal__position').html("BUY");
-                    $('#stock4_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock5_signal__position').html("BUY");
-                    $('#stock5_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock6_signal__position').html("BUY");
-                    $('#stock6_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock7_signal__position').html("BUY");
-                    $('#stock7_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock8_signal__position').html("BUY");
-                    $('#stock8_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock9_signal__position').html("BUY");
-                    $('#stock9_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock10_signal__position').html("BUY");
-                    $('#stock10_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock11_signal__position').html("BUY");
-                    $('#stock11_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock12_signal__position').html("BUY");
-                    $('#stock12_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock13_signal__position').html("BUY");
-                    $('#stock13_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock14_signal__position').html("BUY");
-                    $('#stock14_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock15_signal__position').html("BUY");
-                    $('#stock15_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock16_signal__position').html("BUY");
-                    $('#stock16_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock17_signal__position').html("BUY");
-                    $('#stock17_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock18_signal__position').html("BUY");
-                    $('#stock18_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock19_signal__position').html("BUY");
-                    $('#stock19_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock20_signal__position').html("BUY");
-                    $('#stock20_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock21_signal__position').html("BUY");
-                    $('#stock21_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock22_signal__position').html("BUY");
-                    $('#stock22_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock23_signal__position').html("BUY");
-                    $('#stock23_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock24_signal__position').html("BUY");
-                    $('#stock24_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock25_signal__position').html("BUY");
-                    $('#stock25_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock26_signal__position').html("BUY");
-                    $('#stock26_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock27_signal__position').html("BUY");
-                    $('#stock27_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock28_signal__position').html("BUY");
-                    $('#stock28_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock29_signal__position').html("BUY");
-                    $('#stock29_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-                    $('#stock30_signal__position').html("BUY");
-                    $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0))); 
+                    if (y<1000) {
+                        proses()  
                     } else {             
-                    //   clearTimeout();
-        
-                      $(':button').prop('disabled', false); //Disable All Button
-                  
-                      alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
-                      return false;           
-                    }
-            }, 1/1000);                    
+                            clearTimeout(t);
+              
+                            $(':button').prop('disabled', false); //Disable All Button
+                        
+                            alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
+                            return false;           
+                          }                  
                 }
             })           
         }
@@ -169,10 +43,137 @@
         
         
        
-        
-        function proses() {
+        var y = 0;
+        var t= setTimeout(async function proses() {
+            // let i=0;
             
-          }
+            y++;
+            $('#data_id_input').html(i);
+            $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock2_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock2_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock3_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock3_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock4_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock4_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock5_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock5_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock6_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock6_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock7_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock7_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock8_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock8_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock9_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock9_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock10_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock10_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock11_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock11_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock12_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock12_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock13_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock13_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock14_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock14_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock15_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock15_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock16_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock16_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock17_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock17_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock18_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock18_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock19_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock19_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock20_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock20_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock21_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock21_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock22_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock22_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock23_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock23_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock24_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock24_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock25_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock25_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock26_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock26_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock27_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock27_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock28_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock28_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock29_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock29_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+            $('#stock30_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
+            $('#stock30_position_size').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(0)));
+
+            $('#data_id_input').html(y);
+            $('#stock1_signal__position').html("BUY");
+            $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock2_signal__position').html("BUY");
+            $('#stock2_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock3_signal__position').html("BUY");
+            $('#stock3_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock4_signal__position').html("BUY");
+            $('#stock4_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock5_signal__position').html("BUY");
+            $('#stock5_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock6_signal__position').html("BUY");
+            $('#stock6_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock7_signal__position').html("BUY");
+            $('#stock7_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock8_signal__position').html("BUY");
+            $('#stock8_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock9_signal__position').html("BUY");
+            $('#stock9_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock10_signal__position').html("BUY");
+            $('#stock10_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock11_signal__position').html("BUY");
+            $('#stock11_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock12_signal__position').html("BUY");
+            $('#stock12_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock13_signal__position').html("BUY");
+            $('#stock13_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock14_signal__position').html("BUY");
+            $('#stock14_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock15_signal__position').html("BUY");
+            $('#stock15_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock16_signal__position').html("BUY");
+            $('#stock16_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock17_signal__position').html("BUY");
+            $('#stock17_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock18_signal__position').html("BUY");
+            $('#stock18_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock19_signal__position').html("BUY");
+            $('#stock19_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock20_signal__position').html("BUY");
+            $('#stock20_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock21_signal__position').html("BUY");
+            $('#stock21_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock22_signal__position').html("BUY");
+            $('#stock22_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock23_signal__position').html("BUY");
+            $('#stock23_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock24_signal__position').html("BUY");
+            $('#stock24_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock25_signal__position').html("BUY");
+            $('#stock25_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock26_signal__position').html("BUY");
+            $('#stock26_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock27_signal__position').html("BUY");
+            $('#stock27_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock28_signal__position').html("BUY");
+            $('#stock28_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock29_signal__position').html("BUY");
+            $('#stock29_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            $('#stock30_signal__position').html("BUY");
+            $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
+            
+            
+          },1/1000);
 
         
       
