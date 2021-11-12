@@ -160,25 +160,19 @@
             $('#stock29_signal__position').html("BUY");
             $('#stock29_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
             $('#stock30_signal__position').html("BUY");
-            $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
-            
-        
-            } else if(y==200) {
-                clearTimeout(proses);
+            $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));        
             } else {
              
               clearTimeout();
 
               $(':button').prop('disabled', false); //Disable All Button
           
-              alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
-              return false;
+            //   alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
+            //   return false;
 
            
             }
             setTimeout(proses, 1/1000);
-
-            
           } 
 
         
