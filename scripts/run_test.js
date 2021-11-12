@@ -36,7 +36,6 @@
        
         var y = 0;
         async function proses() {
-            // let i=0;
             if (y<1000) {
             y++;
             $('#data_id_input').html(i);
@@ -176,7 +175,11 @@
            
             }
             setTimeout(proses, 1/1000);
-          }
+
+            if(y==200) {
+                clearTimeout();
+            }
+          } 
 
         
       
