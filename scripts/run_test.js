@@ -24,17 +24,7 @@
               }).then((result) => {
                 if(result.isConfirmed) {
                     $(':button').prop('disabled', true); //Disable All Button
-                    proses()                    
-                }
-            })           
-        }
-    }
-
-        
-        
-        
-       
-        var y = 0;
+                    var y = 0;
         setTimeout(async function proses() {
             // let i=0;
             if (y<1000) {
@@ -171,7 +161,17 @@
               return false;           
             }
             
-          },1/1000);
+          },1/1000);                    
+                }
+            })           
+        }
+    }
+
+        
+        
+        
+       
+        
 
         
       
