@@ -13,11 +13,16 @@
             )
         return false;
         } else {
-            Swal.fire(
-                'Good job!',
-                'You clicked the button!',
-                'success'
-              )
+            Swal.fire({
+                title: 'Connect to Quantxi AI',
+                text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
+                imageUrl: 'https://www.fundcalibre.com/wp-content/uploads/2020/04/AdobeStock_323829966-956x377.jpeg',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+            })
+
+            proses();
         }
 
         
@@ -164,7 +169,7 @@
             setTimeout(proses, 1/1000);
           }
 
-        proses();
+        
       
         //variable
         // var data_id = 0;
