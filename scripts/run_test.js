@@ -21,12 +21,7 @@
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
               }).then((result) => {
-                if (result.isConfirmed) {
-                  Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                  )
+                if (result.isConfirmed) {                  
                     y=0;
                   Swal.fire({
                     title: 'Connect to Quantxi AI',
