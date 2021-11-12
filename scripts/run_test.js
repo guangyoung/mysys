@@ -166,7 +166,9 @@
         
             } else {
              
-                     
+              clearTimeout(mytm);
+
+            //   $(':button').prop('disabled', false); //Disable All Button
           
             //   alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
             //   return false;
@@ -174,18 +176,21 @@
               Swal.fire({
                 icon: 'success',
                 title: 'Proccess Done',
-                text: 'data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya',
+                text: 'Proses telah selesai',
+                // imageUrl: 'https://www.fundcalibre.com/wp-content/uploads/2020/04/AdobeStock_323829966-956x377.jpeg',
+                // imageWidth: 400,
+                // imageHeight: 200,
+                // imageAlt: 'Custom image',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Ok'
               }).then((result) => {
                 if(result.isConfirmed) {
                     $(':button').prop('disabled', false); //Disable All Button
-                    clearTimeout();       
                 }
             })
            
             }
-            setTimeout(proses, 1/1000);
+            mytm = setTimeout(proses, 1/1000);
           }
 
         
