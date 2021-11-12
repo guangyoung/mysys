@@ -162,23 +162,19 @@
             $('#stock30_signal__position').html("BUY");
             $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
             
-            setTimeout(proses, 1/1000);        
-            } else {
-             
+            setTimeout(proses, 1/1000); 
+
+            } else {             
               clearTimeout();
 
               $(':button').prop('disabled', false); //Disable All Button
           
-            //   alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
-            //   return false;
-            Swal.fire(
-                'No Test Data !',
-                'Please click Market Data and Create It',
-                'warning'
-            )
-           
-            }
-           
+              Swal.fire(
+                'Test Done',
+                'data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya',
+                'success'
+              )           
+            }           
           } 
 
         
