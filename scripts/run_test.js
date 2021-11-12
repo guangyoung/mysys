@@ -24,6 +24,7 @@
                 confirmButtonText: 'Ok'
               }).then((result) => {
                 if (result.isConfirmed) {
+                    $(':button').prop('disabled', true); //Disable All Button
                     proses()
                 }
               })           
@@ -32,7 +33,7 @@
 
         
         
-        // $(':button').prop('disabled', true); //Disable All Button
+        
        
         var y = 0;
         async function proses() {
