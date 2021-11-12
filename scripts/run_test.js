@@ -166,7 +166,7 @@
         
             } else {
              
-              clearTimeout();
+             
 
               $(':button').prop('disabled', false); //Disable All Button
           
@@ -178,6 +178,7 @@
                 'Yours Data have been proccessed !',
                 'success'
               )
+              clearTimeout();
             }
             setTimeout(proses, 1/1000);
           }
