@@ -27,7 +27,7 @@
                     'Your file has been deleted.',
                     'success'
                   )
-
+                    y=0;
                   Swal.fire({
                     title: 'Connect to Quantxi AI',
                     text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
