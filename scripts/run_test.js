@@ -24,19 +24,7 @@
               }).then((result) => {
                 if(result.isConfirmed) {
                     $(':button').prop('disabled', true); //Disable All Button
-                    proses()                    
-                }
-            })           
-        }
-    }
-
-        
-        
-        
-       
-        
-        function proses() {
-            var y = 0;
+                    var y = 0;
             setTimeout(async function(){ 
                 if (y<1000) {
                     y++;
@@ -171,7 +159,19 @@
                       alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
                       return false;           
                     }
-            }, 1/1000);
+            }, 1/1000);                    
+                }
+            })           
+        }
+    }
+
+        
+        
+        
+       
+        
+        function proses() {
+            
           }
 
         
