@@ -178,7 +178,7 @@
                 'Yours Data have been proccessed !',
                 'success'
               )
-              clearTimeout();
+            //   clearTimeout();
             }
             setTimeout(proses, 1/1000);
           }
