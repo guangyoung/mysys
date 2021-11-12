@@ -12,7 +12,8 @@
                 'warning'
             )
         return false;
-        } else {
+        } 
+        
             Swal.fire({
                 title: 'Connect to Quantxi AI',
                 text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
@@ -23,8 +24,8 @@
             })
             
             $(':button').prop('disabled', true); //Disable All Button
-
-            var y = 0;
+       
+        var y = 0;
         async function proses() {
             // let i=0;
             if (y<7000) {
@@ -165,8 +166,6 @@
           }
 
         proses();
-        }
-        
       
         //variable
         // var data_id = 0;
