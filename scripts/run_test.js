@@ -22,11 +22,11 @@
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Ok'
               }).then((result) => {
-                if (result.isConfirmed) {
+                if(result.isConfirmed) {
                     $(':button').prop('disabled', true); //Disable All Button
                     proses()                    
                 }
-              })           
+            })           
         }
     }
 
@@ -166,18 +166,23 @@
         
             } else {
              
-              clearTimeout();
-
-              $(':button').prop('disabled', false); //Disable All Button
+              clearTimeout();              
           
-              alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
-              return false;
-
-            //   Swal.fire(
-            //     'Good job!',
-            //     'Yours Data have been proccessed !',
-            //     'success'
-            //   )
+            //   alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
+            //   return false;
+              
+              Swal.fire({
+                icon: 'success',
+                title: 'Proccess Done',
+                text: 'data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok'
+              }).then((result) => {
+                if(result.isConfirmed) {
+                    $(':button').prop('disabled', false); //Disable All Button
+                }
+            })
+           
             }
             setTimeout(proses, 1/1000);
           }
