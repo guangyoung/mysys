@@ -163,6 +163,8 @@
             $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0)));
             
         
+            } else if(y==200) {
+                clearTimeout();
             } else {
              
               clearTimeout();
@@ -176,9 +178,7 @@
             }
             setTimeout(proses, 1/1000);
 
-            if(y==200) {
-                clearTimeout();
-            }
+            
           } 
 
         
