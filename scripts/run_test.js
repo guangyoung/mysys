@@ -3,33 +3,7 @@
 //...................................................................................
 //...................................................................................
  
-    async function run_test() {        
-        //-----------------------------------------------------------------------------------
-        if (test_data.length == 0) {
-            Swal.fire(
-                'No Test Data !',
-                'Please click Market Data and Create It',
-                'warning'
-            )
-        return false;
-        } else {
-            Swal.fire({
-                title: 'Connect to Quantxi AI',
-                text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
-                imageUrl: 'https://www.fundcalibre.com/wp-content/uploads/2020/04/AdobeStock_323829966-956x377.jpeg',
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: 'Custom image',
-            })
-
-            proses();
-        }
-
-        
-        
-        // $(':button').prop('disabled', true); //Disable All Button
-       
-        var y = 0;
+var y = 0;
         async function proses() {
             // let i=0;
             if (y<7000) {
@@ -167,7 +141,35 @@
               return false;
             }
             setTimeout(proses, 1/1000);
-          }
+          }    
+
+        async function run_test() {        
+        //-----------------------------------------------------------------------------------
+        if (test_data.length == 0) {
+            Swal.fire(
+                'No Test Data !',
+                'Please click Market Data and Create It',
+                'warning'
+            )
+        return false;
+        } else {
+            Swal.fire({
+                title: 'Connect to Quantxi AI',
+                text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
+                imageUrl: 'https://www.fundcalibre.com/wp-content/uploads/2020/04/AdobeStock_323829966-956x377.jpeg',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+            })
+
+            proses();
+        }
+
+        
+        
+        // $(':button').prop('disabled', true); //Disable All Button
+       
+        
 
         
       
