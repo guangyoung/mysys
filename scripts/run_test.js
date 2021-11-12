@@ -11,7 +11,7 @@
                 'warning'
             )
             return false;
-        } if (y==1000) {
+        } else if (y==1000) {
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -27,6 +27,22 @@
                     'Your file has been deleted.',
                     'success'
                   )
+
+                  Swal.fire({
+                    title: 'Connect to Quantxi AI',
+                    text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
+                    imageUrl: 'https://www.fundcalibre.com/wp-content/uploads/2020/04/AdobeStock_323829966-956x377.jpeg',
+                    imageWidth: 400,
+                    imageHeight: 200,
+                    imageAlt: 'Custom image',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Ok'
+                  }).then((result) => {
+                    if(result.isConfirmed) {
+                        $(':button').prop('disabled', true); //Disable All Button
+                        proses()                    
+                    }
+                })  
                 }
               })
         } else {
