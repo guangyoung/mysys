@@ -27,8 +27,7 @@
                 'Please click Market Data and Create It',
                 'warning'
             )
-
-            proses();
+            return proses();
         }
     }
 
