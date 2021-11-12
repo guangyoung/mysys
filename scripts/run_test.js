@@ -166,7 +166,7 @@
         
             } else {
              
-              clearTimeout();              
+                     
           
             //   alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
             //   return false;
@@ -180,6 +180,7 @@
               }).then((result) => {
                 if(result.isConfirmed) {
                     $(':button').prop('disabled', false); //Disable All Button
+                    clearTimeout();       
                 }
             })
            
