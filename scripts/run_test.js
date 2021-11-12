@@ -164,7 +164,7 @@
                     $('#stock30_signal__position').html("BUY");
                     $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(123+y).toFixed(0))); 
                     } else {             
-                      clearTimeout();
+                    //   clearTimeout();
         
                       $(':button').prop('disabled', false); //Disable All Button
                   
