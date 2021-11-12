@@ -3,15 +3,14 @@
 //...................................................................................
 //...................................................................................
  
-    async function run_test() {        
-        //-----------------------------------------------------------------------------------
+    async function run_test() { 
         if (test_data.length == 0) {
             Swal.fire(
                 'No Test Data !',
                 'Please click Market Data and Create It',
                 'warning'
             )
-        return false;
+            return false;
         } else {
             Swal.fire({
                 title: 'Connect to Quantxi AI',
@@ -26,6 +25,7 @@
                 if (result.isConfirmed) {
                     $(':button').prop('disabled', true); //Disable All Button
                     proses()
+                    $(':button').prop('disabled', false); //Disable All Button
                 }
               })           
         }
@@ -38,7 +38,7 @@
         var y = 0;
         async function proses() {
             // let i=0;
-            if (y<7000) {
+            if (y<100) {
             y++;
             $('#data_id_input').html(i);
             $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
