@@ -22,7 +22,11 @@
             //     imageAlt: 'Custom image',
             // })
 
-            alert(`data dimulai`);
+            Swal.fire(
+                'No Test Data !',
+                'Please click Market Data and Create It',
+                'warning'
+            )
 
             proses();
         }
