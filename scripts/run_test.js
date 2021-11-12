@@ -38,7 +38,7 @@
         var y = 0;
         async function proses() {
             // let i=0;
-            if (y<100) {
+            if (y<1000) {
             y++;
             $('#data_id_input').html(i);
             $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(1000+y).toFixed(2)));
