@@ -23,8 +23,8 @@
             })
             
             $(':button').prop('disabled', true); //Disable All Button
-        }
-        var y = 0;
+
+            var y = 0;
         async function proses() {
             // let i=0;
             if (y<7000) {
@@ -165,6 +165,8 @@
           }
 
         proses();
+        }
+        
       
         //variable
         // var data_id = 0;
