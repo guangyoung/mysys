@@ -166,19 +166,18 @@
         
             } else {
              
-             
+              clearTimeout();
 
               $(':button').prop('disabled', false); //Disable All Button
           
-            //   alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
-            //   return false;
+              alert(`data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya`);
+              return false;
 
-              Swal.fire(
-                'Good job!',
-                'Yours Data have been proccessed !',
-                'success'
-              )
-            //   clearTimeout();
+            //   Swal.fire(
+            //     'Good job!',
+            //     'Yours Data have been proccessed !',
+            //     'success'
+            //   )
             }
             setTimeout(proses, 1/1000);
           }
