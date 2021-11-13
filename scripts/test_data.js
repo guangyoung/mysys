@@ -92,7 +92,7 @@
                   'Please choose another ticker',
                   'warning'
                 )
-                // return false;
+                return false;
               }
             }
           }
