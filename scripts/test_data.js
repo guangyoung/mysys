@@ -98,7 +98,6 @@
           }
         }
         $(':button').prop('disabled', true);    
-        // var t = 0;
         for (t=0;t < ticker_list.length && t < (30 - portfolio_data.length);t++) {          
           let tickere = ticker_list[t].split(', ')[0];
           let as_data_date = new Array();
@@ -140,8 +139,7 @@
                 }
           });
         }
-        $(':button').prop('disabled', false);     
-                
+        $(':button').prop('disabled', false);
         $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
         $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
         $("#startdate_btn").html(`<span class="Sdate">Select Start Year</span>`);
@@ -173,7 +171,6 @@
         return false;
       } else {
           var tickers_random = eval(exchange_choose_current_random+'_'+startdate_select_random);
-
           for (i=0;i<tickers_random.length && i<(30-portfolio_data.length);i++) {
               let tick_no = Math.floor(Math.random() * tickers_random.length);
               ticker_list.push(tickers_random[tick_no]);
@@ -183,7 +180,6 @@
           console.log(ticker_list); 
 
           $(':button').prop('disabled', true); 
-          // var t = 0;
           for (t=0;t < ticker_list.length;t++) {
             let tickere = ticker_list[t].split(', ')[0];
             let as_data_date = new Array();
@@ -225,14 +221,13 @@
                 }
               });        
           } 
-          $(':button').prop('disabled', false);    
-          
+          $(':button').prop('disabled', false);  
           $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
           $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
           $("#startdate_btn").html(`<span class="Sdate">Select Starting Year of Test</span>`);
           $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
           $("#startdate_btn_random").html(`<span class="Sdate_random">Select Starting Year of Test</span>`);
-          // ticker_list = [];
+          ticker_list = [];
           $('#ulul').empty();
           exchange_choose_current_random="";
           exchange_choose_previous_random ="";
@@ -270,7 +265,7 @@
       $("#port_data_tbl>tbody").empty();
       $("#pagination-demo").twbsPagination("destroy");
       $("#period_data").val("No Data Available");
-      // $('#ulul').empty();
+      $('#ulul').empty();
 
       Swal.fire({
         position: 'top-end',
@@ -334,8 +329,7 @@
         
         $("#period_data").val(test_data[0][0].date+' - '+test_data[test_data.length-1][0].date);
         $("#data_startdate").val(test_data[0][0].date);
-        $("#data_enddate").val(test_data[test_data.length-1][0].date);
-       
+        $("#data_enddate").val(test_data[test_data.length-1][0].date);       
         $('#stock1_ticker').html(portfolio_data[0].ticker);
         $('#stock2_ticker').html(portfolio_data[1].ticker);
         $('#stock3_ticker').html(portfolio_data[2].ticker);
