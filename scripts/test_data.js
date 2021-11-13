@@ -221,8 +221,8 @@
                       <td class="text-center">`+al+`</td>
                       <td class="text-center">`+tickere+`</td>
                       <td class="text-center">`+ex_choo+`</td>
-                      <td class="text-center">`+as_data_date[0]+ `-` +as_data_date[as_data_date.length-1]+`</td>
-                      
+                      <td class="text-center">`+as_data_date[0]+`</td>
+                      <td class="text-center">`+as_data_date[as_data_date.length-1]+`</td>
                   </tr>`;
                   $("#table_assets > tbody").append(portfolio);
                 }
