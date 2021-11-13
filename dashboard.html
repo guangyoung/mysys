@@ -2731,10 +2731,14 @@
         $("#x_apiKey").html(api_key);
 
         var ticker_list = new Array();
-        var exchange_choose_current;
-        var startdate_select;
-        var startdate_select_previous;
-        var exchange_choose_previous;
+        var exchange_choose_current_manual;
+        var exchange_choose_previous_manual;
+        var startdate_select_manual;
+        var startdate_select_previous_manual;
+        var exchange_choose_current_random;
+        var exchange_choose_previous_random;
+        var startdate_select_random;
+        var startdate_select_previous_random;        
 
         // $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
         // let container_exchange = $(this).closest("#tickers_exchange");
@@ -2745,9 +2749,9 @@
 
         $("#select_startdate").on('click', '.dropdown-item', function (event) {
         let container_exchange = $(this).closest("#select_startdate");
-        startdate_select = $(event.currentTarget)[0].id;
+        startdate_select_manual = $(event.currentTarget)[0].id;
         container_exchange.find('.Sdate').text( $(event.currentTarget)[0].innerText || 'Select Start Date');
-        console.log(startdate_select);
+        console.log(startdate_select_manual);
         });
 
         // $("#tickers_exchange_select_random").on('click', '.dropdown-item', function (event) {
@@ -2759,9 +2763,9 @@
 
         $("#select_startdate_select_random").on('click', '.dropdown-item', function (event) {
         let container_exchange = $(this).closest("#select_startdate_select_random");
-        startdate_select = $(event.currentTarget)[0].id;
+        startdate_select_random = $(event.currentTarget)[0].id;
         container_exchange.find('.Sdate_random').text( $(event.currentTarget)[0].innerText || 'Select Start Date');
-        console.log(startdate_select);
+        console.log(startdate_select_random);
         });
 
         $("#tickers_list").on('click', '.dropdown-menu li', function (event) {
