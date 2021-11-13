@@ -267,7 +267,7 @@
       $("#table_assets > tbody").empty();
       $("#port_data_tbl>tbody").empty();
       $("#pagination-demo").twbsPagination("destroy");
-      $("#period_data").val("");
+      $("#period_data").val("No Data Available");
       // $('#ulul').empty();
 
       Swal.fire({
