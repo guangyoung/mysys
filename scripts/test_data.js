@@ -230,11 +230,11 @@
           } 
           $(':button').prop('disabled', false);    
           
-          $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
-          $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
-          $("#startdate_btn").html(`<span class="Sdate">Select Start Year</span>`);
-          $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
-          $("#startdate_btn_random").html(`<span class="Sdate_random">Select Start Year</span>`);
+          // $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
+          // $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
+          // $("#startdate_btn").html(`<span class="Sdate">Select Start Year</span>`);
+          // $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
+          // $("#startdate_btn_random").html(`<span class="Sdate_random">Select Start Year</span>`);
           // ticker_list = [];
           exchange_choose_current="";
           exchange_choose_previous ="";
