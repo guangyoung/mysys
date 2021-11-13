@@ -154,7 +154,7 @@
                     </div>
                 </div> 
                 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trade_performance" id="trade_performance_button"  style="margin-left: 0px; margin-top: 8px; width: 100%; padding: 0px 5px; font-size: 12px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>PERFORMANCE COMPARISON DETAILS</strong></button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trade_performance" id="trade_performance_button"  style="margin-left: 0px; margin-top: 8px; width: 100%; padding: 0px 5px; font-size: 12px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>PERFORMANCE COMPARISON CHART</strong></button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#test_statistic" id="test_statistic_button"  style="margin-top: 8px; margin-left: 0px; width: 100%; padding: 0px 5px; font-size: 12px"><i class="fa fa-file-text-o" style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>TEST HISTORY & STATISTIC</strong></button>
                 
             </div>
@@ -590,7 +590,7 @@
                                         <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn" type="button" data-toggle="dropdown" onclick = "tickers_exchange_btn()" style="margin-top: 5px; font-size: 13px; width: 370px; padding: 1px 5px" aria-haspopup="true" aria-expanded="false">
                                             <span class="Xchange">Select Exchange</span>
                                         </button>
-                                        <div class="dropdown-menu" id="ex_dd" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 400px; width: 370px; overflow: auto;">
+                                        <div class="dropdown-menu" id="ex_dd" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 350px; width: 370px; overflow: auto;">
                                             <a class="dropdown-item" href="#" style="margin-top: -8px; color: #ffff" id="NASDAQ">NASDAQ - USA</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="euronext_amsterdam">Euronext Amsterdam - Netherlands</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="american_stock_exchange">American Stock Exchange - USA</a>
@@ -658,14 +658,30 @@
                                     <div class="row" style="margin-top: 2px" id="tt_dd">
                                         <div class="dropdown" id="select_startdate">
                                             <button class="btn btn-secondary btn-sm dropdown-toggle" id="startdate_btn" type="button" data-toggle="dropdown" style="margin-left: 15px; font-size: 13px; width: 170px; padding: 1px 5px">
-                                                <span class="Sdate">Select Start Date</span>
+                                                <span class="Sdate">Select Start Year</span>
                                             </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 160px; width: 170px; overflow: auto;">
-                                                <a class="dropdown-item" href="#" style="color: #ffff" id="under_1990">Under 1990</a>
-                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1991_1995">1991 - 1995</a>
-                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1995_2000">1996 - 2000</a>
-                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2001_2005">2001 - 2005</a>
-                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2006_2010">2006 - 2010</a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 322px; width: 170px; overflow: auto;">
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1990">1990</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1991">1991</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1992">1992</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1993">1993</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1994">1994</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1995">1995</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1996">1996</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1997">1997</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1998">1998</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1999">1999</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2000">2000</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2001">2001</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2002">2002</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2003">2003</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2004">2004</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2005">2005</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2006">2006</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2007">2007</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2008">2008</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2009">2009</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2010">2010</a>
                                             </div>
                                         </div>  
                                         <div class="dropdown" id="tickers_list">
@@ -673,7 +689,7 @@
                                                 Select Tickers (<span class="quantity">0</span>)
                                             </button>
                                             <div id="div_ulul">
-                                                <ul id="ulul" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 13px; height: 410px; width: 197px; overflow: auto;">
+                                                <ul id="ulul" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; color: #ffff; font-size: 13px; height: 322px; width: 197px; overflow: auto;">
 
                                                 </ul>
                                             </div>
@@ -754,14 +770,30 @@
                                         </div>
                                         <div class="dropdown" id="select_startdate_select_random">
                                             <button class="btn btn-secondary btn-sm dropdown-toggle" id="startdate_btn_random"  type="button" data-toggle="dropdown" style="margin-top: 4px; font-size: 13px; width: 370px; padding: 1px 5px">
-                                                <span class="Sdate_random">Select Start Date</span>
+                                                <span class="Sdate_random">Select Start Year</span>
                                             </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 160px; width: 370px; overflow: auto;">
-                                                <a class="dropdown-item" href="#" style="color: #ffff" id ="under_1990">Under 1990</a>
-                                                <a class="dropdown-item" href="#" style="color: #ffff" id ="1991_1995">1991 - 1995</a>
-                                                <a class="dropdown-item" href="#" style="color: #ffff" id ="1995_2000">1996 - 2000</a>
-                                                <a class="dropdown-item" href="#" style="color: #ffff" id ="2001_2005">2001 - 2005</a>
-                                                <a class="dropdown-item" href="#" style="color: #ffff" id ="2006_2010">2006 - 2010</a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #494949; text-align: center; font-size: 13px; height: 322px; width: 370px; overflow: auto;">
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1990">1990</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1991">1991</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1992">1992</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1993">1993</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1994">1994</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1995">1995</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1996">1996</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1997">1997</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1998">1998</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="1999">1999</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2000">2000</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2001">2001</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2002">2002</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2003">2003</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2004">2004</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2005">2005</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2006">2006</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2007">2007</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2008">2008</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2009">2009</a>
+                                                <a class="dropdown-item" href="#" style="color: #ffff" id="2010">2010</a>
                                             </div>
                                         </div> 
                                         <button type="submit" class="btn btn-primary btn-sm" style="font-size: 13px; padding: 0px 0px; margin-left: 0px; margin-top: 5px; height: 25px; width: 370px" onclick="add_data_random()">Add Stock</button>
@@ -776,8 +808,8 @@
                                                 <th style="position: sticky; top: 0px; background-color: #ffffff; width: 1%; padding: 0 5px; text-align: center">#Stock</th>
                                                 <th style="position: sticky; top: 0px; background-color: #ffffff; width: 14%; padding: 0 5x; text-align: center">Ticker</th>
                                                 <th style="position: sticky; top: 0px; background-color: #ffffff; width: 36%; padding: 0 5px; text-align: center">Exchange</th>
-                                                <th style="position: sticky; top: 0px; background-color: #ffffff; width: 10%; padding: 0 5px; text-align: center">Start&nbsp;Date</th>
-                                                <!-- <th style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">End&nbsp;Date</th> -->
+                                                <th style="position: sticky; top: 0px; background-color: #ffffff; width: 10%; padding: 0 5px; text-align: center">Data&nbsp;Start&nbsp;Date</th>
+                                                <th style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">Data&nbsp;End&nbsp;Date</th>
                                             </tr>
                                         </thead>
                                         <tbody style="font-size: 11.5px; font-family: calibri">
@@ -1433,7 +1465,7 @@
         <div class="modal-dialog" style="min-width: 1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>TRADE PERFOMANCE COMPARISON DETAILS</strong></a>
+                    <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>TRADE PERFOMANCE COMPARISON CHART</strong></a>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
