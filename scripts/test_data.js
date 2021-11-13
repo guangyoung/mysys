@@ -221,7 +221,7 @@
                       <td class="text-center">`+al+`</td>
                       <td class="text-center">`+tickere+`</td>
                       <td class="text-center">`+ex_choo+`</td>
-                      <td class="text-center">`+as_data_date[0]+`-`+as_data_date[as_data_date.length-1]+`</td>
+                      <td class="text-center">`+as_data_date[0]+` - `+as_data_date[as_data_date.length-1]+`</td>
                       
                   </tr>`;
                   $("#table_assets > tbody").append(portfolio);
@@ -230,11 +230,11 @@
           } 
           $(':button').prop('disabled', false);    
           
-          // $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
-          // $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
-          // $("#startdate_btn").html(`<span class="Sdate">Select Start Year</span>`);
-          // $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
-          // $("#startdate_btn_random").html(`<span class="Sdate_random">Select Start Year</span>`);
+          $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
+          $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
+          $("#startdate_btn").html(`<span class="Sdate">Select Start Year</span>`);
+          $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
+          $("#startdate_btn_random").html(`<span class="Sdate_random">Select Start Year</span>`);
           // ticker_list = [];
           exchange_choose_current="";
           exchange_choose_previous ="";
