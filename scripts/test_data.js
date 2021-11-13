@@ -72,14 +72,14 @@
           'Please click reset stock to start new',
           'warning'
         )
-        // return false;
+        return false;
       } else if(ticker_list.length==0) {
         Swal.fire(
           'No Ticker Selected !',
           'Please select your tickers to test',
           'warning'
         )
-        // return false;
+        return false;
       } else {
         if(portfolio_data.length>0) {
           for (i = 0; i<ticker_list.length; i++) {    //?????
