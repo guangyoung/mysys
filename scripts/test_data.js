@@ -232,9 +232,9 @@
           
           $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
           $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
-          $("#startdate_btn").html(`<span class="Sdate">Select Start Year</span>`);
+          $("#startdate_btn").html(`<span class="Sdate">Select Starting Year of Test</span>`);
           $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
-          $("#startdate_btn_random").html(`<span class="Sdate_random">Select The Starting Year of The Test Period</span>`);
+          $("#startdate_btn_random").html(`<span class="Sdate_random">Select Starting Year of Test</span>`);
           // ticker_list = [];
           exchange_choose_current="";
           exchange_choose_previous ="";
@@ -254,7 +254,7 @@
     function reset_stock() {
       $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
       $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
-      $("#startdate_btn").html(`<span class="Sdate">Select Start Year</span>`);
+      $("#startdate_btn").html(`<span class="Sdate">Select Starting Year of Test</span>`);
       $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
       $("#startdate_btn_random").html(`<span class="Sdate_random">Select The Starting Year of The Test Period</span>`);
       ticker_list = [];
