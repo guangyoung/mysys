@@ -1,11 +1,4 @@
-//setting
-var initialequity = 1000000;
-var bidaskspread = 0.01;
-var commisionshare = 0.01;
-var interestrate = 0.02;
 
-//data
-// var stock_data = new Array(); 
 function autorun() {     
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
@@ -60,3 +53,4 @@ function autorun() {
         }
     });   
 }
+

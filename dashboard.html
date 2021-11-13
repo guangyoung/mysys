@@ -2738,14 +2738,7 @@
         var exchange_choose_current_random;
         var exchange_choose_previous_random;
         var startdate_select_random;
-        var startdate_select_previous_random;        
-
-        // $("#tickers_exchange").on('click', '.dropdown-item', function (event) {
-        // let container_exchange = $(this).closest("#tickers_exchange");
-        // exchange_choose_current = $(event.currentTarget)[0].id;
-        // container_exchange.find('.Xchange').text( $(event.currentTarget)[0].innerText || 'Select Exchange');
-        // console.log(exchange_choose_current);
-        // });
+        var startdate_select_previous_random;
 
         $("#select_startdate").on('click', '.dropdown-item', function (event) {
         let container_exchange = $(this).closest("#select_startdate");
@@ -2753,13 +2746,6 @@
         container_exchange.find('.Sdate').text( $(event.currentTarget)[0].innerText || 'Select Start Date');
         console.log(startdate_select_manual);
         });
-
-        // $("#tickers_exchange_select_random").on('click', '.dropdown-item', function (event) {
-        // let container_exchange = $(this).closest("#tickers_exchange_select_random");
-        // exchange_choose_current = $(event.currentTarget)[0].id;
-        // container_exchange.find('.Xchange_random').text( $(event.currentTarget)[0].innerText || 'Select Exchange');
-        // console.log(exchange_choose_current);
-        // });
 
         $("#select_startdate_select_random").on('click', '.dropdown-item', function (event) {
         let container_exchange = $(this).closest("#select_startdate_select_random");

@@ -10,31 +10,27 @@
     function tickers_list_btn () {
       if(!exchange_choose_current_manual || !startdate_select_manual) {
         Swal.fire(
-          'No Exchange and Start Date Selected !',
+          'No Exchange and Start Date Selected !!',
           'Please select your exchange and startdate before',
           'warning'
         )
-        $('#ulul').empty();
-        return false;
       } else if (exchange_choose_current_manual !== exchange_choose_previous_manual || startdate_select_manual !== startdate_select_previous_manual) {
-        console.log(exchange_choose_current_manual);
-        console.log(startdate_select_manual);
-        ticker_list = [];    
         $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
         exchange_choose_previous_manual = exchange_choose_current_manual;
         startdate_select_previous_manual = startdate_select_manual;
+        ticker_list = [];
         $('#ulul').empty();
         var tickers = eval(exchange_choose_current_manual+'_'+startdate_select_manual);
         for (i=0;i<tickers.length;i++) {
-        var newLi = document.createElement('li');
-        var cb = document.createElement( "input" );
-        cb.type = "checkbox";
-        cb.style.marginLeft = '15px';
-        cb.style.marginRight = '5px';
-        newLi.appendChild(cb);
-        var text = document.createTextNode(tickers[i]);
-        newLi.appendChild(text);
-        document.getElementById("ulul").appendChild(newLi);
+          var newLi = document.createElement('li');
+          var cb = document.createElement("input");
+          cb.type = "checkbox";
+          cb.style.marginLeft = '15px';
+          cb.style.marginRight = '5px';
+          newLi.appendChild(cb);
+          var text = document.createTextNode(tickers[i]);
+          newLi.appendChild(text);
+          document.getElementById("ulul").appendChild(newLi);
         }
       } else {
         return false;
@@ -76,14 +72,14 @@
           'Please click reset stock to start new',
           'warning'
         )
-        return false;
+        // return false;
       } else if(ticker_list.length==0) {
         Swal.fire(
           'No Ticker Selected !',
           'Please select your tickers to test',
           'warning'
         )
-        return false;
+        // return false;
       } else {
         if(portfolio_data.length>0) {
           for (i = 0; i<ticker_list.length; i++) {    //?????
@@ -96,7 +92,7 @@
                   'Please choose another ticker',
                   'warning'
                 )
-                return false;
+                // return false;
               }
             }
           }
@@ -151,7 +147,8 @@
         $("#startdate_btn").html(`<span class="Sdate">Select Start Year</span>`);
         $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
         $("#startdate_btn_random").html(`<span class="Sdate_random">Select Start Year</span>`);
-        // ticker_list = [];
+        ticker_list = [];
+        $('#ulul').empty();
         exchange_choose_current_manual="";
         exchange_choose_previous_manual ="";
         startdate_select_manual ="";
@@ -236,6 +233,7 @@
           $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
           $("#startdate_btn_random").html(`<span class="Sdate_random">Select Starting Year of Test</span>`);
           // ticker_list = [];
+          $('#ulul').empty();
           exchange_choose_current_random="";
           exchange_choose_previous_random ="";
           startdate_select_random ="";
