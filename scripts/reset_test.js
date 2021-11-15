@@ -52,7 +52,7 @@ function autorun() {
                                       startdate: sd,                                        
                                       data: JSON.stringify(dat)
                                   } 
-                                  console.log(historical_data);
+                                  console.log(dat);
                                   // $.ajax({
                                   //     type: "POST",
                                   //     url: "https://api.quantxi.com/add_data",
