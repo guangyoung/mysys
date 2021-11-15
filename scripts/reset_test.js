@@ -4,6 +4,22 @@
 //...................................................................................
 
 async function reset_test() {
+  var x = 1;
+  var y = 2;
+  var signal_output_arr = new Array();
+  var signal_output = {
+    data_id: 2,
+    stock01_signal_position: "BUY",
+    signalSize_stock1: 100,
+    stock02_signal_position: "SELL",
+    signalSize_stock2: 200
+};
+signal_output_arr.push(signal_output);//save data to array signal_output_history 
+console.log(eval(`signal_output.signalSize_stock`+x));
+console.log(eval(`signal_output.signalSize_stock`+y));
+ 
+autorun();
+return false;
    await $.ajax({
      type: "DELETE",
      url: "https://api.quantxi.com/reset?api_key="+localStorage.getItem("apiKey"),    
