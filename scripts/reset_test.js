@@ -19,6 +19,17 @@ console.log(eval(`signal_output.signalSize_stock`+x));
 console.log(eval(`signal_output.signalSize_stock`+y));
  
 // autorun();
+
+function downloadableCSV(rows) {
+  var content = "data:text/csv;charset=utf-8,";
+
+  rows.forEach(function(row, index) {
+    content += row.join(",") + "\n";
+  });
+
+  return encodeURI(content);
+}
+
 window.open(downloadableCSV(test_data));
 
 function autorun() {     
