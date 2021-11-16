@@ -22,10 +22,15 @@ console.log(eval(`signal_output.signalSize_stock`+y));
 
 // let csvContent = "data:text/csv;charset=utf-8,";
 
-let csvContent = "data:text/csv;charset=utf-8," 
-    + test_data.map(e => e.join(",")).join("\n");
+// let csvContent = "data:text/csv;charset=utf-8," 
+//     + test_data.map(e => e.join(",")).join("\n");
+    var csv = test_data.map(function(d){
+      return JSON.stringify(d);
+   })
+   .join('\n') 
+   .replace(/(^\[)|(\]$)/mg, '');
 
-    var encodedUri = encodeURI(csvContent);
+    var encodedUri = encodeURI(csv);
     var link = document.createElement("a");
     link.setAttribute("href", encodedUri);
     link.setAttribute("download", "my_data.csv");
