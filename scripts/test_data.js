@@ -313,9 +313,9 @@
           for (y=0; y<30; y++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
             let id = portfolio_data[y].data.date.indexOf(dtt, idx[y]);
             if(id == -1) {//jika idx tidak ditemukan
-              as_arr.push({ticker: ticker_list[y].split(', ')[0], price: test_data[test_data.length-1][y+1].price}); //masukkan harga sebelumnya
+              as_arr.push({ticker: ticker_list[y], price: test_data[test_data.length-1][y+1].price}); //masukkan harga sebelumnya
             } else {
-              as_arr.push({ticker: ticker_list[y].split(', ')[0], price: portfolio_data[y].data.price[id]}); //jika idx ketemu masukkan harga berdasarkan idx
+              as_arr.push({ticker: ticker_list[y], price: portfolio_data[y].data.price[id]}); //jika idx ketemu masukkan harga berdasarkan idx
               idx[y] = id+1;
             }        
           }          
