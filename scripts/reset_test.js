@@ -26,23 +26,11 @@ console.log(eval(`signal_output.signalSize_stock`+y));
   //     return;
   // }
 
-  var csvContent = "data:text/csv;charset=utf-8,";
-
-  // headers
-  csvContent += objectToCSVRow(Object.keys(test_data[0]));
-
-  test_data.forEach(function(item){
-      csvContent += objectToCSVRow(item);
-  }); 
-
-  var encodedUri = encodeURI(csvContent);
-  var link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", "customers.csv");
-  document.body.appendChild(link); // Required for FF
-  link.click();
-  document.body.removeChild(link); 
-
+  let csvContent = "data:text/csv;charset=utf-8," 
+    + test_data.map(e => e.join(",")).join("\n");
+  
+var encodedUri = encodeURI(csvContent);
+window.open(encodedUri);
 
 function autorun() {     
   Papa.parse("dataset/yahoo_tickers_list.csv", {
