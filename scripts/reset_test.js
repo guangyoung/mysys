@@ -22,15 +22,16 @@ console.log(eval(`signal_output.signalSize_stock`+y));
 
 
 
-  // if (!test_data.length) {
-  //     return;
-  // }
-
   let csvContent = "data:text/csv;charset=utf-8," 
     + test_data.map(e => e.join(",")).join("\n");
   
 var encodedUri = encodeURI(csvContent);
-window.open(encodedUri);
+var link = document.createElement("a");
+link.setAttribute("href", encodedUri);
+link.setAttribute("download", "my_data.csv");
+document.body.appendChild(link); // Required for FF
+
+link.click(); // This will download the data file named "my_data.csv".
 
 function autorun() {     
   Papa.parse("dataset/yahoo_tickers_list.csv", {
