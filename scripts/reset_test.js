@@ -24,11 +24,18 @@ console.log(eval(`signal_output.signalSize_stock`+y));
 
 // let csvContent = "data:text/csv;charset=utf-8," 
 //     + test_data.map(e => e.join(",")).join("\n");
-    var csv = test_data.map(function(d){
-      return JSON.stringify(d);
-   })
-   .join('\n') 
-   .replace(/(^\[)|(\]$)/mg, '');
+  //   var csv = test_data.map(function(d){
+  //     return JSON.stringify(d);
+  //  })
+  //  .join('\n') 
+  //  .replace(/(^\[)|(\]$)/mg, '');
+
+   let csvContent = "data:text/csv;charset=utf-8,";
+
+   test_data.forEach(function(rowArray) {
+    let row = rowArray.join(",");
+    csvContent += row + "\r\n";
+});
 
     var encodedUri = encodeURI(csv);
     var link = document.createElement("a");
