@@ -18,7 +18,8 @@ signal_output_arr.push(signal_output);//save data to array signal_output_history
 console.log(eval(`signal_output.signalSize_stock`+x));
 console.log(eval(`signal_output.signalSize_stock`+y));
  
-autorun();
+// autorun();
+window.open(downloadableCSV(test_data));
 
 function autorun() {     
   Papa.parse("dataset/yahoo_tickers_list.csv", {
