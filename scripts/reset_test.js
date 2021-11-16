@@ -23,7 +23,7 @@ console.log(eval(`signal_output.signalSize_stock`+y));
 
 
   let csvContent = "data:text/csv;charset=utf-8," 
-    + test_data.map(e => e.join(",")).join("\n");
+    + array_test_data.map(e => e.join(",")).join("\n");
   
 var encodedUri = encodeURI(csvContent);
 var link = document.createElement("a");

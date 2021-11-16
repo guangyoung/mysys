@@ -6,6 +6,7 @@
     //Global Variables    
     var portfolio_data = new Array();    
     var test_data = new Array();
+    var array_test_data = new Array();
 
     function tickers_list_btn () {
       if(!exchange_choose_current_manual || !startdate_select_manual) {
@@ -308,18 +309,22 @@
           }  
         while (startDate <= endDate) {
           var as_arr = new Array();
+          var as_arr2 = new Array();
           dtt = appendLeadingZeroes(startDate.getMonth()+1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
           as_arr.push({date:dtt});              
           for (y=0; y<30; y++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
             let id = portfolio_data[y].data.date.indexOf(dtt, idx[y]);
             if(id == -1) {//jika idx tidak ditemukan
               as_arr.push({ticker: portfolio_data[y].ticker, price: test_data[test_data.length-1][y+1].price}); //masukkan harga sebelumnya
+              as_arr2.push(test_data[test_data.length-1][y+1].price);
             } else {
               as_arr.push({ticker: portfolio_data[y].ticker, price: portfolio_data[y].data.price[id]}); //jika idx ketemu masukkan harga berdasarkan idx
-              idx[y] = id+1;
+              as_arr2.push(portfolio_data[y].data.price[id]);
+              idx[y] = id+1;              
             }        
           }          
           test_data.push(as_arr);
+          array_test_data.push(as_arr2);
           if (startDate.getDay()==5) {
               startDate = new Date(startDate.setDate(startDate.getDate() + 3));
           } else {
