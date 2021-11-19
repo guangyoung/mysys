@@ -554,6 +554,9 @@
             var tradeValue = new Array();
             var commission = new Array();
             var initialMargin = new Array();
+            var total_trade_value;
+            var total_commission;
+            var total_initial_margin;
             
             //calculated total initial_margin_required of all stock
             let initial_margin_required = 0;            
