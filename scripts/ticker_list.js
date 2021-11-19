@@ -2,7 +2,7 @@
     var exchange_list =
     ["EURONEXT","LSEe","NASDAQ","NYSE","SEHK","SSE","SZSE","TSX"];
 
-    var mix_test_1990 = 
+    var NASDAQ_1991 = 
     ["NEON","HLIT","CWCO","GIII","CASH","IIIN","MATW","JCS","GABC","APEX","FAST","MU","INCY","NUAN","NSSC","NNBR","GT","KLAC","MCHP","AAPL","AVT","ALCO","INTC","ODFL","ARKR","NTAP","AMD","EXPD","LSTR","APOG"];
       
     var NASDAQ_1990 =
