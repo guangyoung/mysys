@@ -51,8 +51,7 @@
         var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
         var daily_Interest;
-        var cash_balance = initial_equity;
-        console.log(cash_balance);
+        var cash_balance = initial_equity;        
         var market_value;
         var equity_with_loanValue;
         var maintenance_margin_reserved;
@@ -90,6 +89,7 @@
 
             date = test_data[data_id-1][0].date; 
             console.log(date);
+            console.log(cash_balance);
             
             for (i=0;i<30;i++) {  
                 stock_price[i] = parseFloat(test_data[data_id-1][i+1].price);                    
@@ -148,7 +148,7 @@
             // POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
             // ----------------------------------------------------------------------------------           
             
-            data_input = {
+            var dataInput = {
                 data_id: data_id,
                 stock1: {
                     price: stock_price[0],
@@ -272,8 +272,8 @@
                 }                
             };
 
-            data_input.push(data_input); //save data to array data_input_history
-            console.log(data_input);
+            data_input.push(dataInput); //save data to array data_input_history
+            console.log(dataInput);
 
             //update signal....
             $('#data_id_input').html(data_input.data_id);
