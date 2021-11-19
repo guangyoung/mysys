@@ -150,6 +150,7 @@
             
             var dataInput = {
                 data_id: data_id,
+                margin_available: initial_margin_available,
                 stock1: {
                     price: stock_price[0],
                     position_size: stock_position_size[0]
@@ -276,7 +277,8 @@
             console.log(dataInput);
 
             //update signal....
-            $('#data_id_input').html(data_input.data_id);
+            $('#data_id_input').html(dataInput.data_id);
+            $('#input_margin_available').html(dataInput.margin_available);
             $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.price).toFixed(2)));
             $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.position_size).toFixed(0)));
             $('#stock2_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock2.price).toFixed(2)));
