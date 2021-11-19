@@ -173,13 +173,15 @@
         return false;
       } else {//rumus random ini bermasalah jika jumlah list 30 atau kurang...cari tahu
           var tickers_random = eval(exchange_choose_current_random+'_'+startdate_select_random);
-          for (i=0;i<tickers_random.length && i<(30-portfolio_data.length);i++) {
+          let y=0;
+          while (y<tickers_random.length && y<30 && portfolio_data.length<30) {
               let mr = Math.random();
               console.log(mr);
               let tick_no = Math.floor(mr * tickers_random.length);
               ticker_list.push(tickers_random[tick_no]);
               console.log(tickers_random[tick_no]);
-              tickers_random.splice(tick_no,1);              
+              tickers_random.splice(tick_no,1); 
+              y++;             
           }
           console.log(ticker_list); 
 
