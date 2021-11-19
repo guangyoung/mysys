@@ -349,7 +349,7 @@
                     success: function(result){ 
                         console.log(result);
                         if (result.status == "success") {
-                            signal_output = {
+                            signalOutput = {
                                 data_id: result.data.data_id,
                                 stock1: {
                                     signal_position: result.data.signal_position_stock1,
@@ -472,72 +472,72 @@
                                     signal_size: result.data.signal_size_stock30
                                 }
                             };
-                            signal_output.push(signal_output);//save data to array signal_output_history 
+                            signal_output.push(signalOutput);//save data to array signal_output_history 
 
-                            $('#total_request').html(signal_output.data_id);
+                            $('#total_request').html(signalOutput.data_id);
 
                             //kemungkin bisa ini dibuat pakai for loop campur eval
-                            $('#data_id_input').html(signal_output.data_id);
-                            $('#stock1_signal__position').html(signal_output.stock01.signal_position);
-                            $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock01.signal_size).toFixed(0)));
-                            $('#stock2_signal__position').html(signal_output.stock02.signal_position);
-                            $('#stock2_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock02.signal_size).toFixed(0)));
-                            $('#stock3_signal__position').html(signal_output.stock03.signal_position);
-                            $('#stock3_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock03.signal_size).toFixed(0)));
-                            $('#stock4_signal__position').html(signal_output.stock04.signal_position);
-                            $('#stock4_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock04.signal_size).toFixed(0)));
-                            $('#stock5_signal__position').html(signal_output.stock05.signal_position);
-                            $('#stock5_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock05.signal_size).toFixed(0)));
-                            $('#stock6_signal__position').html(signal_output.stock06.signal_position);
-                            $('#stock6_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock06.signal_size).toFixed(0)));
-                            $('#stock7_signal__position').html(signal_output.stock07.signal_position);
-                            $('#stock7_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock07.signal_size).toFixed(0)));
-                            $('#stock8_signal__position').html(signal_output.stock08.signal_position);
-                            $('#stock8_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock08.signal_size).toFixed(0)));
-                            $('#stock9_signal__position').html(signal_output.stock09.signal_position);
-                            $('#stock9_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock09.signal_size).toFixed(0)));
-                            $('#stock10_signal__position').html(signal_output.stock10.signal_position);
-                            $('#stock10_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock10.signal_size).toFixed(0)));
-                            $('#stock11_signal__position').html(signal_output.stock11.signal_position);
-                            $('#stock11_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock11.signal_size).toFixed(0)));
-                            $('#stock12_signal__position').html(signal_output.stock12.signal_position);
-                            $('#stock12_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock12.signal_size).toFixed(0)));
-                            $('#stock13_signal__position').html(signal_output.stock13.signal_position);
-                            $('#stock13_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock13.signal_size).toFixed(0)));
-                            $('#stock14_signal__position').html(signal_output.stock14.signal_position);
-                            $('#stock14_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock14.signal_size).toFixed(0)));
-                            $('#stock15_signal__position').html(signal_output.stock15.signal_position);
-                            $('#stock15_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock15.signal_size).toFixed(0)));
-                            $('#stock16_signal__position').html(signal_output.stock16.signal_position);
-                            $('#stock16_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock16.signal_size).toFixed(0)));
-                            $('#stock17_signal__position').html(signal_output.stock17.signal_position);
-                            $('#stock17_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock17.signal_size).toFixed(0)));
-                            $('#stock18_signal__position').html(signal_output.stock18.signal_position);
-                            $('#stock18_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock18.signal_size).toFixed(0)));
-                            $('#stock19_signal__position').html(signal_output.stock19.signal_position);
-                            $('#stock19_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock19.signal_size).toFixed(0)));
-                            $('#stock20_signal__position').html(signal_output.stock20.signal_position);
-                            $('#stock20_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock20.signal_size).toFixed(0)));
-                            $('#stock21_signal__position').html(signal_output.stock21.signal_position);
-                            $('#stock21_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock21.signal_size).toFixed(0)));
-                            $('#stock22_signal__position').html(signal_output.stock22.signal_position);
-                            $('#stock22_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock22.signal_size).toFixed(0)));
-                            $('#stock23_signal__position').html(signal_output.stock23.signal_position);
-                            $('#stock23_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock23.signal_size).toFixed(0)));
-                            $('#stock24_signal__position').html(signal_output.stock24.signal_position);
-                            $('#stock24_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock24.signal_size).toFixed(0)));
-                            $('#stock25_signal__position').html(signal_output.stock25.signal_position);
-                            $('#stock25_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock25.signal_size).toFixed(0)));
-                            $('#stock26_signal__position').html(signal_output.stock26.signal_position);
-                            $('#stock26_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock26.signal_size).toFixed(0)));
-                            $('#stock27_signal__position').html(signal_output.stock27.signal_position);
-                            $('#stock27_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock27.signal_size).toFixed(0)));
-                            $('#stock28_signal__position').html(signal_output.stock28.signal_position);
-                            $('#stock28_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock28.signal_size).toFixed(0)));
-                            $('#stock29_signal__position').html(signal_output.stock29.signal_position);
-                            $('#stock29_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock29.signal_size).toFixed(0)));
-                            $('#stock30_signal__position').html(signal_output.stock30.signal_position);
-                            $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(signal_output.stock30.signal_size).toFixed(0)));
+                            $('#data_id_input').html(signalOutput.data_id);
+                            $('#stock1_signal__position').html(signalOutput.stock01.signal_position);
+                            $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock01.signal_size).toFixed(0)));
+                            $('#stock2_signal__position').html(signalOutput.stock02.signal_position);
+                            $('#stock2_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock02.signal_size).toFixed(0)));
+                            $('#stock3_signal__position').html(signalOutput.stock03.signal_position);
+                            $('#stock3_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock03.signal_size).toFixed(0)));
+                            $('#stock4_signal__position').html(signalOutput.stock04.signal_position);
+                            $('#stock4_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock04.signal_size).toFixed(0)));
+                            $('#stock5_signal__position').html(signalOutput.stock05.signal_position);
+                            $('#stock5_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock05.signal_size).toFixed(0)));
+                            $('#stock6_signal__position').html(signalOutput.stock06.signal_position);
+                            $('#stock6_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock06.signal_size).toFixed(0)));
+                            $('#stock7_signal__position').html(signalOutput.stock07.signal_position);
+                            $('#stock7_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock07.signal_size).toFixed(0)));
+                            $('#stock8_signal__position').html(signalOutput.stock08.signal_position);
+                            $('#stock8_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock08.signal_size).toFixed(0)));
+                            $('#stock9_signal__position').html(signalOutput.stock09.signal_position);
+                            $('#stock9_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock09.signal_size).toFixed(0)));
+                            $('#stock10_signal__position').html(signalOutput.stock10.signal_position);
+                            $('#stock10_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock10.signal_size).toFixed(0)));
+                            $('#stock11_signal__position').html(signalOutput.stock11.signal_position);
+                            $('#stock11_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock11.signal_size).toFixed(0)));
+                            $('#stock12_signal__position').html(signalOutput.stock12.signal_position);
+                            $('#stock12_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock12.signal_size).toFixed(0)));
+                            $('#stock13_signal__position').html(signalOutput.stock13.signal_position);
+                            $('#stock13_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock13.signal_size).toFixed(0)));
+                            $('#stock14_signal__position').html(signalOutput.stock14.signal_position);
+                            $('#stock14_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock14.signal_size).toFixed(0)));
+                            $('#stock15_signal__position').html(signalOutput.stock15.signal_position);
+                            $('#stock15_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock15.signal_size).toFixed(0)));
+                            $('#stock16_signal__position').html(signalOutput.stock16.signal_position);
+                            $('#stock16_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock16.signal_size).toFixed(0)));
+                            $('#stock17_signal__position').html(signalOutput.stock17.signal_position);
+                            $('#stock17_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock17.signal_size).toFixed(0)));
+                            $('#stock18_signal__position').html(signalOutput.stock18.signal_position);
+                            $('#stock18_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock18.signal_size).toFixed(0)));
+                            $('#stock19_signal__position').html(signalOutput.stock19.signal_position);
+                            $('#stock19_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock19.signal_size).toFixed(0)));
+                            $('#stock20_signal__position').html(signalOutput.stock20.signal_position);
+                            $('#stock20_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock20.signal_size).toFixed(0)));
+                            $('#stock21_signal__position').html(signalOutput.stock21.signal_position);
+                            $('#stock21_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock21.signal_size).toFixed(0)));
+                            $('#stock22_signal__position').html(signalOutput.stock22.signal_position);
+                            $('#stock22_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock22.signal_size).toFixed(0)));
+                            $('#stock23_signal__position').html(signalOutput.stock23.signal_position);
+                            $('#stock23_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock23.signal_size).toFixed(0)));
+                            $('#stock24_signal__position').html(signalOutput.stock24.signal_position);
+                            $('#stock24_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock24.signal_size).toFixed(0)));
+                            $('#stock25_signal__position').html(signalOutput.stock25.signal_position);
+                            $('#stock25_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock25.signal_size).toFixed(0)));
+                            $('#stock26_signal__position').html(signalOutput.stock26.signal_position);
+                            $('#stock26_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock26.signal_size).toFixed(0)));
+                            $('#stock27_signal__position').html(signalOutput.stock27.signal_position);
+                            $('#stock27_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock27.signal_size).toFixed(0)));
+                            $('#stock28_signal__position').html(signalOutput.stock28.signal_position);
+                            $('#stock28_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock28.signal_size).toFixed(0)));
+                            $('#stock29_signal__position').html(signalOutput.stock29.signal_position);
+                            $('#stock29_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock29.signal_size).toFixed(0)));
+                            $('#stock30_signal__position').html(signalOutput.stock30.signal_position);
+                            $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock30.signal_size).toFixed(0)));
                             
                             post_process = "stop"; //stop post process......
                         }         
