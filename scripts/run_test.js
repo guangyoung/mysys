@@ -702,7 +702,7 @@
 
             var quantxi_total_return = quantxi_equity/initial_equity;
             quantxi_total_return_array.push(quantxi_total_return);
-            var buyandhold_total_return = buyandhold_equity/equity;
+            var buyandhold_total_return = buyandhold_equity/initial_equity;
             buyandhold_total_return_array.push(buyandhold_total_return);
 
             var quantxi_cagr = ((quantxi_total_return)^(1/period)-1);//angka 30 ganti jadi periode sesuai periode data
