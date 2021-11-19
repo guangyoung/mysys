@@ -171,12 +171,12 @@
           'warning'
         )
         return false;
-      } else {
+      } else {//rumus random ini bermasalah jika jumlah list 30 atau kurang...cari tahu
           var tickers_random = eval(exchange_choose_current_random+'_'+startdate_select_random);
-          console.log(tickers_random.length);
-          console.log(portfolio_data.length);
           for (i=0;i<tickers_random.length && i<(30-portfolio_data.length);i++) {
-              let tick_no = Math.floor(Math.random() * tickers_random.length);
+              let mr = Math.random();
+              console.log(mr);
+              let tick_no = Math.floor(mr * tickers_random.length);
               ticker_list.push(tickers_random[tick_no]);
               console.log(tickers_random[tick_no]);
               tickers_random.splice(tick_no,1);              
