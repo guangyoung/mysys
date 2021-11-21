@@ -30,7 +30,7 @@
         }
     }    
 
-    function proses() {
+    async function proses() {
 
         //initial variable
         var total_post = 0;
@@ -72,8 +72,8 @@
         var quantxi_sortino_ratio_array = new Array();
         var buyandhold_sortino_ratio_array = new Array();
         
-        while (total_post < test_data.length) {
-            setTimeout(function timer() {
+        if (total_post < test_data.length) {
+
             date = test_data[total_post][0].date; 
             console.log(date);
             
@@ -327,7 +327,7 @@
 
             var post_process = "run";
             while (post_process == "run") {
-                $.ajax({
+                await $.ajax({
                     type: "POST",
                     url: "https://api.quantxi.com/post?api_key="+localStorage.getItem("apiKey"),
                     data: dataInput,           
@@ -757,13 +757,9 @@
             $('#quantxi_sortino').html(parseFloat((quantxi_sortino_ratio)*100).toFixed(2)+"%"); 
             $('#buyandhold_sortino').html(parseFloat((buyandhold_sortino_ratio)*100).toFixed(2)+"%");  
             
-            // setTimeout(proses, 1/1000); 
+            setTimeout(proses, 1/1000); 
 
-        }, 1/1000);         
-
-        } 
-        
-        // else { 
+        } else { 
 
             // TRADE TESTING REPORT ---------------------------------------------------------------
         
@@ -1000,7 +996,7 @@
                 'data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya',
                 'success'
             )           
-        // }           
+        }           
     }
 
        
