@@ -74,6 +74,8 @@
         
         if (total_post < test_data.length) {
 
+            console.log(total_post);
+
             date = test_data[total_post][0].date; 
             console.log(date);
             
