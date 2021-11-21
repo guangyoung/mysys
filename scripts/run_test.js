@@ -133,7 +133,7 @@
 
             var dataInput = {
                 data_id: total_post,
-                margin_available: initial_margin_available,
+                margin_available: 1000000,
                 stock1: {
                     price: stock_price[0],
                     position_size: stock_position_size[0]
