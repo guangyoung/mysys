@@ -30,7 +30,7 @@
         }
     }    
 
-    async function proses() {
+    function proses() {
 
         //initial variable
         var total_post = 0;
@@ -327,7 +327,7 @@
 
             var post_process = "run";
             while (post_process == "run") {
-                await $.ajax({
+                $.ajax({
                     type: "POST",
                     url: "https://api.quantxi.com/post?api_key="+localStorage.getItem("apiKey"),
                     data: dataInput,           
