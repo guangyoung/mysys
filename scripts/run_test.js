@@ -33,7 +33,7 @@
     function proses() {
 
         //initial variable
-        // var total_post = 0;
+        var total_post = 0;
         var date;
         var stock_price = new Array();
         var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
