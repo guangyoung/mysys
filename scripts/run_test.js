@@ -40,7 +40,7 @@
         
         var daily_Interest;
         var cash_balance = initial_equity;        
-        var market_value;
+        var market_value = 0;
         var equity_with_loanValue;
         var maintenance_margin_reserved;
         var maintenance_margin_available;
@@ -133,7 +133,7 @@
 
             var dataInput = {
                 data_id: total_post,
-                margin_available: 1000000,
+                margin_available: initial_margin_available,
                 stock1: {
                     price: stock_price[0],
                     position_size: stock_position_size[0]
