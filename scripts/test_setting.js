@@ -14,6 +14,7 @@
     var maint_margin = 0.3;
     var min_data = 1305;
     var max_data = 7830;
+    var risk_freeRate = 0.01;
 
     function test_setting_submit_btn() {
 
