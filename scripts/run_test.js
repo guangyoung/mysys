@@ -726,9 +726,9 @@
             } 
             buyandhold_maxDrawDown_array.push(buyandhold_maxDrawDown);
 
-            var quantxi_mar_ratio = (quantxi_cagr/quantxi_maxDrawDown);
+            var quantxi_mar = (quantxi_cagr/quantxi_maxDrawDown);
             quantxi_mar_array.push(quantxi_mar);
-            var buyandhold_mar_ratio = (buyandhold_cagr/buyandhold_maxDrawDown);
+            var buyandhold_mar = (buyandhold_cagr/buyandhold_maxDrawDown);
             buyandhold_mar_array.push(buyandhold_mar);
 
             //Sharpe Ratio = (Average fund returns − Riskfree Rate) / Standard Deviation of fund  returns
