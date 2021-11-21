@@ -656,8 +656,7 @@
                 maintenance_margin_reserved: maintenance_margin_reserved,
                 maintenance_margin_available: maintenance_margin_available,
                 initial_margin_reserved: initial_margin_reserved,
-                initial_margin_available: initial_margin_available,
-                buying_power: buying_power
+                initial_margin_available: initial_margin_available
             })
 
             //save daily stock position & transaction details to summary
