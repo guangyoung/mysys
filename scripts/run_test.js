@@ -30,10 +30,7 @@
         }
     }    
 
-    async function proses() {
-
-        //initial variable
-        var total_post = 0;
+    var total_post = 0;
         var date;
         var stock_price = new Array();
         var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -71,6 +68,11 @@
         var buyandhold_sharpe_ratio_array = new Array();
         var quantxi_sortino_ratio_array = new Array();
         var buyandhold_sortino_ratio_array = new Array();
+
+    async function proses() {
+
+        //initial variable
+        
         
         if (total_post < test_data.length) {
 
