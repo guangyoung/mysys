@@ -63,12 +63,14 @@
         var buyandhold_total_return_array = new Array();
         var quantxi_cagr_array = new Array();
         var buyandhold_cagr_array = new Array();
-        var quantxi_maxdd_array = new Array();
-        var buyandhold_maxdd_array = new Array();
-        var quantxi_sharpe_array = new Array();
-        var buyandhold_sharpe_array = new Array();
-        var quantxi_sortino_array = new Array();
-        var buyandhold_sortino_array = new Array();
+        var quantxi_maxDrawDown_array = new Array();
+        var buyandhold_maxDrawDown_array = new Array();
+        var quantxi_mar_array = new Array();
+        var buyandhold_mar_array = new Array();
+        var quantxi_sharpe_ratio_array = new Array();
+        var buyandhold_sharpe_ratio_array = new Array();
+        var quantxi_sortino_ratio_array = new Array();
+        var buyandhold_sortino_ratio_array = new Array();
         
         if (total_post < test_data.length) {
 
@@ -548,10 +550,10 @@
             //calculated total initial_margin_required of all stock
             let initial_margin_required = 0;            
             for (i=0; i<30; i++) {
-                if(eval(`signal_output.signal_position_stock`+(i+1)) == "Buy") {
-                    initial_margin_required += (parseInt(eval(`signal_output.signal_size_stock`+(i+1)))*(stock_price[i]*(1+spread_slippage)))*regT_margin;
-                } else if(eval(`signal_output.signal_position_stock`+(i+1)) == "Sell") {
-                    initial_margin_required += (parseInt(eval(`signal_output.signal_size_stock`+(i+1)))*(stock_price[i]*(1-spread_slippage)))*regT_margin;
+                if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "Buy") {
+                    initial_margin_required += (parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*(stock_price[i]*(1+spread_slippage)))*regT_margin;
+                } else if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "Sell") {
+                    initial_margin_required += (parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*(stock_price[i]*(1-spread_slippage)))*regT_margin;
                 } else {
                     initial_margin_required += 0;
                 } 
@@ -573,14 +575,14 @@
             //trade transaction         
             for (i=0; i<30; i++) { 
 
-                if(eval(`signal_output.signal_position_stock`+(i+1)) == "Buy") {
-                filledOrder[i]  = parseInt(eval(`signal_output.signal_size_stock`+(i+1)))*filled_percentage;
+                if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "Buy") {
+                filledOrder[i]  = parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*filled_percentage;
                 filledPrice[i]  = stock_price[i]*(1+spread_slippage);
                 tradeValue[i] = filledOrder[i] * filledPrice[i];
                 commission[i] = tradeValue[i] * commision;
                 initialMargin[i] = tradeValue[i] * 0.50;
-                } else if(eval(`signal_output.signal_position_stock`+(i+1)) == "Sell") {
-                filledOrder[i]  = parseInt(eval(`signal_output.signal_size_stock`+(i+1)))*filled_percentage;
+                } else if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "Sell") {
+                filledOrder[i]  = parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*filled_percentage;
                 filledPrice[i]  = stock_price[i]*(1-spread_slippage);
                 tradeValue[i] = filledOrder[i] * filledPrice[i];
                 commission[i] = tradeValue[i] * commision;
@@ -611,12 +613,7 @@
                 total_commission: commission.reduce(function (accumulator, current) { return accumulator + current}),
                 total_initial_margin: initialMargin.reduce(function (accumulator, current) { return accumulator + current})
             })
-
-            //save daily stock position & transaction details to summary
-            daily_stock_position_transaction_summary.push(
-                daily_stock_position_transaction_details
-            );
-
+            
             // ----------------------------------------------------------------------------------
             // POST TRADE POSITION CALCULATION
             // ----------------------------------------------------------------------------------
@@ -641,7 +638,7 @@
 
             initial_margin_available = equity_with_loanValue - initial_margin_reserved;
 
-            buying_power = initial_margin_available * 2;
+            // buying_power = initial_margin_available * 2;
 
             //save daily pretrade stock position to array            
             for (i=0;i<30;i++) {
@@ -662,6 +659,11 @@
                 initial_margin_available: initial_margin_available,
                 buying_power: buying_power
             })
+
+            //save daily stock position & transaction details to summary
+            daily_stock_position_transaction_summary.push(
+                daily_stock_position_transaction_details
+            );
 
             //View in web account & margin summary
             $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(2)));
@@ -744,8 +746,8 @@
             $('#buyandhold_total_return').html(parseFloat((buyandhold_total_return)*100).toFixed(2)+"%");
             $('#quantxi_cagr').html(parseFloat((quantxi_cagr)*100).toFixed(2)+"%"); 
             $('#buyandhold_cagr').html(parseFloat((buyandhold_cagr)*100).toFixed(2)+"%");
-            $('#quantxi_maxdd').html(parseFloat((quantxi_maxdd)*100).toFixed(2)+"%"); 
-            $('#buyandhold_maxdd').html(parseFloat((buyandhold_maxdd)*100).toFixed(2)+"%"); 
+            $('#quantxi_maxdd').html(parseFloat((quantxi_maxDrawDown)*100).toFixed(2)+"%"); 
+            $('#buyandhold_maxdd').html(parseFloat((buyandhold_maxDrawDown)*100).toFixed(2)+"%"); 
             $('#quantxi_sharpe').html(parseFloat((quantxi_sharpe_ratio)*100).toFixed(2)+"%"); 
             $('#buyandhold_sharpe').html(parseFloat((buyandhold_sharpe_ratio)*100).toFixed(2)+"%");
             $('#quantxi_sortino').html(parseFloat((quantxi_sortino_ratio)*100).toFixed(2)+"%"); 
