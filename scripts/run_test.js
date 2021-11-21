@@ -11,13 +11,6 @@
                 'warning'
             )
             return false;
-        } else if (y==1000) {//cari parameter utk menentukan jika data sudah diproses atau pakai cara on/off reset button
-            Swal.fire(
-                'Data anda sudah diproses',
-                'Silahkan klik reset untuk memulai test baru',
-                'warning'                
-            )
-            return false;
         } else {
             Swal.fire({
                 title: 'Connect to Quantxi AI',
@@ -29,13 +22,9 @@
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Ok'
               }).then((result) => {
-
-                if(result.isConfirmed) {
-                    
-                    $(':button').prop('disabled', true); //Disable All Button
-                    
-                    proses();
-                    
+                if(result.isConfirmed) {                    
+                    $(':button').prop('disabled', true); //Disable All Button                    
+                    proses();                    
                 }
             })           
         }
@@ -44,12 +33,11 @@
     async function proses() {
 
         //initial variable
-        var data_id = 0;
+        var total_post = 0;
         var date;
-
         var stock_price = new Array();
         var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-
+        
         var daily_Interest;
         var cash_balance = initial_equity;        
         var market_value;
@@ -58,7 +46,6 @@
         var maintenance_margin_available;
         var initial_margin_reserved;
         var initial_margin_available; 
-        var buying_power;
 
         var buyHold_stock_invest = new Array();//istilah buyHold_stock_invest dicari lagi yg pas
         for (i=0; i<30; i++) {
@@ -83,16 +70,13 @@
         var quantxi_sortino_array = new Array();
         var buyandhold_sortino_array = new Array();
         
-        if (data_id < test_data.length) { 
+        if (total_post < test_data.length) {
 
-            data_id++;
-
-            date = test_data[data_id-1][0].date; 
+            date = test_data[total_post][0].date; 
             console.log(date);
-            console.log(cash_balance);
             
             for (i=0;i<30;i++) {  
-                stock_price[i] = parseFloat(test_data[data_id-1][i+1].price);                    
+                stock_price[i] = parseFloat(test_data[total_post][i+1].price); //ini kurang bisa dibaca, pikir cara lain                  
             }
 
             // ----------------------------------------------------------------------------------
@@ -121,8 +105,6 @@
 
             initial_margin_available = equity_with_loanValue - initial_margin_reserved;
 
-            buying_power = initial_margin_available * 2;
-
             //save daily pretrade stock position to array            
             for (i=0;i<30;i++) {
                 daily_stock_position_transaction_details.push({
@@ -136,21 +118,22 @@
                 daily_Interest:  daily_Interest,
                 cash_balance : cash_balance,
                 market_value: market_value,
-                equity_with_loanValue:  equity_with_loanValue,
+                equity_with_loanValue: equity_with_loanValue,
                 maintenance_margin_reserved: maintenance_margin_reserved,
                 maintenance_margin_available: maintenance_margin_available,
                 initial_margin_reserved: initial_margin_reserved,
                 initial_margin_available: initial_margin_available,
-                buying_power: buying_power
             })                
                 
             // ----------------------------------------------------------------------------------  
             // POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
             // ----------------------------------------------------------------------------------           
             
+            total_post++;
+
             var dataInput = {
-                data_id: data_id,
-                margin_available: initial_margin_available,
+                data_id: total_post,
+                margin_available: 1000000,
                 stock1: {
                     price: stock_price[0],
                     position_size: stock_position_size[0]
@@ -341,7 +324,6 @@
             $('#stock30_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock30.position_size).toFixed(0)));
 
             var post_process = "run";
-
             while (post_process == "run") {
                 await $.ajax({
                     type: "POST",
@@ -692,7 +674,7 @@
             // TRADE PERFORMANCE COMPARISON CALCULATION
             // ---------------------------------------------------------------------------------- 
                 
-            var period = new Date(new Date(test_data[data_id-1][0].date)-new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
+            var period = new Date(new Date(test_data[total_post-1][0].date)-new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
             console.log(period);
             
             var quantxi_equity = equity_with_loanValue;
@@ -993,7 +975,12 @@
                 
             clearTimeout();
 
-            $(':button').prop('disabled', false); //Disable All Button
+            // $(':button').prop('disabled', false); //Enable All Button
+            $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
+            $( "trade_report_button" ).prop( "disabled", false ); //Enable Trade Report Button
+            $( "trade_performance_button" ).prop( "disabled", true ); //Enable Performance Button
+            $( "test_statistic_button" ).prop( "disabled", true ); //Enable Test Statistic Button
+            $( "viewpost_button" ).prop( "disabled", true ); //Enable View Request Button
         
             Swal.fire(
                 'Test Done',

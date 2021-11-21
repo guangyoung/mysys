@@ -3,16 +3,7 @@
 //...................................................................................
 //...................................................................................
    
-    //Global Variables
-    var initial_equity = 1000000; //default initial equity...
-    var spread_slippage = 0.001;
-    var commission = 0.005;
-    var interest_rate = 0.02;
-    var regT_margin = 0.5;
-    var maint_margin = 0.3;
-    var min_data = 1305;
-    var max_data = 7830;
-
+    //Global Variables    
     function test_setting_submit_btn() {
 
         if( $("#initial_equity").val() < 1000000 ) {            

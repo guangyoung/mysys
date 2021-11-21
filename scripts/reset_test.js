@@ -88,7 +88,7 @@ function autorun() {
       }
   });   
 }
-return false;
+// return false;
    await $.ajax({
      type: "DELETE",
      url: "https://api.quantxi.com/reset?api_key="+localStorage.getItem("apiKey"),    
@@ -96,10 +96,9 @@ return false;
      success: function(result){
       if (result.status == "success") {
         
-        $('#setting_button, #data_button, #play_button, #viewpost_button, #trade_report_button, #chart_button').attr('disabled',false);
-        $('#refresh_button').attr('disabled',true);        
-        $("#progress_bar_value").html("0%"); 
-        $("#progress_bar").css("width","0%");
+        $( "setting_button" ).prop( "disabled", false ); //Enable Trade Setting Button
+        $( "data_button" ).prop( "disabled", false ); //Enable Market Data Report Button
+        $( "play_button" ).prop( "disabled", true ); //Enable Run Test Button
         account_trade_summary = [];
         asset_trade_details = [];
         $("#account_trade_summary_tbl>tbody").empty();
