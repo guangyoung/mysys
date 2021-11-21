@@ -33,7 +33,7 @@
     function proses() {
 
         //initial variable
-        var total_post = 0;
+        // var total_post = 0;
         var date;
         var stock_price = new Array();
         var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -72,7 +72,7 @@
         var quantxi_sortino_ratio_array = new Array();
         var buyandhold_sortino_ratio_array = new Array();
         
-        for (total_post=0;total_post < test_data.length;total_post++) {
+        for (total_post=0; total_post < test_data.length; total_post++) {
             setTimeout(function timer() {
             console.log(total_post);
 
@@ -760,7 +760,7 @@
             $('#buyandhold_sortino').html(parseFloat((buyandhold_sortino_ratio)*100).toFixed(2)+"%");  
             
             // setTimeout(proses, 1/1000); 
-        }, 1);     
+        }, total_post*1);     
 
         } 
         // else { 
