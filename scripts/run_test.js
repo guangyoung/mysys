@@ -64,11 +64,10 @@
               }).then((result) => {
                 if(result.isConfirmed) {                    
                     $(':button').prop('disabled', true); //Disable All Button                    
+                    
                     proses();
                     
                     async function proses() {
-
-                        
                         
                         if (total_post < test_data.length) {
                 
@@ -675,8 +674,7 @@
                             $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_available).toFixed(2)));
                             $('#initial_margin_reserved').html(Intl.NumberFormat().format(parseFloat(initial_margin_reserved).toFixed(2)));
                             $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_margin_available).toFixed(2)));
-                
-                                                
+                                                                
                             // ----------------------------------------------------------------------------------
                             // TRADE PERFORMANCE COMPARISON CALCULATION
                             // ---------------------------------------------------------------------------------- 
