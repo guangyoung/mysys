@@ -607,11 +607,16 @@
                     initialMargin: initialMargin[i]
                 })
             }
+
+            total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current}),
+            total_commission = commission.reduce(function (accumulator, current) { return accumulator + current}),
+            total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current})
+            
             //save daily trade summary data to array
             daily_account_position_summary.push({
-                total_trade_value: tradeValue.reduce(function (accumulator, current) { return accumulator + current}),
-                total_commission: commission.reduce(function (accumulator, current) { return accumulator + current}),
-                total_initial_margin: initialMargin.reduce(function (accumulator, current) { return accumulator + current})
+                total_trade_value: total_trade_value,
+                total_commission: total_commission,
+                total_initial_margin: total_initial_margin
             })
             
             // ----------------------------------------------------------------------------------
