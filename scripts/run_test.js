@@ -133,7 +133,7 @@
 
             var dataInput = {
                 data_id: total_post,
-                margin_available: 1000000,
+                margin_available: initial_margin_available,
                 stock1: {
                     price: stock_price[0],
                     position_size: stock_position_size[0]
@@ -335,6 +335,7 @@
                         if (result.status == "success") {
                             signalOutput = {
                                 data_id: result.data.data_id,
+                                total_signal: result.data.total_signal,
                                 stock1: {
                                     signal_position: result.data.signal_position_stock1,
                                     signal_size: result.data.signal_size_stock1
@@ -461,7 +462,8 @@
                             $('#total_request').html(signalOutput.data_id);
 
                             //kemungkin bisa ini dibuat pakai for loop campur eval
-                            $('#data_id_input').html(signalOutput.data_id);
+                            $('#data_id_output').html(signalOutput.data_id);
+                            $('#output_total_signal').html(signalOutput.total_signal);
                             $('#stock1_signal__position').html(signalOutput.stock1.signal_position);
                             $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock1.signal_size).toFixed(0)));
                             $('#stock2_signal__position').html(signalOutput.stock2.signal_position);
