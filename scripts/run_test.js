@@ -72,7 +72,7 @@
         var quantxi_sortino_ratio_array = new Array();
         var buyandhold_sortino_ratio_array = new Array();
         
-        for (total_post=0; total_post < test_data.length; total_post++) {
+        for (total_post=0;total_post < test_data.length;total_post++) {
             setTimeout(function timer() {
             console.log(total_post);
 
@@ -133,7 +133,7 @@
             // POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
             // ----------------------------------------------------------------------------------           
             
-            total_post++;
+            // total_post++;
 
             var dataInput = {
                 data_id: total_post,
