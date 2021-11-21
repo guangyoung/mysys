@@ -337,7 +337,7 @@
                                 data_id: result.data.data_id,
                                 total_signal: result.data.total_signal,
                                 stock1: {
-                                    signal_position: result.data.signal_position_stock1,
+                                    signal_position: JSON.stringify(result.data.signal_position_stock1),
                                     signal_size: result.data.signal_size_stock1
                                 },
                                 stock2: {
@@ -464,65 +464,65 @@
                             //kemungkin bisa ini dibuat pakai for loop campur eval
                             $('#data_id_output').html(signalOutput.data_id);
                             $('#output_total_signal').html(signalOutput.total_signal);
-                            $('#stock1_signal__position').html(JSON.stringify(signalOutput.stock1.signal_position));
+                            $('#stock1_signal__position').html(signalOutput.stock1.signal_position);
                             $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock1.signal_size).toFixed(0)));
-                            $('#stock2_signal__position').html(JSON.stringify(signalOutput.stock2.signal_position));
+                            $('#stock2_signal__position').html(signalOutput.stock2.signal_position);
                             $('#stock2_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock2.signal_size).toFixed(0)));
-                            $('#stock3_signal__position').html(JSON.stringify(signalOutput.stock3.signal_position));
+                            $('#stock3_signal__position').html(signalOutput.stock3.signal_position);
                             $('#stock3_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock3.signal_size).toFixed(0)));
-                            $('#stock4_signal__position').html(JSON.stringify(signalOutput.stock4.signal_position));
+                            $('#stock4_signal__position').html(signalOutput.stock4.signal_position);
                             $('#stock4_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock4.signal_size).toFixed(0)));
-                            $('#stock5_signal__position').html(JSON.stringify(signalOutput.stock5.signal_position));
+                            $('#stock5_signal__position').html(signalOutput.stock5.signal_position);
                             $('#stock5_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock5.signal_size).toFixed(0)));
-                            $('#stock6_signal__position').html(JSON.stringify(signalOutput.stock6.signal_position));
+                            $('#stock6_signal__position').html(signalOutput.stock6.signal_position);
                             $('#stock6_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock6.signal_size).toFixed(0)));
-                            $('#stock7_signal__position').html(JSON.stringify(signalOutput.stock7.signal_position));
+                            $('#stock7_signal__position').html(signalOutput.stock7.signal_position);
                             $('#stock7_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock7.signal_size).toFixed(0)));
-                            $('#stock8_signal__position').html(JSON.stringify(signalOutput.stock8.signal_position));
+                            $('#stock8_signal__position').html(signalOutput.stock8.signal_position);
                             $('#stock8_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock8.signal_size).toFixed(0)));
-                            $('#stock9_signal__position').html(JSON.stringify(signalOutput.stock9.signal_position));
+                            $('#stock9_signal__position').html(signalOutput.stock9.signal_position);
                             $('#stock9_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock9.signal_size).toFixed(0)));
-                            $('#stock10_signal__position').html(JSON.stringify(signalOutput.stock10.signal_position));
+                            $('#stock10_signal__position').html(signalOutput.stock10.signal_position);
                             $('#stock10_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock10.signal_size).toFixed(0)));
-                            $('#stock11_signal__position').html(JSON.stringify(signalOutput.stock11.signal_position));
+                            $('#stock11_signal__position').html(signalOutput.stock11.signal_position);
                             $('#stock11_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock11.signal_size).toFixed(0)));
-                            $('#stock12_signal__position').html(JSON.stringify(signalOutput.stock12.signal_position));
+                            $('#stock12_signal__position').html(signalOutput.stock12.signal_position);
                             $('#stock12_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock12.signal_size).toFixed(0)));
-                            $('#stock13_signal__position').html(JSON.stringify(signalOutput.stock13.signal_position));
+                            $('#stock13_signal__position').html(signalOutput.stock13.signal_position);
                             $('#stock13_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock13.signal_size).toFixed(0)));
-                            $('#stock14_signal__position').html(JSON.stringify(signalOutput.stock14.signal_position));
+                            $('#stock14_signal__position').html(signalOutput.stock14.signal_position);
                             $('#stock14_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock14.signal_size).toFixed(0)));
-                            $('#stock15_signal__position').html(JSON.stringify(signalOutput.stock15.signal_position));
+                            $('#stock15_signal__position').html(signalOutput.stock15.signal_position);
                             $('#stock15_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock15.signal_size).toFixed(0)));
-                            $('#stock16_signal__position').html(JSON.stringify(signalOutput.stock16.signal_position));
+                            $('#stock16_signal__position').html(signalOutput.stock16.signal_position);
                             $('#stock16_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock16.signal_size).toFixed(0)));
-                            $('#stock17_signal__position').html(JSON.stringify(signalOutput.stock17.signal_position));
+                            $('#stock17_signal__position').html(signalOutput.stock17.signal_position);
                             $('#stock17_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock17.signal_size).toFixed(0)));
-                            $('#stock18_signal__position').html(JSON.stringify(signalOutput.stock18.signal_position));
+                            $('#stock18_signal__position').html(signalOutput.stock18.signal_position);
                             $('#stock18_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock18.signal_size).toFixed(0)));
-                            $('#stock19_signal__position').html(JSON.stringify(signalOutput.stock19.signal_position));
+                            $('#stock19_signal__position').html(signalOutput.stock19.signal_position);
                             $('#stock19_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock19.signal_size).toFixed(0)));
-                            $('#stock20_signal__position').html(JSON.stringify(signalOutput.stock20.signal_position));
+                            $('#stock20_signal__position').html(signalOutput.stock20.signal_position);
                             $('#stock20_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock20.signal_size).toFixed(0)));
-                            $('#stock21_signal__position').html(JSON.stringify(signalOutput.stock21.signal_position));
+                            $('#stock21_signal__position').html(signalOutput.stock21.signal_position);
                             $('#stock21_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock21.signal_size).toFixed(0)));
-                            $('#stock22_signal__position').html(JSON.stringify(signalOutput.stock22.signal_position));
+                            $('#stock22_signal__position').html(signalOutput.stock22.signal_position);
                             $('#stock22_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock22.signal_size).toFixed(0)));
-                            $('#stock23_signal__position').html(JSON.stringify(signalOutput.stock23.signal_position));
+                            $('#stock23_signal__position').html(signalOutput.stock23.signal_position);
                             $('#stock23_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock23.signal_size).toFixed(0)));
-                            $('#stock24_signal__position').html(JSON.stringify(signalOutput.stock24.signal_position));
+                            $('#stock24_signal__position').html(signalOutput.stock24.signal_position);
                             $('#stock24_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock24.signal_size).toFixed(0)));
-                            $('#stock25_signal__position').html(JSON.stringify(signalOutput.stock25.signal_position));
+                            $('#stock25_signal__position').html(signalOutput.stock25.signal_position);
                             $('#stock25_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock25.signal_size).toFixed(0)));
-                            $('#stock26_signal__position').html(JSON.stringify(signalOutput.stock26.signal_position));
+                            $('#stock26_signal__position').html(signalOutput.stock26.signal_position);
                             $('#stock26_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock26.signal_size).toFixed(0)));
-                            $('#stock27_signal__position').html(JSON.stringify(signalOutput.stock27.signal_position));
+                            $('#stock27_signal__position').html(signalOutput.stock27.signal_position);
                             $('#stock27_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock27.signal_size).toFixed(0)));
-                            $('#stock28_signal__position').html(JSON.stringify(signalOutput.stock28.signal_position));
+                            $('#stock28_signal__position').html(signalOutput.stock28.signal_position);
                             $('#stock28_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock28.signal_size).toFixed(0)));
-                            $('#stock29_signal__position').html(JSON.stringify(signalOutput.stock29.signal_position));
+                            $('#stock29_signal__position').html(signalOutput.stock29.signal_position);
                             $('#stock29_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock29.signal_size).toFixed(0)));
-                            $('#stock30_signal__position').html(JSON.stringify(signalOutput.stock30.signal_position));
+                            $('#stock30_signal__position').html(signalOutput.stock30.signal_position);
                             $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock30.signal_size).toFixed(0)));
                             
                             post_process = "stop"; //stop post process......
