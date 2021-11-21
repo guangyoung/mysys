@@ -510,7 +510,7 @@
                             $('#stock22_signal_position').html(signalOutput.stock22.signal_position);
                             $('#stock22_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock22.signal_size).toFixed(0)));
                             $('#stock23_signal_position').html(signalOutput.stock23.signal_position);
-                            $('#stock23_signal_ize').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock23.signal_size).toFixed(0)));
+                            $('#stock23_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock23.signal_size).toFixed(0)));
                             $('#stock24_signal_position').html(signalOutput.stock24.signal_position);
                             $('#stock24_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock24.signal_size).toFixed(0)));
                             $('#stock25_signal_position').html(signalOutput.stock25.signal_position);
