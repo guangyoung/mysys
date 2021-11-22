@@ -99,6 +99,7 @@
                             initial_margin_reserved = market_value * 0.50;
                 
                             initial_margin_available = equity_with_loanValue - initial_margin_reserved;
+
                             console.log("daily_Interest: "+daily_Interest);
                             console.log("cash_balance: "+cash_balance);
                             console.log("market_value: "+market_value);
@@ -123,7 +124,16 @@
                                 maintenance_margin_available: maintenance_margin_available,
                                 initial_margin_reserved: initial_margin_reserved,
                                 initial_margin_available: initial_margin_available,
-                            })                
+                            })  
+                            
+                            //View in web account & margin summary
+                            $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(0)));
+                            $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(market_value).toFixed(0)));
+                            $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(equity_with_loanValue).toFixed(0)));
+                            $('#maintenance_margin_reserved').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_reserved).toFixed(0)));
+                            $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_available).toFixed(0)));
+                            $('#initial_margin_reserved').html(Intl.NumberFormat().format(parseFloat(initial_margin_reserved).toFixed(0)));
+                            $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_margin_available).toFixed(0)));
                                 
                             // ----------------------------------------------------------------------------------  
                             // POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
@@ -261,7 +271,7 @@
                 
                             //update signal....
                             $('#data_id_input').html(dataInput.data_id);
-                            $('#input_margin_available').html(dataInput.margin_available);
+                            $('#input_margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
                             $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.price).toFixed(2)));
                             $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.position_size).toFixed(0)));
                             $('#stock2_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock2.price).toFixed(2)));
@@ -679,13 +689,13 @@
                             );
                 
                             //View in web account & margin summary
-                            $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(2)));
-                            $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(market_value).toFixed(2)));
-                            $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(equity_with_loanValue).toFixed(2)));
-                            $('#maintenance_margin_reserved').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_reserved).toFixed(2)));
-                            $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_available).toFixed(2)));
-                            $('#initial_margin_reserved').html(Intl.NumberFormat().format(parseFloat(initial_margin_reserved).toFixed(2)));
-                            $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_margin_available).toFixed(2)));
+                            $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(0)));
+                            $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(market_value).toFixed(0)));
+                            $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(equity_with_loanValue).toFixed(0)));
+                            $('#maintenance_margin_reserved').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_reserved).toFixed(0)));
+                            $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_available).toFixed(0)));
+                            $('#initial_margin_reserved').html(Intl.NumberFormat().format(parseFloat(initial_margin_reserved).toFixed(0)));
+                            $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_margin_available).toFixed(0)));
                                                                 
                             // ----------------------------------------------------------------------------------
                             // TRADE PERFORMANCE COMPARISON CALCULATION
