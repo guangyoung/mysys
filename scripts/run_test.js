@@ -72,7 +72,6 @@
                         if (total_post < test_data.length) {
                 
                             date = test_data[total_post][0].date; 
-                            console.log(date);
                             
                             for (i=0;i<30;i++) {  
                                 stock_price[i] = parseFloat(test_data[total_post][i+1].price); //ini kurang bisa dibaca, pikir cara lain                  
@@ -572,13 +571,13 @@
                             //trade transaction         
                             for (i=0; i<30; i++) { 
                 
-                                if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "Buy") {
+                                if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "BUY") {
                                 filledOrder[i]  = parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*filled_percentage;
                                 filledPrice[i]  = stock_price[i]*(1+spread_slippage);
                                 tradeValue[i] = filledOrder[i] * filledPrice[i];
                                 commission[i] = tradeValue[i] * commision;
                                 initialMargin[i] = tradeValue[i] * 0.50;
-                                } else if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "Sell") {
+                                } else if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "SELL") {
                                 filledOrder[i]  = parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*filled_percentage;
                                 filledPrice[i]  = stock_price[i]*(1-spread_slippage);
                                 tradeValue[i] = filledOrder[i] * filledPrice[i];
