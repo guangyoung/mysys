@@ -553,6 +553,7 @@
                                 } else {
                                     initial_margin_required += 0;
                                 } 
+                                console.log("margin required "+i+": "+initial_margin_required);
                             } 
                 
                             //calculate filled percentarge   
@@ -566,6 +567,10 @@
                                 } else {
                                 filled_percentage = initial_margin_available / initial_margin_required;
                                 }
+
+                            console.log("margin available: "+initial_margin_available);
+                            console.log("margin required: "+initial_margin_required);
+                            console.log("filled persen: "+filled_percentage);
                                 
                                 
                             //trade transaction         
@@ -620,8 +625,8 @@
                             // ----------------------------------------------------------------------------------
                 
                             for (i=0;i<30;i++) {  
-                                console.log("filledorder: "+stock_position_size[i]);
-                                console.log("filledorder: "+filledOrder[i]);
+                                console.log("position size: "+stock_position_size[i]);
+                                console.log("filled order: "+filledOrder[i]);
                                 stock_position_size[i] += filledOrder[i];                  
                             }
                 
