@@ -546,9 +546,9 @@
                             //calculated total initial_margin_required of all stock
                             let initial_margin_required = 0;            
                             for (i=0; i<30; i++) {
-                                if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "Buy") {
+                                if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "BUY") {
                                     initial_margin_required += (parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*(stock_price[i]*(1+spread_slippage)))*regT_margin;
-                                } else if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "Sell") {
+                                } else if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "SELL") {
                                     initial_margin_required += (parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*(stock_price[i]*(1-spread_slippage)))*regT_margin;
                                 } else {
                                     initial_margin_required += 0;
