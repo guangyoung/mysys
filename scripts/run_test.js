@@ -585,13 +585,13 @@
                                 filledOrder[i]  = Math.floor(parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*filled_percentage);
                                 filledPrice[i]  = stock_price[i]*(1+spread_slippage);
                                 tradeValue[i] = filledOrder[i] * filledPrice[i];
-                                commission[i] = tradeValue[i] * commision;
+                                commission[i] = tradeValue[i] * commission;
                                 initialMargin[i] = tradeValue[i] * 0.50;
                                 } else if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "SELL") {
                                 filledOrder[i]  = Math.floor(parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*filled_percentage);
                                 filledPrice[i]  = stock_price[i]*(1-spread_slippage);
                                 tradeValue[i] = filledOrder[i] * filledPrice[i];
-                                commission[i] = tradeValue[i] * commision;
+                                commission[i] = tradeValue[i] * commission;
                                 initialMargin[i] = tradeValue[i] * 0.50;
                                 } else {
                                 filledOrder[i]  = 0;
