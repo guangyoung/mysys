@@ -542,7 +542,7 @@
                             var filledOrder = new Array();
                             var filledPrice = new Array();
                             var tradeValue = new Array();
-                            var commission = new Array();
+                            var commission_arr = new Array();
                             var initialMargin = new Array();
                             var total_trade_value;
                             var total_commission;
@@ -586,19 +586,19 @@
                                 filledOrder[i]  = Math.floor(parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*filled_percentage);
                                 filledPrice[i]  = stock_price[i]*(1+spread_slippage);
                                 tradeValue[i] = filledOrder[i] * filledPrice[i];
-                                commission[i] = tradeValue[i] * commission;
+                                commission_arr[i] = tradeValue[i] * commission;
                                 initialMargin[i] = tradeValue[i] * 0.50;
                                 } else if(eval(`signalOutput.stock`+(i+1)+`.signal_position`) == "SELL") {
                                 filledOrder[i]  = Math.floor(parseInt(eval(`signalOutput.stock`+(i+1)+`.signal_size`))*filled_percentage);
                                 filledPrice[i]  = stock_price[i]*(1-spread_slippage);
                                 tradeValue[i] = filledOrder[i] * filledPrice[i];
-                                commission[i] = tradeValue[i] * commission;
+                                commission_arr[i] = tradeValue[i] * commission;
                                 initialMargin[i] = tradeValue[i] * 0.50;
                                 } else {
                                 filledOrder[i]  = 0;
                                 filledPrice[i]  = 0;
                                 tradeValue[i] = 0;
-                                commission[i] = 0; 
+                                commission_arr[i] = 0; 
                                 initialMargin[i] = 0;     
                                 }                               
                             } 
@@ -610,13 +610,13 @@
                                     filledOrder: filledOrder[i],
                                     filledPrice: filledPrice[i],
                                     tradeValue: tradeValue[i],
-                                    commission: commission[i],
+                                    commission: commission_arr[i],
                                     initialMargin: initialMargin[i]
                                 })
                             }
                 
                             total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current}),
-                            total_commission = commission.reduce(function (accumulator, current) { return accumulator + current}),
+                            total_commission = commission_arr.reduce(function (accumulator, current) { return accumulator + current}),
                             total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current})
                             
                             //save daily trade summary data to array
