@@ -577,6 +577,7 @@
                             console.log("margin required: "+initial_margin_required);
                             console.log("filled persen: "+filled_percentage);
                                 
+                            console.log("commission_setting: "+commission);
                                 
                             //trade transaction         
                             for (i=0; i<30; i++) { 
@@ -634,6 +635,9 @@
                                 console.log("filled order: "+filledOrder[i]);
                                 stock_position_size[i] += filledOrder[i];                  
                             }
+                            console.log("total_trade_value: "+total_trade_value);
+                            console.log("total_commission: "+total_commission);
+                            console.log("cash_balance: "+cash_balance);
                 
                             cash_balance -= (total_trade_value + total_commission);
                 
