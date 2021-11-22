@@ -19,10 +19,7 @@
         var initial_margin_reserved;
         var initial_margin_available; 
 
-        var buyHold_stock_invest = new Array();//istilah buyHold_stock_invest dicari lagi yg pas
-        for (i=0; i<30; i++) {
-            buyHold_stock_invest.push((initial_equity/30)/parseFloat(test_data[0][i+1].price));
-        }
+        var buyHold_stock_invest = new Array();//istilah buyHold_stock_invest dicari lagi yg pas        
 
         var data_input = new Array();
         var signal_output = new Array();    
@@ -696,6 +693,10 @@
                                 
                             var period = new Date(new Date(test_data[total_post-1][0].date)-new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
                             console.log(period);
+
+                            for (i=0; i<30; i++) {
+                                buyHold_stock_invest.push((initial_equity/30)/parseFloat(test_data[0][i+1].price));
+                            }
                             
                             var quantxi_equity = equity_with_loanValue;
                 
