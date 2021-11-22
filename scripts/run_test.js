@@ -102,6 +102,11 @@
                             initial_margin_reserved = market_value * 0.50;
                 
                             initial_margin_available = equity_with_loanValue - initial_margin_reserved;
+                            console.log("daily_Interest: "+daily_Interest);
+                            console.log("cash_balance: "+cash_balance);
+                            console.log("market_value: "+market_value);
+                            console.log("equity with loan value: "+equity_with_loanValue);
+                            console.log("initial_margin_reserved: "+initial_margin_reserved);
                 
                             //save daily pretrade stock position to array            
                             for (i=0;i<30;i++) {
