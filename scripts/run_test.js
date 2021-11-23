@@ -6,7 +6,7 @@
     function run_test() { 
         //initial variable
         var request_id = 0;
-        var response_id = 0;
+        // var response_id = 0;
         var date;
         var stock_price = new Array();
         var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -61,13 +61,11 @@
                 confirmButtonText: 'Ok'
               }).then((result) => {
                 if(result.isConfirmed) {                    
-                    $(':button').prop('disabled', true); //Disable All Button                    
-                    
-                    // proses();
+                    $(':button').prop('disabled', true); //Disable All Button 
                     
                     var ti = setInterval(async function() {
                         
-                        if (request_id < 100 && request_id == response_id) {
+                        if (request_id < 100) {
                 
                             date = test_data[request_id][0].date; 
                             
@@ -537,7 +535,7 @@
                                             $('#stock30_signal_position').html(signalOutput.stock30.signal_position);
                                             $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock30.signal_size).toFixed(0)));
                                             
-                                            response_id ++;
+                                            // response_id ++;
                                             
                                             post_process = "stop"; //stop post process......
                                         }         
