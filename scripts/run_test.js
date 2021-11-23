@@ -62,9 +62,9 @@
                 if(result.isConfirmed) {                    
                     $(':button').prop('disabled', true); //Disable All Button                    
                     
-                    // proses();
+                    proses();
                     
-                    setTimeout(async function(){
+                    async function proses() {
                         
                         if (total_post < test_data.length) {
                 
@@ -779,7 +779,7 @@
                             $('#quantxi_sortino').html(parseFloat((quantxi_sortino_ratio)*100).toFixed(2)+"%"); 
                             $('#buyandhold_sortino').html(parseFloat((buyandhold_sortino_ratio)*100).toFixed(2)+"%");  
                             
-                            // setTimeout(proses, 1/10000); 
+                            setTimeout(proses, 1/10000); 
                 
                         } else { 
                 
@@ -1004,7 +1004,7 @@
                             var ctx = document.getElementById('performance_chart').getContext('2d');
                             performance_chart = new Chart(ctx, config);
                                 
-                            // clearTimeout();
+                            clearTimeout();
                 
                             // $(':button').prop('disabled', false); //Enable All Button
                             $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
@@ -1018,8 +1018,8 @@
                                 'data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya',
                                 'success'
                             )           
-                        };           
-                    },1/1000);
+                        }           
+                    }
                 }
             })           
         }
