@@ -784,7 +784,7 @@
                             
                             // setTimeout(proses, 1/10000); 
                 
-                        } else { 
+                        } else if (request_id == 100) { 
                 
                             // TRADE TESTING REPORT ---------------------------------------------------------------
                         
