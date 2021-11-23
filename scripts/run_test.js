@@ -1018,8 +1018,8 @@
                                 'data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya',
                                 'success'
                             )           
-                        }           
-                    },1/1000)
+                        };           
+                    },1/1000);
                 }
             })           
         }
