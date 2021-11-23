@@ -3,7 +3,7 @@
 //...................................................................................
 //...................................................................................
  
-    async function run_test() { 
+    function run_test() { 
         //initial variable
         var total_post = 0;
         var date;
@@ -66,7 +66,7 @@
                     
                     setInterval(function () {
                         
-                        if (total_post < test_data.length) {
+                        if (total_post < 100) {
                 
                             date = test_data[total_post][0].date; 
                             
@@ -335,7 +335,7 @@
                 
                             var post_process = "run";
                             while (post_process == "run") {
-                                await $.ajax({
+                                $.ajax({
                                     type: "POST",
                                     url: "https://api.quantxi.com/post?api_key="+localStorage.getItem("apiKey"),
                                     data: dataInput,           
