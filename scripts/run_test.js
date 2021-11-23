@@ -63,7 +63,7 @@
                 if(result.isConfirmed) {                    
                     $(':button').prop('disabled', true); //Disable All Button 
                     
-                    var ti = setInterval(async function() {
+                    var ti = setInterval(function() {
                         
                         if (request_id < 100 && request_id == response_id) {
                 
@@ -334,7 +334,7 @@
                 
                             // var post_process = "run";
                             while (response_id < request_id) {
-                                await $.ajax({
+                                $.ajax({
                                     type: "POST",
                                     url: "https://api.quantxi.com/post?api_key="+localStorage.getItem("apiKey"),
                                     data: dataInput,           
