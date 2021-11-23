@@ -782,7 +782,7 @@
                             
                             // setTimeout(proses, 1/10000); 
                 
-                        } else if(request_id == 100){ 
+                        } else if(request_id == 5000){ 
                 
                             // TRADE TESTING REPORT ---------------------------------------------------------------
                         
