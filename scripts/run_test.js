@@ -784,7 +784,7 @@
                             
                             // setTimeout(proses, 1/10000); 
                 
-                        } else { 
+                        } else if(request_id == 100){ 
                 
                             // TRADE TESTING REPORT ---------------------------------------------------------------
                         
@@ -1009,12 +1009,12 @@
                                 
                             clearInterval(ti);
                 
-                            // $(':button').prop('disabled', false); //Enable All Button
-                            $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
-                            $( "trade_report_button" ).prop( "disabled", false ); //Enable Trade Report Button
-                            $( "trade_performance_button" ).prop( "disabled", true ); //Enable Performance Button
-                            $( "test_statistic_button" ).prop( "disabled", true ); //Enable Test Statistic Button
-                            $( "viewpost_button" ).prop( "disabled", true ); //Enable View Request Button
+                            $(':button').prop('disabled', false); //Enable All Button
+                            // $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
+                            // $( "trade_report_button" ).prop( "disabled", false ); //Enable Trade Report Button
+                            // $( "trade_performance_button" ).prop( "disabled", true ); //Enable Performance Button
+                            // $( "test_statistic_button" ).prop( "disabled", true ); //Enable Test Statistic Button
+                            // $( "viewpost_button" ).prop( "disabled", true ); //Enable View Request Button
                         
                             Swal.fire(
                                 'Test Done',
