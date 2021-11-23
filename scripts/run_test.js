@@ -3,10 +3,9 @@
 //...................................................................................
 //...................................................................................
  
-    function run_test() { 
+    async function run_test() { 
         //initial variable
-        var request_id = 0;
-        var response_id = 0;
+        var total_post = 0;
         var date;
         var stock_price = new Array();
         var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -65,16 +64,14 @@
                     
                     // proses();
                     
-                    setInterval(async function () {
+                    setInterval(function () {
                         
-                        if (request_id == response_id ) {
-
-                            request_id ++;
+                        if (total_post < test_data.length) {
                 
-                            date = test_data[request_id-1][0].date; 
+                            date = test_data[total_post][0].date; 
                             
                             for (i=0;i<30;i++) {  
-                                stock_price[i] = parseFloat(test_data[request_id-1][i+1].price); //ini kurang bisa dibaca, pikir cara lain                  
+                                stock_price[i] = parseFloat(test_data[total_post][i+1].price); //ini kurang bisa dibaca, pikir cara lain                  
                             }
                 
                             // ----------------------------------------------------------------------------------
@@ -141,9 +138,11 @@
                             // ----------------------------------------------------------------------------------  
                             // POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
                             // ----------------------------------------------------------------------------------           
-                                            
+                            
+                            total_post++;
+                
                             var dataInput = {
-                                data_id: request_id,
+                                data_id: total_post,
                                 margin_available: initial_margin_available,
                                 stock1: {
                                     price: stock_price[0],
@@ -537,8 +536,6 @@
                                             $('#stock30_signal_position').html(signalOutput.stock30.signal_position);
                                             $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock30.signal_size).toFixed(0)));
                                             
-                                            response_id ++;
-
                                             post_process = "stop"; //stop post process......
                                         }         
                                     }
@@ -704,7 +701,7 @@
                             // TRADE PERFORMANCE COMPARISON CALCULATION
                             // ---------------------------------------------------------------------------------- 
                                 
-                            var period = new Date(new Date(test_data[request_id-1][0].date)-new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
+                            var period = new Date(new Date(test_data[total_post-1][0].date)-new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
                             console.log(period);
 
                             for (i=0; i<30; i++) {
@@ -1007,7 +1004,7 @@
                             var ctx = document.getElementById('performance_chart').getContext('2d');
                             performance_chart = new Chart(ctx, config);
                                 
-                            // clearInterval();
+                            clearInterval();
                 
                             // $(':button').prop('disabled', false); //Enable All Button
                             $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
@@ -1022,7 +1019,7 @@
                                 'success'
                             )           
                         }           
-                    },1/1000)
+                    },1)
                 }
             })           
         }
