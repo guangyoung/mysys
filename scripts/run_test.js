@@ -67,7 +67,7 @@
                     
                     setInterval(async function () {
                         
-                        if (request_id < test_data.length && request_id == response_id ) {
+                        if (request_id == response_id ) {
 
                             request_id ++;
                 
@@ -1007,7 +1007,7 @@
                             var ctx = document.getElementById('performance_chart').getContext('2d');
                             performance_chart = new Chart(ctx, config);
                                 
-                            clearInterval();
+                            // clearInterval();
                 
                             // $(':button').prop('disabled', false); //Enable All Button
                             $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
@@ -1022,7 +1022,7 @@
                                 'success'
                             )           
                         }           
-                    },1)
+                    },1/1000)
                 }
             })           
         }
