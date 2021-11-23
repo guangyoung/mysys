@@ -64,7 +64,7 @@
                     
                     // proses();
                     
-                    setInterval(async function () {
+                    setTimeout(async function(){
                         
                         if (total_post < test_data.length) {
                 
@@ -1004,7 +1004,7 @@
                             var ctx = document.getElementById('performance_chart').getContext('2d');
                             performance_chart = new Chart(ctx, config);
                                 
-                            clearInterval();
+                            clearTimeout();
                 
                             // $(':button').prop('disabled', false); //Enable All Button
                             $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
@@ -1019,7 +1019,7 @@
                                 'success'
                             )           
                         }           
-                    },1000)
+                    },1/1000)
                 }
             })           
         }
