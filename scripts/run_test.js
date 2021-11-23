@@ -65,7 +65,7 @@
                     
                     // proses();
                     
-                    setInterval(async function() {
+                    var ti = setInterval(async function() {
                         
                         if (request_id < 100 && request_id == response_id) {
                 
@@ -1007,7 +1007,7 @@
                             // var ctx = document.getElementById('performance_chart').getContext('2d');
                             // performance_chart = new Chart(ctx, config);
                                 
-                            clearInterval();
+                            clearInterval(ti);
                 
                             // $(':button').prop('disabled', false); //Enable All Button
                             $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
