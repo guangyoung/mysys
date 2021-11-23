@@ -6,7 +6,7 @@
     function run_test() { 
         //initial variable
         var request_id = 0;
-        // var response_id = 0;
+        var response_id = 0;
         var date;
         var stock_price = new Array();
         var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -65,7 +65,7 @@
                     
                     var ti = setInterval(async function() {
                         
-                        if (request_id < 100) {
+                        if (request_id < 100 && request_id == response_id) {
                 
                             date = test_data[request_id][0].date; 
                             
@@ -332,8 +332,8 @@
                             $('#stock30_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock30.price).toFixed(2)));
                             $('#stock30_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock30.position_size).toFixed(0)));
                 
-                            var post_process = "run";
-                            while (post_process == "run") {
+                            // var post_process = "run";
+                            while (response_id < request_id) {
                                 await $.ajax({
                                     type: "POST",
                                     url: "https://api.quantxi.com/post?api_key="+localStorage.getItem("apiKey"),
@@ -535,9 +535,9 @@
                                             $('#stock30_signal_position').html(signalOutput.stock30.signal_position);
                                             $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock30.signal_size).toFixed(0)));
                                             
-                                            // response_id ++;
+                                            response_id ++;
                                             
-                                            post_process = "stop"; //stop post process......
+                                            // post_process = "stop"; //stop post process......
                                         }         
                                     }
                                 })
