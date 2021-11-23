@@ -267,9 +267,149 @@
                 
                             data_input.push(dataInput); //save data to array data_input_history
                             // console.log(dataInput);
+
+                            var input_element = 
+                            `<tr>
+                                <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
+                                <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.data_id+`</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Margin Available</td>
+                                <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.margin_available+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 43px">Stock<br>Price</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 55px">Position<br>Size</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 43px">Stock<br>Price</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 55px">Position<br>Size</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;1</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock1.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock1.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;16</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock16.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock16.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;2</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock2.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock2.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;17</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock17.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock17.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;3</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock3.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock3.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;18</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock18.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock18.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;4</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock4.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock4.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;19</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock19.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock19.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;5</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock5.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock5.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;20</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock20.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock20.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;6</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock6.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock6.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;21</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock21.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock21.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;7</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock7.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock7.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;22</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock22.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock22.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;8</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock8.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock8.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;23</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock23.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock23.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;9</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock9.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock9.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;24</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock24.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock24.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;10</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock10.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock10.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;25</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock25.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock25.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;11</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock11.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock11.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;26</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock26.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock26.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;12</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock12.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock12.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;27</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock27.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock27.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;13</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock13.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock13.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;28</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock28.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock28.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;14</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock14.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock14.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;29</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock29.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock29.position_size+`</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;15</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock15.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock15.position_size+`</td>
+                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;30</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock30.price+`</td>
+                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.stock30.position_size+`</td>
+                            </tr>`
+
+                            $("#inputElement").html(input_element);
                 
                             //update signal....
-                            $('#data_id_input','#input_margin_available').html(dataInput.data_id,Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
+                            // $('#data_id_input','#input_margin_available').html(dataInput.data_id,Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
                             // $('#input_margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
                             // $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.price).toFixed(2)));
                             // $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.position_size).toFixed(0)));
