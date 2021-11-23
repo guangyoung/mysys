@@ -83,7 +83,7 @@
                                 daily_Interest = 0;
                             }           
                 
-                            cash_balance -= daily_Interest;
+                            // cash_balance -= daily_Interest;
                 
                             for (i=0;i<30;i++) {  
                                 market_value += (stock_position_size[i] * stock_price[i]);                  
@@ -99,11 +99,11 @@
                 
                             initial_margin_available = equity_with_loanValue - initial_margin_reserved;
 
-                            console.log("daily_Interest: "+daily_Interest);
-                            console.log("cash_balance: "+cash_balance);
-                            console.log("market_value: "+market_value);
-                            console.log("equity with loan value: "+equity_with_loanValue);
-                            console.log("initial_margin_reserved: "+initial_margin_reserved);
+                            // console.log("daily_Interest: "+daily_Interest);
+                            // console.log("cash_balance: "+cash_balance);
+                            // console.log("market_value: "+market_value);
+                            // console.log("equity with loan value: "+equity_with_loanValue);
+                            // console.log("initial_margin_reserved: "+initial_margin_reserved);
                 
                             //save daily pretrade stock position to array            
                             for (i=0;i<30;i++) {
@@ -266,7 +266,7 @@
                             };
                 
                             data_input.push(dataInput); //save data to array data_input_history
-                            console.log(dataInput);
+                            // console.log(dataInput);
                 
                             //update signal....
                             $('#data_id_input').html(dataInput.data_id);
@@ -467,7 +467,7 @@
                                                 }
                                             };
                                             signal_output.push(signalOutput);//save data to array signal_output_history 
-                                            console.log(signalOutput);
+                                            // console.log(signalOutput);
                 
                                             $('#total_request').html(signalOutput.data_id);
                 
@@ -566,7 +566,7 @@
                                 } else {
                                     initial_margin_required += 0;
                                 } 
-                                console.log("margin required "+i+": "+initial_margin_required);
+                                // console.log("margin required "+i+": "+initial_margin_required);
                             } 
                 
                             //calculate filled percentarge   
@@ -581,11 +581,11 @@
                                 filled_percentage = initial_margin_available / initial_margin_required;
                                 }
 
-                            console.log("margin available: "+initial_margin_available);
-                            console.log("margin required: "+initial_margin_required);
-                            console.log("filled persen: "+filled_percentage);
+                            // console.log("margin available: "+initial_margin_available);
+                            // console.log("margin required: "+initial_margin_required);
+                            // console.log("filled persen: "+filled_percentage);
                                 
-                            console.log("commission_setting: "+commission);
+                            // console.log("commission_setting: "+commission);
                                 
                             //trade transaction         
                             for (i=0; i<30; i++) { 
@@ -639,13 +639,13 @@
                             // ----------------------------------------------------------------------------------
                 
                             for (i=0;i<30;i++) {  
-                                console.log("position size: "+stock_position_size[i]);
-                                console.log("filled order: "+filledOrder[i]);
+                                // console.log("position size: "+stock_position_size[i]);
+                                // console.log("filled order: "+filledOrder[i]);
                                 stock_position_size[i] += filledOrder[i];                  
                             }
-                            console.log("total_trade_value: "+total_trade_value);
-                            console.log("total_commission: "+total_commission);
-                            console.log("cash_balance: "+cash_balance);
+                            // console.log("total_trade_value: "+total_trade_value);
+                            // console.log("total_commission: "+total_commission);
+                            // console.log("cash_balance: "+cash_balance);
                 
                             cash_balance -= (total_trade_value + total_commission);
                 
@@ -703,7 +703,7 @@
                             // ---------------------------------------------------------------------------------- 
                                 
                             var period = new Date(new Date(test_data[request_id-1][0].date)-new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
-                            console.log(period);
+                            // console.log(period);
 
                             for (i=0; i<30; i++) {
                                 buyHold_stock_invest.push((initial_equity/30)/parseFloat(test_data[0][i+1].price));
@@ -782,7 +782,7 @@
                             
                             // setTimeout(proses, 1/10000); 
                 
-                        } else if(request_id == 100){ 
+                        } else if(request_id == 99){ 
                 
                             // TRADE TESTING REPORT ---------------------------------------------------------------
                         
