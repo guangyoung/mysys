@@ -5,7 +5,7 @@
  
     function run_test() { 
         //initial variable
-        var total_post = 1;
+        var total_post = 0;
         var date;
         var stock_price = new Array();
         var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -66,12 +66,12 @@
                     
                     setInterval(async function () {
                         
-                        if (total_post < 100) {
+                        if (total_post < test_data.length) {
                 
-                            date = test_data[total_post-1][0].date; 
+                            date = test_data[total_post][0].date; 
                             
                             for (i=0;i<30;i++) {  
-                                stock_price[i] = parseFloat(test_data[total_post-1][i+1].price); //ini kurang bisa dibaca, pikir cara lain                  
+                                stock_price[i] = parseFloat(test_data[total_post][i+1].price); //ini kurang bisa dibaca, pikir cara lain                  
                             }
                 
                             // ----------------------------------------------------------------------------------
@@ -139,7 +139,7 @@
                             // POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
                             // ----------------------------------------------------------------------------------           
                             
-                            // total_post++;
+                            total_post++;
                 
                             var dataInput = {
                                 data_id: total_post,
@@ -780,7 +780,6 @@
                             $('#buyandhold_sortino').html(parseFloat((buyandhold_sortino_ratio)*100).toFixed(2)+"%");  
                             
                             // setTimeout(proses, 1/10000); 
-                            total_post++;
                 
                         } else { 
                 
@@ -1020,7 +1019,7 @@
                                 'success'
                             )           
                         }           
-                    }, 1)
+                    },1)
                 }
             })           
         }
