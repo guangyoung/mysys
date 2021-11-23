@@ -1004,7 +1004,7 @@
                             var ctx = document.getElementById('performance_chart').getContext('2d');
                             performance_chart = new Chart(ctx, config);
                                 
-                            clearTimeout();
+                            // clearTimeout();
                 
                             // $(':button').prop('disabled', false); //Enable All Button
                             $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
