@@ -63,7 +63,7 @@
                 if(result.isConfirmed) {                    
                     $(':button').prop('disabled', true); //Disable All Button 
                     
-                    var ti = setTimeout(async function() {
+                    var ti = setInterval(async function() {
                         
                         if (request_id < 5000 && request_id == response_id) {
                 
@@ -1005,7 +1005,7 @@
                             // var ctx = document.getElementById('performance_chart').getContext('2d');
                             // performance_chart = new Chart(ctx, config);
                                 
-                            clearTimeout(ti);
+                            clearInterval(ti);
                 
                             $(':button').prop('disabled', false); //Enable All Button
                             // $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
@@ -1020,7 +1020,7 @@
                                 'success'
                             )           
                         }           
-                    }, 1/1000)
+                    }, 0)
                 }
             })           
         }
