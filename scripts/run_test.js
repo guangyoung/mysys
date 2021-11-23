@@ -62,7 +62,7 @@
                 if(result.isConfirmed) {                    
                     $(':button').prop('disabled', true); //Disable All Button                    
                     
-                    proses();
+                    var ti = setInterval(proses(), 1);
                     
                     async function proses() {
                         
@@ -779,7 +779,7 @@
                             $('#quantxi_sortino').html(parseFloat((quantxi_sortino_ratio)*100).toFixed(2)+"%"); 
                             $('#buyandhold_sortino').html(parseFloat((buyandhold_sortino_ratio)*100).toFixed(2)+"%");  
                             
-                            setInterval(proses, 1); 
+                            // setInterval(proses, 1); 
                 
                         } else { 
                 
@@ -1004,7 +1004,7 @@
                             var ctx = document.getElementById('performance_chart').getContext('2d');
                             performance_chart = new Chart(ctx, config);
                                 
-                            clearInterval();
+                            clearInterval(ti);
                 
                             // $(':button').prop('disabled', false); //Enable All Button
                             $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
