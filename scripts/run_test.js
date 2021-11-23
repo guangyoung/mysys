@@ -269,7 +269,7 @@
                             // console.log(dataInput);
                 
                             //update signal....
-                            $('#data_id_input').html(dataInput.data_id);
+                            $('#data_id_input','#input_margin_available').html(dataInput.data_id,Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
                             // $('#input_margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
                             // $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.price).toFixed(2)));
                             // $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.position_size).toFixed(0)));
@@ -473,7 +473,7 @@
                                             $('#total_request').html(signalOutput.data_id);
                 
                                             //kemungkin bisa ini dibuat pakai for loop campur eval
-                                            $('#data_id_output').html(signalOutput.data_id);
+                                            $('#data_id_output','#output_total_signal').html(signalOutput.data_id,signalOutput.total_signal);
                                             // $('#output_total_signal').html(signalOutput.total_signal);
                                             // $('#stock1_signal_position').html(signalOutput.stock1.signal_position);
                                             // $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock1.signal_size).toFixed(0)));
