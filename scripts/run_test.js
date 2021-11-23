@@ -269,7 +269,7 @@
                             // console.log(dataInput);
                 
                             //update signal....
-                            $('#data_id_input,input_margin_available').html(dataInput.data_id,Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
+                            $('#data_id_input','#input_margin_available').html(dataInput.data_id,Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
                             // $('#input_margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
                             // $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.price).toFixed(2)));
                             // $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.position_size).toFixed(0)));
@@ -471,9 +471,149 @@
                                             // console.log(signalOutput);
                 
                                             $('#total_request').html(signalOutput.data_id);
+
+                                            var output_element = 
+                                            `<tr>
+                                                <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
+                                                <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.data_id+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Total Signal</td>
+                                                <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.total_signal+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 45px">Signal<br>Position</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 53px">Signal<br>Size</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 45px">Signal<br>Position</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 53px">Signal<br>Size</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;1</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock1.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock1.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;16</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock16.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock16.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;2</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock2.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock2.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;17</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock17.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock17.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;3</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock3.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock3.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;18</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock18.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock18.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;4</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock4.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock4.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;19</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock19.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock19.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;5</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock5.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock5.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;20</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock20.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock20.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;6</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock6.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock6.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;21</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock21.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock21.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;7</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock7.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock7.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;22</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock22.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock22.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;8</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock8.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock8.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;23</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock23.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock23.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;9</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock9.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock9.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;24</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock24.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock24.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;10</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock10.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock10.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;25</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock25.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock25.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;11</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock11.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock11.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;26</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock26.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock26.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;12</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock12.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock12.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;27</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock27.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock27.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;13</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock13.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock13.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;28</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock28.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock28.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;14</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock14.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock14.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;29</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock29.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock29.signal_size+`</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;15</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock15.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock15.signal_size+`</td>
+                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;30</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock30.signal_position+`</td>
+                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock30.signal_size+`</td>
+                                            </tr>`
+
+                                            $("#outputElement").html(output_element);
                 
                                             //kemungkin bisa ini dibuat pakai for loop campur eval
-                                            $('#data_id_output,output_total_signal').html(signalOutput.data_id,signalOutput.total_signal);
+                                            // $('#data_id_output').html(signalOutput.data_id);
                                             // $('#output_total_signal').html(signalOutput.total_signal);
                                             // $('#stock1_signal_position').html(signalOutput.stock1.signal_position);
                                             // $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock1.signal_size).toFixed(0)));
