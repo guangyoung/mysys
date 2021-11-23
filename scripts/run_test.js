@@ -702,83 +702,83 @@
                             // TRADE PERFORMANCE COMPARISON CALCULATION
                             // ---------------------------------------------------------------------------------- 
                                 
-                            var period = new Date(new Date(test_data[request_id-1][0].date)-new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
-                            // console.log(period);
+                            // var period = new Date(new Date(test_data[request_id-1][0].date)-new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
+                            // // console.log(period);
 
-                            for (i=0; i<30; i++) {
-                                buyHold_stock_invest.push((initial_equity/30)/parseFloat(test_data[0][i+1].price));
-                            }
+                            // for (i=0; i<30; i++) {
+                            //     buyHold_stock_invest.push((initial_equity/30)/parseFloat(test_data[0][i+1].price));
+                            // }
                             
-                            var quantxi_equity = equity_with_loanValue;
+                            // var quantxi_equity = equity_with_loanValue;
                 
-                            var buyandhold_equity = 0;
-                            for(i=0;i<30;i++) {
-                                buyandhold_equity += buyHold_stock_invest[i]*stock_price[i]; 
-                            }  
+                            // var buyandhold_equity = 0;
+                            // for(i=0;i<30;i++) {
+                            //     buyandhold_equity += buyHold_stock_invest[i]*stock_price[i]; 
+                            // }  
                 
-                            var quantxi_total_return = quantxi_equity/initial_equity;
-                            quantxi_total_return_array.push(quantxi_total_return);
-                            var buyandhold_total_return = buyandhold_equity/initial_equity;
-                            buyandhold_total_return_array.push(buyandhold_total_return);
+                            // var quantxi_total_return = quantxi_equity/initial_equity;
+                            // quantxi_total_return_array.push(quantxi_total_return);
+                            // var buyandhold_total_return = buyandhold_equity/initial_equity;
+                            // buyandhold_total_return_array.push(buyandhold_total_return);
                 
-                            var quantxi_cagr = ((quantxi_total_return)^(1/period)-1);//angka 30 ganti jadi periode sesuai periode data
-                            quantxi_cagr_array.push(quantxi_cagr);
-                            var buyandhold_cagr = ((buyandhold_total_return)^(1/period)-1);//angka 30 ganti jadi periode sesuai periode data
-                            buyandhold_cagr_array.push(buyandhold_cagr);
+                            // var quantxi_cagr = ((quantxi_total_return)^(1/period)-1);//angka 30 ganti jadi periode sesuai periode data
+                            // quantxi_cagr_array.push(quantxi_cagr);
+                            // var buyandhold_cagr = ((buyandhold_total_return)^(1/period)-1);//angka 30 ganti jadi periode sesuai periode data
+                            // buyandhold_cagr_array.push(buyandhold_cagr);
                 
-                            var quantxi_equity_peak = 0;
-                            var quantxi_equity_trough = 0;
-                            var quantxi_maxDrawDown = 0;  
-                            if(quantxi_equity > quantxi_equity_peak) {
-                                quantxi_equity_peak = quantxi_equity;
-                                quantxi_equity_trough = quantxi_equity_peak;
-                            } else if (quantxi_equity < quantxi_equity_trough) {
-                                quantxi_equity_trough = quantxi_equity;
-                                var quantxi_tmpDrawDown = quantxi_equity_peak - quantxi_equity_trough;
-                                if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
-                                    quantxi_maxDrawDown = quantxi_tmpDrawDown;
-                            }
-                            quantxi_maxDrawDown_array.push(quantxi_maxDrawDown);
+                            // var quantxi_equity_peak = 0;
+                            // var quantxi_equity_trough = 0;
+                            // var quantxi_maxDrawDown = 0;  
+                            // if(quantxi_equity > quantxi_equity_peak) {
+                            //     quantxi_equity_peak = quantxi_equity;
+                            //     quantxi_equity_trough = quantxi_equity_peak;
+                            // } else if (quantxi_equity < quantxi_equity_trough) {
+                            //     quantxi_equity_trough = quantxi_equity;
+                            //     var quantxi_tmpDrawDown = quantxi_equity_peak - quantxi_equity_trough;
+                            //     if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
+                            //         quantxi_maxDrawDown = quantxi_tmpDrawDown;
+                            // }
+                            // quantxi_maxDrawDown_array.push(quantxi_maxDrawDown);
                 
-                            var buyandhold_equity_peak = 0;
-                            var buyandhold_equity_trough = 0;
-                            var buyandhold_maxDrawDown = 0; 
-                            if(buyandhold_equity > buyandhold_equity_peak) {
-                                buyandhold_equity_peak = buyandhold_equity;
-                                buyandhold_equity_trough = buyandhold_equity_peak;
-                            } else if (buyandhold_equity < buyandhold_equity_trough) {
-                                buyandhold_equity_trough = buyandhold_equity;
-                                var buyandhold_tmpDrawDown = buyandhold_equity_peak - buyandhold_equity_trough;
-                                if (buyandhold_tmpDrawDown > buyandhold_maxDrawDown)
-                                    buyandhold_maxDrawDown = buyandhold_tmpDrawDown;
-                            } 
-                            buyandhold_maxDrawDown_array.push(buyandhold_maxDrawDown);
+                            // var buyandhold_equity_peak = 0;
+                            // var buyandhold_equity_trough = 0;
+                            // var buyandhold_maxDrawDown = 0; 
+                            // if(buyandhold_equity > buyandhold_equity_peak) {
+                            //     buyandhold_equity_peak = buyandhold_equity;
+                            //     buyandhold_equity_trough = buyandhold_equity_peak;
+                            // } else if (buyandhold_equity < buyandhold_equity_trough) {
+                            //     buyandhold_equity_trough = buyandhold_equity;
+                            //     var buyandhold_tmpDrawDown = buyandhold_equity_peak - buyandhold_equity_trough;
+                            //     if (buyandhold_tmpDrawDown > buyandhold_maxDrawDown)
+                            //         buyandhold_maxDrawDown = buyandhold_tmpDrawDown;
+                            // } 
+                            // buyandhold_maxDrawDown_array.push(buyandhold_maxDrawDown);
                 
-                            var quantxi_mar = (quantxi_cagr/quantxi_maxDrawDown);
-                            quantxi_mar_array.push(quantxi_mar);
-                            var buyandhold_mar = (buyandhold_cagr/buyandhold_maxDrawDown);
-                            buyandhold_mar_array.push(buyandhold_mar);
+                            // var quantxi_mar = (quantxi_cagr/quantxi_maxDrawDown);
+                            // quantxi_mar_array.push(quantxi_mar);
+                            // var buyandhold_mar = (buyandhold_cagr/buyandhold_maxDrawDown);
+                            // buyandhold_mar_array.push(buyandhold_mar);
                             
-                            //Sharpe Ratio = (Average fund returns − Riskfree Rate) / Standard Deviation of fund  returns
-                            var quantxi_sharpe_ratio = (math.mean(quantxi_total_return_array) - risk_freeRate) / math.std(quantxi_total_return_array);
-                            quantxi_sharpe_ratio_array.push(quantxi_sharpe_ratio);
-                            var buyandhold_sharpe_ratio = (math.mean(buyandhold_total_return_array) - risk_freeRate) / math.std(buyandhold_total_return_array);
-                            buyandhold_sharpe_ratio_array.push(buyandhold_sharpe_ratio);
-                            var quantxi_sortino_ratio = (1);
-                            quantxi_sortino_ratio_array.push(quantxi_sortino_ratio);
-                            var buyandhold_sortino_ratio = (1);
-                            buyandhold_sortino_ratio_array.push(buyandhold_sortino_ratio);
+                            // //Sharpe Ratio = (Average fund returns − Riskfree Rate) / Standard Deviation of fund  returns
+                            // var quantxi_sharpe_ratio = (math.mean(quantxi_total_return_array) - risk_freeRate) / math.std(quantxi_total_return_array);
+                            // quantxi_sharpe_ratio_array.push(quantxi_sharpe_ratio);
+                            // var buyandhold_sharpe_ratio = (math.mean(buyandhold_total_return_array) - risk_freeRate) / math.std(buyandhold_total_return_array);
+                            // buyandhold_sharpe_ratio_array.push(buyandhold_sharpe_ratio);
+                            // var quantxi_sortino_ratio = (1);
+                            // quantxi_sortino_ratio_array.push(quantxi_sortino_ratio);
+                            // var buyandhold_sortino_ratio = (1);
+                            // buyandhold_sortino_ratio_array.push(buyandhold_sortino_ratio);
                 
-                            $('#quantxi_total_return').html(parseFloat((quantxi_total_return)*100).toFixed(2)+"%"); 
-                            $('#buyandhold_total_return').html(parseFloat((buyandhold_total_return)*100).toFixed(2)+"%");
-                            $('#quantxi_cagr').html(parseFloat((quantxi_cagr)*100).toFixed(2)+"%"); 
-                            $('#buyandhold_cagr').html(parseFloat((buyandhold_cagr)*100).toFixed(2)+"%");
-                            $('#quantxi_maxdd').html(parseFloat((quantxi_maxDrawDown)*100).toFixed(2)+"%"); 
-                            $('#buyandhold_maxdd').html(parseFloat((buyandhold_maxDrawDown)*100).toFixed(2)+"%"); 
-                            $('#quantxi_sharpe').html(parseFloat((quantxi_sharpe_ratio)*100).toFixed(2)+"%"); 
-                            $('#buyandhold_sharpe').html(parseFloat((buyandhold_sharpe_ratio)*100).toFixed(2)+"%");
-                            $('#quantxi_sortino').html(parseFloat((quantxi_sortino_ratio)*100).toFixed(2)+"%"); 
-                            $('#buyandhold_sortino').html(parseFloat((buyandhold_sortino_ratio)*100).toFixed(2)+"%");  
+                            // $('#quantxi_total_return').html(parseFloat((quantxi_total_return)*100).toFixed(2)+"%"); 
+                            // $('#buyandhold_total_return').html(parseFloat((buyandhold_total_return)*100).toFixed(2)+"%");
+                            // $('#quantxi_cagr').html(parseFloat((quantxi_cagr)*100).toFixed(2)+"%"); 
+                            // $('#buyandhold_cagr').html(parseFloat((buyandhold_cagr)*100).toFixed(2)+"%");
+                            // $('#quantxi_maxdd').html(parseFloat((quantxi_maxDrawDown)*100).toFixed(2)+"%"); 
+                            // $('#buyandhold_maxdd').html(parseFloat((buyandhold_maxDrawDown)*100).toFixed(2)+"%"); 
+                            // $('#quantxi_sharpe').html(parseFloat((quantxi_sharpe_ratio)*100).toFixed(2)+"%"); 
+                            // $('#buyandhold_sharpe').html(parseFloat((buyandhold_sharpe_ratio)*100).toFixed(2)+"%");
+                            // $('#quantxi_sortino').html(parseFloat((quantxi_sortino_ratio)*100).toFixed(2)+"%"); 
+                            // $('#buyandhold_sortino').html(parseFloat((buyandhold_sortino_ratio)*100).toFixed(2)+"%");  
                             
                             // setTimeout(proses, 1/10000); 
                 
