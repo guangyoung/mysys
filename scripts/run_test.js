@@ -276,212 +276,149 @@
                             data_input.push(dataInput); //save data to array data_input_history
                             // console.log(dataInput);
 
-                            var input_element = 
-                            `<tr>
-                                <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
-                                <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.data_id+`</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Margin Available</td>
-                                <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 43px">Stock<br>&nbsp;&nbsp;&nbsp;Price&nbsp;&nbsp;&nbsp;</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 55px">Position<br>Size</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 43px">Stock<br>&nbsp;&nbsp;&nbsp;Price&nbsp;&nbsp;&nbsp;</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 55px">Position<br>Size</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;1</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock1.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock1.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;16</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock16.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock16.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;2</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock2.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock2.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;17</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock17.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock17.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;3</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock3.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock3.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;18</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock18.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock18.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;4</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock4.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock4.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;19</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock19.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock19.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;5</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock5.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock5.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;20</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock20.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock20.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;6</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock6.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock6.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;21</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock21.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock21.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;7</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock7.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock7.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;22</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock22.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock22.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;8</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock8.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock8.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;23</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock23.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock23.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;9</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock9.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock9.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;24</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock24.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock24.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;10</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock10.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock10.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;25</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock25.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock25.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;11</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock11.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock11.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;26</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock26.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock26.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;12</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock12.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock12.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;27</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock27.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock27.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;13</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock13.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock13.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;28</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock28.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock28.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;14</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock14.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock14.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;29</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock29.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock29.position_size).toFixed(0))+`</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;15</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock15.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock15.position_size).toFixed(0))+`</td>
-                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;30</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock30.price).toFixed(5))+`</td>
-                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock30.position_size).toFixed(0))+`</td>
-                            </tr>`
+                            // var input_element = 
+                            // `<tr>
+                            //     <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
+                            //     <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+dataInput.data_id+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Margin Available</td>
+                            //     <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 43px">Stock<br>&nbsp;&nbsp;&nbsp;Price&nbsp;&nbsp;&nbsp;</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 55px">Position<br>Size</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 43px">Stock<br>&nbsp;&nbsp;&nbsp;Price&nbsp;&nbsp;&nbsp;</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 55px">Position<br>Size</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;1</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock1.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock1.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;16</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock16.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock16.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;2</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock2.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock2.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;17</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock17.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock17.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;3</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock3.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock3.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;18</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock18.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock18.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;4</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock4.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock4.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;19</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock19.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock19.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;5</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock5.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock5.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;20</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock20.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock20.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;6</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock6.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock6.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;21</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock21.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock21.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;7</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock7.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock7.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;22</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock22.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock22.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;8</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock8.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock8.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;23</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock23.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock23.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;9</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock9.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock9.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;24</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock24.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock24.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;10</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock10.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock10.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;25</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock25.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock25.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;11</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock11.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock11.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;26</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock26.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock26.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;12</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock12.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock12.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;27</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock27.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock27.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;13</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock13.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock13.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;28</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock28.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock28.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;14</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock14.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock14.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;29</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock29.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock29.position_size).toFixed(0))+`</td>
+                            // </tr>
+                            // <tr>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;15</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock15.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock15.position_size).toFixed(0))+`</td>
+                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;30</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock30.price).toFixed(5))+`</td>
+                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(dataInput.stock30.position_size).toFixed(0))+`</td>
+                            // </tr>`
 
-                            $("#inputElement").html(input_element);
-                
-                            //update signal....
-                            // $('#data_id_input','#input_margin_available').html(dataInput.data_id,Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
-                            // $('#input_margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
-                            // $('#stock1_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.price).toFixed(2)));
-                            // $('#stock1_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock1.position_size).toFixed(0)));
-                            // $('#stock2_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock2.price).toFixed(2)));
-                            // $('#stock2_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock2.position_size).toFixed(0)));
-                            // $('#stock3_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock3.price).toFixed(2)));
-                            // $('#stock3_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock3.position_size).toFixed(0)));
-                            // $('#stock4_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock4.price).toFixed(2)));
-                            // $('#stock4_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock4.position_size).toFixed(0)));
-                            // $('#stock5_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock5.price).toFixed(2)));
-                            // $('#stock5_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock5.position_size).toFixed(0)));
-                            // $('#stock6_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock6.price).toFixed(2)));
-                            // $('#stock6_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock6.position_size).toFixed(0)));
-                            // $('#stock7_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock7.price).toFixed(2)));
-                            // $('#stock7_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock7.position_size).toFixed(0)));
-                            // $('#stock8_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock8.price).toFixed(2)));
-                            // $('#stock8_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock8.position_size).toFixed(0)));
-                            // $('#stock9_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock9.price).toFixed(2)));
-                            // $('#stock9_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock9.position_size).toFixed(0)));
-                            // $('#stock10_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock10.price).toFixed(2)));
-                            // $('#stock10_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock10.position_size).toFixed(0)));
-                            // $('#stock11_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock11.price).toFixed(2)));
-                            // $('#stock11_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock11.position_size).toFixed(0)));
-                            // $('#stock12_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock12.price).toFixed(2)));
-                            // $('#stock12_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock12.position_size).toFixed(0)));
-                            // $('#stock13_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock13.price).toFixed(2)));
-                            // $('#stock13_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock13.position_size).toFixed(0)));
-                            // $('#stock14_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock14.price).toFixed(2)));
-                            // $('#stock14_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock14.position_size).toFixed(0)));
-                            // $('#stock15_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock15.price).toFixed(2)));
-                            // $('#stock15_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock15.position_size).toFixed(0)));
-                            // $('#stock16_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock16.price).toFixed(2)));
-                            // $('#stock16_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock16.position_size).toFixed(0)));
-                            // $('#stock17_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock17.price).toFixed(2)));
-                            // $('#stock17_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock17.position_size).toFixed(0)));
-                            // $('#stock18_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock18.price).toFixed(2)));
-                            // $('#stock18_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock18.position_size).toFixed(0)));
-                            // $('#stock19_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock19.price).toFixed(2)));
-                            // $('#stock19_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock19.position_size).toFixed(0)));
-                            // $('#stock20_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock20.price).toFixed(2)));
-                            // $('#stock20_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock20.position_size).toFixed(0)));
-                            // $('#stock21_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock21.price).toFixed(2)));
-                            // $('#stock21_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock21.position_size).toFixed(0)));
-                            // $('#stock22_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock22.price).toFixed(2)));
-                            // $('#stock22_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock22.position_size).toFixed(0)));
-                            // $('#stock23_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock23.price).toFixed(2)));
-                            // $('#stock23_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock23.position_size).toFixed(0)));
-                            // $('#stock24_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock24.price).toFixed(2)));
-                            // $('#stock24_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock24.position_size).toFixed(0)));
-                            // $('#stock25_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock25.price).toFixed(2)));
-                            // $('#stock25_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock25.position_size).toFixed(0)));
-                            // $('#stock26_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock26.price).toFixed(2)));
-                            // $('#stock26_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock26.position_size).toFixed(0)));
-                            // $('#stock27_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock27.price).toFixed(2)));
-                            // $('#stock27_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock27.position_size).toFixed(0)));
-                            // $('#stock28_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock28.price).toFixed(2)));
-                            // $('#stock28_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock28.position_size).toFixed(0)));
-                            // $('#stock29_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock29.price).toFixed(2)));
-                            // $('#stock29_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock29.position_size).toFixed(0)));
-                            // $('#stock30_price').html(Intl.NumberFormat().format(parseFloat(dataInput.stock30.price).toFixed(2)));
-                            // $('#stock30_position_size').html(Intl.NumberFormat().format(parseFloat(dataInput.stock30.position_size).toFixed(0)));
+                            // $("#inputElement").html(input_element);
                 
                             // var post_process = "run";
                             let apiKey = localStorage.getItem("apiKey");
+
                             while (response_id < request_id) {
                                 await $.ajax({
                                     type: "POST",
@@ -620,209 +557,145 @@
                 
                                             $('#total_request').html(signalOutput.data_id);
 
-                                            var output_element = 
-                                            `<tr>
-                                                <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
-                                                <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.data_id+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Total Signal</td>
-                                                <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.total_signal+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 45px">Signal<br>&nbsp;Position&nbsp;</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 53px">Signal<br>&nbsp;Size&nbsp;</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 45px">Signal<br>&nbsp;Position&nbsp;</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 53px">Signal<br>&nbsp;Size&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;1</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock1.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock1.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;16</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock16.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock16.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;2</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock2.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock2.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;17</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock17.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock17.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;3</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock3.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock3.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;18</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock18.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock18.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;4</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock4.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock4.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;19</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock19.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock19.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;5</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock5.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock5.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;20</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock20.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock20.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;6</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock6.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock6.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;21</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock21.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock21.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;7</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock7.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock7.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;22</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock22.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock22.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;8</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock8.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock8.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;23</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock23.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock23.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;9</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock9.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock9.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;24</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock24.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock24.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;10</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock10.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock10.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;25</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock25.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock25.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;11</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock11.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock11.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;26</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock26.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock26.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;12</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock12.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock12.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;27</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock27.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock27.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;13</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock13.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock13.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;28</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock28.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock28.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;14</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock14.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock14.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;29</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock29.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock29.signal_size).toFixed(0))+`</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;15</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock15.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock15.signal_size).toFixed(0))+`</td>
-                                                <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;30</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock30.signal_position+`</td>
-                                                <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock30.signal_size).toFixed(0))+`</td>
-                                            </tr>`
+                                            // var output_element = 
+                                            // `<tr>
+                                            //     <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Data ID</td>
+                                            //     <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.data_id+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td colspan="3" style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Total Signal</td>
+                                            //     <td colspan="3" style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.total_signal+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 45px">Signal<br>&nbsp;Position&nbsp;</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 53px">Signal<br>&nbsp;Size&nbsp;</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock #</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 45px">Signal<br>&nbsp;Position&nbsp;</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid; width: 53px">Signal<br>&nbsp;Size&nbsp;</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;1</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock1.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock1.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;16</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock16.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock16.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;2</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock2.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock2.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;17</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock17.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock17.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;3</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock3.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock3.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;18</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock18.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock18.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;4</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock4.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock4.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;19</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock19.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock19.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;5</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock5.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock5.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;20</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock20.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock20.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;6</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock6.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock6.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;21</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock21.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock21.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;7</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock7.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock7.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;22</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock22.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock22.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;8</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock8.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock8.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;23</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock23.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock23.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;9</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock9.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock9.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;24</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock24.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock24.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;10</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock10.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock10.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;25</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock25.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock25.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;11</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock11.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock11.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;26</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock26.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock26.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;12</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock12.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock12.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;27</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock27.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock27.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;13</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock13.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock13.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;28</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock28.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock28.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;14</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock14.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock14.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;29</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock29.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock29.signal_size).toFixed(0))+`</td>
+                                            // </tr>
+                                            // <tr>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;15</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock15.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock15.signal_size).toFixed(0))+`</td>
+                                            //     <td style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">Stock&nbsp;30</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+signalOutput.stock30.signal_position+`</td>
+                                            //     <td style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">`+Intl.NumberFormat().format(parseFloat(signalOutput.stock30.signal_size).toFixed(0))+`</td>
+                                            // </tr>`
 
-                                            $("#outputElement").html(output_element);
-                
-                                            //kemungkin bisa ini dibuat pakai for loop campur eval
-                                            // $('#data_id_output').html(signalOutput.data_id);
-                                            // $('#output_total_signal').html(signalOutput.total_signal);
-                                            // $('#stock1_signal_position').html(signalOutput.stock1.signal_position);
-                                            // $('#stock1_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock1.signal_size).toFixed(0)));
-                                            // $('#stock2_signal_position').html(signalOutput.stock2.signal_position);
-                                            // $('#stock2_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock2.signal_size).toFixed(0)));
-                                            // $('#stock3_signal_position').html(signalOutput.stock3.signal_position);
-                                            // $('#stock3_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock3.signal_size).toFixed(0)));
-                                            // $('#stock4_signal_position').html(signalOutput.stock4.signal_position);
-                                            // $('#stock4_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock4.signal_size).toFixed(0)));
-                                            // $('#stock5_signal_position').html(signalOutput.stock5.signal_position);
-                                            // $('#stock5_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock5.signal_size).toFixed(0)));
-                                            // $('#stock6_signal_position').html(signalOutput.stock6.signal_position);
-                                            // $('#stock6_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock6.signal_size).toFixed(0)));
-                                            // $('#stock7_signal_position').html(signalOutput.stock7.signal_position);
-                                            // $('#stock7_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock7.signal_size).toFixed(0)));
-                                            // $('#stock8_signal_position').html(signalOutput.stock8.signal_position);
-                                            // $('#stock8_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock8.signal_size).toFixed(0)));
-                                            // $('#stock9_signal_position').html(signalOutput.stock9.signal_position);
-                                            // $('#stock9_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock9.signal_size).toFixed(0)));
-                                            // $('#stock10_signal_position').html(signalOutput.stock10.signal_position);
-                                            // $('#stock10_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock10.signal_size).toFixed(0)));
-                                            // $('#stock11_signal_position').html(signalOutput.stock11.signal_position);
-                                            // $('#stock11_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock11.signal_size).toFixed(0)));
-                                            // $('#stock12_signal_position').html(signalOutput.stock12.signal_position);
-                                            // $('#stock12_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock12.signal_size).toFixed(0)));
-                                            // $('#stock13_signal_position').html(signalOutput.stock13.signal_position);
-                                            // $('#stock13_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock13.signal_size).toFixed(0)));
-                                            // $('#stock14_signal_position').html(signalOutput.stock14.signal_position);
-                                            // $('#stock14_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock14.signal_size).toFixed(0)));
-                                            // $('#stock15_signal_position').html(signalOutput.stock15.signal_position);
-                                            // $('#stock15_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock15.signal_size).toFixed(0)));
-                                            // $('#stock16_signal_position').html(signalOutput.stock16.signal_position);
-                                            // $('#stock16_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock16.signal_size).toFixed(0)));
-                                            // $('#stock17_signal_position').html(signalOutput.stock17.signal_position);
-                                            // $('#stock17_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock17.signal_size).toFixed(0)));
-                                            // $('#stock18_signal_position').html(signalOutput.stock18.signal_position);
-                                            // $('#stock18_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock18.signal_size).toFixed(0)));
-                                            // $('#stock19_signal_position').html(signalOutput.stock19.signal_position);
-                                            // $('#stock19_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock19.signal_size).toFixed(0)));
-                                            // $('#stock20_signal_position').html(signalOutput.stock20.signal_position);
-                                            // $('#stock20_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock20.signal_size).toFixed(0)));
-                                            // $('#stock21_signal_position').html(signalOutput.stock21.signal_position);
-                                            // $('#stock21_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock21.signal_size).toFixed(0)));
-                                            // $('#stock22_signal_position').html(signalOutput.stock22.signal_position);
-                                            // $('#stock22_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock22.signal_size).toFixed(0)));
-                                            // $('#stock23_signal_position').html(signalOutput.stock23.signal_position);
-                                            // $('#stock23_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock23.signal_size).toFixed(0)));
-                                            // $('#stock24_signal_position').html(signalOutput.stock24.signal_position);
-                                            // $('#stock24_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock24.signal_size).toFixed(0)));
-                                            // $('#stock25_signal_position').html(signalOutput.stock25.signal_position);
-                                            // $('#stock25_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock25.signal_size).toFixed(0)));
-                                            // $('#stock26_signal_position').html(signalOutput.stock26.signal_position);
-                                            // $('#stock26_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock26.signal_size).toFixed(0)));
-                                            // $('#stock27_signal_position').html(signalOutput.stock27.signal_position);
-                                            // $('#stock27_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock27.signal_size).toFixed(0)));
-                                            // $('#stock28_signal_position').html(signalOutput.stock28.signal_position);
-                                            // $('#stock28_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock28.signal_size).toFixed(0)));
-                                            // $('#stock29_signal_position').html(signalOutput.stock29.signal_position);
-                                            // $('#stock29_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock29.signal_size).toFixed(0)));
-                                            // $('#stock30_signal_position').html(signalOutput.stock30.signal_position);
-                                            // $('#stock30_signal_size').html(Intl.NumberFormat().format(parseFloat(signalOutput.stock30.signal_size).toFixed(0)));
+                                            // $("#outputElement").html(output_element);
                                             
                                             response_id ++;
                                             
