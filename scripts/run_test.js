@@ -123,14 +123,14 @@
                             }
                             //save daily pretrade account summary to array  
                             daily_account_position_summary.push({
-                                daily_Interest:  daily_Interest,
-                                cash_balance : cash_balance,
-                                market_value: market_value,
-                                equity_with_loanValue: equity_with_loanValue,
-                                maintenance_margin_reserved: maintenance_margin_reserved,
-                                maintenance_margin_available: maintenance_margin_available,
-                                initial_margin_reserved: initial_margin_reserved,
-                                initial_margin_available: initial_margin_available,
+                                dailyInterest:  daily_Interest,
+                                cashbalance : cash_balance,
+                                marketvalue: market_value,
+                                equitywith_loanValue: equity_with_loanValue,
+                                maintenancemargin_reserved: maintenance_margin_reserved,
+                                maintenancemargin_available: maintenance_margin_available,
+                                initialmargin_reserved: initial_margin_reserved,
+                                initialmargin_available: initial_margin_available,
                             })  
                             
                             //View in web account & margin summary
@@ -912,9 +912,9 @@
                                             
                                             //save daily trade summary data to array
                                             daily_account_position_summary.push({
-                                                total_trade_value: total_trade_value,
-                                                total_commission: total_commission,
-                                                total_initial_margin: total_initial_margin
+                                                totaltrade_value: total_trade_value,
+                                                totalcommission: total_commission,
+                                                totalinitial_margin: total_initial_margin
                                             })
                                             
                                             // ----------------------------------------------------------------------------------
@@ -958,13 +958,13 @@
                                 
                                             //save daily pretrade account summary to array  
                                             daily_account_position_summary.push({
-                                                cash_balance : cash_balance,
-                                                market_value: market_value,
-                                                equity_with_loanValue:  equity_with_loanValue,
-                                                maintenance_margin_reserved: maintenance_margin_reserved,
-                                                maintenance_margin_available: maintenance_margin_available,
-                                                initial_margin_reserved: initial_margin_reserved,
-                                                initial_margin_available: initial_margin_available
+                                                cashbalance : cash_balance,
+                                                marketvalue: market_value,
+                                                equitywith_loanValue:  equity_with_loanValue,
+                                                maintenancemargin_reserved: maintenance_margin_reserved,
+                                                maintenancemargin_available: maintenance_margin_available,
+                                                initialmargin_reserved: initial_margin_reserved,
+                                                initialmargin_available: initial_margin_available
                                             })
                                 
                                             //save daily stock position & transaction details to summary
