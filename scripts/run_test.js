@@ -67,7 +67,7 @@
 
                     var run = "run";
                         
-                        while (run = "run") {
+                        while (run == "run") {
                 
                             date = test_data[request_id][0].date; 
                             
@@ -422,7 +422,7 @@
                             run = "post";
                             let apiKey = localStorage.getItem("apiKey");
                             
-                            while (run = "post") {
+                            while (run == "post") {
                                 await $.ajax({
                                     type: "POST",
                                     url: "https://api.quantxi.com/post?api_key="+apiKey,
