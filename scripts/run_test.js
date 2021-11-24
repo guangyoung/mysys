@@ -3,7 +3,7 @@
 //...................................................................................
 //...................................................................................
  
-    async function run_test() { 
+    function run_test() { 
         //initial variable
         var request_id = 0;
         var response_id = 0;
@@ -420,7 +420,7 @@
                             let apiKey = localStorage.getItem("apiKey");
                             
                             while (response_id < request_id) {
-                                await $.ajax({
+                                $.ajax({
                                     type: "POST",
                                     url: "https://api.quantxi.com/post?api_key="+apiKey,
                                     data: dataInput,           
@@ -1165,7 +1165,7 @@
                             // var ctx = document.getElementById('performance_chart').getContext('2d');
                             // performance_chart = new Chart(ctx, config);
                                 
-                            clearInterval(proccess);
+                            // clearInterval(proccess);
                 
                             $(':button').prop('disabled', false); //Enable All Button
                             // $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
