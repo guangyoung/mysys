@@ -64,10 +64,8 @@
                     $(':button').prop('disabled', true); //Disable All Button 
                     
                     // var proccess = setInterval(async function() {
-
-                    var run = "run";
                         
-                        while (run == "run") {
+                        while (request_id < 1000 && request_id == response_id) {
                 
                             date = test_data[request_id][0].date; 
                             
@@ -419,10 +417,9 @@
                             $("#inputElement").html(input_element);
                 
                             // var post_process = "run";
-                            run = "post";
                             let apiKey = localStorage.getItem("apiKey");
                             
-                            while (run == "post") {
+                            while (response_id < request_id) {
                                 await $.ajax({
                                     type: "POST",
                                     url: "https://api.quantxi.com/post?api_key="+apiKey,
@@ -700,7 +697,7 @@
 
                                             $("#outputElement").html(output_element);
                                             
-                                            run = "run"
+                                            response_id ++;
                                             
                                             // ----------------------------------------------------------------------------------  
                                             // TRADE TRANSACTION 
@@ -945,7 +942,7 @@
                 
                         } 
                         
-                        if(request_id == 1000){ 
+                        // if(request_id == 1000){ 
                 
                             // TRADE TESTING REPORT ---------------------------------------------------------------
                         
@@ -1182,7 +1179,7 @@
                                 'data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya',
                                 'success'
                             )           
-                        }           
+                        // }           
                     // }, 1)
                 }
         //     })           
