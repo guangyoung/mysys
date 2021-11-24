@@ -12,7 +12,7 @@
         var stock_position_size = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
         
         var daily_Interest;
-        var cash_balance = initial_equity;        
+        var cash_balance = initial_equity;
         var market_value = 0;
         var equity_with_loanValue;
         var maintenance_margin_reserved;
@@ -83,7 +83,7 @@
                                 daily_Interest = 0;
                             }           
                 
-                            // cash_balance -= daily_Interest;
+                            cash_balance -= daily_Interest;
                 
                             for (i=0;i<30;i++) {  
                                 market_value += (stock_position_size[i] * stock_price[i]);                  

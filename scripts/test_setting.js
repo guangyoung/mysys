@@ -82,7 +82,7 @@
             regT_margin = $("#regT_margin").val();
             maint_margin = $("#maint_margin").val();
             min_data = $("#min_data").val();
-            max_data = $("#max_data").val();
+            max_data = $("#max_data").val();            
 
             $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(initial_equity).toFixed(0)));
             $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(initial_equity).toFixed(0)));
