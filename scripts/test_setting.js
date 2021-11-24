@@ -76,11 +76,11 @@
             return false;
         } else {
             initial_equity = parseFloat($("#initial_equity").val());
-            spread_slippage = $("#spread_slippage").val();
-            commission = $("#commision").val();
-            interest_rate = $("#interest_rate").val();
-            regT_margin = $("#regT_margin").val();
-            maint_margin = $("#maint_margin").val();
+            spread_slippage = parseFloat($("#spread_slippage").val());
+            commission = parseFloat($("#commision").val());
+            interest_rate = parseFloat($("#interest_rate").val());
+            regT_margin = parseFloat($("#regT_margin").val());
+            maint_margin = parseFloat($("#maint_margin").val());
             min_data = $("#min_data").val();
             max_data = $("#max_data").val();            
 
