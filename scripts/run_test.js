@@ -3,7 +3,7 @@
 //...................................................................................
 //...................................................................................
  
-    function run_test() { 
+    async function run_test() { 
         //initial variable
         var request_id = 0;
         var response_id = 0;
@@ -420,7 +420,7 @@
                             let apiKey = localStorage.getItem("apiKey");
                             
                             while (response_id < request_id) {
-                                $.ajax({
+                                await $.ajax({
                                     type: "POST",
                                     url: "https://api.quantxi.com/post?api_key="+apiKey,
                                     data: dataInput,           
