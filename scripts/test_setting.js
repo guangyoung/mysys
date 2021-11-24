@@ -75,7 +75,7 @@
             )
             return false;
         } else {
-            initial_equity = $("#initial_equity").val();
+            initial_equity = parseFloat($("#initial_equity").val());
             spread_slippage = $("#spread_slippage").val();
             commission = $("#commision").val();
             interest_rate = $("#interest_rate").val();
