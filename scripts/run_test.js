@@ -63,7 +63,7 @@
                 if(result.isConfirmed) {                    
                     $(':button').prop('disabled', true); //Disable All Button 
                     
-                    var proccess = setInterval(async function() {
+                    // var proccess = setInterval(async function() {
                         
                         while (request_id < 1000 && request_id == response_id) {
                 
@@ -1180,7 +1180,7 @@
                                 'success'
                             )           
                         }           
-                    }, 1)
+                    // }, 1)
                 }
             })           
         }
