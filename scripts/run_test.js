@@ -65,7 +65,7 @@
                     
                     // var proccess = setInterval(async function() {
                         
-                        while (request_id < 1000 && request_id == response_id) {
+                        while (request_id < 1000) {
                 
                             date = test_data[request_id][0].date; 
                             
@@ -416,10 +416,10 @@
 
                             $("#inputElement").html(input_element);
                 
-                            // var post_process = "run";
+                            var post_process = "run";
                             let apiKey = localStorage.getItem("apiKey");
                             
-                            while (response_id < request_id) {
+                            while (post_process = "run") {
                                 await $.ajax({
                                     type: "POST",
                                     url: "https://api.quantxi.com/post?api_key="+apiKey,
@@ -697,7 +697,7 @@
 
                                             $("#outputElement").html(output_element);
                                             
-                                            response_id ++;
+                                            post_process = "stop"
                                             
                                             // ----------------------------------------------------------------------------------  
                                             // TRADE TRANSACTION 
