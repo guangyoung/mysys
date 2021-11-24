@@ -1067,7 +1067,7 @@
                                 })
                             }
                 
-                        } else if(request_id == 5000){ 
+                        } else if(request_id == 1000){ 
                 
                             // TRADE TESTING REPORT ---------------------------------------------------------------
                         
