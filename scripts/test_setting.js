@@ -81,8 +81,8 @@
             interest_rate = parseFloat($("#interest_rate").val());
             regT_margin = parseFloat($("#regT_margin").val());
             maint_margin = parseFloat($("#maint_margin").val());
-            min_data = $("#min_data").val();
-            max_data = $("#max_data").val();            
+            min_data = parseInt($("#min_data").val());
+            max_data = parseInt($("#max_data").val());            
 
             $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(initial_equity).toFixed(0)));
             $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(initial_equity).toFixed(0)));
