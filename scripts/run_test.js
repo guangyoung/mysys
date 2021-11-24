@@ -84,12 +84,18 @@
                             }           
                 
                             cash_balance -= daily_Interest;
+
+                            console.log("cash_balance: "+cash_balance);
                 
                             for (i=0;i<30;i++) {  
                                 market_value += (stock_position_size[i] * stock_price[i]);                  
                             }
+                            
+                            console.log("market_value: "+market_value);
                 
                             equity_with_loanValue = cash_balance + market_value;
+
+                            console.log("equity_with_loanValue: "+equity_with_loanValue);
                 
                             maintenance_margin_reserved = market_value * 0.30;
                 
@@ -98,6 +104,8 @@
                             initial_margin_reserved = market_value * 0.50;
                 
                             initial_margin_available = equity_with_loanValue - initial_margin_reserved;
+
+                            console.log("initial_margin_available: "+initial_margin_available);
 
                             // console.log("daily_Interest: "+daily_Interest);
                             // console.log("cash_balance: "+cash_balance);
