@@ -65,7 +65,7 @@
                     
                     var ti = setInterval(async function() {
                         
-                        if (request_id < 5000 && request_id == response_id) {
+                        if (request_id < 1 && request_id == response_id) {
                 
                             date = test_data[request_id][0].date; 
                             
