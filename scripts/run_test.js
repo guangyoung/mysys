@@ -47,7 +47,10 @@ async function proses() {
     var initial_margin_reserved;
     var initial_margin_available;
 
-    var buyHold_stock_invest = new Array(); //istilah buyHold_stock_invest dicari lagi yg pas        
+    var buyHold_stock_invest = new Array(); //istilah buyHold_stock_invest dicari lagi yg pas 
+    for (i = 0; i < 30; i++) {
+        buyHold_stock_invest.push((initial_equity / 30) / parseFloat(test_data[0][i + 1].price));
+    }       
 
     var data_input = new Array();
     var signal_output = new Array();
@@ -707,14 +710,14 @@ async function proses() {
                         // TRADE TRANSACTION 
                         // ----------------------------------------------------------------------------------    
 
-                        var filledOrder = new Array();
-                        var filledPrice = new Array();
-                        var tradeValue = new Array();
-                        var commission_arr = new Array();
-                        var initialMargin = new Array();
-                        var total_trade_value;
-                        var total_commission;
-                        var total_initial_margin;
+                        let filledOrder = new Array();
+                        let filledPrice = new Array();
+                        let tradeValue = new Array();
+                        let commission_arr = new Array();
+                        let initialMargin = new Array();
+                        let total_trade_value;
+                        let total_commission;
+                        let total_initial_margin;
 
                         //calculated total initial_margin_required of all stock
                         let initial_margin_required = 0;
@@ -769,10 +772,8 @@ async function proses() {
                                 commission_arr[i] = 0;
                                 initialMargin[i] = 0;
                             }
-                        }
 
-                        //save daily stock transaction data to array  
-                        for (i = 0; i < 30; i++) {
+                            //save daily stock transaction data to array  
                             daily_stock_position_transaction_details.push({
                                 stock_ticker: portfolio_data[i].ticker,
                                 filledOrder: filledOrder[i],
@@ -783,15 +784,20 @@ async function proses() {
                             })
                         }
 
+                        //save daily stock transaction data to array  
+                        // for (i = 0; i < 30; i++) {
+                           
+                        // }
+
                         total_trade_value = tradeValue.reduce(function (accumulator, current) {
                             return accumulator + current
                         }),
-                            total_commission = commission_arr.reduce(function (accumulator, current) {
-                                return accumulator + current
-                            }),
-                            total_initial_margin = initialMargin.reduce(function (accumulator, current) {
-                                return accumulator + current
-                            })
+                        total_commission = commission_arr.reduce(function (accumulator, current) {
+                            return accumulator + current
+                        }),
+                        total_initial_margin = initialMargin.reduce(function (accumulator, current) {
+                            return accumulator + current
+                        })
 
                         //save daily trade summary data to array
                         daily_account_position_summary.push({
@@ -808,6 +814,7 @@ async function proses() {
                             // console.log("position size: "+stock_position_size[i]);
                             // console.log("filled order: "+filledOrder[i]);
                             stock_position_size[i] += filledOrder[i];
+                            market_value += (stock_position_size[i] * stock_price[i]);
                         }
                         // console.log("total_trade_value: "+total_trade_value);
                         // console.log("total_commission: "+total_commission);
@@ -815,9 +822,9 @@ async function proses() {
 
                         cash_balance -= (total_trade_value + total_commission);
 
-                        for (i = 0; i < 30; i++) {
-                            market_value += (stock_position_size[i] * stock_price[i]);
-                        }
+                        // for (i = 0; i < 30; i++) {
+                            
+                        // }
 
                         equity_with_loanValue = cash_balance + market_value;
 
@@ -870,10 +877,6 @@ async function proses() {
 
                         var period = new Date(new Date(test_data[request_id - 1][0].date) - new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
                         // console.log(period);
-
-                        for (i = 0; i < 30; i++) {
-                            buyHold_stock_invest.push((initial_equity / 30) / parseFloat(test_data[0][i + 1].price));
-                        }
 
                         var quantxi_equity = equity_with_loanValue;
 
