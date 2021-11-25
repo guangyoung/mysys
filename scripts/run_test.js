@@ -23,6 +23,7 @@ async function run_test() {
             confirmButtonText: 'Ok'
         }).then((result) => {
             if (result.isConfirmed) {
+                $(':button').prop('disabled', true); //Disable All Button 
                 proses();
             }
         })
@@ -67,8 +68,6 @@ async function proses() {
     var buyandhold_sharpe_ratio_array = new Array();
     var quantxi_sortino_ratio_array = new Array();
     var buyandhold_sortino_ratio_array = new Array();
-
-    $(':button').prop('disabled', true); //Disable All Button 
 
     while (request_id < 1000 && request_id == response_id) {
 
@@ -1178,12 +1177,12 @@ async function proses() {
 
     // clearInterval(proccess);
 
-    $(':button').prop('disabled', false); //Enable All Button
-    // $( "reset_button" ).prop( "disabled", false ); //Enable Reset Button
-    // $( "trade_report_button" ).prop( "disabled", false ); //Enable Trade Report Button
-    // $( "trade_performance_button" ).prop( "disabled", true ); //Enable Performance Button
-    // $( "test_statistic_button" ).prop( "disabled", true ); //Enable Test Statistic Button
-    // $( "viewpost_button" ).prop( "disabled", true ); //Enable View Request Button
+    // $(':button').prop('disabled', false); //Enable All Button
+    $( "#reset_button" ).prop( "disabled", false ); //Enable Reset Button
+    $( "#trade_report_button" ).prop( "disabled", false ); //Enable Trade Report Button
+    $( "#trade_performance_button" ).prop( "disabled", false ); //Enable Performance Button
+    $( "#test_statistic_button" ).prop( "disabled", false ); //Enable Test Statistic Button
+    $( "#viewpost_button" ).prop( "disabled", false ); //Enable View Request Button
 
     Swal.fire(
         'Test Done',
