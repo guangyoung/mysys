@@ -42,7 +42,7 @@
         var quantxi_sortino_ratio_array = new Array();
         var buyandhold_sortino_ratio_array = new Array();
 
-        if (test_data.length == 0) {
+        if (test_data.length !== 0) {
             Swal.fire(
                 'No Test Data !',
                 'Please click Market Data and Create It',
