@@ -3,7 +3,7 @@
 //...................................................................................
 //...................................................................................
  
-    async function run_test() { 
+    function run_test() { 
         //initial variable
         var request_id = 0;
         var response_id = 0;
@@ -42,7 +42,7 @@
         var quantxi_sortino_ratio_array = new Array();
         var buyandhold_sortino_ratio_array = new Array();
 
-        if (test_data.length == 0) {
+        if (test_data.length !== 0) {
             Swal.fire(
                 'No Test Data !',
                 'Please click Market Data and Create It',
@@ -50,18 +50,23 @@
             )
             return false;
         } else {
-            // Swal.fire({
-            //     title: 'Connect to Quantxi AI',
-            //     text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
-            //     imageUrl: 'https://www.fundcalibre.com/wp-content/uploads/2020/04/AdobeStock_323829966-956x377.jpeg',
-            //     imageWidth: 400,
-            //     imageHeight: 200,
-            //     imageAlt: 'Custom image',
-            //     confirmButtonColor: '#3085d6',
-            //     confirmButtonText: 'Ok'
-            //   }).then((result) => {
-            //     if(result.isConfirmed) {                    
-                    $(':button').prop('disabled', true); //Disable All Button 
+
+            
+            
+            Swal.fire({
+                title: 'Connect to Quantxi AI',
+                text: 'You will be connected to the Quantxi AI Engine Version 1.1.5, although this is a simulation, you are connected to the same Quantxi intelligence.',
+                imageUrl: 'https://www.fundcalibre.com/wp-content/uploads/2020/04/AdobeStock_323829966-956x377.jpeg',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok'
+              }).then((result) => {
+                if(result.isConfirmed) { 
+                    
+                         
+                     
                     
                     // var proccess = setInterval(async function() {
                         
@@ -420,7 +425,7 @@
                             let apiKey = localStorage.getItem("apiKey");
                             
                             while (response_id < request_id) {
-                                await $.ajax({
+                                $.ajax({
                                     type: "POST",
                                     url: "https://api.quantxi.com/post?api_key="+apiKey,
                                     data: dataInput,           
@@ -1179,11 +1184,11 @@
                                 'data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya',
                                 'success'
                             )           
-                        // }           
+                        }           
                     // }, 1)
-                }
-        //     })           
-        // }
+                // }
+            })           
+        }
     }    
 
     
