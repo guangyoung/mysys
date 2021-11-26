@@ -224,7 +224,7 @@ async function reset_test() {
   await $.ajax({
     type: "DELETE",
     url: ur,
-    contentType: 'application/json',
+    // contentType: 'application/json',
     // dataType: 'json',
     success: function (result) {
       if (result.status == "success") {
