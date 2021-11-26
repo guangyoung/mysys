@@ -222,7 +222,7 @@ async function reset_test() {
   // };
 
   await $.ajax({
-    type: "DELETE",
+    type: "PUT",
     url: ur,
     // dataType: 'json',
     success: function (result) {
