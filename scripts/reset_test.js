@@ -97,7 +97,7 @@ async function reset_test() {
   let ur = "https://api.quantxi.com/reset?api_key=" + localStorage.getItem("apiKey");
 
   await $.ajax({
-    type: "DELETE",
+    type: "POST",
     url: ur,
     dataType: 'json',
     success: function (result) {
