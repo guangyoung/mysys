@@ -224,6 +224,7 @@ async function reset_test() {
   await $.ajax({
     type: "PUT",
     url: ur,
+    contentType: 'application/json',
     // dataType: 'json',
     success: function (result) {
       if (result.status == "success") {
