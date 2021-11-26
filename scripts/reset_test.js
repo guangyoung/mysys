@@ -103,6 +103,8 @@ async function reset_test() {
     success: function (result) {
       if (result.status == "success") {
 
+        alert("reset sukses");
+
         $(':button').prop('disabled', false); //Enable All Button 
         // account_trade_summary = [];
         // asset_trade_details = [];
