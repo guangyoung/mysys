@@ -23,7 +23,7 @@ function run_test() {
             confirmButtonText: 'Ok'
         }).then((result) => {
             if (result.isConfirmed) {
-                $(':button').prop('disabled', true); //Disable All Button 
+                // $(':button').prop('disabled', true); //Disable All Button 
                 proses();
             }
         })
