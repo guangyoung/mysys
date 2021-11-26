@@ -225,7 +225,7 @@ async function reset_test() {
     type: "DELETE",
     url: ur,
     // contentType: 'application/json',
-    // dataType: 'json',
+    dataType: 'json',
     success: function (result) {
       if (result.status == "success") {
 
