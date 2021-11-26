@@ -99,7 +99,7 @@ async function reset_test() {
   await $.ajax({
     type: "POST",
     url: ur,
-    dataType: 'json',
+    // dataType: 'json',
     success: function (result) {
       if (result.status == "success") {
 
