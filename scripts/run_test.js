@@ -424,12 +424,16 @@ async function proses() {
         $("#inputElement").html(input_element);
 
         // var post_process = "run";
-        let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");
+        let apiKey= localStorage.getItem("apiKey");
+        let ur = "https://api.quantxi.com/post";
 
         while (response_id < request_id) {
             await $.ajax({
                 type: "POST",
                 url: ur,
+                headers: {
+                    "x-api-key": apiKey
+                },
                 data: dataInput,
                 dataType: 'json',
                 success: function (result) {
