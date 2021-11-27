@@ -100,6 +100,9 @@ async function reset_test() {
   await $.ajax({
     type: "DELETE",
     url: ur,
+    headers: {
+        "X-SECRET-KEY": "asksksk" 
+    },
     dataType: 'json',
     success: function (result) {
       if (result.status == "success") {
