@@ -98,7 +98,7 @@ async function reset_test() {
   let ur = "https://api.quantxi.com/reset";
 
   await $.ajax({
-    type: "POST",
+    type: "DELETE",
     url: ur,
     headers: {
         "x-api-key": apiKey
