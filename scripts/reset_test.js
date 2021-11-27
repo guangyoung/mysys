@@ -95,7 +95,7 @@ async function reset_test() {
   // }
 
 //   let apiKey = localStorage.getItem("apiKey");
-  let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");
+  let ur = "https://api.quantxi.com/reset?api_key=" + localStorage.getItem("apiKey");
 
   await $.ajax({
     type: "DELETE",
