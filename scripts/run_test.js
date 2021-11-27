@@ -430,9 +430,6 @@ async function proses() {
             await $.ajax({
                 type: "POST",
                 url: ur,
-                headers: {
-                    "X-SECRET-KEY": "asksksk" 
-                },
                 data: dataInput,
                 dataType: 'json',
                 success: function (result) {
