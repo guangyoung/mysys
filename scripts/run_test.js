@@ -432,7 +432,7 @@ async function proses() {
                 type: "POST",
                 url: ur,
                 headers: {
-                    "x-api-key": apiKey
+                    "X-API-KEY": apiKey
                 },
                 data: dataInput,                
                 dataType: 'json',
