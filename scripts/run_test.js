@@ -428,7 +428,7 @@ async function proses() {
 
         while (response_id < request_id) {
             await $.ajax({
-                type: "PUT",
+                type: "POST",
                 url: ur,
                 data: dataInput,
                 dataType: 'json',
