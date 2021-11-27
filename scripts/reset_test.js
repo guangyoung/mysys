@@ -100,13 +100,6 @@ async function reset_test() {
   await $.ajax({
     type: "DELETE",
     url: ur,
-    // contentType: 'application/json; charset=utf-8',
-    beforeSend:function(){
-        return confirm("Are you sure?");
-     },
-    // headers: {
-    //     "x-api-key": apiKey
-    // },
     dataType: 'json',
     success: function (result) {
       if (result.status == "success") {
