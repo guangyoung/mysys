@@ -94,15 +94,15 @@ async function reset_test() {
   //   });   
   // }
 
-  let apiKey = localStorage.getItem("apiKey");
-  let ur = "https://api.quantxi.com/reset";
+//   let apiKey = localStorage.getItem("apiKey");
+  let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");
 
   await $.ajax({
     type: "DELETE",
     url: ur,
-    headers: {
-        "x-api-key": apiKey
-    },
+    // headers: {
+    //     "x-api-key": apiKey
+    // },
     dataType: 'json',
     success: function (result) {
       if (result.status == "success") {
