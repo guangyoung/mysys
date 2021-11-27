@@ -431,10 +431,10 @@ async function proses() {
             await $.ajax({
                 type: "POST",
                 url: ur,
-                data: dataInput,
                 headers: {
                     "x-api-key": apiKey
                 },
+                data: dataInput,                
                 dataType: 'json',
                 success: function (result) {
                     // console.log(result);
