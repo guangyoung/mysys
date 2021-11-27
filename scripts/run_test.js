@@ -72,7 +72,7 @@ async function proses() {
     var quantxi_sortino_ratio_array = new Array();
     var buyandhold_sortino_ratio_array = new Array();
 
-    while (request_id < 100 && request_id == response_id) {
+    while (request_id < 1000 && request_id == response_id) {
 
         date = test_data[request_id][0].date;
 
