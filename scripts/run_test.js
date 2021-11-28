@@ -282,7 +282,7 @@ async function proses() {
 
         data_input.push(dataInput); //save data to array data_input_history
         
-        document.getElementById('data_input_id').innerHTML = dataInput.data_id;
+        document.getElementById('data_inputID').innerHTML = dataInput.data_id;
         document.getElementById('margin_available').innerHTML = Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0));
         for(i=1; i<=30; i++){
             document.getElementById("price_stock"+i).innerHTML = eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.price).toFixed(5))`);
@@ -425,15 +425,9 @@ async function proses() {
                             }
                         };
                         signal_output.push(signalOutput); //save data to array signal_output_history 
+                        // console.log(signalOutput);
 
                         $('#total_request').html(signalOutput.data_id);
-
-                        // document.getElementById('data_input_id').innerHTML = dataInput.data_id;
-                        // document.getElementById('margin_available').innerHTML = Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0));
-                        // for(i=1; i<=30; i++){
-                        //     document.getElementById("price_stock"+i).innerHTML = eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.price).toFixed(5))`);
-                        //     document.getElementById("position_stock"+i).innerHTML = eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.position_size).toFixed(0))`);
-                        // }
 
                         let output_element =
                             `<tr>
