@@ -28,6 +28,9 @@
     font-style: normal;
 }
 
+/* .tabulator .tabulator-header .tabulator-col[data-sortable=true] .tabulator-col-title {width: 100%;}
+.tabulator-arrow {display: none;} */
+
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     background-color: #959fdb;
 }
