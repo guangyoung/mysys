@@ -24,6 +24,7 @@ function run_test() {
         }).then((result) => {
             if (result.isConfirmed) {
                 // $(':button').prop('disabled', true); //Disable All Button 
+                //di detailkan button yg mau di disable jgn semua
                 proses();
             }
         })
@@ -33,7 +34,7 @@ function run_test() {
 async function proses() {
     //initial variable
     var request_id = 0;
-    var response_id = 0;
+    // var response_id = 0;
     var date;
     var stock_price = new Array();
     var stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -72,7 +73,7 @@ async function proses() {
     var quantxi_sortino_ratio_array = new Array();
     var buyandhold_sortino_ratio_array = new Array();
 
-    while (request_id < 1000 && request_id == response_id) {
+    while (request_id < 1000) {
 
         date = test_data[request_id][0].date;
 
@@ -153,10 +154,10 @@ async function proses() {
         // POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
         // ----------------------------------------------------------------------------------           
 
-        request_id++;
+        // request_id++;
 
         var dataInput = {
-            data_id: request_id,
+            data_id: request_id+1,
             margin_available: initial_margin_available,
             stock1: {
                 price: stock_price[0],
@@ -283,17 +284,17 @@ async function proses() {
         data_input.push(dataInput); //save data to array data_input_history
         // console.log(dataInput.data_id);
 
-        document.getElementById('data_input_id').innerHTML = Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0));
-        document.getElementById('margin_available').innerHTML = Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0));
+        $('#data_input_id').innerHTML(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
+        $('#margin_available').innerHTML(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
         for(i=1; i<=30; i++){
-            document.getElementById("price_stock"+i).innerHTML = eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.price).toFixed(5))`);
-            document.getElementById("position_stock"+i).innerHTML = eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.position_size).toFixed(0))`);
+            $("#price_stock"+i).innerHTML(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.price).toFixed(5))`));
+            $("#position_stock"+i).innerHTML(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.position_size).toFixed(0))`));
         }
 
         // var post_process = "run";
         let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");
 
-        while (response_id < request_id) {
+        while (dataInput.data_id > request_id) {
             await $.ajax({
                 type: "POST",
                 url: ur,
@@ -438,7 +439,7 @@ async function proses() {
                             document.getElementById("signal_size_stock"+i).innerHTML = eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock`+i+`.signal_size).toFixed(0))`);
                         }                        
 
-                        response_id++;
+                        request_id++;
 
                         // ----------------------------------------------------------------------------------  
                         // TRADE TRANSACTION 
