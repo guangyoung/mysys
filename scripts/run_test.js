@@ -284,11 +284,11 @@ async function proses() {
         data_input.push(dataInput); //save data to array data_input_history
         // console.log(dataInput.data_id);
 
-        $('#data_input_id').innerHTML(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
-        $('#margin_available').innerHTML(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
+        $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
+        $('#margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
         for(i=1; i<=30; i++){
-            $("#price_stock"+i).innerHTML(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.price).toFixed(5))`));
-            $("#position_stock"+i).innerHTML(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.position_size).toFixed(0))`));
+            $("#price_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.price).toFixed(5))`));
+            $("#position_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.position_size).toFixed(0))`));
         }
 
         // var post_process = "run";
