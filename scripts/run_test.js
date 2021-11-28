@@ -282,7 +282,7 @@ async function proses() {
 
         data_input.push(dataInput); //save data to array data_input_history
         
-        document.getElementById('data_input_id').innerHTML = Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0));;
+        document.getElementById('data_input_id').innerHTML = dataInput.data_id;
         document.getElementById('margin_available').innerHTML = Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0));
         for(i=1; i<=30; i++){
             document.getElementById("price_stock"+i).innerHTML = eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.price).toFixed(5))`);
@@ -428,8 +428,8 @@ async function proses() {
 
                         $('#total_request').html(signalOutput.data_id);
 
-                        document.getElementById('data_output_id').innerHTML = Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0));
-                        document.getElementById('total_signal').innerHTML = Intl.NumberFormat().format(parseFloat(signalOutput.total_signal).toFixed(0));
+                        document.getElementById('data_output_id').innerHTML = signalOutput.data_id;
+                        document.getElementById('total_signal').innerHTML = signalOutput.total_signal;
                         for(i=1; i<=30; i++){
                             document.getElementById("signal_position_stock"+i).innerHTML = eval(`signalOutput.stock`+i+`.signal_position`);
                             document.getElementById("signal_size_stock"+i).innerHTML = eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock`+i+`.signal_size).toFixed(0))`);
