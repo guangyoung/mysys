@@ -109,7 +109,10 @@ async function reset_test() {
 
         alert("reset sukses");
 
-        $(':button').prop('disabled', false); //Enable All Button 
+        // $(':button').prop('disabled', false); //Enable All Button 
+        $("#setting_button").prop("disabled", false); //Enable Setting Button
+        $("#data_button").prop("disabled", false); //Enable Market Data Button
+        $("#play_button").prop("disabled", false); //Enable Play Button
         // account_trade_summary = [];
         // asset_trade_details = [];
         // $("#account_trade_summary_tbl>tbody").empty();

@@ -23,8 +23,16 @@ function run_test() {
             confirmButtonText: 'Ok'
         }).then((result) => {
             if (result.isConfirmed) {
-                // $(':button').prop('disabled', true); //Disable All Button 
-                //di detailkan button yg mau di disable jgn semua
+                
+                $("#setting_button").prop("disabled", true); //Disable Setting Button
+                $("#data_button").prop("disabled", true); //Disable Market Data Button
+                $("#reset_button").prop("disabled", true); //Disable Reset Button
+                $("#play_button").prop("disabled", true); //Disable Play Button
+                $("#trade_report_button").prop("disabled", true); //Disable Trade Report Button
+                $("#trade_performance_button").prop("disabled", true); //Disable Performance Button
+                $("#test_statistic_button").prop("disabled", true); //Disable Test Statistic Button
+                $("#viewpost_button").prop("disabled", true); //Disable View Request Button
+                
                 proses();
             }
         })
