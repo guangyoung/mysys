@@ -889,13 +889,17 @@ async function proses() {
                         }
 
                         let quantxi_total_return = quantxi_equity / initial_equity;
+                        quantxi_total_return_array.push(quantxi_total_return);
                        
-                        let buyandhold_total_return = buyandhold_equity / initial_equity;                        
+                        let buyandhold_total_return = buyandhold_equity / initial_equity;  
+                        buyandhold_total_return_array.push(buyandhold_total_return);                      
 
                         let quantxi_cagr = ((quantxi_total_return) ^ (1 / period) - 1); //angka 30 ganti jadi periode sesuai periode data
-                        
+                        quantxi_cagr_array.push(quantxi_cagr);
+
                         let buyandhold_cagr = ((buyandhold_total_return) ^ (1 / period) - 1); //angka 30 ganti jadi periode sesuai periode data
-                        
+                        buyandhold_cagr_array.push(buyandhold_cagr);
+
                         let quantxi_equity_peak = 0;
                         let quantxi_equity_trough = 0;
                         let quantxi_maxDrawDown = 0;
@@ -907,7 +911,8 @@ async function proses() {
                             let quantxi_tmpDrawDown = quantxi_equity_peak - quantxi_equity_trough;
                             if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
                                 quantxi_maxDrawDown = quantxi_tmpDrawDown;
-                        }                        
+                        } 
+                        quantxi_maxDrawDown_array.push(quantxi_maxDrawDown);                       
 
                         let buyandhold_equity_peak = 0;
                         let buyandhold_equity_trough = 0;
@@ -920,33 +925,26 @@ async function proses() {
                             let buyandhold_tmpDrawDown = buyandhold_equity_peak - buyandhold_equity_trough;
                             if (buyandhold_tmpDrawDown > buyandhold_maxDrawDown)
                                 buyandhold_maxDrawDown = buyandhold_tmpDrawDown;
-                        }                       
+                        } 
+                        buyandhold_maxDrawDown_array.push(buyandhold_maxDrawDown);                      
 
-                        let quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown); 
+                        let quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown);
+                        quantxi_mar_array.push(quantxi_mar); 
 
                         let buyandhold_mar = (buyandhold_cagr / buyandhold_maxDrawDown); 
+                        buyandhold_mar_array.push(buyandhold_mar);
 
                         //Sharpe Ratio = (Average fund returns − Riskfree Rate) / Standard Deviation of fund  returns
                         let quantxi_sharpe_ratio = (math.mean(quantxi_total_return_array) - risk_freeRate) / math.std(quantxi_total_return_array);
-                        
+                        quantxi_sharpe_ratio_array.push(quantxi_sharpe_ratio);
+
                         let buyandhold_sharpe_ratio = (math.mean(buyandhold_total_return_array) - risk_freeRate) / math.std(buyandhold_total_return_array);
-                        
+                        buyandhold_sharpe_ratio_array.push(buyandhold_sharpe_ratio);
+
                         let quantxi_sortino_ratio = (1);
+                        quantxi_sortino_ratio_array.push(quantxi_sortino_ratio);
                         
                         let buyandhold_sortino_ratio = (1);
-
-                        //push rasio ke array masing-masing ------------------------------------
-                        quantxi_total_return_array.push(quantxi_total_return);
-                        buyandhold_total_return_array.push(buyandhold_total_return);
-                        quantxi_cagr_array.push(quantxi_cagr);
-                        buyandhold_cagr_array.push(buyandhold_cagr);
-                        quantxi_maxDrawDown_array.push(quantxi_maxDrawDown);
-                        buyandhold_maxDrawDown_array.push(buyandhold_maxDrawDown);
-                        quantxi_mar_array.push(quantxi_mar);
-                        buyandhold_mar_array.push(buyandhold_mar);
-                        quantxi_sharpe_ratio_array.push(quantxi_sharpe_ratio);
-                        buyandhold_sharpe_ratio_array.push(buyandhold_sharpe_ratio);
-                        quantxi_sortino_ratio_array.push(quantxi_sortino_ratio);
                         buyandhold_sortino_ratio_array.push(buyandhold_sortino_ratio);
 
                         //tampilkan rasio ke halaman web------------------------------
