@@ -432,11 +432,11 @@ async function proses() {
 
                         $('#total_request').html(signalOutput.data_id);
 
-                        document.getElementById('data_output_id').innerHTML = Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0));
-                        document.getElementById('total_signal').innerHTML = Intl.NumberFormat().format(parseFloat(signalOutput.total_signal).toFixed(0));
+                        $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
+                        $('#total_signal').html(Intl.NumberFormat().format(parseFloat(signalOutput.total_signal).toFixed(0)));
                         for(i=1; i<=30; i++){
-                            document.getElementById("signal_position_stock"+i).innerHTML = eval(`signalOutput.stock`+i+`.signal_position`);
-                            document.getElementById("signal_size_stock"+i).innerHTML = eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock`+i+`.signal_size).toFixed(0))`);
+                            $("#signal_position_stock"+i).html(eval(`signalOutput.stock`+i+`.signal_position`));
+                            $("#signal_size_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock`+i+`.signal_size).toFixed(0))`));
                         }                        
 
                         request_id++;
