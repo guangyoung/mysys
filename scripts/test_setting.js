@@ -10,11 +10,13 @@
     var spread_slippage = 0.001;
     var commission = 0.005;
     var interest_rate = 0.02;
+    var risk_freeRate = 0.01;
     var regT_margin = 0.5;
     var maint_margin = 0.3;
     var min_data = 1305;
     var max_data = 7830;
-    var risk_freeRate = 0.01;
+    var portfolio_stocks = 30;
+    
 
     function test_setting_submit_btn() {
 
@@ -74,15 +76,31 @@
                 'warning'
             )
             return false;
+        } else if ( $("#risk_free_rate").val() < 0.01 ) {
+            Swal.fire(
+                'Risk Free Rate < 1% !',
+                'Please input Risk Free Rate between 1% - 5%',
+                'warning'
+            )
+            return false;
+        } else if ( $("#risk_free_rate").val() > 0.05 ) {
+            Swal.fire(
+                'Risk Free Rate > 5% !',
+                'Please input Risk Free Rate between 1% - 5%',
+                'warning'
+            )
+            return false;
         } else {
             initial_equity = parseFloat($("#initial_equity").val());
             spread_slippage = parseFloat($("#spread_slippage").val());
             commission = parseFloat($("#commision").val());
             interest_rate = parseFloat($("#interest_rate").val());
+            risk_free_rate = parseFloat($("#risk_free_rate").val());
             regT_margin = parseFloat($("#regT_margin").val());
             maint_margin = parseFloat($("#maint_margin").val());
             min_data = parseInt($("#min_data").val());
-            max_data = parseInt($("#max_data").val());            
+            max_data = parseInt($("#max_data").val()); 
+            portfolio_stocks = parseInt($("#portfolio_stocks").val());             
 
             $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(initial_equity).toFixed(0)));
             $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(initial_equity).toFixed(0)));
