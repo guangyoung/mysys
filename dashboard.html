@@ -988,7 +988,7 @@
                             <div class="tab-content" id="nav-tabContent">
                                 <div class="tab-pane fade show active" id="nav-manual" role="tabpanel"
                                     aria-labelledby="nav-manua-tab">
-                                    <div class="dropdown" id="select_startdate">
+                                    <!-- <div class="dropdown" id="select_startdate">
                                         <button class="btn btn-secondary btn-sm dropdown-toggle" id="startdate_btn"
                                             type="button" data-toggle="dropdown"
                                             style="margin-top: 5px; font-size: 13px; width: 370px; padding: 1px 5px">
@@ -1018,7 +1018,7 @@
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="2009">2009</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="2010">2010</a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="dropdown" id="tickers_exchange">
                                         <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn"
                                             type="button" data-toggle="dropdown" onclick="tickers_exchange_btn()"
@@ -1029,7 +1029,9 @@
                                         <div class="dropdown-menu" id="ex_dd" aria-labelledby="dropdownMenuButton"
                                             style="background-color: #494949; text-align: center; font-size: 13px; height: 350px; width: 370px; overflow: auto;">
                                             <a class="dropdown-item" href="#" style="margin-top: -10px; color: #ffff"
-                                                id="NASDAQ">NASDAQ - USA</a>
+                                                id="NASDAQ_TEST">NASDAQ_TEST - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="TEST">TEST - USA</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff"
                                                 id="euronext_amsterdam">Euronext Amsterdam - Netherlands</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff"
@@ -1165,12 +1167,12 @@
                                                 id="tiingo_tickers_btn" onclick="tickers_list_btn()" type="button"
                                                 data-toggle="dropdown"
                                                 style="margin-top: 2px; margin-left: 15px; font-size: 13px; width: 180px; padding: 1px 5px">
-                                                Select Tickers (<span class="quantity">0</span>)
+                                                Select Stocks (<span class="quantity">0</span>)
                                             </button>
                                             <div id="div_ulul">
                                                 <ul id="ulul" class="uli dropdown-menu"
                                                     aria-labelledby="dropdownMenuButton"
-                                                    style="background-color: #494949; color: #ffff; font-size: 13px; height: 322px; width: 180px; overflow: auto;">
+                                                    style="background-color: #494949; color: #ffff; font-size: 13px; height: 322px; width: 500px; overflow: auto;">
 
                                                 </ul>
                                             </div>
@@ -1183,7 +1185,7 @@
                                 <div class="tab-pane fade" id="nav-random" role="tabpanel"
                                     aria-labelledby="nav-random-tab">
                                     <!-- <div class="row" style="margin-top: 5px" id="tt_dd2"> -->
-                                    <div class="dropdown" id="select_startdate_select_random">
+                                    <!-- <div class="dropdown" id="select_startdate_select_random">
                                         <button class="btn btn-secondary btn-sm dropdown-toggle"
                                             id="startdate_btn_random" type="button" data-toggle="dropdown"
                                             style="margin-top: 4px; font-size: 13px; width: 370px; padding: 1px 5px">
@@ -1191,29 +1193,29 @@
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                                             style="background-color: #494949; text-align: center; font-size: 13px; height: 322px; width: 372px; overflow: auto;">
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1990">1990</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1991">1991</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1992">1992</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1993">1993</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1994">1994</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1995">1995</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1996">1996</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1997">1997</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1998">1998</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1999">1999</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2000">2000</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2001">2001</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2002">2002</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2003">2003</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2004">2004</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2005">2005</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2006">2006</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2007">2007</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2008">2008</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2009">2009</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2010">2010</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1990_random">1990</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1991_random">1991</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1992_random">1992</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1993_random">1993</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1994_random">1994</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1995_random">1995</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1996_random">1996</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1997_random">1997</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1998_random">1998</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1999_random">1999</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2000_random">2000</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2001_random">2001</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2002_random">2002</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2003_random">2003</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2004_random">2004</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2005_random">2005</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2006_random">2006</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2007_random">2007</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2008_random">2008</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2009_random">2009</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2010_random">2010</a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="dropdown" id="tickers_exchange_select_random">
                                         <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn_random"
                                             type="button" data-toggle="dropdown" onclick="tickers_exchange_btn_random()"
@@ -1230,7 +1232,7 @@
                                                 Exchange</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="Mix3">Mix -
                                                 Europe Exchange</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="NASDAQ">NASDAQ -
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="NASDAQ_random">NASDAQ -
                                                 USA</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff"
                                                 id="euronext_amsterdam">Euronext Amsterdam - Netherlands</a>
@@ -1362,14 +1364,14 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-sm"
-                                        style="font-size: 13px; padding: 0px 0px; margin-left: 0px; margin-top: 5px; height: 25px; width: 370px"
+                                        style="font-size: 13px; padding: 0px 0px; margin-left: 0px; margin-top: 5px; height: 24px; width: 370px"
                                         onclick="add_data_random()">Add Stock Randomly</button>
                                     <!-- </div> -->
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="table-report"
-                                    style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 10px; margin-left: 15px; margin-right: 15px; height: 275px; width: 100%; overflow-y: scroll">
+                                    style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 10px; margin-left: 15px; margin-right: 15px; height: 300px; width: 100%; overflow-y: scroll">
                                     <table id="table_assets">
                                         <thead style="font-size: 12px; font-family: calibri">
                                             <tr>
@@ -2499,27 +2501,23 @@
         var ticker_list = new Array();
         var exchange_choose_current_manual;
         var exchange_choose_previous_manual;
-        var startdate_select_manual;
-        var startdate_select_previous_manual;
         var exchange_choose_current_random;
         var exchange_choose_previous_random;
-        var startdate_select_random;
-        var startdate_select_previous_random;
 
-        $("#select_startdate").on('click', '.dropdown-item', function (event) {
-            let container_exchange = $(this).closest("#select_startdate");
-            startdate_select_manual = $(event.currentTarget)[0].id;
-            container_exchange.find('.Sdate').text($(event.currentTarget)[0].innerText || 'Select Start Date');
-            console.log(startdate_select_manual);
-        });
+        // $("#select_startdate").on('click', '.dropdown-item', function (event) {
+        //     let container_exchange = $(this).closest("#select_startdate");
+        //     startdate_select_manual = $(event.currentTarget)[0].id;
+        //     container_exchange.find('.Sdate').text($(event.currentTarget)[0].innerText || 'Select Start Date');
+        //     console.log(startdate_select_manual);
+        // });
 
-        $("#select_startdate_select_random").on('click', '.dropdown-item', function (event) {
-            let container_exchange = $(this).closest("#select_startdate_select_random");
-            startdate_select_random = $(event.currentTarget)[0].id;
-            container_exchange.find('.Sdate_random').text($(event.currentTarget)[0].innerText ||
-                'Select Start Date');
-            console.log(startdate_select_random);
-        });
+        // $("#select_startdate_select_random").on('click', '.dropdown-item', function (event) {
+        //     let container_exchange = $(this).closest("#select_startdate_select_random");
+        //     startdate_select_random = $(event.currentTarget)[0].id;
+        //     container_exchange.find('.Sdate_random').text($(event.currentTarget)[0].innerText ||
+        //         'Select Start Date');
+        //     console.log(startdate_select_random);
+        // });
 
         $("#tickers_list").on('click', '.dropdown-menu li', function (event) {
             event.stopPropagation();

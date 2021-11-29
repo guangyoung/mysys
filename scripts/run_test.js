@@ -3,8 +3,8 @@
 //...................................................................................
 //...................................................................................
 
-function run_test() {
-    if (test_data.length == 0) {
+function run_test() { //mulai run test cek data
+    if (test_data.length == 0) { // jika data kosong
         Swal.fire(
             'No Test Data !',
             'Please click Market Data and Create It',
@@ -22,8 +22,8 @@ function run_test() {
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'Ok'
         }).then((result) => {
-            if (result.isConfirmed) {
-                
+            if (result.isConfirmed) { //jika konfirm ok
+
                 $("#setting_button").prop("disabled", true); //Disable Setting Button
                 $("#data_button").prop("disabled", true); //Disable Market Data Button
                 $("#reset_button").prop("disabled", true); //Disable Reset Button
@@ -32,17 +32,18 @@ function run_test() {
                 $("#trade_performance_button").prop("disabled", true); //Disable Performance Button
                 $("#test_statistic_button").prop("disabled", true); //Disable Test Statistic Button
                 $("#viewpost_button").prop("disabled", true); //Disable View Request Button
-                
-                proses();
+
+                proses(); //run test
             }
         })
     }
 }
 
+//-------------------------------------------------------------------------------------------
+
 async function proses() {
     //initial variable
-    var request_id = 0;
-    // var response_id = 0;
+    var request_id = 0, response_id = 0;
     var date;
     var stock_price = new Array();
     var stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -81,7 +82,7 @@ async function proses() {
     var quantxi_sortino_ratio_array = new Array();
     var buyandhold_sortino_ratio_array = new Array();
 
-    while (request_id < 1000) {
+    while (response_id < 1000) { // selama data yg selesasi di proses kurang dari....
 
         date = test_data[request_id][0].date;
 
@@ -162,10 +163,10 @@ async function proses() {
         // POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
         // ----------------------------------------------------------------------------------           
 
-        // request_id++;
+        request_id++;
 
         var dataInput = {
-            data_id: request_id+1,
+            data_id: request_id,
             margin_available: initial_margin_available,
             stock1: {
                 price: stock_price[0],
@@ -290,19 +291,18 @@ async function proses() {
         };
 
         data_input.push(dataInput); //save data to array data_input_history
-        // console.log(dataInput.data_id);
 
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
         $('#margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
-        for(i=1; i<=30; i++){
-            $("#price_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.price).toFixed(5))`));
-            $("#position_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.position_size).toFixed(0))`));
+        for (i = 1; i <= 30; i++) {
+            $("#price_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.price).toFixed(5))`));
+            $("#position_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.position_size).toFixed(0))`));
         }
 
         // var post_process = "run";
         let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");
 
-        while (dataInput.data_id > request_id) {
+        while (response_id < request_id) { //selama response kurang dari request
             await $.ajax({
                 type: "POST",
                 url: ur,
@@ -436,18 +436,17 @@ async function proses() {
                             }
                         };
                         signal_output.push(signalOutput); //save data to array signal_output_history 
-                        // console.log(signalOutput);
 
                         $('#total_request').html(signalOutput.data_id);
 
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
                         $('#total_signal').html(Intl.NumberFormat().format(parseFloat(signalOutput.total_signal).toFixed(0)));
-                        for(i=1; i<=30; i++){
-                            $("#signal_position_stock"+i).html(eval(`signalOutput.stock`+i+`.signal_position`));
-                            $("#signal_size_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock`+i+`.signal_size).toFixed(0))`));
-                        }                        
+                        for (i = 1; i <= 30; i++) {
+                            $("#signal_position_stock" + i).html(eval(`signalOutput.stock` + i + `.signal_position`));
+                            $("#signal_size_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock` + i + `.signal_size).toFixed(0))`));
+                        }
 
-                        request_id++;
+                        response_id++;
 
                         // ----------------------------------------------------------------------------------  
                         // TRADE TRANSACTION 
@@ -616,19 +615,19 @@ async function proses() {
 
                         //perhitungan rasio2 performance---------------------------------
                         let period = new Date(new Date(test_data[request_id - 1][0].date) - new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
-                        
+
                         let quantxi_equity = equity_with_loanValue;
 
                         let buyandhold_equity = 0;
-                        for (i = 0; i < 30; i++) {
+                        for (i = 0; i < 30; i++) { //rumus ini perbaiki
                             buyandhold_equity += buyHold_stock_invest[i] * stock_price[i];
                         }
 
                         let quantxi_total_return = quantxi_equity / initial_equity;
                         quantxi_total_return_array.push(quantxi_total_return);
-                       
-                        let buyandhold_total_return = buyandhold_equity / initial_equity;  
-                        buyandhold_total_return_array.push(buyandhold_total_return);                      
+
+                        let buyandhold_total_return = buyandhold_equity / initial_equity;
+                        buyandhold_total_return_array.push(buyandhold_total_return);
 
                         let quantxi_cagr = ((quantxi_total_return) ^ (1 / period) - 1); //angka 30 ganti jadi periode sesuai periode data
                         quantxi_cagr_array.push(quantxi_cagr);
@@ -647,8 +646,8 @@ async function proses() {
                             let quantxi_tmpDrawDown = quantxi_equity_peak - quantxi_equity_trough;
                             if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
                                 quantxi_maxDrawDown = quantxi_tmpDrawDown;
-                        } 
-                        quantxi_maxDrawDown_array.push(quantxi_maxDrawDown);                       
+                        }
+                        quantxi_maxDrawDown_array.push(quantxi_maxDrawDown);
 
                         let buyandhold_equity_peak = 0;
                         let buyandhold_equity_trough = 0;
@@ -661,13 +660,13 @@ async function proses() {
                             let buyandhold_tmpDrawDown = buyandhold_equity_peak - buyandhold_equity_trough;
                             if (buyandhold_tmpDrawDown > buyandhold_maxDrawDown)
                                 buyandhold_maxDrawDown = buyandhold_tmpDrawDown;
-                        } 
-                        buyandhold_maxDrawDown_array.push(buyandhold_maxDrawDown);                      
+                        }
+                        buyandhold_maxDrawDown_array.push(buyandhold_maxDrawDown);
 
                         let quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown);
-                        quantxi_mar_array.push(quantxi_mar); 
+                        quantxi_mar_array.push(quantxi_mar);
 
-                        let buyandhold_mar = (buyandhold_cagr / buyandhold_maxDrawDown); 
+                        let buyandhold_mar = (buyandhold_cagr / buyandhold_maxDrawDown);
                         buyandhold_mar_array.push(buyandhold_mar);
 
                         //Sharpe Ratio = (Average fund returns − Riskfree Rate) / Standard Deviation of fund  returns
@@ -679,7 +678,7 @@ async function proses() {
 
                         let quantxi_sortino_ratio = (1);
                         quantxi_sortino_ratio_array.push(quantxi_sortino_ratio);
-                        
+
                         let buyandhold_sortino_ratio = (1);
                         buyandhold_sortino_ratio_array.push(buyandhold_sortino_ratio);
 
