@@ -38,8 +38,8 @@ function tickers_exchange_btn_random() {
 function tickers_list_btn() {
   if (!exchange_choose_current_manual) {
     Swal.fire(
-      'No Exchange and Start Date Selected !!',
-      'Please select your exchange and startdate before',
+      'No Exchange Selected !!',
+      'Please select your exchange',
       'warning'
     )
   } else if (exchange_choose_current_manual !== exchange_choose_previous_manual) {
@@ -142,15 +142,11 @@ function add_data() {
     $(':button').prop('disabled', false);
     $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
     $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
-    $("#startdate_btn").html(`<span class="Sdate">Select Start Year</span>`);
     $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
-    $("#startdate_btn_random").html(`<span class="Sdate_random">Select Start Year</span>`);
     ticker_list = [];
     $('#ulul').empty();
     exchange_choose_current_manual = "";
     exchange_choose_previous_manual = "";
-    startdate_select_manual = "";
-    startdate_select_previous_manual = "";
   }
 }
 
@@ -162,15 +158,15 @@ function add_data_random() {
       'warning'
     )
     return false;
-  } else if (!exchange_choose_current_random || !startdate_select_random) {
+  } else if (!exchange_choose_current_random) {
     Swal.fire(
-      'No Exchange and Start Date Selected !',
-      'Please select your exchange and startdate before',
+      'No Exchange Selected !',
+      'Please select your exchange',
       'warning'
     )
     return false;
   } else {//rumus random ini bermasalah jika jumlah list 30 atau kurang...salah satu masalah di splice, cari tahu
-    var tickers_random = eval(exchange_choose_current_random + '_' + startdate_select_random);
+    var tickers_random = eval(exchange_choose_current_random);
     for (i = 0; i < tickers_random.length && i < (30 - portfolio_data.length); i++) {
       let mr = Math.random();
       console.log(mr);
@@ -181,7 +177,7 @@ function add_data_random() {
     }
     console.log(ticker_list);
 
-    $(':button').prop('disabled', true);
+    // $(':button').prop('disabled', true);
     for (t = 0; t < ticker_list.length; t++) {
       let tickere = ticker_list[t].split(', ')[0];
       let as_data_date = new Array();
@@ -223,20 +219,16 @@ function add_data_random() {
         }
       });
     }
-    $(':button').prop('disabled', false);
+    // $(':button').prop('disabled', false);
     $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
     $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
-    $("#startdate_btn").html(`<span class="Sdate">Select Starting Year of Test</span>`);
     $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
-    $("#startdate_btn_random").html(`<span class="Sdate_random">Select Starting Year of Test</span>`);
     ticker_list = [];
     $('#ulul').empty();
     exchange_choose_current_random = "";
     exchange_choose_previous_random = "";
-    startdate_select_random = "";
-    startdate_select_previous_random = "";
   }
-  $(':button').prop('disabled', false);
+  // $(':button').prop('disabled', false);
 }
 
 function appendLeadingZeroes(n) {
@@ -247,20 +239,14 @@ function appendLeadingZeroes(n) {
 }
 
 function reset_stock() {
-  $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
+  $("#tiingo_tickers_btn").html(`Select Stocks (<span class="quantity">0</span>)`);
   $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
-  $("#startdate_btn").html(`<span class="Sdate">Select Starting Year of Test</span>`);
   $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
-  $("#startdate_btn_random").html(`<span class="Sdate_random">Select Starting Year of Test</span>`);
   ticker_list = [];
   exchange_choose_current_manual = "";
   exchange_choose_previous_manual = "";
-  startdate_select_manual = "";
-  startdate_select_previous_manual = "";
   exchange_choose_current_random = "";
   exchange_choose_previous_random = "";
-  startdate_select_random = "";
-  startdate_select_previous_random = "";
   portfolio_data = [];
   test_data = [];
   $("#table_assets > tbody").empty();
