@@ -88,6 +88,11 @@ async function proses() {
         // PRE TRADE POSITION CALCULATION
         // ----------------------------------------------------------------------------------
 
+        for (i = 0; i < 30; i++) {
+            stock_price[i] = parseFloat(test_data[request_id][i + 1].price); //ini kurang bisa dibaca, pikir cara lain    
+            // market_value += (stock_position_size[i] * stock_price[i]);
+        }
+
         if (cash_balance < 0) {
             let current_date = test_data[request_id][0].date;
             let previous_date = test_data[request_id - 1][0].date;
@@ -102,7 +107,7 @@ async function proses() {
         // console.log("cash_balance: " + cash_balance);
 
         for (i = 0; i < 30; i++) {
-            stock_price[i] = parseFloat(test_data[request_id][i + 1].price); //ini kurang bisa dibaca, pikir cara lain    
+            // stock_price[i] = parseFloat(test_data[request_id][i + 1].price); //ini kurang bisa dibaca, pikir cara lain    
             market_value += (stock_position_size[i] * stock_price[i]);
         }
 
