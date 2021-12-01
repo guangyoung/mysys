@@ -637,11 +637,11 @@ async function proses() {
                         let quantxi_equity_peak = 0;
                         let quantxi_equity_trough = 0;
                         let quantxi_maxDrawDown = 0;
-                        if (quantxi_equity > quantxi_equity_peak) {
-                            quantxi_equity_peak = quantxi_equity;
+                        if (equity_with_loanValue > quantxi_equity_peak) {
+                            quantxi_equity_peak = equity_with_loanValue;
                             quantxi_equity_trough = quantxi_equity_peak;
-                        } else if (quantxi_equity < quantxi_equity_trough) {
-                            quantxi_equity_trough = quantxi_equity;
+                        } else if (equity_with_loanValue < quantxi_equity_trough) {
+                            quantxi_equity_trough = equity_with_loanValue;
                             let quantxi_tmpDrawDown = quantxi_equity_peak - quantxi_equity_trough;
                             if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
                                 quantxi_maxDrawDown = quantxi_tmpDrawDown;
