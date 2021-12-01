@@ -23,8 +23,16 @@ function run_test() {
             confirmButtonText: 'Ok'
         }).then((result) => {
             if (result.isConfirmed) {
-                // $(':button').prop('disabled', true); //Disable All Button 
-                //di detailkan button yg mau di disable jgn semua
+                
+                $("#setting_button").prop("disabled", true); //Disable Setting Button
+                $("#data_button").prop("disabled", true); //Disable Market Data Button
+                $("#reset_button").prop("disabled", true); //Disable Reset Button
+                $("#play_button").prop("disabled", true); //Disable Play Button
+                $("#trade_report_button").prop("disabled", true); //Disable Trade Report Button
+                $("#trade_performance_button").prop("disabled", true); //Disable Performance Button
+                $("#test_statistic_button").prop("disabled", true); //Disable Test Statistic Button
+                $("#viewpost_button").prop("disabled", true); //Disable View Request Button
+
                 proses();
             }
         })
@@ -77,16 +85,19 @@ async function proses() {
 
         date = test_data[request_id][0].date;
 
-        for (i = 0; i < 30; i++) {
-            stock_price[i] = parseFloat(test_data[request_id][i + 1].price); //ini kurang bisa dibaca, pikir cara lain                  
-        }
+        // for (i = 0; i < 30; i++) {
+                           
+        // }
 
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION
         // ----------------------------------------------------------------------------------
 
         if (cash_balance < 0) {
-            daily_Interest = cash_balance * (interest_rate / 360); //cek lagi rumusnya
+            let current_date = test_data[request_id][0].date;
+            let previous_date = test_data[request_id - 1][0].date;
+            let interest_day = current_date - previous_date //nama variable di cari yg cocok/standar penamaan
+            daily_Interest = cash_balance * (interest_rate / 360) * interest_day; //cek lagi rumusnya
         } else {
             daily_Interest = 0;
         }
@@ -96,6 +107,7 @@ async function proses() {
         // console.log("cash_balance: " + cash_balance);
 
         for (i = 0; i < 30; i++) {
+            stock_price[i] = parseFloat(test_data[request_id][i + 1].price); //ini kurang bisa dibaca, pikir cara lain  
             market_value += (stock_position_size[i] * stock_price[i]);
         }
 
