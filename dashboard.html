@@ -32,9 +32,15 @@
     <script src="scripts/auto_run.js"></script>
     <script src="scripts/ticker_list.js"></script>
 
+     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script> -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"
         integrity="sha512-frFP3ZxLshB4CErXkPVEXnd5ingvYYtYhE5qllGdZmcOlRKNEPbufyupfdSTNmoF5ICaQNO6SenXzOZvoGkiIA=="
         crossorigin="anonymous"></script>
+
 </head>
 
 <body class="cover-dashboard">
@@ -126,31 +132,38 @@
                             <tbody style="font-size: 13px; font-family: calibri;">
                                 <tr>
                                     <td style="padding: 1px 5px">Cash&nbsp;Balance</td>
-                                    <td id="cash_balance" style="position: absolute; right: 10px; padding: 1px 5px">1,000,000</td>
+                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
+                                            id="cash_balance">1,000,000</span></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Long&nbsp;Market&nbsp;Value</td>
-                                    <td id="long_market_value" style="position: absolute; right: 10px; padding: 1px 5px">0</td>
+                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
+                                            id="long_market_value">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Equity&nbsp;With&nbsp;Loan&nbsp;Value</td>
-                                    <td id="equity_with_loan_value" style="position: absolute; right: 10px; padding: 1px 5px">1,000,000</td>
+                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
+                                            id="equity_with_loan_value">1,000,000</span></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Maintenance&nbsp;Margin&nbsp;Reserved</td>
-                                    <td id="maintenance_margin_reserved" style="position: absolute; right: 10px; padding: 1px 5px">0</td>
+                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
+                                            id="maintenance_margin_reserved">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Maintenance&nbsp;Margin&nbsp;Available</td>
-                                    <td id="maintenance_margin_available" style="position: absolute; right: 10px; padding: 1px 5px">1,000,000</td>
+                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
+                                            id="maintenance_margin_available">1,000,000</span></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Initial&nbsp;Margin&nbsp;Reserved</td>
-                                    <td id="initial_margin_reserved" style="position: absolute; right: 10px; padding: 1px 5px">0</td>
+                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
+                                            id="initial_margin_reserved">0</span></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Initial&nbsp;Margin&nbsp;Available</td>
-                                    <td id="initial_margin_available" style="position: absolute; right: 10px; padding: 1px 5px">1,000,000</td>
+                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
+                                            id="initial_margin_available">1,000,000</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -175,29 +188,29 @@
                                     <td style="padding: 1px 5px"><u>BUY&nbsp;&&nbsp;HOLD</u></td>
                                 </tr>
                                 <tr>
-                                    <td id="quantxi_total_return" style="padding: 1px 5px">0.00%</td>
+                                    <td style="padding: 1px 5px"><span id="quantxi_total_return">0.00%</span></td>
                                     <td style="padding: 1px 5px">Total&nbsp;Return</td>
-                                    <td id="buyandhold_total_return" style="padding: 1px 5px">0.00%</td>
+                                    <td style="padding: 1px 5px"><span id="buyandhold_total_return">0.00%</span></td>
                                 </tr>
                                 <tr>
-                                    <td id="quantxi_cagr" style="padding: 1px 5px">0.00%</td>
+                                    <td style="padding: 1px 5px"><span id="quantxi_cagr">0.00%</span></td>
                                     <td style="padding: 1px 5px">CAGR</td>
-                                    <td id="buyandhold_cagr" style="padding: 1px 5px">0.00%</td>
+                                    <td style="padding: 1px 5px"><span id="buyandhold_cagr">0.00%</span></td>
                                 </tr>
                                 <tr>
-                                    <td id="quantxi_maxdd" style="padding: 1px 5px">0.00%</td>
+                                    <td style="padding: 1px 5px"><span id="quantxi_maxdd">0.00%</span></td>
                                     <td style="padding: 1px 5px">Max&nbsp;DD</td>
-                                    <td id="buyandhold_maxdd" style="padding: 1px 5px">0.00%</td>
+                                    <td style="padding: 1px 5px"><span id="buyandhold_maxdd">0.00%</span></td>
                                 </tr>
                                 <tr>
-                                    <td id="quantxi_sharpe" style="padding: 1px 5px">0.00%</td>
+                                    <td style="padding: 1px 5px"><span id="quantxi_sharpe">0.00%</span></td>
                                     <td style="padding: 1px 5px">Sharpe</td>
-                                    <td id="buyandhold_sharpe" style="padding: 1px 5px">0.00%</td>
+                                    <td style="padding: 1px 5px"><span id="buyandhold_sharpe">0.00%</span></td>
                                 </tr>
                                 <tr>
-                                    <td id="quantxi_Sortino" style="padding: 1px 5px">0.00%</td>
+                                    <td style="padding: 1px 5px"><span id="quantxi_Sortino">0.00%</span></td>
                                     <td style="padding: 1px 5px">Sortino</td>
-                                    <td id="buyandhold_Sortino" style="padding: 1px 5px">0.00%</td>
+                                    <td style="padding: 1px 5px"><span id="buyandhold_Sortino">0.00%</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -551,8 +564,8 @@
                             <img src="styles/image/arrow.png" width="60" height="100" style="margin-top: 70px">
                             <!-- <img src="styles/image/quantxi_in_out.png" class="img-fluid" style="margin-top: 40px"> -->
                         </div>
-                        <h6 id="total_request" style="font-size: 16px; color: #c1c2c6; margin-top: 40px"><strong>Total
-                                Request&nbsp;&nbsp;:&nbsp;&nbsp;0</strong></h6>
+                        <h6 style="font-size: 16px; color: #c1c2c6; margin-top: 40px"><strong>Total
+                                Request&nbsp;&nbsp;:&nbsp;&nbsp;<span id="total_request">0</span></strong></h6>
                         <h6 style="font-size: 10px; color: #0053a6; margin-top: 8px"><strong>Last Request : 12.01.01
                                 13:00:01 || Response : <img src="styles/image/green icon.png" height="12" width="12"
                                     style="margin-top: -1px"> 200 (OK)</strong></h6>
@@ -1361,94 +1374,94 @@
                                                     Date</th>
                                                 <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;1 <i id="stock1_ticker">ticker</i></th>
-                                                <th id="stock2_ticker" class="text-center"
+                                                    Stock&nbsp;1 <span id="stock1_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;2 <i>ticker</i></th>
-                                                <th id="stock3_ticker" class="text-center"
+                                                    Stock&nbsp;2 <span id="stock2_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;3 <i>ticker</i></th>
-                                                <th id="stock4_ticker" class="text-center"
+                                                    Stock&nbsp;3 <span id="stock3_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;4 <i>ticker</i></th>
-                                                <th id="stock5_ticker" class="text-center"
+                                                    Stock&nbsp;4 <span id="stock4_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;5 <i>ticker</i></th>
-                                                <th id="stock6_ticker" class="text-center"
+                                                    Stock&nbsp;5 <span id="stock5_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;6 <i>ticker</i></th>
-                                                <th id="stock7_ticker" class="text-center"
+                                                    Stock&nbsp;6 <span id="stock6_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;7 <i>ticker</i></th>
-                                                <th id="stock8_ticker" class="text-center"
+                                                    Stock&nbsp;7 <span id="stock7_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;8 <i>ticker</i></th>
-                                                <th id="stock9_ticker" class="text-center"
+                                                    Stock&nbsp;8 <span id="stock8_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;9 <i>ticker</i></th>
-                                                <th id="stock10_ticker" class="text-center"
+                                                    Stock&nbsp;9 <span id="stock9_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;10 <i>ticker</i></th>
-                                                <th id="stock11_ticker" class="text-center"
+                                                    Stock&nbsp;10 <span id="stock10_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;11 <i>ticker</i></th>
-                                                <th id="stock12_ticker" class="text-center"
+                                                    Stock&nbsp;11 <span id="stock11_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;12 <i>ticker</i></th>
-                                                <th id="stock13_ticker" class="text-center"
+                                                    Stock&nbsp;12 <span id="stock12_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;13 <i>ticker</i></th>
-                                                <th id="stock14_ticker" class="text-center"
+                                                    Stock&nbsp;13 <span id="stock13_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;14 <i>ticker</i></th>
-                                                <th id="stock15_ticker" class="text-center"
+                                                    Stock&nbsp;14 <span id="stock14_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;15 <i>ticker</i></th>
-                                                <th id="stock16_ticker" class="text-center"
+                                                    Stock&nbsp;15 <span id="stock15_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;16 <i>ticker</i></th>
-                                                <th id="stock17_ticker" class="text-center"
+                                                    Stock&nbsp;16 <span id="stock16_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;17 <i>ticker</i></th>
-                                                <th id="stock18_ticker" class="text-center"
+                                                    Stock&nbsp;17 <span id="stock17_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;18 <i>ticker</i></th>
-                                                <th id="stock19_ticker" class="text-center"
+                                                    Stock&nbsp;18 <span id="stock18_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;19 <i>ticker</i></th>
-                                                <th id="stock20_ticker" class="text-center"
+                                                    Stock&nbsp;19 <span id="stock19_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;20 <i>ticker</i></th>
-                                                <th id="stock21_ticker" class="text-center"
+                                                    Stock&nbsp;20 <span id="stock20_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;21 <i>ticker</i></th>
-                                                <th id="stock22_ticker" class="text-center"
+                                                    Stock&nbsp;21 <span id="stock21_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;22 <i>ticker</i></th>
-                                                <th id="stock23_ticker" class="text-center"
+                                                    Stock&nbsp;22 <span id="stock22_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;23 <i>ticker</i></th>
-                                                <th id="stock24_ticker" class="text-center"
+                                                    Stock&nbsp;23 <span id="stock23_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;24 <i>ticker</i></th>
-                                                <th id="stock25_ticker" class="text-center"
+                                                    Stock&nbsp;24 <span id="stock24_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;25 <i>ticker</i></th>
-                                                <th id="stock26_ticker" class="text-center"
+                                                    Stock&nbsp;25 <span id="stock25_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;26 <i>ticker</i></th>
-                                                <th id="stock27_ticker" class="text-center"
+                                                    Stock&nbsp;26 <span id="stock26_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;27 <i>ticker</i></th>
-                                                <th id="stock28_ticker" class="text-center"
+                                                    Stock&nbsp;27 <span id="stock27_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;28 <i>ticker</i></th>
-                                                <th id="stock29_ticker" class="text-center"
+                                                    Stock&nbsp;28 <span id="stock28_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;29 <i>ticker</i></th>
-                                                <th id="stock30_ticker" class="text-center"
+                                                    Stock&nbsp;29 <span id="stock29_ticker"><i>ticker</i></span></th>
+                                                <th class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;30 <i>ticker</i></th>
+                                                    Stock&nbsp;30 <span id="stock30_ticker"><i>ticker</i></span></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -2497,6 +2510,21 @@
         var exchange_choose_previous_manual;
         var exchange_choose_current_random;
         var exchange_choose_previous_random;
+
+        // $("#select_startdate").on('click', '.dropdown-item', function (event) {
+        //     let container_exchange = $(this).closest("#select_startdate");
+        //     startdate_select_manual = $(event.currentTarget)[0].id;
+        //     container_exchange.find('.Sdate').text($(event.currentTarget)[0].innerText || 'Select Start Date');
+        //     console.log(startdate_select_manual);
+        // });
+
+        // $("#select_startdate_select_random").on('click', '.dropdown-item', function (event) {
+        //     let container_exchange = $(this).closest("#select_startdate_select_random");
+        //     startdate_select_random = $(event.currentTarget)[0].id;
+        //     container_exchange.find('.Sdate_random').text($(event.currentTarget)[0].innerText ||
+        //         'Select Start Date');
+        //     console.log(startdate_select_random);
+        // });
 
         $("#tickers_list").on('click', '.dropdown-menu li', function (event) {
             event.stopPropagation();
