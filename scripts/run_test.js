@@ -3,8 +3,8 @@
 //...................................................................................
 //...................................................................................
 
-function run_test() { //mulai run test cek data
-    if (test_data.length == 0) { // jika data kosong
+function run_test() {
+    if (test_data.length == 0) {
         Swal.fire(
             'No Test Data !',
             'Please click Market Data and Create It',
@@ -22,28 +22,19 @@ function run_test() { //mulai run test cek data
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'Ok'
         }).then((result) => {
-            if (result.isConfirmed) { //jika konfirm ok
-
-                $("#setting_button").prop("disabled", true); //Disable Setting Button
-                $("#data_button").prop("disabled", true); //Disable Market Data Button
-                $("#reset_button").prop("disabled", true); //Disable Reset Button
-                $("#play_button").prop("disabled", true); //Disable Play Button
-                $("#trade_report_button").prop("disabled", true); //Disable Trade Report Button
-                $("#trade_performance_button").prop("disabled", true); //Disable Performance Button
-                $("#test_statistic_button").prop("disabled", true); //Disable Test Statistic Button
-                $("#viewpost_button").prop("disabled", true); //Disable View Request Button
-
-                proses(); //run test
+            if (result.isConfirmed) {
+                // $(':button').prop('disabled', true); //Disable All Button 
+                //di detailkan button yg mau di disable jgn semua
+                proses();
             }
         })
     }
 }
 
-//-------------------------------------------------------------------------------------------
-
 async function proses() {
     //initial variable
-    var request_id = 0, response_id = 0;
+    var request_id = 0;
+    // var response_id = 0;
     var date;
     var stock_price = new Array();
     var stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -82,22 +73,20 @@ async function proses() {
     var quantxi_sortino_ratio_array = new Array();
     var buyandhold_sortino_ratio_array = new Array();
 
-    while (response_id < 1000) { // selama data yg selesasi di proses kurang dari....
+    while (request_id < 1000) {
+
+        date = test_data[request_id][0].date;
+
+        for (i = 0; i < 30; i++) {
+            stock_price[i] = parseFloat(test_data[request_id][i + 1].price); //ini kurang bisa dibaca, pikir cara lain                  
+        }
 
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION
         // ----------------------------------------------------------------------------------
 
-        for (i = 0; i < 30; i++) {
-            stock_price[i] = parseFloat(test_data[request_id][i + 1].price); //ini kurang bisa dibaca, pikir cara lain    
-            // market_value += (stock_position_size[i] * stock_price[i]);
-        }
-
         if (cash_balance < 0) {
-            let current_date = test_data[request_id][0].date;
-            let previous_date = test_data[request_id - 1][0].date;
-            let interest_day = current_date - previous_date //nama variable di cari yg cocok/standar penamaan
-            daily_Interest = cash_balance * (interest_rate / 360) * interest_day; //cek lagi rumusnya
+            daily_Interest = cash_balance * (interest_rate / 360); //cek lagi rumusnya
         } else {
             daily_Interest = 0;
         }
@@ -107,7 +96,6 @@ async function proses() {
         // console.log("cash_balance: " + cash_balance);
 
         for (i = 0; i < 30; i++) {
-            // stock_price[i] = parseFloat(test_data[request_id][i + 1].price); //ini kurang bisa dibaca, pikir cara lain    
             market_value += (stock_position_size[i] * stock_price[i]);
         }
 
@@ -166,10 +154,10 @@ async function proses() {
         // POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
         // ----------------------------------------------------------------------------------           
 
-        request_id++;
+        // request_id++;
 
         var dataInput = {
-            data_id: request_id,
+            data_id: request_id+1,
             margin_available: initial_margin_available,
             stock1: {
                 price: stock_price[0],
@@ -294,18 +282,19 @@ async function proses() {
         };
 
         data_input.push(dataInput); //save data to array data_input_history
+        // console.log(dataInput.data_id);
 
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
         $('#margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
-        for (i = 1; i <= 30; i++) {
-            $("#price_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.price).toFixed(5))`));
-            $("#position_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.position_size).toFixed(0))`));
+        for(i=1; i<=30; i++){
+            $("#price_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.price).toFixed(5))`));
+            $("#position_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.position_size).toFixed(0))`));
         }
 
         // var post_process = "run";
         let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");
 
-        while (response_id < request_id) { //selama response kurang dari request
+        while (dataInput.data_id > request_id) {
             await $.ajax({
                 type: "POST",
                 url: ur,
@@ -439,17 +428,18 @@ async function proses() {
                             }
                         };
                         signal_output.push(signalOutput); //save data to array signal_output_history 
+                        // console.log(signalOutput);
 
                         $('#total_request').html(signalOutput.data_id);
 
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
                         $('#total_signal').html(Intl.NumberFormat().format(parseFloat(signalOutput.total_signal).toFixed(0)));
-                        for (i = 1; i <= 30; i++) {
-                            $("#signal_position_stock" + i).html(eval(`signalOutput.stock` + i + `.signal_position`));
-                            $("#signal_size_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock` + i + `.signal_size).toFixed(0))`));
-                        }
+                        for(i=1; i<=30; i++){
+                            $("#signal_position_stock"+i).html(eval(`signalOutput.stock`+i+`.signal_position`));
+                            $("#signal_size_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock`+i+`.signal_size).toFixed(0))`));
+                        }                        
 
-                        response_id++;
+                        request_id++;
 
                         // ----------------------------------------------------------------------------------  
                         // TRADE TRANSACTION 
@@ -502,13 +492,13 @@ async function proses() {
                                 filledOrder[i] = Math.floor(parseInt(eval(`signalOutput.stock` + (i + 1) + `.signal_size`)) * filled_percentage);
                                 filledPrice[i] = stock_price[i] * (1 + spread_slippage);
                                 tradeValue[i] = filledOrder[i] * filledPrice[i];
-                                commission_arr[i] = filledOrder[i] * commission_perShare;//commision per share
+                                commission_arr[i] = tradeValue[i] * commission;
                                 initialMargin[i] = tradeValue[i] * 0.50;
                             } else if (eval(`signalOutput.stock` + (i + 1) + `.signal_position`) == "SELL") {
                                 filledOrder[i] = Math.floor(parseInt(eval(`signalOutput.stock` + (i + 1) + `.signal_size`)) * filled_percentage);
                                 filledPrice[i] = stock_price[i] * (1 - spread_slippage);
                                 tradeValue[i] = filledOrder[i] * filledPrice[i];
-                                commission_arr[i] = filledOrder[i] * commission_perShare;
+                                commission_arr[i] = tradeValue[i] * commission;
                                 initialMargin[i] = tradeValue[i] * 0.50;
                             } else {
                                 filledOrder[i] = 0;
@@ -537,12 +527,12 @@ async function proses() {
                         total_trade_value = tradeValue.reduce(function (accumulator, current) {
                             return accumulator + current
                         }),
-                            total_commission = commission_arr.reduce(function (accumulator, current) {
-                                return accumulator + current
-                            }),
-                            total_initial_margin = initialMargin.reduce(function (accumulator, current) {
-                                return accumulator + current
-                            })
+                        total_commission = commission_arr.reduce(function (accumulator, current) {
+                            return accumulator + current
+                        }),
+                        total_initial_margin = initialMargin.reduce(function (accumulator, current) {
+                            return accumulator + current
+                        })
 
                         //save daily trade summary data to array
                         daily_account_position_summary.push({
@@ -616,42 +606,41 @@ async function proses() {
                         // TRADE PERFORMANCE COMPARISON CALCULATION
                         // ---------------------------------------------------------------------------------- 
 
-                        // ------ Perhitungan Total Return ---------------------------------------
-                        let quantxi_total_return = equity_with_loanValue / initial_equity;
-                        quantxi_total_return_array.push(quantxi_total_return);
+                        //perhitungan rasio2 performance---------------------------------
+                        let period = new Date(new Date(test_data[request_id - 1][0].date) - new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
+                        
+                        let quantxi_equity = equity_with_loanValue;
 
                         let buyandhold_equity = 0;
-                        for (i = 0; i < 30; i++) { //rumus ini perbaiki
+                        for (i = 0; i < 30; i++) {
                             buyandhold_equity += buyHold_stock_invest[i] * stock_price[i];
                         }
-                        let buyandhold_total_return = buyandhold_equity / initial_equity;
-                        buyandhold_total_return_array.push(buyandhold_total_return);
-                        //-------------------------------------------------------------------------
 
-                        //------Perhitungan CAGR ---------------------------------
-                        let period_data = new Date(new Date(test_data[request_id - 1][0].date) - new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
+                        let quantxi_total_return = quantxi_equity / initial_equity;
+                        quantxi_total_return_array.push(quantxi_total_return);
+                       
+                        let buyandhold_total_return = buyandhold_equity / initial_equity;  
+                        buyandhold_total_return_array.push(buyandhold_total_return);                      
 
-                        let quantxi_cagr = ((quantxi_total_return) ^ (1 / period_data) - 1);
+                        let quantxi_cagr = ((quantxi_total_return) ^ (1 / period) - 1); //angka 30 ganti jadi periode sesuai periode data
                         quantxi_cagr_array.push(quantxi_cagr);
 
-                        let buyandhold_cagr = ((buyandhold_total_return) ^ (1 / period_data) - 1);
+                        let buyandhold_cagr = ((buyandhold_total_return) ^ (1 / period) - 1); //angka 30 ganti jadi periode sesuai periode data
                         buyandhold_cagr_array.push(buyandhold_cagr);
-                        //---------------------------------------------------------
 
-                        //------Perhitungan Max DD --------------------------------
                         let quantxi_equity_peak = 0;
                         let quantxi_equity_trough = 0;
                         let quantxi_maxDrawDown = 0;
-                        if (equity_with_loanValue > quantxi_equity_peak) {
-                            quantxi_equity_peak = equity_with_loanValue;
+                        if (quantxi_equity > quantxi_equity_peak) {
+                            quantxi_equity_peak = quantxi_equity;
                             quantxi_equity_trough = quantxi_equity_peak;
-                        } else if (equity_with_loanValue < quantxi_equity_trough) {
-                            quantxi_equity_trough = equity_with_loanValue;
+                        } else if (quantxi_equity < quantxi_equity_trough) {
+                            quantxi_equity_trough = quantxi_equity;
                             let quantxi_tmpDrawDown = quantxi_equity_peak - quantxi_equity_trough;
                             if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
                                 quantxi_maxDrawDown = quantxi_tmpDrawDown;
-                        }
-                        quantxi_maxDrawDown_array.push(quantxi_maxDrawDown);
+                        } 
+                        quantxi_maxDrawDown_array.push(quantxi_maxDrawDown);                       
 
                         let buyandhold_equity_peak = 0;
                         let buyandhold_equity_trough = 0;
@@ -664,34 +653,27 @@ async function proses() {
                             let buyandhold_tmpDrawDown = buyandhold_equity_peak - buyandhold_equity_trough;
                             if (buyandhold_tmpDrawDown > buyandhold_maxDrawDown)
                                 buyandhold_maxDrawDown = buyandhold_tmpDrawDown;
-                        }
-                        buyandhold_maxDrawDown_array.push(buyandhold_maxDrawDown);
-                        //---------------------------------------------------------
+                        } 
+                        buyandhold_maxDrawDown_array.push(buyandhold_maxDrawDown);                      
 
-                        //-------Perhitungan MAR Ratio ---------------------------------------
                         let quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown);
-                        quantxi_mar_array.push(quantxi_mar);
+                        quantxi_mar_array.push(quantxi_mar); 
 
-                        let buyandhold_mar = (buyandhold_cagr / buyandhold_maxDrawDown);
+                        let buyandhold_mar = (buyandhold_cagr / buyandhold_maxDrawDown); 
                         buyandhold_mar_array.push(buyandhold_mar);
-                        //--------------------------------------------------------------------
 
-                        //-------- Perhitungan Sharpe Ratio -------------------------------
                         //Sharpe Ratio = (Average fund returns − Riskfree Rate) / Standard Deviation of fund  returns
                         let quantxi_sharpe_ratio = (math.mean(quantxi_total_return_array) - risk_freeRate) / math.std(quantxi_total_return_array);
                         quantxi_sharpe_ratio_array.push(quantxi_sharpe_ratio);
 
                         let buyandhold_sharpe_ratio = (math.mean(buyandhold_total_return_array) - risk_freeRate) / math.std(buyandhold_total_return_array);
                         buyandhold_sharpe_ratio_array.push(buyandhold_sharpe_ratio);
-                        //--------------------------------------------------------------------
 
-                        //-------- Perhitungan Sortino Ratio -------------------------------
                         let quantxi_sortino_ratio = (1);
                         quantxi_sortino_ratio_array.push(quantxi_sortino_ratio);
-
+                        
                         let buyandhold_sortino_ratio = (1);
                         buyandhold_sortino_ratio_array.push(buyandhold_sortino_ratio);
-                        //--------------------------------------------------------------------
 
                         //tampilkan rasio ke halaman web------------------------------
                         $('#quantxi_total_return').html(parseFloat(quantxi_total_return * 100).toFixed(2) + "%");
@@ -711,95 +693,232 @@ async function proses() {
 
     }
 
+    // if(request_id == 1000){ 
+
     // TRADE TESTING REPORT ---------------------------------------------------------------
-    $("#account_trade_summary_tbl>tbody").empty();
-    $("#pagination_trade_summary").twbsPagination("destroy");
-    if (10 > 0) {
-        $("#pagination_trade_summary").twbsPagination({
-            totalPages: Math.ceil(5000 / 5),
-            visiblePages: 4,
-            onPageClick: function (event, page) {
-                $("#account_trade_summary_tbl>tbody").empty();
-                for (i = (page * 5) - 5; i < (page * 5) && i < (5000); i++) {
-                    var account_trade_summary_row =
-                    `<tr>
-                        
-                    </tr>`
-                    $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
-                }
-            }
-        });
-    }
-    //performance chart-----------------------------------------------------------
-    chartColors = {
-    red: 'rgb(255, 99, 132)',
-    orange: 'rgb(255, 159, 64)',
-    yellow: 'rgb(255, 205, 86)',
-    green: 'rgb(75, 192, 192)',
-    blue: 'rgb(54, 162, 235)',
-    purple: 'rgb(153, 102, 255)',
-    grey: 'rgb(201, 203, 207)' };
 
-    var config = {
-    type: 'line',
-    data: {
-        labels: date_array,
-        datasets: [{
-            label: 'Quantxi',
-            pointRadius: 1,
-            borderWidth: 1,
-            backgroundColor: chartColors.red,
-            borderColor: chartColors.red,
-            data: quantxi_equity_array,
-            fill: false },
-            {
-            label: 'Buy & Hold',
-            pointRadius: 1,
-            borderWidth: 1,
-            backgroundColor: chartColors.blue,
-            borderColor: chartColors.blue,
-            data: buyandhold_equity_array,
-            fill: false}
-        ]},
-    options: {
-        responsive: true,
-        legend: {
-            display: true
-        },
-    title: {
-    display: true,
-    text: 'Performance Comparison' },
-    tooltips: {
-        mode: 'index',
-        intersect: true },
-    hover: {
-    mode: 'nearest',
-    intersect: true },
-    // events:[],
-    scales: {
-    xAxes: [{
-        display: true,
-        scaleLabel: {
-        display: true,
-        labelString: 'Years' } }],
-    yAxes: [{
-    display: true,
-    ticks: {
-        callback: function(value, index, values) {
-        return value.toLocaleString("en-US",{style:"currency", currency:"USD"});
-        }
-    },
-    scaleLabel: {
-        display: true,
-        labelString: 'Equity' } }] } } };
+    // var trade_details = new Array();
+    // for(i=1;i<=30;i++) {             
+    //     trade_details.push({
+    //     stocks : stock1,
+    //     price : price[i],
+    //     pretrade_position_size : pretrade_position_size[i],
+    //     pretrade_market_value : pretrade_market_value[i],
+    //     buy_filled_order : buy_filled_order[i],
+    //     buy_filled_signal : buy_filled_signal[i],
+    //     buy_trade_value : buy_trade_value[i],
+    //     buy_commision : buy_commision[i],
+    //     sell_filled_order : sell_filled_order[i],
+    //     sell_filled_signal : sell_filled_signal[i],
+    //     sell_trade_value : sell_trade_value[i],
+    //     sell_commision : sell_commision[i],
+    //     posttrade_position_size : posttrade_position_size[i],
+    //     posttrade_market_value : posttrade_market_value[i]
+    //     })
+    // }
 
-    if(performance_chart!=null){
-        performance_chart.destroy();
-    }
-    var ctx = document.getElementById('performance_chart').getContext('2d');
-    performance_chart = new Chart(ctx, config);
-    //-------------------------------------------------------------------------------------
+    // var account_summary = new Array(); 
+    // account_summary.push({
+    //     //Pre Trade Account Position
+    //     pretrade_cash_balance : pretrade_cash_balance,
+    //     pretrade_mtd_acrued_interest : pretrade_mtd_acrued_interest,
+    //     pretrade_long_market_value : pretrade_long_market_value,
+    //     pretrade_equity_with_loan_value : pretrade_equity_with_loan_value,
+    //     pretrade_net_liquidation_value : pretrade_net_liquidation_value,
+    //     pretrade_maintenance_margin : pretrade_maintenance_margin,
+    //     pretrade_regT_margin_req : pretrade_regT_margin_req,
+    //     pretrade_excess_liquidity : pretrade_excess_liquidity,
+    //     pretrade_sma_excess_equity : pretrade_sma_excess_equity,
+    //     pretrade_buying_power : pretrade_buying_power, 
+    //     //Post Trade Account Position
+    //     posttrade_cash_balance : posttrade_cash_balance,
+    //     posttrade_mtd_acrued_interest : posttrade_mtd_acrued_interest,
+    //     posttrade_long_market_value : posttrade_long_market_value,
+    //     posttrade_equity_with_loan_value : posttrade_equity_with_loan_value,
+    //     posttrade_net_liquidation_value : posttrade_net_liquidation_value,
+    //     posttrade_maintenance_margin : posttrade_maintenance_margin,
+    //     posttrade_regT_margin_req : posttrade_regT_margin_req,
+    //     posttrade_excess_liquidity : posttrade_excess_liquidity,
+    //     posttrade_sma_excess_equity : posttrade_sma_excess_equity,
+    //     posttrade_buying_power : posttrade_buying_power    
+    // });
 
+    // tradeTesting_report.push({date: date, trade_details: trade_details, account_summary: account_summary});
+
+    // //Performance Chart ---------------------------------------------
+    // date_array.push(date);
+    // quantxi_equity_array.push(parseFloat(equity).toFixed(0));    
+    // buyandhold_equity_array.push(parseFloat(buyandhold_equity).toFixed(0));            
+    // //------------------------------------------------------------------
+    // //add data ID -------------------------------------------------------
+    // dataID++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?  
+    //-----------------------------------------------------------     
+
+    //trade testing report
+    // $("#account_trade_summary_tbl>tbody").empty();
+    // $("#pagination_trade_summary").twbsPagination("destroy");
+    // if(10 > 0) {
+    //     $("#pagination_trade_summary").twbsPagination({
+    //         totalPages: Math.ceil(5000/5),
+    //         visiblePages: 4,
+    //         onPageClick: function (event, page) {
+    //             $("#account_trade_summary_tbl>tbody").empty();
+    //             for (i=(page*5)-5; i<(page*5) && i<(5000); i++) {
+    //                 var account_trade_summary_row =
+    //                 `<tr>
+    //                     <td>                                    
+    //                     <a style="margin-left: 15px; margin-top: 15px; color: #ffffff; font-size: 11px;">Date : 23-01-2001</a>                                    
+    //                     <div class="table-hover" style="margin-left: 15px; margin-right: 15px; margin-top: 0px; background-color: #070914; overflow: auto; height: 150px">
+    //                         <table>
+    //                             <thead style="color:#d2d3d7">
+    //                                 <tr>
+    //                                     <th class="text-center" rowspan="2" style="width: 6%; position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Portfolio</th>
+    //                                     <th class="text-center" rowspan="2" style="width: 6%; position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Price</th>
+    //                                     <th class="text-center" colspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Pre Trade Position</th>
+    //                                     <th class="text-center" colspan="4" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Buy Open (Add Position)</th>
+    //                                     <th class="text-center" colspan="4" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Sell Close (Reduce Position)</th>
+    //                                     <th class="text-center" colspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Post Trade Position</th>
+    //                                 </tr>
+    //                                 <tr>
+    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
+    //                                     <th class="text-center" style="width: 10%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
+    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Order</th>
+    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Price</th>
+    //                                     <th class="text-center" style="width: 10%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
+    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Commision</th>
+    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Order</th>
+    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Price</th>
+    //                                     <th class="text-center" style="width: 10%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
+    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Commision</th>
+    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
+    //                                     <th class="text-center" style="width: 10%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
+    //                                 </tr>
+    //                             </thead>
+    //                             <tbody>                            
+    //                                 <tr>
+    //                                     <td class="text-center" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">Asset 1</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000.00</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">100,000,000.00</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000</td>
+    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">100,000,000.00</td>
+    //                                 </tr>
+    //                             </tbody>
+    //                         </table>
+    //                     </div>
+    //                     <div style="margin-left: 15px; margin-right: 15px; background-color: #1b3636; height: 110px">
+    //                         <table id="">
+    //                             <tbody>
+    //                                 <tr>
+    //                                     <td class="text-center" rowspan="2" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 8%"><strong>Account<br>Summary<br>23/01/2001</strong></td>
+    //                                     <td class="text-center" colspan="4" style="font-size: 11px; border-left: 1px #070914 solid; border-bottom: 1px #070914 solid; font-family: calibri; color:#d2d3d7; padding: 3px 0 2px 0"><strong>Pre Trade Position</strong></td>
+    //                                     <td class="text-center" colspan="2" style="font-size: 11px; border-left: 1px #070914 solid; border-bottom: 1px #070914 solid; font-family: calibri; color:#d2d3d7; padding: 3px 0 2px 0"><strong>Trade Summary</strong></td>
+    //                                     <td class="text-center" colspan="4" style="font-size: 11px; border-left: 1px #070914 solid; border-bottom: 1px #070914 solid; font-family: calibri; color:#d2d3d7; padding: 3px 0 2px 0"><strong>Post Trade Position</strong></td>
+    //                                 </tr>
+    //                                 <tr>
+    //                                     <td class="text-left" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 13%; padding: 4px 10px 5px 10px">Cash Balance<br>MTD Acrued Interest<br>Long Market Value<br>Equity With Loan Value<br>Net Liquidation Value</td>
+    //                                     <td class="text-right" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 6%; padding:  4px 10px 5px 10px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
+    //                                     <td class="text-left" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 12%; padding:  4px 10px 5px 10px">Maintenance Margin<br>Reg.T Margin Req.<br>Excess Liquidity<br>SMA/Excess Equity<br>Buying Power</td>
+    //                                     <td class="text-right" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 6%; padding:  4px 10px 5px 10px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
+    //                                     <td class="text-left" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 12%; padding:  4px 10px 5px 10px">Total Buy Trade<br>Total Sell Trade<br>Total Trade<br>Total Commision<br>Initial Margin</td>
+    //                                     <td class="text-right" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 6%; padding:  4px 10px 5px 10px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
+    //                                     <td class="text-left" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 13%; padding: 4px 10px 5px 10px">Cash Balance<br>MTD Acrued Interest<br>Long Market Value<br>Equity With Loan Value<br>Net Liquidation Value</td>
+    //                                     <td class="text-right" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 6%; padding:  4px 10px 5px 10px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
+    //                                     <td class="text-left" style="font-size: 11px; border-left: 1px #070914 solid; font-family: calibri; color:#d2d3d7; width: 12%; padding:  4px 10px 5px 10px">Maintenance Margin<br>Reg.T Margin Req.<br>Excess Liquidity<br>SMA/Excess Equity<br>Buying Power</td>
+    //                                     <td class="text-right" style="font-size: 11px; font-family: calibri; color:#d2d3d7; width: 6%; padding:  4px 10px 5px 10px">100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00<br>100,000,000.00</td>
+    //                                 </tr>
+    //                             </tbody>
+    //                         </table>
+    //                     </div>
+    //                 </td>
+    //                 </tr>`
+    //                 $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
+    //             }
+    //         }
+    //     });
+    // } 
+
+    // //performance chart
+
+    // chartColors = {
+    // red: 'rgb(255, 99, 132)',
+    // orange: 'rgb(255, 159, 64)',
+    // yellow: 'rgb(255, 205, 86)',
+    // green: 'rgb(75, 192, 192)',
+    // blue: 'rgb(54, 162, 235)',
+    // purple: 'rgb(153, 102, 255)',
+    // grey: 'rgb(201, 203, 207)' };
+
+    // var config = {
+    // type: 'line',
+    // data: {
+    //     labels: date_array,
+    //     datasets: [{
+    //     label: 'Quantxi',
+    //     pointRadius: 1,
+    //     borderWidth: 1,
+    //     backgroundColor: chartColors.red,
+    //     borderColor: chartColors.red,
+    //     data: quantxi_equity_array,
+    //     fill: false },
+    //     {
+    //     label: 'Buy & Hold',
+    //     pointRadius: 1,
+    //     borderWidth: 1,
+    //     backgroundColor: chartColors.blue,
+    //     borderColor: chartColors.blue,
+    //     data: buyandhold_equity_array,
+    //     fill: false}
+    // ]},
+    // options: {
+    //     responsive: true,
+    //     legend: {
+    //         display: true
+    //     },
+    // title: {
+    // display: true,
+    // text: 'Performance Comparison' },
+    // tooltips: {
+    //     mode: 'index',
+    //     intersect: true },
+    // hover: {
+    // mode: 'nearest',
+    // intersect: true },
+    // // events:[],
+    // scales: {
+    // xAxes: [{
+    //     display: true,
+    //     scaleLabel: {
+    //     display: true,
+    //     labelString: 'Years' } }],
+    // yAxes: [{
+    // display: true,
+    // ticks: {
+    //     callback: function(value, index, values) {
+    //     return value.toLocaleString("en-US",{style:"currency", currency:"USD"});
+    //     }
+    // },
+    // scaleLabel: {
+    //     display: true,
+    //     labelString: 'Equity' } }] } } };
+
+    // if(performance_chart!=null){
+    //     performance_chart.destroy();
+    // }
+    // var ctx = document.getElementById('performance_chart').getContext('2d');
+    // performance_chart = new Chart(ctx, config);
+
+    // clearInterval(proccess);
+
+    // $(':button').prop('disabled', false); //Enable All Button
     $("#reset_button").prop("disabled", false); //Enable Reset Button
     $("#trade_report_button").prop("disabled", false); //Enable Trade Report Button
     $("#trade_performance_button").prop("disabled", false); //Enable Performance Button
