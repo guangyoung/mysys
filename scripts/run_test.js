@@ -92,7 +92,7 @@ async function proses() {
             let current_date = test_data[request_id][0].date;
             let previous_date = test_data[request_id - 1][0].date;
             let interest_day = current_date - previous_date //nama variable di cari yg cocok/standar penamaan
-            daily_Interest = cash_balance * (interest_rate / 360) * interest_day; //cek lagi rumusnya
+            daily_Interest = cash_balance * (interest_rate / 360) * 1; //cek lagi rumusnya
         } else {
             daily_Interest = 0;
         }
