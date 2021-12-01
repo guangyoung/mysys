@@ -83,7 +83,7 @@ async function proses() {
 
     while (request_id < 1000) {
 
-        date = test_data[request_id][0].date;
+        // date = test_data[request_id][0].date;
 
         // for (i = 0; i < 30; i++) {
                            
