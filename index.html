@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>Quantxi - Xtra Intelligence Quant Trade System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
@@ -10,71 +11,79 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
-    </head>
-    <body class="cover-index">
-        <div class="d-flex align-items-center min-vh-100">
-            <div class="container text-center" style="margin-top: 0px; margin-bottom: 0px">
-                <div class="container" style="width: 100%">
-                    <h3 style="text-align: center; color: #b9b9b9">QUANTXI TRADE SIMULATION TOOL</h3>
-                    <h5 style="text-align: center; color: #b9b9b9">An Open Source Trade Simulation To Test Quantxi AI Performance</h5>
-                    <p style="text-align: center; font-size: 14px; color: #b9b9b9">Test As Real Trade, Open Data, Transparency, 100% Unseen Data Proccess</p>
-                    <!-- <div class="container" style="text-align: center; margin-top: 10px; width: 75%"> -->
-                        <!-- <a href="https://colab.research.google.com/github/heriyang9000/test2/blob/main/test1.ipynb" target="_blank" style="margin-left: 0px"><img src="https://colab.research.google.com/assets/colab-badge.svg" width="120" alt="Open In Colab"/></a> -->
-                        <!-- <a href="https://colab.research.google.com/github/heriyang9000/test2/blob/main/test1.ipynb" target="_blank" style="margin-left: 35px"><img src="https://colab.research.google.com/assets/colab-badge.svg" width="120" alt="Open In Colab"/></a> -->
-                    <!-- </div> -->
-                    
-                    <img src="styles/image/bg-2-11.png" class="img-fluid center" style="margin-top: 50px">
-                    <!-- <p style="text-align: center; margin-top: 25px; color: #7c7e89;">Prove if Quantxi Really Works</p> -->
+</head>
+
+<body class="cover-index">
+    <div class="d-flex align-items-center min-vh-100">
+        <div class="container text-center" style="margin-top: 0px; margin-bottom: 0px">
+            <div class="container" style="width: 100%">
+                <h3 style="text-align: center; color: #b9b9b9">QUANTXI TRADE SIMULATION TOOL</h3>
+                <h5 style="text-align: center; color: #b9b9b9">An Open Source Trade Simulation To Test Quantxi AI
+                    Performance</h5>
+                <p style="text-align: center; font-size: 14px; color: #b9b9b9">Test As Real Trade, Open Data,
+                    Transparency, 100% Unseen Data Proccess</p>
+                <!-- <div class="container" style="text-align: center; margin-top: 10px; width: 75%"> -->
+                <!-- <a href="https://colab.research.google.com/github/heriyang9000/test2/blob/main/test1.ipynb" target="_blank" style="margin-left: 0px"><img src="https://colab.research.google.com/assets/colab-badge.svg" width="120" alt="Open In Colab"/></a> -->
+                <!-- <a href="https://colab.research.google.com/github/heriyang9000/test2/blob/main/test1.ipynb" target="_blank" style="margin-left: 35px"><img src="https://colab.research.google.com/assets/colab-badge.svg" width="120" alt="Open In Colab"/></a> -->
+                <!-- </div> -->
+
+                <img src="styles/image/bg-2-11.png" class="img-fluid center" style="margin-top: 50px">
+                <!-- <p style="text-align: center; margin-top: 25px; color: #7c7e89;">Prove if Quantxi Really Works</p> -->
+            </div>
+            <div class="auth container" style="text-align: center;">
+                <div class="auth-item">
+                    <input type="string" id="api_key" style="margin-top: 20px; text-align:center"
+                        placeholder="Input Your Quantxi API Key Here" required />
                 </div>
-                <div class="auth container" style="text-align: center;">
-                    <div class="auth-item">
-                        <input type="string" id="api_key" style="margin-top: 20px; text-align:center" placeholder="Input Your Quantxi API Key Here" required/>
-                    </div>
-                    <p style="text-align: center; margin-top: 0px; color: #7c7e89;"><a href="https://localhost/quantum/quantumfund.ai/validation.html#apikey" target="_blank" style="opacity: 0.8; font: 13px 'Acrom', sans-serif; color: #fff;">Get Quantxi API Key</a></p>
-                    <button type="button" id="btnSubmit" class="btn btn-primary btn-sm" style="padding: 2px 15px; margin-top: -10px; font-size: 13px" onclick="start_btn()">START TESTING</button>
-                </div>
+                <p style="text-align: center; margin-top: 0px; color: #7c7e89;"><a
+                        href="https://localhost/quantum/quantumfund.ai/validation.html#apikey" target="_blank"
+                        style="opacity: 0.8; font: 13px 'Acrom', sans-serif; color: #fff;">Get Quantxi API Key</a></p>
+                <button type="button" id="btnSubmit" class="btn btn-primary btn-sm"
+                    style="padding: 2px 15px; margin-top: -10px; font-size: 13px" onclick="start_btn()">START
+                    TESTING</button>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 
-    <script>
-        function start_btn() {  
-  
-            let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-            // if (width < 1200) {
-            //     open("images/ailogo2.png","_self");
-            // }            
+<script>
+    function start_btn() {
 
-            if(!$("#api_key").val()) {
-                Swal.fire(
-                    'Quantxi API ?',
-                    'Please input your Quantxi API',
-                    'question'
-                )
-                return false;
-            } else {
-                $.ajax({
+        let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        // if (width < 1200) {
+        //     open("images/ailogo2.png","_self");
+        // }            
+
+        if (!$("#api_key").val()) {
+            Swal.fire(
+                'Quantxi API ?',
+                'Please input your Quantxi API',
+                'question'
+            )
+            return false;
+        } else {
+            $.ajax({
                 type: "GET",
-                url: "https://api.quantxi.com/user?api_key="+$("#api_key").val(),
+                url: "https://api.quantxi.com/user?api_key=" + $("#api_key").val(),
                 dataType: 'json',
-                success: function(result){
-                if (result.status == "success") {                    
-                   
-                    localStorage.setItem("user", result.data.nama);
-                    localStorage.setItem("apiKey", $("#api_key").val());
-                   
-                    open("dashboard.html","_self");
-                    
-                } else {
-                    Swal.fire(
-                        'Connection Failed',
-                        'Please check your Quantxi API',
-                        'error'
-                    )
-                    return false;
-                }
+                success: function (result) {
+                    if (result.status == "success") {
+
+                        localStorage.setItem("user", result.data.nama);
+                        localStorage.setItem("apiKey", $("#api_key").val());
+
+                        open("dashboard.html", "_self");
+
+                    } else {
+                        Swal.fire(
+                            'Connection Failed',
+                            'Please check your Quantxi API',
+                            'error'
+                        )
+                        return false;
+                    }
                 },
-                error: function() {
+                error: function () {
                     Swal.fire(
                         'Connection Failed',
                         'Please check your Quantxi API',
@@ -83,7 +92,8 @@
                     return false;
                 }
             })
-            }            
         }
-    </script>
+    }
+</script>
+
 </html>
