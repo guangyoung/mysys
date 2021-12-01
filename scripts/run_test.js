@@ -82,13 +82,7 @@ async function proses() {
     var buyandhold_sortino_ratio_array = new Array();
 
     while (request_id < 1000) {
-
-        // date = test_data[request_id][0].date;
-
-        // for (i = 0; i < 30; i++) {
-        //     stock_price[i] = parseFloat(test_data[request_id][i + 1].price); //ini kurang bisa dibaca, pikir cara lain                  
-        // }
-
+        
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION
         // ----------------------------------------------------------------------------------
