@@ -8,7 +8,7 @@
     
     var initial_equity = 1000000; //default initial equity...
     var spread_slippage = 0.001;
-    var commission = 0.005;
+    var commission_perShare = 0.005;
     var interest_rate = 0.02;
     var risk_freeRate = 0.01;
     var regT_margin = 0.5;
@@ -93,9 +93,9 @@
         } else {
             initial_equity = parseFloat($("#initial_equity").val());
             spread_slippage = parseFloat($("#spread_slippage").val());
-            commission = parseFloat($("#commision").val());
+            commission_perShare = parseFloat($("#commision").val());
             interest_rate = parseFloat($("#interest_rate").val());
-            risk_free_rate = parseFloat($("#risk_free_rate").val());
+            risk_freeRate = parseFloat($("#risk_free_rate").val());
             regT_margin = parseFloat($("#regT_margin").val());
             maint_margin = parseFloat($("#maint_margin").val());
             min_data = parseInt($("#min_data").val());

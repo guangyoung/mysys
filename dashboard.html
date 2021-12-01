@@ -32,15 +32,9 @@
     <script src="scripts/auto_run.js"></script>
     <script src="scripts/ticker_list.js"></script>
 
-     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script> -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"
         integrity="sha512-frFP3ZxLshB4CErXkPVEXnd5ingvYYtYhE5qllGdZmcOlRKNEPbufyupfdSTNmoF5ICaQNO6SenXzOZvoGkiIA=="
         crossorigin="anonymous"></script>
-
 </head>
 
 <body class="cover-dashboard">
@@ -132,38 +126,31 @@
                             <tbody style="font-size: 13px; font-family: calibri;">
                                 <tr>
                                     <td style="padding: 1px 5px">Cash&nbsp;Balance</td>
-                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
-                                            id="cash_balance">1,000,000</span></td>
+                                    <td id="cash_balance" style="position: absolute; right: 10px; padding: 1px 5px">1,000,000</td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Long&nbsp;Market&nbsp;Value</td>
-                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
-                                            id="long_market_value">0</span></td>
+                                    <td id="long_market_value" style="position: absolute; right: 10px; padding: 1px 5px">0</td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Equity&nbsp;With&nbsp;Loan&nbsp;Value</td>
-                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
-                                            id="equity_with_loan_value">1,000,000</span></td>
+                                    <td id="equity_with_loan_value" style="position: absolute; right: 10px; padding: 1px 5px">1,000,000</td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Maintenance&nbsp;Margin&nbsp;Reserved</td>
-                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
-                                            id="maintenance_margin_reserved">0</span></td>
+                                    <td id="maintenance_margin_reserved" style="position: absolute; right: 10px; padding: 1px 5px">0</td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Maintenance&nbsp;Margin&nbsp;Available</td>
-                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
-                                            id="maintenance_margin_available">1,000,000</span></td>
+                                    <td id="maintenance_margin_available" style="position: absolute; right: 10px; padding: 1px 5px">1,000,000</td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Initial&nbsp;Margin&nbsp;Reserved</td>
-                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
-                                            id="initial_margin_reserved">0</span></td>
+                                    <td id="initial_margin_reserved" style="position: absolute; right: 10px; padding: 1px 5px">0</td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Initial&nbsp;Margin&nbsp;Available</td>
-                                    <td style="position: absolute; right: 10px; padding: 1px 5px"><span
-                                            id="initial_margin_available">1,000,000</span></td>
+                                    <td id="initial_margin_available" style="position: absolute; right: 10px; padding: 1px 5px">1,000,000</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -188,29 +175,29 @@
                                     <td style="padding: 1px 5px"><u>BUY&nbsp;&&nbsp;HOLD</u></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px"><span id="quantxi_total_return">0.00%</span></td>
+                                    <td id="quantxi_total_return" style="padding: 1px 5px">0.00%</td>
                                     <td style="padding: 1px 5px">Total&nbsp;Return</td>
-                                    <td style="padding: 1px 5px"><span id="buyandhold_total_return">0.00%</span></td>
+                                    <td id="buyandhold_total_return" style="padding: 1px 5px">0.00%</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px"><span id="quantxi_cagr">0.00%</span></td>
+                                    <td id="quantxi_cagr" style="padding: 1px 5px">0.00%</td>
                                     <td style="padding: 1px 5px">CAGR</td>
-                                    <td style="padding: 1px 5px"><span id="buyandhold_cagr">0.00%</span></td>
+                                    <td id="buyandhold_cagr" style="padding: 1px 5px">0.00%</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px"><span id="quantxi_maxdd">0.00%</span></td>
+                                    <td id="quantxi_maxdd" style="padding: 1px 5px">0.00%</td>
                                     <td style="padding: 1px 5px">Max&nbsp;DD</td>
-                                    <td style="padding: 1px 5px"><span id="buyandhold_maxdd">0.00%</span></td>
+                                    <td id="buyandhold_maxdd" style="padding: 1px 5px">0.00%</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px"><span id="quantxi_sharpe">0.00%</span></td>
+                                    <td id="quantxi_sharpe" style="padding: 1px 5px">0.00%</td>
                                     <td style="padding: 1px 5px">Sharpe</td>
-                                    <td style="padding: 1px 5px"><span id="buyandhold_sharpe">0.00%</span></td>
+                                    <td id="buyandhold_sharpe" style="padding: 1px 5px">0.00%</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px"><span id="quantxi_sortino">0.00%</span></td>
-                                    <td style="padding: 1px 5px">sortino</td>
-                                    <td style="padding: 1px 5px"><span id="buyandhold_sortino">0.00%</span></td>
+                                    <td id="quantxi_Sortino" style="padding: 1px 5px">0.00%</td>
+                                    <td style="padding: 1px 5px">Sortino</td>
+                                    <td id="buyandhold_Sortino" style="padding: 1px 5px">0.00%</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -564,8 +551,8 @@
                             <img src="styles/image/arrow.png" width="60" height="100" style="margin-top: 70px">
                             <!-- <img src="styles/image/quantxi_in_out.png" class="img-fluid" style="margin-top: 40px"> -->
                         </div>
-                        <h6 style="font-size: 16px; color: #c1c2c6; margin-top: 40px"><strong>Total
-                                Request&nbsp;&nbsp;:&nbsp;&nbsp;<span id="total_request">0</span></strong></h6>
+                        <h6 id="total_request" style="font-size: 16px; color: #c1c2c6; margin-top: 40px"><strong>Total
+                                Request&nbsp;&nbsp;:&nbsp;&nbsp;0</strong></h6>
                         <h6 style="font-size: 10px; color: #0053a6; margin-top: 8px"><strong>Last Request : 12.01.01
                                 13:00:01 || Response : <img src="styles/image/green icon.png" height="12" width="12"
                                     style="margin-top: -1px"> 200 (OK)</strong></h6>
@@ -901,7 +888,7 @@
                                     aria-describedby="" value="1000000" min="1000000" required>
                             </div>
                             <div class="spani form-group">
-                                <label style="font-size: 13px; margin-top: 15px">Spread+Slippage/Side
+                                <label style="font-size: 13px; margin-top: 10px">Spread+Slippage/Side
                                     <a><i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i>
                                         <span>isi besaran spread</span>
                                     </a>
@@ -910,19 +897,19 @@
                                     aria-describedby="" value="0.001" min="0.001" max="0.005" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 15px">Commision/Share<i
+                                <label style="font-size: 13px; margin-top: 10px">Commision/Share<i
                                         class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                                 <input style="font-size: 13px" type="number" class="form-control" id="commision"
                                     aria-describedby="" value="0.005" min="0.001" max="0.005" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 15px">Interest Rate/Year<i
+                                <label style="font-size: 13px; margin-top: 10px">Interest Rate/Year<i
                                         class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                                 <input style="font-size: 13px" type="text" class="form-control" id="interest_rate"
                                     aria-describedby="" value="0.01" min="0.01" max="0.05" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 15px">Risk Free Rate/Year<i
+                                <label style="font-size: 13px; margin-top: 10px">Risk Free Rate/Year<i
                                         class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                                 <input style="font-size: 13px" type="text" class="form-control" id="risk_free_rate"
                                     aria-describedby="" value="0.01" min="0.01" max="0.05" required>
@@ -939,25 +926,25 @@
                                     readonly aria-describedby="" value="50%" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 15px">Maintenaince Margin <i
+                                <label style="font-size: 13px; margin-top: 10px">Maintenaince Margin <i
                                         class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                                 <input style="font-size: 13px" type="text" class="form-control" id="maint_margin"
                                     readonly aria-describedby="" value="30%" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 15px">Min Data<i class="fa fa-info-circle"
+                                <label style="font-size: 13px; margin-top: 10px">Min Data<i class="fa fa-info-circle"
                                         style="margin-left: 5px; font-size: 13px"></i></label>
                                 <input style="font-size: 13px" type="text" class="form-control" id="min_data" readonly
                                     aria-describedby="" value="1305" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 15px">Max Data<i class="fa fa-info-circle"
+                                <label style="font-size: 13px; margin-top: 10px">Max Data<i class="fa fa-info-circle"
                                         style="margin-left: 5px; font-size: 13px"></i></label>
                                 <input style="font-size: 13px" type="text" class="form-control" id="max_data" readonly
                                     aria-describedby="" value="7830" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 15px">Portfolio Stocks<i class="fa fa-info-circle"
+                                <label style="font-size: 13px; margin-top: 10px">Portfolio Stocks<i class="fa fa-info-circle"
                                         style="margin-left: 5px; font-size: 13px"></i></label>
                                 <input style="font-size: 13px" type="text" class="form-control" id="portfolio_stocks" readonly
                                     aria-describedby="" value="30" required>
@@ -1000,37 +987,6 @@
                             <div class="tab-content" id="nav-tabContent">
                                 <div class="tab-pane fade show active" id="nav-manual" role="tabpanel"
                                     aria-labelledby="nav-manua-tab">
-                                    <!-- <div class="dropdown" id="select_startdate">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="startdate_btn"
-                                            type="button" data-toggle="dropdown"
-                                            style="margin-top: 5px; font-size: 13px; width: 370px; padding: 1px 5px">
-                                            <span class="Sdate">Select Starting Year of Test</span>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                            style="background-color: #494949; text-align: center; font-size: 13px; height: 322px; width: 372px; overflow: auto;">
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1990">1990</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1991">1991</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1992">1992</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1993">1993</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1994">1994</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1995">1995</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1996">1996</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1997">1997</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1998">1998</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1999">1999</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2000">2000</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2001">2001</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2002">2002</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2003">2003</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2004">2004</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2005">2005</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2006">2006</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2007">2007</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2008">2008</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2009">2009</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2010">2010</a>
-                                        </div>
-                                    </div> -->
                                     <div class="dropdown" id="tickers_exchange">
                                         <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn"
                                             type="button" data-toggle="dropdown" onclick="tickers_exchange_btn()"
@@ -1196,38 +1152,6 @@
                                 </div>
                                 <div class="tab-pane fade" id="nav-random" role="tabpanel"
                                     aria-labelledby="nav-random-tab">
-                                    <!-- <div class="row" style="margin-top: 5px" id="tt_dd2"> -->
-                                    <!-- <div class="dropdown" id="select_startdate_select_random">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle"
-                                            id="startdate_btn_random" type="button" data-toggle="dropdown"
-                                            style="margin-top: 4px; font-size: 13px; width: 370px; padding: 1px 5px">
-                                            <span class="Sdate_random">Select Starting Year of Test</span>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                            style="background-color: #494949; text-align: center; font-size: 13px; height: 322px; width: 372px; overflow: auto;">
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1990_random">1990</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1991_random">1991</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1992_random">1992</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1993_random">1993</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1994_random">1994</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1995_random">1995</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1996_random">1996</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1997_random">1997</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1998_random">1998</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="1999_random">1999</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2000_random">2000</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2001_random">2001</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2002_random">2002</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2003_random">2003</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2004_random">2004</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2005_random">2005</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2006_random">2006</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2007_random">2007</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2008_random">2008</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2009_random">2009</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="2010_random">2010</a>
-                                        </div>
-                                    </div> -->
                                     <div class="dropdown" id="tickers_exchange_select_random">
                                         <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn_random"
                                             type="button" data-toggle="dropdown" onclick="tickers_exchange_btn_random()"
@@ -1435,96 +1359,96 @@
                                                 <th class="text-center"
                                                     style="position: sticky; left: 0px; top: 0px; z-index: 2; background-color: #2e3050; padding: 5px 18px;">
                                                     Date</th>
-                                                <th class="text-center"
+                                                <th id="stock1_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;1 <span id="stock1_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;1 <i>ticker</i></th>
+                                                <th id="stock2_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;2 <span id="stock2_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;2 <i>ticker</i></th>
+                                                <th id="stock3_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;3 <span id="stock3_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;3 <i>ticker</i></th>
+                                                <th id="stock4_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;4 <span id="stock4_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;4 <i>ticker</i></th>
+                                                <th id="stock5_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;5 <span id="stock5_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;5 <i>ticker</i></th>
+                                                <th id="stock6_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;6 <span id="stock6_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;6 <i>ticker</i></th>
+                                                <th id="stock7_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;7 <span id="stock7_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;7 <i>ticker</i></th>
+                                                <th id="stock8_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;8 <span id="stock8_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;8 <i>ticker</i></th>
+                                                <th id="stock9_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;9 <span id="stock9_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;9 <i>ticker</i></th>
+                                                <th id="stock10_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;10 <span id="stock10_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;10 <i>ticker</i></th>
+                                                <th id="stock11_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;11 <span id="stock11_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;11 <i>ticker</i></th>
+                                                <th id="stock12_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;12 <span id="stock12_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;12 <i>ticker</i></th>
+                                                <th id="stock13_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;13 <span id="stock13_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;13 <i>ticker</i></th>
+                                                <th id="stock14_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;14 <span id="stock14_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;14 <i>ticker</i></th>
+                                                <th id="stock15_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;15 <span id="stock15_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;15 <i>ticker</i></th>
+                                                <th id="stock16_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;16 <span id="stock16_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;16 <i>ticker</i></th>
+                                                <th id="stock17_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;17 <span id="stock17_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;17 <i>ticker</i></th>
+                                                <th id="stock18_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;18 <span id="stock18_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;18 <i>ticker</i></th>
+                                                <th id="stock19_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;19 <span id="stock19_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;19 <i>ticker</i></th>
+                                                <th id="stock20_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;20 <span id="stock20_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;20 <i>ticker</i></th>
+                                                <th id="stock21_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;21 <span id="stock21_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;21 <i>ticker</i></th>
+                                                <th id="stock22_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;22 <span id="stock22_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;22 <i>ticker</i></th>
+                                                <th id="stock23_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;23 <span id="stock23_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;23 <i>ticker</i></th>
+                                                <th id="stock24_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;24 <span id="stock24_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;24 <i>ticker</i></th>
+                                                <th id="stock25_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;25 <span id="stock25_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;25 <i>ticker</i></th>
+                                                <th id="stock26_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;26 <span id="stock26_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;26 <i>ticker</i></th>
+                                                <th id="stock27_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;27 <span id="stock27_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;27 <i>ticker</i></th>
+                                                <th id="stock28_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;28 <span id="stock28_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;28 <i>ticker</i></th>
+                                                <th id="stock29_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;29 <span id="stock29_ticker"><i>ticker</i></span></th>
-                                                <th class="text-center"
+                                                    Stock&nbsp;29 <i>ticker</i></th>
+                                                <th id="stock30_ticker" class="text-center"
                                                     style="position: sticky; top: 0px; border-left: 1px #070914 solid; padding: 5px 5px; background-color: #1b1d2d;">
-                                                    Stock&nbsp;30 <span id="stock30_ticker"><i>ticker</i></span></th>
+                                                    Stock&nbsp;30 <i>ticker</i></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1536,58 +1460,6 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- MODAL VIEW ALL POST -->
-    <div class="modal" id="view_allpost" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
-        aria-labelledby="dataLabel" aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 1200px" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <img src="styles/image/rest_api_symbol_black.png" width="32" height="22" style="margin-top: 4px">
-                    <h5 class="modal-title"><strong style="margin-left: 10px">All Request In JSON Format</strong></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <strong style="margin-left: 17px; font-size: 14px;">Total Request : <span
-                                style="font-size: 15px; margin-left: 5px">200</span></strong>
-                        <ul id="pagination_post_request_response" class="pagination pagination-sm"></ul>
-                    </div>
-                    <div class="card" style="margin-top: 0px; overflow-y: auto; overflow-x: hidden; height: 420px">
-                        <table class="table-striped">
-                            <thead>
-                                <tr>
-                                    <th
-                                        style="position: sticky; top: 0px; border-left: 1px #292b43 solid; padding: 5px 0; width: 655px; color:#d2d3d7; background-color: #1b1d2d; ">
-                                        <div class="row" style="margin-left: 10px;">
-                                            <i class="fa fa-sign-in" style="margin-top: 3px; font-size: 20px"></i>
-                                            <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">DATA
-                                                INPUT - REQUEST</strong>
-                                        </div>
-                                    </th>
-                                    <th
-                                        style="position: sticky; top: 0px; border-left: 1px #292b43 solid; width: 655px; color:#d2d3d7; background-color: #1b1d2d; font-size: 12px">
-                                        <div class="row" style="margin-left: 10px;">
-                                            <i class="fa fa-sign-out" style="margin-top: 3px; font-size: 20px"></i>
-                                            <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">SIGNAL
-                                                OUTPUT - RESPONSE</strong>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody id="request">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <!-- <h6 style="font-size: 13px; margin-top: 5px; position: absolute; left: 15px">For more details about HTTP Request, use Fiddler or Httpwatch or open it directly from a network browser</h6> -->
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -1614,22 +1486,25 @@
                             style="text-align: center; color: #000000; margin-top: 1px; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 170px; font-size: 10px">
                         <ul id="pagination_trade_report" class="pagination pagination-sm" style="margin-top: -5px"></ul>
                     </div>
-                    <div class="table-responsive table-hover"
-                        style="overflow: auto; width: 1165px; margin-top: 5px; height: 365px">
+                    <div class="table-hover"
+                        style="overflow: auto; width: 1165px; margin-top: 5px; height: 365px; border-left: 1px #c0c0c0 solid; border-right: 1px #c0c0c0 solid; border-bottom: 1px #c0c0c0 solid;">
                         <table id="account_trade_summary_tbl">
-                            <thead style="font-size: 12px; font-family: calibri;">
+                            <thead style="font-size: 12px; font-family: calibri; border-bottom: 1px #c0c0c0 solid;">
                                 <tr>
                                     <th rowspan="2"
-                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; width: 70px; text-align: center">
+                                        style="background-color: #2e2e2e; color: #ebebeb; position: sticky; top: 0px; left: 0px; z-index: 2; padding: 5px 5px; text-align: center">
                                         Date</th>
                                     <th colspan="8"
                                         style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                        Account Summary (Pre Trade Position)</th>
+                                        Pre Trade Position</th>
                                     <th colspan="3"
                                         style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                        Trade Summary</th>
+                                        Trade Summary</th>                                    
+                                    <th colspan="7"
+                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
+                                        Post Trade Position</th>
                                     <th rowspan="2"
-                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid; ">
+                                        style="background-color: #2e2e2e; color: #ebebeb; position: sticky; top: 0px; right: 0px; z-index: 2; padding: 5px 5px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid; ">
                                         Stock Position<br>And Trade Details</th>
                                 </tr>
                                 <tr>
@@ -1666,10 +1541,32 @@
                                     <th
                                         style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Total<br>Initial Margin</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        Cash<br>Balance</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        Market<br>Value</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        Equity With<br>Loan Value</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        Maintenance<br>Margin Reserved</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        Maintenance<br>Margin Available</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        Initial Margin<br>Reserved</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        Initial Margin<br>Available</th>
                                 </tr>
                                 <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
                                     <td
-                                        style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px">
+                                        style="background-color: #c7c7c7; position: sticky; top: 92px; left: 0px; z-index: 2; padding: 5px 10px">
+                                        Current&nbsp;Date
                                     </td>
                                     <td
                                         style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
@@ -1706,16 +1603,41 @@
                                         Total&nbsp;Commision&nbsp;of<br>All&nbsp;Stock&nbsp;Traded</td>
                                     <td
                                         style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                        Total&nbsp;Margin&nbsp;Used<br>of&nbsp;All&nbsp;Stock&nbsp;Traded</td>
+                                        Total&nbsp;Margin&nbsp;Used<br>of&nbsp;All&nbsp;Stock&nbsp;Traded</td>                                    
                                     <td
                                         style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
+                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
+                                    </td>
+                                    <td
+                                        style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
+                                        Total&nbsp;Market&nbsp;Value<br>(Pretrade&nbsp;Position)<br>of&nbsp;All&nbsp;Stock
+                                    </td>
+                                    <td
+                                        style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
+                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
+                                    </td>
+                                    <td
+                                        style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
+                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</td>
+                                    <td
+                                        style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
+                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</td>
+                                    <td
+                                        style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
+                                        Market&nbsp;Value&nbsp;x<br>50 %</td>
+                                    <td
+                                        style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
+                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</td>
+                                    <td
+                                        style="background-color: #c7c7c7; position: sticky; top: 92px; right: 0px; z-index: 2; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
+                                        View&nbsp;Trade Details
                                     </td>
                                 </tr>
                             </thead>
                             <tbody
-                                style="background-color: #2c5252; font-size: 11px; font-family: calibri; color: #ebebeb">
+                                style="background-color: #2c5252; font-size: 11px; font-family: calibri; color: #ebebeb;">
                                 <tr>
-                                    <td style="text-align: center; border-left: 1px #c0c0c0 solid;">23/01/01</td>
+                                    <td style="position: sticky; left: 0px; z-index: 2; background-color: #122121; text-align: center">23/01/01</td>
                                     <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00
                                     </td>
                                     <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
@@ -1738,13 +1660,156 @@
                                         1,000,000.00</td>
                                     <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                         1,000,000,000.00</td>
+                                    <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                        1,000,000,000.00</td>
+                                    <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                        1,000,000,000.00</td>
+                                    <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                        1,000,000,000.00</td>
+                                    <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                        1,000,000,000.00</td>
+                                    <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                        1,000,000,000.00</td>
+                                    <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                        1,000,000,000.00</td>
+                                    <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                        1,000,000,000.00</td>
                                     <td onclick="myFunction(event)"
-                                        style="text-align: center; padding: 2px 5px; border-left: 1px #c0c0c0 solid;">
+                                        style="position: sticky; right: 0px; z-index: 2; background-color: #122121; text-align: center; padding: 2px 5px">
                                         <button type="button" class="btn btn-primary btn-sm"
                                             style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px"
                                             id="230101" data-toggle="modal" data-target="#trade_details">View
                                             Details</button>
                                     </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TRADE DETAILS -->
+    <div class="modal" id="trade_details" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+        aria-labelledby="trade_reportLabel" aria-hidden="true">
+        <div class="modal-dialog" style="min-width: 850px" role="document">
+            <div class="modal-content" style="background-color: #b6b6b6;">
+                <div class="modal-header">
+                    <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i
+                                class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>STOCK POSITION
+                            AND TRADE DETAILS, 23/01/01</strong></a>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-hover"
+                        style="background-color: #091111; overflow: auto; margin-top: 5px; height: 300px">
+                        <table>
+                            <thead style="font-size: 12px; font-family: calibri;">
+                                <tr>
+                                    <th rowspan="2"
+                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; width: 70px">
+                                        Stock Ticker</th>
+                                    <th rowspan="2"
+                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Stock Price</th>
+                                    <th colspan="2"
+                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
+                                        Pre Trade Position</th>
+                                    <th colspan="5"
+                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
+                                        Trade Transaction</th>
+                                    <th colspan="2"
+                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
+                                        Post Trade Position</th>
+                                </tr>
+                                <tr>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Position<br>Size</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
+                                        Market<br>Value</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Filled<br>Order</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Filled<br>Price</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
+                                        Trade<br>Value</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Commission</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;width: 110px">
+                                        Initial<br>Margin</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Position<br>Size</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
+                                        Market<br>Value</th>
+                                </tr>
+                                <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
+                                    <th
+                                        style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 5px; ">
+                                    </th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                    </th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
+                                    </th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
+                                    </th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
+                                    </th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Market&nbsp;Value&nbsp;x<br>50 %</th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size: 11px; font-family: calibri; color: #ebebeb">
+                                <tr style>
+                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>                                    
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1825,7 +1890,7 @@
                                         Sharpe</h6>
                                     <h6
                                         style="text-align: center; margin-top: 13px; font-family: Acrom; font-size: 13px;">
-                                        sortino</h6>
+                                        Sortino</h6>
                                     <!-- <h6 style="text-align: center; margin-top: 13px; font-family: Acrom; font-size: 13px;">MAR</h6>
                                     <h6 style="text-align: center; margin-top: 13px; font-family: Acrom; font-size: 13px;">Sharpe</h6> -->
                                 </div>
@@ -1873,259 +1938,33 @@
                                 <div class="row" style="margin-top: 10px; margin-left: 15px">
                                     <ul class="nav nav-pills" id="pills-tab" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="pills-chart-tab" data-toggle="pill"
-                                                href="#pills-chart" role="tab" aria-controls="pills-chart"
+                                            <a class="nav-link active" id="pills-return-tab" data-toggle="pill"
+                                                href="#pills-return" role="tab" aria-controls="pills-return"
                                                 aria-selected="true"
-                                                style="font-size: 13px; padding: 3px 15px">Chart</a>
+                                                style="font-size: 13px; padding: 3px 15px">Total Return & CAGR</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-table-tab" data-toggle="pill"
-                                                href="#pills-table" role="tab" aria-controls="pills-table"
-                                                aria-selected="false"
-                                                style="margin-left: 20px; font-size: 13px; padding: 3px 15px">Table</a>
+                                            <a class="nav-link" id="pills-maxdd-tab" data-toggle="pill"
+                                                href="#pills-maxdd" role="tab" aria-controls="pills-maxdd"
+                                                aria-selected="true"
+                                                style="margin-left: 20px; font-size: 13px; padding: 3px 15px">Max DD</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="tab-content" id="pills-tabContent">
-                                    <div class="tab-pane fade show active" id="pills-chart" role="tabpanel"
-                                        aria-labelledby="pills-chart-tab">
+                                    <div class="tab-pane fade show active" id="pills-return" role="tabpanel"
+                                        aria-labelledby="pills-return-tab">
                                         <canvas id="" width="835" height="330" class="chartjs-render-monitor"
                                             style="margin-left: 15px; margin-top: 10px; background-color:#858585"></canvas>
                                     </div>
-                                    <div class="tab-pane fade" id="pills-table" role="tabpanel"
-                                        aria-labelledby="pills-table-tab">
-                                        <div class="table-responsive table-hover"
-                                            style="overflow: auto; width: 835px; margin-left: 15px; margin-right: 15px; margin-top: 10px; height: 300px">
-                                            <table id="">
-                                                <thead style="font-size: 12px; font-family: calibri;">
-                                                    <tr>
-                                                        <th rowspan="2"
-                                                            style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; width: 100px; text-align: center">
-                                                            Date</th>
-                                                        <th colspan="7"
-                                                            style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                                            Quantxi</th>
-                                                        <th colspan="7"
-                                                            style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                                            Buy & Hold</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 100px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            Equity</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            Total<br>Return</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            CAGR</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            Max DD</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            MAR Ratio</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            Sharpe Ratio</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            sortino Ratio</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 100px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            Equity</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            Total<br>Return</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            CAGR</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            Max DD</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            MAR Ratio</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            Sharpe Ratio</th>
-                                                        <th
-                                                            style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 3px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                            sortino Ratio</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody
-                                                    style="background-color: #2c5252; font-size: 11px; font-family: calibri; color: #ebebeb">
-                                                    <tr>
-                                                        <td style="text-align: center;">23/01/01</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            1,000,000,000</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            1,000,000,000</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                        <td
-                                                            style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0px 3px">
-                                                            100.00%</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <ul id="pagination_performance_report" class="pagination pagination-sm"
-                                            style="margin-top: 10px"></ul>
+                                    <div class="tab-pane fade" id="pills-maxdd" role="tabpanel"
+                                        aria-labelledby="pills-maxdd-tab">
+                                        <canvas id="" width="835" height="330" class="chartjs-render-monitor"
+                                            style="margin-left: 15px; margin-top: 10px; background-color:#858585"></canvas>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL TRADE DETAILS -->
-    <div class="modal" id="trade_details" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
-        aria-labelledby="trade_reportLabel" aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 850px" role="document">
-            <div class="modal-content" style="background-color: #b6b6b6;">
-                <div class="modal-header">
-                    <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i
-                                class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>STOCK POSITION
-                            AND TRADE DETAILS, 23/01/01</strong></a>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="table-hover"
-                        style="background-color: #091111; overflow: auto; margin-top: 5px; height: 300px">
-                        <table>
-                            <thead style="font-size: 12px; font-family: calibri;">
-                                <tr>
-                                    <th rowspan="2"
-                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; width: 70px">
-                                        Stock Ticker</th>
-                                    <th rowspan="2"
-                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
-                                        Stock Price</th>
-                                    <th colspan="2"
-                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
-                                        Pre Trade Position</th>
-                                    <th colspan="5"
-                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
-                                        Trade Transaction</th>
-                                    <!-- <th colspan="2" style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">Post Trade Position</th> -->
-                                </tr>
-                                <tr>
-                                    <th
-                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
-                                        Position<br>Size</th>
-                                    <th
-                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
-                                        Market<br>Value</th>
-                                    <th
-                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
-                                        Filled<br>Order</th>
-                                    <th
-                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
-                                        Filled<br>Price</th>
-                                    <th
-                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
-                                        Trade<br>Value</th>
-                                    <th
-                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
-                                        Commission</th>
-                                    <th
-                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;width: 110px">
-                                        Initial<br>Margin</th>
-                                    <!-- <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">Position<br>Size</th>
-                                    <th style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">Market<br>Value</th> -->
-                                </tr>
-                                <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
-                                    <th
-                                        style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 5px; ">
-                                    </th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                    </th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
-                                    </th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
-                                    </th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
-                                    </th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Market&nbsp;Value&nbsp;x<br>50 %</th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</th>
-                                    <!-- <th style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
-                                    <th style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge</th> -->
-                                </tr>
-                            </thead>
-                            <tbody style="font-size: 11px; font-family: calibri; color: #ebebeb">
-                                <tr style>
-                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -2168,329 +2007,419 @@
                     </div>
                     <div style="margin-top: 10px; overflow-x: hidden; overflow-y: scroll; height: 375px">
                         <table class="table-hover table-striped"
-                            style="border-left: 1px #242424 solid; border-right: 1px #242424 solid; ">
+                            style="border-left: 1px #242424 solid; border-right: 1px #242424 solid; border-bottom: 1px #242424 solid; ">
                             <thead style="font-size: 12px; font-family: calibri; color: #ffffff">
                                 <tr>
                                     <th rowspan="2"
-                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; width: 60px">
-                                        #Test</th>
+                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center;">
+                                        Test ID</th>
                                     <th rowspan="2"
-                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 80px;">
-                                        Test Date</th>
+                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        Test Timestamp</th>
                                     <th rowspan="2" colspan="2"
-                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 210px; ">
+                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Test Parameter</th>
-                                    <th rowspan="2" colspan="6"
-                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 300px; ">
+                                    <th rowspan="2"
+                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Portfolio</th>
                                     <th rowspan="2"
-                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 100px; ">
+                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Period od Data</th>
                                     <th colspan="4"
-                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 400px; ">
+                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Performance Comparison</th>
                                 </tr>
                                 <tr>
                                     <th colspan="2"
-                                        style="background-color: #5f5f5f; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 80px">
+                                        style="background-color: #5f5f5f; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Quantxi AI</th>
                                     <th colspan="2"
-                                        style="background-color: #5f5f5f; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; width: 110px">
+                                        style="background-color: #5f5f5f; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Buy & Hold</th>
                                 </tr>
                             </thead>
                             <tbody style="font-size: 11px; font-family: calibri;">
                                 <tr>
-                                    <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
+                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
                                     </td>
-                                    <td style="text-align: right; padding: 5px 10px; width: 105px">
-                                        1,000,000<br>0.005<br>0.001<br>0.02
+                                    <td style="text-align: right; padding: 5px 10px;">
+                                        1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
+                                    </td>
+                                    <td style="text-align: left; padding: 5px 0px 5px 10px;">
+                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
+                                       </div>
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
+                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
                                     </td>
-                                    <td style="text-align: right; padding: 5px 10px; width: 105px">
-                                        1,000,000<br>0.005<br>0.001<br>0.02
+                                    <td style="text-align: right; padding: 5px 10px;">
+                                        1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
+                                    </td>
+                                    <td style="text-align: left; padding: 5px 0px 5px 10px;">
+                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
+                                       </div>
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
+                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
                                     </td>
-                                    <td style="text-align: right; padding: 5px 10px; width: 105px">
-                                        1,000,000<br>0.005<br>0.001<br>0.02
+                                    <td style="text-align: right; padding: 5px 10px;">
+                                        1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
+                                    </td>
+                                    <td style="text-align: left; padding: 5px 0px 5px 10px;">
+                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
+                                       </div>
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
+                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
                                     </td>
-                                    <td style="text-align: right; padding: 5px 10px; width: 105px">
-                                        1,000,000<br>0.005<br>0.001<br>0.02
+                                    <td style="text-align: right; padding: 5px 10px;">
+                                        1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
+                                    </td>
+                                    <td style="text-align: left; padding: 5px 0px 5px 10px;">
+                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
+                                       </div>
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
+                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
                                     </td>
-                                    <td style="text-align: right; padding: 5px 10px; width: 105px">
-                                        1,000,000<br>0.005<br>0.001<br>0.02
+                                    <td style="text-align: right; padding: 5px 10px;">
+                                        1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
+                                    </td>
+                                    <td style="text-align: left; padding: 5px 0px 5px 10px;">
+                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
+                                       </div>
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: center; width: 60px; padding: 5px 10px">0001</td>
+                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 80px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 10px; width: 105px">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
                                     </td>
-                                    <td style="text-align: right; padding: 5px 10px; width: 105px">
-                                        1,000,000<br>0.005<br>0.001<br>0.02
+                                    <td style="text-align: right; padding: 5px 10px;">
+                                        1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
+                                    </td>
+                                    <td style="text-align: left; padding: 5px 0px 5px 10px;">
+                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
+                                       </div>
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 0px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 5px; width: 50px">
-                                        AAPL<br>AMZN<br>MSFT<br>AAGT<br>AMGN
-                                    </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center; width: 100px; padding: 5px 10px">
+                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: left; width: 100px; padding: 5px 10px">
-                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>sortino&nbsp;Ratio
+                                        style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
+                                        Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
                                     </td>
-                                    <td style="text-align: right; width: 100px; padding: 5px 10px">
+                                    <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                 </tr>
@@ -2506,6 +2435,59 @@
         </div>
     </div>
 
+    <!-- MODAL VIEW ALL POST -->
+    <div class="modal" id="view_allpost" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+        aria-labelledby="dataLabel" aria-hidden="true">
+        <div class="modal-dialog" style="min-width: 1200px" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="styles/image/rest_api_symbol_black.png" width="32" height="22" style="margin-top: 4px">
+                    <h5 class="modal-title"><strong style="margin-left: 10px">All Request In JSON Format</strong></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <strong style="margin-left: 17px; font-size: 14px;">Total Request : <span
+                                style="font-size: 15px; margin-left: 5px">200</span></strong>
+                        <ul id="pagination_post_request_response" class="pagination pagination-sm"></ul>
+                    </div>
+                    <div style="margin-top: 0px; overflow-y: auto; overflow-x: hidden; height: 400px">
+                        <table class="table-striped">
+                            <thead>
+                                <tr>
+                                    <th
+                                        style="position: sticky; top: 0px; border-left: 1px #292b43 solid; padding: 5px 0; width: 655px; color:#d2d3d7; background-color: #1b1d2d; ">
+                                        <div class="row" style="margin-left: 10px;">
+                                            <i class="fa fa-sign-in" style="margin-top: 3px; font-size: 20px"></i>
+                                            <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">DATA
+                                                INPUT - REQUEST</strong>
+                                        </div>
+                                    </th>
+                                    <th
+                                        style="position: sticky; top: 0px; border-left: 1px #292b43 solid; width: 655px; color:#d2d3d7; background-color: #1b1d2d; font-size: 12px">
+                                        <div class="row" style="margin-left: 10px;">
+                                            <i class="fa fa-sign-out" style="margin-top: 3px; font-size: 20px"></i>
+                                            <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">SIGNAL
+                                                OUTPUT - RESPONSE</strong>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="request">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <h6 style="font-size: 13px; margin-top: 5px; position: absolute; left: 15px">For more details about HTTP Request, use Fiddler or Httpwatch or open it directly from a network browser</h6> -->
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         $("#x_user").html(user);
         $("#x_apiKey").html(api_key);
@@ -2515,21 +2497,6 @@
         var exchange_choose_previous_manual;
         var exchange_choose_current_random;
         var exchange_choose_previous_random;
-
-        // $("#select_startdate").on('click', '.dropdown-item', function (event) {
-        //     let container_exchange = $(this).closest("#select_startdate");
-        //     startdate_select_manual = $(event.currentTarget)[0].id;
-        //     container_exchange.find('.Sdate').text($(event.currentTarget)[0].innerText || 'Select Start Date');
-        //     console.log(startdate_select_manual);
-        // });
-
-        // $("#select_startdate_select_random").on('click', '.dropdown-item', function (event) {
-        //     let container_exchange = $(this).closest("#select_startdate_select_random");
-        //     startdate_select_random = $(event.currentTarget)[0].id;
-        //     container_exchange.find('.Sdate_random').text($(event.currentTarget)[0].innerText ||
-        //         'Select Start Date');
-        //     console.log(startdate_select_random);
-        // });
 
         $("#tickers_list").on('click', '.dropdown-menu li', function (event) {
             event.stopPropagation();
@@ -2570,9 +2537,9 @@
             visiblePages: 1
         });
 
-        function myFunction(event) {
-            console.log(event.target.id);
-        }
+        // function myFunction(event) {
+        //     console.log(event.target.id);
+        // }
 
         // $('[data-toggle="tooltip"]').tooltip({ "show": 100, "hide": 500});
         $('[data-toggle="tooltip"]').tooltip({
@@ -2830,7 +2797,7 @@
         }
 
         var request_element =
-            `<tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+        `<tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
             <td style="border-right: 1px #292b43 solid">
                 <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
             JSON.stringify(input_start, null, 4) +
@@ -2841,75 +2808,6 @@
                 <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
             JSON.stringify(output_start, null, 4) +
             `
-                </pre>;                                  
-            </td>
-        </tr>
-        <tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
-            <td style="border-right: 1px #292b43 solid">
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(input_start, null, 4) +
-            `
-                </pre>; 
-            </td>
-            <td>  
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(output_start, null, 4) +
-            `
-                </pre>;                                  
-            </td>
-        </tr>
-        <tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
-            <td style="border-right: 1px #292b43 solid">
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(input_start, null, 4) +
-            `
-                </pre>; 
-            </td>
-            <td>  
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(output_start, null, 4) +
-            `
-                </pre>;                                  
-            </td>
-        </tr>
-        <tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
-            <td style="border-right: 1px #292b43 solid">
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(input_start, null, 4) +
-            `
-                </pre>; 
-            </td>
-            <td>  
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(output_start, null, 4) +
-            `
-                </pre>;                                  
-            </td>
-        </tr>
-        <tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
-            <td style="border-right: 1px #292b43 solid">
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(input_start, null, 4) +
-            `
-                </pre>; 
-            </td>
-            <td>  
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(output_start, null, 4) +
-            `
-                </pre>;                                  
-            </td>
-        </tr>
-        <tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
-            <td style="border-right: 1px #292b43 solid">
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(input_start, null, 4) +
-            `
-                </pre>; 
-            </td>
-            <td>  
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(output_start, null, 4) + `
                 </pre>;                                  
             </td>
         </tr>`
