@@ -297,10 +297,10 @@ async function proses() {
             $("#position_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.position_size).toFixed(0))`));
         }
 
-        var post_process = "run";
+        let post_process = "run";
         let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");
 
-        while (post_process = "run") {
+        while (post_process == "run") {
             await $.ajax({
                 type: "POST",
                 url: ur,
