@@ -92,7 +92,6 @@ async function proses() {
             let previous_date = test_data[request_id - 1][0].date;
             let interest_day = current_date - previous_date //nama variable di cari yg cocok/standar penamaan
             daily_Interest = cash_balance * (interest_rate / 360) * 1; //cek lagi rumusnya
-            
         } else {
             daily_Interest = 0;
         }
@@ -164,7 +163,7 @@ async function proses() {
         // request_id++;
 
         var dataInput = {
-            data_id: request_id+1,//ganti jadi request_id
+            data_id: request_id+1,
             margin_available: initial_margin_available,
             stock1: {
                 price: stock_price[0],
@@ -298,10 +297,10 @@ async function proses() {
             $("#position_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.position_size).toFixed(0))`));
         }
 
-        let post_process = "run";
+        // var post_process = "run";
         let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");
 
-        while (post_process = "run") {
+        while (dataInput.data_id > request_id) {
             await $.ajax({
                 type: "POST",
                 url: ur,
@@ -311,7 +310,7 @@ async function proses() {
                     // console.log(result);
                     if (result.status == "success") {
                         signalOutput = {
-                            data_id: result.data.data_id,//ganti jadi response_id
+                            data_id: result.data.data_id,
                             total_signal: result.data.total_signal,
                             stock1: {
                                 signal_position: result.data.signal_position_stock1,
@@ -447,8 +446,6 @@ async function proses() {
                         }                        
 
                         request_id++;
-
-                        post_process = "stop";
 
                         // ----------------------------------------------------------------------------------  
                         // TRADE TRANSACTION 
