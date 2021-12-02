@@ -41,45 +41,45 @@ function run_test() {
 
 async function proses() {
     //initial variable
-    var request_id = 0;
-    // var response_id = 0;
-    var current_date;
-    var stock_price = new Array();
-    var stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let request_id = 0;
+    // let response_id = 0;
+    let current_date;
+    let stock_price = new Array();
+    let stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-    var daily_Interest;
-    var cash_balance = initial_equity;
-    var market_value = 0;
-    var equity_with_loanValue;
-    var maintenance_margin_reserved;
-    var maintenance_margin_available;
-    var initial_margin_reserved;
-    var initial_margin_available;
+    let daily_Interest;
+    let cash_balance = initial_equity;
+    let market_value = 0;
+    let equity_with_loanValue;
+    let maintenance_margin_reserved;
+    let maintenance_margin_available;
+    let initial_margin_reserved;
+    let initial_margin_available;
 
-    var buyHold_stock_invest = new Array(); //istilah buyHold_stock_invest dicari lagi yg pas 
+    let buyHold_stock_invest = new Array(); //istilah buyHold_stock_invest dicari lagi yg pas 
     for (i = 0; i < 30; i++) {
         buyHold_stock_invest.push((initial_equity / 30) / parseFloat(test_data[0][i + 1].price));
     }
 
-    var data_input = new Array();
-    var signal_output = new Array();
+    let data_input = new Array();
+    let signal_output = new Array();
 
-    var daily_stock_position_transaction_details = new Array();
-    var daily_stock_position_transaction_summary = new Array();
-    var daily_account_position_summary = new Array();
+    let daily_stock_position_transaction_details = new Array();
+    let daily_stock_position_transaction_summary = new Array();
+    let daily_account_position_summary = new Array();
 
-    var quantxi_total_return_array = new Array();
-    var buyandhold_total_return_array = new Array();
-    var quantxi_cagr_array = new Array();
-    var buyandhold_cagr_array = new Array();
-    var quantxi_maxDrawDown_array = new Array();
-    var buyandhold_maxDrawDown_array = new Array();
-    var quantxi_mar_array = new Array();
-    var buyandhold_mar_array = new Array();
-    var quantxi_sharpe_ratio_array = new Array();
-    var buyandhold_sharpe_ratio_array = new Array();
-    var quantxi_sortino_ratio_array = new Array();
-    var buyandhold_sortino_ratio_array = new Array();
+    let quantxi_total_return_array = new Array();
+    let buyandhold_total_return_array = new Array();
+    let quantxi_cagr_array = new Array();
+    let buyandhold_cagr_array = new Array();
+    let quantxi_maxDrawDown_array = new Array();
+    let buyandhold_maxDrawDown_array = new Array();
+    let quantxi_mar_array = new Array();
+    let buyandhold_mar_array = new Array();
+    let quantxi_sharpe_ratio_array = new Array();
+    let buyandhold_sharpe_ratio_array = new Array();
+    let quantxi_sortino_ratio_array = new Array();
+    let buyandhold_sortino_ratio_array = new Array();
 
     while (request_id < 1000) {
 
@@ -542,7 +542,7 @@ async function proses() {
                         total_initial_margin = initialMargin.reduce(function (accumulator, current) {
                             return accumulator + current
                         })
-                        
+
 
                         //save daily trade summary data to array
                         daily_account_position_summary.push({
