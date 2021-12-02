@@ -23,7 +23,7 @@ function run_test() {
             confirmButtonText: 'Ok'
         }).then((result) => {
             if (result.isConfirmed) {
-                
+
                 $("#setting_button").prop("disabled", true); //Disable Setting Button
                 $("#data_button").prop("disabled", true); //Disable Market Data Button
                 $("#reset_button").prop("disabled", true); //Disable Reset Button
@@ -43,7 +43,7 @@ async function proses() {
     //initial variable
     var request_id = 0;
     // var response_id = 0;
-    var date;
+    var current_date;
     var stock_price = new Array();
     var stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -82,13 +82,14 @@ async function proses() {
     var buyandhold_sortino_ratio_array = new Array();
 
     while (request_id < 1000) {
-        
+
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION
         // ----------------------------------------------------------------------------------
 
-        if (cash_balance < 0) {
-            let current_date = test_data[request_id][0].date;
+        current_date = test_data[request_id][0].date;
+
+        if (cash_balance < 0) {            
             let previous_date = test_data[request_id - 1][0].date;
             let interest_day = current_date - previous_date //nama variable di cari yg cocok/standar penamaan
             daily_Interest = cash_balance * (interest_rate / 360) * 1; //cek lagi rumusnya
@@ -163,7 +164,7 @@ async function proses() {
         // request_id++;
 
         var dataInput = {
-            data_id: request_id+1,
+            data_id: request_id + 1,//ganti jadi request_id
             margin_available: initial_margin_available,
             stock1: {
                 price: stock_price[0],
@@ -292,9 +293,9 @@ async function proses() {
 
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
         $('#margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
-        for(i=1; i<=30; i++){
-            $("#price_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.price).toFixed(5))`));
-            $("#position_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock`+i+`.position_size).toFixed(0))`));
+        for (i = 1; i <= 30; i++) {
+            $("#price_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.price).toFixed(5))`));
+            $("#position_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.position_size).toFixed(0))`));
         }
 
         let post_process = "run";
@@ -310,7 +311,7 @@ async function proses() {
                     // console.log(result);
                     if (result.status == "success") {
                         signalOutput = {
-                            data_id: result.data.data_id,
+                            data_id: result.data.data_id,//ganti jadi response id
                             total_signal: result.data.total_signal,
                             stock1: {
                                 signal_position: result.data.signal_position_stock1,
@@ -436,16 +437,16 @@ async function proses() {
                         signal_output.push(signalOutput); //save data to array signal_output_history 
                         // console.log(signalOutput);
 
-                        $('#total_request').html(signalOutput.data_id);
+                        request_id++;
+
+                        $('#total_request').html(request_id);
 
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
                         $('#total_signal').html(Intl.NumberFormat().format(parseFloat(signalOutput.total_signal).toFixed(0)));
-                        for(i=1; i<=30; i++){
-                            $("#signal_position_stock"+i).html(eval(`signalOutput.stock`+i+`.signal_position`));
-                            $("#signal_size_stock"+i).html(eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock`+i+`.signal_size).toFixed(0))`));
-                        }                        
-
-                        request_id++;
+                        for (i = 1; i <= 30; i++) {
+                            $("#signal_position_stock" + i).html(eval(`signalOutput.stock` + i + `.signal_position`));
+                            $("#signal_size_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock` + i + `.signal_size).toFixed(0))`));
+                        }
 
                         post_process = "stop";
 
@@ -541,6 +542,7 @@ async function proses() {
                         total_initial_margin = initialMargin.reduce(function (accumulator, current) {
                             return accumulator + current
                         })
+                        
 
                         //save daily trade summary data to array
                         daily_account_position_summary.push({
@@ -584,6 +586,13 @@ async function proses() {
                                 market_value: stock_price[i] * stock_position_size[i]
                             })
                         }
+                        //save daily stock position & transaction details to summary
+                        daily_stock_position_transaction_summary.push(
+                            {
+                                date: current_date,
+                                data: daily_stock_position_transaction_details
+                            }
+                        );
 
                         //save daily pretrade account summary to array  
                         daily_account_position_summary.push({
@@ -596,10 +605,7 @@ async function proses() {
                             initialmargin_available: initial_margin_available
                         })
 
-                        //save daily stock position & transaction details to summary
-                        daily_stock_position_transaction_summary.push(
-                            daily_stock_position_transaction_details
-                        );
+
 
                         //View in web account & margin summary
                         $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(0)));
@@ -616,7 +622,7 @@ async function proses() {
 
                         //perhitungan rasio2 performance---------------------------------
                         let period = new Date(new Date(test_data[request_id - 1][0].date) - new Date(test_data[0][0].date)).getUTCFullYear() - 1970;
-                        
+
                         let quantxi_equity = equity_with_loanValue;
 
                         let buyandhold_equity = 0;
@@ -626,9 +632,9 @@ async function proses() {
 
                         let quantxi_total_return = quantxi_equity / initial_equity;
                         quantxi_total_return_array.push(quantxi_total_return);
-                       
-                        let buyandhold_total_return = buyandhold_equity / initial_equity;  
-                        buyandhold_total_return_array.push(buyandhold_total_return);                      
+
+                        let buyandhold_total_return = buyandhold_equity / initial_equity;
+                        buyandhold_total_return_array.push(buyandhold_total_return);
 
                         let quantxi_cagr = ((quantxi_total_return) ^ (1 / period) - 1); //angka 30 ganti jadi periode sesuai periode data
                         quantxi_cagr_array.push(quantxi_cagr);
@@ -647,8 +653,8 @@ async function proses() {
                             let quantxi_tmpDrawDown = quantxi_equity_peak - quantxi_equity_trough;
                             if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
                                 quantxi_maxDrawDown = quantxi_tmpDrawDown;
-                        } 
-                        quantxi_maxDrawDown_array.push(quantxi_maxDrawDown);                       
+                        }
+                        quantxi_maxDrawDown_array.push(quantxi_maxDrawDown);
 
                         let buyandhold_equity_peak = 0;
                         let buyandhold_equity_trough = 0;
@@ -661,13 +667,13 @@ async function proses() {
                             let buyandhold_tmpDrawDown = buyandhold_equity_peak - buyandhold_equity_trough;
                             if (buyandhold_tmpDrawDown > buyandhold_maxDrawDown)
                                 buyandhold_maxDrawDown = buyandhold_tmpDrawDown;
-                        } 
-                        buyandhold_maxDrawDown_array.push(buyandhold_maxDrawDown);                      
+                        }
+                        buyandhold_maxDrawDown_array.push(buyandhold_maxDrawDown);
 
                         let quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown);
-                        quantxi_mar_array.push(quantxi_mar); 
+                        quantxi_mar_array.push(quantxi_mar);
 
-                        let buyandhold_mar = (buyandhold_cagr / buyandhold_maxDrawDown); 
+                        let buyandhold_mar = (buyandhold_cagr / buyandhold_maxDrawDown);
                         buyandhold_mar_array.push(buyandhold_mar);
 
                         //Sharpe Ratio = (Average fund returns − Riskfree Rate) / Standard Deviation of fund  returns
@@ -679,7 +685,7 @@ async function proses() {
 
                         let quantxi_sortino_ratio = (1);
                         quantxi_sortino_ratio_array.push(quantxi_sortino_ratio);
-                        
+
                         let buyandhold_sortino_ratio = (1);
                         buyandhold_sortino_ratio_array.push(buyandhold_sortino_ratio);
 
