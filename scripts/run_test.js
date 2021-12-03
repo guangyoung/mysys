@@ -298,10 +298,10 @@ async function proses() {
             $("#position_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.position_size).toFixed(0))`));
         }
 
-        let post_process = "run";
+        // let post_process = "run";
         let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");
 
-        while (post_process == "run") {
+        // while (post_process == "run") {
             await $.ajax({
                 type: "POST",
                 url: ur,
@@ -448,7 +448,7 @@ async function proses() {
                             $("#signal_size_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock` + i + `.signal_size).toFixed(0))`));
                         }
 
-                        post_process = "stop";
+                        // post_process = "stop";
 
                         // ----------------------------------------------------------------------------------  
                         // TRADE TRANSACTION 
@@ -709,7 +709,7 @@ async function proses() {
                     }
                 }
             })
-        }
+        // }
 
     }
 
