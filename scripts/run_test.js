@@ -703,7 +703,7 @@ async function proses() {
                 },
                 error: function () {
                   alert(`koneksi ke server gagal, coba beberapa saat lagi`);
-                  return false;
+                  reset_test() 
                 }
             })
         // }
