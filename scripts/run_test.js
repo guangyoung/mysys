@@ -102,7 +102,7 @@ async function proses() {
         // console.log("cash_balance: " + cash_balance);
 
         for (i = 0; i < 30; i++) {
-            stock_price[i] = parseFloat(test_data[request_id][i + 1].price);
+            stock_price[i] = parseFloat(test_data[request_id][i + 1].price);//bimbang, apa terpisah atau gabung
             market_value += (stock_position_size[i] * stock_price[i]);
         }
 
@@ -299,7 +299,7 @@ async function proses() {
         }
 
         // let post_process = "run";
-        let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");
+        let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");//gabung atau pisah ya ?
 
         // while (post_process == "run") {
             await $.ajax({
@@ -707,6 +707,10 @@ async function proses() {
                         )
                         return false;
                     }
+                },
+                error: function () {
+                  alert(`koneksi ke server gagal, coba beberapa saat lagi`);
+                  return false;
                 }
             })
         // }
