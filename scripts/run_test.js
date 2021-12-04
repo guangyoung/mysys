@@ -699,18 +699,11 @@ async function proses() {
                         $('#buyandhold_sharpe').html(parseFloat(buyandhold_sharpe_ratio * 100).toFixed(2) + "%");
                         $('#quantxi_sortino').html(parseFloat(quantxi_sortino_ratio * 100).toFixed(2) + "%");
                         $('#buyandhold_sortino').html(parseFloat(buyandhold_sortino_ratio * 100).toFixed(2) + "%");
-                    } else {
-                        Swal.fire(
-                            'Connection Failed',
-                            'Please check your Quantxi API',
-                            'error'
-                        )
-                        return false;
-                    }
+                    } 
                 },
                 error: function () {
                   alert(`koneksi ke server gagal, coba beberapa saat lagi`);
-                  return false;
+                  reset_test() 
                 }
             })
         // }
