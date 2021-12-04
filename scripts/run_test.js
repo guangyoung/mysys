@@ -700,11 +700,12 @@ async function proses() {
                         $('#quantxi_sortino').html(parseFloat(quantxi_sortino_ratio * 100).toFixed(2) + "%");
                         $('#buyandhold_sortino').html(parseFloat(buyandhold_sortino_ratio * 100).toFixed(2) + "%");
                     } 
-                },
-                error: function () {
-                  alert(`koneksi ke server gagal, coba beberapa saat lagi`);
-                  reset_test() 
                 }
+                // ,
+                // error: function () {
+                //   alert(`koneksi ke server gagal, coba beberapa saat lagi`);
+                //   reset_test() 
+                // }
             })
         // }
 
