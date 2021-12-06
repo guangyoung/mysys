@@ -165,7 +165,7 @@ async function proses() {
         // request_id++;
 
         var dataInput = {
-            // data_id: request_id + 1,//ganti jadi request_id
+            data_id: request_id + 1,//ganti jadi request_id
             // margin_available: initial_margin_available,
             stock1: {
                 price: stock_price[0],
@@ -292,7 +292,7 @@ async function proses() {
         data_input.push(dataInput); //save data to array data_input_history
         // console.log(dataInput.data_id);
 
-        // $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
+        $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
         // $('#margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
         for (i = 1; i <= 30; i++) {
             $("#price_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.price).toFixed(5))`));
@@ -312,7 +312,7 @@ async function proses() {
                     // console.log(result);
                     if (result.status == "success") {
                         signalOutput = {
-                            // data_id: result.data.data_id,//ganti jadi response id
+                            data_id: result.data.data_id,//ganti jadi response id
                             // total_signal: result.data.total_signal,
                             stock1: {
                                 signal_position: result.data.signal_position_stock1,
@@ -442,7 +442,7 @@ async function proses() {
 
                         $('#total_request').html(request_id);
 
-                        // $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
+                        $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
                         // $('#total_signal').html(Intl.NumberFormat().format(parseFloat(signalOutput.total_signal).toFixed(0)));
                         for (i = 1; i <= 30; i++) {
                             $("#signal_position_stock" + i).html(eval(`signalOutput.stock` + i + `.signal_position`));
