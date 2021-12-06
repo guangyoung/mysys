@@ -291,6 +291,7 @@ async function proses() {
 
         data_input.push(dataInput); //save data to array data_input_history
         // console.log(dataInput.data_id);
+        
 
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
         // $('#margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
