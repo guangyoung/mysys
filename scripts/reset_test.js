@@ -41,7 +41,13 @@ async function reset_test() {
     success: function (result) {
       if (result.status == "success") {
 
-        alert("reset sukses");
+        // alert("reset sukses");
+
+        Swal.fire(
+          'Reset Data Success !',
+          'Please click Market Data and Create It',
+          'success'
+      )
 
         // $(':button').prop('disabled', false); //Enable All Button 
         $("#setting_button").prop("disabled", false); //Enable Setting Button
