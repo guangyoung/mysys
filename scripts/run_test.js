@@ -56,6 +56,7 @@ async function proses() {
     var maintenance_margin_available;
     var initial_margin_reserved;
     var initial_margin_available;
+    var margin_buying_power;
 
     var buyHold_stock_invest = new Array(); //istilah buyHold_stock_invest dicari lagi yg pas 
     for (i = 0; i < 30; i++) {
@@ -121,6 +122,8 @@ async function proses() {
 
         initial_margin_available = equity_with_loanValue - initial_margin_reserved;
 
+        margin_buying_power = initial_margin_available * 2;
+
         // console.log("initial_margin_available: " + initial_margin_available);
 
         // console.log("daily_Interest: "+daily_Interest);
@@ -147,6 +150,7 @@ async function proses() {
             maintenancemargin_available: maintenance_margin_available,
             initialmargin_reserved: initial_margin_reserved,
             initialmargin_available: initial_margin_available,
+            marginbuying_power: margin_buying_power
         })
 
         //View in web account & margin summary
@@ -166,7 +170,7 @@ async function proses() {
 
         var dataInput = {
             data_id: request_id + 1,//ganti jadi request_id
-            // margin_available: initial_margin_available,
+            margin_buying_power: margin_buying_power,
             stock1: {
                 price: stock_price[0],
                 position_size: stock_position_size[0]
@@ -294,7 +298,7 @@ async function proses() {
         
 
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
-        // $('#margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_available).toFixed(0)));
+        $('#margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_buying_power).toFixed(0)));
         for (i = 1; i <= 30; i++) {
             $("#price_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.price).toFixed(5))`));
             $("#position_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.position_size).toFixed(0))`));
@@ -314,7 +318,7 @@ async function proses() {
                     if (result.status == "success") {
                         signalOutput = {
                             data_id: result.data.data_id,//ganti jadi response id
-                            // total_signal: result.data.total_signal,
+                            quantxiAI_engine: result.data.quantxiAI_engine,
                             stock1: {
                                 signal_position: result.data.signal_position_stock1,
                                 signal_size: result.data.signal_size_stock1
@@ -444,7 +448,7 @@ async function proses() {
                         $('#total_request').html(request_id);
 
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
-                        // $('#total_signal').html(Intl.NumberFormat().format(parseFloat(signalOutput.total_signal).toFixed(0)));
+                        $('#total_signal').html(Intl.NumberFormat().format(parseFloat(signalOutput.quantxiAI_engine).toFixed(0)));
                         for (i = 1; i <= 30; i++) {
                             $("#signal_position_stock" + i).html(eval(`signalOutput.stock` + i + `.signal_position`));
                             $("#signal_size_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock` + i + `.signal_size).toFixed(0))`));
@@ -578,7 +582,7 @@ async function proses() {
 
                         initial_margin_available = equity_with_loanValue - initial_margin_reserved;
 
-                        // buying_power = initial_margin_available * 2;
+                        margin_buying_power = initial_margin_available * 2;
 
                         //save daily pretrade stock position to array            
                         for (i = 0; i < 30; i++) {
@@ -603,7 +607,8 @@ async function proses() {
                             maintenancemargin_reserved: maintenance_margin_reserved,
                             maintenancemargin_available: maintenance_margin_available,
                             initialmargin_reserved: initial_margin_reserved,
-                            initialmargin_available: initial_margin_available
+                            initialmargin_available: initial_margin_available,
+                            marginbuying_power: margin_buying_power
                         })
 
 
