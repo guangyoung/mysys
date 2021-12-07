@@ -161,6 +161,7 @@ async function proses() {
         $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_available).toFixed(0)));
         $('#initial_margin_reserved').html(Intl.NumberFormat().format(parseFloat(initial_margin_reserved).toFixed(0)));
         $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_margin_available).toFixed(0)));
+        $('#marginBuying_power').html(Intl.NumberFormat().format(parseFloat(margin_buying_power).toFixed(0)));
 
         // ----------------------------------------------------------------------------------  
         // POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
@@ -621,6 +622,7 @@ async function proses() {
                         $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_available).toFixed(0)));
                         $('#initial_margin_reserved').html(Intl.NumberFormat().format(parseFloat(initial_margin_reserved).toFixed(0)));
                         $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_margin_available).toFixed(0)));
+                        $('#marginBuying_power').html(Intl.NumberFormat().format(parseFloat(margin_buying_power).toFixed(0)));
 
                         // ----------------------------------------------------------------------------------
                         // TRADE PERFORMANCE COMPARISON CALCULATION
