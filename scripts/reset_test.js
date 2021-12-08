@@ -65,6 +65,7 @@ async function reset_test() {
         $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(1000000).toFixed(0)));
         $('#initial_margin_reserved').html(Intl.NumberFormat().format(parseFloat(0).toFixed(0)));
         $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(1000000).toFixed(0)));
+        $('#margin_buying_power').html(Intl.NumberFormat().format(parseFloat(1000000).toFixed(0)));
 
         $('#quantxi_total_return').html(parseFloat(0).toFixed(2) + "%");
         $('#buyandhold_total_return').html(parseFloat(0).toFixed(2) + "%");
@@ -81,7 +82,7 @@ async function reset_test() {
 
         
         $('#data_input_id').html("-");
-        $('#margin_available').html("-");
+        $('#margin_buying_power').html("-");
         for(i=1; i<=30; i++){
             $("#price_stock"+i).html("-");
             $("#position_stock"+i).html("-");

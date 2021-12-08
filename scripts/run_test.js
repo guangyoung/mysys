@@ -299,7 +299,7 @@ async function proses() {
         
 
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
-        $('#margin_available').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_buying_power).toFixed(0)));
+        $('#margin_buying_power').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_buying_power).toFixed(0)));
         for (i = 1; i <= 30; i++) {
             $("#price_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.price).toFixed(5))`));
             $("#position_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.position_size).toFixed(0))`));
@@ -622,7 +622,7 @@ async function proses() {
                         $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_available).toFixed(0)));
                         $('#initial_margin_reserved').html(Intl.NumberFormat().format(parseFloat(initial_margin_reserved).toFixed(0)));
                         $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_margin_available).toFixed(0)));
-                        $('#marginBuying_power').html(Intl.NumberFormat().format(parseFloat(margin_buying_power).toFixed(0)));
+                        $('#margin_buying_power').html(Intl.NumberFormat().format(parseFloat(margin_buying_power).toFixed(0)));
 
                         // ----------------------------------------------------------------------------------
                         // TRADE PERFORMANCE COMPARISON CALCULATION
@@ -956,4 +956,6 @@ async function proses() {
         'data anda selesai di proses, silahkan lihat performance chart, portfolio trade summary dan assets trade details untuk detailsnya',
         'success'
     )
+
+    $('#test_result').modal('show');
 }
