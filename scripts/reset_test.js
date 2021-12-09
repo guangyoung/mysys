@@ -82,14 +82,14 @@ async function reset_test() {
 
         
         $('#data_input_id').html("-");
-        $('#margin_buying_power').html("-");
+        $('#margin_buyingPower').html("-");
         for(i=1; i<=30; i++){
             $("#price_stock"+i).html("-");
             $("#position_stock"+i).html("-");
         }
 
         $('#data_output_id').html("-");
-        $('#total_signal').html("-");
+        $('#signaltimestamp').html("-");
         for(i=1; i<=30; i++){
             $("#signal_position_stock"+i).html("-");
             $("#signal_size_stock"+i).html("-");
