@@ -97,13 +97,11 @@
 
                 <div class="row">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#setting"
-                        id="setting_button"
                         style="margin-left: 15px; margin-top: -5px; width: 42.5%; padding: 1px 5px; font-size: 12px"><i
                             class="fa fa-gear"
                             style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>TEST
                             SETTING</strong></button>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#market_data"
-                        id="data_button"
                         style="margin-top: -5px; margin-left: 18px; width: 42.5%; padding: 1px 5px; font-size: 12px"><i
                             class="fa fa-database"
                             style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>TEST
@@ -133,17 +131,17 @@
                         <table id="" style="margin: auto; width: 300px;">
                             <tbody style="font-size: 13px; font-family: calibri;">
                                 <tr>
-                                    <td style="padding: 1px 5px">Cash&nbsp;Balance</td>
+                                    <td style="padding: 1px 5px">Cash</td>
                                     <td style="position: absolute; right: 10px; padding: 1px 5px"><span
                                             id="cash_balance">1,000,000</span></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px">Long&nbsp;Market&nbsp;Value</td>
+                                    <td style="padding: 1px 5px">Long&nbsp;Market&nbsp;Value (LMV)</td>
                                     <td style="position: absolute; right: 10px; padding: 1px 5px"><span
                                             id="long_market_value">0</span></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px">Equity&nbsp;With&nbsp;Loan&nbsp;Value</td>
+                                    <td style="padding: 1px 5px">Equity&nbsp;With&nbsp;Loan&nbsp;Value (ELV)</td>
                                     <td style="position: absolute; right: 10px; padding: 1px 5px"><span
                                             id="equity_with_loan_value">1,000,000</span></td>
                                 </tr>
@@ -158,29 +156,29 @@
                                             id="maintenance_margin_available">1,000,000</span></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px">Initial&nbsp;Margin&nbsp;Reserved</td>
+                                    <td style="padding: 1px 5px">Reg-T&nbsp;Margin&nbsp;Requirements</td>
                                     <td style="position: absolute; right: 10px; padding: 1px 5px"><span
                                             id="initial_margin_reserved">0</span></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px">Initial&nbsp;Margin&nbsp;Available</td>
+                                    <td style="padding: 1px 5px">SMA</td>
                                     <td style="position: absolute; right: 10px; padding: 1px 5px"><span
                                             id="initial_margin_available">1,000,000</span></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Margin&nbsp;Buying&nbsp;Power</td>
                                     <td style="position: absolute; right: 10px; padding: 1px 5px"><span
-                                            id="marginBuying_power">2,000,000</span></td>
+                                            id="margin_buying_power">2,000,000</span></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#test_result"
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#test_result"
                     style="margin-left: 0px; margin-top: 5px; width: 100%; padding: 0px 5px; font-size: 12px"><i
                         class="fa fa-file-text-o"
                         style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>ACCOUNT
-                        & TRADE REPORT DETAILS</strong></button> -->
+                        & TRADE REPORT DETAILS</strong></button>
                 <div class="card" style="background-color: #1b1b1b; margin-top: 8px; color: #dfdfdf; height: 160px">
                     <h6
                         style="text-align: center; margin-left: 0px; margin-top: 7px; font-family: Acrom; font-family: calibri; font-size: 14px;">
@@ -600,8 +598,8 @@
                                     <tr>
                                         <td colspan="3"
                                             style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
-                                            Quantxi AI Engine</td>
-                                        <td colspan="3" id="total_signal"
+                                            Signal Timestamp</td>
+                                        <td colspan="3" id="signal_timestamp"
                                             style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
                                     </tr>
                                     <tr>
@@ -1954,7 +1952,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Download Test Result</button>
-                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" style="margin-left: 20px" onclick="reset_test()">Start New Test</button>
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" style="margin-left: 20px" onclick="reset_test()">Close & Start New Test</button>
                 </div>
             </div>
         </div>

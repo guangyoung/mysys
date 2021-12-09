@@ -83,7 +83,7 @@ async function proses() {
     var quantxi_sortino_ratio_array = new Array();
     var buyandhold_sortino_ratio_array = new Array();
 
-    while (request_id < 1000) {
+    while (request_id < 100) {
 
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION
@@ -319,7 +319,7 @@ async function proses() {
                     if (result.status == "success") {
                         signalOutput = {
                             data_id: result.data.data_id,//ganti jadi response id
-                            quantxiAI_engine: result.data.quantxiAI_engine,
+                            signalTime_stamp: result.data.signalTime_stamp,
                             stock1: {
                                 signal_position: result.data.signal_position_stock1,
                                 signal_size: result.data.signal_size_stock1
@@ -449,7 +449,7 @@ async function proses() {
                         $('#total_request').html(request_id);
 
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
-                        $('#total_signal').html(signalOutput.quantxiAI_engine);
+                        $('#signal_timestamp').html(new Date(signalOutput.signalTime_stamp).getTime() / 1000);
                         for (i = 1; i <= 30; i++) {
                             $("#signal_position_stock" + i).html(eval(`signalOutput.stock` + i + `.signal_position`));
                             $("#signal_size_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock` + i + `.signal_size).toFixed(0))`));
