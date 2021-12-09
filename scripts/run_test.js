@@ -299,7 +299,7 @@ async function proses() {
         
 
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.data_id).toFixed(0)));
-        $('#margin_buying_power').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_buying_power).toFixed(0)));
+        $('#margin_buyingPower').html(Intl.NumberFormat().format(parseFloat(dataInput.margin_buying_power).toFixed(0)));
         for (i = 1; i <= 30; i++) {
             $("#price_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.price).toFixed(5))`));
             $("#position_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(dataInput.stock` + i + `.position_size).toFixed(0))`));
