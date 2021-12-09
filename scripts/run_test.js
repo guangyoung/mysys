@@ -56,7 +56,7 @@ async function proses() {
     var maintenance_margin_available;
     var initial_margin_reserved;
     var initial_margin_available;
-    var margin_buying_power;
+    var marginBuying_power;
 
     var buyHold_stock_invest = new Array(); //istilah buyHold_stock_invest dicari lagi yg pas 
     for (i = 0; i < 30; i++) {
@@ -122,7 +122,7 @@ async function proses() {
 
         initial_margin_available = equity_with_loanValue - initial_margin_reserved;
 
-        margin_buying_power = initial_margin_available * 2;
+        marginBuying_power = initial_margin_available * 2;
 
         // console.log("initial_margin_available: " + initial_margin_available);
 
@@ -150,7 +150,7 @@ async function proses() {
             maintenancemargin_available: maintenance_margin_available,
             initialmargin_reserved: initial_margin_reserved,
             initialmargin_available: initial_margin_available,
-            marginbuying_power: margin_buying_power
+            marginbuying_power: marginBuying_power
         })
 
         //View in web account & margin summary
@@ -161,7 +161,7 @@ async function proses() {
         $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_available).toFixed(0)));
         $('#initial_margin_reserved').html(Intl.NumberFormat().format(parseFloat(initial_margin_reserved).toFixed(0)));
         $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_margin_available).toFixed(0)));
-        $('#marginBuying_power').html(Intl.NumberFormat().format(parseFloat(margin_buying_power).toFixed(0)));
+        $('#marginBuying_power').html(Intl.NumberFormat().format(parseFloat(marginBuying_power).toFixed(0)));
 
         // ----------------------------------------------------------------------------------  
         // POST DATA TO QUANTXI AND GET SIGNAL FROM QUANTXI 
@@ -171,7 +171,7 @@ async function proses() {
 
         var dataInput = {
             data_id: request_id + 1,//ganti jadi request_id
-            margin_buying_power: margin_buying_power,
+            margin_buying_power: marginBuying_power,
             stock1: {
                 price: stock_price[0],
                 position_size: stock_position_size[0]
@@ -622,7 +622,7 @@ async function proses() {
                         $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_available).toFixed(0)));
                         $('#initial_margin_reserved').html(Intl.NumberFormat().format(parseFloat(initial_margin_reserved).toFixed(0)));
                         $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_margin_available).toFixed(0)));
-                        $('#margin_buying_power').html(Intl.NumberFormat().format(parseFloat(margin_buying_power).toFixed(0)));
+                        $('#margin_buying_power').html(Intl.NumberFormat().format(parseFloat(marginBuying_power).toFixed(0)));
 
                         // ----------------------------------------------------------------------------------
                         // TRADE PERFORMANCE COMPARISON CALCULATION
