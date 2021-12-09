@@ -319,7 +319,7 @@ async function proses() {
                     if (result.status == "success") {
                         signalOutput = {
                             data_id: result.data.data_id,//ganti jadi response id
-                            signalTime_stamp: result.data.signalTime_stamp,
+                            signalTime_stamp: result.data.quantxiAI_engine,
                             stock1: {
                                 signal_position: result.data.signal_position_stock1,
                                 signal_size: result.data.signal_size_stock1
