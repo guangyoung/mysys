@@ -450,7 +450,7 @@ async function proses() {
 
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
                         console.log(signalOutput.signalTime_stamp);
-                        // console.log(signalOutput.signalTime_stamp);
+                        console.log(new Date(signalOutput.signalTime_stamp).toLocaleDateString("en-US"));
                         $('#signaltimestamp').html(new Date(signalOutput.signalTime_stamp).getTime()/1000);
                         for (i = 1; i <= 30; i++) {
                             $("#signal_position_stock" + i).html(eval(`signalOutput.stock` + i + `.signal_position`));
