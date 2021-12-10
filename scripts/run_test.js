@@ -449,8 +449,8 @@ async function proses() {
                         $('#total_request').html(request_id);
 
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
-                        console.log(new Date(signalOutput.signalTime_stamp*1000  + new Date().getTimezoneOffset() * 60000));
-                        console.log(new Date(signalOutput.signalTime_stamp*1000).toUTCString());
+                        console.log(new Date(signalOutput.signalTime_stamp).toString());
+                        console.log(new Date(signalOutput.signalTime_stamp).toUTCString());
                         $('#signaltimestamp').html(new Date(signalOutput.signalTime_stamp*1000).toUTCString());
                         for (i = 1; i <= 30; i++) {
                             $("#signal_position_stock" + i).html(eval(`signalOutput.stock` + i + `.signal_position`));
