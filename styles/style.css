@@ -45,6 +45,11 @@
     color: #fff;
 }
 
+.text-responsive {
+    font-size: calc(50% + 1vw + 1vh);
+  }
+  
+
 /* .bg {
     height: 100%;
     background-position: center;

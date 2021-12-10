@@ -169,6 +169,16 @@ async function proses() {
 
         // request_id++;
 
+        var dataInput_new = {
+            request_no: request_id + 1,//ganti jadi request_id
+            margin_buying_power: marginBuying_power,
+            price: stock_price,
+            position_size: stock_position_size
+        }
+
+        console.log(dataInput_new);
+
+
         var dataInput = {
             data_id: request_id + 1,//ganti jadi request_id
             margin_buying_power: marginBuying_power,
