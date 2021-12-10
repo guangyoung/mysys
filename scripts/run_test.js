@@ -449,7 +449,7 @@ async function proses() {
                         $('#total_request').html(request_id);
 
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
-                        console.log(new Date(signalOutput.signalTime_stamp*1000));
+                        console.log(new Date(signalOutput.signalTime_stamp*1000  + new Date().getTimezoneOffset() * 60000));
                         console.log(new Date(signalOutput.signalTime_stamp*1000).toUTCString());
                         $('#signaltimestamp').html(new Date(signalOutput.signalTime_stamp*1000).toUTCString());
                         for (i = 1; i <= 30; i++) {
