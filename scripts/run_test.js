@@ -451,7 +451,7 @@ async function proses() {
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
                         // console.log(new Date(1639104546373).toISOString().slice(0, -1));
                         // console.log(new Date(+signalOutput.signalTime_stamp*1000).toDateString());
-                        $('#signaltimestamp').html(new Date(signalOutput.signalTime_stamp*1000).toISOString().slice(0, -1));
+                        $('#signaltimestamp').html(new Date(signalOutput.signalTime_stamp).toISOString().slice(0, -1));
                         for (i = 1; i <= 30; i++) {
                             $("#signal_position_stock" + i).html(eval(`signalOutput.stock` + i + `.signal_position`));
                             $("#signal_size_stock" + i).html(eval(`Intl.NumberFormat().format(parseFloat(signalOutput.stock` + i + `.signal_size).toFixed(0))`));
