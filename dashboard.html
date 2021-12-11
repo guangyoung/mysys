@@ -286,7 +286,7 @@
                                     <tr>
                                         <td colspan="3"
                                             style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
-                                            Margin Buying Power</td>
+                                            Buying Power</td>
                                         <td colspan="3" id="margin_buyingPower"
                                             style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
                                     </tr>
@@ -1512,9 +1512,9 @@
                         <div class="tab-pane fade show active" id="pills-performance" role="tabpanel" aria-labelledby="pills-performance-tab">
                             <div class="row">
                                 <div class="col-3">
-                                    <div class="container card" style="text-align: center; background-color: #dfdfdf; margin: auto; height: 230px; width: 280px">
+                                    <div class="container card" style="text-align: center; background-color: #dfdfdf; margin: auto; height: 230px; width: 300px">
                                         <!-- <div> --> 
-                                            <h1 style="font-size: 30px; color: #003853; margin-top: 10px"><strong>1000000.35%</strong></h1> 
+                                            <h1 style="font-size: 30px; color: #003853; margin-top: 10px"><strong>0000.35%</strong></h1> 
                                             <h6 style="font-size: 22px; color: #003853; margin-top: -10px"><strong>TOTAL RETURN</strong></h6> 
                                             <h1 style="font-size: 50px; color: #003853; margin-top: 0px"><strong>34.35%</strong></h1> 
                                             <h6 style="font-size: 22px; color: #003853; margin-top: -15px"><strong>CAGR</strong></h6> 
@@ -1607,8 +1607,8 @@
                                     <div style="height: 425px">
                                         <div class="tab-pane fade show active" id="pills-return" role="tabpanel"
                                             aria-labelledby="pills-return-tab">
-                                            <canvas id="" width="865" height="435" class="chartjs-render-monitor"
-                                                style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
+                                            <canvas id="" width="860" height="435" class="chartjs-render-monitor"
+                                                style="margin-left: 10px; margin-top: 0px; background-color:#858585"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -1616,7 +1616,7 @@
                         </div>
                         <div class="tab-pane fade" id="pills-summary" role="tabpanel" aria-labelledby="pills-summary-tab">
                             <div class="row">
-                                <strong style="margin-left: 15px; margin-top: 0px; font-size: 12px;">Reporting Period :</strong>
+                                <strong style="margin-left: 15px; margin-top: 0px; font-size: 12px;">Period :</strong>
                                 <input id="period_testing" type="text" class="form-text-sm" disabled value="No Data Available"
                                     style="text-align: center; color: #000000; margin-top: 1px; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 170px; font-size: 10px">
                                 <ul id="pagination_trade_report" class="pagination pagination-sm" style="margin-top: -5px"></ul>
@@ -1632,15 +1632,15 @@
                                             <th colspan="8"
                                                 style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
                                                 Pre Trade Position</th>
-                                            <th colspan="3"
+                                            <th colspan="4"
                                                 style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
                                                 Trade Summary</th>                                    
                                             <th colspan="7"
                                                 style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
                                                 Post Trade Position</th>
-                                            <th rowspan="2"
+                                            <!-- <th rowspan="2"
                                                 style="background-color: #2e2e2e; color: #ebebeb; position: sticky; top: 0px; right: 0px; z-index: 2; padding: 5px 5px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                                Stock Position<br>And Trade Details</th>
+                                                Stock Position<br>And Trade Details</th> -->
                                         </tr>
                                         <tr>
                                             <th
@@ -1676,6 +1676,9 @@
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Total<br>Initial Margin</th>
+                                            <th
+                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                                Total<br>Details</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Cash<br>Balance</th>
@@ -1771,7 +1774,7 @@
                                     </thead>
                                     <tbody
                                         style="background-color: #2c5252; font-size: 11px; font-family: calibri; color: #ebebeb;">
-                                        <tr>
+                                        <!-- <tr>
                                             <td style="position: sticky; left: 0px; z-index: 2; background-color: #122121; text-align: center">23/01/01</td>
                                             <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00
                                             </td>
@@ -1816,121 +1819,133 @@
                                                     id="230101" data-toggle="modal" data-target="#trade_details">View
                                                     Details</button>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
-                            <div class="table-hover"
-                                style="overflow: auto; margin-top: 5px; height: 430px">
-                                <table>
-                                    <thead style="font-size: 12px; font-family: calibri;">
-                                        <tr>
-                                            <th rowspan="2"
-                                                style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; width: 70px">
-                                                Stock Ticker</th>
-                                            <th rowspan="2"
-                                                style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
-                                                Stock Price</th>
-                                            <th colspan="2"
-                                                style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
-                                                Pre Trade Position</th>
-                                            <th colspan="5"
-                                                style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
-                                                Trade Transaction</th>
-                                            <th colspan="2"
-                                                style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
-                                                Post Trade Position</th>
-                                        </tr>
-                                        <tr>
-                                            <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
-                                                Position<br>Size</th>
-                                            <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
-                                                Market<br>Value</th>
-                                            <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
-                                                Filled<br>Order</th>
-                                            <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
-                                                Filled<br>Price</th>
-                                            <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
-                                                Trade<br>Value</th>
-                                            <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
-                                                Commission</th>
-                                            <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;width: 110px">
-                                                Initial<br>Margin</th>
-                                            <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
-                                                Position<br>Size</th>
-                                            <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
-                                                Market<br>Value</th>
-                                        </tr>
-                                        <!-- <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
-                                            <th
-                                                style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 5px; ">
-                                            </th>
-                                            <th
-                                                style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                            </th>
-                                            <th
-                                                style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
-                                            <th
-                                                style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
-                                            </th>
-                                            <th
-                                                style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
-                                            </th>
-                                            <th
-                                                style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
-                                            </th>
-                                            <th
-                                                style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</th>
-                                            <th
-                                                style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                Market&nbsp;Value&nbsp;x<br>50 %</th>
-                                            <th
-                                                style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</th>
-                                            <th
-                                                style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
-                                            <th
-                                                style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
-                                            </th>
-                                        </tr> -->
-                                    </thead>
-                                    <tbody style="font-size: 11px; font-family: calibri">
-                                        <tr style>
-                                            <td style="text-align: center; padding: 1px 1px">Stock01</td>
-                                            <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                            <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                            <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                            <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                            <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                            <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                            <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                            <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>                                    
-                                            <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                            <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+                                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+                                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+                                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="table-hover"
+                                    style="overflow: auto; margin-top: 5px; height: 430px">
+                                        <table>
+                                            <thead style="font-size: 12px; font-family: calibri;">
+                                                <tr>
+                                                    <th rowspan="2"
+                                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; width: 70px">
+                                                        Stock Ticker</th>
+                                                    <th rowspan="2"
+                                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                                        Stock Price</th>
+                                                    <th colspan="2"
+                                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
+                                                        Pre Trade Position</th>
+                                                    <th colspan="5"
+                                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
+                                                        Trade Transaction</th>
+                                                    <th colspan="2"
+                                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
+                                                        Post Trade Position</th>
+                                                </tr>
+                                                <tr>
+                                                    <th
+                                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                                        Position<br>Size</th>
+                                                    <th
+                                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
+                                                        Market<br>Value</th>
+                                                    <th
+                                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                                        Filled<br>Order</th>
+                                                    <th
+                                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                                        Filled<br>Price</th>
+                                                    <th
+                                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
+                                                        Trade<br>Value</th>
+                                                    <th
+                                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                                        Commission</th>
+                                                    <th
+                                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;width: 110px">
+                                                        Initial<br>Margin</th>
+                                                    <th
+                                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                                        Position<br>Size</th>
+                                                    <th
+                                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
+                                                        Market<br>Value</th>
+                                                </tr>
+                                                <!-- <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
+                                                    <th
+                                                        style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 5px; ">
+                                                    </th>
+                                                    <th
+                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                                    </th>
+                                                    <th
+                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
+                                                    <th
+                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
+                                                    </th>
+                                                    <th
+                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
+                                                    </th>
+                                                    <th
+                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
+                                                    </th>
+                                                    <th
+                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</th>
+                                                    <th
+                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                                        Market&nbsp;Value&nbsp;x<br>50 %</th>
+                                                    <th
+                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</th>
+                                                    <th
+                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
+                                                    <th
+                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
+                                                    </th>
+                                                </tr> -->
+                                            </thead>
+                                            <tbody style="font-size: 11px; font-family: calibri">
+                                                <!-- <tr style>
+                                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
+                                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>                                    
+                                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                                </tr> -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div> 
+                            </div>                                                       
                         </div>
-                        </div>                    
+                    </div>                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" style="padding: 5px 20px">Download Test Result</button>
@@ -2547,21 +2562,21 @@
             open("index.html", "_self");
         }
 
-        $("#pagination-demo").twbsPagination({
-            visiblePages: 1
-        });
+        // $("#pagination-demo").twbsPagination({
+        //     visiblePages: 1
+        // });
 
-        $("#pagination_trade_report").twbsPagination({
-            visiblePages: 1
-        });
+        // $("#pagination_trade_report").twbsPagination({
+        //     visiblePages: 1
+        // });
 
-        $("#pagination_post_request_response").twbsPagination({
-            visiblePages: 1
-        });
+        // $("#pagination_post_request_response").twbsPagination({
+        //     visiblePages: 1
+        // });
 
-        $("#pagination_performance_report").twbsPagination({
-            visiblePages: 1
-        });
+        // $("#pagination_performance_report").twbsPagination({
+        //     visiblePages: 1
+        // });
 
         // function myFunction(event) {
         //     console.log(event.target.id);
@@ -2572,272 +2587,272 @@
             trigger: "hover"
         });
 
-        var input_start = {
-            "data_input_id": "D00001",
-            "timestamp": "mm/dd/yyy 00:00:00",
-            "stock01": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock02": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock03": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock04": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock05": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock06": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock07": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock08": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock09": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock10": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock11": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock12": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock13": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock14": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock15": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock16": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock17": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock18": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock19": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock20": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock21": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock22": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock23": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock24": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock25": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock26": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock27": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock28": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock29": {
-                "price": "123456",
-                "position_size": "123456789000"
-            },
-            "stock30": {
-                "price": "123456",
-                "position_size": "123456789000"
-            }
-        }
+        // var input_start = {
+        //     "data_input_id": "D00001",
+        //     "timestamp": "mm/dd/yyy 00:00:00",
+        //     "stock01": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock02": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock03": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock04": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock05": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock06": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock07": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock08": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock09": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock10": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock11": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock12": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock13": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock14": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock15": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock16": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock17": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock18": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock19": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock20": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock21": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock22": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock23": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock24": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock25": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock26": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock27": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock28": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock29": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     },
+        //     "stock30": {
+        //         "price": "123456",
+        //         "position_size": "123456789000"
+        //     }
+        // }
 
-        var output_start = {
-            "signal_output_id": "S00001",
-            "timestamp": "mm/dd/yyy 00:00:00",
-            "stock01": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock02": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock03": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock04": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock05": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock06": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock07": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock08": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock09": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock10": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock11": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock12": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock13": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock14": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock15": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock16": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock17": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock18": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock19": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock20": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock21": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock22": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock23": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock24": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock25": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock26": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock27": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock28": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock29": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            },
-            "stock30": {
-                "signal_position": "BUY OPEN",
-                "signal_size": "123456789"
-            }
-        }
+        // var output_start = {
+        //     "signal_output_id": "S00001",
+        //     "timestamp": "mm/dd/yyy 00:00:00",
+        //     "stock01": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock02": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock03": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock04": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock05": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock06": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock07": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock08": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock09": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock10": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock11": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock12": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock13": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock14": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock15": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock16": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock17": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock18": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock19": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock20": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock21": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock22": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock23": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock24": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock25": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock26": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock27": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock28": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock29": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     },
+        //     "stock30": {
+        //         "signal_position": "BUY OPEN",
+        //         "signal_size": "123456789"
+        //     }
+        // }
 
-        var request_element =
-        `<tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
-            <td style="border-right: 1px #292b43 solid">
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(input_start, null, 4) +
-            `
-                </pre>; 
-            </td>
-            <td>  
-                <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-            JSON.stringify(output_start, null, 4) +
-            `
-                </pre>;                                  
-            </td>
-        </tr>`
-        $("#request").html(request_element);
+        // var request_element =
+        // `<tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+        //     <td style="border-right: 1px #292b43 solid">
+        //         <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
+        //     JSON.stringify(input_start, null, 4) +
+        //     `
+        //         </pre>; 
+        //     </td>
+        //     <td>  
+        //         <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
+        //     JSON.stringify(output_start, null, 4) +
+        //     `
+        //         </pre>;                                  
+        //     </td>
+        // </tr>`
+        // $("#request").html(request_element);
     </script>
 </body>
 
