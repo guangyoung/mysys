@@ -22,9 +22,9 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
         </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"
-    integrity="sha512-frFP3ZxLshB4CErXkPVEXnd5ingvYYtYhE5qllGdZmcOlRKNEPbufyupfdSTNmoF5ICaQNO6SenXzOZvoGkiIA=="
-    crossorigin="anonymous"></script>
-    
+        integrity="sha512-frFP3ZxLshB4CErXkPVEXnd5ingvYYtYhE5qllGdZmcOlRKNEPbufyupfdSTNmoF5ICaQNO6SenXzOZvoGkiIA=="
+        crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.js"></script>
@@ -35,7 +35,7 @@
     <script src="scripts/auto_run.js"></script>
     <script src="scripts/ticker_list.js"></script>
 
-    
+
 
 </head>
 
@@ -72,7 +72,7 @@
                         style="width: 100%; margin-left: 0px; margin-top: 0px">
                     <img src="styles/image/simulation_testing2.png" height="25" style="width: 100%; margin-top: 5px">
                 </div>
-                <div class="row" style="margin: auto; width: 280px">                   
+                <div class="row" style="margin: auto; width: 280px">
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip"
                         data-placement="bottom" title="View Source Code" style="margin-top: 9px;"><i
                             class="fa fa-github" style="color: #ffffff; font-size: 30px"></i></a>
@@ -84,10 +84,9 @@
                         data-placement="bottom" title="Test With Google Colab"
                             style="margin-left: 25px; margin-top: 0px"><img src="styles/image/colab.png" height="48"
                                 width="48"></a> -->
-                    <a href="" data-toggle="modal" data-target="#test_result"
-                        data-placement="bottom" title="Test With Kaggle"
-                        style="margin-left: 25px; margin-top: 6px"><img src="styles/image/kaggle.png" height="38"
-                            width="100"></a>
+                    <a href="" data-toggle="modal" data-target="#test_result" data-placement="bottom"
+                        title="Test With Kaggle" style="margin-left: 25px; margin-top: 6px"><img
+                            src="styles/image/kaggle.png" height="38" width="100"></a>
 
                     <a onclick="logout_btn()" data-toggle="tooltip" data-placement="bottom" title="Logout"
                         style="margin-top: 9px; margin-left: 25px"><i class="fa fa-sign-out"
@@ -120,7 +119,8 @@
                             TEST</strong></button>
                 </div>
                 <div class="progress" style="margin-top: 10px;">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100"></div>
                 </div>
 
                 <div class="card" style="background-color: #1b1b1b; margin-top: 10px; color: #dfdfdf; height: 205px">
@@ -281,14 +281,16 @@
                                             style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Request No</td>
                                         <td colspan="3" id="data_input_id"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td colspan="3"
                                             style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Buying Power</td>
                                         <td colspan="3" id="margin_buyingPower"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -315,240 +317,300 @@
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;1</td>
                                         <td id="price_stock1"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock1"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;16</td>
                                         <td id="price_stock16"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock16"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;2</td>
                                         <td id="price_stock2"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock2"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
-                                        <td 
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
+                                        <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;17</td>
                                         <td id="price_stock17"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock17"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;3</td>
                                         <td id="price_stock3"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock3"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;18</td>
                                         <td id="price_stock18"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock18"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;4</td>
                                         <td id="price_stock4"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock4"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;19</td>
                                         <td id="price_stock19"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock19"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;5</td>
                                         <td id="price_stock5"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock5"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;20</td>
                                         <td id="price_stock20"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock20"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;6</td>
                                         <td id="price_stock6"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock6"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;21</td>
                                         <td id="price_stock21"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock21"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;7</td>
                                         <td id="price_stock7"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock7"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;22</td>
                                         <td id="price_stock22"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock22"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;8</td>
                                         <td id="price_stock8"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock8"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;23</td>
                                         <td id="price_stock23"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock23"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;9</td>
                                         <td id="price_stock9"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock9"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;24</td>
                                         <td id="price_stock24"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock24"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;10</td>
                                         <td id="price_stock10"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock10"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;25</td>
                                         <td id="price_stock25"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock25"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;11</td>
                                         <td id="price_stock11"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock11"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;26</td>
                                         <td id="price_stock26"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock26"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;12</td>
                                         <td id="price_stock12"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock12"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;27</td>
                                         <td id="price_stock27"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock27"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;13</td>
                                         <td id="price_stock13"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock13"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;28</td>
                                         <td id="price_stock28"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock28"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;14</td>
                                         <td id="price_stock14"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock14"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;29</td>
                                         <td id="price_stock29"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock29"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;15</td>
                                         <td id="price_stock15"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock15"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;30</td>
                                         <td id="price_stock30"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="position_stock30"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -557,15 +619,16 @@
                     <div
                         style="width: 36%; text-align: center; border-left: 1px #1b1c2c solid; border-right: 1px #1b1c2c solid;">
                         <h6 style="font-size: 12px; color: #c1c2c6; margin-top: 40px"><strong>REST API Endpoint
-                            :</strong> api.quantxi.com</h6>
+                                :</strong> api.quantxi.com</h6>
                         <h6 style="font-size: 12px; color: #c1c2c6; margin-top: 12px"><strong>X-UserID :</strong>
                             Point72 Asset Management</h6>
-                        
+
                         <!-- <h6 style="font-size: 12px; color: #c1c2c6; margin-top: 12px"><strong>Quantxi AI Engine Version
                                 Used :</strong> QUANTXI 1.1.5</h6> -->
                         <div class="row" style="margin: auto; width: 320px">
                             <img src="styles/image/arrow.png" width="60" height="100" style="margin-top: 80px">
-                            <img src="styles/image/ai_gif_logo_1_crop.gif" width="170" style="margin-left: 15px; margin-right: 15px; margin-top: 45px">
+                            <img src="styles/image/ai_gif_logo_1_crop.gif" width="170"
+                                style="margin-left: 15px; margin-right: 15px; margin-top: 45px">
                             <img src="styles/image/arrow.png" width="60" height="100" style="margin-top: 80px">
                             <!-- <img src="styles/image/quantxi_in_out.png" class="img-fluid" style="margin-top: 40px"> -->
                         </div>
@@ -593,14 +656,16 @@
                                             style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Response No</td>
                                         <td colspan="3" id="data_output_id"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td colspan="3"
                                             style="text-align: left; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Signal Timestamp</td>
                                         <td colspan="3" id="signaltimestamp"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-top: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -627,240 +692,300 @@
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;1</td>
                                         <td id="signal_position_stock1"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock1"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;16</td>
                                         <td id="signal_position_stock16"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock16"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;2</td>
                                         <td id="signal_position_stock2"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock2"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;17</td>
                                         <td id="signal_position_stock17"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock17"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;3</td>
                                         <td id="signal_position_stock3"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock3"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;18</td>
                                         <td id="signal_position_stock18"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock18"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;4</td>
                                         <td id="signal_position_stock4"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock4"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;19</td>
                                         <td id="signal_position_stock19"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock19"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;5</td>
                                         <td id="signal_position_stock5"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock5"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;20</td>
                                         <td id="signal_position_stock20"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock20"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;6</td>
                                         <td id="signal_position_stock6"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock6"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;21</td>
                                         <td id="signal_position_stock21"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock21"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;7</td>
                                         <td id="signal_position_stock7"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock7"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;22</td>
                                         <td id="signal_position_stock22"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock22"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;8</td>
                                         <td id="signal_position_stock8"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock8"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;23</td>
                                         <td id="signal_position_stock23"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock23"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;9</td>
                                         <td id="signal_position_stock9"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock9"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;24</td>
                                         <td id="signal_position_stock24"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock24"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;10</td>
                                         <td id="signal_position_stock10"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock10"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;25</td>
                                         <td id="signal_position_stock25"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock25"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;11</td>
                                         <td id="signal_position_stock11"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock11"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;26</td>
                                         <td id="signal_position_stock26"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock26"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;12</td>
                                         <td id="signal_position_stock12"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock12"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;27</td>
                                         <td id="signal_position_stock27"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock27"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;13</td>
                                         <td id="signal_position_stock13"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock13"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;28</td>
                                         <td id="signal_position_stock28"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock28"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;14</td>
                                         <td id="signal_position_stock14"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock14"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;29</td>
                                         <td id="signal_position_stock29"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock29"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;15</td>
                                         <td id="signal_position_stock15"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock15"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td
                                             style="text-align: center; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
                                             Stock&nbsp;30</td>
                                         <td id="signal_position_stock30"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                         <td id="signal_size_stock30"
-                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">-</td>
+                                            style="text-align: right; padding: 3px 5px; border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
+                                            -</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -962,10 +1087,10 @@
                                     aria-describedby="" value="7830" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 10px">Portfolio Stocks<i class="fa fa-info-circle"
-                                        style="margin-left: 5px; font-size: 13px"></i></label>
-                                <input style="font-size: 13px" type="text" class="form-control" id="portfolio_stocks" readonly
-                                    aria-describedby="" value="30" required>
+                                <label style="font-size: 13px; margin-top: 10px">Portfolio Stocks<i
+                                        class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
+                                <input style="font-size: 13px" type="text" class="form-control" id="portfolio_stocks"
+                                    readonly aria-describedby="" value="30" required>
                             </div>
                         </div>
                     </div>
@@ -1016,8 +1141,8 @@
                                             style="background-color: #494949; text-align: center; font-size: 13px; height: 350px; width: 370px; overflow: auto;">
                                             <a class="dropdown-item" href="#" style="margin-top: -10px; color: #ffff"
                                                 id="NASDAQ">NASDAQ - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff"
-                                                id="TEST">TEST - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="TEST">TEST -
+                                                USA</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff"
                                                 id="euronext_amsterdam">Euronext Amsterdam - Netherlands</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff"
@@ -1186,7 +1311,8 @@
                                                 Exchange</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff" id="Mix3">Mix -
                                                 Europe Exchange</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff" id="NASDAQ_random">NASDAQ -
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="NASDAQ_random">NASDAQ -
                                                 USA</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff"
                                                 id="euronext_amsterdam">Euronext Amsterdam - Netherlands</a>
@@ -1491,156 +1617,262 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i
-                                class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>TEST RESULT</strong></a>                    
-                    <ul class="nav nav-pills" id="pills-tab" role="tablist" style="margin-top: 3px; font-size: 14px">
+                                class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>TEST
+                            RESULT</strong></a>
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist"
+                        style="position: absolute; left: 280px; margin-top: 2px; font-size: 14px">
                         <li class="nav-item">
-                            <a class="nav-link active" id="pills-performance-tab" data-toggle="pill" href="#pills-performance" role="tab" aria-controls="pills-performance" aria-selected="true" style="margin-left: 0px; padding: 3px 20px; height: 26px">Trade Performance</a>
+                            <a class="nav-link active" id="pills-performance-tab" data-toggle="pill"
+                                href="#pills-performance" role="tab" aria-controls="pills-performance"
+                                aria-selected="true" style="margin-left: 0px; padding: 3px 20px; height: 26px">Trade
+                                Performance</a>
+                        </li>                       
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-summary-tab" data-toggle="pill" href="#pills-summary"
+                                role="tab" aria-controls="pills-summary" aria-selected="false"
+                                style="margin-left: 50px; padding: 3px 20px; height: 26px">Account & Trade Summary</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-summary-tab" data-toggle="pill" href="#pills-summary" role="tab" aria-controls="pills-summary" aria-selected="false" style="margin-left: 30px; padding: 3px 20px; height: 26px">Account & Trade Summary</a>
+                            <a class="nav-link" id="pills-signal-tab" data-toggle="pill" href="#pills-signal" role="tab"
+                                aria-controls="pills-signal" aria-selected="false"
+                                style="margin-left: 50px; padding: 3px 20px; height: 26px">All Quantxi Request &
+                                Response</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" id="pills-details-tab" data-toggle="pill" href="#pills-details" role="tab" aria-controls="pills-details" aria-selected="false" style="margin-left: 30px; margin-right: 30px; padding: 3px 20px; height: 26px">Stocks Trade Detail</a>
-                        </li>                        
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-signal-tab" data-toggle="pill" href="#pills-signal" role="tab" aria-controls="pills-signal" aria-selected="false" style="margin-left: 30px; padding: 3px 20px; height: 26px">All Quantxi Request & Response</a>
-                        </li>
+                        </li>                         -->
+
                     </ul>
                 </div>
                 <div class="modal-body">
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-performance" role="tabpanel" aria-labelledby="pills-performance-tab">
+                        <div class="tab-pane fade show active" id="pills-performance" role="tabpanel"
+                            aria-labelledby="pills-performance-tab">
                             <div class="row">
                                 <div class="col-3">
-                                    <div class="container card" style="text-align: center; background-color: #dfdfdf; margin: auto; height: 230px; width: 300px">
-                                        <!-- <div> --> 
-                                            <h1 style="font-size: 30px; color: #003853; margin-top: 10px"><strong>0000.35%</strong></h1> 
-                                            <h6 style="font-size: 22px; color: #003853; margin-top: -10px"><strong>TOTAL RETURN</strong></h6> 
-                                            <h1 style="font-size: 50px; color: #003853; margin-top: 0px"><strong>34.35%</strong></h1> 
-                                            <h6 style="font-size: 22px; color: #003853; margin-top: -15px"><strong>CAGR</strong></h6> 
-                                            <h4 style="font-size: 20px; color: #003853; margin-top: 5px"><strong>OUTPERFORM <br>BUY & HOLD</strong></h4> 
-                                        <!-- </div> -->
+                                    <div class="container card"
+                                        style="text-align: center; background-color: #dfdfdf; margin: auto; height: 230px; width: 300px">
+                                        <!-- <div> -->
+                                        <h1 style="font-size: 30px; color: #003853; margin-top: 10px">
+                                            <strong>1080200.35%</strong>
+                                        </h1>
+                                        <h6 style="font-size: 22px; color: #003853; margin-top: -10px"><strong>TOTAL
+                                                RETURN</strong></h6>
+                                        <h1 style="font-size: 50px; color: #003853; margin-top: 0px">
+                                            <strong>34.35%</strong>
+                                        </h1>
+                                        <h6 style="font-size: 22px; color: #003853; margin-top: -15px">
+                                            <strong>CAGR</strong>
+                                        </h6>
+                                        <div class="row" style="margin: auto">
+                                            <h1 style="font-size: 50px; color: #003853; margin-top: 0px">
+                                                <strong>24x</strong>
+                                            </h1>
+                                            <h4
+                                                style="font-size: 18px; color: #003853; margin-left: 10px; margin-top: 10px">
+                                                <strong>OUTPERFORM <br>BUY & HOLD</strong>
+                                            </h4>
+                                        </div>
                                     </div>
-                                    <!-- <hr style="width: 280px"> -->
-                                    <div class="container" style="height: 185px">
-                                        <h6 style="text-align: center; margin-left: 0px; margin-top: 20px; font-family: Acrom; font-size: 14px;">
+                                    <div style="height: 185px; width: 300px">
+                                        <h6
+                                            style="text-align: center; margin-left: 0px; margin-top: 13px; font-family: Acrom; font-size: 14px;">
                                             <strong>PERFORMANCE COMPARISON</strong>
-                                        </h6>                                    
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <h6
-                                                    style="text-align: center; margin-top: 5px; font-family: Acrom; font-size: 13px;">
-                                                    <u>QUANTXI</u>
-                                                </h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6>
-                                                <!-- <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6> -->
-                                            </div>
-                                            <div class="col-4">
-                                                <h6
-                                                    style="text-align: center; margin-top: 7px; font-family: Acrom; font-size: 13px;">
-                                                    VS</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    Total&nbsp;Return</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    CAGR</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    Max DD</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    MAR</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    Sharpe</h6>
-                                                <!-- <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    Sortino</h6> -->
-                                            </div>
-                                            <div class="col-4">
-                                                <h6
-                                                    style="text-align: center; margin-top: 5px; font-family: Acrom; font-size: 13px;">
-                                                    <u>BUY&HOLD</u>
-                                                </h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6>
-                                                <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6>
-                                                <!-- <h6
-                                                    style="text-align: center; margin-top: 12px; font-family: Acrom; font-size: 13px;">
-                                                    0.00%</h6> -->
-                                            </div>
-                                        </div> 
+                                        </h6>
+                                        <div
+                                            style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; height: 163px; overflow-y: scroll">
+                                            <table id="table_performance">
+                                                <thead style="font-size: 14px; font-family: calibri">
+                                                    <tr>
+                                                        <th
+                                                            style="position: sticky; top: 0px; background-color: #ffffff; padding: 0 5px; width: 105px; text-align: center">
+                                                            QUANTXI AI</th>
+                                                        <th
+                                                            style="position: sticky; top: 0px; background-color: #ffffff; padding: 0 5x; width: 90px; text-align: center">
+                                                            VS</th>
+                                                        <th
+                                                            style="position: sticky; top: 0px; background-color: #ffffff; padding: 0 5px; width: 105px; text-align: center">
+                                                            BUY&HOLD</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="font-size: 13px; font-family: calibri">
+                                                    <tr>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                        <td style="text-align: center;">Total Return</td>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                        <td style="text-align: center;">CAGR</td>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                        <td style="text-align: center;">Max DD</td>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                        <td style="text-align: center;">MAR</td>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                        <td style="text-align: center;">Avg Rec.Time</td>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                        <td style="text-align: center;">Martin Ratio</td>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                        <td style="text-align: center;">Volatility</td>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                        <td style="text-align: center;">Sharpe Ratio</td>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                        <td style="text-align: center;">Sortino Ratio</td>
+                                                        <td style="text-align: center;">90000000.35%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                                                      
-                                    
                                 </div>
-                                <div class="col-9">
-                                    <div style="height: 425px">
-                                        <div class="tab-pane fade show active" id="pills-return" role="tabpanel"
-                                            aria-labelledby="pills-return-tab">
-                                            <canvas id="" width="860" height="435" class="chartjs-render-monitor"
+                                <div class="col-9" style="height: 430px; overflow-y: scroll">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <canvas id="" width="500" height="407"
                                                 style="margin-left: 10px; margin-top: 0px; background-color:#858585"></canvas>
                                         </div>
+                                        <div class="col-5">
+                                            <canvas id="" width="340" height="200"
+                                                style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                            <canvas id="" width="340" height="200"
+                                                style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>                                            
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-left: 10px">      
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                    </div>
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                    </div>
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                    </div>
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                    </div>
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                    </div>
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                    </div>
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                    </div>
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                    </div>
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                    </div>
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                        <canvas id="" width="280" height="210"
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-summary" role="tabpanel" aria-labelledby="pills-summary-tab">
+                        <div class="tab-pane fade" id="pills-summary" role="tabpanel"
+                            aria-labelledby="pills-summary-tab">
                             <div class="row">
                                 <strong style="margin-left: 15px; margin-top: 0px; font-size: 12px;">Period :</strong>
-                                <input id="period_testing" type="text" class="form-text-sm" disabled value="No Data Available"
+                                <input id="period_testing" type="text" class="form-text-sm" disabled
+                                    value="No Data Available"
                                     style="text-align: center; color: #000000; margin-top: 1px; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 170px; font-size: 10px">
-                                <ul id="pagination_trade_report" class="pagination pagination-sm" style="margin-top: -5px"></ul>
+                                <ul id="pagination_trade_report" class="pagination pagination-sm"
+                                    style="margin-top: -5px"></ul>
                             </div>
                             <div class="table-hover"
-                                style="overflow: auto; width: 1165px; margin-top: 5px; height: 411px; border-left: 1px #c0c0c0 solid; border-right: 1px #c0c0c0 solid; border-bottom: 1px #c0c0c0 solid;">
+                                style="overflow: auto; width: 1165px; margin-top: 5px; height: 407px; border-left: 1px #c0c0c0 solid; border-right: 1px #c0c0c0 solid; border-bottom: 1px #c0c0c0 solid;">
                                 <table id="account_trade_summary_tbl">
-                                    <thead style="font-size: 12px; font-family: calibri; border-bottom: 1px #c0c0c0 solid;">
+                                    <thead
+                                        style="font-size: 12px; font-family: calibri; border-bottom: 1px #c0c0c0 solid;">
                                         <tr>
                                             <th rowspan="2"
                                                 style="background-color: #2e2e2e; color: #ebebeb; position: sticky; top: 0px; left: 0px; z-index: 2; padding: 5px 15px; text-align: center">
                                                 Date</th>
-                                            <th colspan="8"
+                                            <th colspan="9"
                                                 style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                                Pre Trade Position</th>
-                                            <th colspan="4"
+                                                Pre Trade Position/Start of Day</th>
+                                            <th colspan="3"
                                                 style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                                Trade Summary</th>                                    
+                                                Trade Summary</th>
                                             <th colspan="7"
                                                 style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                                Post Trade Position</th>
-                                            <!-- <th rowspan="2"
+                                                Post Trade Position/End of Day</th>
+                                            <th rowspan="2"
                                                 style="background-color: #2e2e2e; color: #ebebeb; position: sticky; top: 0px; right: 0px; z-index: 2; padding: 5px 5px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                                Stock Position<br>And Trade Details</th> -->
+                                                Stock Position<br>And Trade Details</th>
                                         </tr>
                                         <tr>
                                             <th
@@ -1663,10 +1895,13 @@
                                                 Maintenance<br>Margin Available</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                Initial Margin<br>Reserved</th>
+                                                Reg-T Margin<br>Requirements</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                Initial Margin<br>Available</th>
+                                                SMA</th>
+                                            <th
+                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                                Buying<br>Power</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Total<br>Trade Value</th>
@@ -1676,9 +1911,9 @@
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Total<br>Initial Margin</th>
-                                            <th
+                                            <!-- <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                Total<br>Details</th>
+                                                Trade<br>Details</th> -->
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Cash<br>Balance</th>
@@ -1696,135 +1931,89 @@
                                                 Maintenance<br>Margin Available</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                Initial Margin<br>Reserved</th>
+                                                Reg-T Margin<br>Requirements</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                Initial Margin<br>Available</th>
+                                                SMA</th>
                                         </tr>
-                                        <!-- <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
-                                            <td
-                                                style="background-color: #c7c7c7; position: sticky; top: 92px; left: 0px; z-index: 2; padding: 5px 10px">
-                                                Current&nbsp;Date
-                                            </td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
-                                            </td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Total&nbsp;Market&nbsp;Value<br>(Pretrade&nbsp;Position)<br>of&nbsp;All&nbsp;Stock
-                                            </td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
-                                            </td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Market&nbsp;Value&nbsp;x<br>50 %</td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Total&nbsp;Trade&nbsp;Value<br>of&nbsp;All&nbsp;Stock</td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Total&nbsp;Commision&nbsp;of<br>All&nbsp;Stock&nbsp;Traded</td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Total&nbsp;Margin&nbsp;Used<br>of&nbsp;All&nbsp;Stock&nbsp;Traded</td>                                    
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
-                                            </td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Total&nbsp;Market&nbsp;Value<br>(Pretrade&nbsp;Position)<br>of&nbsp;All&nbsp;Stock
-                                            </td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
-                                            </td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Market&nbsp;Value&nbsp;x<br>50 %</td>
-                                            <td
-                                                style="background-color: #ffffff; position: sticky; top: 92px; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</td>
-                                            <td
-                                                style="background-color: #c7c7c7; position: sticky; top: 92px; right: 0px; z-index: 2; padding: 5px 10px; border-left: 1px #c0c0c0 solid;">
-                                                View&nbsp;Trade Details
-                                            </td>
-                                        </tr> -->
                                     </thead>
                                     <tbody
                                         style="background-color: #2c5252; font-size: 11px; font-family: calibri; color: #ebebeb;">
-                                        <!-- <tr>
-                                            <td style="position: sticky; left: 0px; z-index: 2; background-color: #122121; text-align: center">23/01/01</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">100.00
+                                        <tr>
+                                            <td
+                                                style="position: sticky; left: 0px; z-index: 2; background-color: #122121; text-align: center">
+                                                23/01/01</td>
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                                100.00
                                             </td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                                1,000,000,000.00</td>
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
                                             <td onclick="myFunction(event)"
-                                                style="position: sticky; right: 0px; z-index: 2; background-color: #122121; text-align: center; padding: 2px 5px">
+                                                style="position: sticky; right: 0px; z-index: 2; text-align: center; background-color: #122121; padding: 2px 5px">
                                                 <button type="button" class="btn btn-primary btn-sm"
-                                                    style="padding: 0 3px; height: 17px; font-size: 11px; width: 75px"
+                                                    style="padding: 0 3px; height: 18px; font-size: 11px; width: 75px"
                                                     id="230101" data-toggle="modal" data-target="#trade_details">View
                                                     Details</button>
                                             </td>
-                                        </tr> -->
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
+                        <!-- <div class="tab-pane fade" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
                             <div class="row">
                                 <div class="col-3">
                                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -1842,7 +2031,7 @@
                                                 <tr>
                                                     <th rowspan="2"
                                                         style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; width: 70px">
-                                                        Stock Ticker</th>
+                                                        Date</th>
                                                     <th rowspan="2"
                                                         style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
                                                         Stock Price</th>
@@ -1885,78 +2074,29 @@
                                                         style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
                                                         Market<br>Value</th>
                                                 </tr>
-                                                <!-- <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
-                                                    <th
-                                                        style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 5px; ">
-                                                    </th>
-                                                    <th
-                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                    </th>
-                                                    <th
-                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
-                                                    <th
-                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
-                                                    </th>
-                                                    <th
-                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
-                                                    </th>
-                                                    <th
-                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
-                                                    </th>
-                                                    <th
-                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</th>
-                                                    <th
-                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                        Market&nbsp;Value&nbsp;x<br>50 %</th>
-                                                    <th
-                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</th>
-                                                    <th
-                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
-                                                    <th
-                                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
-                                                    </th>
-                                                </tr> -->
                                             </thead>
                                             <tbody style="font-size: 11px; font-family: calibri">
-                                                <!-- <tr style>
-                                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
-                                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
-                                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
-                                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>                                    
-                                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                                </tr> -->
                                             </tbody>
                                         </table>
                                     </div>
                                 </div> 
                             </div>                                                       
-                        </div>
-                    </div>                    
+                        </div> -->
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" style="padding: 5px 20px">Download Test Result</button>
-                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" style="margin-left: 40px; padding: 5px 20px" onclick="reset_test()">Close & Start New Test</button>
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"
+                        style="padding: 5px 20px">Download Test Result</button>
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"
+                        style="margin-left: 40px; padding: 5px 20px" onclick="reset_test()">Close & Start New
+                        Test</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- MODAL TRADE DETAILS -->
-    <!-- <div class="modal" id="trade_details" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+    <div class="modal" id="trade_details" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
         aria-labelledby="trade_reportLabel" aria-hidden="true">
         <div class="modal-dialog" style="min-width: 850px" role="document">
             <div class="modal-content" style="background-color: #b6b6b6;">
@@ -1969,14 +2109,119 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    
+                    <div class="table-hover" style="overflow: auto; margin-top: 5px; height: 400px">
+                        <table>
+                            <thead style="font-size: 12px; font-family: calibri;">
+                                <tr>
+                                    <th rowspan="2"
+                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; width: 70px">
+                                        Stock Ticker</th>
+                                    <th rowspan="2"
+                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Stock Price</th>
+                                    <th colspan="2"
+                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
+                                        Pre Trade Position</th>
+                                    <th colspan="5"
+                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
+                                        Trade Transaction</th>
+                                    <th colspan="2"
+                                        style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
+                                        Post Trade Position</th>
+                                </tr>
+                                <tr>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Position<br>Size</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
+                                        Market<br>Value</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Filled<br>Order</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Filled<br>Price</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
+                                        Trade<br>Value</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Commission</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;width: 110px">
+                                        Initial<br>Margin</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
+                                        Position<br>Size</th>
+                                    <th
+                                        style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
+                                        Market<br>Value</th>
+                                </tr>
+                                <!-- <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
+                                    <th
+                                        style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 5px; ">
+                                    </th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                    </th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
+                                    </th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
+                                    </th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
+                                    </th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Market&nbsp;Value&nbsp;x<br>50 %</th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
+                                    <th
+                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
+                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
+                                    </th>
+                                </tr> -->
+                            </thead>
+                            <tbody style="font-size: 11px; font-family: calibri">
+                                <tr style>
+                                    <td style="text-align: center; padding: 1px 1px">Stock01</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">10,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">100,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- MODAL TRADE PERFORMANCE -->
     <!-- <div class="modal" id="trade_performance" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
@@ -2019,8 +2264,8 @@
                             <h6 style="font-size: 13px; font-weight: 700;">Last Test : 23/01/01 13:00:00</h6>
                         </div>
                         <div class="col-3">
-                            <h6 style="font-size: 13px; font-weight: 700;">Total Stocks Used : 123</h6>
-                            <h6 style="font-size: 13px; font-weight: 700;">Total Exchanges Used: 123</h6>
+                            <h6 style="font-size: 13px; font-weight: 700;">Total Stocks Used in Test: 123</h6>
+                            <h6 style="font-size: 13px; font-weight: 700;">Total Exchanges Used in Test: 123</h6>
                         </div>
                         <div class="col-3">
                             <h6 style="font-size: 13px; font-weight: 700;">Quantxi Avg Total Return : 100.00%</h6>
@@ -2067,18 +2312,18 @@
                             <tbody style="font-size: 11px; font-family: calibri;">
                                 <tr>
                                     <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
+                                        Free Rate
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px;">
                                         1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
                                     </td>
                                     <td style="text-align: left; padding: 5px 0px 5px 10px;">
-                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                        <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2098,7 +2343,6 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2108,11 +2352,11 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
-                                       </div>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                        </div>
                                     </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2131,18 +2375,18 @@
                                 </tr>
                                 <tr>
                                     <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
+                                        Free Rate
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px;">
                                         1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
                                     </td>
                                     <td style="text-align: left; padding: 5px 0px 5px 10px;">
-                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                        <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2162,7 +2406,6 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2172,11 +2415,11 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
-                                       </div>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                        </div>
                                     </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2195,18 +2438,18 @@
                                 </tr>
                                 <tr>
                                     <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
+                                        Free Rate
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px;">
                                         1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
                                     </td>
                                     <td style="text-align: left; padding: 5px 0px 5px 10px;">
-                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                        <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2226,7 +2469,6 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2236,11 +2478,11 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
-                                       </div>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                        </div>
                                     </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2259,18 +2501,18 @@
                                 </tr>
                                 <tr>
                                     <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
+                                        Free Rate
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px;">
                                         1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
                                     </td>
                                     <td style="text-align: left; padding: 5px 0px 5px 10px;">
-                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                        <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2290,7 +2532,6 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2300,11 +2541,11 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
-                                       </div>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                        </div>
                                     </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2323,18 +2564,18 @@
                                 </tr>
                                 <tr>
                                     <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
+                                        Free Rate
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px;">
                                         1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
                                     </td>
                                     <td style="text-align: left; padding: 5px 0px 5px 10px;">
-                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                        <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2354,7 +2595,6 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2364,11 +2604,11 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
-                                       </div>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                        </div>
                                     </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2387,18 +2627,18 @@
                                 </tr>
                                 <tr>
                                     <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
-                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk Free Rate
+                                        Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
+                                        Free Rate
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px;">
                                         1,000,000<br>0.005<br>0.001<br>0.02<br>0.02
                                     </td>
                                     <td style="text-align: left; padding: 5px 0px 5px 10px;">
-                                       <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
+                                        <div style="height: 95px; width: 300px; overflow: auto; overflow-x: hidden">
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2418,7 +2658,6 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>  
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
@@ -2428,11 +2667,11 @@
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
                                             <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
-                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>                                          
-                                       </div>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                            <h6 style="font-size: 10px">AAME - Atlantic American Corporation</h6>
+                                        </div>
                                     </td>
-                                    <td
-                                        style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
+                                    <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2843,13 +3082,13 @@
         //         <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
         //     JSON.stringify(input_start, null, 4) +
         //     `
-        //         </pre>; 
+        //         </pre>;
         //     </td>
-        //     <td>  
+        //     <td>
         //         <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
         //     JSON.stringify(output_start, null, 4) +
         //     `
-        //         </pre>;                                  
+        //         </pre>;
         //     </td>
         // </tr>`
         // $("#request").html(request_element);
