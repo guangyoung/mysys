@@ -19,17 +19,20 @@ function autorun() {
                         $.getJSON(proxyurl+urls, function(data){ 
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
-                                    let sd = data.chart.result[0].timestamp[0];
-                                    dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
+                                    // let sd = data.chart.result[0].timestamp[0];
+                                    // dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
                                         ticker: ticker,
                                         description: description,
                                         exchange: exchange,
                                         country: country,
-                                        startdate: sd,                                        
-                                        data: JSON.stringify(dat)
+                                        date: data.chart.result[0].timestamp,
+                                        adjclose: data.chart.result[0].indicators.adjclose[0].adjclose
+                                        // startdate: sd,                                        
+                                        // data: JSON.stringify(dat)
                                     } 
                                     console.log(historical_data);
+                                    console.log(data.chart.result[0]);
                                     $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_data",
