@@ -26,8 +26,14 @@ function autorun() {
                                         description: description,
                                         exchange: exchange,
                                         country: country,
-                                        date: data.chart.result[0].timestamp,
-                                        adjclose: data.chart.result[0].indicators.adjclose[0].adjclose
+                                        data:{
+                                            date: data.chart.result[0].timestamp,
+                                            open: data.chart.result[0].indicators.quote[0].open,
+                                            high: data.chart.result[0].indicators.quote[0].high,
+                                            low: data.chart.result[0].indicators.quote[0].low,
+                                            close: data.chart.result[0].indicators.quote[0].close,
+                                            adjclose: data.chart.result[0].indicators.adjclose[0].adjclose,
+                                            volume: data.chart.result[0].indicators.quote[0].volume}
                                         // startdate: sd,                                        
                                         // data: JSON.stringify(dat)
                                     } 
