@@ -20,20 +20,33 @@ function autorun() {
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
                                     // let sd = data.chart.result[0].timestamp[0];
+                                    let datt = new Array();
+                                    for(i=0;i<data.chart.result[0].timestamp.length;i++) {
+                                        datt.push({
+                                            date: data.chart.result[0].timestamp[i],
+                                            open: data.chart.result[0].indicators.quote[0].open[i],
+                                            high: data.chart.result[0].indicators.quote[0].high[i],
+                                            low: data.chart.result[0].indicators.quote[0].low[i],
+                                            close: data.chart.result[0].indicators.quote[0].close[i],
+                                            adjclose: data.chart.result[0].indicators.adjclose[0].adjclose[i],
+                                            volume: data.chart.result[0].indicators.quote[0].volume[i]}
+                                        )
+                                    }
                                     // dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
                                         ticker: ticker,
                                         description: description,
                                         exchange: exchange,
                                         country: country,
-                                        data:{
-                                            date: data.chart.result[0].timestamp,
-                                            open: data.chart.result[0].indicators.quote[0].open,
-                                            high: data.chart.result[0].indicators.quote[0].high,
-                                            low: data.chart.result[0].indicators.quote[0].low,
-                                            close: data.chart.result[0].indicators.quote[0].close,
-                                            adjclose: data.chart.result[0].indicators.adjclose[0].adjclose,
-                                            volume: data.chart.result[0].indicators.quote[0].volume}
+                                        data: datt
+                                        // {
+                                        //     date: data.chart.result[0].timestamp,
+                                        //     open: data.chart.result[0].indicators.quote[0].open,
+                                        //     high: data.chart.result[0].indicators.quote[0].high,
+                                        //     low: data.chart.result[0].indicators.quote[0].low,
+                                        //     close: data.chart.result[0].indicators.quote[0].close,
+                                        //     adjclose: data.chart.result[0].indicators.adjclose[0].adjclose,
+                                        //     volume: data.chart.result[0].indicators.quote[0].volume}
                                         // startdate: sd,                                        
                                         // data: JSON.stringify(dat)
                                     } 
