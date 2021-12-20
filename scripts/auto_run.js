@@ -4,11 +4,9 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            // var arr = [];
-            // let i = 0;     
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 1; i++) {
                 setTimeout(function timer() {
-                    console.log(i);
+                    // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
                         let dat = new Array();
