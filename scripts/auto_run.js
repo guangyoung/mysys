@@ -26,13 +26,13 @@ function autorun() {
                                         let datee = new Date(data.chart.result[0].timestamp[i]*1000);
                                        
                                         datt.push(
-                                            parseInt(data.chart.result[0].timestamp[i]),
-                                            parseFloat(data.chart.result[0].indicators.quote[0].open[i]),
-                                            parseFloat(data.chart.result[0].indicators.quote[0].high[i]),
-                                            parseFloat(data.chart.result[0].indicators.quote[0].low[i]),
-                                            parseFloat(data.chart.result[0].indicators.quote[0].close[i]),
-                                            parseFloat(data.chart.result[0].indicators.adjclose[0].adjclose[i]),
-                                            parseInt(data.chart.result[0].indicators.quote[0].volume[i])
+                                            data.chart.result[0].timestamp[i],
+                                            data.chart.result[0].indicators.quote[0].open[i],
+                                            data.chart.result[0].indicators.quote[0].high[i],
+                                            data.chart.result[0].indicators.quote[0].low[i],
+                                            data.chart.result[0].indicators.quote[0].close[i],
+                                            data.chart.result[0].indicators.adjclose[0].adjclose[i],
+                                            data.chart.result[0].indicators.quote[0].volume[i]
                                         )
                                         dat.push(datt);
                                     }
