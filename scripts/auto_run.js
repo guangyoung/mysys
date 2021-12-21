@@ -61,6 +61,7 @@ function autorun() {
                                             console.log(result);
                                         }
                                     })
+                                    
                                     // dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                     // stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
                                     // console.log(stock_data[stock_data.length-1].exchange);
