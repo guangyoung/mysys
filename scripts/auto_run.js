@@ -9,7 +9,7 @@ function autorun() {
                     // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
-                        let dat = new Array();
+                        let dat = [];
                         let ticker= result.data[i].Symbol;
                         let description= result.data[i].Description;
                         let exchange= result.data[i].Exchange;
@@ -22,14 +22,14 @@ function autorun() {
                                     // let sd = data.chart.result[0].timestamp[0];
                                     // let datt = new Array();
                                     for(i=0;i<data.chart.result[0].timestamp.length;i++) {
-                                        dat.push({
-                                            date: data.chart.result[0].timestamp[i],
-                                            open: data.chart.result[0].indicators.quote[0].open[i],
-                                            high: data.chart.result[0].indicators.quote[0].high[i],
-                                            low: data.chart.result[0].indicators.quote[0].low[i],
-                                            close: data.chart.result[0].indicators.quote[0].close[i],
-                                            adjclose: data.chart.result[0].indicators.adjclose[0].adjclose[i],
-                                            volume: data.chart.result[0].indicators.quote[0].volume[i]}
+                                        dat.push(
+                                            data.chart.result[0].timestamp[i],
+                                            data.chart.result[0].indicators.quote[0].open[i],
+                                            data.chart.result[0].indicators.quote[0].high[i],
+                                            data.chart.result[0].indicators.quote[0].low[i],
+                                            data.chart.result[0].indicators.quote[0].close[i],
+                                            data.chart.result[0].indicators.adjclose[0].adjclose[i],
+                                            data.chart.result[0].indicators.quote[0].volume[i]
                                         )
                                     }
                                     // dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
@@ -38,7 +38,7 @@ function autorun() {
                                         // description: description,
                                         // exchange: exchange,
                                         // country: country,
-                                        'data': JSON.parse(dat)
+                                        'data': dat
                                         // {
                                         //     date: data.chart.result[0].timestamp,
                                         //     open: data.chart.result[0].indicators.quote[0].open,
@@ -57,7 +57,7 @@ function autorun() {
                                         url: "https://api.quantxi.com/add_data",
                                         data: {
                                             'ticker': ticker,                                            
-                                            'data': JSON.parse(dat)
+                                            'data': dat
                                         },          
                                         dataType: 'json',
                                         success: function (result) {
