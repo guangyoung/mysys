@@ -20,8 +20,9 @@ function autorun() {
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
                                     // let sd = data.chart.result[0].timestamp[0];
-                                    let datt = new Array();
+                                    
                                     for(i=0;i<data.chart.result[0].timestamp.length;i++) {
+                                        let datt = new Array();
                                         datt.push(
                                             data.chart.result[0].timestamp[i],
                                             data.chart.result[0].indicators.quote[0].open[i],
@@ -31,8 +32,9 @@ function autorun() {
                                             data.chart.result[0].indicators.adjclose[0].adjclose[i],
                                             data.chart.result[0].indicators.quote[0].volume[i]
                                         )
+                                        dat.push(datt);
                                     }
-                                    dat.push(datt);
+                                    
                                     // dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
                                         'ticker': ticker,
