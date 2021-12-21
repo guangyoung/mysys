@@ -26,7 +26,7 @@ function autorun() {
                                         let datee = new Date(data.chart.result[0].timestamp[i]*1000);
                                        
                                         datt.push(
-                                            datee,
+                                            data.chart.result[0].timestamp[i],
                                             data.chart.result[0].indicators.quote[0].open[i],
                                             data.chart.result[0].indicators.quote[0].high[i],
                                             data.chart.result[0].indicators.quote[0].low[i],
