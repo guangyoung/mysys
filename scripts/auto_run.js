@@ -23,13 +23,13 @@ function autorun() {
                                     // let datt = new Array();
                                     for(i=0;i<data.chart.result[0].timestamp.length;i++) {
                                         dat.push({
-                                            datee: data.chart.result[0].timestamp[i],
-                                            openn: data.chart.result[0].indicators.quote[0].open[i],
-                                            highh: data.chart.result[0].indicators.quote[0].high[i],
-                                            loww: data.chart.result[0].indicators.quote[0].low[i],
-                                            closee: data.chart.result[0].indicators.quote[0].close[i],
+                                            date: data.chart.result[0].timestamp[i],
+                                            open: data.chart.result[0].indicators.quote[0].open[i],
+                                            high: data.chart.result[0].indicators.quote[0].high[i],
+                                            low: data.chart.result[0].indicators.quote[0].low[i],
+                                            close: data.chart.result[0].indicators.quote[0].close[i],
                                             adjclose: data.chart.result[0].indicators.adjclose[0].adjclose[i],
-                                            volumee: data.chart.result[0].indicators.quote[0].volume[i]}
+                                            volume: data.chart.result[0].indicators.quote[0].volume[i]}
                                         )
                                     }
                                     // dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
@@ -38,7 +38,7 @@ function autorun() {
                                         // description: description,
                                         // exchange: exchange,
                                         // country: country,
-                                        'dataa': dat
+                                        'data': dat
                                         // {
                                         //     date: data.chart.result[0].timestamp,
                                         //     open: data.chart.result[0].indicators.quote[0].open,
