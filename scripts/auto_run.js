@@ -42,16 +42,6 @@ function autorun() {
                                         // exchange: exchange,
                                         // country: country,
                                         'data': dat
-                                        // {
-                                        //     date: data.chart.result[0].timestamp,
-                                        //     open: data.chart.result[0].indicators.quote[0].open,
-                                        //     high: data.chart.result[0].indicators.quote[0].high,
-                                        //     low: data.chart.result[0].indicators.quote[0].low,
-                                        //     close: data.chart.result[0].indicators.quote[0].close,
-                                        //     adjclose: data.chart.result[0].indicators.adjclose[0].adjclose,
-                                        //     volume: data.chart.result[0].indicators.quote[0].volume}
-                                        // startdate: sd,                                        
-                                        // data: JSON.parse(dat)
                                     } 
                                     console.log(historical_data);
                                     console.log(data.chart.result[0]);
