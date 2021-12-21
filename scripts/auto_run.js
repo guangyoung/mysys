@@ -35,10 +35,10 @@ function autorun() {
                                     // dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
                                         ticker: ticker,
-                                        description: description,
-                                        exchange: exchange,
-                                        country: country,
-                                        data: dat
+                                        // description: description,
+                                        // exchange: exchange,
+                                        // country: country,
+                                        dataa: dat
                                         // {
                                         //     date: data.chart.result[0].timestamp,
                                         //     open: data.chart.result[0].indicators.quote[0].open,
@@ -55,13 +55,13 @@ function autorun() {
                                     $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_data",
-                                        data: dat,             
+                                        data: historical_data,             
                                         dataType: 'json',
                                         success: function (result) {
                                             console.log(result);
                                         }
                                     })
-                                    
+
                                     // dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                     // stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
                                     // console.log(stock_data[stock_data.length-1].exchange);
