@@ -56,7 +56,10 @@ function autorun() {
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_data",
                                         data: historical_data,             
-                                        dataType: 'json'
+                                        dataType: 'json',
+                                        success: function (dat) {
+                                            console.log(dat);
+                                        }
                                     })
                                     // dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                     // stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
