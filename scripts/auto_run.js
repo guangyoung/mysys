@@ -9,7 +9,7 @@ function autorun() {
                     // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
-                        let dat = new Array();
+                        var dat = new Array();
                         let ticker= result.data[i].Symbol;
                         let description= result.data[i].Description;
                         let exchange= result.data[i].Exchange;
@@ -55,7 +55,10 @@ function autorun() {
                                     $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_data",
-                                        data: historical_data,             
+                                        data: {
+                                            'ticker': ticker,                                            
+                                            'data': dat
+                                        },          
                                         dataType: 'json',
                                         success: function (result) {
                                             console.log(result);
