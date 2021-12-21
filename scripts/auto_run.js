@@ -20,9 +20,9 @@ function autorun() {
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
                                     // let sd = data.chart.result[0].timestamp[0];
-                                    let datt = new Array();
+                                    // let datt = new Array();
                                     for(i=0;i<data.chart.result[0].timestamp.length;i++) {
-                                        datt.push({
+                                        dat.push({
                                             date: data.chart.result[0].timestamp[i],
                                             open: data.chart.result[0].indicators.quote[0].open[i],
                                             high: data.chart.result[0].indicators.quote[0].high[i],
@@ -38,7 +38,7 @@ function autorun() {
                                         description: description,
                                         exchange: exchange,
                                         country: country,
-                                        data: datt
+                                        data: dat
                                         // {
                                         //     date: data.chart.result[0].timestamp,
                                         //     open: data.chart.result[0].indicators.quote[0].open,
@@ -55,7 +55,7 @@ function autorun() {
                                     $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_data",
-                                        data: historical_data,             
+                                        data: dat,             
                                         dataType: 'json',
                                         success: function (result) {
                                             console.log(result);
