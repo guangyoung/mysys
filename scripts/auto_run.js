@@ -18,7 +18,7 @@ function autorun() {
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=9999999999&interval=1d";
                         $.getJSON(proxyurl+urls, function(data){ 
                             if(data.chart.result !== null) {                                
-                                // if(data.chart.result[0].timestamp !== undefined) {
+                                if(data.chart.result[0].timestamp !== undefined) {
                                     // let sd = data.chart.result[0].timestamp[0];
                                     // let datt = new Array();
                                     for(i=0;i<data.chart.result[0].timestamp.length;i++) {
@@ -69,7 +69,7 @@ function autorun() {
                                     // console.log(stock_data[stock_data.length-1].description);
                                     // console.log(stock_data[stock_data.length-1].data[0].length);
                                     // console.log(stock_data.length);
-                                // }                        
+                                }                        
                             } 
                         }); 
                         
