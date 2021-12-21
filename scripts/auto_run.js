@@ -5,11 +5,11 @@ function autorun() {
         header: true,
         complete: function(result) {
             for (let i = 2; i < 3; i++) {
-                setTimeout(function timer() {
+                // setTimeout(function timer() {
                     // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
-                        var dat = new Array();
+                        let dat = new Array();
                         let ticker= result.data[i].Symbol;
                         let description= result.data[i].Description;
                         let exchange= result.data[i].Exchange;
@@ -21,7 +21,7 @@ function autorun() {
                                 if(data.chart.result[0].timestamp !== undefined) {
                                     // let sd = data.chart.result[0].timestamp[0];
                                     // let datt = new Array();
-                                    for(i=0;i<200;i++) {
+                                    for(i=0;i<data.chart.result[0].timestamp.length;i++) {
                                         dat.push({
                                             date: data.chart.result[0].timestamp[i],
                                             open: data.chart.result[0].indicators.quote[0].open[i],
@@ -29,7 +29,8 @@ function autorun() {
                                             low: data.chart.result[0].indicators.quote[0].low[i],
                                             close: data.chart.result[0].indicators.quote[0].close[i],
                                             adjclose: data.chart.result[0].indicators.adjclose[0].adjclose[i],
-                                            volume: data.chart.result[0].indicators.quote[0].volume[i]})
+                                            volume: data.chart.result[0].indicators.quote[0].volume[i]}
+                                        )
                                     }
                                     // dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
@@ -75,7 +76,7 @@ function autorun() {
                             } 
                         }); 
                         
-                }, i * 500);           
+                // }, i * 500);           
             } 
         }
     });   
