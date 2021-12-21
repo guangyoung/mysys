@@ -34,11 +34,11 @@ function autorun() {
                                     }
                                     // dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
-                                        ticker: ticker,
+                                        'ticker': ticker,
                                         // description: description,
                                         // exchange: exchange,
                                         // country: country,
-                                        dataa: dat
+                                        'dataa': dat
                                         // {
                                         //     date: data.chart.result[0].timestamp,
                                         //     open: data.chart.result[0].indicators.quote[0].open,
