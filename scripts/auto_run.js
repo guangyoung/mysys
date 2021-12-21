@@ -57,8 +57,8 @@ function autorun() {
                                         url: "https://api.quantxi.com/add_data",
                                         data: historical_data,             
                                         dataType: 'json',
-                                        success: function (dat) {
-                                            console.log(dat);
+                                        success: function (result) {
+                                            console.log(result);
                                         }
                                     })
                                     // dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
