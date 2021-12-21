@@ -52,11 +52,10 @@ function autorun() {
                                             'ticker': ticker,                                            
                                             'data': dat
                                         },          
-                                        dataType: 'json'
-                                        // ,
-                                        // success: function (result) {
-                                        //     console.log(result);
-                                        // }
+                                        dataType: 'json',
+                                        success: function (result) {
+                                            console.log(result);
+                                        }
                                     })
 
                                     // dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
