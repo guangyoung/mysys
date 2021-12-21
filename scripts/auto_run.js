@@ -55,7 +55,8 @@ function autorun() {
                                     $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_data",
-                                        data: historical_data,             
+                                        data: historical_data,  
+                                        contentType: "application/json; charset=utf-8",           
                                         dataType: 'json',
                                         success: function (result) {
                                             console.log(result);
