@@ -6,9 +6,6 @@ function autorun() {
         complete: function(result) {
             for (let i = 2; i < 3; i++) {
                 setTimeout(function timer() {
-                    // console.log(i);
-                    // var r = Math.floor(Math.random() * 1000) + 1;
-                    // if(arr.indexOf(r) === -1) {
                         let dat = [];
                         let ticker= result.data[i].Symbol;
                         let description= result.data[i].Description;
@@ -18,9 +15,7 @@ function autorun() {
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=9999999999&interval=1d";
                         $.getJSON(proxyurl+urls, function(data){ 
                             if(data.chart.result !== null) {                                
-                                if(data.chart.result[0].timestamp !== undefined) {
-                                    // let sd = data.chart.result[0].timestamp[0];
-                                    
+                                if(data.chart.result[0].timestamp !== undefined) {                                    
                                     for(i=0;i<data.chart.result[0].timestamp.length;i++) {
                                         let datt = new Array();
                                         datt.push(
@@ -35,51 +30,26 @@ function autorun() {
                                         dat.push(datt);
                                     }
                                     
-                                    // dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
                                         'ticker': ticker,
-                                        // description: description,
-                                        // exchange: exchange,
-                                        // country: country,
                                         'data': dat
-                                        // {
-                                        //     date: data.chart.result[0].timestamp,
-                                        //     open: data.chart.result[0].indicators.quote[0].open,
-                                        //     high: data.chart.result[0].indicators.quote[0].high,
-                                        //     low: data.chart.result[0].indicators.quote[0].low,
-                                        //     close: data.chart.result[0].indicators.quote[0].close,
-                                        //     adjclose: data.chart.result[0].indicators.adjclose[0].adjclose,
-                                        //     volume: data.chart.result[0].indicators.quote[0].volume}
-                                        // startdate: sd,                                        
-                                        // data: JSON.parse(dat)
                                     } 
                                     console.log(historical_data);
                                     console.log(data.chart.result[0]);
                                     $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_data",
-                                        data: {
-                                            'ticker': ticker,                                            
-                                            'data': dat
-                                        },          
+                                        data: historical_data,          
                                         dataType: 'json',
                                         success: function (result) {
                                             console.log(result);
                                         }
                                     })
-
-                                    // dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
-                                    // stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
-                                    // console.log(stock_data[stock_data.length-1].exchange);
-                                    // console.log(stock_data[stock_data.length-1].ticker);
-                                    // console.log(stock_data[stock_data.length-1].description);
-                                    // console.log(stock_data[stock_data.length-1].data[0].length);
-                                    // console.log(stock_data.length);
                                 }                        
                             } 
                         }); 
                         
-                }, i * 5000);           
+                }, i * 500);           
             } 
         }
     });   
