@@ -1,4 +1,5 @@
-
+var dat = new Array();
+var ticker;
 function autorun() {     
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
@@ -9,8 +10,8 @@ function autorun() {
                     // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
-                        let dat = new Array();
-                        let ticker= result.data[i].Symbol;
+                        
+                        ticker= result.data[i].Symbol;
                         let description= result.data[i].Description;
                         let exchange= result.data[i].Exchange;
                         let country= result.data[i].Country; 
@@ -52,18 +53,7 @@ function autorun() {
                                     } 
                                     console.log(historical_data);
                                     console.log(data.chart.result[0]);
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "https://api.quantxi.com/add_data",
-                                        data: {
-                                            'ticker': ticker,                                            
-                                            'data': dat
-                                        },          
-                                        dataType: 'json',
-                                        success: function (result) {
-                                            console.log(result);
-                                        }
-                                    })
+                                    
 
                                     // dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                     // stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
@@ -79,6 +69,18 @@ function autorun() {
                 // }, i * 500);           
             } 
         }
-    });   
+    });  
+    $.ajax({
+        type: "POST",
+        url: "https://api.quantxi.com/add_data",
+        data: {
+            'ticker': ticker,                                            
+            'data': dat
+        },          
+        dataType: 'json',
+        success: function (result) {
+            console.log(result);
+        }
+    }) 
 }
 
