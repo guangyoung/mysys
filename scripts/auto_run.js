@@ -38,7 +38,7 @@ function autorun() {
                                         // description: description,
                                         // exchange: exchange,
                                         // country: country,
-                                        'data': dat
+                                        'data': JSON.stringify(dat)
                                         // {
                                         //     date: data.chart.result[0].timestamp,
                                         //     open: data.chart.result[0].indicators.quote[0].open,
@@ -57,7 +57,7 @@ function autorun() {
                                         url: "https://api.quantxi.com/add_data",
                                         data: {
                                             'ticker': ticker,                                            
-                                            'data': dat
+                                            'data': JSON.stringify(dat)
                                         },          
                                         dataType: 'json',
                                         success: function (result) {
