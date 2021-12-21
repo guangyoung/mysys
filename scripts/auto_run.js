@@ -26,7 +26,7 @@ function autorun() {
                                         let datee = new Date(data.chart.result[0].timestamp[i]*1000);
                                        
                                         datt.push(
-                                            datee.getFullYear()+ "/" +appendLeadingZeroes(datee.getMonth() + 1) + "/" + appendLeadingZeroes(datee.getDate()).toString().slice(0, 10),
+                                            datee,
                                             data.chart.result[0].indicators.quote[0].open[i],
                                             data.chart.result[0].indicators.quote[0].high[i],
                                             data.chart.result[0].indicators.quote[0].low[i],
