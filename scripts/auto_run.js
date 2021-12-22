@@ -4,7 +4,7 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            for (let i = 5; i < 105; i++) {
+            for (let i = 94; i < 95; i++) {
                 setTimeout(function timer() {
                     // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
