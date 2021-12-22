@@ -19,12 +19,10 @@ function autorun() {
                         $.getJSON(proxyurl+urls, function(data){ 
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
-                                    // let sd = data.chart.result[0].timestamp[0];
-                                    
+                                    let sd = data.chart.result[0].timestamp[0];
+                                    let ed = data.chart.result[0].timestamp[data.chart.result[0].timestamp.length-1];
                                     for(i=0;i<data.chart.result[0].timestamp.length;i++) {
-                                        let datt = new Array();
-                                        let datee = new Date(data.chart.result[0].timestamp[i]*1000);
-                                       
+                                        let datt = new Array();                                       
                                         datt.push(
                                             data.chart.result[0].timestamp[i],
                                             data.chart.result[0].indicators.quote[0].open[i],
@@ -40,9 +38,11 @@ function autorun() {
                                     // dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
                                         'ticker': ticker,
-                                        // description: description,
-                                        // exchange: exchange,
-                                        // country: country,
+                                        'description': description,
+                                        'exchange': exchange,
+                                        'country': country,
+                                        'startdate': sd,
+                                        'enddate': ed,
                                         'data': dat
                                     } 
                                     console.log(historical_data);
@@ -50,14 +50,8 @@ function autorun() {
                                     $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_data",
-                                        data: {
-                                            'ticker': ticker,                                            
-                                            'data': dat
-                                        },          
-                                        dataType: 'json',
-                                        success: function (result) {
-                                            console.log(result);
-                                        }
+                                        data: historical_data,     
+                                        dataType: 'json'
                                     })
 
                                     // dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
@@ -71,7 +65,7 @@ function autorun() {
                             } 
                         }); 
                         
-                }, i * 5000);           
+                }, i * 1000);           
             } 
         }
     });   
