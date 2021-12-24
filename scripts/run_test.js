@@ -4,6 +4,10 @@
 //...................................................................................
 
 function run_test() {   
+    //munculkan run test modal
+    //api get last data
+    //jika ada last data reset lalu running
+    //...
     if (test_data.length == 0) {
         Swal.fire(
             'No Test Data !',
