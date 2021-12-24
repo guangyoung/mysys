@@ -9,10 +9,10 @@
     var initial_equity = 1000000; //default initial equity...
     var spread_slippage = 0.001;
     var commission_perShare = 0.005;
-    var interest_rate = 0.02;
+    var interest_rate = 0.01;
     var risk_freeRate = 0.01;
     var regT_margin = 0.5;
-    var maint_margin = 0.3;
+    var maint_margin = 0.25;
     var min_data = 1305;
     var max_data = 7830;
     var portfolio_stocks = 30;
@@ -105,7 +105,8 @@
             $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(initial_equity).toFixed(0)));
             $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(initial_equity).toFixed(0)));
             $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_equity).toFixed(0)));
-            $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_equity).toFixed(0)));
+            $('#SMA').html(Intl.NumberFormat().format(parseFloat(initial_equity).toFixed(0)));
+            $('#margin_buying_power').html(Intl.NumberFormat().format(parseFloat(initial_equity*2).toFixed(0)));
 
             $('#setting').modal('hide');
         }  

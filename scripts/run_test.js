@@ -316,7 +316,7 @@ async function proses() {
         }
 
         // let post_process = "run";
-        let ur = "https://api.quantxi.com/post?api_key=" + localStorage.getItem("apiKey");//gabung atau pisah ya ?
+        let ur = "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey");//gabung atau pisah ya ?
 
         // while (post_process == "run") {
             await $.ajax({

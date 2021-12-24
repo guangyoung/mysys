@@ -73,13 +73,13 @@
             } else {
                 $.ajax({
                 type: "GET",
-                url: "https://api.quantxi.com/user?api_key="+$("#api_key").val(),
+                url: "https://api.quantxi.com/user_profile?api_key="+$("#api_key").val(),
                 dataType: 'json',
                 success: function(result){
                 if (result.status == "success") {                    
                     // alert(`selamat datang `+result.data.nama+`, api key :` +$("#api_key").val()); //setting diserver u/tampilkan message data user
                     
-                    localStorage.setItem("user", result.data.nama);
+                    localStorage.setItem("user", result.data.user_name);
                     localStorage.setItem("apiKey", $("#api_key").val());
                    
                     open("dashboard.html","_self");

@@ -58,7 +58,7 @@
 
         Swal.fire(
             'Welcome to Quantxi AI Testing Tool',
-            'User : ' + user,
+            'User : ' + user, // Contoh : Point72
             'success'
         )
     </script>
@@ -76,7 +76,7 @@
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip"
                         data-placement="bottom" title="View Source Code" style="margin-top: 9px;"><i
                             class="fa fa-github" style="color: #ffffff; font-size: 30px"></i></a>
-                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip"
+                    <a href="" target="_blank" data-toggle="tooltip" onclick="reset_test()"
                         data-placement="bottom" title="Test With Google Colab"
                         style="margin-left: 25px; margin-top: 0px"><img src="styles/image/colab.png" height="48"
                             width="48"></a>
@@ -163,7 +163,7 @@
                                 <tr>
                                     <td style="padding: 1px 5px">SMA</td>
                                     <td style="position: absolute; right: 10px; padding: 1px 5px"><span
-                                            id="initial_margin_available">1,000,000</span></td>
+                                            id="SMA">1,000,000</span></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px">Margin&nbsp;Buying&nbsp;Power</td>
@@ -1008,10 +1008,10 @@
     <!-- MODAL SETTING -->
     <div class="modal" id="setting" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
         aria-labelledby="trade_settingLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog" style="min-width: 600px;" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa fa-gear"></i><strong style="margin-left: 10px">TRADE
+                    <h5 class="modal-title"><i class="fa fa-gear"></i><strong style="margin-left: 10px">TEST
                             SETTING</strong></h5>
                     <button type="button" class="close" aria-label="Close" onclick="test_setting_submit_btn()">
                         <span aria-hidden="true">&times;</span>
@@ -1031,7 +1031,7 @@
                                     aria-describedby="" value="1000000" min="1000000" required>
                             </div>
                             <div class="spani form-group">
-                                <label style="font-size: 13px; margin-top: 10px">Spread+Slippage/Side
+                                <label style="font-size: 13px; margin-top: 10px">Spread+Slippage/Trade Side
                                     <a><i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i>
                                         <span>isi besaran spread</span>
                                     </a>
@@ -1040,7 +1040,7 @@
                                     aria-describedby="" value="0.001" min="0.001" max="0.005" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 10px">Commision/Share<i
+                                <label style="font-size: 13px; margin-top: 10px">Commision/Share/Trade Side<i
                                         class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                                 <input style="font-size: 13px" type="number" class="form-control" id="commision"
                                     aria-describedby="" value="0.005" min="0.001" max="0.005" required>
@@ -1069,22 +1069,22 @@
                                     readonly aria-describedby="" value="50%" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 10px">Maintenaince Margin <i
+                                <label style="font-size: 13px; margin-top: 10px">Maintenaince Margin Req.<i
                                         class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                                 <input style="font-size: 13px" type="text" class="form-control" id="maint_margin"
                                     readonly aria-describedby="" value="30%" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 10px">Min Data<i class="fa fa-info-circle"
+                                <label style="font-size: 13px; margin-top: 10px">Min Record Test Data<i class="fa fa-info-circle"
                                         style="margin-left: 5px; font-size: 13px"></i></label>
                                 <input style="font-size: 13px" type="text" class="form-control" id="min_data" readonly
-                                    aria-describedby="" value="1305" required>
+                                    aria-describedby="" value="2610" required>
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 10px">Max Data<i class="fa fa-info-circle"
+                                <label style="font-size: 13px; margin-top: 10px">Max Record Test Data<i class="fa fa-info-circle"
                                         style="margin-left: 5px; font-size: 13px"></i></label>
                                 <input style="font-size: 13px" type="text" class="form-control" id="max_data" readonly
-                                    aria-describedby="" value="7830" required>
+                                    aria-describedby="" value="10440" required>
                             </div>
                             <div class="form-group">
                                 <label style="font-size: 13px; margin-top: 10px">Portfolio Stocks<i
@@ -1108,8 +1108,27 @@
         <div class="modal-dialog" style="min-width: 1200px;" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">MARKET
+                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">TEST
                             DATA</strong></h5>
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist"
+                        style="position: absolute; left: 220px; margin-top: 2px; font-size: 14px">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-historical-tab" data-toggle="pill"
+                                href="#pills-historical" role="tab" aria-controls="pills-historical"
+                                aria-selected="true" style="margin-left: 0px; padding: 3px 20px; height: 26px">Create Test Data Using Stocks Historical Data</a>
+                        </li>                       
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-geometric-tab" data-toggle="pill" href="#pills-geometric"
+                                role="tab" aria-controls="pills-geometric" aria-selected="false"
+                                style="margin-left: 50px; padding: 3px 20px; height: 26px">Create Test Data Using Geometric Brownian Motion</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" id="pills-signal-tab" data-toggle="pill" href="#pills-signal" role="tab"
+                                aria-controls="pills-signal" aria-selected="false"
+                                style="margin-left: 50px; padding: 3px 20px; height: 26px">All Quantxi Request &
+                                Response</a>
+                        </li> -->
+                    </ul>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1283,14 +1302,14 @@
                                             <div id="div_ulul">
                                                 <ul id="ulul" class="uli dropdown-menu"
                                                     aria-labelledby="dropdownMenuButton"
-                                                    style="background-color: #494949; color: #ffff; font-size: 13px; height: 322px; width: 500px; overflow: auto;">
+                                                    style="font-family: calibri; background-color: #494949; color: #ffff; font-size: 14px; height: 322px; width: 650px; overflow: auto;">
 
                                                 </ul>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-sm"
                                             style="font-size: 13px; padding: 0px 0px; margin-left: 5px; margin-top: 3px; height: 24px; width: 185px"
-                                            onclick="add_data()">Add Stock</button>
+                                            onclick="add_data()">Add Stocks</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="nav-random" role="tabpanel"
@@ -1445,7 +1464,7 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-sm"
                                         style="font-size: 13px; padding: 0px 0px; margin-left: 0px; margin-top: 5px; height: 24px; width: 370px"
-                                        onclick="add_data_random()">Add Stock Randomly</button>
+                                        onclick="add_data_random()">Add Stocks Randomly</button>
                                     <!-- </div> -->
                                 </div>
                             </div>
@@ -1479,16 +1498,16 @@
                             </div>
                             <div class="row">
                                 <button type="submit" class="btn btn-danger btn-sm"
-                                    style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 10px; height: 26px; width: 179px"
-                                    onclick="reset_stock()">Reset Data</button>
+                                    style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 10px; height: 26px; width: 180px"
+                                    onclick="reset_stock()">Clear All</button>
                                 <button type="submit" class="btn btn-primary btn-sm"
-                                    style="font-size: 14px; padding: 0px 5px; margin-left: 10px; margin-top: 10px; height: 26px; width: 179px"
+                                    style="font-size: 14px; padding: 0px 5px; margin-left: 10px; margin-top: 10px; height: 26px; width: 180px"
                                     onclick="create_test_data()">Create Data</button>
                             </div>
                         </div>
                         <div class="col-8">
                             <div class="row">
-                                <strong style="margin-left: 0px; font-size: 12px;">Period of Testing :</strong>
+                                <strong style="margin-left: 0px; font-size: 12px;">Period of Data :</strong>
                                 <input id="period_data" type="text" class="form-text-sm" disabled
                                     value="No Data Available"
                                     style="text-align: center; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 150px; font-size: 10px">
@@ -1624,7 +1643,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" id="pills-performance-tab" data-toggle="pill"
                                 href="#pills-performance" role="tab" aria-controls="pills-performance"
-                                aria-selected="true" style="margin-left: 0px; padding: 3px 20px; height: 26px">Trade
+                                aria-selected="true" style="margin-left: 0px; padding: 3px 20px; height: 26px">Portfolio
                                 Performance</a>
                         </li>                       
                         <li class="nav-item">
@@ -1638,10 +1657,6 @@
                                 style="margin-left: 50px; padding: 3px 20px; height: 26px">All Quantxi Request &
                                 Response</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" id="pills-details-tab" data-toggle="pill" href="#pills-details" role="tab" aria-controls="pills-details" aria-selected="false" style="margin-left: 30px; margin-right: 30px; padding: 3px 20px; height: 26px">Stocks Trade Detail</a>
-                        </li>                         -->
-
                     </ul>
                 </div>
                 <div class="modal-body">
@@ -1653,7 +1668,17 @@
                                     <div class="container card"
                                         style="text-align: center; background-color: #dfdfdf; margin: auto; height: 230px; width: 300px">
                                         <!-- <div> -->
-                                        <h1 style="font-size: 30px; color: #003853; margin-top: 10px">
+                                        
+                                        <div class="row" style="margin: auto">
+                                            <h1 style="font-size: 50px; color: #003853; margin-top: 5px">
+                                                <strong>24x</strong>
+                                            </h1>
+                                            <h4
+                                                style="font-size: 18px; color: #003853; margin-left: 10px; margin-top: 15px">
+                                                <strong>OUTPERFORM <br>BUY & HOLD</strong>
+                                            </h4>
+                                        </div>
+                                        <h1 style="font-size: 30px; color: #003853; margin-top: 0px">
                                             <strong>1080200.35%</strong>
                                         </h1>
                                         <h6 style="font-size: 22px; color: #003853; margin-top: -10px"><strong>TOTAL
@@ -1664,15 +1689,6 @@
                                         <h6 style="font-size: 22px; color: #003853; margin-top: -15px">
                                             <strong>CAGR</strong>
                                         </h6>
-                                        <div class="row" style="margin: auto">
-                                            <h1 style="font-size: 50px; color: #003853; margin-top: 0px">
-                                                <strong>24x</strong>
-                                            </h1>
-                                            <h4
-                                                style="font-size: 18px; color: #003853; margin-left: 10px; margin-top: 10px">
-                                                <strong>OUTPERFORM <br>BUY & HOLD</strong>
-                                            </h4>
-                                        </div>
                                     </div>
                                     <div style="height: 185px; width: 300px">
                                         <h6
@@ -1863,15 +1879,15 @@
                                                 Date</th>
                                             <th colspan="9"
                                                 style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                                Pre Trade Position/Start of Day</th>
+                                                Pre Trade Position</th>
                                             <th colspan="3"
                                                 style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
                                                 Trade Summary</th>
-                                            <th colspan="7"
+                                            <!-- <th colspan="7"
                                                 style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                                Post Trade Position/End of Day</th>
+                                                Post Trade Position/End of Day</th> -->
                                             <th rowspan="2"
-                                                style="background-color: #2e2e2e; color: #ebebeb; position: sticky; top: 0px; right: 0px; z-index: 2; padding: 5px 5px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid; ">
+                                                style="background-color: #2e2e2e; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid; ">
                                                 Stock Position<br>And Trade Details</th>
                                         </tr>
                                         <tr>
@@ -1902,6 +1918,9 @@
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Buying<br>Power</th>
+                                            <!-- <th
+                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                                Total BUY<br>Trade Value</th> -->
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Total<br>Trade Value</th>
@@ -1914,7 +1933,7 @@
                                             <!-- <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Trade<br>Details</th> -->
-                                            <th
+                                            <!-- <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Cash<br>Balance</th>
                                             <th
@@ -1934,7 +1953,7 @@
                                                 Reg-T Margin<br>Requirements</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                SMA</th>
+                                                SMA</th> -->
                                         </tr>
                                     </thead>
                                     <tbody
@@ -1971,25 +1990,19 @@
                                             <td
                                                 style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
+                                            <!-- <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                                1,000,000,000.00</td> -->
                                             <td
                                                 style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
                                             <td
                                                 style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                                                1,000,000.00</td>
+                                                10,000</td>
                                             <td
                                                 style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td
-                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                                                1,000,000,000.00</td>
-                                            <td
-                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                                                1,000,000,000.00</td>
-                                            <td
-                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                                                1,000,000,000.00</td>
-                                            <td
+                                            <!-- <td
                                                 style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
                                             <td
@@ -2001,8 +2014,14 @@
                                             <td
                                                 style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                                1,000,000,000.00</td>
+                                            <td
+                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                                                1,000,000,000.00</td> -->
                                             <td onclick="myFunction(event)"
-                                                style="position: sticky; right: 0px; z-index: 2; text-align: center; background-color: #122121; padding: 2px 5px">
+                                                style="position: sticky; text-align: center; background-color: #122121; padding: 2px 5px">
                                                 <button type="button" class="btn btn-primary btn-sm"
                                                     style="padding: 0 3px; height: 18px; font-size: 11px; width: 75px"
                                                     id="230101" data-toggle="modal" data-target="#trade_details">View
@@ -2125,9 +2144,9 @@
                                     <th colspan="5"
                                         style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
                                         Trade Transaction</th>
-                                    <th colspan="2"
+                                    <!-- <th colspan="2"
                                         style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;">
-                                        Post Trade Position</th>
+                                        Post Trade Position</th> -->
                                 </tr>
                                 <tr>
                                     <th
@@ -2151,12 +2170,12 @@
                                     <th
                                         style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid;width: 110px">
                                         Initial<br>Margin</th>
-                                    <th
+                                    <!-- <th
                                         style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 80px">
                                         Position<br>Size</th>
                                     <th
                                         style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
-                                        Market<br>Value</th>
+                                        Market<br>Value</th> -->
                                 </tr>
                                 <!-- <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
                                     <th
@@ -2209,8 +2228,8 @@
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">100,000.00</td>
                                     <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
-                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td>
+                                    <!-- <td style="text-align: right; padding: 1px 1px">1,000,000.00</td>
+                                    <td style="text-align: right; padding: 1px 1px">1,000,000,000.00</td> -->
                                 </tr>
                             </tbody>
                         </table>
@@ -2299,6 +2318,9 @@
                                     <th colspan="4"
                                         style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Performance Comparison</th>
+                                    <th rowspan="2"
+                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        Run Test</th>
                                 </tr>
                                 <tr>
                                     <th colspan="2"
@@ -2311,7 +2333,7 @@
                             </thead>
                             <tbody style="font-size: 11px; font-family: calibri;">
                                 <tr>
-                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
+                                    <td style="text-align: center;padding: 5px 10px">000001</td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
@@ -2371,10 +2393,14 @@
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
+                                    </td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
+                                    <td style="text-align: center;padding: 5px 10px">0000001</td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
@@ -2434,10 +2460,14 @@
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
+                                    </td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
+                                    <td style="text-align: center;padding: 5px 10px">0000001</td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
@@ -2497,10 +2527,14 @@
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
+                                    </td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
+                                    <td style="text-align: center;padding: 5px 10px">0000001</td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
@@ -2560,10 +2594,14 @@
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
+                                    </td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
+                                    <td style="text-align: center;padding: 5px 10px">0000001</td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
@@ -2623,10 +2661,14 @@
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
+                                    </td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: center;padding: 5px 10px">Heri_Test_000001</td>
+                                    <td style="text-align: center;padding: 5px 10px">0000001</td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         23/01/01 13:00:00</td>
                                     <td
@@ -2686,6 +2728,10 @@
                                     </td>
                                     <td style="text-align: right; padding: 5px 10px">
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
+                                    </td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -2694,6 +2740,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger btn-sm">Reset Data</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save Data</button>
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                 </div>
             </div>

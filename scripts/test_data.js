@@ -58,6 +58,8 @@ function tickers_list_btn() {
       newLi.appendChild(cb);
       var text = document.createTextNode(tickers[i]);
       newLi.appendChild(text);
+      // var text2 = document.createTextNode("testest");
+      // newLi.appendChild(text2);
       document.getElementById("ulul").appendChild(newLi);
     }
   } else {
