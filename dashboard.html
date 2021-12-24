@@ -76,9 +76,10 @@
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip"
                         data-placement="bottom" title="View Source Code" style="margin-top: 9px;"><i
                             class="fa fa-github" style="color: #ffffff; font-size: 30px"></i></a>
-                    <a href="" target="_blank" data-toggle="tooltip" onclick="reset_test()" data-placement="bottom"
-                        title="Test With Google Colab" style="margin-left: 25px; margin-top: 0px"><img
-                            src="styles/image/colab.png" height="48" width="48"></a>
+                    <a href="" target="_blank" data-toggle="tooltip" onclick="reset_test()"
+                        data-placement="bottom" title="Test With Google Colab"
+                        style="margin-left: 25px; margin-top: 0px"><img src="styles/image/colab.png" height="48"
+                            width="48"></a>
                     <!-- <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip"
                         data-placement="bottom" title="Test With Google Colab"
                             style="margin-left: 25px; margin-top: 0px"><img src="styles/image/colab.png" height="48"
@@ -1017,8 +1018,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!-- <div class="row">
-                        <div class="col-6"> -->
                     <div class="spani form-group">
                         <label style="font-size: 13px; margin-top: 5px">Initial Equity
                             <a><i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i>
@@ -1045,54 +1044,17 @@
                             aria-describedby="" value="0.005" min="0.001" max="0.005" required>
                     </div>
                     <div class="form-group">
-                        <label style="font-size: 13px; margin-top: 10px">Interest Rate/Year<i class="fa fa-info-circle"
-                                style="margin-left: 5px; font-size: 13px"></i></label>
+                        <label style="font-size: 13px; margin-top: 10px">Interest Rate/Year<i
+                                class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                         <input style="font-size: 13px" type="text" class="form-control" id="interest_rate"
                             aria-describedby="" value="0.01" min="0.01" max="0.05" required>
                     </div>
                     <div class="form-group">
-                        <label style="font-size: 13px; margin-top: 10px">Risk Free Rate/Year<i class="fa fa-info-circle"
-                                style="margin-left: 5px; font-size: 13px"></i></label>
+                        <label style="font-size: 13px; margin-top: 10px">Risk Free Rate/Year<i
+                                class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                         <input style="font-size: 13px" type="text" class="form-control" id="risk_free_rate"
                             aria-describedby="" value="0.01" min="0.01" max="0.05" required>
                     </div>
-                    <!-- </div> -->
-                    <!-- <div class="col-6">
-                            <div class="spani form-group">
-                                <label style="font-size: 13px; margin-top: 5px">Reg.T Margin Req.
-                                    <a><i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i>
-                                        <span>margin yang digunakan berdasarkan reg t fed</span>
-                                    </a>
-                                </label>
-                                <input style="font-size: 13px" type="text" class="form-control" id="regT_margin"
-                                    readonly aria-describedby="" value="50%" required>
-                            </div>
-                            <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 10px">Maintenaince Margin Req.<i
-                                        class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                <input style="font-size: 13px" type="text" class="form-control" id="maint_margin"
-                                    readonly aria-describedby="" value="30%" required>
-                            </div>
-                            <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 10px">Min Record Test Data<i class="fa fa-info-circle"
-                                        style="margin-left: 5px; font-size: 13px"></i></label>
-                                <input style="font-size: 13px" type="text" class="form-control" id="min_data" readonly
-                                    aria-describedby="" value="2610" required>
-                            </div>
-                            <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 10px">Max Record Test Data<i class="fa fa-info-circle"
-                                        style="margin-left: 5px; font-size: 13px"></i></label>
-                                <input style="font-size: 13px" type="text" class="form-control" id="max_data" readonly
-                                    aria-describedby="" value="10440" required>
-                            </div>
-                            <div class="form-group">
-                                <label style="font-size: 13px; margin-top: 10px">Portfolio Stocks<i
-                                        class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
-                                <input style="font-size: 13px" type="text" class="form-control" id="portfolio_stocks"
-                                    readonly aria-describedby="" value="30" required>
-                            </div>
-                        </div> -->
-                    <!-- </div> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm"
@@ -1107,49 +1069,31 @@
         <div class="modal-dialog" style="min-width: 1200px;" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">TEST
-                            DATA</strong></h5>
-                    <ul class="nav nav-pills" id="pills-tab" role="tablist"
-                        style="position: absolute; left: 220px; margin-top: 2px; font-size: 14px">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="pills-historical-tab" data-toggle="pill"
-                                href="#pills-historical" role="tab" aria-controls="pills-historical"
-                                aria-selected="true" style="margin-left: 0px; padding: 3px 20px; height: 26px">Create
-                                Test Data Using Stocks Historical Data</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-geometric-tab" data-toggle="pill" href="#pills-geometric"
-                                role="tab" aria-controls="pills-geometric" aria-selected="false"
-                                style="margin-left: 50px; padding: 3px 20px; height: 26px">Create Test Data Using
-                                Geometric Brownian Motion</a>
-                        </li>
-                    </ul>
+                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">TEST DATA</strong></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body">                    
                     <div class="row">
                         <div class="col-4">
-                            <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-historical" role="tabpanel"
-                                    aria-labelledby="pills-historical-tab">
-                                    <!-- <nav style="font-size: 13px">
-                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <a style="padding: 5px 15px" class="nav-item nav-link active"
-                                                id="nav-manual-tab" data-toggle="tab" href="#nav-manual" role="tab"
-                                                aria-controls="nav-manual" aria-selected="true"><strong>Select Stock
-                                                    Manually</strong></a>
-                                            <a style="padding: 5px 15px" class="nav-item nav-link" id="nav-random-tab"
-                                                data-toggle="tab" href="#nav-random" role="tab"
-                                                aria-controls="nav-random" aria-selected="false"><strong>Select Stock
-                                                    Randomly</strong></a>
-                                        </div>
-                                    </nav> -->
+                            <nav style="font-size: 13px">
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <a style="padding: 5px 15px" class="nav-item nav-link active" id="nav-manual-tab"
+                                        data-toggle="tab" href="#nav-manual" role="tab" aria-controls="nav-manual"
+                                        aria-selected="true"><strong>Select Stock Manually</strong></a>
+                                    <a style="padding: 5px 15px" class="nav-item nav-link" id="nav-random-tab"
+                                        data-toggle="tab" href="#nav-random" role="tab" aria-controls="nav-random"
+                                        aria-selected="false"><strong>Select Stock Randomly</strong></a>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-manual" role="tabpanel"
+                                    aria-labelledby="nav-manua-tab">
                                     <div class="dropdown" id="tickers_exchange">
                                         <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn"
                                             type="button" data-toggle="dropdown" onclick="tickers_exchange_btn()"
-                                            style="margin-top: 0px; font-size: 13px; width: 370px; padding: 1px 5px"
+                                            style="margin-top: 5px; font-size: 13px; width: 370px; padding: 1px 5px"
                                             aria-haspopup="true" aria-expanded="false">
                                             <span class="Xchange">Select Exchange</span>
                                         </button>
@@ -1288,77 +1232,217 @@
                                                 id="vienna_stock_exchange">Vienna Stock Exchange - Austria</a>
                                         </div>
                                     </div>
-                                    <!-- <div class="tab-content" id="nav-tabContent">
-                                        <div class="tab-pane fade show active" id="nav-manual" role="tabpanel"
-                                            aria-labelledby="nav-manua-tab"> -->
-                                            <div class="row" style="margin-top: 2px" id="tt_dd">
-                                                <div class="dropdown" id="tickers_list">
-                                                    <button class="btn btn-secondary btn-sm dropdown-toggle"
-                                                        id="tiingo_tickers_btn" onclick="tickers_list_btn()"
-                                                        type="button" data-toggle="dropdown"
-                                                        style="margin-top: 2px; margin-left: 15px; font-size: 13px; width: 180px; padding: 1px 5px">
-                                                        Select Stocks (<span class="quantity">0</span>)
-                                                    </button>
-                                                    <div id="div_ulul">
-                                                        <ul id="ulul" class="uli dropdown-menu"
-                                                            aria-labelledby="dropdownMenuButton"
-                                                            style="font-family: calibri; background-color: #494949; color: #ffff; font-size: 14px; height: 322px; width: 650px; overflow: auto;">
+                                    <div class="row" style="margin-top: 2px" id="tt_dd">
+                                        <div class="dropdown" id="tickers_list">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle"
+                                                id="tiingo_tickers_btn" onclick="tickers_list_btn()" type="button"
+                                                data-toggle="dropdown"
+                                                style="margin-top: 2px; margin-left: 15px; font-size: 13px; width: 180px; padding: 1px 5px">
+                                                Select Stocks (<span class="quantity">0</span>)
+                                            </button>
+                                            <div id="div_ulul">
+                                                <ul id="ulul" class="uli dropdown-menu"
+                                                    aria-labelledby="dropdownMenuButton"
+                                                    style="font-family: calibri; background-color: #494949; color: #ffff; font-size: 14px; height: 322px; width: 650px; overflow: auto;">
 
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary btn-sm"
-                                                    style="font-size: 13px; padding: 0px 0px; margin-left: 5px; margin-top: 3px; height: 24px; width: 185px"
-                                                    onclick="add_data()">Add Stocks</button>
+                                                </ul>
                                             </div>
-                                        <!-- </div>
-                                        <div class="tab-pane fade" id="nav-random" role="tabpanel"
-                                            aria-labelledby="nav-random-tab">
-                                            <button type="submit" class="btn btn-primary btn-sm"
-                                                style="font-size: 13px; padding: 0px 0px; margin-left: 0px; margin-top: 5px; height: 24px; width: 370px"
-                                                onclick="add_data_random()">Add Stocks Randomly</button>
-                                        </div> -->
-                                    <!-- </div> -->
-                                    <div class="row">
-                                        <div class="table-report"
-                                            style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 10px; margin-left: 15px; margin-right: 15px; height: 337px; width: 100%; overflow-y: scroll">
-                                            <table id="table_assets">
-                                                <thead style="font-size: 12px; font-family: calibri">
-                                                    <tr>
-                                                        <th
-                                                            style="position: sticky; top: 0px; background-color: #ffffff; width: 1%; padding: 0 5px; text-align: center">
-                                                            #Stock</th>
-                                                        <th
-                                                            style="position: sticky; top: 0px; background-color: #ffffff; width: 14%; padding: 0 5x; text-align: center">
-                                                            Stock&nbsp;Ticker</th>
-                                                        <th
-                                                            style="position: sticky; top: 0px; background-color: #ffffff; width: 36%; padding: 0 5px; text-align: center">
-                                                            Exchange</th>
-                                                        <th
-                                                            style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">
-                                                            Data&nbsp;Start&nbsp;Date</th>
-                                                        <th
-                                                            style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">
-                                                            Data&nbsp;End&nbsp;Date</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody style="font-size: 11.5px; font-family: calibri">
-                                                </tbody>
-                                            </table>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; padding: 0px 0px; margin-left: 5px; margin-top: 3px; height: 24px; width: 185px"
+                                            onclick="add_data()">Add Stocks</button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="nav-random" role="tabpanel"
+                                    aria-labelledby="nav-random-tab">
+                                    <div class="dropdown" id="tickers_exchange_select_random">
+                                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="Xchange_btn_random"
+                                            type="button" data-toggle="dropdown" onclick="tickers_exchange_btn_random()"
+                                            style="margin-top: 5px; font-size: 13px; width: 370px; padding: 1px 5px"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <span class="Xchange_random">Select Exchange</span>
+                                        </button>
+                                        <div class="dropdown-menu" id="ex_dd_random"
+                                            aria-labelledby="dropdownMenuButton"
+                                            style="background-color: #494949; text-align: center; font-size: 13px; height: 410px; width: 372px; overflow: auto;">
+                                            <a class="dropdown-item" href="#" style="margin-top: -10px; color: #ffff"
+                                                id="NASDAQ_random">NASDAQ - Test</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="Mix2">Mix - Asian
+                                                Exchange</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="Mix3">Mix -
+                                                Europe Exchange</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="NASDAQ_random2">NASDAQ -
+                                                USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="euronext_amsterdam">Euronext Amsterdam - Netherlands</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="american_stock_exchange">American Stock Exchange - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="australian_stock_exchange">Australian Stock Exchange - Australia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="athens_stock_exchange">Athens Stock Exchange - Greece</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="berlin_stock_exchange">Berlin Stock Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="euronext_brussels">Euronext Brussels - Belgium</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="bombay_stock_exchange">Bombay Stock Exchange - India</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="buenos_aires_stock_exchange">Buenos Aires Stock Exchange -
+                                                Argentina</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="caracas_stock_exchange">Caracas Stock Exchange - Venezuela</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="canadian_securities_exchange">Canadian Securities Exchange -
+                                                Canada</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="nasdaq_omx_copenhagen">Nasdaq OMX Copenhagen - Denmark</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="qatar_stock_exchange">Qatar Stock Exchange - Qatar</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="dusseldorf_stock_exchange">Dusseldorf Stock Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="swiss_exchange">Swiss Exchange - Switzerland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="frankfurt_stock_exchange">Frankfurt Stock Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="deutsche_boerse_xetra">Deutsche Boerse XETRA - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="hamburg_stock_exchange">Hamburg Stock Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="hanover_stock_exchange">Hanover Stock Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="nasdaq_omx_helsinki">Nasdaq OMX Helsinki - Finland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="hong_kong_stock_exchange">Hong Kong Stock Exchange - Hong Kong</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="nasdaq_omx_iceland">Nasdaq OMX Iceland - Iceland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="london_stock_exchange">London Stock Exchange - United Kingdom</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="euronext_dublin">Euronext Dublin - Ireland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="borsa_istanbul">Borsa Istanbul - Turkey</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="indonesia_stock_exchange">Indonesia Stock Exchange - Indonesia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="malaysian_stock_exchange">Malaysian Stock Exchange - Malaysia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="kosdaq">KOSDAQ -
+                                                South Korea</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="korea_stock_exchange">Korea Stock Exchange - South Korea</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="euronext_lisbon">Euronext Lisbon - Portugal</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="nasdaq_omx_vilnius">Nasdaq OMX Vilnius - Lithuania</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="madrid _se_cats">Madrid SE CATS - Spain</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="moscow_exchange">Moscow Exchange - Russia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="mexico_stock_exchange">Mexico Stock Exchange - Mexico</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="italian_stock_exchange">Italian Stock Exchange - Italy</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="munich_stock_exchange">Munich Stock Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="nasdaq_capital_market">Nasdaq Capital Market - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="nasdaq_global_market">Nasdaq Global Market - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="nasdaq_national_market">Nasdaq National Market - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="national_stock_exchange_of_india">National Stock Exchange of India -
+                                                India</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="new_york_stock_exchange">New York Stock Exchange - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="new_zealand_stock_exchange">New Zealand Stock Exchange - New
+                                                Zealand</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="nasdaq_otc_bulletin_board">Nasdaq OTC Bulletin Board - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="oslo_stock_exchange">Oslo Stock Exchange - Norway</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="euronext_paris">Euronext Paris - France</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="nyse_arca">NYSE
+                                                Arca - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff" id="otc_markets">OTC
+                                                Markets - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="nasdaq_omx_riga">Nasdaq OMX Riga - Latvia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="sao_paolo_stock_exchange">Sao Paolo Stock Exchange - Brazil</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="singapore_stock_exchange">Singapore Stock Exchange - Singapore</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="stock_exchange_of_thailand">Stock Exchange of Thailand -
+                                                Thailand</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="shanghai_stock_exchange">Shanghai Stock Exchange - China</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="shenzhen_stock_exchange">Shenzhen Stock Exchange - China</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="nasdaq_omx_stockholm">Nasdaq OMX Stockholm - Sweden</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="stuttgart_stock_exchange">Stuttgart Stock Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="taiwan_stock_exchange">Taiwan Stock Exchange - Taiwan</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="nasdaq_omx_tallinn">Nasdaq OMX Tallinn - Estonia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="tel_aviv_stock_exchange">Tel Aviv Stock Exchange - Israel</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="toronto_stock_exchange">Toronto Stock Exchange - Canada</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="taiwan_otc_exchange">Taiwan OTC Exchange - Taiwan</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="tsx_venture_exchange">TSX Venture Exchange - Canada</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff"
+                                                id="vienna_stock_exchange">Vienna Stock Exchange - Austria</a>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <button type="submit" class="btn btn-danger btn-sm"
-                                            style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 10px; height: 26px; width: 180px"
-                                            onclick="reset_stock()">Clear All</button>
-                                        <button type="submit" class="btn btn-primary btn-sm"
-                                            style="font-size: 14px; padding: 0px 5px; margin-left: 10px; margin-top: 10px; height: 26px; width: 180px"
-                                            onclick="create_test_data()">Create Data</button>
-                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm"
+                                        style="font-size: 13px; padding: 0px 0px; margin-left: 0px; margin-top: 5px; height: 24px; width: 370px"
+                                        onclick="add_data_random()">Add Stocks Randomly</button>
                                 </div>
-                                <div class="tab-pane fade show" id="pills-geometric" role="tabpanel"
-                                    aria-labelledby="pills-geometric-tab">
+                            </div>
+                            <div class="row">
+                                <div class="table-report"
+                                    style="border-left: 1px #858585 solid; border-right: 1px #858585 solid; border-bottom: 1px #858585 solid; border-top: 1px #858585 solid; margin-top: 10px; margin-left: 15px; margin-right: 15px; height: 300px; width: 100%; overflow-y: scroll">
+                                    <table id="table_assets">
+                                        <thead style="font-size: 12px; font-family: calibri">
+                                            <tr>
+                                                <th
+                                                    style="position: sticky; top: 0px; background-color: #ffffff; width: 1%; padding: 0 5px; text-align: center">
+                                                    #Stock</th>
+                                                <th
+                                                    style="position: sticky; top: 0px; background-color: #ffffff; width: 14%; padding: 0 5x; text-align: center">
+                                                    Stock&nbsp;Ticker</th>
+                                                <th
+                                                    style="position: sticky; top: 0px; background-color: #ffffff; width: 36%; padding: 0 5px; text-align: center">
+                                                    Exchange</th>
+                                                <th
+                                                    style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">
+                                                    Data&nbsp;Start&nbsp;Date</th>
+                                                <th
+                                                    style="position: sticky; top: 0px; background-color: #ffffff; width: 20%; padding: 0 5px; text-align: center">
+                                                    Data&nbsp;End&nbsp;Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="font-size: 11.5px; font-family: calibri">
+                                        </tbody>
+                                    </table>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                    style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 10px; height: 26px; width: 180px"
+                                    onclick="reset_stock()">Clear All</button>
+                                <button type="submit" class="btn btn-primary btn-sm"
+                                    style="font-size: 14px; padding: 0px 5px; margin-left: 10px; margin-top: 10px; height: 26px; width: 180px"
+                                    onclick="create_test_data()">Create Data</button>
                             </div>
                         </div>
                         <div class="col-8">
@@ -1494,14 +1578,14 @@
                     <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i
                                 class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>TEST
                             RESULT</strong></a>
-                    <ul class="nav nav-pills" id="pills-tab2" role="tablist"
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist"
                         style="position: absolute; left: 280px; margin-top: 2px; font-size: 14px">
                         <li class="nav-item">
                             <a class="nav-link active" id="pills-performance-tab" data-toggle="pill"
                                 href="#pills-performance" role="tab" aria-controls="pills-performance"
                                 aria-selected="true" style="margin-left: 0px; padding: 3px 20px; height: 26px">Portfolio
                                 Performance</a>
-                        </li>
+                        </li>                       
                         <li class="nav-item">
                             <a class="nav-link" id="pills-summary-tab" data-toggle="pill" href="#pills-summary"
                                 role="tab" aria-controls="pills-summary" aria-selected="false"
@@ -1516,7 +1600,7 @@
                     </ul>
                 </div>
                 <div class="modal-body">
-                    <div class="tab-content" id="pills-tab2Content">
+                    <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-performance" role="tabpanel"
                             aria-labelledby="pills-performance-tab">
                             <div class="row">
@@ -1524,7 +1608,7 @@
                                     <div class="container card"
                                         style="text-align: center; background-color: #dfdfdf; margin: auto; height: 230px; width: 300px">
                                         <!-- <div> -->
-
+                                        
                                         <div class="row" style="margin: auto">
                                             <h1 style="font-size: 50px; color: #003853; margin-top: 5px">
                                                 <strong>24x</strong>
@@ -1626,90 +1710,90 @@
                                         </div>
                                         <div class="col-5">
                                             <canvas id="" width="340" height="200"
-                                                style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                                style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>                                           
                                             <canvas id="" width="340" height="200"
-                                                style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                                style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>                                            
                                         </div>
                                     </div>
-                                    <div class="row" style="margin-left: 10px">
+                                    <div class="row" style="margin-left: 10px">      
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
                                     </div>
                                 </div>
                             </div>
@@ -2251,11 +2335,8 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm"
-                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
-                                            Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -2321,11 +2402,8 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm"
-                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
-                                            Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -2391,11 +2469,8 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm"
-                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
-                                            Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -2461,11 +2536,8 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm"
-                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
-                                            Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -2531,11 +2603,8 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm"
-                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
-                                            Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -2601,11 +2670,8 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm"
-                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
-                                            Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
                                     </td>
                                 </tr>
                             </tbody>
