@@ -1449,15 +1449,18 @@
                             <div class="row">
                                 <strong style="margin-left: 0px; font-size: 12px;">Period of Data :</strong>
                                 <input id="period_data" type="text" class="form-text-sm" disabled
-                                    value="No Data Available"
-                                    style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 150px; font-size: 10px">
-                                <strong style="margin-left: 15px; font-size: 12px;">Period of Test :</strong>
-                                <input id="period_data" type="text" class="form-text-sm" disabled
-                                    value="No Data Available"
-                                    style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 150px; font-size: 10px">                             
+                                    style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 140px; font-size: 10px">
+                                <strong style="margin-left: 20px; font-size: 12px;">Period of Test :</strong>
+                                <input id="start_date_test" type="date" class="form-text-sm"
+                                    style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 125px; font-size: 10px"> 
+                                <input id="end_date_test" type="date" class="form-text-sm"
+                                    style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 125px; font-size: 10px">                             
                                 <button type="submit" class="btn btn-primary btn-sm"
-                                style="font-size: 12px; padding: 0px 0px; margin-left: 10px; margin-top: 0px; height: 20px; width: 160px"
+                                style="font-size: 11px; padding: 1px 0px; margin-left: 10px; margin-top: 0px; height: 20px; width: 160px"
                                 >Change Period of Test</button>
+                                <!-- <button type="submit" class="btn btn-primary btn-sm"
+                                style="font-size: 11px; padding: 1px 0px; margin-left: 10px; margin-top: 0px; height: 20px; width: 110px"
+                                >Reset Full Period</button> -->
                                 <!-- <ul id="pagination-demo" class="pagination pagination-sm"></ul> -->
                             </div>
                             <div class="row">
@@ -2730,24 +2733,8 @@
         }
 
         $("#pagination-demo").twbsPagination({
-            visiblePages: 1
+            // visiblePages: 5
         });
-
-        // $("#pagination_trade_report").twbsPagination({
-        //     visiblePages: 1
-        // });
-
-        // $("#pagination_post_request_response").twbsPagination({
-        //     visiblePages: 1
-        // });
-
-        // $("#pagination_performance_report").twbsPagination({
-        //     visiblePages: 1
-        // });
-
-        // function myFunction(event) {
-        //     console.log(event.target.id);
-        // }
 
         // $('[data-toggle="tooltip"]').tooltip({ "show": 100, "hide": 500});
         $('[data-toggle="tooltip"]').tooltip({

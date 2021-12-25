@@ -322,8 +322,8 @@ function create_test_data() {
     }
 
     $("#period_data").val(test_data[0][0].date + ' - ' + test_data[test_data.length - 1][0].date);
-    $("#data_startdate").val(test_data[0][0].date);
-    $("#data_enddate").val(test_data[test_data.length - 1][0].date);
+    $("#start_date_test").val(test_data[0][0].date);
+    $("#end_date_test").val(test_data[test_data.length - 1][0].date);
     $('#stock1_ticker').html(portfolio_data[0].ticker);
     $('#stock2_ticker').html(portfolio_data[1].ticker);
     $('#stock3_ticker').html(portfolio_data[2].ticker);
