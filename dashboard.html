@@ -1450,12 +1450,19 @@
                                 <strong style="margin-left: 0px; font-size: 12px;">Period of Data :</strong>
                                 <input id="period_data" type="text" class="form-text-sm" disabled
                                     value="No Data Available"
-                                    style="text-align: center; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 150px; font-size: 10px">
-                                <ul id="pagination-demo" class="pagination pagination-sm"></ul>
+                                    style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 150px; font-size: 10px">
+                                <strong style="margin-left: 15px; font-size: 12px;">Period of Test :</strong>
+                                <input id="period_data" type="text" class="form-text-sm" disabled
+                                    value="No Data Available"
+                                    style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 150px; font-size: 10px">                             
+                                <button type="submit" class="btn btn-primary btn-sm"
+                                style="font-size: 12px; padding: 0px 0px; margin-left: 10px; margin-top: 0px; height: 20px; width: 160px"
+                                >Change Period of Test</button>
+                                <!-- <ul id="pagination-demo" class="pagination pagination-sm"></ul> -->
                             </div>
                             <div class="row">
                                 <div class="table-hover"
-                                    style="font-family: calibri; font-size: 11px; background-color: #070914; margin-left: 0px; margin-right: 15px; margin-top: 5px; overflow: auto; height: 415px">
+                                    style="font-family: calibri; font-size: 11px; background-color: #070914; margin-left: 0px; margin-right: 15px; margin-top: 5px; overflow: auto; height: 380px">
                                     <table id="port_data_tbl">
                                         <thead style="color:#d2d3d7">
                                             <tr>
@@ -1558,6 +1565,9 @@
                                         </tbody>
                                     </table>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <ul id="pagination-demo" class="pagination pagination-sm"></ul>
                             </div>
                         </div>
                     </div>
@@ -2176,32 +2186,32 @@
                                         Test ID</th> -->
                                     <th rowspan="2"
                                         style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                        Test Timestamp</th>
+                                        Test ID - Test Time</th>
                                     <th rowspan="2" colspan="2"
                                         style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                        Test Parameter</th>
+                                        Test Setting</th>
                                     <th rowspan="2"
                                         style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Portfolio</th>
                                     <th rowspan="2"
                                         style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                        Period od Data</th>
+                                        Period od Test</th>
+                                    <th rowspan="2"
+                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        Performance Chart</th>
                                     <th colspan="3"
                                         style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Performance Comparison</th>
                                     <th rowspan="2"
-                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                        Run Test</th>
-                                    <th rowspan="2"
-                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                        Graph</th>
+                                        style="background-color: #484848; position: sticky; top: 0px; padding: 5px 0px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        Run Test in<br>Jupyter Notebook</th>                                    
                                 </tr>
                                 <tr>
                                     <th
                                         style="background-color: #5f5f5f; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Parameter</th>
                                     <th
-                                        style="background-color: #5f5f5f; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
+                                        style="background-color: #5f5f5f; position: sticky; top: 28yyyyypx; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                         Quantxi&nbsp;AI</th>
                                     <th
                                         style="background-color: #5f5f5f; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
@@ -2211,7 +2221,7 @@
                             <tbody style="font-size: 11px; font-family: calibri;">
                                 <tr>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
-                                        23/01/01 13:00:00</td>
+                                        00001 <br>-<br>23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
@@ -2256,6 +2266,10 @@
                                     </td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                    </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
@@ -2269,15 +2283,11 @@
                                     <td style="text-align: center; padding: 5px 10px">
                                         <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
                                         <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
-                                    </td>
+                                    </td>                                    
                                 </tr>
-                                <tr>
+                                 <tr>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
-                                        23/01/01 13:00:00</td>
+                                        00001 <br>-<br>23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
@@ -2322,6 +2332,10 @@
                                     </td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                    </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
@@ -2335,15 +2349,11 @@
                                     <td style="text-align: center; padding: 5px 10px">
                                         <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
                                         <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
-                                    </td>
+                                    </td>                                    
                                 </tr>
-                                <tr>
+                                 <tr>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
-                                        23/01/01 13:00:00</td>
+                                        00001 <br>-<br>23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
@@ -2388,6 +2398,10 @@
                                     </td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                    </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
@@ -2401,15 +2415,11 @@
                                     <td style="text-align: center; padding: 5px 10px">
                                         <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
                                         <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
-                                    </td>
+                                    </td>                                    
                                 </tr>
-                                <tr>
+                                 <tr>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
-                                        23/01/01 13:00:00</td>
+                                        00001 <br>-<br>23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
@@ -2454,6 +2464,10 @@
                                     </td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                    </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
@@ -2467,15 +2481,11 @@
                                     <td style="text-align: center; padding: 5px 10px">
                                         <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
                                         <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
-                                    </td>
+                                    </td>                                    
                                 </tr>
-                                <tr>
+                                 <tr>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
-                                        23/01/01 13:00:00</td>
+                                        00001 <br>-<br>23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
@@ -2520,6 +2530,10 @@
                                     </td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                    </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
@@ -2533,15 +2547,11 @@
                                     <td style="text-align: center; padding: 5px 10px">
                                         <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
                                         <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
-                                    </td>
+                                    </td>                                    
                                 </tr>
-                                <tr>
+                                 <tr>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
-                                        23/01/01 13:00:00</td>
+                                        00001 <br>-<br>23/01/01 13:00:00</td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Initial&nbsp;Equity<br>Spread+Slippage<br>Commission/Share<br>Interest/Rate<br>Risk
@@ -2586,6 +2596,10 @@
                                     </td>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
+                                    <td style="text-align: center; padding: 5px 15px">
+                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                    </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
                                         Total&nbsp;Return<br>CAGR<br>Max&nbsp;DD<br>MAR&nbsp;Ratio<br>Sharpe&nbsp;Ratio<br>Sortino&nbsp;Ratio
@@ -2599,11 +2613,7 @@
                                     <td style="text-align: center; padding: 5px 10px">
                                         <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
                                         <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>
-                                    <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
-                                    </td>
+                                    </td>                                    
                                 </tr>
                             </tbody>
                         </table>
@@ -2719,9 +2729,9 @@
             open("index.html", "_self");
         }
 
-        // $("#pagination-demo").twbsPagination({
-        //     visiblePages: 1
-        // });
+        $("#pagination-demo").twbsPagination({
+            visiblePages: 1
+        });
 
         // $("#pagination_trade_report").twbsPagination({
         //     visiblePages: 1
