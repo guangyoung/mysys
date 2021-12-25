@@ -292,6 +292,12 @@ function create_test_data() {
     }
     var startDate = new Date(Math.max.apply(null, startdates));
     var endDate = new Date(Math.min.apply(null, enddates));
+    std_date_format = startDate.getFullYear() + "-" + appendLeadingZeroes(startDate.getMonth() + 1) + "-" + appendLeadingZeroes(startDate.getDate());
+    end_date_format = endDate.getFullYear() + "-" + appendLeadingZeroes(endDate.getMonth() + 1) + "-" + appendLeadingZeroes(endDate.getDate())
+    $("#period_data").val(std_date_format + ' - ' + end_date_format);
+    $("#start_date_test").val(std_date_format);
+    $("#end_date_test").val(end_date_format);
+    
     var idx = new Array();
     for (i = 0; i < 30; i++) {
       idx[i] = 0;
@@ -320,10 +326,7 @@ function create_test_data() {
         startDate = new Date(startDate.setDate(startDate.getDate() + 1));
       }
     }
-
-    $("#period_data").val(test_data[0][0].date + ' - ' + test_data[test_data.length - 1][0].date);
-    $("#start_date_test").val(test_data[0][0].date.getFullYear() + "-" + appendLeadingZeroes(test_data[0][0].date.getMonth() + 1) + "-" + appendLeadingZeroes(test_data[0][0].date.getDate()));
-    $("#end_date_test").val(test_data[test_data.length - 1][0].date.getFullYear() + "-" + appendLeadingZeroes(test_data[test_data.length - 1][0].date.getMonth() + 1) + "-" + appendLeadingZeroes(test_data[test_data.length - 1][0].date.getDate()));
+    
     $('#stock1_ticker').html(portfolio_data[0].ticker);
     $('#stock2_ticker').html(portfolio_data[1].ticker);
     $('#stock3_ticker').html(portfolio_data[2].ticker);
