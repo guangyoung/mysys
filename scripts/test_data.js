@@ -322,7 +322,7 @@ function create_test_data() {
     }
 
     $("#period_data").val(test_data[0][0].date + ' - ' + test_data[test_data.length - 1][0].date);
-    $("#start_date_test").val(test_data[0][0].date);
+    $("#start_date_test").val(startDate.getFullYear() + "/" + appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()));
     $("#end_date_test").val(test_data[test_data.length - 1][0].date);
     $('#stock1_ticker').html(portfolio_data[0].ticker);
     $('#stock2_ticker').html(portfolio_data[1].ticker);
