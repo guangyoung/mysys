@@ -48,7 +48,7 @@ function tickers_list_btn() {
     ticker_list = [];
     $('#ulul').empty();
     var tickers = eval(exchange_choose_current_manual);
-    console.log(tickers);
+    // console.log(tickers);
     for (i = 0; i < tickers.length; i++) {
       var newLi = document.createElement('li');
       var cb = document.createElement("input");
