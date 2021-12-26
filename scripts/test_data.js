@@ -18,9 +18,9 @@ function tickers_exchange_btn() {
   ul.onclick = function (event) {
     var target = getEventTarget(event);
     let container_exchange = $(this).closest("#tickers_exchange");
-    exchange_choose_current_manual = target.id;
+    exchange_choose_current_manual = target.innerText.split('-')[0]; 
     container_exchange.find('.Xchange').text(target.innerText || 'Select Exchange');
-    console.log(target.id);
+    console.log(exchange_choose_current_manual);
   };
 }
 
@@ -29,9 +29,9 @@ function tickers_exchange_btn_random() {
   ul.onclick = function (event) {
     var target = getEventTarget(event);
     let container_exchange = $(this).closest("#tickers_exchange_select_random");
-    exchange_choose_current_random = target.id;
+    exchange_choose_current_random = target.innerText.split('-')[0]; 
     container_exchange.find('.Xchange_random').text(target.innerText || 'Select Exchange');
-    console.log(target.id);
+    // console.log(target.id);
   };
 }
 
