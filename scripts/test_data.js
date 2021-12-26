@@ -31,7 +31,7 @@ function tickers_exchange_btn_random() {
     let container_exchange = $(this).closest("#tickers_exchange_select_random");
     exchange_choose_current_random = target.innerText.split('-')[0]; 
     container_exchange.find('.Xchange_random').text(target.innerText || 'Select Exchange');
-    // console.log(target.id);
+    console.log(exchange_choose_current_random);
   };
 }
 
@@ -169,13 +169,15 @@ function add_data_random() {
     return false;
   } else {//rumus random ini bermasalah jika jumlah list 30 atau kurang...salah satu masalah di splice, cari tahu
     var tickers_random = eval(exchange_choose_current_random);
-    for (i = 0; i < tickers_random.length && i < (30 - portfolio_data.length); i++) {
+    let ticker_random_total=0;
+    while (ticker_random_total < 30) {
       let mr = Math.random();
       console.log(mr);
       let tick_no = Math.floor(mr * tickers_random.length);
       ticker_list.push(tickers_random[tick_no]);
       console.log(tickers_random[tick_no]);
       tickers_random.splice(tick_no, 1);
+      ticker_random_total++;
     }
     console.log(ticker_list);
 
