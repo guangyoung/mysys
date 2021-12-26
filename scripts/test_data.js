@@ -104,7 +104,7 @@ function add_data() {
       let tickere = ticker_list[t].split(', ')[0];
       let as_data_date = new Array();
       let as_data_price = new Array();
-      let ex_choo = exchange_choose_current_manual.split('-')[0];
+      let ex_choo = exchange_choose_current_manual;
 
       Papa.parse("dataset/" + exchange_choose_current_manual + "/" + tickere + ".csv", {
         download: true,
