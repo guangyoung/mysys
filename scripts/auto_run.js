@@ -4,7 +4,7 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            console.log(result);
+            // console.log(result);
             for(i=5000; i<15000; i++) {
                 // setTimeout(function timer() {
                     // console.log(i);
@@ -12,8 +12,8 @@ function autorun() {
                     // if(arr.indexOf(r) === -1) {
                         let dat = [];
                         let ticker= result.data[i].Symbol;
-                        console.log(ticker);
-                        console.log(result);
+                        // console.log(ticker);
+                        // console.log(result);
                         let description= result.data[i].Description;
                         let exchange= result.data[i].Exchange;
                         let country= result.data[i].Country; 
