@@ -11,6 +11,7 @@ function autorun() {
                     // if(arr.indexOf(r) === -1) {
                         let dat = [];
                         let ticker= result.data[i].Symbol;
+                        console.log(ticker);
                         let description= result.data[i].Description;
                         let exchange= result.data[i].Exchange;
                         let country= result.data[i].Country; 
@@ -65,7 +66,7 @@ function autorun() {
                             } 
                         }); 
                         
-                }, i * 1000);           
+                }, i * 100);           
             } 
         }
     });   
