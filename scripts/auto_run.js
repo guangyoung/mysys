@@ -5,7 +5,7 @@ function autorun() {
         header: true,
         complete: function(result) {
             console.log(result);
-            for (i=5000; i<15000; i++) {
+            for(i=5000; i<15000; i++) {
                 // setTimeout(function timer() {
                     // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
