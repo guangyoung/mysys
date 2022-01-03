@@ -3,7 +3,7 @@ function autorun() {
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
         header: true,
-        complete: function(result) {
+        complete: async function(result) {
             for (let i = 6000; i < 15000; i++) {
                 // setTimeout(function timer() {
                     // console.log(i);
@@ -16,7 +16,13 @@ function autorun() {
                         let country= result.data[i].Country; 
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=1640961000&interval=1d";
-                        $.getJSON(proxyurl+urls, function(data){ 
+                        await $.ajax({
+                            type: "GET",
+                            url: proxyurl+urls,
+                            // data: dataInput,
+                            dataType: 'json',
+                            success: function (data) {
+                        // $.getJSON(proxyurl+urls, function(data){ 
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
                                     let sd = data.chart.result[0].timestamp[0];
@@ -63,6 +69,7 @@ function autorun() {
                                     // console.log(stock_data.length);
                                 }                        
                             } 
+                        }
                         }); 
                         
                 // }, i * 1000);           
