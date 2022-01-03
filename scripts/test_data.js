@@ -18,7 +18,7 @@ function tickers_exchange_btn() {
   ul.onclick = function (event) {
     var target = getEventTarget(event);
     let container_exchange = $(this).closest("#tickers_exchange");
-    exchange_choose_current_manual = target.innerText.split('-')[0]; 
+    exchange_choose_current_manual = target.innerText.split(' - ')[0]; 
     container_exchange.find('.Xchange').text(target.innerText || 'Select Exchange');
     console.log(exchange_choose_current_manual);
   };
@@ -29,7 +29,7 @@ function tickers_exchange_btn_random() {
   ul.onclick = function (event) {
     var target = getEventTarget(event);
     let container_exchange = $(this).closest("#tickers_exchange_select_random");
-    exchange_choose_current_random = target.innerText.split('-')[0]; 
+    exchange_choose_current_random = target.innerText.split(' - ')[0]; 
     container_exchange.find('.Xchange_random').text(target.innerText || 'Select Exchange');
     console.log(exchange_choose_current_random);
   };
@@ -167,17 +167,13 @@ function add_data_random() {
       'warning'
     )
     return false;
-  } else {//rumus random ini bermasalah jika jumlah list 30 atau kurang...salah satu masalah di splice, cari tahu
+  } else {//rumus random ini sdh cukup bagus..ditingkatkan
     var tickers_random = eval(exchange_choose_current_random);
-    let ticker_random_total=0;
-    while (ticker_random_total < 30) {
-      let mr = Math.random();
-      console.log(mr);
-      let tick_no = Math.floor(mr * tickers_random.length);
-      ticker_list.push(tickers_random[tick_no]);
-      console.log(tickers_random[tick_no]);
-      tickers_random.splice(tick_no, 1);
-      ticker_random_total++;
+    for (ticker_random_total=0; ticker_random_total < 30; ticker_random_total++) {
+      let rand_no = Math.floor(Math.random() * tickers_random.length);
+      ticker_list.push(tickers_random[rand_no]);
+      console.log(tickers_random);
+      tickers_random.splice(rand_no, 1);
     }
     console.log(ticker_list);
 

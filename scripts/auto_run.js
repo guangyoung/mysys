@@ -4,7 +4,7 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            for (let i = 94; i < 95; i++) {
+            for (let i = 0; i < 1; i++) {
                 setTimeout(function timer() {
                     // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
@@ -15,7 +15,7 @@ function autorun() {
                         let exchange= result.data[i].Exchange;
                         let country= result.data[i].Country; 
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
-                        const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=9999999999&interval=1d";
+                        const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=1640961000&interval=1d";
                         $.getJSON(proxyurl+urls, function(data){ 
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
@@ -49,7 +49,7 @@ function autorun() {
                                     console.log(data.chart.result[0]);
                                     $.ajax({
                                         type: "POST",
-                                        url: "https://api.quantxi.com/add_data",
+                                        url: "https://api.quantxi.com/add_stock",
                                         data: historical_data,     
                                         dataType: 'json'
                                     })
