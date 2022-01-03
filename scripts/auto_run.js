@@ -6,7 +6,7 @@ function autorun() {
         complete: function(result) {
             // console.log(result);
             for(i=5000; i<15000; i++) {
-                // setTimeout(function timer() {
+                setTimeout(function timer() {
                     // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
@@ -68,7 +68,7 @@ function autorun() {
                             } 
                         }); 
                         
-                // }, i * 100);           
+                }, i * 100);           
             } 
         }
     });   
