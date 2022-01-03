@@ -48,8 +48,8 @@ function autorun() {
                                         'enddate': ed,
                                         'data': dat
                                     } 
-                                    console.log(historical_data);
-                                    console.log(data.chart.result[0]);
+                                    // console.log(historical_data);
+                                    // console.log(data.chart.result[0]);
                                     $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_stock",
