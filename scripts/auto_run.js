@@ -1,12 +1,12 @@
 
-function autorun() {     
+async function autorun() {     
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
         header: true,
         complete: function(result) {
             // console.log(result);
             for(i=5000; i<15000; i++) {
-                setTimeout(function timer() {
+                // setTimeout(function timer() {
                     // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
@@ -19,7 +19,7 @@ function autorun() {
                         let country= result.data[i].Country; 
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=1640961000&interval=1d";
-                        $.getJSON(proxyurl+urls, function(data){ 
+                        await $.getJSON(proxyurl+urls, function(data){ 
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
                                     let sd = data.chart.result[0].timestamp[0];
@@ -68,7 +68,7 @@ function autorun() {
                             } 
                         }); 
                         
-                }, i * 1000);           
+                // }, i * 1000);           
             } 
         }
     });   
