@@ -4,14 +4,15 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            var i = 6000;
-            var x = 0;
-            while (x == 0) {
-                x=1;                
+            sessionStorage.setItem('key', 0);
+            var key = sessionStorage.getItem('key');
+            var i=6000;
+            while (key == 0) {
+                sessionStorage.setItem('key', 1); 
+                key = sessionStorage.getItem('key');               
                 i++; 
-                setTimeout(function timer() { 
-                      
-                var xx; 
+                setTimeout(function timer() {
+                
                 console.log(i);                        
                         let dat = [];
                         let ticker= result.data[i].Symbol;
@@ -53,14 +54,15 @@ function autorun() {
                                         url: "https://api.quantxi.com/add_stock",
                                         data: historical_data,     
                                         dataType: 'json'
-                                    })                                   
+                                    }) 
+                                    sessionStorage.setItem('key', 0);                                   
                                 }                        
                             } 
-                        }); 
-                  xx = 0;      
+                        });
+                   
                 }, 1000);
-                x = xx;  
-                console.log(x);
+                key = sessionStorage.getItem('key');       
+                console.log(key);
             } 
         }
     });   
