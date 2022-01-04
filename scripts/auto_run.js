@@ -4,16 +4,11 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            sessionStorage.setItem('key', 0);
-            var key = sessionStorage.getItem('key');
-            var i=6000;
-            while (key == 0) {
-                sessionStorage.setItem('key', 1); 
-                key = sessionStorage.getItem('key');               
-                i++; 
+            for (let i = 6000; i < 15000; i++) {
                 setTimeout(function timer() {
-                
-                console.log(i);                        
+                    // console.log(i);
+                    // var r = Math.floor(Math.random() * 1000) + 1;
+                    // if(arr.indexOf(r) === -1) {
                         let dat = [];
                         let ticker= result.data[i].Symbol;
                         let description= result.data[i].Description;
@@ -21,8 +16,13 @@ function autorun() {
                         let country= result.data[i].Country; 
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=1640961000&interval=1d";
-                       
-                        $.getJSON(proxyurl+urls, async function(data){ 
+                        // $.ajax({
+                        //     type: "GET",
+                        //     url: proxyurl+urls,
+                        //     // data: dataInput,
+                        //     dataType: 'json',
+                        //     success: function (data) {
+                        $.getJSON(proxyurl+urls, function(data){ 
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
                                     let sd = data.chart.result[0].timestamp[0];
@@ -39,7 +39,9 @@ function autorun() {
                                             data.chart.result[0].indicators.quote[0].volume[i]
                                         )
                                         dat.push(datt);
-                                    }                                    
+                                    }
+                                    
+                                    // dat.push({date: data.chart.result[0].timestamp, price: data.chart.result[0].indicators.adjclose[0].adjclose});
                                     historical_data = {
                                         'ticker': ticker,
                                         'description': description,
@@ -49,20 +51,28 @@ function autorun() {
                                         'enddate': ed,
                                         'data': dat
                                     } 
-                                    await $.ajax({
+                                    // console.log(historical_data);
+                                    // console.log(data.chart.result[0]);
+                                    $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_stock",
                                         data: historical_data,     
                                         dataType: 'json'
-                                    }) 
-                                    sessionStorage.setItem('key', 0);                                   
+                                    })
+
+                                    // dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
+                                    // stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
+                                    // console.log(stock_data[stock_data.length-1].exchange);
+                                    // console.log(stock_data[stock_data.length-1].ticker);
+                                    // console.log(stock_data[stock_data.length-1].description);
+                                    // console.log(stock_data[stock_data.length-1].data[0].length);
+                                    // console.log(stock_data.length);
                                 }                        
                             } 
-                        });
-                   
-                }, 1000);
-                key = sessionStorage.getItem('key');       
-                console.log(key);
+                        // }
+                        }); 
+                        
+                }, 1000);           
             } 
         }
     });   
