@@ -16,13 +16,13 @@ function autorun() {
                         let country= result.data[i].Country; 
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=1640961000&interval=1d";
-                        $.ajax({
-                            type: "GET",
-                            url: proxyurl+urls,
-                            // data: dataInput,
-                            dataType: 'json',
-                            success: function (data) {
-                        // $.getJSON(proxyurl+urls, function(data){ 
+                        // $.ajax({
+                        //     type: "GET",
+                        //     url: proxyurl+urls,
+                        //     // data: dataInput,
+                        //     dataType: 'json',
+                        //     success: function (data) {
+                        $.getJSON(proxyurl+urls, function(data){ 
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
                                     let sd = data.chart.result[0].timestamp[0];
@@ -69,7 +69,7 @@ function autorun() {
                                     // console.log(stock_data.length);
                                 }                        
                             } 
-                        }
+                        // }
                         }); 
                         
                 }, 1000);           
