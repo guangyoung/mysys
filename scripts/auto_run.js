@@ -4,8 +4,11 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            for (var i = 6000; i < 15000; i++) {
-                setTimeout(function timer() {
+            var i = 6000;
+            var x = 0;
+            while (x==0 && i<15000) {
+                x=1;
+                // setTimeout(function timer() {
                     console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
@@ -60,6 +63,9 @@ function autorun() {
                                         dataType: 'json'
                                     })
 
+                                    i++;
+                                    x=0;
+
                                     // dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                     // stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
                                     // console.log(stock_data[stock_data.length-1].exchange);
@@ -72,7 +78,7 @@ function autorun() {
                         }
                         }); 
                         
-                }, i * 1000);           
+                // }, i * 1000);           
             } 
         }
     });   
