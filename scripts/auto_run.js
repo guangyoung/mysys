@@ -22,7 +22,7 @@ function autorun() {
                         //     // data: dataInput,
                         //     dataType: 'json',
                         //     success: function (data) {
-                        $.getJSON(proxyurl+urls, function(data){ 
+                        $.getJSON(proxyurl+urls, async function(data){ 
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
                                     let sd = data.chart.result[0].timestamp[0];
@@ -53,7 +53,7 @@ function autorun() {
                                     } 
                                     // console.log(historical_data);
                                     // console.log(data.chart.result[0]);
-                                    $.ajax({
+                                    await $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_stock",
                                         data: historical_data,     
