@@ -11,7 +11,7 @@ function autorun() {
                 i++; 
                 setTimeout(function timer() { 
                       
-                let xx=0; 
+                var xx; 
                 console.log(i);                        
                         let dat = [];
                         let ticker= result.data[i].Symbol;
@@ -57,7 +57,7 @@ function autorun() {
                                 }                        
                             } 
                         }); 
-                        
+                  xx = 0;      
                 }, 1000);
                 x = xx;  
                 console.log(x);
