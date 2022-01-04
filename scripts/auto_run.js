@@ -5,7 +5,9 @@ function autorun() {
         header: true,
         complete: function(result) {
             let i = 6000;
-            while (1<2) {
+            let x = 0;
+            while (x == 0) {
+                x=1;
                 setTimeout(function timer() {
                         let dat = [];
                         let ticker= result.data[i].Symbol;
@@ -49,6 +51,7 @@ function autorun() {
                                         dataType: 'json'
                                     })
                                     i++;
+                                    x=0;
                                 }                        
                             } 
                         }); 
