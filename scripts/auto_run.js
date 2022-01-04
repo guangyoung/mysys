@@ -4,11 +4,8 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            var i = 6000;
-            var x = 0;
-            while (x==0 && i<15000) {
-                x=1;
-                // setTimeout(function timer() {
+            for (let i = 6000; i < 15000; i++) {
+                setTimeout(function timer() {
                     console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
@@ -17,7 +14,6 @@ function autorun() {
                         let description= result.data[i].Description;
                         let exchange= result.data[i].Exchange;
                         let country= result.data[i].Country; 
-                        console.log(ticker);
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=1640961000&interval=1d";
                         $.ajax({
@@ -64,9 +60,6 @@ function autorun() {
                                         dataType: 'json'
                                     })
 
-                                    i++;
-                                    x=0;
-
                                     // dat.push(data.chart.result[0].indicators.adjclose[0].adjclose);
                                     // stock_data.push({exchange: exchange, ticker: ticker, description: description, data: dat});
                                     // console.log(stock_data[stock_data.length-1].exchange);
@@ -79,7 +72,7 @@ function autorun() {
                         }
                         }); 
                         
-                // }, i * 1000);           
+                }, i * 1000);           
             } 
         }
     });   
