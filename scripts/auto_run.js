@@ -8,7 +8,7 @@ function autorun() {
             let x = 0;
             while (x == 0) {
                 x=1;
-                setTimeout(function timer() {
+                setTimeout(function timer() {                    
                         let dat = [];
                         let ticker= result.data[i].Symbol;
                         let description= result.data[i].Description;
@@ -50,13 +50,13 @@ function autorun() {
                                         data: historical_data,     
                                         dataType: 'json'
                                     })
-                                    i++;
-                                    x=0;
+                                    i++;                                    
                                 }                        
                             } 
                         }); 
                         
-                }, 1000);           
+                }, 1000);   
+                x=0;        
             } 
         }
     });   
