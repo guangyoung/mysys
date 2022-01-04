@@ -6,7 +6,7 @@ function autorun() {
         complete: function(result) {
             for (let i = 6000; i < 15000; i++) {
                 setTimeout(function timer() {
-                    console.log(i);
+                    // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
                     // if(arr.indexOf(r) === -1) {
                         let dat = [];
