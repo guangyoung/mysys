@@ -5,7 +5,7 @@ function autorun() {
         header: true,
         complete: function(result) {
             let i = 6000;
-            // for (let i = 6000; i < 15000; i++) {
+            while (1<2) {
                 setTimeout(function timer() {
                         let dat = [];
                         let ticker= result.data[i].Symbol;
@@ -54,7 +54,7 @@ function autorun() {
                         }); 
                         
                 }, 1000);           
-            // } 
+            } 
         }
     });   
 }
