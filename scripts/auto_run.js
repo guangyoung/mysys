@@ -22,7 +22,7 @@ function autorun() {
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=1640961000&interval=1d";
                        
-                        $.getJSON(proxyurl+urls, function(data){ 
+                        $.getJSON(proxyurl+urls, async function(data){ 
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
                                     let sd = data.chart.result[0].timestamp[0];
@@ -49,7 +49,7 @@ function autorun() {
                                         'enddate': ed,
                                         'data': dat
                                     } 
-                                    $.ajax({
+                                    await $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_stock",
                                         data: historical_data,     
