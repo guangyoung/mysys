@@ -8,7 +8,9 @@ function autorun() {
             let x = 0;
             while (x == 0) {
                 x=1;
-                setTimeout(function timer() {                    
+                setTimeout(function timer() { 
+                      
+                x=0;                         
                         let dat = [];
                         let ticker= result.data[i].Symbol;
                         let description= result.data[i].Description;
@@ -56,7 +58,6 @@ function autorun() {
                         }); 
                         
                 }, 1000);   
-                x=0;        
             } 
         }
     });   
