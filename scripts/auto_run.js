@@ -7,7 +7,7 @@ function autorun() {
         complete: function(result) {
             // while(i < 15000) {
             //     if(x==0) {
-                setTimeout(function timer() {
+                setInterval(function timer() {
                     // x=1;
                         let dat = [];
                         let ticker= result.data[i].Symbol;
