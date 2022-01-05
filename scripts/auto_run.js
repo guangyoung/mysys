@@ -1,11 +1,14 @@
-
+var x = 0;
+var i = 0;
 function autorun() {     
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
         header: true,
         complete: function(result) {
-            for (i = 0; i < 15000; i++) {
-                setTimeout(async function timer() {
+            while(i < 15000) {
+                if(x==0) {
+                setTimeout(function timer() {
+                    x=1;
                         let dat = [];
                         let ticker= result.data[i].Symbol;
                         let description= result.data[i].Description;
@@ -14,7 +17,7 @@ function autorun() {
                         const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
                         const urls = "https://query1.finance.yahoo.com/v8/finance/chart/"+ticker+"?symbol="+ticker+"&period1=0&period2=1640961000&interval=1d";
                        
-                        await $.getJSON(proxyurl+urls, async function(data){ 
+                        $.getJSON(proxyurl+urls, function(data){ 
                             if(data.chart.result !== null) {                                
                                 if(data.chart.result[0].timestamp !== undefined) {
                                     let sd = data.chart.result[0].timestamp[0];
@@ -42,17 +45,20 @@ function autorun() {
                                         'enddate': ed,
                                         'data': dat
                                     } 
-                                    await $.ajax({
+                                    $.ajax({
                                         type: "POST",
                                         url: "https://api.quantxi.com/add_stock",
                                         data: historical_data,     
                                         dataType: 'json'
-                                    })                                  
+                                    })
+                                    x=0;  
+                                    i++;                                
                                 }                        
                             } 
                         }); 
                         
-                }, 1000);           
+                    }, 1000); 
+                }          
             } 
         }
     });   
