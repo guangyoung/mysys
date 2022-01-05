@@ -1,5 +1,5 @@
 // var x = 0;
-var i = 0;
+var i = 6000;
 function autorun() {     
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
