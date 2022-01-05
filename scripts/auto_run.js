@@ -1,14 +1,14 @@
-var x = 0;
+// var x = 0;
 var i = 0;
 function autorun() {     
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
         header: true,
         complete: function(result) {
-            while(i < 15000) {
-                if(x==0) {
+            // while(i < 15000) {
+            //     if(x==0) {
                 setTimeout(function timer() {
-                    x=1;
+                    // x=1;
                         let dat = [];
                         let ticker= result.data[i].Symbol;
                         let description= result.data[i].Description;
@@ -51,7 +51,7 @@ function autorun() {
                                         data: historical_data,     
                                         dataType: 'json'
                                     })
-                                    x=0;  
+                                    // x=0;  
                                     i++;                                
                                 }                        
                             } 
@@ -59,8 +59,8 @@ function autorun() {
                         
                     }, 1000); 
                 }          
-            } 
-        }
+        //     } 
+        // }
     });   
 }
 
