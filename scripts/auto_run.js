@@ -4,7 +4,8 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-            for (i = 0; i < 15000; i++) {
+            i=0;
+            if (i < 15000) {
                 setTimeout(function timer() {
                     // console.log(i);
                     // var r = Math.floor(Math.random() * 1000) + 1;
@@ -71,6 +72,7 @@ function autorun() {
                             } 
                         // }
                         }); 
+                        i++;
                         
                 }, 1000);           
             } 
