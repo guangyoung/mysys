@@ -3,9 +3,10 @@ function autorun() {
         download: true,
         header: true,
         complete: function(result) {
-                var i = 6000;
-                setInterval( function timer() {
-                    i++;                   
+                sessionStorage.setItem('key', 6000);
+                setInterval( function timer(i) {
+                    let i = sessionStorage.getItem('key');
+                    sessionStorage.setItem('key', i+1);                   
                         let dat = [];
                         let ticker= result.data[i].Symbol;
                         console.log(i);
