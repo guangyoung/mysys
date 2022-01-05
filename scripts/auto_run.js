@@ -1,15 +1,11 @@
-// var x = 0;
-// var i = 6000;
 function autorun() {     
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
         header: true,
         complete: function(result) {
-            // while(i < 15000) {
-            //     if(x==0) {
-                let i = 6000;
+                var i = 6000;
                 setInterval( function timer() {
-                    i= i+1;                   
+                    i++;                   
                         let dat = [];
                         let ticker= result.data[i].Symbol;
                         console.log(i);
