@@ -9,7 +9,7 @@ function autorun() {
                     sessionStorage.setItem('key', i.toString());                   
                         let dat = [];
                         let ticker= result.data[i].Symbol;
-                        // console.log(i);
+                        console.log(i);
                         // console.log(ticker);
                         let description= result.data[i].Description;
                         let exchange= result.data[i].Exchange;
