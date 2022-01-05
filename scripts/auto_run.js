@@ -4,7 +4,7 @@ function autorun() {
         header: true,
         complete: function(result) {
                 sessionStorage.setItem('key', 6000);
-                setInterval( function timer(i) {
+                setInterval( function timer() {
                     let i = sessionStorage.getItem('key');
                     sessionStorage.setItem('key', i+1);                   
                         let dat = [];
