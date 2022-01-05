@@ -5,8 +5,8 @@ function autorun() {
         complete: function(result) {
                 sessionStorage.setItem('key', 6000);
                 setInterval( function timer() {
-                    let i = sessionStorage.getItem('key');
-                    sessionStorage.setItem('key', i+1);                   
+                    let i = sessionStorage.getItem('key')+1;
+                    sessionStorage.setItem('key', i);                   
                         let dat = [];
                         let ticker= result.data[i].Symbol;
                         console.log(i);
