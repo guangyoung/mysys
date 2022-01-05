@@ -1,11 +1,12 @@
-function autorun() {     
+function autorun() {    
+    sessionStorage.setItem('key', 6000); 
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
         header: true,
-        complete: function(result) {
-                sessionStorage.setItem('key', 6000);
+        complete: function(result) {                
                 setInterval( function timer() {
-                    let i = sessionStorage.getItem('key')+1;
+                    let i = sessionStorage.getItem('key');
+                    i++;
                     sessionStorage.setItem('key', i);                   
                         let dat = [];
                         let ticker= result.data[i].Symbol;
