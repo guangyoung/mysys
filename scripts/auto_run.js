@@ -1,5 +1,5 @@
 function autorun() {    
-    sessionStorage.setItem('key', 6000); 
+    sessionStorage.setItem('key', 6500); 
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
         header: true,
@@ -9,8 +9,8 @@ function autorun() {
                     sessionStorage.setItem('key', i.toString());                   
                         let dat = [];
                         let ticker= result.data[i].Symbol;
-                        console.log(i);
-                        console.log(ticker);
+                        // console.log(i);
+                        // console.log(ticker);
                         let description= result.data[i].Description;
                         let exchange= result.data[i].Exchange;
                         let country= result.data[i].Country; 
