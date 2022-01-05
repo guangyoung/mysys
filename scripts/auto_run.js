@@ -8,7 +8,7 @@ function autorun() {
             // while(i < 15000) {
             //     if(x==0) {
                 setInterval(function timer() {
-                    // x=1;
+                    console.log(i);
                         let dat = [];
                         let ticker= result.data[i].Symbol;
                         let description= result.data[i].Description;
