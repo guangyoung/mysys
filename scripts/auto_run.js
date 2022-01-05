@@ -1,5 +1,5 @@
 // var x = 0;
-var i = 6000;
+// var i = 6000;
 function autorun() {     
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
@@ -7,7 +7,9 @@ function autorun() {
         complete: function(result) {
             // while(i < 15000) {
             //     if(x==0) {
-                setInterval(function timer() {
+                var i = 6000;
+                setInterval( function timer() {
+                    i++;
                     console.log(i);
                         let dat = [];
                         let ticker= result.data[i].Symbol;
@@ -50,9 +52,7 @@ function autorun() {
                                         url: "https://api.quantxi.com/add_stock",
                                         data: historical_data,     
                                         dataType: 'json'
-                                    })
-                                    // x=0;  
-                                    i++;                                
+                                    })                              
                                 }                        
                             } 
                         }); 
