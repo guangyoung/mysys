@@ -7,12 +7,13 @@ function autorun() {
         complete: function(result) {
             // while(i < 15000) {
             //     if(x==0) {
-                var i = 6000;
+                let i = 6000;
                 setInterval( function timer() {
-                    i++;
-                    console.log(i);
+                    i= i+1;                   
                         let dat = [];
                         let ticker= result.data[i].Symbol;
+                        console.log(i);
+                        console.log(ticker);
                         let description= result.data[i].Description;
                         let exchange= result.data[i].Exchange;
                         let country= result.data[i].Country; 
