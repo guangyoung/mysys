@@ -1,5 +1,5 @@
 function autorun() {    
-    sessionStorage.setItem('key', 6500); 
+    sessionStorage.setItem('key', 20000); 
     Papa.parse("dataset/yahoo_tickers_list.csv", {
         download: true,
         header: true,
