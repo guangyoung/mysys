@@ -94,20 +94,20 @@ async function run_test() {
                 $("#viewpost_button").prop("disabled", true); //Disable View Request Button
 
                 //get stock ticker
-                var stock_ticker = new Array();
-                for (i = 0; i < 30; i++) {
-                    stock_ticker[i] = parseFloat(test_data.data[i].ticker);
-                }
+                // var stock_ticker = new Array();
+                // for (i = 0; i < 30; i++) {
+                //     stock_ticker[i] = parseFloat(test_data.data[i].ticker);
+                // }
 
                 while (data_idx < 100) {  //dataidx < data length      
 
                     // ----------------------------------------------------------------------------------
                     // GET TEST DATA ####################################################################
                     // ----------------------------------------------------------------------------------
-                    current_date = test_data.date[data_idx];
+                    current_date = test_data[data_idx].date;
 
                     for (i = 0; i < 30; i++) {
-                        stock_price[i] = parseFloat(test_data.data[i].price[data_idx]);
+                        stock_price[i] = parseFloat(test_data[data_idx].price[i]);
                     }
                     // ----------------------------------------------------------------------------------
                     // PRE TRADE POSITION CALCULATION ###################################################

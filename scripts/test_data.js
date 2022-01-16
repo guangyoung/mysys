@@ -314,36 +314,36 @@ function create_test_data() {
     }
     console.log(test_data);
     
-    $('#stock1_ticker').html(portfolio_data[0].ticker);
-    $('#stock2_ticker').html(portfolio_data[1].ticker);
-    $('#stock3_ticker').html(portfolio_data[2].ticker);
-    $('#stock4_ticker').html(portfolio_data[3].ticker);
-    $('#stock5_ticker').html(portfolio_data[4].ticker);
-    $('#stock6_ticker').html(portfolio_data[5].ticker);
-    $('#stock7_ticker').html(portfolio_data[6].ticker);
-    $('#stock8_ticker').html(portfolio_data[7].ticker);
-    $('#stock9_ticker').html(portfolio_data[8].ticker);
-    $('#stock10_ticker').html(portfolio_data[9].ticker);
-    $('#stock11_ticker').html(portfolio_data[10].ticker);
-    $('#stock12_ticker').html(portfolio_data[11].ticker);
-    $('#stock13_ticker').html(portfolio_data[12].ticker);
-    $('#stock14_ticker').html(portfolio_data[13].ticker);
-    $('#stock15_ticker').html(portfolio_data[14].ticker);
-    $('#stock16_ticker').html(portfolio_data[15].ticker);
-    $('#stock17_ticker').html(portfolio_data[16].ticker);
-    $('#stock18_ticker').html(portfolio_data[17].ticker);
-    $('#stock19_ticker').html(portfolio_data[18].ticker);
-    $('#stock20_ticker').html(portfolio_data[19].ticker);
-    $('#stock21_ticker').html(portfolio_data[20].ticker);
-    $('#stock22_ticker').html(portfolio_data[21].ticker);
-    $('#stock23_ticker').html(portfolio_data[22].ticker);
-    $('#stock24_ticker').html(portfolio_data[23].ticker);
-    $('#stock25_ticker').html(portfolio_data[24].ticker);
-    $('#stock26_ticker').html(portfolio_data[25].ticker);
-    $('#stock27_ticker').html(portfolio_data[26].ticker);
-    $('#stock28_ticker').html(portfolio_data[27].ticker);
-    $('#stock29_ticker').html(portfolio_data[28].ticker);
-    $('#stock30_ticker').html(portfolio_data[29].ticker);   
+    // $('#stock1_ticker').html(portfolio_data[0].ticker);
+    // $('#stock2_ticker').html(portfolio_data[1].ticker);
+    // $('#stock3_ticker').html(portfolio_data[2].ticker);
+    // $('#stock4_ticker').html(portfolio_data[3].ticker);
+    // $('#stock5_ticker').html(portfolio_data[4].ticker);
+    // $('#stock6_ticker').html(portfolio_data[5].ticker);
+    // $('#stock7_ticker').html(portfolio_data[6].ticker);
+    // $('#stock8_ticker').html(portfolio_data[7].ticker);
+    // $('#stock9_ticker').html(portfolio_data[8].ticker);
+    // $('#stock10_ticker').html(portfolio_data[9].ticker);
+    // $('#stock11_ticker').html(portfolio_data[10].ticker);
+    // $('#stock12_ticker').html(portfolio_data[11].ticker);
+    // $('#stock13_ticker').html(portfolio_data[12].ticker);
+    // $('#stock14_ticker').html(portfolio_data[13].ticker);
+    // $('#stock15_ticker').html(portfolio_data[14].ticker);
+    // $('#stock16_ticker').html(portfolio_data[15].ticker);
+    // $('#stock17_ticker').html(portfolio_data[16].ticker);
+    // $('#stock18_ticker').html(portfolio_data[17].ticker);
+    // $('#stock19_ticker').html(portfolio_data[18].ticker);
+    // $('#stock20_ticker').html(portfolio_data[19].ticker);
+    // $('#stock21_ticker').html(portfolio_data[20].ticker);
+    // $('#stock22_ticker').html(portfolio_data[21].ticker);
+    // $('#stock23_ticker').html(portfolio_data[22].ticker);
+    // $('#stock24_ticker').html(portfolio_data[23].ticker);
+    // $('#stock25_ticker').html(portfolio_data[24].ticker);
+    // $('#stock26_ticker').html(portfolio_data[25].ticker);
+    // $('#stock27_ticker').html(portfolio_data[26].ticker);
+    // $('#stock28_ticker').html(portfolio_data[27].ticker);
+    // $('#stock29_ticker').html(portfolio_data[28].ticker);
+    // $('#stock30_ticker').html(portfolio_data[29].ticker);   
 
     $("#pagination-demo").twbsPagination({
       totalPages: Math.ceil(test_data.length / 22),
@@ -353,37 +353,37 @@ function create_test_data() {
         for (i = (page - 1) * 22; i < (page * 22) && i < (test_data.length); i++) {
           var test_data_row =
             `<tr>
-                <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+ test_data[i][0].date + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][1].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][2].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][3].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][4].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][5].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][6].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][7].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][8].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][9].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][10].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][11].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][12].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][13].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][14].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][15].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][16].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][17].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][18].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][19].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][20].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][21].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][22].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][23].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][24].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][25].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][26].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][27].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][28].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][29].price).toFixed(2)) + `</td>
-                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i][30].price).toFixed(2)) + `</td>
+                <td class="text-center" style="position: sticky; left: 0px; color:#d2d3d7; background-color: #326363;padding: 0 2px">`+ test_data[i].date + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[0]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[1]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[2]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[3]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[4]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[5]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[6]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[7]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[8]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[9]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[10]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[11]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[12]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[13]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[14]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[15]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[16]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[17]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[18]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[19]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[20]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[21]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[22]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[23]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[24]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[25]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[26]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[27]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[28]).toFixed(2)) + `</td>
+                <td class="text-right" style="color:#d2d3d7; padding: 0 2px">`+ Intl.NumberFormat().format(parseFloat(test_data[i].price[29]).toFixed(2)) + `</td>
               </tr>`;
           $("#port_data_tbl>tbody").append(test_data_row);
         }
