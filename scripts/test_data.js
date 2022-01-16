@@ -286,14 +286,14 @@ function create_test_data() {
       idx[i] = 0;
     }
     while (startDate <= endDate) {
-      var as_arr = new Array();
+      let as_arr = new Array();
       // var as_arr2 = new Array();
-      dtt = appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
+      let dtt = appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
       // as_arr.push({ date: dtt });
       for (y = 0; y < 30; y++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
         let id = portfolio_data[y].data.date.indexOf(dtt, idx[y]);
         if (id == -1) {//jika idx tidak ditemukan
-          as_arr.push(test_data[test_data.length - 1][y + 1].price); //masukkan harga sebelumnya
+          as_arr.push(test_data[test_data.length - 1].price[y + 1]); //masukkan harga sebelumnya
           // as_arr2.push(test_data[test_data.length - 1][y + 1].price);
         } else {
           as_arr.push(portfolio_data[y].data.price[id]); //jika idx ketemu masukkan harga berdasarkan idx
@@ -312,6 +312,7 @@ function create_test_data() {
         startDate = new Date(startDate.setDate(startDate.getDate() + 1));
       }
     }
+    console.log(test_data);
     
     $('#stock1_ticker').html(portfolio_data[0].ticker);
     $('#stock2_ticker').html(portfolio_data[1].ticker);
@@ -342,8 +343,7 @@ function create_test_data() {
     $('#stock27_ticker').html(portfolio_data[26].ticker);
     $('#stock28_ticker').html(portfolio_data[27].ticker);
     $('#stock29_ticker').html(portfolio_data[28].ticker);
-    $('#stock30_ticker').html(portfolio_data[29].ticker);
-    console.log(test_data);
+    $('#stock30_ticker').html(portfolio_data[29].ticker);   
 
     $("#pagination-demo").twbsPagination({
       totalPages: Math.ceil(test_data.length / 22),
