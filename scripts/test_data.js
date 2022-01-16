@@ -24,17 +24,6 @@ function tickers_exchange_btn() {
   };
 }
 
-function tickers_exchange_btn_random() {
-  var ul = document.getElementById('ex_dd_random');
-  ul.onclick = function (event) {
-    var target = getEventTarget(event);
-    let container_exchange = $(this).closest("#tickers_exchange_select_random");
-    exchange_choose_current_random = target.innerText.split(' - ')[0]; 
-    container_exchange.find('.Xchange_random').text(target.innerText || 'Select Exchange');
-    console.log(exchange_choose_current_random);
-  };
-}
-
 function tickers_list_btn() {
   if (!exchange_choose_current_manual) {
     Swal.fire(
@@ -66,6 +55,25 @@ function tickers_list_btn() {
     return false;
   }
 }
+
+// function tickers_select() {
+  // $("#tickers_list").on('click', '.dropdown-menu li', function (event) {
+  //   event.stopPropagation();
+  //   var container2 = $(this).closest("#tickers_list");
+  //   var numChecked2 = container2.find('[type="checkbox"]:checked').length;
+  //   container2.find('.quantity').text(numChecked2 || '0');
+  //   console.log(numChecked2);
+  //   var $target2 = $(event.currentTarget);
+  //   console.log($target2.text());
+  //   if (numChecked2 > ticker_list.length) {
+  //       ticker_list.push($target2.text());
+  //   } else if (numChecked2 < ticker_list.length) {
+  //       var index = ticker_list.indexOf($target2.text());
+  //       ticker_list.splice(index, 1);
+  //   } else { }
+  //   console.log(ticker_list);
+  // });
+// }
 
 function add_data() {
   if (portfolio_data.length == 30) {
@@ -152,6 +160,19 @@ function add_data() {
   }
 }
 
+
+function tickers_exchange_btn_random() {
+  var ul = document.getElementById('ex_dd_random');
+  ul.onclick = function (event) {
+    var target = getEventTarget(event);
+    let container_exchange = $(this).closest("#tickers_exchange_select_random");
+    exchange_choose_current_random = target.innerText.split(' - ')[0]; 
+    container_exchange.find('.Xchange_random').text(target.innerText || 'Select Exchange');
+    console.log(exchange_choose_current_random);
+  };
+}
+
+
 function add_data_random() {
   if (portfolio_data.length == 30) {
     Swal.fire(
@@ -231,40 +252,6 @@ function add_data_random() {
   // $(':button').prop('disabled', false);
 }
 
-function appendLeadingZeroes(n) {
-  if (n <= 9) {
-    return "0" + n;
-  }
-  return n
-}
-
-function reset_stock() {
-  $("#tiingo_tickers_btn").html(`Select Stocks (<span class="quantity">0</span>)`);
-  $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
-  $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
-  ticker_list = [];
-  exchange_choose_current_manual = "";
-  exchange_choose_previous_manual = "";
-  exchange_choose_current_random = "";
-  exchange_choose_previous_random = "";
-  portfolio_data = [];
-  test_data = [];
-  $("#table_assets > tbody").empty();
-  $("#port_data_tbl>tbody").empty();
-  $("#pagination-demo").twbsPagination("destroy");
-  $("#period_data").val("No Data Available");
-  $('#ulul').empty();
-
-  Swal.fire({
-    position: 'top-end',
-    icon: 'success',
-    title: 'Porfolio Stock Reseted',
-    showConfirmButton: false,
-    timer: 1500
-  });
-
-}
-
 function create_test_data() {
   if (portfolio_data.length < 30) {
     Swal.fire(
@@ -302,19 +289,22 @@ function create_test_data() {
       var as_arr = new Array();
       // var as_arr2 = new Array();
       dtt = appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
-      as_arr.push({ date: dtt });
+      // as_arr.push({ date: dtt });
       for (y = 0; y < 30; y++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
         let id = portfolio_data[y].data.date.indexOf(dtt, idx[y]);
         if (id == -1) {//jika idx tidak ditemukan
-          as_arr.push({ ticker: portfolio_data[y].ticker, price: test_data[test_data.length - 1][y + 1].price }); //masukkan harga sebelumnya
+          as_arr.push(test_data[test_data.length - 1][y + 1].price); //masukkan harga sebelumnya
           // as_arr2.push(test_data[test_data.length - 1][y + 1].price);
         } else {
-          as_arr.push({ ticker: portfolio_data[y].ticker, price: portfolio_data[y].data.price[id] }); //jika idx ketemu masukkan harga berdasarkan idx
+          as_arr.push(portfolio_data[y].data.price[id]); //jika idx ketemu masukkan harga berdasarkan idx
           // as_arr2.push(portfolio_data[y].data.price[id]);
           idx[y] = id + 1;
         }
       }
-      test_data.push(as_arr);
+      test_data.push({
+        date: dtt,
+        price: as_arr
+      });
       // array_test_data.push(as_arr2);
       if (startDate.getDay() == 5) {
         startDate = new Date(startDate.setDate(startDate.getDate() + 3));
@@ -408,4 +398,38 @@ function create_test_data() {
     showConfirmButton: false,
     timer: 1500
   })
+}
+
+function reset_stock() {
+  $("#tiingo_tickers_btn").html(`Select Stocks (<span class="quantity">0</span>)`);
+  $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
+  $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
+  ticker_list = [];
+  exchange_choose_current_manual = "";
+  exchange_choose_previous_manual = "";
+  exchange_choose_current_random = "";
+  exchange_choose_previous_random = "";
+  portfolio_data = [];
+  test_data = [];
+  $("#table_assets > tbody").empty();
+  $("#port_data_tbl>tbody").empty();
+  $("#pagination-demo").twbsPagination("destroy");
+  $("#period_data").val("No Data Available");
+  $('#ulul').empty();
+
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Porfolio Stock Reseted',
+    showConfirmButton: false,
+    timer: 1500
+  });
+
+}
+
+function appendLeadingZeroes(n) {
+  if (n <= 9) {
+    return "0" + n;
+  }
+  return n
 }
