@@ -196,9 +196,9 @@ async function run_test() {
             console.log(data_input);
 
             $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.request_no).toFixed(0)));
-            for (i = 1; i <= 30; i++) {
-                $("#price_stock" + i).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[0][i]).toFixed(5)));
-                $("#position_stock" + i).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[1][i]).toFixed(0)));
+            for (i = 0; i < 30; i++) {
+                $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[i][0]).toFixed(5)));
+                $("#position_stock" + (i+1).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[i][1]).toFixed(0)));
             }
 
             return false();
