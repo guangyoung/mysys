@@ -101,7 +101,7 @@ async function run_test() {
                 //bisa juga set marginBuying_power = 0....arti 0, artinya terjadi margin call....dan quantxi akan kirim signal close all position
                 //tapi kemungkinan terjadi margin call jika menggunakan quantxi diminimalkan menjadi 0% alias tidak mungkin terjadi.
             } else {
-                margin_buying_power = Math.min(sma / 0.5, excess_liquidity / 0.3);
+                marginBuying_power = Math.min(sma / 0.5, excess_liquidity / 0.3);
             }
 
             console.log("current_date "+current_date);
@@ -116,7 +116,7 @@ async function run_test() {
             console.log("regT_margin_req "+ regT_margin_req);
             console.log("excess_equity "+ excess_equity);
             console.log("sma "+ sma);
-            console.log("margin_buying_power "+ margin_buying_power);            
+            console.log("margin_buying_power "+ marginBuying_power);            
 
             let daily_stock_position_transaction_details = new Array();
             //save daily pretrade stock position to array 
@@ -133,10 +133,11 @@ async function run_test() {
                 preTrade_cashbalance: cash_balance,
                 preTrade_marketvalue: market_value,
                 preTrade_equitywith_loanValue: equity_with_loanValue,
-                preTrade_maintenancemargin_reserved: maintenance_margin_reserved,
-                preTrade_maintenancemargin_available: maintenance_margin_available,
-                preTrade_initialmargin_reserved: initial_margin_reserved,
-                preTrade_initialmargin_available: initial_margin_available,
+                preTrade_maintenancemargin_reserved: maintenance_margin_req,
+                preTrade_maintenancemargin_available: excess_liquidity,
+                preTrade_initialmargin_reserved: regT_margin_req,
+                preTrade_initialmargin_available: excess_equity,
+                preTrade_sma: sma,
                 preTrade_marginbuying_power: marginBuying_power
             })
 
@@ -192,6 +193,7 @@ async function run_test() {
             };
 
             data_input.push(dataInput); //save data to array data_input_history
+            console.log(data_input);
 
             $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.request_no).toFixed(0)));
             for (i = 1; i <= 30; i++) {
