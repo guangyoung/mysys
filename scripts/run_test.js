@@ -251,11 +251,11 @@ async function run_test() {
                             };
                             signal_output.push(signalOutput); //save data to array signal_output_history 
 
-                            $('#total_request').html(parseFloat(dataInput.request_no).toFixed(0));
-                            $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.data_id).toFixed(0)));
-                            for (i = 1; i <= 30; i++) {
-                                $("#signal_position_stock" + i).html(signalOutput.signal_position[i]);
-                                $("#signal_size_stock" + i).html(Intl.NumberFormat().format(parseFloat(signalOutput.signal_size[i]).toFixed(0)));
+                            $('#total_request').html(parseFloat(signal_output.request_no).toFixed(0));
+                            $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.request_no).toFixed(0)));
+                            for (i = 0; i < 30; i++) {
+                                $("#signal_position_stock" + i).html(signal_output.quantxi_signal[i][0]);
+                                $("#signal_size_stock" + i).html(Intl.NumberFormat().format(parseFloat(signal_output.quantxi_signal[i][1]).toFixed(0)));
                             }
                             post_process = finish;
                         }
