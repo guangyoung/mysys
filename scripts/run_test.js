@@ -201,7 +201,7 @@ async function run_test() {
                 $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[i][1]).toFixed(0)));
             }
 
-            return false();
+            // return false();
 
             let ur = "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey");//gabung atau pisah ya ?
             let post_process = running;
