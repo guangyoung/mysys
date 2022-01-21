@@ -198,7 +198,7 @@ async function run_test() {
             $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.request_no).toFixed(0)));
             for (i = 0; i < 30; i++) {
                 $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[i][0]).toFixed(5)));
-                $("#position_stock" + (i+1).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[i][1]).toFixed(0)));
+                $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[i][1]).toFixed(0)));
             }
 
             return false();
