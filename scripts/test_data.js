@@ -287,17 +287,13 @@ function create_test_data() {
     }
     while (startDate <= endDate) {
       let as_arr = new Array();
-      // var as_arr2 = new Array();
       let dtt = appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
-      // as_arr.push({ date: dtt });
       for (y = 0; y < 30; y++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
         let id = portfolio_data[y].data.date.indexOf(dtt, idx[y]);
         if (id == -1) {//jika idx tidak ditemukan
-          as_arr.push(test_data[test_data.length - 1].price[y + 1]); //masukkan harga sebelumnya
-          // as_arr2.push(test_data[test_data.length - 1][y + 1].price);
+          as_arr.push(test_data[test_data.length - 1].price[y]); //masukkan harga sebelumnya
         } else {
           as_arr.push(portfolio_data[y].data.price[id]); //jika idx ketemu masukkan harga berdasarkan idx
-          // as_arr2.push(portfolio_data[y].data.price[id]);
           idx[y] = id + 1;
         }
       }
@@ -305,45 +301,13 @@ function create_test_data() {
         date: dtt,
         price: as_arr
       });
-      // array_test_data.push(as_arr2);
       if (startDate.getDay() == 5) {
         startDate = new Date(startDate.setDate(startDate.getDate() + 3));
       } else {
         startDate = new Date(startDate.setDate(startDate.getDate() + 1));
       }
     }
-    console.log(test_data);
-    
-    // $('#stock1_ticker').html(portfolio_data[0].ticker);
-    // $('#stock2_ticker').html(portfolio_data[1].ticker);
-    // $('#stock3_ticker').html(portfolio_data[2].ticker);
-    // $('#stock4_ticker').html(portfolio_data[3].ticker);
-    // $('#stock5_ticker').html(portfolio_data[4].ticker);
-    // $('#stock6_ticker').html(portfolio_data[5].ticker);
-    // $('#stock7_ticker').html(portfolio_data[6].ticker);
-    // $('#stock8_ticker').html(portfolio_data[7].ticker);
-    // $('#stock9_ticker').html(portfolio_data[8].ticker);
-    // $('#stock10_ticker').html(portfolio_data[9].ticker);
-    // $('#stock11_ticker').html(portfolio_data[10].ticker);
-    // $('#stock12_ticker').html(portfolio_data[11].ticker);
-    // $('#stock13_ticker').html(portfolio_data[12].ticker);
-    // $('#stock14_ticker').html(portfolio_data[13].ticker);
-    // $('#stock15_ticker').html(portfolio_data[14].ticker);
-    // $('#stock16_ticker').html(portfolio_data[15].ticker);
-    // $('#stock17_ticker').html(portfolio_data[16].ticker);
-    // $('#stock18_ticker').html(portfolio_data[17].ticker);
-    // $('#stock19_ticker').html(portfolio_data[18].ticker);
-    // $('#stock20_ticker').html(portfolio_data[19].ticker);
-    // $('#stock21_ticker').html(portfolio_data[20].ticker);
-    // $('#stock22_ticker').html(portfolio_data[21].ticker);
-    // $('#stock23_ticker').html(portfolio_data[22].ticker);
-    // $('#stock24_ticker').html(portfolio_data[23].ticker);
-    // $('#stock25_ticker').html(portfolio_data[24].ticker);
-    // $('#stock26_ticker').html(portfolio_data[25].ticker);
-    // $('#stock27_ticker').html(portfolio_data[26].ticker);
-    // $('#stock28_ticker').html(portfolio_data[27].ticker);
-    // $('#stock29_ticker').html(portfolio_data[28].ticker);
-    // $('#stock30_ticker').html(portfolio_data[29].ticker);   
+    console.log(test_data);   
 
     $("#pagination-demo").twbsPagination({
       totalPages: Math.ceil(test_data.length / 22),
