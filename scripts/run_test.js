@@ -156,7 +156,7 @@ async function run_test() {
             // REQUEST SIGNAL TO QUANTXI AI =====================================================
             // ---------------------------------------------------------------------------------- 
 
-            let dataInput = {
+            data_input = {
                 request_no: data_idx + 1,//ganti jadi data_idx
                 marginBuying_power: marginBuying_power,
                 stock_data: [
@@ -193,14 +193,14 @@ async function run_test() {
                 ]
             };
 
-            data_input.push(dataInput); //save data to array data_input_history
+            // data_input.push(dataInput); //save data to array data_input_history
             console.log(data_input);
 
-            $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.request_no).toFixed(0)));
-            $('#margin_buyingPower').html(Intl.NumberFormat().format(parseFloat(dataInput.marginBuying_power).toFixed(0)));
+            $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
+            $('#margin_buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input.marginBuying_power).toFixed(0)));
             for (i = 0; i < 30; i++) {
-                $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[i][0]).toFixed(5)));
-                $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[i][1]).toFixed(0)));
+                $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_data[i][0]).toFixed(5)));
+                $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_data[i][1]).toFixed(0)));
             }
 
             // return false();
@@ -216,7 +216,7 @@ async function run_test() {
                     success: function (result) {
                         if (result.status == "success") {
 
-                            let signalOutput = {
+                            signal_output = {
                                 request_no: result.data.data_id,//ganti jadi response id
                                 signal_timestamp: result.data.signal_timestamp,
                                 quantxi_signal: [
@@ -252,16 +252,16 @@ async function run_test() {
                                     [result.data.signal_position_stock30, result.data.signal_size_stock30]
                                 ]
                             };
-                            signal_output.push(signalOutput); //save data to array signal_output_history 
+                            // signal_output.push(signalOutput); //save data to array signal_output_history 
 
                             console.log(signal_output);
 
-                            $('#total_request').html(parseFloat(signalOutput.request_no).toFixed(0));
-                            $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.request_no).toFixed(0)));
-                            $('#signaltimestamp').html(new Date(parseInt(signalOutput.signal_timestamp)).toISOString());
+                            $('#total_request').html(parseFloat(signal_output.request_no).toFixed(0));
+                            $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.request_no).toFixed(0)));
+                            $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
                             for (i = 0; i < 30; i++) {
-                                $("#signal_position_stock" + (i+1)).html(signalOutput.quantxi_signal[i][0]);
-                                $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signalOutput.quantxi_signal[i][1]).toFixed(0)));
+                                $("#signal_position_stock" + (i+1)).html(signal_output.quantxi_signal[i][0]);
+                                $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.quantxi_signal[i][1]).toFixed(0)));
                             }
                             post_process = "finish";
                         }
@@ -269,8 +269,6 @@ async function run_test() {
                 })
             }
             
-
-            return false();
             // ----------------------------------------------------------------------------------  
             // TRADE TRANSACTION ================================================================
             // ----------------------------------------------------------------------------------
@@ -278,10 +276,10 @@ async function run_test() {
             //calculated total trade value asumsi
             let total_trade_value_quantxiSignal = 0;
             for (i = 0; i < 30; i++) {
-                if (signalOutput.signal_position[i] == "BUY") {
-                    total_trade_value_quantxiSignal += parseInt(signalOutput.signal_size[i] * ((stock_price[i] * (1 + spread_slippage))));
-                } else if (signalOutput.signal_position[i] == "SELL") {
-                    total_trade_value_quantxiSignal -= parseInt(signalOutput.signal_size[i] * ((stock_price[i] * (1 - spread_slippage))));
+                if (signal_output.quantxi_signal[i][0] == "BUY") {
+                    total_trade_value_quantxiSignal += parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 + spread_slippage))));
+                } else if (signal_output.quantxi_signal[i][0] == "SELL") {
+                    total_trade_value_quantxiSignal -= parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 - spread_slippage))));
                 } else {
                     total_trade_value_quantxiSignal += 0;
                 }
@@ -295,6 +293,8 @@ async function run_test() {
                 filled_percentage = marginBuying_power / total_trade_value_quantxiSignal;
             }
 
+            console.log("marginBuying_power :"+marginBuying_power+", total_trade_value_quantxiSignal :"+total_trade_value_quantxiSignal+",filled_percentage :"+filled_percentage)
+
             //trade transaction   
             let filledOrder = new Array();
             let filledPrice = new Array();
@@ -302,14 +302,14 @@ async function run_test() {
             let commission_arr = new Array();
             let initialMargin = new Array();
             for (i = 0; i < 30; i++) {
-                if (signalOutput.signal_position[i] == "BUY") {
-                    filledOrder[i] = Math.floor(parseInt(signalOutput.signal_size[i] * filled_percentage));
+                if (signal_output.quantxi_signal[i][0] == "BUY") {
+                    filledOrder[i] = Math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
                     filledPrice[i] = stock_price[i] * (1 + spread_slippage);
                     tradeValue[i] = filledOrder[i] * filledPrice[i];
                     commission_arr[i] = filledOrder[i] * commission_perShare;
                     initialMargin[i] = tradeValue[i] * 0.50;
-                } else if (signalOutput.signal_position[i] == "SELL") {
-                    filledOrder[i] = Math.floor(parseInt(signalOutput.signal_size[i] * filled_percentage));
+                } else if (signal_output.quantxi_signal[i][0] == "SELL") {
+                    filledOrder[i] = Math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
                     filledPrice[i] = stock_price[i] * (1 - spread_slippage);
                     tradeValue[i] = filledOrder[i] * filledPrice[i];
                     commission_arr[i] = filledOrder[i] * commission_perShare;
@@ -322,6 +322,12 @@ async function run_test() {
                     initialMargin[i] = 0;
                 }
             }
+
+            console.log(filledOrder);
+            console.log(filledPrice);
+            console.log(tradeValue);
+            console.log(commission_arr);
+            console.log(initialMargin);
 
             //save daily stock transaction data to array  
             daily_stock_position_transaction_details.push({
@@ -366,6 +372,14 @@ async function run_test() {
 
             sma = Math.max(sma - total_initial_margin, excess_equity);
 
+            if (excess_liquidity < 0) {
+                marginBuying_power = 0;//cek lagi coding ini krn saat excess liquidity <0 harusnya action mencegah margin call
+                //bisa juga set marginBuying_power = 0....arti 0, artinya terjadi margin call....dan quantxi akan kirim signal close all position
+                //tapi kemungkinan terjadi margin call jika menggunakan quantxi diminimalkan menjadi 0% alias tidak mungkin terjadi.
+            } else {
+                marginBuying_power = Math.min(sma / 0.5, excess_liquidity / 0.3);
+            }
+
             //save daily pretrade stock position to array 
             daily_stock_position_transaction_details.push({
                 stock_position_size,
@@ -377,11 +391,12 @@ async function run_test() {
                 postTrade_cashbalance: cash_balance,
                 postTrade_marketvalue: market_value,
                 postTrade_equitywith_loanValue: equity_with_loanValue,
-                postTrade_maintenancemargin_reserved: maintenance_margin_reserved,
-                postTrade_maintenancemargin_available: maintenance_margin_available,
-                postTrade_initialmargin_reserved: initial_margin_reserved,
-                postTrade_initialmargin_available: initial_margin_available,
-                postTrade_marginbuying_power: margin_buying_power
+                postTrade_maintenancemargin_reserved: maintenance_margin_req,
+                postTrade_maintenancemargin_available: excess_liquidity,
+                postTrade_initialmargin_reserved: regT_margin_req,
+                postTrade_initialmargin_available: excess_equity,
+                postTrade_sma: sma,
+                postTrade_marginBuying_power: marginBuying_power,
             });
 
             //save daily stock position & transaction details to summary
@@ -396,12 +411,28 @@ async function run_test() {
             $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(0)));
             $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(market_value).toFixed(0)));
             $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(equity_with_loanValue).toFixed(0)));
-            $('#maintenance_margin_reserved').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_reserved).toFixed(0)));
-            $('#maintenance_margin_available').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_available).toFixed(0)));
-            $('#initial_margin_reserved').html(Intl.NumberFormat().format(parseFloat(initial_margin_reserved).toFixed(0)));
-            $('#initial_margin_available').html(Intl.NumberFormat().format(parseFloat(initial_margin_available).toFixed(0)));
-            $('#margin_buying_power').html(Intl.NumberFormat().format(parseFloat(marginBuying_power).toFixed(0)));
+            $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_req).toFixed(0)));
+            $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(excess_liquidity).toFixed(0)));
+            $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(regT_margin_req).toFixed(0)));
+            $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(excess_equity).toFixed(0)));
+            $('#sma').html(Intl.NumberFormat().format(parseFloat(sma).toFixed(0)));
+            $('#marginBuying_power').html(Intl.NumberFormat().format(parseFloat(marginBuying_power).toFixed(0)));
 
+            console.log("current_date "+current_date);
+            console.log(stock_price);
+            console.log("daily_Interest "+daily_Interest);
+            console.log("cash_balance "+cash_balance);
+            console.log(stock_market_value);
+            console.log("market_value "+market_value);
+            console.log("equity_with_loanValue "+equity_with_loanValue);
+            console.log("maintenance_margin_req "+ maintenance_margin_req);
+            console.log("excess_liquidity "+ excess_liquidity);
+            console.log("regT_margin_req "+ regT_margin_req);
+            console.log("excess_equity "+ excess_equity);
+            console.log("sma "+ sma);
+            console.log("margin_buying_power "+ marginBuying_power);       
+
+            return false();
             // ----------------------------------------------------------------------------------
             // UPDATE TRADE PERFORMANCE COMPARISON, QUANTXI AI VS BUY AND HOLD ==================
             // ---------------------------------------------------------------------------------- 
