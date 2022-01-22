@@ -68,7 +68,7 @@ async function run_test() {
             // ----------------------------------------------------------------------------------
 
             if (cash_balance < 0) {
-                if (current_date.getDay() == 5) {
+                if (new Date(current_date).getDay() == 5) {
                     daily_Interest = cash_balance * (interest_rate / 360) * 3; //cek lagi rumusnya
                 } else {
                     daily_Interest = cash_balance * (interest_rate / 360) * 1; //cek lagi rumusnya
