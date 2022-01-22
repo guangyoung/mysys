@@ -356,7 +356,9 @@ async function run_test() {
 
             for (i = 0; i < 30; i++) {
                 stock_position_size[i] += filledOrder[i];
+                console.log(stock_position_size[i]);
                 stock_market_value[i] = stock_price[i] * stock_position_size[i];
+                console.log(stock_market_value[i]);
             }
             market_value = stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
 
