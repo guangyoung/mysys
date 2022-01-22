@@ -158,6 +158,7 @@ async function run_test() {
 
             let dataInput = {
                 request_no: data_idx + 1,//ganti jadi data_idx
+                marginBuying_power: marginBuying_power,
                 stock_data: [
                     [stock_price[0], stock_position_size[0]],
                     [stock_price[1], stock_position_size[1]],
@@ -196,6 +197,7 @@ async function run_test() {
             console.log(data_input);
 
             $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(dataInput.request_no).toFixed(0)));
+            $('#margin_buyingPower').html(Intl.NumberFormat().format(parseFloat(dataInput.marginBuying_power).toFixed(0)));
             for (i = 0; i < 30; i++) {
                 $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[i][0]).toFixed(5)));
                 $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(dataInput.stock_data[i][1]).toFixed(0)));
@@ -216,6 +218,7 @@ async function run_test() {
 
                             let signalOutput = {
                                 request_no: result.data.request_no,//ganti jadi response id
+                                signal_timestamp: result.data.signal_timestamp,
                                 quantxi_signal: [
                                     [result.data.signal_position_stock1, result.data.signal_size_stock1],
                                     [result.data.signal_position_stock2, result.data.signal_size_stock2],
@@ -253,6 +256,7 @@ async function run_test() {
 
                             $('#total_request').html(parseFloat(signal_output.request_no).toFixed(0));
                             $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.request_no).toFixed(0)));
+                            $('#signaltimestamp').html(new Date(signal_output.signal_timestamp));
                             for (i = 0; i < 30; i++) {
                                 $("#signal_position_stock" + i).html(signal_output.quantxi_signal[i][0]);
                                 $("#signal_size_stock" + i).html(Intl.NumberFormat().format(parseFloat(signal_output.quantxi_signal[i][1]).toFixed(0)));
