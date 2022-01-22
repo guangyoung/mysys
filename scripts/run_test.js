@@ -204,8 +204,8 @@ async function run_test() {
             // return false();
 
             let ur = "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey");//gabung atau pisah ya ?
-            let post_process = running;
-            while (post_process == running) {
+            let post_process = "running";
+            while (post_process == "running") {
                 await $.ajax({
                     type: "POST",
                     url: ur,
@@ -257,7 +257,7 @@ async function run_test() {
                                 $("#signal_position_stock" + i).html(signal_output.quantxi_signal[i][0]);
                                 $("#signal_size_stock" + i).html(Intl.NumberFormat().format(parseFloat(signal_output.quantxi_signal[i][1]).toFixed(0)));
                             }
-                            post_process = finish;
+                            post_process = "finish";
                         }
                     }
                 })
