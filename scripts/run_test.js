@@ -258,8 +258,8 @@ async function run_test() {
                             $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.request_no).toFixed(0)));
                             $('#signaltimestamp').html(new Date(signal_output.signal_timestamp));
                             for (i = 0; i < 30; i++) {
-                                $("#signal_position_stock" + i).html(signal_output.quantxi_signal[i][0]);
-                                $("#signal_size_stock" + i).html(Intl.NumberFormat().format(parseFloat(signal_output.quantxi_signal[i][1]).toFixed(0)));
+                                $("#signal_position_stock" + (i+1)).html(signal_output.quantxi_signal[i][0]);
+                                $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.quantxi_signal[i][1]).toFixed(0)));
                             }
                             post_process = "finish";
                         }
