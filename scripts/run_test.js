@@ -211,7 +211,7 @@ async function run_test() {
                 await $.ajax({
                     type: "POST",
                     url: ur,
-                    data: dataInput,
+                    data: data_input,
                     dataType: 'json',
                     success: function (result) {
                         if (result.status == "success") {
