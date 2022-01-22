@@ -254,19 +254,21 @@ async function run_test() {
                             };
                             signal_output.push(signalOutput); //save data to array signal_output_history 
 
-                            $('#total_request').html(parseFloat(signal_output.request_no).toFixed(0));
-                            $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.request_no).toFixed(0)));
-                            $('#signaltimestamp').html(new Date(signal_output.signal_timestamp));
+                            console.log(signal_output);
+
+                            $('#total_request').html(parseFloat(signalOutput.request_no).toFixed(0));
+                            $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.request_no).toFixed(0)));
+                            $('#signaltimestamp').html(new Date(signalOutput.signal_timestamp));
                             for (i = 0; i < 30; i++) {
-                                $("#signal_position_stock" + (i+1)).html(signal_output.quantxi_signal[i][0]);
-                                $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.quantxi_signal[i][1]).toFixed(0)));
+                                $("#signal_position_stock" + (i+1)).html(signalOutput.quantxi_signal[i][0]);
+                                $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signalOutput.quantxi_signal[i][1]).toFixed(0)));
                             }
                             post_process = "finish";
                         }
                     }
                 })
             }
-            console.log(signal_output);
+            
 
             return false();
             // ----------------------------------------------------------------------------------  
