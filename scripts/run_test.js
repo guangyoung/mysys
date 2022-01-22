@@ -323,11 +323,11 @@ async function run_test() {
                 }
             }
 
-            console.log(filledOrder);
-            console.log(filledPrice);
-            console.log(tradeValue);
-            console.log(commission_arr);
-            console.log(initialMargin);
+            // console.log(filledOrder);
+            // console.log(filledPrice);
+            // console.log(tradeValue);
+            // console.log(commission_arr);
+            // console.log(initialMargin);
 
             //save daily stock transaction data to array  
             daily_stock_position_transaction_details.push({
@@ -432,68 +432,68 @@ async function run_test() {
             console.log("sma "+ sma);
             console.log("margin_buying_power "+ marginBuying_power);       
 
-            return false();
+            // return false();
             // ----------------------------------------------------------------------------------
             // UPDATE TRADE PERFORMANCE COMPARISON, QUANTXI AI VS BUY AND HOLD ==================
             // ---------------------------------------------------------------------------------- 
-            quantxi_equity = equity_with_loanValue;
+            // quantxi_equity = equity_with_loanValue;
 
-            buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(test_data[0].price[i]) }, 0);
+            // buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(test_data[0].price[i]) }, 0);
 
-            quantxi_total_return = quantxi_equity / initial_equity;
-            quantxi_total_return_array.push(quantxi_total_return);
+            // quantxi_total_return = quantxi_equity / initial_equity;
+            // quantxi_total_return_array.push(quantxi_total_return);
 
-            buyhold_total_return = buyhold_equity / initial_equity;
-            buyhold_total_return_array.push(buyhold_total_return);
+            // buyhold_total_return = buyhold_equity / initial_equity;
+            // buyhold_total_return_array.push(buyhold_total_return);
 
-            quantxi_cagr = ((quantxi_total_return) ^ (1 / new Date(new Date(current_date) - new Date(enddateTest)).getUTCFullYear() - 1970) - 1); //angka 30 ganti jadi periode sesuai periode data
+            // quantxi_cagr = ((quantxi_total_return) ^ (1 / new Date(new Date(current_date) - new Date(enddateTest)).getUTCFullYear() - 1970) - 1); //angka 30 ganti jadi periode sesuai periode data
 
-            buyhold_cagr = ((buyhold_total_return) ^ (1 / new Date(new Date(current_date) - new Date(enddateTest)).getUTCFullYear() - 1970) - 1); //angka 30 ganti jadi periode sesuai periode data
+            // buyhold_cagr = ((buyhold_total_return) ^ (1 / new Date(new Date(current_date) - new Date(enddateTest)).getUTCFullYear() - 1970) - 1); //angka 30 ganti jadi periode sesuai periode data
 
-            if (quantxi_equity > quantxi_equity_peak) {
-                quantxi_equity_peak = quantxi_equity;
-                quantxi_equity_trough = quantxi_equity_peak;
-            } else if (quantxi_equity < quantxi_equity_trough) {
-                quantxi_equity_trough = quantxi_equity;
-                let quantxi_tmpDrawDown = quantxi_equity_peak - quantxi_equity_trough;
-                if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
-                    quantxi_maxDrawDown = quantxi_tmpDrawDown;
-            }
+            // if (quantxi_equity > quantxi_equity_peak) {
+            //     quantxi_equity_peak = quantxi_equity;
+            //     quantxi_equity_trough = quantxi_equity_peak;
+            // } else if (quantxi_equity < quantxi_equity_trough) {
+            //     quantxi_equity_trough = quantxi_equity;
+            //     let quantxi_tmpDrawDown = quantxi_equity_peak - quantxi_equity_trough;
+            //     if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
+            //         quantxi_maxDrawDown = quantxi_tmpDrawDown;
+            // }
 
-            if (buyhold_equity > buyhold_equity_peak) {
-                buyhold_equity_peak = buyhold_equity;
-                buyhold_equity_trough = buyhold_equity_peak;
-            } else if (buyhold_equity < buyhold_equity_trough) {
-                buyhold_equity_trough = buyhold_equity;
-                let buyhold_tmpDrawDown = buyhold_equity_peak - buyhold_equity_trough;
-                if (buyhold_tmpDrawDown > buyhold_maxDrawDown)
-                    buyhold_maxDrawDown = buyhold_tmpDrawDown;
-            }
+            // if (buyhold_equity > buyhold_equity_peak) {
+            //     buyhold_equity_peak = buyhold_equity;
+            //     buyhold_equity_trough = buyhold_equity_peak;
+            // } else if (buyhold_equity < buyhold_equity_trough) {
+            //     buyhold_equity_trough = buyhold_equity;
+            //     let buyhold_tmpDrawDown = buyhold_equity_peak - buyhold_equity_trough;
+            //     if (buyhold_tmpDrawDown > buyhold_maxDrawDown)
+            //         buyhold_maxDrawDown = buyhold_tmpDrawDown;
+            // }
 
-            quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown);
+            // quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown);
 
-            buyhold_mar = (buyhold_cagr / buyhold_maxDrawDown);
+            // buyhold_mar = (buyhold_cagr / buyhold_maxDrawDown);
 
-            quantxi_sharpe = (math.mean(quantxi_total_return_array) - risk_freeRate) / math.std(quantxi_total_return_array);
-            //dipikirkan jika tdk pakai total return array, tapi pakai equity array
+            // quantxi_sharpe = (math.mean(quantxi_total_return_array) - risk_freeRate) / math.std(quantxi_total_return_array);
+            // //dipikirkan jika tdk pakai total return array, tapi pakai equity array
 
-            buyhold_sharpe = (math.mean(buyhold_total_return_array) - risk_freeRate) / math.std(buyhold_total_return_array);
+            // buyhold_sharpe = (math.mean(buyhold_total_return_array) - risk_freeRate) / math.std(buyhold_total_return_array);
 
-            quantxi_sortino = (1);
+            // quantxi_sortino = (1);
 
-            buyhold_sortino = (1);
+            // buyhold_sortino = (1);
 
-            //tampilkan rasio ke halaman web------------------------------
-            $('#quantxi_total_return').html(parseFloat(quantxi_total_return * 100).toFixed(2) + "%");
-            $('#buyhold_total_return').html(parseFloat(buyhold_total_return * 100).toFixed(2) + "%");
-            $('#quantxi_cagr').html(parseFloat(quantxi_cagr * 100).toFixed(2) + "%");
-            $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
-            $('#quantxi_maxdd').html(parseFloat(quantxi_maxDrawDown * 100).toFixed(2) + "%");
-            $('#buyhold_maxdd').html(parseFloat(buyhold_maxDrawDown * 100).toFixed(2) + "%");
-            $('#quantxi_sharpe').html(parseFloat(quantxi_sharpe * 100).toFixed(2) + "%");
-            $('#buyhold_sharpe').html(parseFloat(buyhold_sharpe * 100).toFixed(2) + "%");
-            $('#quantxi_sortino').html(parseFloat(quantxi_sortino * 100).toFixed(2) + "%");
-            $('#buyhold_sortino').html(parseFloat(buyhold_sortino * 100).toFixed(2) + "%");
+            // //tampilkan rasio ke halaman web------------------------------
+            // $('#quantxi_total_return').html(parseFloat(quantxi_total_return * 100).toFixed(2) + "%");
+            // $('#buyhold_total_return').html(parseFloat(buyhold_total_return * 100).toFixed(2) + "%");
+            // $('#quantxi_cagr').html(parseFloat(quantxi_cagr * 100).toFixed(2) + "%");
+            // $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
+            // $('#quantxi_maxdd').html(parseFloat(quantxi_maxDrawDown * 100).toFixed(2) + "%");
+            // $('#buyhold_maxdd').html(parseFloat(buyhold_maxDrawDown * 100).toFixed(2) + "%");
+            // $('#quantxi_sharpe').html(parseFloat(quantxi_sharpe * 100).toFixed(2) + "%");
+            // $('#buyhold_sharpe').html(parseFloat(buyhold_sharpe * 100).toFixed(2) + "%");
+            // $('#quantxi_sortino').html(parseFloat(quantxi_sortino * 100).toFixed(2) + "%");
+            // $('#buyhold_sortino').html(parseFloat(buyhold_sortino * 100).toFixed(2) + "%");
 
             data_idx++; //next data to proccess 
 
