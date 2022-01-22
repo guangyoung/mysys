@@ -217,7 +217,7 @@ async function run_test() {
                         if (result.status == "success") {
 
                             let signalOutput = {
-                                request_no: result.data.request_no,//ganti jadi response id
+                                request_no: result.data.data_id,//ganti jadi response id
                                 signal_timestamp: result.data.signal_timestamp,
                                 quantxi_signal: [
                                     [result.data.signal_position_stock1, result.data.signal_size_stock1],
@@ -258,7 +258,7 @@ async function run_test() {
 
                             $('#total_request').html(parseFloat(signalOutput.request_no).toFixed(0));
                             $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signalOutput.request_no).toFixed(0)));
-                            $('#signaltimestamp').html(new Date(signalOutput.signal_timestamp));
+                            $('#signaltimestamp').html(new Date(parseInt(signalOutput.signal_timestamp)).toISOString());
                             for (i = 0; i < 30; i++) {
                                 $("#signal_position_stock" + (i+1)).html(signalOutput.quantxi_signal[i][0]);
                                 $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signalOutput.quantxi_signal[i][1]).toFixed(0)));
