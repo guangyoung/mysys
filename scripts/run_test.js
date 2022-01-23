@@ -44,12 +44,13 @@ async function run_test() {
         var quantxi_total_return_array = new Array();
         var buyhold_total_return_array = new Array();
         
-        var data_idx = 0;//set data_idx to 0
+        // var data_idx = 0;//set data_idx to 0
 
         //------------------------------------------------------------------------------------
         // Proses Data #######################################################################
         //------------------------------------------------------------------------------------
-        while (data_idx < 100) {
+        // while (data_idx < 100) {
+        for (data_idx = 0; data_idx < 100; data_idx++ ) {
 
             // ----------------------------------------------------------------------------------
             // GET TEST DATA ====================================================================
@@ -352,9 +353,7 @@ async function run_test() {
 
             for (i = 0; i < 30; i++) {
                 stock_position_size[i] += filledOrder[i];
-                console.log(stock_position_size[i]);
                 stock_market_value[i] = stock_price[i] * stock_position_size[i];
-                console.log(stock_market_value[i]);
             }
             market_value = stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
 
@@ -493,7 +492,7 @@ async function run_test() {
             // $('#quantxi_sortino').html(parseFloat(quantxi_sortino * 100).toFixed(2) + "%");
             // $('#buyhold_sortino').html(parseFloat(buyhold_sortino * 100).toFixed(2) + "%");
 
-            data_idx++; //next data to proccess 
+            // data_idx++; //next data to proccess 
 
         }
 
