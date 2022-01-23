@@ -23,12 +23,8 @@ async function run_test() {
         //disable button
         $("#setting_button").prop("disabled", true);
         $("#data_button").prop("disabled", true);
-        // $("#reset_button").prop("disabled", true);
         $("#play_button").prop("disabled", true);
-        // $("#trade_report_button").prop("disabled", true);
-        // $("#trade_performance_button").prop("disabled", true);
         $("#test_statistic_button").prop("disabled", true);
-        // $("#viewpost_button").prop("disabled", true);
 
         //initialisation variable        
         var stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
