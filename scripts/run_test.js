@@ -17,16 +17,15 @@ async function run_test() {
     } else {
         //api get last data
         //jika ada last data reset lalu running
-        //munculkan modal set test period...msh pertimbangan...kemungkinan 75%    
-        //setelah set test period akan muncul 3 var stardate_test, enddate_test & datatest length
-        
+
         //disable button
         $("#setting_button").prop("disabled", true);
         $("#data_button").prop("disabled", true);
         $("#play_button").prop("disabled", true);
         $("#test_statistic_button").prop("disabled", true);
 
-        //initialisation variable        
+        //initialisation variable 
+        //       
         var stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         var stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         var stock_market_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
