@@ -1030,7 +1030,7 @@
                             aria-describedby="" value="1000000" min="1000000" required>
                     </div>
                     <div class="spani form-group">
-                        <label style="font-size: 13px; margin-top: 10px">Spread+Slippage/Trade Side
+                        <label style="font-size: 13px; margin-top: 10px">Spread+Slippage/Side
                             <a><i class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i>
                                 <span>isi besaran spread</span>
                             </a>
@@ -1039,7 +1039,7 @@
                             aria-describedby="" value="0.001" min="0.001" max="0.005" required>
                     </div>
                     <div class="form-group">
-                        <label style="font-size: 13px; margin-top: 10px">Commision/Share/Trade Side<i
+                        <label style="font-size: 13px; margin-top: 10px">Commision/Share<i
                                 class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
                         <input style="font-size: 13px" type="number" class="form-control" id="commision"
                             aria-describedby="" value="0.005" min="0.001" max="0.005" required>
@@ -1064,6 +1064,7 @@
             </div>
         </div>
     </div>
+
     <!-- MODAL TEST DATA -->
     <div class="modal" id="market_data" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
         aria-labelledby="market_dataLabel" aria-hidden="true">
@@ -1306,34 +1307,24 @@
                             </div>
                             <div class="row">
                                 <button type="submit" class="btn btn-danger btn-sm"
-                                    style="font-size: 14px; padding: 0px 5px; margin-left: 15px; margin-top: 10px; height: 26px; width: 180px"
+                                    style="font-size: 13px; padding: 0px 5px; margin-left: 15px; margin-top: 10px; height: 26px; width: 100px"
                                     onclick="reset_stock()">Clear All</button>
                                 <button type="submit" class="btn btn-primary btn-sm"
-                                    style="font-size: 14px; padding: 0px 5px; margin-left: 10px; margin-top: 10px; height: 26px; width: 180px"
-                                    onclick="create_test_data()">Create Data</button>
+                                    style="font-size: 13px; padding: 0px 5px; margin-left: 10px; margin-top: 10px; height: 26px; width: 260px"
+                                    onclick="create_test_data()">Get and Reconstruct Data</button>
                             </div>
                         </div>
                         <div class="col-8">
                             <div class="row">
                                 <strong style="margin-left: 0px; font-size: 12px;">Period of Data :</strong>
                                 <input id="period_data" type="text" class="form-text-sm" disabled
-                                    style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 140px; font-size: 10px">
-                                <strong style="margin-left: 20px; font-size: 12px;">Period of Test :</strong>
-                                <input id="start_date_test" type="date" class="form-text-sm"
-                                    style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 125px; font-size: 10px"> 
-                                <input id="end_date_test" type="date" class="form-text-sm"
-                                    style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 125px; font-size: 10px">                             
-                                <button type="submit" class="btn btn-primary btn-sm"
-                                style="font-size: 11px; padding: 1px 0px; margin-left: 10px; margin-top: 0px; height: 20px; width: 160px"
-                                >Change Period of Test</button>
-                                <!-- <button type="submit" class="btn btn-primary btn-sm"
-                                style="font-size: 11px; padding: 1px 0px; margin-left: 10px; margin-top: 0px; height: 20px; width: 110px"
-                                >Reset Full Period</button> -->
-                                <!-- <ul id="pagination-demo" class="pagination pagination-sm"></ul> -->
+                                    style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 180px; font-size: 10px">
+                                <ul id="pagination-demo" class="pagination pagination-sm"></ul>
+                               
                             </div>
                             <div class="row">
                                 <div class="table-hover"
-                                    style="font-family: calibri; font-size: 11px; background-color: #070914; margin-left: 0px; margin-right: 15px; margin-top: 5px; overflow: auto; height: 380px">
+                                    style="font-family: calibri; font-size: 11px; background-color: #070914; margin-left: 0px; margin-right: 15px; margin-top: 5px; overflow: auto; height: 368px">
                                     <table id="port_data_tbl">
                                         <thead style="color:#d2d3d7">
                                             <tr>
@@ -1437,8 +1428,19 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="row">
-                                <ul id="pagination-demo" class="pagination pagination-sm"></ul>
+                            <div class="card" style="background-color: #bcbcbc; margin-left: -15px; margin-top: 5px; height: 40px">
+                                <div class="row" style="margin-left: 15px; margin-top: 10px">
+                                    <strong style="margin-left: 0px; font-size: 12px;">Period of Test :</strong>
+                                    <h1 style="margin-left: 10px; margin-top: 3px; font-size: 12px;">Startdate</h1>
+                                    <input id="start_date_test" type="date" class="form-text-sm"
+                                        style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 125px; font-size: 10px"> 
+                                        <h1 style="margin-left: 15px; margin-top: 3px; font-size: 12px;">Enddate</h1>
+                                    <input id="end_date_test" type="date" class="form-text-sm"
+                                        style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 125px; font-size: 10px">                             
+                                    <button type="submit" class="btn btn-primary btn-sm"
+                                    style="font-size: 11px; padding: 1px 0px; margin-left: 10px; margin-top: 0px; height: 19px; width: 160px"
+                                    >Change Period of Test</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1488,8 +1490,7 @@
                                 <div class="col-3">
                                     <div class="container card"
                                         style="text-align: center; background-color: #dfdfdf; margin: auto; height: 230px; width: 300px">
-                                        <!-- <div> -->
-                                        
+                                                                               
                                         <div class="row" style="margin: auto">
                                             <h1 style="font-size: 50px; color: #003853; margin-top: 5px">
                                                 <strong>24x</strong>
@@ -1739,9 +1740,6 @@
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Buying<br>Power</th>
-                                            <!-- <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                Total BUY<br>Trade Value</th> -->
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Total<br>Trade Value</th>
@@ -1751,9 +1749,6 @@
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Total<br>Initial Margin</th>
-                                            <!-- <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                Trade<br>Details</th> -->
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Cash<br>Balance</th>
@@ -1811,9 +1806,6 @@
                                             <td
                                                 style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <!-- <td
-                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                                                1,000,000,000.00</td> -->
                                             <td
                                                 style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
@@ -1932,45 +1924,6 @@
                                         style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #091111 solid; width: 110px">
                                         Market<br>Value</th>
                                 </tr>
-                                <!-- <tr style="color: #000000; font-weight: bold; text-align: center; font-size: 9px">
-                                    <th
-                                        style="background-color: #ffffff; position: sticky; top: 74px; padding: 5px 5px; ">
-                                    </th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                    </th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
-                                    </th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
-                                    </th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Cash&nbsp;Pretrade<br>Position&nbsp;+&nbsp;Market<br>Value&nbsp;Pretrade<br>Position
-                                    </th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;/&nbsp;Market<br>Value</th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Market&nbsp;Value&nbsp;x<br>50 %</th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Equity&nbsp;With&nbsp;Loan<br>Value&nbsp;-&nbsp;Reg.T<br>Margin Req.</th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;x<br>Interest Rate</th>
-                                    <th
-                                        style="background-color: #ffffffff; position: sticky; top: 74px; padding: 5px 5px; border-left: 1px #1d1d1d solid">
-                                        Previous&nbsp;Day<br>Posttrade&nbsp;Cash&nbsp;-<br>Daily&nbsp;Interest<br>Charge
-                                    </th>
-                                </tr> -->
                             </thead>
                             <tbody style="font-size: 11px; font-family: calibri">
                                 <tr style>
@@ -1996,28 +1949,6 @@
             </div>
         </div>
     </div>
-
-    <!-- MODAL TRADE PERFORMANCE -->
-    <!-- <div class="modal" id="trade_performance" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
-        aria-labelledby="trade_performanceLabel" aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 1200px" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <a class="modal-title" style="color: #000000; font-size: 18px; margin-top: 2px"><strong><i
-                                class="fa fa-file-text-o"></i><strong style="margin-left: 10px"></strong>TRADE
-                            PERFOMANCE COMPARISON CHART</strong></a>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <!-- MODAL TEST STATISTIC -->
     <div class="modal" id="test_statistic" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
@@ -2503,7 +2434,7 @@
     </div>
 
     <!-- MODAL VIEW ALL POST -->
-    <div class="modal" id="view_allpost" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+    <!-- <div class="modal" id="view_allpost" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
         aria-labelledby="dataLabel" aria-hidden="true">
         <div class="modal-dialog" style="min-width: 1200px" role="document">
             <div class="modal-content">
@@ -2548,12 +2479,11 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <!-- <h6 style="font-size: 13px; margin-top: 5px; position: absolute; left: 15px">For more details about HTTP Request, use Fiddler or Httpwatch or open it directly from a network browser</h6> -->
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script>
         $("#x_user").html(user);

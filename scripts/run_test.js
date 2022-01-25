@@ -19,7 +19,7 @@ async function run_test() {
         //jika ada last data reset lalu running
         //munculkan modal set test period...msh pertimbangan...kemungkinan 75%    
         //setelah set test period akan muncul 3 var stardate_test, enddate_test & datatest length
-
+        
         //disable button
         $("#setting_button").prop("disabled", true);
         $("#data_button").prop("disabled", true);
@@ -37,8 +37,8 @@ async function run_test() {
         var quantxi_equity, buyhold_equity, quantxi_total_return, buyhold_total_return, quantxi_cagr, buyhold_cagr, quantxi_sharpe, buyhold_sharpe, quantxi_sortino, buyhold_sortino;
         var quantxi_equity_peak = 0, quantxi_equity_trough = 0, quantxi_maxDrawDown = 0, buyhold_equity_peak = 0, buyhold_equity_trough = 0, buyhold_maxDrawDown = 0;
         
-        var data_input = new Array();
-        var signal_output = new Array();
+        var data_input_arr = new Array();
+        var signal_output_arr = new Array();
         var daily_stock_position_transaction_summary = new Array();
         var account_and_trade_summary = new Array();
         var quantxi_total_return_array = new Array();
@@ -91,7 +91,7 @@ async function run_test() {
 
             excess_equity = equity_with_loanValue - regT_margin_req;
 
-            sma = Math.max(sma, excess_equity);
+            sma = Math.max(sma, excess_equity);//di cek apa ini sdh benar betul
 
             if (excess_liquidity < 0) {
                 marginBuying_power = 0;//cek lagi coding ini krn saat excess liquidity <0 harusnya action mencegah margin call
@@ -153,7 +153,7 @@ async function run_test() {
             // REQUEST SIGNAL TO QUANTXI AI =====================================================
             // ---------------------------------------------------------------------------------- 
 
-            data_input = {
+            let data_input = {
                 request_no: data_idx + 1,//ganti jadi data_idx
                 marginBuying_power: marginBuying_power,
                 stock_data: [
@@ -190,9 +190,6 @@ async function run_test() {
                 ]
             };
 
-            // data_input.push(dataInput); //save data to array data_input_history
-            console.log(data_input);
-
             $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
             $('#margin_buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input.marginBuying_power).toFixed(0)));
             for (i = 0; i < 30; i++) {
@@ -200,7 +197,8 @@ async function run_test() {
                 $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_data[i][1]).toFixed(0)));
             }
 
-            // return false();
+            data_input_arr.push(data_input); //save data to array data_input_history
+            console.log(data_input_arr);
 
             let ur = "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey");//gabung atau pisah ya ?
             let post_process = "running";
@@ -213,7 +211,7 @@ async function run_test() {
                     success: function (result) {
                         if (result.status == "success") {
 
-                            signal_output = {
+                            let signal_output = {
                                 request_no: result.data.data_id,//ganti jadi response id
                                 signal_timestamp: result.data.signal_timestamp,
                                 quantxi_signal: [
@@ -248,10 +246,7 @@ async function run_test() {
                                     [result.data.signal_position_stock29, result.data.signal_size_stock29],
                                     [result.data.signal_position_stock30, result.data.signal_size_stock30]
                                 ]
-                            };
-                            // signal_output.push(signalOutput); //save data to array signal_output_history 
-
-                            console.log(signal_output);
+                            };                           
 
                             $('#total_request').html(parseFloat(signal_output.request_no).toFixed(0));
                             $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.request_no).toFixed(0)));
@@ -260,6 +255,10 @@ async function run_test() {
                                 $("#signal_position_stock" + (i+1)).html(signal_output.quantxi_signal[i][0]);
                                 $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.quantxi_signal[i][1]).toFixed(0)));
                             }
+
+                            signal_output_arr.push(signal_output); //save data to array signal_output_history
+                            console.log(signal_output);
+
                             post_process = "finish";
                         }
                     }
@@ -270,27 +269,27 @@ async function run_test() {
             // TRADE TRANSACTION ================================================================
             // ----------------------------------------------------------------------------------
 
-            //calculated total trade value asumsi
-            let total_trade_value_quantxiSignal = 0;
+            //calculated estimate total trade value asumsi
+            let estimate_total_trade_value_quantxiSignal = 0;
             for (i = 0; i < 30; i++) {
                 if (signal_output.quantxi_signal[i][0] == "BUY") {
-                    total_trade_value_quantxiSignal += parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 + spread_slippage))));
+                    estimate_total_trade_value_quantxiSignal += parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 + spread_slippage))));
                 } else if (signal_output.quantxi_signal[i][0] == "SELL") {
-                    total_trade_value_quantxiSignal -= parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 - spread_slippage))));
+                    estimate_total_trade_value_quantxiSignal -= parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 - spread_slippage))));
                 } else {
-                    total_trade_value_quantxiSignal += 0;
+                    estimate_total_trade_value_quantxiSignal += 0;
                 }
             }
 
             //calculate filled percentarge   
             let filled_percentage;
-            if (marginBuying_power > total_trade_value_quantxiSignal) {
+            if (marginBuying_power > estimate_total_trade_value_quantxiSignal) {
                 filled_percentage = 1;
             } else {
-                filled_percentage = marginBuying_power / total_trade_value_quantxiSignal;
+                filled_percentage = marginBuying_power / estimate_total_trade_value_quantxiSignal;
             }
 
-            console.log("marginBuying_power :"+marginBuying_power+", total_trade_value_quantxiSignal :"+total_trade_value_quantxiSignal+",filled_percentage :"+filled_percentage)
+            console.log("marginBuying_power :"+marginBuying_power+", estimate_total_trade_value_quantxiSignal :"+estimate_total_trade_value_quantxiSignal+",filled_percentage :"+filled_percentage)
 
             //trade transaction   
             let filledOrder = new Array();
@@ -319,12 +318,6 @@ async function run_test() {
                     initialMargin[i] = 0;
                 }
             }
-
-            // console.log(filledOrder);
-            // console.log(filledPrice);
-            // console.log(tradeValue);
-            // console.log(commission_arr);
-            // console.log(initialMargin);
 
             //save daily stock transaction data to array  
             daily_stock_position_transaction_details.push({
@@ -369,13 +362,13 @@ async function run_test() {
 
             sma = Math.max(sma - total_initial_margin, excess_equity);
 
-            if (excess_liquidity < 0) {
-                marginBuying_power = 0;//cek lagi coding ini krn saat excess liquidity <0 harusnya action mencegah margin call
-                //bisa juga set marginBuying_power = 0....arti 0, artinya terjadi margin call....dan quantxi akan kirim signal close all position
-                //tapi kemungkinan terjadi margin call jika menggunakan quantxi diminimalkan menjadi 0% alias tidak mungkin terjadi.
-            } else {
-                marginBuying_power = Math.min(sma / 0.5, excess_liquidity / 0.3);
-            }
+            // if (excess_liquidity < 0) {
+            //     marginBuying_power = 0;//cek lagi coding ini krn saat excess liquidity <0 harusnya action mencegah margin call
+            //     //bisa juga set marginBuying_power = 0....arti 0, artinya terjadi margin call....dan quantxi akan kirim signal close all position
+            //     //tapi kemungkinan terjadi margin call jika menggunakan quantxi diminimalkan menjadi 0% alias tidak mungkin terjadi.
+            // } else {
+            //     marginBuying_power = Math.min(sma / 0.5, excess_liquidity / 0.3);
+            // }
 
             //save daily pretrade stock position to array 
             daily_stock_position_transaction_details.push({
