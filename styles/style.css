@@ -542,9 +542,9 @@ margin: 10px 10px 10px 0px;
   } */
   #pagination-demo{
     display: inline-block;
-    margin-top: -5px;
+    /* margin-top: -5px; */
     position: absolute;
-    right: 15px;
+    left: 0px;
   }
   #pagination-demo li{
     display: inline-block;
