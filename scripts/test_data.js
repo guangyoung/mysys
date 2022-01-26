@@ -373,7 +373,7 @@ function create_test_data() {
 function change_period_ofTest() {
   let startdate_test = $("#start_date_test").val();
   console.log(startdate_test);
-  let enddate_test = $("#start_date_test").val();
+  let enddate_test = $("#end_date_test").val();
   console.log(enddate_test);
   let startDate_test_idx;
   let endDate_test_idx;
