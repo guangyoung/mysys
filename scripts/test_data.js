@@ -290,6 +290,7 @@ function create_test_data() {
     $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
     $("#end_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
     console.log(startDate_test);
+    
     var idx = new Array();
     for (i = 0; i < 30; i++) {
       idx[i] = 0;
