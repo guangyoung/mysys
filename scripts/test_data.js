@@ -375,22 +375,30 @@ function change_period_ofTest() {
   console.log(startdate_test);
   let enddate_test = $("#end_date_test").val();
   console.log(enddate_test);
-  let startDate_test_idx;
-  let endDate_test_idx;
-  for(i=0;i<test_data.length;i++) {
-    if(test_data[i].date == startdate_test) {
-      startDate_test_idx = i;
-      for(y=i+1;y<test_data.length;y++) {
-        if(test_data[y].date == enddate_test) {
-          endDate_test_idx = y;
+  if(new Date(startdate_test).getDay() == 5 || new Date(startdate_test).getDay() == 3 || new Date(enddate_test).getDay() == 5 || new Date(enddate_test).getDay() == 3) {
+    Swal.fire(
+      'Tgl yg ada masukkan pas di weekend',
+      'Please ganti tgl lain',
+      'warning'
+    )
+  } else {
+    let startDate_test_idx;
+    let endDate_test_idx;
+    for(i=0;i<test_data.length;i++) {
+      if(test_data[i].date == startdate_test) {
+        startDate_test_idx = i;
+        for(y=i+1;y<test_data.length;y++) {
+          if(test_data[y].date == enddate_test) {
+            endDate_test_idx = y;
+          }
         }
       }
     }
+    testData = test_data.slice(startDate_test_idx, endDate_test_idx+1);
+    console.log(startDate_test_idx);
+    console.log(endDate_test_idx);
+    console.log(testData);
   }
-  testData = test_data.slice(startDate_test_idx, endDate_test_idx+1);
-  console.log(startDate_test_idx);
-  console.log(endDate_test_idx);
-  console.log(testData);
 }
 
 function reset_stock() {
