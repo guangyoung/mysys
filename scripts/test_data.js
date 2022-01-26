@@ -8,6 +8,8 @@ var portfolio_data = new Array();
 var test_data = new Array();
 var testData = new Array();
 var array_test_data = new Array();
+var startDate_test;
+var endDate_test;
 
 function getEventTarget(e) {
   e = e || window.event;
@@ -279,8 +281,8 @@ function create_test_data() {
     var startDate = new Date(Math.max.apply(null, startdates));
     var endDate = new Date(Math.min.apply(null, enddates));
     var currentDate = startDate;
-    var startDate_test = startDate;
-    var endDate_test = endDate;
+    startDate_test = startDate;
+    endDate_test = endDate;
     // $("#period_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear() + " - " + appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
     $("#startdate_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear());
     $("#enddate_data").val(appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
