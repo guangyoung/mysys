@@ -283,6 +283,7 @@ function create_test_data() {
     var currentDate = startDate;
     startDate_test = startDate;
     endDate_test = endDate;
+    console.log(startDate_test);
     // $("#period_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear() + " - " + appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
     $("#startdate_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear());
     $("#enddate_data").val(appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
@@ -376,7 +377,7 @@ function create_test_data() {
 
 function change_period_ofTest() {
   // let startdate_test = $("#start_date_test").val();
-  // console.log(startdate_test);
+  console.log(startdate_test);
   // let enddate_test = $("#end_date_test").val();
   // console.log(enddate_test);
   if(new Date($("#start_date_test").val()).getDay() == 0 || new Date($("#start_date_test").val()).getDay() == 6 || new Date($("#end_date_test").val()).getDay() == 0 || new Date($("#end_date_test").val()).getDay() == 6) {
