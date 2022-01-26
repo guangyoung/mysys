@@ -7,7 +7,7 @@
 
 async function run_test() {
 
-    if (test_data.length == 0) {
+    if (testData.length == 0) {
         Swal.fire(
             'No Test Data !',
             'Please click Market Data and Create It',
@@ -54,10 +54,10 @@ async function run_test() {
             // ----------------------------------------------------------------------------------
             // GET TEST DATA ====================================================================
             // ----------------------------------------------------------------------------------
-            let current_date = test_data[data_idx].date;
+            let current_date = testData[data_idx].date;
 
             for (i = 0; i < 30; i++) {
-                stock_price[i] = parseFloat(test_data[data_idx].price[i]);
+                stock_price[i] = parseFloat(testData[data_idx].price[i]);
             }
             // ----------------------------------------------------------------------------------
             // PRE TRADE POSITION CALCULATION ===================================================
@@ -361,14 +361,6 @@ async function run_test() {
 
             sma = Math.max(sma - total_initial_margin, excess_equity);
 
-            // if (excess_liquidity < 0) {
-            //     marginBuying_power = 0;//cek lagi coding ini krn saat excess liquidity <0 harusnya action mencegah margin call
-            //     //bisa juga set marginBuying_power = 0....arti 0, artinya terjadi margin call....dan quantxi akan kirim signal close all position
-            //     //tapi kemungkinan terjadi margin call jika menggunakan quantxi diminimalkan menjadi 0% alias tidak mungkin terjadi.
-            // } else {
-            //     marginBuying_power = Math.min(sma / 0.5, excess_liquidity / 0.3);
-            // }
-
             //save daily pretrade stock position to array 
             daily_stock_position_transaction_details.push({
                 stock_position_size,
@@ -427,7 +419,7 @@ async function run_test() {
             // ---------------------------------------------------------------------------------- 
             // quantxi_equity = equity_with_loanValue;
 
-            // buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(test_data[0].price[i]) }, 0);
+            // buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(testData[0].price[i]) }, 0);
 
             // quantxi_total_return = quantxi_equity / initial_equity;
             // quantxi_total_return_array.push(quantxi_total_return);
