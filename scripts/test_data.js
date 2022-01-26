@@ -6,6 +6,7 @@
 //Global Variables    
 var portfolio_data = new Array();
 var test_data = new Array();
+var testData = new Array();
 var array_test_data = new Array();
 
 function getEventTarget(e) {
@@ -277,6 +278,7 @@ function create_test_data() {
     }
     var startDate = new Date(Math.max.apply(null, startdates));
     var endDate = new Date(Math.min.apply(null, enddates));
+    var currentDate = startDate;
     // $("#period_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear() + " - " + appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
     $("#startdate_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear());
     $("#enddate_data").val(appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
@@ -287,29 +289,31 @@ function create_test_data() {
     for (i = 0; i < 30; i++) {
       idx[i] = 0;
     }
-    while (startDate <= endDate) {
+    while (currentDate <= endDate) {
       let as_arr = new Array();
-      let dtt = appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear();
-      for (y = 0; y < 30; y++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
-        let id = portfolio_data[y].data.date.indexOf(dtt, idx[y]);
+      let dtt = appendLeadingZeroes(currentDate.getMonth() + 1) + "/" + appendLeadingZeroes(currentDate.getDate()) + "/" + currentDate.getFullYear();
+      for (i = 0; i < 30; i++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
+        let id = portfolio_data[i].data.date.indexOf(dtt, idx[i]);
         if (id == -1) {//jika idx tidak ditemukan
-          as_arr.push(test_data[test_data.length - 1].price[y]); //masukkan harga sebelumnya
+          as_arr.push(test_data[test_data.length - 1].price[i]); //masukkan harga sebelumnya
         } else {
-          as_arr.push(portfolio_data[y].data.price[id]); //jika idx ketemu masukkan harga berdasarkan idx
-          idx[y] = id + 1;
+          as_arr.push(portfolio_data[i].data.price[id]); //jika idx ketemu masukkan harga berdasarkan idx
+          idx[i] = id + 1;
         }
       }
       test_data.push({
         date: dtt,
         price: as_arr
       });
-      if (startDate.getDay() == 5) {
-        startDate = new Date(startDate.setDate(startDate.getDate() + 3));
+      if (currentDate.getDay() == 5) {
+        currentDate = new Date(currentDate.setDate(currentDate.getDate() + 3));
       } else {
-        startDate = new Date(startDate.setDate(startDate.getDate() + 1));
+        currentDate = new Date(currentDate.setDate(currentDate.getDate() + 1));
       }
     }
-    console.log(test_data);   
+    console.log(test_data); 
+    testData = test_data;
+    console.log(testData);   
 
     $("#pagination-demo").twbsPagination({
       totalPages: Math.ceil(test_data.length / 22),
@@ -364,6 +368,13 @@ function create_test_data() {
     showConfirmButton: false,
     timer: 1500
   })
+}
+
+function change_period_ofTest() {
+  let startDate_test_idx = test_data.date.indexOf(new Date($("#start_date_test").val()), 0);
+  let endDate_test_idx = test_data.date.indexOf(new Date($("#end_date_test").val()), startDate_test_idx);
+  console.log(startDate_test_idx);
+  console.log(endDate_test_idx);
 }
 
 function reset_stock() {
