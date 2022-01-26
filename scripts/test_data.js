@@ -377,7 +377,7 @@ function change_period_ofTest() {
     if(test_data[i].date == "12/11/1995") {
       startDate_test_idx = i;
       for(y=i+1;y<test_data.length;y++) {
-        if(test_data[y].date == "09/11/2020") {
+        if(test_data[y].date == "12/22/1995") {
           endDate_test_idx = y;
         }
       }
