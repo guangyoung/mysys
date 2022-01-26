@@ -383,10 +383,10 @@ function change_period_ofTest() {
       }
     }
   }
-  // let startDate_test_idx = test_data[0].date.indexOf(date[0]"12/11/1995", 0);
-  // let endDate_test_idx = test_data.date.indexOf(new Date(appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear()), startDate_test_idx);
+  testData = test_data.slice(startDate_test_idx, endDate_test_idx+1);
   console.log(startDate_test_idx);
   console.log(endDate_test_idx);
+  console.log(testData);
 }
 
 function reset_stock() {
