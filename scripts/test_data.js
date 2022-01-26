@@ -376,7 +376,7 @@ function create_test_data() {
 
 function change_period_ofTest() {
   // let startdate_test = $("#start_date_test").val();
-  // console.log(startdate_test);
+  console.log(startdate_test);
   // let enddate_test = $("#end_date_test").val();
   // console.log(enddate_test);
   if(new Date($("#start_date_test").val()).getDay() == 0 || new Date($("#start_date_test").val()).getDay() == 6 || new Date($("#end_date_test").val()).getDay() == 0 || new Date($("#end_date_test").val()).getDay() == 6) {
