@@ -376,7 +376,7 @@ function create_test_data() {
 
 function change_period_ofTest() {
   // let startdate_test = $("#start_date_test").val();
-  console.log(startdate_test);
+  // console.log(startdate_test);
   // let enddate_test = $("#end_date_test").val();
   // console.log(enddate_test);
   if(new Date($("#start_date_test").val()).getDay() == 0 || new Date($("#start_date_test").val()).getDay() == 6 || new Date($("#end_date_test").val()).getDay() == 0 || new Date($("#end_date_test").val()).getDay() == 6) {
@@ -389,8 +389,8 @@ function change_period_ofTest() {
     $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
     $("#end_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
   } else {
-    let startdate_test = $("#start_date_test").val();
-    let enddate_test = $("#end_date_test").val();
+    startdate_test = $("#start_date_test").val();
+    enddate_test = $("#end_date_test").val();
     let startDate_test_idx;
     let endDate_test_idx;
     for(i=0;i<test_data.length;i++) {
