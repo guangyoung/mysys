@@ -371,9 +371,16 @@ function create_test_data() {
 }
 
 function change_period_ofTest() {
-  let startDate_test_idx = test_data.indexOf(date[0]="12/11/1995", 0);
+  let startDate_test_idx;
+  for(i=0;i<test_data.length;i++) {
+    if(test_data[i].date == "12/11/1995") {
+      startDate_test_idx = i;
+      break;
+    }
+  }
+  // let startDate_test_idx = test_data[0].date.indexOf(date[0]"12/11/1995", 0);
   // let endDate_test_idx = test_data.date.indexOf(new Date(appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear()), startDate_test_idx);
-  console.log(startDate_test_idx);
+  // console.log(startDate_test_idx);
   // console.log(endDate_test_idx);
 }
 
