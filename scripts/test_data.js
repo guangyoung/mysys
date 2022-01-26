@@ -375,7 +375,7 @@ function change_period_ofTest() {
   console.log(startdate_test);
   let enddate_test = $("#end_date_test").val();
   console.log(enddate_test);
-  if(new Date(startdate_test).getDay() == 5 || new Date(startdate_test).getDay() == 3 || new Date(enddate_test).getDay() == 5 || new Date(enddate_test).getDay() == 3) {
+  if(new Date(startdate_test).getDay() == 0 || new Date(startdate_test).getDay() == 6 || new Date(enddate_test).getDay() == 0 || new Date(enddate_test).getDay() == 6) {
     Swal.fire(
       'Tgl yg ada masukkan pas di weekend',
       'Please ganti tgl lain',
