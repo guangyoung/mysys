@@ -371,6 +371,8 @@ function create_test_data() {
 }
 
 function change_period_ofTest() {
+  let startdate_test = new Date($("#start_date_test").val());
+  console.log(startdate_test);
   let startDate_test_idx;
   let endDate_test_idx;
   for(i=0;i<test_data.length;i++) {
