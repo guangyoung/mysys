@@ -282,7 +282,7 @@ function create_test_data() {
     // $("#period_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear() + " - " + appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
     $("#startdate_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear());
     $("#enddate_data").val(appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
-    $("#start_date_test").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear());
+    $("#start_date_test").val(startDate.getFullYear() + "-" + appendLeadingZeroes(startDate.getMonth() + 1) + "-" + appendLeadingZeroes(startDate.getDate()));
     $("#end_date_test").val(endDate.getFullYear() + "-" + appendLeadingZeroes(endDate.getMonth() + 1) + "-" + appendLeadingZeroes(endDate.getDate()));
 
     var idx = new Array();
@@ -302,7 +302,7 @@ function create_test_data() {
         }
       }
       test_data.push({
-        date: dtt,
+        date: currentDate.getFullYear() + "-" + appendLeadingZeroes(currentDate.getMonth() + 1) + "-" + appendLeadingZeroes(currentDate.getDate()),
         price: as_arr
       });
       if (currentDate.getDay() == 5) {
@@ -376,7 +376,7 @@ function change_period_ofTest() {
   let startDate_test_idx;
   let endDate_test_idx;
   for(i=0;i<test_data.length;i++) {
-    if(test_data[i].date == "12/11/1995") {
+    if(test_data[i].date == startdate_test) {
       startDate_test_idx = i;
       for(y=i+1;y<test_data.length;y++) {
         if(test_data[y].date == "12/22/1995") {
