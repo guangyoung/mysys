@@ -279,11 +279,13 @@ function create_test_data() {
     var startDate = new Date(Math.max.apply(null, startdates));
     var endDate = new Date(Math.min.apply(null, enddates));
     var currentDate = startDate;
+    var startDate_test = startDate;
+    var endDate_test = endDate;
     // $("#period_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear() + " - " + appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
     $("#startdate_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear());
     $("#enddate_data").val(appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
-    $("#start_date_test").val(startDate.getFullYear() + "-" + appendLeadingZeroes(startDate.getMonth() + 1) + "-" + appendLeadingZeroes(startDate.getDate()));
-    $("#end_date_test").val(endDate.getFullYear() + "-" + appendLeadingZeroes(endDate.getMonth() + 1) + "-" + appendLeadingZeroes(endDate.getDate()));
+    $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
+    $("#end_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
 
     var idx = new Array();
     for (i = 0; i < 30; i++) {
@@ -371,17 +373,21 @@ function create_test_data() {
 }
 
 function change_period_ofTest() {
-  let startdate_test = $("#start_date_test").val();
-  console.log(startdate_test);
-  let enddate_test = $("#end_date_test").val();
-  console.log(enddate_test);
-  if(new Date(startdate_test).getDay() == 0 || new Date(startdate_test).getDay() == 6 || new Date(enddate_test).getDay() == 0 || new Date(enddate_test).getDay() == 6) {
+  // let startdate_test = $("#start_date_test").val();
+  // console.log(startdate_test);
+  // let enddate_test = $("#end_date_test").val();
+  // console.log(enddate_test);
+  if(new Date($("#start_date_test").val()).getDay() == 0 || new Date($("#start_date_test").val()).getDay() == 6 || new Date($("#end_date_test").val()).getDay() == 0 || new Date($("#end_date_test").val()).getDay() == 6) {
     Swal.fire(
       'Tgl yg ada masukkan pas di weekend',
       'Please ganti tgl lain',
       'warning'
     )
+    $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
+    $("#end_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
   } else {
+    let startdate_test = $("#start_date_test").val();
+    let enddate_test = $("#end_date_test").val();
     let startDate_test_idx;
     let endDate_test_idx;
     for(i=0;i<test_data.length;i++) {
