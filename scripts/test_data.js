@@ -291,7 +291,7 @@ function create_test_data() {
     }
     while (currentDate <= endDate) {
       let as_arr = new Array();
-      let dtt = appendLeadingZeroes(currentDate.getMonth() + 1) + "/" + appendLeadingZeroes(currentDate.getDate()) + "/" + currentDate.getFullYear();
+      let dtt = appendLeadingZeroes(currentDate.getFullYear() + "-" + appendLeadingZeroes(currentDate.getMonth() + 1) + "-" + appendLeadingZeroes(currentDate.getDate()));
       for (i = 0; i < 30; i++) { //CEK BAGAIMANA PROSES INI BISA CEPAT....PENTIIIING !!!!!!
         let id = portfolio_data[i].data.date.indexOf(dtt, idx[i]);
         if (id == -1) {//jika idx tidak ditemukan
@@ -371,8 +371,8 @@ function create_test_data() {
 }
 
 function change_period_ofTest() {
-  let startDate_test_idx = test_data.date.indexOf(new Date($("#start_date_test").val()), 0);
-  let endDate_test_idx = test_data.date.indexOf(new Date($("#end_date_test").val()), startDate_test_idx);
+  let startDate_test_idx = test_data.date.indexOf($("#start_date_test").val(), 0);
+  let endDate_test_idx = test_data.date.indexOf($("#end_date_test").val(), startDate_test_idx);
   console.log(startDate_test_idx);
   console.log(endDate_test_idx);
 }
