@@ -373,13 +373,15 @@ function create_test_data() {
 function change_period_ofTest() {
   let startdate_test = $("#start_date_test").val();
   console.log(startdate_test);
+  let enddate_test = $("#start_date_test").val();
+  console.log(enddate_test);
   let startDate_test_idx;
   let endDate_test_idx;
   for(i=0;i<test_data.length;i++) {
     if(test_data[i].date == startdate_test) {
       startDate_test_idx = i;
       for(y=i+1;y<test_data.length;y++) {
-        if(test_data[y].date == "12/22/1995") {
+        if(test_data[y].date == enddate_test) {
           endDate_test_idx = y;
         }
       }
