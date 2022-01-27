@@ -8,6 +8,8 @@ var portfolio_data = new Array();
 var test_data = new Array();
 var testData = new Array();
 var array_test_data = new Array();
+var startDate;
+var endDate;
 var startDate_test;
 var endDate_test;
 
@@ -278,8 +280,8 @@ function create_test_data() {
       startdates.push(new Date(portfolio_data[i].data.date[0]));
       enddates.push(new Date(portfolio_data[i].data.date[portfolio_data[i].data.date.length - 1]));
     }
-    var startDate = new Date(Math.max.apply(null, startdates));
-    var endDate = new Date(Math.min.apply(null, enddates));
+    startDate = new Date(Math.max.apply(null, startdates));
+    endDate = new Date(Math.min.apply(null, enddates));
     var currentDate = startDate;
     startDate_test = startDate;
     endDate_test = endDate;
@@ -378,7 +380,7 @@ function create_test_data() {
 }
 
 function change_period_ofTest() {
-  let startDate_test_2 = startDate_test;
+  // let startDate_test_2 = startDate_test;
   // console.log(startdate_test);
   // let enddate_test = $("#end_date_test").val();
   // console.log(enddate_test);
@@ -388,8 +390,8 @@ function change_period_ofTest() {
       'Please ganti tgl lain',
       'warning'
     )
-    console.log(startDate_test_2);
-    $("#start_date_test").val(startDate_test_2.getFullYear() + "-" + appendLeadingZeroes(startDate_test_2.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test_2.getDate()));
+    console.log(startDate);
+    $("#start_date_test").val(startDate.getFullYear() + "-" + appendLeadingZeroes(startDate.getMonth() + 1) + "-" + appendLeadingZeroes(startDate.getDate()));
     $("#end_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
   } else {
     startDate_test = $("#start_date_test").val();
