@@ -8,8 +8,6 @@ var portfolio_data = new Array();
 var test_data = new Array();
 var testData = new Array();
 var array_test_data = new Array();
-var startDate;
-var endDate;
 
 function getEventTarget(e) {
   e = e || window.event;
@@ -278,8 +276,8 @@ function create_test_data() {
       startdates.push(new Date(portfolio_data[i].data.date[0]));
       enddates.push(new Date(portfolio_data[i].data.date[portfolio_data[i].data.date.length - 1]));
     }
-    startDate = new Date(Math.max.apply(null, startdates));
-    endDate = new Date(Math.min.apply(null, enddates));
+    var startDate = new Date(Math.max.apply(null, startdates));
+    var endDate = new Date(Math.min.apply(null, enddates));
     var currentDate = startDate;
     // var startDate_test = startDate;
     // var endDate_test = endDate;
@@ -412,15 +410,15 @@ function change_period_ofTest() {
       'total test record data dari periode test yang anda pilih < 2100',
       'Please change your test period',
       'warning'
-    )
-    $("#start_date_test").val(startDate.getFullYear() + "-" + appendLeadingZeroes(startDate.getMonth() + 1) + "-" + appendLeadingZeroes(startDate.getDate()));
-    $("#end_date_test").val(endDate.getFullYear() + "-" + appendLeadingZeroes(endDate.getMonth() + 1) + "-" + appendLeadingZeroes(endDate.getDate()));
+    )    
   } else {
-    testData = test_data.slice(startDate_test_idx, endDate_test_idx+1);    
+    testData = test_data.slice(startDate_test_idx, endDate_test_idx+1);
   }
+  
   console.log(startDate_test_idx);
   console.log(endDate_test_idx);
-  console.log(testData);  
+  console.log(testData);
+  
 }
 
 function reset_stock() {
