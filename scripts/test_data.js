@@ -378,7 +378,7 @@ function create_test_data() {
 }
 
 function change_period_ofTest() {
-  let startdate_test_2 = startdate_test;
+  // let startdate_test_2 = startDate_test;
   // console.log(startdate_test);
   // let enddate_test = $("#end_date_test").val();
   // console.log(enddate_test);
@@ -388,20 +388,20 @@ function change_period_ofTest() {
       'Please ganti tgl lain',
       'warning'
     )
-    console.log(startdate_test_2);
-    $("#start_date_test").val(startdate_test_2.getFullYear() + "-" + appendLeadingZeroes(startdate_test_2.getMonth() + 1) + "-" + appendLeadingZeroes(startdate_test_2.getDate()));
+    console.log(startDate_test);
+    $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
     $("#end_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
   } else {
-    startdate_test = $("#start_date_test").val();
-    enddate_test = $("#end_date_test").val();
+    startDate_test = $("#start_date_test").val();
+    endDate_test = $("#end_date_test").val();
     console.log(startDate_test);
     let startDate_test_idx;
     let endDate_test_idx;
     for(i=0;i<test_data.length;i++) {
-      if(test_data[i].date == startdate_test) {
+      if(test_data[i].date == startDate_test) {
         startDate_test_idx = i;
         for(y=i+1;y<test_data.length;y++) {
-          if(test_data[y].date == enddate_test) {
+          if(test_data[y].date == endDate_test) {
             endDate_test_idx = y;
           }
         }
