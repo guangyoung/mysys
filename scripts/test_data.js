@@ -380,22 +380,23 @@ function create_test_data() {
 function change_period_ofTest() {
   var startDate_test = $("#start_date_test").val();
   var endDate_test = $("#end_date_test").val();
+
   if(new Date(startDate_test).getDay() == 6) {
-    startDate_test = new Date(new Date(startDate_test).setDate(new Date(startDate_test).getDate() + 2));
-    $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
-    startDate_test = $("#start_date_test").val();
+    let new_date = new Date(new Date(startDate_test).setDate(new Date(startDate_test).getDate() + 2));
+    startDate_test = $("#start_date_test").val(new_date.getFullYear() + "-" + appendLeadingZeroes(new_date.getMonth() + 1) + "-" + appendLeadingZeroes(new_date.getDate()));
+    // startDate_test = $("#start_date_test").val();
   } else if(new Date(startDate_test).getDay() == 0) {
-    startDate_test = new Date(new Date(startDate_test).setDate(new Date(startDate_test).getDate() + 1));
-    $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
-    startDate_test = $("#start_date_test").val();
+    let new_date = new Date(new Date(startDate_test).setDate(new Date(startDate_test).getDate() + 1));
+    startDate_test = $("#start_date_test").val(new_date.getFullYear() + "-" + appendLeadingZeroes(new_date.getMonth() + 1) + "-" + appendLeadingZeroes(new_date.getDate()));
+    // startDate_test = $("#start_date_test").val();
   } else if(new Date(endDate_test).getDay() == 6) {
-    endDate_test = new Date(new Date(endDate_test).setDate(new Date(endDate_test).getDate() + 2));
-    $("#end_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
-    endDate_test = $("#end_date_test").val();
+    let new_date = new Date(new Date(endDate_test).setDate(new Date(endDate_test).getDate() + 2));
+    endDate_test = $("#end_date_test").val(new_date.getFullYear() + "-" + appendLeadingZeroes(new_date.getMonth() + 1) + "-" + appendLeadingZeroes(new_date.getDate()));
+    // endDate_test = $("#end_date_test").val();
   } else if(new Date(endDate_test).getDay() == 0) {
-    endDate_test = new Date(new Date(endDate_test).setDate(new Date(endDate_test).getDate() + 1));
-    $("#end_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
-    endDate_test = $("#end_date_test").val();
+    let new_date = new Date(new Date(endDate_test).setDate(new Date(endDate_test).getDate() + 1));
+    endDate_test = $("#end_date_test").val(new_date.getFullYear() + "-" + appendLeadingZeroes(new_date.getMonth() + 1) + "-" + appendLeadingZeroes(new_date.getDate()));
+    // endDate_test = $("#end_date_test").val();
   }   
 
   // startDate_test = $("#start_date_test").val();
