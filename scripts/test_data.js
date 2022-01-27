@@ -8,8 +8,6 @@ var portfolio_data = new Array();
 var test_data = new Array();
 var testData = new Array();
 var array_test_data = new Array();
-var startDate_test;
-var endDate_test;
 
 function getEventTarget(e) {
   e = e || window.event;
@@ -281,18 +279,18 @@ function create_test_data() {
     var startDate = new Date(Math.max.apply(null, startdates));
     var endDate = new Date(Math.min.apply(null, enddates));
     var currentDate = startDate;
-    startDate_test = startDate;
-    endDate_test = endDate;
+    // var startDate_test = startDate;
+    // var endDate_test = endDate;
     console.log(startDate_test);
     // $("#period_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear() + " - " + appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
     $("#startdate_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear());
     $("#enddate_data").val(appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
-    $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
-    $("#end_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
-    $("#start_date_test").attr("min", startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
-    $("#start_date_test").attr("max", endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
-    $("#end_date_test").attr("min", startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
-    $("#end_date_test").attr("max", endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
+    $("#start_date_test").val(startDate.getFullYear() + "-" + appendLeadingZeroes(startDate.getMonth() + 1) + "-" + appendLeadingZeroes(startDate.getDate()));
+    $("#end_date_test").val(endDate.getFullYear() + "-" + appendLeadingZeroes(endDate.getMonth() + 1) + "-" + appendLeadingZeroes(endDate.getDate()));
+    $("#start_date_test").attr("min", startDate.getFullYear() + "-" + appendLeadingZeroes(startDate.getMonth() + 1) + "-" + appendLeadingZeroes(startDate.getDate()));
+    $("#start_date_test").attr("max", endDate.getFullYear() + "-" + appendLeadingZeroes(endDate.getMonth() + 1) + "-" + appendLeadingZeroes(endDate.getDate()));
+    $("#end_date_test").attr("min", startDate.getFullYear() + "-" + appendLeadingZeroes(startDate.getMonth() + 1) + "-" + appendLeadingZeroes(startDate.getDate()));
+    $("#end_date_test").attr("max", endDate.getFullYear() + "-" + appendLeadingZeroes(endDate.getMonth() + 1) + "-" + appendLeadingZeroes(endDate.getDate()));
   
     var idx = new Array();
     for (i = 0; i < 30; i++) {
@@ -380,6 +378,8 @@ function create_test_data() {
 }
 
 function change_period_ofTest() {
+  var startDate_test;
+  var endDate_test;
   if(new Date($("#start_date_test").val()).getDay() == 6) {
     startDate_test = new Date(new Date($("#start_date_test").val()).setDate(new Date($("#start_date_test").val()).getDate() + 2));
     $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
