@@ -394,6 +394,7 @@ function change_period_ofTest() {
   } else {
     startdate_test = $("#start_date_test").val();
     enddate_test = $("#end_date_test").val();
+    console.log(startDate_test);
     let startDate_test_idx;
     let endDate_test_idx;
     for(i=0;i<test_data.length;i++) {
