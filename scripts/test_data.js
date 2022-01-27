@@ -413,6 +413,11 @@ function change_period_ofTest() {
     )    
   } else {
     testData = test_data.slice(startDate_test_idx, endDate_test_idx+1);
+    Swal.fire(
+      'total test record '+testData.length,
+      'Test data anda sudah siap',
+      'success'
+    )  
   }
   
   console.log(startDate_test_idx);
