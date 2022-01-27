@@ -289,7 +289,7 @@ function create_test_data() {
     $("#enddate_data").val(appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
     $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
     $("#end_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
-    $("#start_date_test").setAttribute("min", startDate_test);
+    $("#start_date_test").attr("min", startDate_test);
     // $("#start_date_test").datepicker({dateFormat: "yyyy-mm-dd"});
     console.log(startDate_test);
 
