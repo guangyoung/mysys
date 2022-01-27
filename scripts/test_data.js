@@ -8,8 +8,6 @@ var portfolio_data = new Array();
 var test_data = new Array();
 var testData = new Array();
 var array_test_data = new Array();
-var startDate;
-var endDate;
 var startDate_test;
 var endDate_test;
 
@@ -280,8 +278,8 @@ function create_test_data() {
       startdates.push(new Date(portfolio_data[i].data.date[0]));
       enddates.push(new Date(portfolio_data[i].data.date[portfolio_data[i].data.date.length - 1]));
     }
-    startDate = new Date(Math.max.apply(null, startdates));
-    endDate = new Date(Math.min.apply(null, enddates));
+    var startDate = new Date(Math.max.apply(null, startdates));
+    var endDate = new Date(Math.min.apply(null, enddates));
     var currentDate = startDate;
     startDate_test = startDate;
     endDate_test = endDate;
@@ -380,40 +378,41 @@ function create_test_data() {
 }
 
 function change_period_ofTest() {
-  // let startDate_test_2 = startDate_test;
-  // console.log(startdate_test);
-  // let enddate_test = $("#end_date_test").val();
-  // console.log(enddate_test);
-  if(new Date($("#start_date_test").val()).getDay() == 0 || new Date($("#start_date_test").val()).getDay() == 6 || new Date($("#end_date_test").val()).getDay() == 0 || new Date($("#end_date_test").val()).getDay() == 6) {
-    Swal.fire(
-      'Tgl yg ada masukkan pas di weekend',
-      'Please ganti tgl lain',
-      'warning'
-    )
-    console.log(startDate);
-    $("#start_date_test").val(startDate.getFullYear() + "-" + appendLeadingZeroes(startDate.getMonth() + 1) + "-" + appendLeadingZeroes(startDate.getDate()));
-    $("#end_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
-  } else {
-    startDate_test = $("#start_date_test").val();
-    endDate_test = $("#end_date_test").val();
-    console.log(startDate_test);
-    let startDate_test_idx;
-    let endDate_test_idx;
-    for(i=0;i<test_data.length;i++) {
-      if(test_data[i].date == startDate_test) {
-        startDate_test_idx = i;
-        for(y=i+1;y<test_data.length;y++) {
-          if(test_data[y].date == endDate_test) {
-            endDate_test_idx = y;
-          }
+  // if(new Date($("#start_date_test").val()).getDay() == 0 || new Date($("#start_date_test").val()).getDay() == 6 || new Date($("#end_date_test").val()).getDay() == 0 || new Date($("#end_date_test").val()).getDay() == 6) {
+  if(new Date($("#start_date_test").val()).getDay() == 6) {
+    startDate_test = new Date($("#start_date_test").val().setDate($("#start_date_test").val().getDate() + 2));
+    $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
+  } else if(new Date($("#start_date_test").val()).getDay() == 0) {
+    startDate_test = new Date($("#start_date_test").val().setDate($("#start_date_test").val().getDate() + 1));
+    $("#start_date_test").val(startDate_test.getFullYear() + "-" + appendLeadingZeroes(startDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(startDate_test.getDate()));
+  } else if(new Date($("#end_date_test").val()).getDay() == 6) {
+    endDate_test = new Date($("#end_date_test").val().setDate($("#end_date_test").val().getDate() + 2));
+    $("#start_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
+  } else if(new Date($("#end_date_test").val()).getDay() == 0) {
+    endDate_test = new Date($("#end_date_test").val().setDate($("#end_date_test").val().getDate() + 1));
+    $("#start_date_test").val(endDate_test.getFullYear() + "-" + appendLeadingZeroes(endDate_test.getMonth() + 1) + "-" + appendLeadingZeroes(endDate_test.getDate()));
+  } 
+    
+  startDate_test = $("#start_date_test").val();
+  endDate_test = $("#end_date_test").val();
+  console.log(startDate_test);
+  let startDate_test_idx;
+  let endDate_test_idx;
+  for(i=0;i<test_data.length;i++) {
+    if(test_data[i].date == startDate_test) {
+      startDate_test_idx = i;
+      for(y=i+1;y<test_data.length;y++) {
+        if(test_data[y].date == endDate_test) {
+          endDate_test_idx = y;
         }
       }
     }
-    testData = test_data.slice(startDate_test_idx, endDate_test_idx+1);
-    console.log(startDate_test_idx);
-    console.log(endDate_test_idx);
-    console.log(testData);
   }
+  testData = test_data.slice(startDate_test_idx, endDate_test_idx+1);
+  console.log(startDate_test_idx);
+  console.log(endDate_test_idx);
+  console.log(testData);
+  
 }
 
 function reset_stock() {
