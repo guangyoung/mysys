@@ -334,7 +334,7 @@ async function run_test() {
                 quantxi_equity_trough = quantxi_equity_peak;
             } else if (quantxi_equity < quantxi_equity_trough) {
                 quantxi_equity_trough = quantxi_equity;
-                let quantxi_tmpDrawDown = quantxi_equity_peak - quantxi_equity_trough;
+                let quantxi_tmpDrawDown = (quantxi_equity_peak - quantxi_equity_trough) / quantxi_equity_peak;
                 if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
                     quantxi_maxDrawDown = quantxi_tmpDrawDown;
             }
@@ -344,7 +344,7 @@ async function run_test() {
                 buyhold_equity_trough = buyhold_equity_peak;
             } else if (buyhold_equity < buyhold_equity_trough) {
                 buyhold_equity_trough = buyhold_equity;
-                let buyhold_tmpDrawDown = buyhold_equity_peak - buyhold_equity_trough;
+                let buyhold_tmpDrawDown = (buyhold_equity_peak - buyhold_equity_trough) / buyhold_equity_peak;
                 if (buyhold_tmpDrawDown > buyhold_maxDrawDown)
                     buyhold_maxDrawDown = buyhold_tmpDrawDown;
             }
