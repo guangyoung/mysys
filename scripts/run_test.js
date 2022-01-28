@@ -28,6 +28,8 @@ async function run_test() {
         //cash balance set as initial equity and sma set to 0
         var quantxi_equity, buyhold_equity, quantxi_total_return, buyhold_total_return, quantxi_cagr, buyhold_cagr, quantxi_sharpe, buyhold_sharpe, quantxi_sortino, buyhold_sortino;
         var quantxi_equity_peak = 0, quantxi_equity_trough = 0, quantxi_maxDrawDown = 0, buyhold_equity_peak = 0, buyhold_equity_trough = 0, buyhold_maxDrawDown = 0;
+        var data_input;
+        var signal_output;
         var data_input_arr = new Array();
         var signal_output_arr = new Array();
         var daily_stock_position_transaction_summary = new Array();
@@ -95,7 +97,7 @@ async function run_test() {
             // ----------------------------------------------------------------------------------  
             // REQUEST SIGNAL TO QUANTXI AI =====================================================
             // ---------------------------------------------------------------------------------- 
-            let data_input = {
+            data_input = {
                 request_no: data_idx + 1,//ganti jadi data_idx
                 marginBuying_power: marginBuying_power,
                 stock_data: [
@@ -148,7 +150,7 @@ async function run_test() {
                     dataType: 'json',
                     success: function (result) {
                         if (result.status == "success") {
-                            let signal_output = {
+                            signal_output = {
                                 request_no: result.data.data_id,//ganti jadi response id
                                 signal_timestamp: result.data.signal_timestamp,
                                 quantxi_signal: [
@@ -204,10 +206,10 @@ async function run_test() {
             //calculated estimate total trade value asumsi
             let estimate_total_trade_value_quantxiSignal = 0;
             for (i = 0; i < 30; i++) {
-                if (signal_output_arr.quantxi_signal[i][0] == "BUY") {
-                    estimate_total_trade_value_quantxiSignal += parseInt(signal_output_arr.quantxi_signal[i][1] * ((stock_price[i] * (1 + spread_slippage))));
-                } else if (signal_output_arr.quantxi_signal[i][0] == "SELL") {
-                    estimate_total_trade_value_quantxiSignal -= parseInt(signal_output_arr.quantxi_signal[i][1] * ((stock_price[i] * (1 - spread_slippage))));
+                if (signal_output.quantxi_signal[i][0] == "BUY") {
+                    estimate_total_trade_value_quantxiSignal += parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 + spread_slippage))));
+                } else if (signal_output.quantxi_signal[i][0] == "SELL") {
+                    estimate_total_trade_value_quantxiSignal -= parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 - spread_slippage))));
                 } else {
                     estimate_total_trade_value_quantxiSignal += 0;
                 }
@@ -226,14 +228,14 @@ async function run_test() {
             let commission_arr = new Array();
             let initialMargin = new Array();
             for (i = 0; i < 30; i++) {
-                if (signal_output_arr.quantxi_signal[i][0] == "BUY") {
-                    filledOrder[i] = Math.floor(parseInt(signal_output_arr.quantxi_signal[i][1] * filled_percentage));
+                if (signal_output.quantxi_signal[i][0] == "BUY") {
+                    filledOrder[i] = Math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
                     filledPrice[i] = stock_price[i] * (1 + spread_slippage);
                     tradeValue[i] = filledOrder[i] * filledPrice[i];
                     commission_arr[i] = filledOrder[i] * commission_perShare;
                     initialMargin[i] = tradeValue[i] * 0.50;
-                } else if (signal_output_arr.quantxi_signal[i][0] == "SELL") {
-                    filledOrder[i] = Math.floor(parseInt(signal_output_arr.quantxi_signal[i][1] * filled_percentage));
+                } else if (signal_output.quantxi_signal[i][0] == "SELL") {
+                    filledOrder[i] = Math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
                     filledPrice[i] = stock_price[i] * (1 - spread_slippage);
                     tradeValue[i] = filledOrder[i] * filledPrice[i];
                     commission_arr[i] = filledOrder[i] * commission_perShare;
