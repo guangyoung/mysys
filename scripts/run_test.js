@@ -40,8 +40,10 @@ async function run_test() {
         //------------------------------------------------------------------------------------
         // Proses Data #######################################################################
         //------------------------------------------------------------------------------------
-       
-        for (data_idx = 0; data_idx < 1000; data_idx++ ) {
+        
+        var data_idx = 0;
+        while(data_idx < 1000) {
+        // for (data_idx = 0; data_idx < 1000; data_idx++ ) {
             let current_date = testData[data_idx].date;
             let daily_stock_position_transaction_details = new Array();
             let daily_account_and_trade_summary = new Array();            
@@ -369,6 +371,8 @@ async function run_test() {
             $('#buyhold_sharpe').html(parseFloat(buyhold_sharpe * 100).toFixed(2) + "%");
             $('#quantxi_sortino').html(parseFloat(quantxi_sortino * 100).toFixed(2) + "%");
             $('#buyhold_sortino').html(parseFloat(buyhold_sortino * 100).toFixed(2) + "%");
+
+            data_idx++;
         }
         //-------------------------------------------------------------------------------------
         // TRADE TESTING REPORT ###############################################################
