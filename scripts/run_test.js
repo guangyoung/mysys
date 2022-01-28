@@ -319,7 +319,7 @@ async function run_test() {
             // ---------------------------------------------------------------------------------- 
             quantxi_equity = equity_with_loanValue;
             buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(testData[0].price[i]) }, 0);
-
+            console.log(buyhold_equity);
             quantxi_total_return = quantxi_equity / initial_equity;
             quantxi_total_return_array.push(quantxi_total_return);
 
