@@ -326,8 +326,8 @@ async function run_test() {
             buyhold_total_return = buyhold_equity / initial_equity;
             buyhold_total_return_array.push(buyhold_total_return);
 
-            quantxi_cagr = ((quantxi_total_return) ^ (1 / new Date(new Date(current_date) - new Date(enddateTest)).getUTCFullYear() - 1970) - 1);
-            buyhold_cagr = ((buyhold_total_return) ^ (1 / new Date(new Date(current_date) - new Date(enddateTest)).getUTCFullYear() - 1970) - 1);
+            // quantxi_cagr = ((quantxi_total_return) ^ (1 / new Date(new Date(current_date) - new Date(enddateTest)).getUTCFullYear() - 1970) - 1);
+            // buyhold_cagr = ((buyhold_total_return) ^ (1 / new Date(new Date(current_date) - new Date(enddateTest)).getUTCFullYear() - 1970) - 1);
 
             if (quantxi_equity > quantxi_equity_peak) {
                 quantxi_equity_peak = quantxi_equity;
