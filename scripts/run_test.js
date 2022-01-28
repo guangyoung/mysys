@@ -28,8 +28,8 @@ async function run_test() {
         //cash balance set as initial equity and sma set to 0
         var quantxi_equity, buyhold_equity, quantxi_total_return, buyhold_total_return, quantxi_cagr, buyhold_cagr, quantxi_sharpe, buyhold_sharpe, quantxi_sortino, buyhold_sortino;
         var quantxi_equity_peak = 0, quantxi_equity_trough = 0, quantxi_maxDrawDown = 0, buyhold_equity_peak = 0, buyhold_equity_trough = 0, buyhold_maxDrawDown = 0;
-        var data_input;
-        var signal_output;
+        // var data_input;
+        // var signal_output;
         var data_input_arr = new Array();
         var signal_output_arr = new Array();
         var daily_stock_position_transaction_summary = new Array();
@@ -99,7 +99,7 @@ async function run_test() {
             // ----------------------------------------------------------------------------------  
             // REQUEST SIGNAL TO QUANTXI AI =====================================================
             // ---------------------------------------------------------------------------------- 
-            data_input = {
+            let data_input = {
                 request_no: data_idx + 1,//ganti jadi data_idx
                 marginBuying_power: marginBuying_power,
                 stock_data: [
@@ -152,7 +152,7 @@ async function run_test() {
                     dataType: 'json',
                     success: function (result) {
                         if (result.status == "success") {
-                            signal_output = {
+                            let signal_output = {
                                 request_no: result.data.data_id,//ganti jadi response id
                                 signal_timestamp: result.data.signal_timestamp,
                                 quantxi_signal: [
