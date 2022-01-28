@@ -42,7 +42,7 @@ async function run_test() {
         //------------------------------------------------------------------------------------
         
         var data_idx = 0;
-        while(data_idx < 1000) {
+        while(data_idx < 2000) {
         // for (data_idx = 0; data_idx < 1000; data_idx++ ) {
             let current_date = testData[data_idx].date;
             let daily_stock_position_transaction_details = new Array();
