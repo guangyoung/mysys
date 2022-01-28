@@ -41,7 +41,7 @@ async function run_test() {
         // Proses Data #######################################################################
         //------------------------------------------------------------------------------------
        
-        for (data_idx = 0; data_idx < 100; data_idx++ ) {
+        for (data_idx = 0; data_idx < 1000; data_idx++ ) {
             let current_date = testData[data_idx].date;
             let daily_stock_position_transaction_details = new Array();
             let daily_account_and_trade_summary = new Array();            
