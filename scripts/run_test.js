@@ -322,10 +322,10 @@ async function run_test() {
             quantxi_equity = equity_with_loanValue;
             buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(testData[0].price[i]) }, 0);
             
-            quantxi_total_return = quantxi_equity / initial_equity;
+            quantxi_total_return = (quantxi_equity - initial_equity) / initial_equity;
             quantxi_total_return_array.push(quantxi_total_return);
 
-            buyhold_total_return = buyhold_equity / initial_equity;
+            buyhold_total_return = (buyhold_equity - initial_equity) / initial_equity;
             buyhold_total_return_array.push(buyhold_total_return);
 
             // quantxi_cagr = ((quantxi_total_return) ^ (1 / new Date(new Date(current_date) - new Date(enddateTest)).getUTCFullYear() - 1970) - 1);
@@ -358,8 +358,8 @@ async function run_test() {
             console.log("riskfree: "+risk_freeRate);
             console.log("std: "+math.std(quantxi_total_return_array));
 
-            quantxi_sharpe = (math.mean(quantxi_total_return_array) - risk_freeRate) / math.std(quantxi_total_return_array);
-            buyhold_sharpe = (math.mean(buyhold_total_return_array) - risk_freeRate) / math.std(buyhold_total_return_array);
+            quantxi_sharpe = (quantxi_total_return - risk_freeRate) / math.std(quantxi_total_return_array);
+            buyhold_sharpe = (buyhold_total_return - risk_freeRate) / math.std(buyhold_total_return_array);
 
             console.log("quantxi_sharpe: "+quantxi_sharpe);
             quantxi_sortino = (1);
