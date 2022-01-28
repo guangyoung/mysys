@@ -204,10 +204,10 @@ async function run_test() {
             //calculated estimate total trade value asumsi
             let estimate_total_trade_value_quantxiSignal = 0;
             for (i = 0; i < 30; i++) {
-                if (signal_output.quantxi_signal[i][0] == "BUY") {
-                    estimate_total_trade_value_quantxiSignal += parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 + spread_slippage))));
-                } else if (signal_output.quantxi_signal[i][0] == "SELL") {
-                    estimate_total_trade_value_quantxiSignal -= parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 - spread_slippage))));
+                if (signal_output_arr.quantxi_signal[i][0] == "BUY") {
+                    estimate_total_trade_value_quantxiSignal += parseInt(signal_output_arr.quantxi_signal[i][1] * ((stock_price[i] * (1 + spread_slippage))));
+                } else if (signal_output_arr.quantxi_signal[i][0] == "SELL") {
+                    estimate_total_trade_value_quantxiSignal -= parseInt(signal_output_arr.quantxi_signal[i][1] * ((stock_price[i] * (1 - spread_slippage))));
                 } else {
                     estimate_total_trade_value_quantxiSignal += 0;
                 }
@@ -226,14 +226,14 @@ async function run_test() {
             let commission_arr = new Array();
             let initialMargin = new Array();
             for (i = 0; i < 30; i++) {
-                if (signal_output.quantxi_signal[i][0] == "BUY") {
-                    filledOrder[i] = Math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
+                if (signal_output_arr.quantxi_signal[i][0] == "BUY") {
+                    filledOrder[i] = Math.floor(parseInt(signal_output_arr.quantxi_signal[i][1] * filled_percentage));
                     filledPrice[i] = stock_price[i] * (1 + spread_slippage);
                     tradeValue[i] = filledOrder[i] * filledPrice[i];
                     commission_arr[i] = filledOrder[i] * commission_perShare;
                     initialMargin[i] = tradeValue[i] * 0.50;
-                } else if (signal_output.quantxi_signal[i][0] == "SELL") {
-                    filledOrder[i] = Math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
+                } else if (signal_output_arr.quantxi_signal[i][0] == "SELL") {
+                    filledOrder[i] = Math.floor(parseInt(signal_output_arr.quantxi_signal[i][1] * filled_percentage));
                     filledPrice[i] = stock_price[i] * (1 - spread_slippage);
                     tradeValue[i] = filledOrder[i] * filledPrice[i];
                     commission_arr[i] = filledOrder[i] * commission_perShare;
@@ -368,7 +368,6 @@ async function run_test() {
             $('#quantxi_sortino').html(parseFloat(quantxi_sortino * 100).toFixed(2) + "%");
             $('#buyhold_sortino').html(parseFloat(buyhold_sortino * 100).toFixed(2) + "%");
         }
-
         //-------------------------------------------------------------------------------------
         // TRADE TESTING REPORT ###############################################################
         //-------------------------------------------------------------------------------------
