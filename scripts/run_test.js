@@ -330,7 +330,10 @@ async function run_test() {
 
             console.log(new Date(current_date));
             console.log(new Date(startdateTest));
-
+            console.log(Math.round((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24)));
+            console.log(quantxi_total_return);
+            console.log(quantxi_total_return+1);
+            console.log((1 / Math.round((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))))
             quantxi_cagr = ((quantxi_total_return+1) ^ (1 / Math.round((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))) - 1);
             buyhold_cagr = ((buyhold_total_return+1) ^ (1 / Math.round((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))) - 1);
 
