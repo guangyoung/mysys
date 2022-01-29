@@ -70,11 +70,11 @@ async function run_test() {
             excess_liquidity = equity_with_loanValue - maintenance_margin_req;
             regT_margin_req = market_value * 0.50;
             excess_equity = equity_with_loanValue - regT_margin_req;
-            sma = Math.max(sma, excess_equity);//di cek apa ini sdh benar betul
+            sma = math.max(sma, excess_equity);//di cek apa ini sdh benar betul
             if (excess_liquidity < 0) {
                 marginBuying_power = 0;
             } else {
-                marginBuying_power = Math.min(sma / 0.5, excess_liquidity / 0.3);
+                marginBuying_power = math.min(sma / 0.5, excess_liquidity / 0.3);
             }
             //save daily pretrade stock position to array 
             daily_stock_position_transaction_details.push({
@@ -231,13 +231,13 @@ async function run_test() {
             let initialMargin = new Array();
             for (i = 0; i < 30; i++) {
                 if (signal_output.quantxi_signal[i][0] == "BUY") {
-                    filledOrder[i] = Math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
+                    filledOrder[i] = math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
                     filledPrice[i] = stock_price[i] * (1 + spread_slippage);
                     tradeValue[i] = filledOrder[i] * filledPrice[i];
                     commission_arr[i] = filledOrder[i] * commission_perShare;
                     initialMargin[i] = tradeValue[i] * 0.50;
                 } else if (signal_output.quantxi_signal[i][0] == "SELL") {
-                    filledOrder[i] = Math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
+                    filledOrder[i] = math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
                     filledPrice[i] = stock_price[i] * (1 - spread_slippage);
                     tradeValue[i] = filledOrder[i] * filledPrice[i];
                     commission_arr[i] = filledOrder[i] * commission_perShare;
@@ -281,7 +281,7 @@ async function run_test() {
             excess_liquidity = equity_with_loanValue - maintenance_margin_req;
             regT_margin_req = market_value * 0.50;
             excess_equity = equity_with_loanValue - regT_margin_req;
-            sma = Math.max(sma - total_initial_margin, excess_equity);
+            sma = math.max(sma - total_initial_margin, excess_equity);
             //save daily pretrade stock position to array 
             daily_stock_position_transaction_details.push({
                 stock_position_size,
@@ -361,12 +361,12 @@ async function run_test() {
             quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown);
             buyhold_mar = (buyhold_cagr / buyhold_maxDrawDown);
 
-            console.log("mean: "+Math.mean(quantxi_total_return_array));
+            console.log("mean: "+math.mean(quantxi_total_return_array));
             console.log("riskfree: "+risk_freeRate);
-            console.log("std: "+Math.std(quantxi_total_return_array));
+            console.log("std: "+math.std(quantxi_total_return_array));
 
-            quantxi_sharpe = ((Math.mean(quantxi_total_return_array) - (risk_freeRate/360)) / Math.std(quantxi_total_return_array))*Math.sqrt(252);
-            buyhold_sharpe = ((Math.mean(buyhold_total_return_array) - (risk_freeRate/360)) / Math.std(buyhold_total_return_array))*Math.sqrt(252);
+            quantxi_sharpe = ((math.mean(quantxi_total_return_array) - (risk_freeRate/360)) / math.std(quantxi_total_return_array))*math.sqrt(252);
+            buyhold_sharpe = ((math.mean(buyhold_total_return_array) - (risk_freeRate/360)) / math.std(buyhold_total_return_array))*math.sqrt(252);
 
             console.log("quantxi_sharpe: "+quantxi_sharpe);
             quantxi_sortino = (1);
@@ -404,7 +404,7 @@ async function run_test() {
         // $("#pagination_trade_summary").twbsPagination("destroy");
         // if(10 > 0) {
         //     $("#pagination_trade_summary").twbsPagination({
-        //         totalPages: Math.ceil(5000/5),
+        //         totalPages: math.ceil(5000/5),
         //         visiblePages: 4,
         //         onPageClick: function (event, page) {
         //             $("#account_trade_summary_tbl>tbody").empty();
