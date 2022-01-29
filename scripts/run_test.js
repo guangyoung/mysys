@@ -36,7 +36,7 @@ async function run_test() {
         var account_and_trade_summary = new Array();
         var quantxi_total_return_array = new Array();
         var buyhold_total_return_array = new Array();
-
+        var startdateTest = testData[0].date;
         //------------------------------------------------------------------------------------
         // Proses Data #######################################################################
         //------------------------------------------------------------------------------------
@@ -327,6 +327,9 @@ async function run_test() {
 
             buyhold_total_return = (buyhold_equity - initial_equity) / initial_equity;
             buyhold_total_return_array.push(buyhold_total_return);
+
+            console.log(new Date(new Date(current_date) - new Date(startdateTest)).getUTCFullYear() - 1970);
+            console.log((new Date(new Date(current_date) - new Date(startdateTest)).getUTCFullYear() - 1970)/365);
 
             // quantxi_cagr = ((quantxi_total_return) ^ (1 / new Date(new Date(current_date) - new Date(enddateTest)).getUTCFullYear() - 1970) - 1);
             // buyhold_cagr = ((buyhold_total_return) ^ (1 / new Date(new Date(current_date) - new Date(enddateTest)).getUTCFullYear() - 1970) - 1);
