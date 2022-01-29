@@ -330,12 +330,12 @@ async function run_test() {
 
             console.log(new Date(current_date));
             console.log(new Date(startdateTest));
-            console.log(Math.round(((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365));
+            console.log((((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365));
             console.log(quantxi_total_return);
             console.log(quantxi_total_return+1);
-            console.log((1 / Math.round(((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)));
-            quantxi_cagr = ((quantxi_total_return+1) ^ (1 / Math.round(((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)) - 1);
-            buyhold_cagr = ((buyhold_total_return+1) ^ (1 / Math.round(((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)) - 1);
+            console.log(1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365));
+            quantxi_cagr = ((quantxi_total_return+1) ^ (1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)))-1;
+            buyhold_cagr = ((buyhold_total_return+1) ^ (1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)))-1;
 
             if (quantxi_equity > quantxi_equity_peak) {
                 quantxi_equity_peak = quantxi_equity;
