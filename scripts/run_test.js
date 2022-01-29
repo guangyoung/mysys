@@ -361,12 +361,12 @@ async function run_test() {
             quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown);
             buyhold_mar = (buyhold_cagr / buyhold_maxDrawDown);
 
-            console.log("mean: "+math.mean(quantxi_total_return_array));
+            console.log("mean: "+Math.mean(quantxi_total_return_array));
             console.log("riskfree: "+risk_freeRate);
-            console.log("std: "+math.std(quantxi_total_return_array));
+            console.log("std: "+Math.std(quantxi_total_return_array));
 
-            quantxi_sharpe = (quantxi_total_return - risk_freeRate) / math.std(quantxi_total_return_array);
-            buyhold_sharpe = (buyhold_total_return - risk_freeRate) / math.std(buyhold_total_return_array);
+            quantxi_sharpe = ((Math.mean(quantxi_total_return_array) - (risk_freeRate/360)) / Math.std(quantxi_total_return_array))*Math.sqrt(252);
+            buyhold_sharpe = ((Math.mean(buyhold_total_return_array) - (risk_freeRate/360)) / Math.std(buyhold_total_return_array))*Math.sqrt(252);
 
             console.log("quantxi_sharpe: "+quantxi_sharpe);
             quantxi_sortino = (1);
