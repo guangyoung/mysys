@@ -328,15 +328,15 @@ async function run_test() {
             buyhold_total_return = (buyhold_equity - initial_equity) / initial_equity;
             buyhold_total_return_array.push(buyhold_total_return);
 
-            console.log(new Date(current_date));
-            console.log(new Date(startdateTest));
+            // console.log(new Date(current_date));
+            // console.log(new Date(startdateTest));
             console.log((((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365));
-            console.log(quantxi_total_return);
-            console.log(quantxi_total_return+1);
+            // console.log(quantxi_total_return);
+            // console.log(quantxi_total_return+1);
             console.log(1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365));
             quantxi_cagr = ((quantxi_total_return+1) ** (1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)))-1;
             buyhold_cagr = ((buyhold_total_return+1) ** (1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)))-1;
-            console.log(quantxi_cagr);
+            // console.log(quantxi_cagr);
 
             if (quantxi_equity > quantxi_equity_peak) {
                 quantxi_equity_peak = quantxi_equity;
