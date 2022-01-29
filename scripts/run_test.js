@@ -24,18 +24,44 @@ async function run_test() {
         var stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         var stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         var stock_market_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        var daily_Interest, cash_balance = initial_equity, market_value, equity_with_loanValue, maintenance_margin_req, excess_liquidity, regT_margin_req, excess_equity, sma = 0, marginBuying_power;
-        //cash balance set as initial equity and sma set to 0
-        var quantxi_equity, buyhold_equity, quantxi_total_return, buyhold_total_return, quantxi_cagr, buyhold_cagr, quantxi_sharpe, buyhold_sharpe, quantxi_sortino, buyhold_sortino;
-        var quantxi_equity_peak = 0, quantxi_equity_trough = 0, quantxi_maxDrawDown = 0, buyhold_equity_peak = 0, buyhold_equity_trough = 0, buyhold_maxDrawDown = 0;
+        var daily_Interest;
+        var cash_balance = initial_equity;
+        var market_value;
+        var equity_with_loanValue;
+        var maintenance_margin_req;
+        var excess_liquidity;
+        var regT_margin_req;
+        var excess_equity;
+        var sma = 0;
+        var marginBuying_power;
+        var quantxi_equity;
+        var buyhold_equity;
+        var previous_quantxi_equity = initial_equity;
+        var previous_buyhold_equity = initial_equity;
+        var quantxi_total_return;
+        var buyhold_total_return;
+        var quantxi_cagr;
+        var buyhold_cagr;
+        var quantxi_sharpe;
+        var buyhold_sharpe;
+        var quantxi_sortino;
+        var buyhold_sortino;
+        var quantxi_equity_peak = 0;
+        var quantxi_equity_trough = 0;
+        var quantxi_maxDrawDown = 0;
+        var buyhold_equity_peak = 0;
+        var buyhold_equity_trough = 0;
+        var buyhold_maxDrawDown = 0;
         var data_input;
         var signal_output;
         var data_input_arr = new Array();
         var signal_output_arr = new Array();
         var daily_stock_position_transaction_summary = new Array();
         var account_and_trade_summary = new Array();
-        var quantxi_total_return_array = new Array();
-        var buyhold_total_return_array = new Array();
+        var quantxi_equity_array = new Array();
+        var buyhold_equity_array = new Array();
+        var quantxi_daily_return_array = new Array();
+        var buyhold_daily_return_array = new Array();
         var startdateTest = testData[0].date;
         //------------------------------------------------------------------------------------
         // Proses Data #######################################################################
@@ -320,24 +346,16 @@ async function run_test() {
             // UPDATE TRADE PERFORMANCE COMPARISON, QUANTXI AI VS BUY AND HOLD ==================
             // ---------------------------------------------------------------------------------- 
             quantxi_equity = equity_with_loanValue;
+            quantxi_equity_array.push(quantxi_equity);
             buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(testData[0].price[i]) }, 0);
-            
+            buyhold_equity_array.push(buyhold_equity);
+
             quantxi_total_return = (quantxi_equity - initial_equity) / initial_equity;
-            quantxi_total_return_array.push(quantxi_total_return);
-
             buyhold_total_return = (buyhold_equity - initial_equity) / initial_equity;
-            buyhold_total_return_array.push(buyhold_total_return);
-
-            // console.log(new Date(current_date));
-            // console.log(new Date(startdateTest));
-            console.log((((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365));
-            // console.log(quantxi_total_return);
-            // console.log(quantxi_total_return+1);
-            console.log(1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365));
+            
             quantxi_cagr = ((quantxi_total_return+1) ** (1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)))-1;
             buyhold_cagr = ((buyhold_total_return+1) ** (1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)))-1;
-            // console.log(quantxi_cagr);
-
+           
             if (quantxi_equity > quantxi_equity_peak) {
                 quantxi_equity_peak = quantxi_equity;
                 quantxi_equity_trough = quantxi_equity_peak;
@@ -361,15 +379,19 @@ async function run_test() {
             quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown);
             buyhold_mar = (buyhold_cagr / buyhold_maxDrawDown);
 
-            console.log("mean: "+math.mean(quantxi_total_return_array));
+            let quantxi_daily_return = (quantxi_equity - previous_quantxi_equity) / previous_quantxi_equity;
+            quantxi_daily_return_array.push(quantxi_daily_return);
+            let buyhold_daily_return = (buyhold_equity - previous_buyhold_equity) / previous_buyhold_equity;
+            buyhold_daily_return_array.push(buyhold_daily_return);
+
+            console.log("mean: "+math.mean(quantxi_daily_return_array));
             console.log("riskfree: "+(risk_freeRate/360));
-            console.log("std: "+math.std(quantxi_total_return_array));
+            console.log("std: "+math.std(buyhold_daily_return_array));
             console.log("252: "+math.sqrt(252));
 
-            quantxi_sharpe = ((math.mean(quantxi_total_return_array) - (risk_freeRate/360)) / math.std(quantxi_total_return_array));
-            buyhold_sharpe = ((math.mean(buyhold_total_return_array) - (risk_freeRate/360)) / math.std(buyhold_total_return_array));
+            quantxi_sharpe = ((math.mean(quantxi_daily_return_array) - (risk_freeRate/365)) / math.std(quantxi_daily_return_array))*math.sqrt(252);
+            buyhold_sharpe = ((math.mean(buyhold_daily_return_array) - (risk_freeRate/365)) / math.std(buyhold_daily_return_array))*math.sqrt(252);
 
-            console.log("quantxi_sharpe: "+quantxi_sharpe);
             quantxi_sortino = (1);
             buyhold_sortino = (1);
 
