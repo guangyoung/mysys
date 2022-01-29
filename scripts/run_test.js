@@ -385,8 +385,8 @@ async function run_test() {
             buyhold_daily_return_array.push(buyhold_daily_return);
 
             console.log("mean: "+math.mean(quantxi_daily_return_array));
-            console.log("riskfree: "+(risk_freeRate/360));
-            console.log("std: "+math.std(buyhold_daily_return_array));
+            console.log("riskfree: "+(risk_freeRate/365));
+            console.log("std: "+math.std(quantxi_daily_return_array));
             console.log("252: "+math.sqrt(252));
 
             quantxi_sharpe = ((math.mean(quantxi_daily_return_array) - (risk_freeRate/365)) / math.std(quantxi_daily_return_array))*math.sqrt(252);
