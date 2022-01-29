@@ -380,8 +380,8 @@ async function run_test() {
             $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
             $('#quantxi_maxdd').html(parseFloat(quantxi_maxDrawDown * 100).toFixed(2) + "%");
             $('#buyhold_maxdd').html(parseFloat(buyhold_maxDrawDown * 100).toFixed(2) + "%");
-            $('#quantxi_sharpe').html(parseFloat(quantxi_sharpe * 100).toFixed(2) + "%");
-            $('#buyhold_sharpe').html(parseFloat(buyhold_sharpe * 100).toFixed(2) + "%");
+            $('#quantxi_sharpe').html(parseFloat(quantxi_sharpe).toFixed(2));
+            $('#buyhold_sharpe').html(parseFloat(buyhold_sharpe).toFixed(2));
             $('#quantxi_sortino').html(parseFloat(quantxi_sortino * 100).toFixed(2) + "%");
             $('#buyhold_sortino').html(parseFloat(buyhold_sortino * 100).toFixed(2) + "%");
 
