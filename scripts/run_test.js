@@ -389,8 +389,8 @@ async function run_test() {
             console.log("std: "+math.std(quantxi_daily_return_array));
             console.log("252: "+math.sqrt(252));
 
-            quantxi_sharpe = ((math.mean(quantxi_daily_return_array) - (risk_freeRate/365)) / math.std(quantxi_daily_return_array));
-            buyhold_sharpe = ((math.mean(buyhold_daily_return_array) - (risk_freeRate/365)) / math.std(buyhold_daily_return_array));
+            quantxi_sharpe = (((math.mean(quantxi_daily_return_array)*math.sqrt(252)) - risk_freeRate) / math.std(quantxi_daily_return_array));
+            buyhold_sharpe = (((math.mean(buyhold_daily_return_array)*math.sqrt(252)) - risk_freeRate) / math.std(buyhold_daily_return_array));
 
             quantxi_sortino = (1);
             buyhold_sortino = (1);
