@@ -395,16 +395,12 @@ async function run_test() {
         buyhold_sortino = (1);
 
         //tampilkan rasio ke halaman web------------------------------
+        $('#quantxi_equity').html(Intl.NumberFormat().format(parseFloat(quantxi_equity).toFixed(0)));
+        $('#buyhold_equity').html(Intl.NumberFormat().format(parseFloat(buyhold_equity).toFixed(0)));
         $('#quantxi_total_return').html(parseFloat(quantxi_total_return * 100).toFixed(2) + "%");
         $('#buyhold_total_return').html(parseFloat(buyhold_total_return * 100).toFixed(2) + "%");
         $('#quantxi_cagr').html(parseFloat(quantxi_cagr * 100).toFixed(2) + "%");
         $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
-        $('#quantxi_maxdd').html(parseFloat(quantxi_maxDrawDown * 100).toFixed(2) + "%");
-        $('#buyhold_maxdd').html(parseFloat(buyhold_maxDrawDown * 100).toFixed(2) + "%");
-        $('#quantxi_sharpe').html(parseFloat(quantxi_sharpe).toFixed(2));
-        $('#buyhold_sharpe').html(parseFloat(buyhold_sharpe).toFixed(2));
-        $('#quantxi_sortino').html(parseFloat(quantxi_sortino * 100).toFixed(2) + "%");
-        $('#buyhold_sortino').html(parseFloat(buyhold_sortino * 100).toFixed(2) + "%");
 
         data_idx++;
     }

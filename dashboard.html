@@ -2658,44 +2658,6 @@
         $("#x_user").html(user);
         $("#x_apiKey").html(api_key);
 
-        var ticker_list = new Array();
-        var exchange_choose_current_manual;
-        var exchange_choose_previous_manual;
-        var exchange_choose_current_random;
-        var exchange_choose_previous_random;
-
-        // $("#select_startdate").on('click', '.dropdown-item', function (event) {
-        //     let container_exchange = $(this).closest("#select_startdate");
-        //     startdate_select_manual = $(event.currentTarget)[0].id;
-        //     container_exchange.find('.Sdate').text($(event.currentTarget)[0].innerText || 'Select Start Date');
-        //     console.log(startdate_select_manual);
-        // });
-
-        // $("#select_startdate_select_random").on('click', '.dropdown-item', function (event) {
-        //     let container_exchange = $(this).closest("#select_startdate_select_random");
-        //     startdate_select_random = $(event.currentTarget)[0].id;
-        //     container_exchange.find('.Sdate_random').text($(event.currentTarget)[0].innerText ||
-        //         'Select Start Date');
-        //     console.log(startdate_select_random);
-        // });
-
-        $("#tickers_list").on('click', '.dropdown-menu li', function (event) {
-            event.stopPropagation();
-            var container2 = $(this).closest("#tickers_list");
-            var numChecked2 = container2.find('[type="checkbox"]:checked').length;
-            container2.find('.quantity').text(numChecked2 || '0');
-            console.log(numChecked2);
-            var $target2 = $(event.currentTarget);
-            console.log($target2.text());
-            if (numChecked2 > ticker_list.length) {
-                ticker_list.push($target2.text());
-            } else if (numChecked2 < ticker_list.length) {
-                var index = ticker_list.indexOf($target2.text());
-                ticker_list.splice(index, 1);
-            } else { }
-            console.log(ticker_list);
-        });
-
         function logout_btn() {
             localStorage.removeItem("apiKey");
             localStorage.removeItem("user");

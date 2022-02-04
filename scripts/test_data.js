@@ -7,7 +7,6 @@
 var portfolio_data = new Array();
 var test_data = new Array();
 var testData = new Array();
-var array_test_data = new Array();
 
 function getEventTarget(e) {
   e = e || window.event;
@@ -15,14 +14,10 @@ function getEventTarget(e) {
 }
 
 function tickers_exchange_btn() {
-  var ul = document.getElementById('ex_dd');
-  ul.onclick = function (event) {
-    var target = getEventTarget(event);
-    let container_exchange = $(this).closest("#tickers_exchange");
-    exchange_choose_current_manual = target.innerText.split(' - ')[0]; 
-    container_exchange.find('.Xchange').text(target.innerText || 'Select Exchange');
-    console.log(exchange_choose_current_manual);
-  };
+  $("#ex_dd").click(function(event) {
+    exchange_choose_current_manual = getEventTarget(event).innerText.split(' - ')[0]; 
+    $(this).closest("#tickers_exchange").find('.Xchange').text(getEventTarget(event).innerText || 'Select Exchange');
+  });
 }
 
 function tickers_list_btn() {
@@ -33,12 +28,11 @@ function tickers_list_btn() {
       'warning'
     )
   } else if (exchange_choose_current_manual !== exchange_choose_previous_manual) {
-    // $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
+
     exchange_choose_previous_manual = exchange_choose_current_manual;
     ticker_list = [];
     $('#ulul').empty();
     var tickers = eval(exchange_choose_current_manual);
-    // console.log(tickers);
     for (i = 0; i < tickers.length; i++) {
       var newLi = document.createElement('li');
       var cb = document.createElement("input");
@@ -48,33 +42,29 @@ function tickers_list_btn() {
       newLi.appendChild(cb);
       var text = document.createTextNode(tickers[i]);
       newLi.appendChild(text);
-      // var text2 = document.createTextNode("testest");
-      // newLi.appendChild(text2);
       document.getElementById("ulul").appendChild(newLi);
     }
+
+    $("#tickers_list").on('click', '.dropdown-menu li', function (event) {
+      var container2 = $(this).closest("#tickers_list");
+      var numChecked2 = container2.find('[type="checkbox"]:checked').length;
+      container2.find('.quantity').text(numChecked2 || '0');
+      console.log(numChecked2);
+      var $target2 = $(event.currentTarget);
+      console.log($target2.text());
+      if (numChecked2 > ticker_list.length) {
+          ticker_list.push($target2.text());
+      } else if (numChecked2 < ticker_list.length) {
+          var index = ticker_list.indexOf($target2.text());
+          ticker_list.splice(index, 1);
+      } else { }
+      console.log(ticker_list);
+    });
+
   } else {
     return false;
   }
 }
-
-// function tickers_select() {
-  // $("#tickers_list").on('click', '.dropdown-menu li', function (event) {
-  //   event.stopPropagation();
-  //   var container2 = $(this).closest("#tickers_list");
-  //   var numChecked2 = container2.find('[type="checkbox"]:checked').length;
-  //   container2.find('.quantity').text(numChecked2 || '0');
-  //   console.log(numChecked2);
-  //   var $target2 = $(event.currentTarget);
-  //   console.log($target2.text());
-  //   if (numChecked2 > ticker_list.length) {
-  //       ticker_list.push($target2.text());
-  //   } else if (numChecked2 < ticker_list.length) {
-  //       var index = ticker_list.indexOf($target2.text());
-  //       ticker_list.splice(index, 1);
-  //   } else { }
-  //   console.log(ticker_list);
-  // });
-// }
 
 function add_data() {
   if (portfolio_data.length == 30) {
@@ -163,14 +153,10 @@ function add_data() {
 
 
 function tickers_exchange_btn_random() {
-  var ul = document.getElementById('ex_dd_random');
-  ul.onclick = function (event) {
-    var target = getEventTarget(event);
-    let container_exchange = $(this).closest("#tickers_exchange_select_random");
-    exchange_choose_current_random = target.innerText.split(' - ')[0]; 
-    container_exchange.find('.Xchange_random').text(target.innerText || 'Select Exchange');
-    console.log(exchange_choose_current_random);
-  };
+  $("#ex_dd_random").click(function(event) {
+    exchange_choose_current_random = getEventTarget(event).innerText.split(' - ')[0]; 
+    $(this).closest("#tickers_exchange_select_random").find('.Xchange_random').text(getEventTarget(event).innerText || 'Select Exchange');
+  });
 }
 
 
