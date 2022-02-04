@@ -76,12 +76,12 @@
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip"
                         data-placement="bottom" title="View Source Code" style="margin-top: 9px;"><i
                             class="fa fa-github" style="color: #ffffff; font-size: 30px"></i></a>
-                    <a data-toggle="tooltip" onclick="reset_test()"
+                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip"
                         data-placement="bottom" title="Test With Google Colab"
                         style="margin-left: 25px; margin-top: 0px"><img src="styles/image/colab.png" height="48"
                             width="48"></a>
-                    <a href="" data-toggle="modal" data-target="#test_result" data-placement="bottom"
-                        title="Test With Kaggle" style="margin-left: 25px; margin-top: 6px"><img
+                    <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip"
+                        data-placement="bottom" title="Test With Kaggle" style="margin-left: 25px; margin-top: 6px"><img
                             src="styles/image/kaggle.png" height="38" width="100"></a>
 
                     <a onclick="logout_btn()" data-toggle="tooltip" data-placement="bottom" title="Logout"
@@ -91,33 +91,35 @@
                 <hr style="margin-top: 0px; width: 100%; height:1px;border-width:0;color:gray;background-color:gray">
 
                 <div class="row">
-                    <button type="button" id="setting_button" class="btn btn-primary" data-toggle="modal" data-target="#setting"
+                    <button type="button" id="setting_button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#setting"
                         style="margin-left: 15px; margin-top: -5px; width: 42.5%; padding: 1px 5px; font-size: 12px"><i
                             class="fa fa-gear"
                             style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>TEST
                             SETTING</strong></button>
-                    <button type="button" id="data_button" class="btn btn-primary" data-toggle="modal" data-target="#market_data"
-                        style="margin-top: -5px; margin-left: 18px; width: 42.5%; padding: 1px 5px; font-size: 12px"><i
+                    <button type="button" id="data_button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#market_data"
+                        style="margin-top: -5px; margin-left: 20px; width: 42.5%; padding: 1px 5px; font-size: 12px"><i
                             class="fa fa-database"
                             style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>TEST
                             DATA</strong></button>
                 </div>
                 <div class="row">
-                    <!-- <button type="button" class="btn btn-danger" id="reset_button"
+                    <button type="button" class="btn btn-danger" id="reset_button"
                         style="margin-left: 15px; margin-top: 10px; padding: 0px 10px; width: 42.5%; font-size: 12px"
                         onclick="reset_test()"><strong><i class="fa fa-refresh"
                                 style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>RESET
-                            TEST</strong></button> -->
+                            TEST</strong></button>
                     <button type="button" class="btn btn-success" id="play_button"
-                        style="margin-left: 15px; margin-top: 10px; padding: 0px 10px; width: 91%; font-size: 12px"
+                        style="margin-left: 20px; margin-top: 10px; padding: 0px 10px; width: 42.5%; font-size: 12px"
                         onclick="run_test()"><strong><i class="fa fa-play"
                                 style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i>RUN
                             TEST</strong></button>
                 </div>
-                <!-- <div class="progress" style="margin-top: 10px;">
+                <div class="progress" style="margin-top: 10px;">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                         aria-valuemax="100"></div>
-                </div> -->
+                </div>
 
                 <div class="card" style="background-color: #1b1b1b; margin-top: 10px; color: #dfdfdf; height: 228px">
                     <h6
@@ -142,17 +144,17 @@
                                             id="equity_with_loan_value">1,000,000</span></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px">Maintenance&nbsp;Margin&nbsp;Reserved</td>
+                                    <td style="padding: 1px 5px">Maintenance&nbsp;Margin&nbsp;Req.</td>
                                     <td style="position: absolute; right: 10px; padding: 1px 5px"><span
                                             id="maintenance_margin_req">0</span></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px">Maintenance&nbsp;Margin&nbsp;Available</td>
+                                    <td style="padding: 1px 5px">Excess&nbsp;Liquidity</td>
                                     <td style="position: absolute; right: 10px; padding: 1px 5px"><span
                                             id="excess_liquidity">1,000,000</span></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 1px 5px">Reg-T&nbsp;Margin&nbsp;Requirements</td>
+                                    <td style="padding: 1px 5px">Reg-T&nbsp;Margin&nbsp;Req.</td>
                                     <td style="position: absolute; right: 10px; padding: 1px 5px"><span
                                             id="regT_margin_req">0</span></td>
                                 </tr>
@@ -180,17 +182,22 @@
                         class="fa fa-file-text-o"
                         style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>ACCOUNT
                         & TRADE REPORT DETAILS</strong></button> -->
-                <div class="card" style="background-color: #1b1b1b; margin-top: 8px; color: #dfdfdf; height: 162px">
+                <div class="card" style="background-color: #1b1b1b; margin-top: 8px; color: #dfdfdf; height: 120px">
                     <h6
                         style="text-align: center; margin-left: 0px; margin-top: 7px; font-family: Acrom; font-family: calibri; font-size: 14px;">
-                        TRADE PERFORMANCE COMPARISON</h6>
-                    <div style="margin-left: 0px; margin-right: 0px; margin-top: -5px; height: 100px">
+                        PERFORMANCE COMPARISON</h6>
+                    <div style="margin-left: 0px; margin-right: 0px; margin-top: -5px;">
                         <table id="" style="margin: auto; width: 300px;">
                             <tbody style="font-size: 13px; font-family: calibri; text-align: center">
                                 <tr>
                                     <td style="padding: 1px 5px"><u>QUANTXI&nbsp;AI</u></td>
                                     <td style="padding: 1px 5px">VS</td>
                                     <td style="padding: 1px 5px"><u>BUY&nbsp;&&nbsp;HOLD</u></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1px 5px"><span id="quantxi_equity">1,000,000</span></td>
+                                    <td style="padding: 1px 5px">Equity</td>
+                                    <td style="padding: 1px 5px"><span id="buyhold_equity">1,000,000</span></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 1px 5px"><span id="quantxi_total_return">0.00%</span></td>
@@ -201,21 +208,6 @@
                                     <td style="padding: 1px 5px"><span id="quantxi_cagr">0.00%</span></td>
                                     <td style="padding: 1px 5px">CAGR</td>
                                     <td style="padding: 1px 5px"><span id="buyhold_cagr">0.00%</span></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 1px 5px"><span id="quantxi_maxdd">0.00%</span></td>
-                                    <td style="padding: 1px 5px">Max&nbsp;DD</td>
-                                    <td style="padding: 1px 5px"><span id="buyhold_maxdd">0.00%</span></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 1px 5px"><span id="quantxi_sharpe">0.00%</span></td>
-                                    <td style="padding: 1px 5px">Sharpe</td>
-                                    <td style="padding: 1px 5px"><span id="buyhold_sharpe">0.00%</span></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 1px 5px"><span id="quantxi_Sortino">0.00%</span></td>
-                                    <td style="padding: 1px 5px">Sortino</td>
-                                    <td style="padding: 1px 5px"><span id="buyhold_Sortino">0.00%</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -228,12 +220,11 @@
                         class="fa fa-file-text-o"
                         style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>PERFORMANCE
                         COMPARISON CHART</strong></button> -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#test_statistic"
-                    id="test_statistic_button"
-                    style="margin-top: 8px; margin-left: 0px; width: 100%; padding: 0px 5px; font-size: 12px"><i
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#test_result"
+                    style="margin-left: 0px; margin-top: 5px; width: 100%; padding: 1px 5px; font-size: 12px"><i
                         class="fa fa-file-text-o"
                         style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>TEST
-                        HISTORY & STATISTIC</strong></button>
+                        REPORT & PERFORMANCE COMPARISON DETAILS</strong></button>
 
             </div>
             <div class="col-9">
@@ -1039,20 +1030,20 @@
                             aria-describedby="" value="0.001" min="0.001" max="0.005" required>
                     </div>
                     <div class="form-group">
-                        <label style="font-size: 13px; margin-top: 10px">Commision/Share<i
-                                class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
+                        <label style="font-size: 13px; margin-top: 10px">Commision/Share<i class="fa fa-info-circle"
+                                style="margin-left: 5px; font-size: 13px"></i></label>
                         <input style="font-size: 13px" type="number" class="form-control" id="commision"
                             aria-describedby="" value="0.005" min="0.001" max="0.005" required>
                     </div>
                     <div class="form-group">
-                        <label style="font-size: 13px; margin-top: 10px">Interest Rate/Year<i
-                                class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
+                        <label style="font-size: 13px; margin-top: 10px">Interest Rate/Year<i class="fa fa-info-circle"
+                                style="margin-left: 5px; font-size: 13px"></i></label>
                         <input style="font-size: 13px" type="text" class="form-control" id="interest_rate"
                             aria-describedby="" value="0.01" min="0.01" max="0.05" required>
                     </div>
                     <div class="form-group">
-                        <label style="font-size: 13px; margin-top: 10px">Risk Free Rate/Year<i
-                                class="fa fa-info-circle" style="margin-left: 5px; font-size: 13px"></i></label>
+                        <label style="font-size: 13px; margin-top: 10px">Risk Free Rate/Year<i class="fa fa-info-circle"
+                                style="margin-left: 5px; font-size: 13px"></i></label>
                         <input style="font-size: 13px" type="text" class="form-control" id="risk_free_rate"
                             aria-describedby="" value="0.02" min="0.01" max="0.05" required>
                     </div>
@@ -1071,12 +1062,13 @@
         <div class="modal-dialog" style="min-width: 1200px;" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">TEST DATA</strong></h5>
+                    <h5 class="modal-title"><i class="fa fa-database"></i><strong style="margin-left: 10px">TEST
+                            DATA</strong></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">                    
+                <div class="modal-body">
                     <div class="row">
                         <div class="col-4">
                             <nav style="font-size: 13px">
@@ -1101,69 +1093,129 @@
                                         </button>
                                         <div class="dropdown-menu" id="ex_dd" aria-labelledby="dropdownMenuButton"
                                             style="background-color: #494949; text-align: center; font-size: 13px; height: 350px; width: 370px; overflow: auto;">
-                                            <a class="dropdown-item" href="#" style="margin-top: -10px; color: #ffff">NASDAQ - USA</a>
+                                            <a class="dropdown-item" href="#"
+                                                style="margin-top: -10px; color: #ffff">NASDAQ - USA</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff">TEST - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">AEX - Euronext Amsterdam - Netherlands</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">AMEX - American Stock Exchange - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Australian Stock Exchange - Australia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Athens Stock Exchange - Greece</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Berlin Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Brussels - Belgium</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Bombay Stock Exchange - India</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Buenos Aires Stock Exchange - Argentina</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Caracas Stock Exchange - Venezuela</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Canadian Securities Exchange - Canada</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Copenhagen - Denmark</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Qatar Stock Exchange - Qatar</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Dusseldorf Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Swiss Exchange - Switzerland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Frankfurt Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Deutsche Boerse XETRA - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Hamburg Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Hanover Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Helsinki - Finland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Hong Kong Stock Exchange - Hong Kong</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Iceland - Iceland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">London Stock Exchange - United Kingdom</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Dublin - Ireland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Borsa Istanbul - Turkey</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Indonesia Stock Exchange - Indonesia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Malaysian Stock Exchange - Malaysia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">KOSDAQ - South Korea</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Korea Stock Exchange - South Korea</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Lisbon - Portugal</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Vilnius - Lithuania</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Madrid SE CATS - Spain</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Moscow Exchange - Russia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Mexico Stock Exchange - Mexico</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Italian Stock Exchange - Italy</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Munich Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq Capital Market - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq Global Market - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq National Market - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">National Stock Exchange of India - India</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">New York Stock Exchange - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">New Zealand Stock Exchange - New Zealand</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OTC Bulletin Board - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Oslo Stock Exchange - Norway</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Paris - France</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">AEX - Euronext
+                                                Amsterdam - Netherlands</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">AMEX - American Stock
+                                                Exchange - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Australian Stock
+                                                Exchange - Australia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Athens Stock Exchange
+                                                - Greece</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Berlin Stock Exchange
+                                                - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Brussels -
+                                                Belgium</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Bombay Stock Exchange
+                                                - India</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Buenos Aires Stock
+                                                Exchange - Argentina</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Caracas Stock
+                                                Exchange - Venezuela</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Canadian Securities
+                                                Exchange - Canada</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Copenhagen
+                                                - Denmark</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Qatar Stock Exchange
+                                                - Qatar</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Dusseldorf Stock
+                                                Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Swiss Exchange -
+                                                Switzerland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Frankfurt Stock
+                                                Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Deutsche Boerse XETRA
+                                                - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Hamburg Stock
+                                                Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Hanover Stock
+                                                Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Helsinki -
+                                                Finland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Hong Kong Stock
+                                                Exchange - Hong Kong</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Iceland -
+                                                Iceland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">London Stock Exchange
+                                                - United Kingdom</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Dublin -
+                                                Ireland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Borsa Istanbul -
+                                                Turkey</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Indonesia Stock
+                                                Exchange - Indonesia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Malaysian Stock
+                                                Exchange - Malaysia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">KOSDAQ - South
+                                                Korea</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Korea Stock Exchange
+                                                - South Korea</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Lisbon -
+                                                Portugal</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Vilnius -
+                                                Lithuania</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Madrid SE CATS -
+                                                Spain</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Moscow Exchange -
+                                                Russia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Mexico Stock Exchange
+                                                - Mexico</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Italian Stock
+                                                Exchange - Italy</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Munich Stock Exchange
+                                                - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq Capital Market
+                                                - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq Global Market
+                                                - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq National
+                                                Market - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">National Stock
+                                                Exchange of India - India</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">New York Stock
+                                                Exchange - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">New Zealand Stock
+                                                Exchange - New Zealand</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OTC Bulletin
+                                                Board - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Oslo Stock Exchange -
+                                                Norway</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Paris -
+                                                France</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff">NYSE Arca - USA</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff">OTC Markets - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Riga - Latvia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Sao Paolo Stock Exchange - Brazil</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Singapore Stock Exchange - Singapore</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Stock Exchange of Thailand - Thailand</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Shanghai Stock Exchange - China</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Shenzhen Stock Exchange - China</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Stockholm - Sweden</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Stuttgart Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Taiwan Stock Exchange - Taiwan</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Tallinn - Estonia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Tel Aviv Stock Exchange - Israel</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Toronto Stock Exchange - Canada</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Taiwan OTC Exchange - Taiwan</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">TSX Venture Exchange - Canada</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Vienna Stock Exchange - Austria</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Riga -
+                                                Latvia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Sao Paolo Stock
+                                                Exchange - Brazil</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Singapore Stock
+                                                Exchange - Singapore</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Stock Exchange of
+                                                Thailand - Thailand</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Shanghai Stock
+                                                Exchange - China</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Shenzhen Stock
+                                                Exchange - China</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Stockholm
+                                                - Sweden</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Stuttgart Stock
+                                                Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Taiwan Stock Exchange
+                                                - Taiwan</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Tallinn -
+                                                Estonia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Tel Aviv Stock
+                                                Exchange - Israel</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Toronto Stock
+                                                Exchange - Canada</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Taiwan OTC Exchange -
+                                                Taiwan</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">TSX Venture Exchange
+                                                - Canada</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Vienna Stock Exchange
+                                                - Austria</a>
                                         </div>
                                     </div>
                                     <div class="row" style="margin-top: 2px" id="tt_dd">
@@ -1198,78 +1250,145 @@
                                         </button>
                                         <div class="dropdown-menu" id="ex_dd_random"
                                             aria-labelledby="dropdownMenuButton"
-                                            style="background-color: #494949; text-align: center; font-size: 13px; height: 410px; width: 372px; overflow: auto;">                                            
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix1 - All Exchanges</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix2 - Asian Exchanges</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix3 - Europe Exchanges</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix4 - American Exchanges</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix5 - China Exchanges</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix6 - Pacific Exchanges</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix7 - Scandinavia Exchanges</a>
-                                            <a class="dropdown-item" href="#" style="margin-top: -10px; color: #ffff">NASDAQ - Test</a>
+                                            style="background-color: #494949; text-align: center; font-size: 13px; height: 410px; width: 372px; overflow: auto;">
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix1 - All
+                                                Exchanges</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix2 - Asian
+                                                Exchanges</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix3 - Europe
+                                                Exchanges</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix4 - American
+                                                Exchanges</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix5 - China
+                                                Exchanges</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix6 - Pacific
+                                                Exchanges</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Mix7 - Scandinavia
+                                                Exchanges</a>
+                                            <a class="dropdown-item" href="#"
+                                                style="margin-top: -10px; color: #ffff">NASDAQ - Test</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff">NASDAQ - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">AEX - Euronext Amsterdam - Netherlands</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">AMEX - American Stock Exchange - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Australian Stock Exchange - Australia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Athens Stock Exchange - Greece</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Berlin Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Brussels - Belgium</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Bombay Stock Exchange - India</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Buenos Aires Stock Exchange - Argentina</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Caracas Stock Exchange - Venezuela</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Canadian Securities Exchange - Canada</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Copenhagen - Denmark</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Qatar Stock Exchange - Qatar</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Dusseldorf Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Swiss Exchange - Switzerland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Frankfurt Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Deutsche Boerse XETRA - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Hamburg Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Hanover Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Helsinki - Finland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Hong Kong Stock Exchange - Hong Kong</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Iceland - Iceland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">London Stock Exchange - United Kingdom</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Dublin - Ireland</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Borsa Istanbul - Turkey</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Indonesia Stock Exchange - Indonesia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Malaysian Stock Exchange - Malaysia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">KOSDAQ - South Korea</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Korea Stock Exchange - South Korea</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Lisbon - Portugal</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Vilnius - Lithuania</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Madrid SE CATS - Spain</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Moscow Exchange - Russia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Mexico Stock Exchange - Mexico</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Italian Stock Exchange - Italy</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Munich Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq Capital Market - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq Global Market - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq National Market - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">National Stock Exchange of India - India</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">New York Stock Exchange - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">New Zealand Stock Exchange - New Zealand</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OTC Bulletin Board - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Oslo Stock Exchange - Norway</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Paris - France</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">AEX - Euronext
+                                                Amsterdam - Netherlands</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">AMEX - American Stock
+                                                Exchange - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Australian Stock
+                                                Exchange - Australia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Athens Stock Exchange
+                                                - Greece</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Berlin Stock Exchange
+                                                - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Brussels -
+                                                Belgium</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Bombay Stock Exchange
+                                                - India</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Buenos Aires Stock
+                                                Exchange - Argentina</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Caracas Stock
+                                                Exchange - Venezuela</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Canadian Securities
+                                                Exchange - Canada</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Copenhagen
+                                                - Denmark</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Qatar Stock Exchange
+                                                - Qatar</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Dusseldorf Stock
+                                                Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Swiss Exchange -
+                                                Switzerland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Frankfurt Stock
+                                                Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Deutsche Boerse XETRA
+                                                - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Hamburg Stock
+                                                Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Hanover Stock
+                                                Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Helsinki -
+                                                Finland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Hong Kong Stock
+                                                Exchange - Hong Kong</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Iceland -
+                                                Iceland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">London Stock Exchange
+                                                - United Kingdom</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Dublin -
+                                                Ireland</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Borsa Istanbul -
+                                                Turkey</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Indonesia Stock
+                                                Exchange - Indonesia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Malaysian Stock
+                                                Exchange - Malaysia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">KOSDAQ - South
+                                                Korea</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Korea Stock Exchange
+                                                - South Korea</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Lisbon -
+                                                Portugal</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Vilnius -
+                                                Lithuania</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Madrid SE CATS -
+                                                Spain</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Moscow Exchange -
+                                                Russia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Mexico Stock Exchange
+                                                - Mexico</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Italian Stock
+                                                Exchange - Italy</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Munich Stock Exchange
+                                                - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq Capital Market
+                                                - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq Global Market
+                                                - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq National
+                                                Market - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">National Stock
+                                                Exchange of India - India</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">New York Stock
+                                                Exchange - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">New Zealand Stock
+                                                Exchange - New Zealand</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OTC Bulletin
+                                                Board - USA</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Oslo Stock Exchange -
+                                                Norway</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Euronext Paris -
+                                                France</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff">NYSE Arca - USA</a>
                                             <a class="dropdown-item" href="#" style="color: #ffff">OTC Markets - USA</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Riga - Latvia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Sao Paolo Stock Exchange - Brazil</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Singapore Stock Exchange - Singapore</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Stock Exchange of Thailand - Thailand</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Shanghai Stock Exchange - China</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Shenzhen Stock Exchange - China</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Stockholm - Sweden</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Stuttgart Stock Exchange - Germany</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Taiwan Stock Exchange - Taiwan</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Tallinn - Estonia</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Tel Aviv Stock Exchange - Israel</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Toronto Stock Exchange - Canada</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Taiwan OTC Exchange - Taiwan</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">TSX Venture Exchange - Canada</a>
-                                            <a class="dropdown-item" href="#" style="color: #ffff">Vienna Stock Exchange - Austria</a>
-                                            
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Riga -
+                                                Latvia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Sao Paolo Stock
+                                                Exchange - Brazil</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Singapore Stock
+                                                Exchange - Singapore</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Stock Exchange of
+                                                Thailand - Thailand</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Shanghai Stock
+                                                Exchange - China</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Shenzhen Stock
+                                                Exchange - China</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Stockholm
+                                                - Sweden</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Stuttgart Stock
+                                                Exchange - Germany</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Taiwan Stock Exchange
+                                                - Taiwan</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Nasdaq OMX Tallinn -
+                                                Estonia</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Tel Aviv Stock
+                                                Exchange - Israel</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Toronto Stock
+                                                Exchange - Canada</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Taiwan OTC Exchange -
+                                                Taiwan</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">TSX Venture Exchange
+                                                - Canada</a>
+                                            <a class="dropdown-item" href="#" style="color: #ffff">Vienna Stock Exchange
+                                                - Austria</a>
+
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-sm"
@@ -1324,7 +1443,7 @@
                                 <input id="enddate_data" type="text" class="form-text-sm" disabled
                                     style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 90px; font-size: 10px">
                                 <ul id="pagination-demo" class="pagination pagination-sm"></ul>
-                               
+
                             </div>
                             <div class="row">
                                 <div class="table-hover"
@@ -1432,20 +1551,22 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="card" style="background-color: #91c8ff; margin-left: -15px; margin-top: 5px; height: 40px">
+                            <div class="card"
+                                style="background-color: #91c8ff; margin-left: -15px; margin-top: 5px; height: 40px">
                                 <div class="row" style="margin-left: 10px; margin-top: 10px">
                                     <strong style="margin-left: 0px; font-size: 12px;">Period of Test :</strong>
                                     <h1 style="margin-left: 10px; margin-top: 3px; font-size: 12px;">Startdate</h1>
                                     <input id="start_date_test" type="date" class="form-text-sm"
-                                        style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 125px; font-size: 10px"> 
+                                        style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 125px; font-size: 10px">
                                     <h1 style="margin-left: 10px; margin-top: 3px; font-size: 12px;">Enddate</h1>
                                     <input id="end_date_test" type="date" class="form-text-sm"
-                                        style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 125px; font-size: 10px">                             
+                                        style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 125px; font-size: 10px">
                                     <!-- <strong style="margin-left: 5px; margin-top: 0px; font-family: calibri; font-size: 13px; color: #ff0000">(2100 Record Data)</strong> -->
                                     <button type="submit" class="btn btn-primary btn-sm"
-                                    style="font-size: 11px; padding: 1px 0px; margin-left: 10px; margin-top: 0px; height: 20px; width: 145px"
-                                    onclick="change_period_ofTest()">Change Period of Test</button>
-                                    <i class="fa fa-info-circle" style="margin-left: 5px; margin-top: 1px;  font-size: 18px"></i> 
+                                        style="font-size: 11px; padding: 1px 0px; margin-left: 10px; margin-top: 0px; height: 20px; width: 145px"
+                                        onclick="change_period_ofTest()">Change Period of Test</button>
+                                    <i class="fa fa-info-circle"
+                                        style="margin-left: 5px; margin-top: 1px;  font-size: 18px"></i>
                                 </div>
                             </div>
                         </div>
@@ -1472,8 +1593,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" id="pills-performance-tab" data-toggle="pill"
                                 href="#pills-performance" role="tab" aria-controls="pills-performance"
-                                aria-selected="true" style="margin-left: 0px; padding: 3px 20px; height: 26px">Performance Fact Sheet</a>
-                        </li>                       
+                                aria-selected="true"
+                                style="margin-left: 0px; padding: 3px 20px; height: 26px">Performance Fact Sheet</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" id="pills-summary-tab" data-toggle="pill" href="#pills-summary"
                                 role="tab" aria-controls="pills-summary" aria-selected="false"
@@ -1495,7 +1617,7 @@
                                 <div class="col-3">
                                     <div class="container card"
                                         style="text-align: center; background-color: #dfdfdf; margin: auto; height: 230px; width: 300px">
-                                                                               
+
                                         <div class="row" style="margin: auto">
                                             <h1 style="font-size: 50px; color: #003853; margin-top: 5px">
                                                 <strong>24x</strong>
@@ -1597,90 +1719,90 @@
                                         </div>
                                         <div class="col-5">
                                             <canvas id="" width="340" height="200"
-                                                style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                                style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                             <canvas id="" width="340" height="200"
-                                                style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>                                            
+                                                style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                         </div>
                                     </div>
-                                    <div class="row" style="margin-left: 10px">      
+                                    <div class="row" style="margin-left: 10px">
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                     </div>
-                                    <div class="row" style="margin-left: 10px; margin-top: 3px">      
+                                    <div class="row" style="margin-left: 10px; margin-top: 3px">
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>                                           
+                                            style="margin-left: 0px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                         <canvas id="" width="280" height="210"
-                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas> 
+                                            style="margin-left: 3px; margin-top: 0px; background-color:#858585"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -2014,7 +2136,7 @@
                                         Performance Comparison</th>
                                     <th rowspan="2"
                                         style="background-color: #484848; position: sticky; top: 0px; padding: 5px 0px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                        Run Test in<br>Jupyter Notebook</th>                                    
+                                        Run Test in<br>Jupyter Notebook</th>
                                 </tr>
                                 <tr>
                                     <th
@@ -2077,8 +2199,11 @@
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
+                                            Kaggle</button>
                                     </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2091,11 +2216,15 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 10px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>                                    
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px; padding: 2px 10px">Run Test
+                                            in<br>Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test
+                                            in<br>Kaggle</button>
+                                    </td>
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         00001 <br>-<br>23/01/01 13:00:00</td>
                                     <td
@@ -2143,8 +2272,11 @@
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
+                                            Kaggle</button>
                                     </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2157,11 +2289,15 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 10px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>                                    
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px; padding: 2px 10px">Run Test
+                                            in<br>Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test
+                                            in<br>Kaggle</button>
+                                    </td>
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         00001 <br>-<br>23/01/01 13:00:00</td>
                                     <td
@@ -2209,8 +2345,11 @@
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
+                                            Kaggle</button>
                                     </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2223,11 +2362,15 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 10px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>                                    
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px; padding: 2px 10px">Run Test
+                                            in<br>Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test
+                                            in<br>Kaggle</button>
+                                    </td>
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         00001 <br>-<br>23/01/01 13:00:00</td>
                                     <td
@@ -2275,8 +2418,11 @@
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
+                                            Kaggle</button>
                                     </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2289,11 +2435,15 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 10px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>                                    
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px; padding: 2px 10px">Run Test
+                                            in<br>Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test
+                                            in<br>Kaggle</button>
+                                    </td>
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         00001 <br>-<br>23/01/01 13:00:00</td>
                                     <td
@@ -2341,8 +2491,11 @@
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
+                                            Kaggle</button>
                                     </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2355,11 +2508,15 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 10px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>                                    
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px; padding: 2px 10px">Run Test
+                                            in<br>Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test
+                                            in<br>Kaggle</button>
+                                    </td>
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         00001 <br>-<br>23/01/01 13:00:00</td>
                                     <td
@@ -2407,8 +2564,11 @@
                                     <td style="border-left: 1px #c0c0c0 solid; text-align: center;padding: 5px 10px">
                                         01/01/01 - 01/01/21</td>
                                     <td style="text-align: center; padding: 5px 15px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in Kaggle</button>
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px">Run&nbsp;Test&nbsp;in Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 10px">Run&nbsp;Test&nbsp;in
+                                            Kaggle</button>
                                     </td>
                                     <td
                                         style="border-left: 1px #c0c0c0 solid; text-align: left; padding: 5px 35px 5px 10px;">
@@ -2421,9 +2581,13 @@
                                         100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%<br>100.00%
                                     </td>
                                     <td style="text-align: center; padding: 5px 10px">
-                                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 13px; padding: 2px 10px">Run Test in<br>Google&nbsp;Colab</button>
-                                        <button type="button" class="btn btn-primary btn-sm" style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test in<br>Kaggle</button>
-                                    </td>                                    
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            style="font-size: 13px; padding: 2px 10px">Run Test
+                                            in<br>Google&nbsp;Colab</button>
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            style="font-size: 13px; margin-top: 5px; padding: 2px 15px">Run Test
+                                            in<br>Kaggle</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
