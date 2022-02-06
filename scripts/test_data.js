@@ -8,6 +8,12 @@ var portfolio_data = new Array();
 var test_data = new Array();
 var testData = new Array();
 
+var ticker_list = new Array();
+var exchange_choose_current_manual;
+var exchange_choose_previous_manual;
+var exchange_choose_current_random;
+var exchange_choose_previous_random;
+
 function getEventTarget(e) {
   e = e || window.event;
   return e.target || e.srcElement;
@@ -28,7 +34,6 @@ function tickers_list_btn() {
       'warning'
     )
   } else if (exchange_choose_current_manual !== exchange_choose_previous_manual) {
-
     exchange_choose_previous_manual = exchange_choose_current_manual;
     ticker_list = [];
     $('#ulul').empty();
@@ -37,30 +42,24 @@ function tickers_list_btn() {
       var newLi = document.createElement('li');
       var cb = document.createElement("input");
       cb.type = "checkbox";
-      cb.style.marginLeft = '15px';
-      cb.style.marginRight = '5px';
-      newLi.appendChild(cb);
+      cb.style.cssText = 'margin-left:15px; margin-right: 5px';
       var text = document.createTextNode(tickers[i]);
-      newLi.appendChild(text);
-      document.getElementById("ulul").appendChild(newLi);
+      newLi.append(cb,text);
+      $('#ulul').append(newLi);
     }
 
-    $("#tickers_list").on('click', '.dropdown-menu li', function (event) {
-      var container2 = $(this).closest("#tickers_list");
-      var numChecked2 = container2.find('[type="checkbox"]:checked').length;
-      container2.find('.quantity').text(numChecked2 || '0');
-      console.log(numChecked2);
-      var $target2 = $(event.currentTarget);
-      console.log($target2.text());
+    $(".dropdown-menu li").click(function(event) {
+      event.stopPropagation();
+      var numChecked2 = $(this).closest("#tickers_list").find('[type="checkbox"]:checked').length;
+      $(this).closest("#tickers_list").find('.quantity').text(numChecked2 || '0');
       if (numChecked2 > ticker_list.length) {
-          ticker_list.push($target2.text());
+          ticker_list.push($(event.currentTarget).text());
       } else if (numChecked2 < ticker_list.length) {
-          var index = ticker_list.indexOf($target2.text());
+          var index = ticker_list.indexOf($(event.currentTarget).text());
           ticker_list.splice(index, 1);
       } else { }
       console.log(ticker_list);
     });
-
   } else {
     return false;
   }
@@ -150,6 +149,62 @@ function add_data() {
     exchange_choose_previous_manual = "";
   }
 }
+
+// function add_data() {
+//   if (portfolio_data.length == 30) {
+//     Swal.fire(
+//       '30 Stocks has been selected !',
+//       'Please click reset stock to start new',
+//       'warning'
+//     )
+//     return false;
+//   } else if (ticker_list.length == 0) {
+//     Swal.fire(
+//       'No Ticker Selected !',
+//       'Please select your tickers to test',
+//       'warning'
+//     )
+//     return false;
+//   } else {
+//     if (portfolio_data.length > 0) {
+//       for (i = 0; i < ticker_list.length; i++) {    //?????
+//         let tickere = ticker_list[i].split(', ')[0];
+//         for (x = 0; x < portfolio_data.length; x++) {
+//           let idx = portfolio_data[x].indexOf(tickere);
+//           if (idx !== -1) {
+//             Swal.fire(
+//               'ticker ' + tickere + ' has been selected !',
+//               'Please choose another ticker',
+//               'warning'
+//             )
+//             return false;
+//           }
+//         }
+//       }
+//     }    
+//     for (t = 0; t < ticker_list.length; t++) {
+//       let tickere = ticker_list[t];
+//       let ex_choo = exchange_choose_current_manual;
+
+//       portfolio_data.push(tickere);
+//       let al = portfolio_data.length;
+//       let portfolio =
+//         `<tr>
+//             <td class="text-center">`+ al + `</td>
+//             <td class="text-center">`+ tickere + `</td>
+//             <td class="text-center">`+ ex_choo + `</td>
+//         </tr>`;
+//         $("#table_assets > tbody").append(portfolio);      
+//     }
+//     $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
+//     $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
+//     $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
+//     ticker_list = [];
+//     $('#ulul').empty();
+//     exchange_choose_current_manual = "";
+//     exchange_choose_previous_manual = "";
+//   }
+// }
 
 
 function tickers_exchange_btn_random() {
