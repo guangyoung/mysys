@@ -150,63 +150,6 @@ function add_data() {
   }
 }
 
-// function add_data() {
-//   if (portfolio_data.length == 30) {
-//     Swal.fire(
-//       '30 Stocks has been selected !',
-//       'Please click reset stock to start new',
-//       'warning'
-//     )
-//     return false;
-//   } else if (ticker_list.length == 0) {
-//     Swal.fire(
-//       'No Ticker Selected !',
-//       'Please select your tickers to test',
-//       'warning'
-//     )
-//     return false;
-//   } else {
-//     if (portfolio_data.length > 0) {
-//       for (i = 0; i < ticker_list.length; i++) {    //?????
-//         let tickere = ticker_list[i].split(', ')[0];
-//         for (x = 0; x < portfolio_data.length; x++) {
-//           let idx = portfolio_data[x].indexOf(tickere);
-//           if (idx !== -1) {
-//             Swal.fire(
-//               'ticker ' + tickere + ' has been selected !',
-//               'Please choose another ticker',
-//               'warning'
-//             )
-//             return false;
-//           }
-//         }
-//       }
-//     }    
-//     for (t = 0; t < ticker_list.length; t++) {
-//       let tickere = ticker_list[t];
-//       let ex_choo = exchange_choose_current_manual;
-
-//       portfolio_data.push(tickere);
-//       let al = portfolio_data.length;
-//       let portfolio =
-//         `<tr>
-//             <td class="text-center">`+ al + `</td>
-//             <td class="text-center">`+ tickere + `</td>
-//             <td class="text-center">`+ ex_choo + `</td>
-//         </tr>`;
-//         $("#table_assets > tbody").append(portfolio);      
-//     }
-//     $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
-//     $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
-//     $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
-//     ticker_list = [];
-//     $('#ulul').empty();
-//     exchange_choose_current_manual = "";
-//     exchange_choose_previous_manual = "";
-//   }
-// }
-
-
 function tickers_exchange_btn_random() {
   $("#ex_dd_random").click(function(event) {
     exchange_choose_current_random = getEventTarget(event).innerText.split(' - ')[0]; 
