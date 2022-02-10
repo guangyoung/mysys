@@ -18,10 +18,14 @@ async function reset_test() {
           'success'
       )
 
-        // $(':button').prop('disabled', false); //Enable All Button 
-        $("#setting_button").prop("disabled", false); //Enable Setting Button
-        $("#data_button").prop("disabled", false); //Enable Market Data Button
-        $("#play_button").prop("disabled", false); //Enable Play Button
+        $(':button').prop('disabled', false); //Enable All Button 
+        let account_trade_summary_row = 
+          `<tr style="height: 295px">
+              <td colspan="19" style="text-align: center">
+                  <h1>No Data</h1>
+              </td>
+          </tr>`
+        $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
         // account_trade_summary = [];
         // asset_trade_details = [];
         // $("#account_trade_summary_tbl>tbody").empty();
