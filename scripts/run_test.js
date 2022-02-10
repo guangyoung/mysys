@@ -233,6 +233,9 @@ async function run_test() {
             }
         }
 
+        console.log("estimate_imr :"+estimate_imr);
+        console.log("estimate_comm :"+estimate_comm);
+
         //calculate filled percentarge   
         let filled_percentage;
         if (excess_equity > (estimate_imr+estimate_comm)) {
