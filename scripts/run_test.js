@@ -67,7 +67,7 @@ async function run_test() {
     //------------------------------------------------------------------------------------
     
     var data_idx = 0;
-    while(data_idx < 1000) {    
+    while(data_idx < 10) {    
         let current_date = testData[data_idx].date;
         let daily_stock_position_transaction_details = new Array();
         let daily_account_and_trade_summary = new Array();            
@@ -407,72 +407,82 @@ async function run_test() {
     // dataID++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?  
     //-----------------------------------------------------------     
 
-    //trade testing report
+    // trade testing report
     // $("#account_trade_summary_tbl>tbody").empty();
-    // $("#pagination_trade_summary").twbsPagination("destroy");
+    $("#pagination_trade_summary").twbsPagination("destroy");
     // if(10 > 0) {
-    //     $("#pagination_trade_summary").twbsPagination({
-    //         totalPages: math.ceil(5000/5),
-    //         visiblePages: 4,
-    //         onPageClick: function (event, page) {
-    //             $("#account_trade_summary_tbl>tbody").empty();
-    //             for (i=(page*5)-5; i<(page*5) && i<(5000); i++) {
-    //                 var account_trade_summary_row =
-    //                 `<tr>
-    //                     <td>                                    
-    //                     <a style="margin-left: 15px; margin-top: 15px; color: #ffffff; font-size: 11px;">Date : 23-01-2001</a>                                    
-    //                     <div class="table-hover" style="margin-left: 15px; margin-right: 15px; margin-top: 0px; background-color: #070914; overflow: auto; height: 150px">
-    //                         <table>
-    //                             <thead style="color:#d2d3d7">
-    //                                 <tr>
-    //                                     <th class="text-center" rowspan="2" style="width: 6%; position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Portfolio</th>
-    //                                     <th class="text-center" rowspan="2" style="width: 6%; position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Price</th>
-    //                                     <th class="text-center" colspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Pre Trade Position</th>
-    //                                     <th class="text-center" colspan="4" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Buy Open (Add Position)</th>
-    //                                     <th class="text-center" colspan="4" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Sell Close (Reduce Position)</th>
-    //                                     <th class="text-center" colspan="2" style="position: sticky; top: 0px; border-left: 1px #808080 solid; padding: 3px 8px; background-color: #40446f; font-size: 9px">Post Trade Position</th>
-    //                                 </tr>
-    //                                 <tr>
-    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-    //                                     <th class="text-center" style="width: 10%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Order</th>
-    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Price</th>
-    //                                     <th class="text-center" style="width: 10%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Commision</th>
-    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Order</th>
-    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Filled Price</th>
-    //                                     <th class="text-center" style="width: 10%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Trade Value</th>
-    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Commision</th>
-    //                                     <th class="text-center" style="width: 6%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Position Size</th>
-    //                                     <th class="text-center" style="width: 10%; position: sticky; top: 19px; border-left: 1px #808080 solid; padding: 2px 8px; background-color: #1b1d2d; font-size: 9px">Market Value</th>
-    //                                 </tr>
-    //                             </thead>
-    //                             <tbody>                            
-    //                                 <tr>
-    //                                     <td class="text-center" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">Asset 1</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000.00</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">100,000,000.00</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000.00</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">10,000</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">1,000,000</td>
-    //                                     <td class="text-right" style="font-size: 10px; font-family: calibri; border-left: 1px #808080 solid; border-bottom: 1px #808080 solid; color:#d2d3d7; padding: 0 2px">100,000,000.00</td>
-    //                                 </tr>
-    //                             </tbody>
-    //                         </table>
-    //                     </div>
-    //                 </td>
-    //                 </tr>`
-    //                 $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
-    //             }
-    //         }
-    //     });
+        $("#pagination_trade_summary").twbsPagination({
+            totalPages: math.ceil(1000/20),
+            visiblePages: 4,
+            onPageClick: function (event, page) {
+                $("#account_trade_summary_tbl>tbody").empty();
+                for (i = (page - 1) * 20; i < (page * 20) && i < (1000); i++) {
+                // for (i=(page*5)-5; i<(page*5) && i<(5000); i++) {
+                    var account_trade_summary_row =
+                    `<tr>
+                    <td
+                        style="position: sticky; left: 0px; z-index: 2; background-color: #122121; text-align: center">
+                        23/01/01</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        100.00
+                    </td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        10,000</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                    <td
+                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        1,000,000,000.00</td>
+                </tr>`
+                    $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
+                }
+            }
+        });
     // } 
 
     // //performance chart

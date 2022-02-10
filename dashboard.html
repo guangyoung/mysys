@@ -70,25 +70,25 @@
                 <div class="row" style="margin: auto; width: 100%">
                     <img src="styles/image/logo_quantxi1.png" height="55"
                         style="width: 100%; margin-left: 0px; margin-top: 0px">
-                    <img src="styles/image/simulation_testing2.png" height="25" style="width: 100%; margin-top: 5px">
+                    <img src="styles/image/simulation_testing2.png" height="25" style="width: 100%; margin-top: 8px">
                 </div>
                 <div class="row" style="margin: auto; width: 280px">
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip"
-                        data-placement="bottom" title="View Source Code" style="margin-top: 9px;"><i
+                        data-placement="bottom" title="View Source Code" style="margin-top: 12px;"><i
                             class="fa fa-github" style="color: #ffffff; font-size: 30px"></i></a>
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip"
                         data-placement="bottom" title="Test With Google Colab"
-                        style="margin-left: 25px; margin-top: 0px"><img src="styles/image/colab.png" height="48"
+                        style="margin-left: 25px; margin-top: 3px"><img src="styles/image/colab.png" height="48"
                             width="48"></a>
                     <a href="https://github.com/grumpygamer/DeloresDev" target="_blank" data-toggle="tooltip"
-                        data-placement="bottom" title="Test With Kaggle" style="margin-left: 25px; margin-top: 6px"><img
+                        data-placement="bottom" title="Test With Kaggle" style="margin-left: 25px; margin-top: 9px"><img
                             src="styles/image/kaggle.png" height="38" width="100"></a>
 
                     <a onclick="logout_btn()" data-toggle="tooltip" data-placement="bottom" title="Logout"
-                        style="margin-top: 9px; margin-left: 25px"><i class="fa fa-sign-out"
+                        style="margin-top: 12px; margin-left: 25px"><i class="fa fa-sign-out"
                             style="color: #ffffff; cursor: pointer; font-size: 33px"></i></a>
                 </div>
-                <hr style="margin-top: 0px; width: 100%; height:1px;border-width:0;color:gray;background-color:gray">
+                <hr style="margin-top: 3px; width: 100%; height:1px;border-width:0;color:gray;background-color:gray">
 
                 <div class="row">
                     <button type="button" id="setting_button" class="btn btn-primary" data-toggle="modal"
@@ -121,7 +121,7 @@
                         aria-valuemax="100"></div>
                 </div>
 
-                <div class="card" style="background-color: #1b1b1b; margin-top: 10px; color: #dfdfdf; height: 190px">
+                <div class="card" style="background-color: #1b1b1b; margin-top: 10px; color: #dfdfdf; height: 183px">
                     <h6
                         style="text-align: center; margin-left: 0px; margin-top: 7px; font-family: calibri; font-size: 14px;">
                         ACCOUNT SUMMARY</h6>
@@ -167,10 +167,10 @@
                         </table>
                     </div>
                 </div>
-                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#test_result"
-                    style="margin-left: 0px; margin-top: 5px; width: 100%; padding: 0px 5px; font-size: 12px"><i
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#test_result"
+                    style="margin-left: 0px; margin-top: 5px; width: 100%; padding: 1px 5px; font-size: 12px"><i
                         class="fa fa-file-text-o"
-                        style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>ACCOUNT & TRADE DETAILS</strong></button> -->
+                        style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>ACCOUNT & TRADE REPORT</strong></button>
                 <div class="card" style="background-color: #1b1b1b; margin-top: 8px; color: #dfdfdf; height: 118px">
                     <h6
                         style="text-align: center; margin-left: 0px; margin-top: 7px; font-family: Acrom; font-family: calibri; font-size: 14px;">
@@ -205,10 +205,14 @@
 
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#test_result"
                     id="trade_performance_button"
-                    style="margin-left: 0px; margin-top: 3px; width: 100%; padding: 0px 5px; font-size: 12px"><i
+                    style="margin-left: 0px; margin-top: 5px; width: 100%; padding: 1px 5px; font-size: 12px"><i
                         class="fa fa-file-text-o"
                         style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>PERFORMANCE
-                        COMPARISON DETAILS</strong></button>                
+                        COMPARISON DETAILS</strong></button>
+                <button type="button" class="btn btn-success"                 
+                style="margin-left: 0px; margin-top: 5px; width: 100%; padding: 1px 5px; font-size: 12px"><i
+                    class="fa fa-file-text-o"
+                    style="color: #ffffff; font-size: 14px; margin-top: 2px; margin-right: 5px"></i><strong>DOWNLOAD TEST RESULT</strong></button>                    
 
             </div>
             <div class="col-9">
@@ -1562,12 +1566,6 @@
                                 role="tab" aria-controls="pills-summary" aria-selected="false"
                                 style="margin-left: 50px; padding: 3px 20px; height: 26px">Account & Trade Summary</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" id="pills-signal-tab" data-toggle="pill" href="#pills-signal" role="tab"
-                                aria-controls="pills-signal" aria-selected="false"
-                                style="margin-left: 50px; padding: 3px 20px; height: 26px">All Quantxi Request &
-                                Response</a>
-                        </li> -->
                     </ul>
                 </div>
                 <div class="modal-body">
@@ -1787,7 +1785,7 @@
                                             <th rowspan="2"
                                                 style="background-color: #2e2e2e; color: #ebebeb; position: sticky; top: 0px; left: 0px; z-index: 2; padding: 5px 15px; text-align: center">
                                                 Date</th>
-                                            <th colspan="9"
+                                            <th colspan="8"
                                                 style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
                                                 Pre Trade Position</th>
                                             <th colspan="3"
@@ -1796,9 +1794,6 @@
                                             <th colspan="7"
                                                 style="background-color: #484848; color: #ebebeb; position: sticky; top: 0px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid; ">
                                                 Post Trade Position/End of Day</th>
-                                            <th rowspan="2"
-                                                style="background-color: #2e2e2e; color: #ebebeb; position: sticky; right: 0px; z-index: 2; top: 0px; padding: 5px 5px; width: 80px; text-align: center; border-left: 1px #c0c0c0 solid; ">
-                                                Stock Position<br>And Trade Details</th>
                                         </tr>
                                         <tr>
                                             <th
@@ -1818,16 +1813,13 @@
                                                 Maintenance<br>Margin Reserved</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                Maintenance<br>Margin Available</th>
+                                                Excess<br>Liquidity</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Reg-T Margin<br>Requirements</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                SMA</th>
-                                            <th
-                                                style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                Buying<br>Power</th>
+                                                Excess<br>Equity</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Total<br>Trade Value</th>
@@ -1851,18 +1843,18 @@
                                                 Maintenance<br>Margin Reserved</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                Maintenance<br>Margin Available</th>
+                                                Excess<br>Liquidity</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
                                                 Reg-T Margin<br>Requirements</th>
                                             <th
                                                 style="background-color: #5f5f5f; color: #ebebeb; position: sticky; top: 28px; padding: 5px 5px; width: 120px; text-align: center; border-left: 1px #c0c0c0 solid;">
-                                                SMA</th>
+                                                Excess<br>Equity</th>
                                         </tr>
                                     </thead>
                                     <tbody
                                         style="background-color: #2c5252; font-size: 11px; font-family: calibri; color: #ebebeb;">
-                                        <tr>
+                                        <!-- <tr>
                                             <td
                                                 style="position: sticky; left: 0px; z-index: 2; background-color: #122121; text-align: center">
                                                 23/01/01</td>
@@ -1921,17 +1913,7 @@
                                             <td
                                                 style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
                                                 1,000,000,000.00</td>
-                                            <td
-                                                style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                                                1,000,000,000.00</td>
-                                            <td onclick="myFunction(event)"
-                                                style="position: sticky; right: 0px; z-index: 2; text-align: center; background-color: #122121; padding: 2px 5px">
-                                                <button type="button" class="btn btn-primary btn-sm"
-                                                    style="padding: 0 3px; height: 18px; font-size: 11px; width: 75px"
-                                                    id="230101" data-toggle="modal" data-target="#trade_details">View
-                                                    Details</button>
-                                            </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
