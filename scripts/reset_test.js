@@ -25,7 +25,7 @@ async function reset_test() {
                   <h1>No Data</h1>
               </td>
           </tr>`
-        $("#account_trade_summary_tbl>tbody").empty();
+        // $("#account_trade_summary_tbl>tbody").empty();
         $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
         // account_trade_summary = [];
         // asset_trade_details = [];
