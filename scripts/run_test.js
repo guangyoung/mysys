@@ -70,7 +70,7 @@ async function run_test() {
     while(data_idx < 10) {    
         let current_date = testData[data_idx].date;
         let daily_stock_position_transaction_details = new Array();
-        let daily_account_and_trade_summary = new Array();            
+        // let daily_account_and_trade_summary = new Array();            
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION ===================================================
         // ----------------------------------------------------------------------------------
@@ -100,18 +100,7 @@ async function run_test() {
             stock_position_size,
             stock_market_value
         })            
-        //save daily pretrade account summary to array  
-        daily_account_and_trade_summary.push({
-            date: current_date,
-            preTrade_dailyInterest: daily_Interest,
-            preTrade_cashbalance: cash_balance,
-            preTrade_marketvalue: market_value,
-            preTrade_equitywith_loanValue: equity_with_loanValue,
-            preTrade_maintenancemargin_reserved: maintenance_margin_req,
-            preTrade_maintenancemargin_available: excess_liquidity,
-            preTrade_initialmargin_reserved: regT_margin_req,
-            preTrade_initialmargin_available: excess_equity
-        })
+        
         // ----------------------------------------------------------------------------------  
         // REQUEST SIGNAL TO QUANTXI AI =====================================================
         // ---------------------------------------------------------------------------------- 
@@ -282,11 +271,7 @@ async function run_test() {
         let total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current });
         let total_commission = commission_arr.reduce(function (accumulator, current) { return accumulator + current });
         let total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current });
-        daily_account_and_trade_summary.push({
-            totaltrade_value: total_trade_value,
-            totalcommission: total_commission,
-            totalinitial_margin: total_initial_margin
-        })
+        
         // ----------------------------------------------------------------------------------
         // POST TRADE POSITION CALCULATION ==================================================
         // ----------------------------------------------------------------------------------
@@ -307,7 +292,45 @@ async function run_test() {
             stock_market_value
         });
         //save daily pretrade account summary to array  
-        daily_account_and_trade_summary.push({
+        // daily_account_and_trade_summary.push({
+        //     date: current_date,
+        //     preTrade_dailyInterest: daily_Interest,
+        //     preTrade_cashbalance: cash_balance,
+        //     preTrade_marketvalue: market_value,
+        //     preTrade_equitywith_loanValue: equity_with_loanValue,
+        //     preTrade_maintenancemargin_reserved: maintenance_margin_req,
+        //     preTrade_maintenancemargin_available: excess_liquidity,
+        //     preTrade_initialmargin_reserved: regT_margin_req,
+        //     preTrade_initialmargin_available: excess_equity,
+        //     totaltrade_value: total_trade_value,
+        //     totalcommission: total_commission,
+        //     totalinitial_margin: total_initial_margin,
+        //     postTrade_cashbalance: cash_balance,
+        //     postTrade_marketvalue: market_value,
+        //     postTrade_equitywith_loanValue: equity_with_loanValue,
+        //     postTrade_maintenancemargin_reserved: maintenance_margin_req,
+        //     postTrade_maintenancemargin_available: excess_liquidity,
+        //     postTrade_initialmargin_reserved: regT_margin_req,
+        //     postTrade_initialmargin_available: excess_equity
+        // });
+        //save daily stock position & transaction details to summary
+        daily_stock_position_transaction_summary.push({
+            date: current_date,
+            data: daily_stock_position_transaction_details
+        });
+        account_and_trade_summary.push({
+            date: current_date,
+            preTrade_dailyInterest: daily_Interest,
+            preTrade_cashbalance: cash_balance,
+            preTrade_marketvalue: market_value,
+            preTrade_equitywith_loanValue: equity_with_loanValue,
+            preTrade_maintenancemargin_reserved: maintenance_margin_req,
+            preTrade_maintenancemargin_available: excess_liquidity,
+            preTrade_initialmargin_reserved: regT_margin_req,
+            preTrade_initialmargin_available: excess_equity,
+            totaltrade_value: total_trade_value,
+            totalcommission: total_commission,
+            totalinitial_margin: total_initial_margin,
             postTrade_cashbalance: cash_balance,
             postTrade_marketvalue: market_value,
             postTrade_equitywith_loanValue: equity_with_loanValue,
@@ -316,12 +339,6 @@ async function run_test() {
             postTrade_initialmargin_reserved: regT_margin_req,
             postTrade_initialmargin_available: excess_equity
         });
-        //save daily stock position & transaction details to summary
-        daily_stock_position_transaction_summary.push({
-            date: current_date,
-            data: daily_stock_position_transaction_details
-        });
-        account_and_trade_summary.push(daily_account_and_trade_summary);
         console.log(account_and_trade_summary);
         //View in web account & margin summary
         $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(0)));
