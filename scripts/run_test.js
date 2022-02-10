@@ -67,7 +67,7 @@ async function run_test() {
     //------------------------------------------------------------------------------------
     
     var data_idx = 0;
-    while(data_idx < 10) {    
+    while(data_idx < 100) {    
         let current_date = testData[data_idx].date;
         let daily_stock_position_transaction_details = new Array();
         // let daily_account_and_trade_summary = new Array();            
@@ -430,11 +430,11 @@ async function run_test() {
     $("#pagination_trade_report").twbsPagination("destroy");
     // if(10 > 0) {
         $("#pagination_trade_report").twbsPagination({
-            totalPages: math.ceil(1000/20),
+            totalPages: math.ceil(100/10),
             visiblePages: 4,
             onPageClick: function (event, page) {
                 $("#account_trade_summary_tbl>tbody").empty();
-                for (i = (page - 1) * 20; i < (page * 20) && i < (1000); i++) {
+                for (i = (page - 1) * 20; i < (page * 20) && i < (100); i++) {
                 // for (i=(page*5)-5; i<(page*5) && i<(5000); i++) {
                     var account_trade_summary_row =
                     `<tr>
