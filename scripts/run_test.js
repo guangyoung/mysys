@@ -238,7 +238,7 @@ async function run_test() {
         if (excess_equity > (estimate_imr+estimate_comm)) {
             filled_percentage = 1;
         } else {
-            filled_percentage = excess_equity / (estimate_imr+estimate_comm);
+            filled_percentage = 1;
         }
         //trade transaction   
         let filledOrder = new Array();
