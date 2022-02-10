@@ -408,11 +408,11 @@ async function run_test() {
     $("#pagination_trade_report").twbsPagination("destroy");
     // if(10 > 0) {
         $("#pagination_trade_report").twbsPagination({
-            totalPages: math.ceil(100/25),
+            totalPages: math.ceil(account_and_trade_summary.length/25),
             visiblePages: 4,
             onPageClick: function (event, page) {
                 $("#account_trade_summary_tbl>tbody").empty();
-                for (i = (page - 1) * 25; i < (page * 25) && i < (100); i++) {
+                for (i = (page - 1) * 25; i < (page * 25) && i < account_and_trade_summary.length; i++) {
                 // for (i=(page*5)-5; i<(page*5) && i<(5000); i++) {
                     var account_trade_summary_row =
                     `<tr>
