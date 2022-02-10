@@ -110,9 +110,7 @@ async function run_test() {
             preTrade_maintenancemargin_reserved: maintenance_margin_req,
             preTrade_maintenancemargin_available: excess_liquidity,
             preTrade_initialmargin_reserved: regT_margin_req,
-            preTrade_initialmargin_available: excess_equity,
-            preTrade_sma: sma,
-            preTrade_marginbuying_power: marginBuying_power
+            preTrade_initialmargin_available: excess_equity
         })
         // ----------------------------------------------------------------------------------  
         // REQUEST SIGNAL TO QUANTXI AI =====================================================
@@ -313,9 +311,7 @@ async function run_test() {
             postTrade_maintenancemargin_reserved: maintenance_margin_req,
             postTrade_maintenancemargin_available: excess_liquidity,
             postTrade_initialmargin_reserved: regT_margin_req,
-            postTrade_initialmargin_available: excess_equity,
-            postTrade_sma: sma,
-            postTrade_marginBuying_power: marginBuying_power,
+            postTrade_initialmargin_available: excess_equity
         });
         //save daily stock position & transaction details to summary
         daily_stock_position_transaction_summary.push({
