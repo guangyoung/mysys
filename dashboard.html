@@ -1965,7 +1965,7 @@
     <!-- MODAL VIEW ALL POST -->
     <div class="modal" id="view_allpost" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
         aria-labelledby="dataLabel" aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 1200px" role="document">
+        <div class="modal-dialog" style="min-width: 700px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <img src="styles/image/rest_api_symbol_black.png" width="32" height="22" style="margin-top: 4px">
@@ -1981,12 +1981,12 @@
                         <ul id="pagination_post_request_response" class="pagination pagination-sm"></ul>
                     </div>
                     <div class="card" style="overflow-y: auto; overflow-x: hidden; height: 400px; border-left: 1px #c0c0c0 solid; border-right: 1px #c0c0c0 solid; border-bottom: 1px #c0c0c0 solid;">
-                        <table>
+                        <table id="allpost_tbl">
                             <thead>
                                 <tr>
                                     <th
-                                        style="position: sticky; top: 0px; border-left: 1px #292b43 solid; padding: 5px 0; width: 655px; color:#d2d3d7; background-color: #1b1d2d; ">
-                                        <div class="row" style="margin-left: 10px;">
+                                        style="position: sticky; top: 0px; padding: 5px 0; width: 655px; color:#d2d3d7; background-color: #1b1d2d; ">
+                                        <div style="text-align: center">
                                             <i class="fa fa-sign-in" style="margin-top: 3px; font-size: 20px"></i>
                                             <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">DATA
                                                 INPUT - REQUEST</strong>
@@ -1994,7 +1994,7 @@
                                     </th>
                                     <th
                                         style="position: sticky; top: 0px; border-left: 1px #292b43 solid; width: 655px; color:#d2d3d7; background-color: #1b1d2d; font-size: 12px">
-                                        <div class="row" style="margin-left: 10px;">
+                                        <div style="text-align: center">
                                             <i class="fa fa-sign-out" style="margin-top: 3px; font-size: 20px"></i>
                                             <strong style="font-size: 13px; margin-left: 10px; margin-top: 4px">SIGNAL
                                                 OUTPUT - RESPONSE</strong>
@@ -2003,14 +2003,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="height: 364px">
+                                <!-- <tr style="height: 364px">
                                     <td style="text-align: center">
                                         <h1>No Data</h1>
                                     </td>
                                     <td style="text-align: center; border-left: 1px #c0c0c0 solid">
                                         <h1>No Data</h1>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -2041,272 +2041,95 @@
             trigger: "hover"
         });
 
-        // var input_start = {
-        //     "data_input_id": "D00001",
-        //     "timestamp": "mm/dd/yyy 00:00:00",
-        //     "stock01": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock02": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock03": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock04": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock05": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock06": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock07": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock08": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock09": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock10": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock11": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock12": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock13": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock14": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock15": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock16": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock17": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock18": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock19": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock20": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock21": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock22": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock23": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock24": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock25": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock26": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock27": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock28": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock29": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     },
-        //     "stock30": {
-        //         "price": "123456",
-        //         "position_size": "123456789000"
-        //     }
-        // }
+        data_input = {
+            request_no: 0001,//ganti jadi data_idx
+            data_input: [
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000],
+                [123, 10000]
+            ]
+        };
 
-        // var output_start = {
-        //     "signal_output_id": "S00001",
-        //     "timestamp": "mm/dd/yyy 00:00:00",
-        //     "stock01": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock02": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock03": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock04": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock05": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock06": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock07": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock08": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock09": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock10": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock11": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock12": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock13": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock14": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock15": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock16": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock17": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock18": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock19": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock20": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock21": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock22": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock23": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock24": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock25": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock26": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock27": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock28": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock29": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     },
-        //     "stock30": {
-        //         "signal_position": "BUY OPEN",
-        //         "signal_size": "123456789"
-        //     }
-        // }
+        signal_output = {
+            request_no: 0001,//ganti jadi data_idx
+            signal_output: [
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000],
+                ["BUY", 10000]
+            ]
+        };
 
-        // var request_element =
-        // `<tr style="border-left: 1px #292b43 solid; border-right: 1px #292b43 solid; border-bottom: 1px #292b43 solid;">
-        //     <td style="border-right: 1px #292b43 solid">
-        //         <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-        //     JSON.stringify(input_start, null, 4) +
-        //     `
-        //         </pre>;
-        //     </td>
-        //     <td>
-        //         <pre style="font-size: 11px; color: black; margin-left: 100px; margin-top: 25px; margin-bottom: -15px">` +
-        //     JSON.stringify(output_start, null, 4) +
-        //     `
-        //         </pre>;
-        //     </td>
-        // </tr>`
+        var request_element =
+        `<tr>
+            <td style="border-right: 1px #292b43 solid">
+                <pre style="font-size: 11px; color: black; margin-left: 80px; margin-top: 25px; margin-bottom: -15px">` +
+            JSON.stringify(data_input, null, 4) +
+            `
+                </pre>;
+            </td>
+            <td>
+                <pre style="font-size: 11px; color: black; margin-left: 80px; margin-top: 25px; margin-bottom: -15px">` +
+            JSON.stringify(signal_output, null, 4) +
+            `
+                </pre>;
+            </td>
+        </tr>`
         // $("#request").html(request_element);
+        $("#allpost_tbl>tbody").append(request_element);
     </script>
 </body>
 
