@@ -417,7 +417,7 @@ async function run_test() {
                     var account_trade_summary_row =
                     `<tr>
                     <td
-                        style="position: sticky; left: 0px; z-index: 2; background-color: #030303; text-align: center">
+                        style="text-align: center">
                         `+ account_and_trade_summary[i].date +`</td>
                     <td
                         style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
