@@ -409,9 +409,9 @@ async function run_test() {
 
     // trade testing report
     // $("#account_trade_summary_tbl>tbody").empty();
-    $("#pagination_trade_summary").twbsPagination("destroy");
+    $("#pagination_trade_report").twbsPagination("destroy");
     // if(10 > 0) {
-        $("#pagination_trade_summary").twbsPagination({
+        $("#pagination_trade_report").twbsPagination({
             totalPages: math.ceil(1000/20),
             visiblePages: 4,
             onPageClick: function (event, page) {
