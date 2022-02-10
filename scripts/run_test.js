@@ -291,28 +291,6 @@ async function run_test() {
             stock_position_size,
             stock_market_value
         });
-        //save daily pretrade account summary to array  
-        // daily_account_and_trade_summary.push({
-        //     date: current_date,
-        //     preTrade_dailyInterest: daily_Interest,
-        //     preTrade_cashbalance: cash_balance,
-        //     preTrade_marketvalue: market_value,
-        //     preTrade_equitywith_loanValue: equity_with_loanValue,
-        //     preTrade_maintenancemargin_reserved: maintenance_margin_req,
-        //     preTrade_maintenancemargin_available: excess_liquidity,
-        //     preTrade_initialmargin_reserved: regT_margin_req,
-        //     preTrade_initialmargin_available: excess_equity,
-        //     totaltrade_value: total_trade_value,
-        //     totalcommission: total_commission,
-        //     totalinitial_margin: total_initial_margin,
-        //     postTrade_cashbalance: cash_balance,
-        //     postTrade_marketvalue: market_value,
-        //     postTrade_equitywith_loanValue: equity_with_loanValue,
-        //     postTrade_maintenancemargin_reserved: maintenance_margin_req,
-        //     postTrade_maintenancemargin_available: excess_liquidity,
-        //     postTrade_initialmargin_reserved: regT_margin_req,
-        //     postTrade_initialmargin_available: excess_equity
-        // });
         //save daily stock position & transaction details to summary
         daily_stock_position_transaction_summary.push({
             date: current_date,
