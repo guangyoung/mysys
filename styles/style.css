@@ -654,3 +654,9 @@ margin: 10px 10px 10px 0px;
     width: 100%;
     max-width: 660px;
   }
+
+  table.sectioned tbody {
+    border: 2px solid black;
+    border-collapse: separate;
+    border-spacing: 4px;
+  }

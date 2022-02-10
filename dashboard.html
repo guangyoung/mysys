@@ -1408,7 +1408,6 @@
                                 <input id="enddate_data" type="text" class="form-text-sm" disabled
                                     style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 90px; font-size: 10px">
                                 <ul id="pagination-demo" class="pagination pagination-sm"></ul>
-
                             </div>
                             <div class="row">
                                 <div class="table-hover"
@@ -1526,7 +1525,6 @@
                                     <h1 style="margin-left: 10px; margin-top: 3px; font-size: 12px;">Enddate</h1>
                                     <input id="end_date_test" type="date" class="form-text-sm"
                                         style="text-align: center; margin-top: 1px; color: #000000; font-weight: 500; margin-left: 5px; padding: 0 3px; height: 18px; width: 125px; font-size: 10px">
-                                    <!-- <strong style="margin-left: 5px; margin-top: 0px; font-family: calibri; font-size: 13px; color: #ff0000">(2100 Record Data)</strong> -->
                                     <button type="submit" class="btn btn-primary btn-sm"
                                         style="font-size: 11px; padding: 1px 0px; margin-left: 10px; margin-top: 0px; height: 20px; width: 145px"
                                         onclick="change_period_ofTest()">Change Period of Test</button>
@@ -1776,7 +1774,7 @@
                                 <ul id="pagination_trade_report" class="pagination pagination-sm"
                                     style="margin-top: -5px"></ul>
                             </div>
-                            <div class="table-hover"
+                            <div
                                 style="overflow: auto; width: 1165px; margin-top: 5px; height: 407px; border-left: 1px #c0c0c0 solid; border-right: 1px #c0c0c0 solid; border-bottom: 1px #c0c0c0 solid;">
                                 <table id="account_trade_summary_tbl">
                                     <thead
@@ -1852,8 +1850,12 @@
                                                 Excess<br>Equity</th>
                                         </tr>
                                     </thead>
-                                    <tbody
-                                        style="background-color: #2c5252; font-size: 11px; font-family: calibri; color: #ebebeb;">                                        
+                                    <tbody style="background-color: #2c5252; font-size: 11px; font-family: calibri; color: #ebebeb;">                                        
+                                        <tr style="height: 295px">
+                                            <td colspan="19" style="text-align: center">
+                                                <h1>No Data</h1>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -1978,8 +1980,8 @@
                                 style="font-size: 15px; margin-left: 5px">200</span></strong>
                         <ul id="pagination_post_request_response" class="pagination pagination-sm"></ul>
                     </div>
-                    <div style="margin-top: 0px; overflow-y: auto; overflow-x: hidden; height: 400px">
-                        <table class="table-striped">
+                    <div class="card" style="overflow-y: auto; overflow-x: hidden; height: 400px; border-left: 1px #c0c0c0 solid; border-right: 1px #c0c0c0 solid; border-bottom: 1px #c0c0c0 solid;">
+                        <table>
                             <thead>
                                 <tr>
                                     <th
@@ -2000,7 +2002,15 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody id="request">
+                            <tbody>
+                                <tr style="height: 364px">
+                                    <td style="text-align: center">
+                                        <h1>No Data</h1>
+                                    </td>
+                                    <td style="text-align: center; border-left: 1px #c0c0c0 solid">
+                                        <h1>No Data</h1>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
