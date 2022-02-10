@@ -408,71 +408,71 @@ async function run_test() {
     $("#pagination_trade_report").twbsPagination("destroy");
     // if(10 > 0) {
         $("#pagination_trade_report").twbsPagination({
-            totalPages: math.ceil(100/10),
+            totalPages: math.ceil(100/25),
             visiblePages: 4,
             onPageClick: function (event, page) {
                 $("#account_trade_summary_tbl>tbody").empty();
-                for (i = (page - 1) * 10; i < (page * 10) && i < (100); i++) {
+                for (i = (page - 1) * 25; i < (page * 25) && i < (100); i++) {
                 // for (i=(page*5)-5; i<(page*5) && i<(5000); i++) {
                     var account_trade_summary_row =
                     `<tr>
                     <td
-                        style="position: sticky; left: 0px; z-index: 2; background-color: #122121; text-align: center">
+                        style="position: sticky; left: 0px; z-index: 2; background-color: #030303; text-align: center">
                         `+ account_and_trade_summary[i].date +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_dailyInterest).toFixed(0)) +`
                     </td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_cashbalance).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_marketvalue).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_equitywith_loanValue).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_maintenancemargin_reserved).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_maintenancemargin_available).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_initialmargin_reserved).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_initialmargin_available).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totaltrade_value).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totalcommission).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totalinitial_margin).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_cashbalance).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_marketvalue).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_equitywith_loanValue).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_maintenancemargin_reserved).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_maintenancemargin_available).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_initialmargin_reserved).toFixed(0)) +`</td>
                     <td
-                        style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_initialmargin_available).toFixed(0)) +`</td>
                 </tr>`
                     $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
