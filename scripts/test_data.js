@@ -97,7 +97,7 @@ function add_data() {
         }
       }
     }
-    $(':button').prop('disabled', true);
+    // $(':button').prop('disabled', true);
     for (t = 0; t < ticker_list.length && t < (30 - portfolio_data.length); t++) {
       let tickere = ticker_list[t].split(', ')[0];
       let as_data_date = new Array();
@@ -139,7 +139,7 @@ function add_data() {
         }
       });
     }
-    $(':button').prop('disabled', false);
+    // $(':button').prop('disabled', false);
     $("#tiingo_tickers_btn").html(`Select Tickers (<span class="quantity">0</span>)`);
     $("#Xchange_btn").html(`<span class="Xchange">Select Exchange</span>`);
     $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
@@ -263,10 +263,7 @@ function create_test_data() {
     var startDate = new Date(Math.max.apply(null, startdates));
     var endDate = new Date(Math.min.apply(null, enddates));
     var currentDate = startDate;
-    // var startDate_test = startDate;
-    // var endDate_test = endDate;
-    // console.log(startDate_test);
-    // $("#period_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear() + " - " + appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
+    
     $("#startdate_data").val(appendLeadingZeroes(startDate.getMonth() + 1) + "/" + appendLeadingZeroes(startDate.getDate()) + "/" + startDate.getFullYear());
     $("#enddate_data").val(appendLeadingZeroes(endDate.getMonth() + 1) + "/" + appendLeadingZeroes(endDate.getDate()) + "/" + endDate.getFullYear());
     $("#start_date_test").val(startDate.getFullYear() + "-" + appendLeadingZeroes(startDate.getMonth() + 1) + "-" + appendLeadingZeroes(startDate.getDate()));
