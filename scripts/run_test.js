@@ -322,6 +322,7 @@ async function run_test() {
             data: daily_stock_position_transaction_details
         });
         account_and_trade_summary.push(daily_account_and_trade_summary);
+        console.log(account_and_trade_summary);
         //View in web account & margin summary
         $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(0)));
         $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(market_value).toFixed(0)));
@@ -422,62 +423,62 @@ async function run_test() {
                     `<tr>
                     <td
                         style="position: sticky; left: 0px; z-index: 2; background-color: #122121; text-align: center">
-                        `+ daily_account_and_trade_summary[i].date +`</td>
+                        `+ account_and_trade_summary[i].date +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].preTrade_dailyInterest +`
+                        `+ account_and_trade_summary[i].preTrade_dailyInterest +`
                     </td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].preTrade_cashbalance +`</td>
+                        `+ account_and_trade_summary[i].preTrade_cashbalance +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].preTrade_marketvalue +`</td>
+                        `+ account_and_trade_summary[i].preTrade_marketvalue +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].preTrade_equitywith_loanValue +`</td>
+                        `+ account_and_trade_summary[i].preTrade_equitywith_loanValue +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].preTrade_maintenancemargin_reserved +`</td>
+                        `+ account_and_trade_summary[i].preTrade_maintenancemargin_reserved +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].preTrade_maintenancemargin_available +`</td>
+                        `+ account_and_trade_summary[i].preTrade_maintenancemargin_available +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].preTrade_initialmargin_reserved +`</td>
+                        `+ account_and_trade_summary[i].preTrade_initialmargin_reserved +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].preTrade_initialmargin_available +`</td>
+                        `+ account_and_trade_summary[i].preTrade_initialmargin_available +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].totaltrade_value +`</td>
+                        `+ account_and_trade_summary[i].totaltrade_value +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].totalcommission +`</td>
+                        `+ account_and_trade_summary[i].totalcommission +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].totalinitial_margin +`</td>
+                        `+ account_and_trade_summary[i].totalinitial_margin +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].postTrade_cashbalance +`</td>
+                        `+ account_and_trade_summary[i].postTrade_cashbalance +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].postTrade_marketvalue +`</td>
+                        `+ account_and_trade_summary[i].postTrade_marketvalue +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].postTrade_equitywith_loanValue +`</td>
+                        `+ account_and_trade_summary[i].postTrade_equitywith_loanValue +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].postTrade_maintenancemargin_reserved +`</td>
+                        `+ account_and_trade_summary[i].postTrade_maintenancemargin_reserved +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].postTrade_maintenancemargin_available +`</td>
+                        `+ account_and_trade_summary[i].postTrade_maintenancemargin_available +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].postTrade_initialmargin_reserved +`</td>
+                        `+ account_and_trade_summary[i].postTrade_initialmargin_reserved +`</td>
                     <td
                         style="text-align: right; border-left: 1px #c0c0c0 solid; padding: 0 3px">
-                        `+ daily_account_and_trade_summary[i].postTrade_initialmargin_available +`</td>
+                        `+ account_and_trade_summary[i].postTrade_initialmargin_available +`</td>
                 </tr>`
                     $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
                 }
