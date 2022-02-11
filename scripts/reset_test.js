@@ -21,11 +21,11 @@ async function reset_test() {
         $(':button').prop('disabled', false); //Enable All Button 
         let account_trade_summary_row = 
           `<tr style="height: 295px">
-              <td colspan="19" style="text-align: center">
+              <td colspan="20" style="text-align: center">
                   <h1>No Data</h1>
               </td>
           </tr>`
-        // $("#account_trade_summary_tbl>tbody").empty();
+        $("#account_trade_summary_tbl>tbody").empty();
         $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
         // account_trade_summary = [];
         // asset_trade_details = [];

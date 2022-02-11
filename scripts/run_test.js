@@ -33,6 +33,7 @@ async function run_test() {
     var excess_liquidity;
     var regT_margin_req;
     var excess_equity;
+    var buying_power;
     var quantxi_equity;
     var buyhold_equity;
     var previous_quantxi_equity = initial_equity;
@@ -69,8 +70,7 @@ async function run_test() {
     var data_idx = 0;
     while(data_idx < 100) {    
         let current_date = testData[data_idx].date;
-        let daily_stock_position_transaction_details = new Array();
-        // let daily_account_and_trade_summary = new Array();            
+        let daily_stock_position_transaction_details = new Array();    
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION ===================================================
         // ----------------------------------------------------------------------------------
@@ -94,6 +94,7 @@ async function run_test() {
         excess_liquidity = equity_with_loanValue - maintenance_margin_req;
         regT_margin_req = market_value * 0.50;
         excess_equity = equity_with_loanValue - regT_margin_req;
+        buying_power = excess_equity * 2;
         //save daily pretrade stock position to array 
         daily_stock_position_transaction_details.push({
             stock_price,
@@ -106,43 +107,77 @@ async function run_test() {
         // ---------------------------------------------------------------------------------- 
         data_input = {
             request_no: data_idx + 1,//ganti jadi data_idx
-            stock_data: [
-                [stock_price[0], stock_position_size[0]],
-                [stock_price[1], stock_position_size[1]],
-                [stock_price[2], stock_position_size[2]],
-                [stock_price[3], stock_position_size[3]],
-                [stock_price[4], stock_position_size[4]],
-                [stock_price[5], stock_position_size[5]],
-                [stock_price[6], stock_position_size[6]],
-                [stock_price[7], stock_position_size[7]],
-                [stock_price[8], stock_position_size[8]],
-                [stock_price[9], stock_position_size[9]],
-                [stock_price[10], stock_position_size[10]],
-                [stock_price[11], stock_position_size[11]],
-                [stock_price[12], stock_position_size[12]],
-                [stock_price[13], stock_position_size[13]],
-                [stock_price[14], stock_position_size[14]],
-                [stock_price[15], stock_position_size[15]],
-                [stock_price[16], stock_position_size[16]],
-                [stock_price[17], stock_position_size[17]],
-                [stock_price[18], stock_position_size[18]],
-                [stock_price[19], stock_position_size[19]],
-                [stock_price[20], stock_position_size[20]],
-                [stock_price[21], stock_position_size[21]],
-                [stock_price[22], stock_position_size[22]],
-                [stock_price[23], stock_position_size[23]],
-                [stock_price[24], stock_position_size[24]],
-                [stock_price[25], stock_position_size[25]],
-                [stock_price[26], stock_position_size[26]],
-                [stock_price[27], stock_position_size[27]],
-                [stock_price[28], stock_position_size[28]],
-                [stock_price[29], stock_position_size[29]]
+            buying_power: buying_power,
+            stock_price: [
+                stock_price[0],
+                stock_price[1],
+                stock_price[2],
+                stock_price[3],
+                stock_price[4],
+                stock_price[5],
+                stock_price[6],
+                stock_price[7],
+                stock_price[8],
+                stock_price[9],
+                stock_price[10],
+                stock_price[11],
+                stock_price[12],
+                stock_price[13],
+                stock_price[14],
+                stock_price[15],
+                stock_price[16],
+                stock_price[17],
+                stock_price[18],
+                stock_price[19],
+                stock_price[20],
+                stock_price[21],
+                stock_price[22],
+                stock_price[23],
+                stock_price[24],
+                stock_price[25],
+                stock_price[26],
+                stock_price[27],
+                stock_price[28],
+                stock_price[29]                
+            ],
+            stock_positionSize: [
+                stock_position_size[0],
+                stock_position_size[1],
+                stock_position_size[2],
+                stock_position_size[3],
+                stock_position_size[4],
+                stock_position_size[5],
+                stock_position_size[6],
+                stock_position_size[7],
+                stock_position_size[8],
+                stock_position_size[9],
+                stock_position_size[10],
+                stock_position_size[11],
+                stock_position_size[12],
+                stock_position_size[13],
+                stock_position_size[14],
+                stock_position_size[15],
+                stock_position_size[16],
+                stock_position_size[17],
+                stock_position_size[18],
+                stock_position_size[19],
+                stock_position_size[20],
+                stock_position_size[21],
+                stock_position_size[22],
+                stock_position_size[23],
+                stock_position_size[24],
+                stock_position_size[25],
+                stock_position_size[26],
+                stock_position_size[27],
+                stock_position_size[28],
+                stock_position_size[29]                
             ]
         };
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
+        $('#buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input.buying_power).toFixed(0)));
         for (i = 0; i < 30; i++) {
-            $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_data[i][0]).toFixed(5)));
-            $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_data[i][1]).toFixed(0)));
+            $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_price[i]).toFixed(5)));
+            $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_positionSize[i]).toFixed(0)));
         }
         data_input_arr.push(data_input); //save data to array data_input_history
         
@@ -156,45 +191,79 @@ async function run_test() {
                 success: function (result) {
                     if (result.status == "success") {
                         signal_output = {
-                            request_no: result.data.data_id,//ganti jadi response id
-                            quantxi_signal: [
-                                [result.data.signal_position_stock1, result.data.signal_size_stock1],
-                                [result.data.signal_position_stock2, result.data.signal_size_stock2],
-                                [result.data.signal_position_stock3, result.data.signal_size_stock3],
-                                [result.data.signal_position_stock4, result.data.signal_size_stock4],
-                                [result.data.signal_position_stock5, result.data.signal_size_stock5],
-                                [result.data.signal_position_stock6, result.data.signal_size_stock6],
-                                [result.data.signal_position_stock7, result.data.signal_size_stock7],
-                                [result.data.signal_position_stock8, result.data.signal_size_stock8],
-                                [result.data.signal_position_stock9, result.data.signal_size_stock9],
-                                [result.data.signal_position_stock10, result.data.signal_size_stock10],
-                                [result.data.signal_position_stock11, result.data.signal_size_stock11],
-                                [result.data.signal_position_stock12, result.data.signal_size_stock12],
-                                [result.data.signal_position_stock13, result.data.signal_size_stock13],
-                                [result.data.signal_position_stock14, result.data.signal_size_stock14],
-                                [result.data.signal_position_stock15, result.data.signal_size_stock15],
-                                [result.data.signal_position_stock16, result.data.signal_size_stock16],
-                                [result.data.signal_position_stock17, result.data.signal_size_stock17],
-                                [result.data.signal_position_stock18, result.data.signal_size_stock18],
-                                [result.data.signal_position_stock19, result.data.signal_size_stock19],
-                                [result.data.signal_position_stock20, result.data.signal_size_stock20],
-                                [result.data.signal_position_stock21, result.data.signal_size_stock21],
-                                [result.data.signal_position_stock22, result.data.signal_size_stock22],
-                                [result.data.signal_position_stock23, result.data.signal_size_stock23],
-                                [result.data.signal_position_stock24, result.data.signal_size_stock24],
-                                [result.data.signal_position_stock25, result.data.signal_size_stock25],
-                                [result.data.signal_position_stock26, result.data.signal_size_stock26],
-                                [result.data.signal_position_stock27, result.data.signal_size_stock27],
-                                [result.data.signal_position_stock28, result.data.signal_size_stock28],
-                                [result.data.signal_position_stock29, result.data.signal_size_stock29],
-                                [result.data.signal_position_stock30, result.data.signal_size_stock30]
+                            response_no: result.data.data_id,//ganti jadi response id
+                            signal_timestamp: result.data.signal_timestamp,
+                            signal_position: [
+                                result.data.signal_position_stock1,
+                                result.data.signal_position_stock2,
+                                result.data.signal_position_stock3,
+                                result.data.signal_position_stock4,
+                                result.data.signal_position_stock5,
+                                result.data.signal_position_stock6,
+                                result.data.signal_position_stock7,
+                                result.data.signal_position_stock8,
+                                result.data.signal_position_stock9,
+                                result.data.signal_position_stock10,
+                                result.data.signal_position_stock11,
+                                result.data.signal_position_stock12,
+                                result.data.signal_position_stock13,
+                                result.data.signal_position_stock14,
+                                result.data.signal_position_stock15,
+                                result.data.signal_position_stock16,
+                                result.data.signal_position_stock17,
+                                result.data.signal_position_stock18,
+                                result.data.signal_position_stock19,
+                                result.data.signal_position_stock20,
+                                result.data.signal_position_stock21,
+                                result.data.signal_position_stock22,
+                                result.data.signal_position_stock23,
+                                result.data.signal_position_stock24,
+                                result.data.signal_position_stock25,
+                                result.data.signal_position_stock26,
+                                result.data.signal_position_stock27,
+                                result.data.signal_position_stock28,
+                                result.data.signal_position_stock29,
+                                result.data.signal_position_stock30
+                            ],
+                            signal_size: [
+                                result.data.signal_size_stock1,
+                                result.data.signal_size_stock2,
+                                result.data.signal_size_stock3,
+                                result.data.signal_size_stock4,
+                                result.data.signal_size_stock5,
+                                result.data.signal_size_stock6,
+                                result.data.signal_size_stock7,
+                                result.data.signal_size_stock8,
+                                result.data.signal_size_stock9,
+                                result.data.signal_size_stock10,
+                                result.data.signal_size_stock11,
+                                result.data.signal_size_stock12,
+                                result.data.signal_size_stock13,
+                                result.data.signal_size_stock14,
+                                result.data.signal_size_stock15,
+                                result.data.signal_size_stock16,
+                                result.data.signal_size_stock17,
+                                result.data.signal_size_stock18,
+                                result.data.signal_size_stock19,
+                                result.data.signal_size_stock20,
+                                result.data.signal_size_stock21,
+                                result.data.signal_size_stock22,
+                                result.data.signal_size_stock23,
+                                result.data.signal_size_stock24,
+                                result.data.signal_size_stock25,
+                                result.data.signal_size_stock26,
+                                result.data.signal_size_stock27,
+                                result.data.signal_size_stock28,
+                                result.data.signal_size_stock29,
+                                result.data.signal_size_stock30
                             ]
                         };     
-                        $('#total_request').html(parseFloat(signal_output.request_no).toFixed(0));                            
-                        $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.request_no).toFixed(0)));
+                        $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));                            
+                        $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.response_no).toFixed(0)));
+                        $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
                         for (i = 0; i < 30; i++) {
-                            $("#signal_position_stock" + (i+1)).html(signal_output.quantxi_signal[i][0]);
-                            $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.quantxi_signal[i][1]).toFixed(0)));
+                            $("#signal_position_stock" + (i+1)).html(signal_output.signal_position[i]);
+                            $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.signal_size[i]).toFixed(0)));
                         }
                         signal_output_arr.push(signal_output); //save data to array signal_output_history
                         // console.log(signal_output);
@@ -210,12 +279,12 @@ async function run_test() {
         let estimate_imr = 0;
         let estimate_comm = 0;
         for (i = 0; i < 30; i++) {
-            if (signal_output.quantxi_signal[i][0] == "BUY") {
-                estimate_imr += parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 + spread_slippage))) * 0.5);
-                estimate_comm += parseInt(signal_output.quantxi_signal[i][1] * 0.005); //commision per share
-            } else if (signal_output.quantxi_signal[i][0] == "SELL") {
-                estimate_imr -= parseInt(signal_output.quantxi_signal[i][1] * ((stock_price[i] * (1 - spread_slippage))) * 0.5);
-                estimate_comm += parseInt(signal_output.quantxi_signal[i][1] * 0.005); //commision per share
+            if (signal_output.signal_position[i] == "BUY") {
+                estimate_imr += parseInt(signal_output.signal_size[i] * ((stock_price[i] * (1 + spread_slippage))) * 0.5);
+                estimate_comm += parseInt(signal_output.signal_size[i] * 0.005); //commision per share
+            } else if (signal_output.signal_position[i] == "SELL") {
+                estimate_imr -= parseInt(signal_output.signal_size[i] * ((stock_price[i] * (1 - spread_slippage))) * 0.5);
+                estimate_comm += parseInt(signal_output.signal_size[i] * 0.005); //commision per share
             } else {
                 estimate_imr += 0;
                 estimate_comm += 0;
@@ -239,14 +308,14 @@ async function run_test() {
         let commission_arr = new Array();
         let initialMargin = new Array();
         for (i = 0; i < 30; i++) {
-            if (signal_output.quantxi_signal[i][0] == "BUY") {
-                filledOrder[i] = math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
+            if (signal_output.signal_position[i] == "BUY") {
+                filledOrder[i] = math.floor(parseInt(signal_output.signal_size[i] * filled_percentage));
                 filledPrice[i] = stock_price[i] * (1 + spread_slippage);
                 tradeValue[i] = filledOrder[i] * filledPrice[i];
                 commission_arr[i] = filledOrder[i] * commission_perShare;
                 initialMargin[i] = tradeValue[i] * 0.50;
-            } else if (signal_output.quantxi_signal[i][0] == "SELL") {
-                filledOrder[i] = math.floor(parseInt(signal_output.quantxi_signal[i][1] * filled_percentage));
+            } else if (signal_output.signal_position[i] == "SELL") {
+                filledOrder[i] = math.floor(parseInt(signal_output.signal_size[i] * filled_percentage));
                 filledPrice[i] = stock_price[i] * (1 - spread_slippage);
                 tradeValue[i] = filledOrder[i] * filledPrice[i];
                 commission_arr[i] = filledOrder[i] * commission_perShare;
@@ -306,6 +375,7 @@ async function run_test() {
             preTrade_maintenancemargin_available: excess_liquidity,
             preTrade_initialmargin_reserved: regT_margin_req,
             preTrade_initialmargin_available: excess_equity,
+            preTrade_buying_power: buying_power,
             totaltrade_value: total_trade_value,
             totalcommission: total_commission,
             totalinitial_margin: total_initial_margin,
@@ -326,6 +396,7 @@ async function run_test() {
         $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(excess_liquidity).toFixed(0)));
         $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(regT_margin_req).toFixed(0)));
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(excess_equity).toFixed(0)));
+        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(buying_power).toFixed(0)));
                
         // ----------------------------------------------------------------------------------
         // UPDATE TRADE PERFORMANCE COMPARISON, QUANTXI AI VS BUY AND HOLD ==================
@@ -404,17 +475,14 @@ async function run_test() {
     //-----------------------------------------------------------     
 
     // trade testing report
-    // $("#account_trade_summary_tbl>tbody").empty();
     $("#pagination_trade_report").twbsPagination("destroy");
-    // if(10 > 0) {
         $("#pagination_trade_report").twbsPagination({
             totalPages: math.ceil(account_and_trade_summary.length/25),
             visiblePages: 4,
             onPageClick: function (event, page) {
                 $("#account_trade_summary_tbl>tbody").empty();
                 for (i = (page - 1) * 25; i < (page * 25) && i < account_and_trade_summary.length; i++) {
-                // for (i=(page*5)-5; i<(page*5) && i<(5000); i++) {
-                    var account_trade_summary_row =
+                    let account_trade_summary_row =
                     `<tr>
                     <td
                         style="text-align: center">
@@ -444,6 +512,9 @@ async function run_test() {
                     <td
                         style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_initialmargin_available).toFixed(0)) +`</td>
+                    <td
+                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_buying_power).toFixed(0)) +`</td>
                     <td
                         style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
                         `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totaltrade_value).toFixed(0)) +`</td>
