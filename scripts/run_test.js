@@ -298,6 +298,8 @@ async function run_test() {
         let filled_percentage;
         if(estimate_tradeValue <= 0) {
             filled_percentage = 1;
+        } else if (buying_power <= 0 && estimate_tradeValue > 0) {
+            filled_percentage = 0;
         } else if (buying_power > estimate_tradeValue) {
             filled_percentage = 1;
         } else {
