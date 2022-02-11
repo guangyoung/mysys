@@ -276,27 +276,31 @@ async function run_test() {
         // TRADE TRANSACTION ================================================================
         // ----------------------------------------------------------------------------------
         //calculated estimate total trade value asumsi
-        let estimate_total_trade_value_quantxiSignal = 0;
-            for (i = 0; i < 30; i++) {
-                if (signal_output.quantxi_signal[i][0] == "BUY") {
-                    estimate_total_trade_value_quantxiSignal += parseInt(signal_output.quantxi_signal[i][1] * (stock_price[i] * (1 + spread_slippage)));
-                } else if (signal_output.quantxi_signal[i][0] == "SELL") {
-                    estimate_total_trade_value_quantxiSignal -= parseInt(signal_output.quantxi_signal[i][1] * (stock_price[i] * (1 - spread_slippage)));
-                } else {
-                    estimate_total_trade_value_quantxiSignal += 0;
-                }
+        let estimate_tradeValue = 0;
+        // let estimate_comm = 0;
+        for (i = 0; i < 30; i++) {
+            if (signal_output.signal_position[i] == "BUY") {
+                estimate_tradeValue += (signal_output.signal_size[i] * (stock_price[i] * (1 + spread_slippage)));
+                // estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
+            } else if (signal_output.signal_position[i] == "SELL") {
+                estimate_tradeValue -= (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)));
+                // estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
+            } else {
+                estimate_tradeValue += 0;
+                // estimate_comm += 0;
             }
+        }
 
-        console.log("estimate_tradeValue :"+estimate_total_trade_value_quantxiSignal);
+        console.log("estimate_tradeValue :"+estimate_tradeValue);
         // console.log("estimate_comm :"+estimate_comm);
 
         //calculate filled percentarge   
         let filled_percentage;
-            if (buying_power > estimate_total_trade_value_quantxiSignal) {
-                filled_percentage = 1;
-            } else {
-                filled_percentage = buying_power / estimate_total_trade_value_quantxiSignal;
-            }
+        if (buying_power > (estimate_tradeValue)) {
+            filled_percentage = 1;
+        } else {
+            filled_percentage = buying_power/(estimate_tradeValue);
+        }
         //trade transaction   
         let filledOrder = new Array();
         let filledPrice = new Array();
