@@ -303,6 +303,8 @@ async function run_test() {
         } else {
             filled_percentage = buying_power/(estimate_tradeValue);
         }
+
+        console.log(filled_percentage);
         
         //trade transaction   
         let filledOrder = new Array();
