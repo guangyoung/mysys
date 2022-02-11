@@ -276,30 +276,30 @@ async function run_test() {
         // TRADE TRANSACTION ================================================================
         // ----------------------------------------------------------------------------------
         //calculated estimate total trade value asumsi
-        let estimate_imr = 0;
+        let estimate_tradeValue = 0;
         let estimate_comm = 0;
         for (i = 0; i < 30; i++) {
             if (signal_output.signal_position[i] == "BUY") {
-                estimate_imr += parseInt(signal_output.signal_size[i] * ((stock_price[i] * (1 + spread_slippage))) * 0.5);
+                estimate_tradeValue += parseInt(signal_output.signal_size[i] * ((stock_price[i] * (1 + spread_slippage))));
                 estimate_comm += parseInt(signal_output.signal_size[i] * 0.005); //commision per share
             } else if (signal_output.signal_position[i] == "SELL") {
-                estimate_imr -= parseInt(signal_output.signal_size[i] * ((stock_price[i] * (1 - spread_slippage))) * 0.5);
+                estimate_tradeValue -= parseInt(signal_output.signal_size[i] * ((stock_price[i] * (1 - spread_slippage))));
                 estimate_comm += parseInt(signal_output.signal_size[i] * 0.005); //commision per share
             } else {
-                estimate_imr += 0;
+                estimate_tradeValue += 0;
                 estimate_comm += 0;
             }
         }
 
-        console.log("estimate_imr :"+estimate_imr);
+        console.log("estimate_tradeValue :"+estimate_tradeValue);
         console.log("estimate_comm :"+estimate_comm);
 
         //calculate filled percentarge   
         let filled_percentage;
-        if (excess_equity > (estimate_imr+estimate_comm)) {
+        if (buying_power > (estimate_tradeValue+estimate_comm)) {
             filled_percentage = 1;
         } else {
-            filled_percentage = 1;
+            filled_percentage = buying_power/(estimate_tradeValue+estimate_comm);
         }
         //trade transaction   
         let filledOrder = new Array();
