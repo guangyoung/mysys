@@ -39,6 +39,7 @@ async function reset_test() {
         $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(1000000).toFixed(0)));
         $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(0).toFixed(0)));
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(1000000).toFixed(0)));
+        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(2000000).toFixed(0)));
 
         $('#quantxi_equity').html(Intl.NumberFormat().format(parseFloat(0).toFixed(0)));
         $('#buyhold_equity').html(Intl.NumberFormat().format(parseFloat(0).toFixed(0)));
