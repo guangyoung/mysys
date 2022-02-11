@@ -280,11 +280,11 @@ async function run_test() {
         let estimate_comm = 0;
         for (i = 0; i < 30; i++) {
             if (signal_output.signal_position[i] == "BUY") {
-                estimate_tradeValue += parseInt(signal_output.signal_size[i] * ((stock_price[i] * (1 + spread_slippage))));
-                estimate_comm += parseInt(signal_output.signal_size[i] * 0.005); //commision per share
+                estimate_tradeValue += (signal_output.signal_size[i] * ((stock_price[i] * (1 + spread_slippage))));
+                estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
             } else if (signal_output.signal_position[i] == "SELL") {
-                estimate_tradeValue -= parseInt(signal_output.signal_size[i] * ((stock_price[i] * (1 - spread_slippage))));
-                estimate_comm += parseInt(signal_output.signal_size[i] * 0.005); //commision per share
+                estimate_tradeValue -= (signal_output.signal_size[i] * ((stock_price[i] * (1 - spread_slippage))));
+                estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
             } else {
                 estimate_tradeValue += 0;
                 estimate_comm += 0;
