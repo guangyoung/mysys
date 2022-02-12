@@ -569,7 +569,7 @@ async function run_test() {
         totalPages: math.ceil(data_input_output_arr.length/10),
         visiblePages: 4,
         onPageClick: function (event, page) {
-            $("#account_trade_summary_tbl>tbody").empty();
+            $("#allpost_tbl>tbody").empty();
             for (i = (page - 1) * 10; i < (page * 10) && i < data_input_output_arr.length; i++) {
                 let data_input_output_arr_row =
                 `<tr>
