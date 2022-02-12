@@ -186,8 +186,8 @@ async function run_test() {
         }
         // data_input_arr.push(data_input); //save data to array data_input_history
         
-        let post_process = "running";
-        while (post_process == "running") {
+        // let post_process = "running";
+        // while (post_process == "running") {
             await $.ajax({
                 type: "POST",
                 url: "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey"),
@@ -272,11 +272,11 @@ async function run_test() {
                         }
                         // signal_output_arr.push(signal_output); //save data to array signal_output_history
                         // console.log(signal_output);
-                        post_process = "finish";
+                        // post_process = "finish";
                     }
                 }
             })
-        }            
+        // }            
         // ----------------------------------------------------------------------------------  
         // TRADE TRANSACTION ================================================================
         // ----------------------------------------------------------------------------------
