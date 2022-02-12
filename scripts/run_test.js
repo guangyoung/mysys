@@ -566,11 +566,11 @@ async function run_test() {
     // all request and response table
     $("#pagination_post_request_response").twbsPagination("destroy");
     $("#pagination_post_request_response").twbsPagination({
-        totalPages: math.ceil(data_input_output_arr.length/10),
+        totalPages: math.ceil(data_input_output_arr.length/1),
         visiblePages: 4,
         onPageClick: function (event, page) {
             $("#allpost_tbl>tbody").empty();
-            for (i = (page - 1) * 10; i < (page * 10) && i < data_input_output_arr.length; i++) {
+            for (i = page - 1; i < page && i < data_input_output_arr.length; i++) {
                 let data_input_output_arr_row =
                 `<tr>
                     <td style="border-right: 1px #292b43 solid">
