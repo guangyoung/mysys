@@ -38,6 +38,7 @@ async function reset_test() {
                 <h1>No Data</h1>
             </td>
         </tr>`
+        $("#allpost_tbl>tbody").empty();
         $("#allpost_tbl>tbody").append(request_element);
 
         // account_trade_summary = [];
