@@ -51,12 +51,14 @@ async function reset_test() {
         $('#total_request').html(0);
         
         $('#data_input_id').html("-");
+        $('#buyingPower').html("-");
         for(i=1; i<=30; i++){
             $("#price_stock"+i).html("-");
             $("#position_stock"+i).html("-");
         }
 
         $('#data_output_id').html("-");
+        $('#signaltimestamp').html("-");
         for(i=1; i<=30; i++){
             $("#signal_position_stock"+i).html("-");
             $("#signal_size_stock"+i).html("-");

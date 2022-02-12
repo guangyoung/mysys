@@ -574,13 +574,13 @@ async function run_test() {
                 let data_input_output_arr_row =
                 `<tr>
                     <td style="border-right: 1px #292b43 solid">
-                        <pre style="font-size: 11px; color: black; margin-left: 50px; margin-top: 25px; margin-bottom: -15px">` +
+                        <pre style="font-size: 11px; color: black; margin-left: 20px; margin-top: 25px; margin-bottom: -15px">` +
                     JSON.stringify(data_input_output_arr[i].input, null, 4) +
                     `
                         </pre>;
                     </td>
                     <td>
-                        <pre style="font-size: 11px; color: black; margin-left: 50px; margin-top: 25px; margin-bottom: -15px">` +
+                        <pre style="font-size: 11px; color: black; margin-left: 20px; margin-top: 25px; margin-bottom: -15px">` +
                     JSON.stringify(data_input_output_arr[i].output, null, 4) +
                     `
                         </pre>;
