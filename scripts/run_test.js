@@ -68,7 +68,7 @@ async function run_test() {
     //------------------------------------------------------------------------------------
     
     var data_idx = 0;
-    while(data_idx < 1000) {    
+    while(data_idx < 10) {    
         let current_date = testData[data_idx].date;
         let daily_stock_position_transaction_details = new Array();    
         // ----------------------------------------------------------------------------------

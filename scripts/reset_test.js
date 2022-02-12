@@ -19,6 +19,7 @@ async function reset_test() {
       )
 
         $(':button').prop('disabled', false); //Enable All Button 
+
         let account_trade_summary_row = 
           `<tr style="height: 295px">
               <td colspan="20" style="text-align: center">
@@ -27,6 +28,18 @@ async function reset_test() {
           </tr>`
         $("#account_trade_summary_tbl>tbody").empty();
         $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
+
+         var request_element =
+        `<tr style="height: 364px">
+            <td style="text-align: center">
+                <h1>No Data</h1>
+            </td>
+            <td style="text-align: center; border-left: 1px #c0c0c0 solid">
+                <h1>No Data</h1>
+            </td>
+        </tr>`
+        $("#allpost_tbl>tbody").append(request_element);
+
         // account_trade_summary = [];
         // asset_trade_details = [];
         // $("#account_trade_summary_tbl>tbody").empty();
