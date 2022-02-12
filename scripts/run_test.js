@@ -301,10 +301,10 @@ async function run_test() {
 
         //calculate filled percentarge   
         let filled_percentage;
-        if(buying_power > (estimate_tradeValue+estimate_comm)) {
+        if((buying_power/2) > ((estimate_tradeValue/2)+estimate_comm)) {
             filled_percentage = 1;
         } else {
-            filled_percentage = buying_power/((estimate_tradeValue+estimate_comm));
+            filled_percentage = (buying_power/2)/((estimate_tradeValue/2)+estimate_comm);
         }
 
         console.log(filled_percentage);
