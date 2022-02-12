@@ -94,7 +94,12 @@ async function run_test() {
         excess_liquidity = equity_with_loanValue - maintenance_margin_req;
         regT_margin_req = market_value * 0.50;
         excess_equity = equity_with_loanValue - regT_margin_req;
-        buying_power = excess_equity * 2;
+        if(excess_equity<0) {
+            buying_power = 0;
+        } else {
+            buying_power = excess_equity * 2;
+        }
+        
         //save daily pretrade stock position to array 
         daily_stock_position_transaction_details.push({
             stock_price,
@@ -277,33 +282,29 @@ async function run_test() {
         // ----------------------------------------------------------------------------------
         //calculated estimate total trade value asumsi
         let estimate_tradeValue = 0;
-        // let estimate_comm = 0;
+        let estimate_comm = 0;
         for (i = 0; i < 30; i++) {
             if (signal_output.signal_position[i] == "BUY") {
                 estimate_tradeValue += (signal_output.signal_size[i] * (stock_price[i] * (1 + spread_slippage)));
-                // estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
+                estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
             } else if (signal_output.signal_position[i] == "SELL") {
                 estimate_tradeValue -= (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)));
-                // estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
+                estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
             } else {
                 estimate_tradeValue += 0;
-                // estimate_comm += 0;
+                estimate_comm += 0;
             }
         }
 
-        console.log("estimate_tradeValue :"+estimate_tradeValue);
+        // console.log("estimate_tradeValue :"+estimate_tradeValue);
         // console.log("estimate_comm :"+estimate_comm);
 
         //calculate filled percentarge   
         let filled_percentage;
-        if(estimate_tradeValue <= 0) {
-            filled_percentage = 1;
-        } else if (buying_power <= 0 && estimate_tradeValue > 0) {
-            filled_percentage = 0;
-        } else if (buying_power > estimate_tradeValue) {
+        if(buying_power > (estimate_tradeValue+estimate_comm)) {
             filled_percentage = 1;
         } else {
-            filled_percentage = buying_power/(estimate_tradeValue);
+            filled_percentage = buying_power/((estimate_tradeValue+estimate_comm));
         }
 
         console.log(filled_percentage);
