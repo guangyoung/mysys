@@ -334,6 +334,37 @@ function create_test_data() {
     $('#stock29_ticker').html(portfolio_data[28].ticker);
     $('#stock30_ticker').html(portfolio_data[29].ticker);
 
+    $('#stock1_ticker_report').html(portfolio_data[0].ticker);
+    $('#stock2_ticker_report').html(portfolio_data[1].ticker);
+    $('#stock3_ticker_report').html(portfolio_data[2].ticker);
+    $('#stock4_ticker_report').html(portfolio_data[3].ticker);
+    $('#stock5_ticker_report').html(portfolio_data[4].ticker);
+    $('#stock6_ticker_report').html(portfolio_data[5].ticker);
+    $('#stock7_ticker_report').html(portfolio_data[6].ticker);
+    $('#stock8_ticker_report').html(portfolio_data[7].ticker);
+    $('#stock9_ticker_report').html(portfolio_data[8].ticker);
+    $('#stock10_ticker_report').html(portfolio_data[9].ticker);
+    $('#stock11_ticker_report').html(portfolio_data[10].ticker);
+    $('#stock12_ticker_report').html(portfolio_data[11].ticker);
+    $('#stock13_ticker_report').html(portfolio_data[12].ticker);
+    $('#stock14_ticker_report').html(portfolio_data[13].ticker);
+    $('#stock15_ticker_report').html(portfolio_data[14].ticker);
+    $('#stock16_ticker_report').html(portfolio_data[15].ticker);
+    $('#stock17_ticker_report').html(portfolio_data[16].ticker);
+    $('#stock18_ticker_report').html(portfolio_data[17].ticker);
+    $('#stock19_ticker_report').html(portfolio_data[18].ticker);
+    $('#stock20_ticker_report').html(portfolio_data[19].ticker);
+    $('#stock21_ticker_report').html(portfolio_data[20].ticker);
+    $('#stock22_ticker_report').html(portfolio_data[21].ticker);
+    $('#stock23_ticker_report').html(portfolio_data[22].ticker);
+    $('#stock24_ticker_report').html(portfolio_data[23].ticker);
+    $('#stock25_ticker_report').html(portfolio_data[24].ticker);
+    $('#stock26_ticker_report').html(portfolio_data[25].ticker);
+    $('#stock27_ticker_report').html(portfolio_data[26].ticker);
+    $('#stock28_ticker_report').html(portfolio_data[27].ticker);
+    $('#stock29_ticker_report').html(portfolio_data[28].ticker);
+    $('#stock30_ticker_report').html(portfolio_data[29].ticker);
+
     $("#pagination-demo").twbsPagination({
       totalPages: Math.ceil(test_data.length / 22),
       visiblePages: 4,
