@@ -22,19 +22,11 @@ async function run_test() {
                 
     $(":button").prop("disabled", true); //disable all button
     //initialisation variable 
-    var cash_balance = initial_equity;
     var stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var stock_market_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    var filledOrder = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    var filledPrice = new Array();
-    var tradeValue = new Array();
-    var commission_arr = new Array();
-    var initialMargin = new Array();
-    var total_trade_value = 0;
-    var total_commission = 0;
-    var total_initial_margin = 0;
     var daily_Interest;
+    var cash_balance = initial_equity;
     var market_value;
     var equity_with_loanValue;
     var maintenance_margin_req;
@@ -76,19 +68,16 @@ async function run_test() {
     //------------------------------------------------------------------------------------
     
     var data_idx = 0;
-    while(data_idx < 1000) {    
-        let current_date = testData[data_idx].date;   
+    while(data_idx < 100) {    
+        let current_date = testData[data_idx].date;
+        let daily_stock_position_transaction_details = new Array();    
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION ===================================================
         // ----------------------------------------------------------------------------------
         for (i = 0; i < 30; i++) {
-            stock_price[i] = parseFloat(testData[data_idx].price[i]);     
-            stock_position_size[i] += filledOrder[i];      
+            stock_price[i] = parseFloat(testData[data_idx].price[i]);           
             stock_market_value[i] = stock_price[i] * stock_position_size[i];
         }
-
-        cash_balance -= (total_trade_value + total_commission); 
-
         if (cash_balance < 0) {
             if (new Date(current_date).getDay() == 5) {
                 daily_Interest = cash_balance * (interest_rate / 360) * 3; //cek lagi rumusnya
@@ -98,7 +87,6 @@ async function run_test() {
         } else {
             daily_Interest = 0;
         }
-
         cash_balance -= daily_Interest;//cek & tanya cara perhitungan mtd interest            
         market_value = stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
         equity_with_loanValue = cash_balance + market_value;
@@ -110,7 +98,14 @@ async function run_test() {
             buying_power = 0;
         } else {
             buying_power = excess_equity * 2;
-        }     
+        }
+        
+        //save daily pretrade stock position to array 
+        daily_stock_position_transaction_details.push({
+            stock_price,
+            stock_position_size,
+            stock_market_value
+        })            
         
         // ----------------------------------------------------------------------------------  
         // REQUEST SIGNAL TO QUANTXI AI =====================================================
@@ -311,7 +306,12 @@ async function run_test() {
 
         // console.log(filled_percentage);
         
-        //trade transaction
+        //trade transaction   
+        let filledOrder = new Array();
+        let filledPrice = new Array();
+        let tradeValue = new Array();
+        let commission_arr = new Array();
+        let initialMargin = new Array();
         for (i = 0; i < 30; i++) {
             if (signal_output.signal_position[i] == "BUY") {
                 filledOrder[i] = math.floor(parseInt(signal_output.signal_size[i] * filled_percentage));
@@ -333,27 +333,43 @@ async function run_test() {
                 initialMargin[i] = 0;
             }
         }
-       
+        //save daily stock transaction data to array  
+        daily_stock_position_transaction_details.push({
+            filledOrder,
+            filledPrice,
+            tradeValue,
+            commission_arr,
+            initialMargin
+        })
         //save daily trade summary data to array
-        total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current });
-        total_commission = commission_arr.reduce(function (accumulator, current) { return accumulator + current });
-        total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current });
+        let total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current });
+        let total_commission = commission_arr.reduce(function (accumulator, current) { return accumulator + current });
+        let total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current });
         
         // ----------------------------------------------------------------------------------
         // POST TRADE POSITION CALCULATION ==================================================
         // ----------------------------------------------------------------------------------
-        // for (i = 0; i < 30; i++) {
-        //     stock_position_size[i] += filledOrder[i];
-        //     stock_market_value[i] = stock_price[i] * stock_position_size[i];
-        // }            
-        // cash_balance -= (total_trade_value + total_commission);            
-        // market_value = stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
-        // equity_with_loanValue = cash_balance + market_value;
-        // maintenance_margin_req = market_value * 0.30;
-        // excess_liquidity = equity_with_loanValue - maintenance_margin_req;
-        // regT_margin_req = market_value * 0.50;
-        // excess_equity = equity_with_loanValue - regT_margin_req;
-       
+        for (i = 0; i < 30; i++) {
+            stock_position_size[i] += filledOrder[i];
+            stock_market_value[i] = stock_price[i] * stock_position_size[i];
+        }            
+        cash_balance -= (total_trade_value + total_commission);            
+        market_value = stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
+        equity_with_loanValue = cash_balance + market_value;
+        maintenance_margin_req = market_value * 0.30;
+        excess_liquidity = equity_with_loanValue - maintenance_margin_req;
+        regT_margin_req = market_value * 0.50;
+        excess_equity = equity_with_loanValue - regT_margin_req;
+        //save daily pretrade stock position to array 
+        daily_stock_position_transaction_details.push({
+            stock_position_size,
+            stock_market_value
+        });
+        //save daily stock position & transaction details to summary
+        daily_stock_position_transaction_summary.push({
+            date: current_date,
+            data: daily_stock_position_transaction_details
+        });
         account_and_trade_summary.push({
             date: current_date,
             preTrade_dailyInterest: daily_Interest,
@@ -367,7 +383,14 @@ async function run_test() {
             preTrade_buying_power: buying_power,
             totaltrade_value: total_trade_value,
             totalcommission: total_commission,
-            totalinitial_margin: total_initial_margin
+            totalinitial_margin: total_initial_margin,
+            postTrade_cashbalance: cash_balance,
+            postTrade_marketvalue: market_value,
+            postTrade_equitywith_loanValue: equity_with_loanValue,
+            postTrade_maintenancemargin_reserved: maintenance_margin_req,
+            postTrade_maintenancemargin_available: excess_liquidity,
+            postTrade_initialmargin_reserved: regT_margin_req,
+            postTrade_initialmargin_available: excess_equity
         });
         console.log(account_and_trade_summary);
 
@@ -429,6 +452,11 @@ async function run_test() {
         let buyhold_daily_return = (buyhold_equity - previous_buyhold_equity) / previous_buyhold_equity;
         buyhold_daily_return_array.push(buyhold_daily_return);
 
+        // console.log("mean: "+math.mean(quantxi_daily_return_array));
+        // console.log("riskfree: "+(risk_freeRate/365));
+        // console.log("std: "+math.std(quantxi_daily_return_array));
+        // console.log("252: "+math.sqrt(252));
+
         quantxi_sharpe = (((math.mean(quantxi_daily_return_array)*math.sqrt(252)) - risk_freeRate) / math.std(quantxi_daily_return_array));
         buyhold_sharpe = (((math.mean(buyhold_daily_return_array)*math.sqrt(252)) - risk_freeRate) / math.std(buyhold_daily_return_array));
 
@@ -460,46 +488,67 @@ async function run_test() {
             for (i = (page - 1) * 25; i < (page * 25) && i < account_and_trade_summary.length; i++) {
                 let account_trade_summary_row =
                 `<tr>
-                    <td style="background-color: #555555; text-align: center; position: sticky; left: 0px;">
-                        `+ account_and_trade_summary[i].date +`</td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_dailyInterest).toFixed(0)) +`
-                    </td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_cashbalance).toFixed(0)) +`</td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_marketvalue).toFixed(0)) +`</td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_equitywith_loanValue).toFixed(0)) +`</td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_maintenancemargin_reserved).toFixed(0)) +`</td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_maintenancemargin_available).toFixed(0)) +`</td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_initialmargin_reserved).toFixed(0)) +`</td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_initialmargin_available).toFixed(0)) +`</td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_buying_power).toFixed(0)) +`</td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totaltrade_value).toFixed(0)) +`</td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totalcommission).toFixed(0)) +`</td>
-                    <td
-                        style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totalinitial_margin).toFixed(0)) +`</td>                
-                </tr>`
+                <td style="background-color: #555555; text-align: center; position: sticky; left: 0px;">
+                    `+ account_and_trade_summary[i].date +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_dailyInterest).toFixed(0)) +`
+                </td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_cashbalance).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_marketvalue).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_equitywith_loanValue).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_maintenancemargin_reserved).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_maintenancemargin_available).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_initialmargin_reserved).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_initialmargin_available).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_buying_power).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totaltrade_value).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totalcommission).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totalinitial_margin).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_cashbalance).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_marketvalue).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_equitywith_loanValue).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_maintenancemargin_reserved).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_maintenancemargin_available).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_initialmargin_reserved).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_initialmargin_available).toFixed(0)) +`</td>
+            </tr>`
                 $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
             }
         }
