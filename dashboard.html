@@ -1862,7 +1862,8 @@
                                         <ul id="ul_tickers" class="uli dropdown-menu" aria-labelledby="dropdownMenuButton" style="font-family: calibri; background-color: #494949; color: #ffff; font-size: 14px; height: 300px; overflow: auto;">
                                         </ul>
                                     </div>
-                                </div>   
+                                </div> 
+                                <ul id="pagination_trade_details" class="pagination pagination-sm"></ul>  
                             </div>
                             <div style="background-color: #2c5252; overflow: auto; margin-top: 7px; height: 400px;">
                                 <table style="table-layout: fixed; width: 100%">
@@ -1983,7 +1984,15 @@
             // visiblePages: 5
         });
 
+        $("#pagination_trade_report").twbsPagination({
+            // visiblePages: 5
+        });
+
         $("#pagination_post_request_response").twbsPagination({
+            // visiblePages: 5
+        });
+
+        $("#pagination_trade_details").twbsPagination({
             // visiblePages: 5
         });
 

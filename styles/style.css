@@ -611,18 +611,18 @@ margin: 10px 10px 10px 0px;
     /* margin-bottom: 5px; */
   }
 
-  #pagination_test_history{
+  #pagination_trade_details{
     display: inline-block;
-    margin-top: -12px;
+    margin-top: 0px;
     position: absolute;
     right: 15px;
   }
 
-  #pagination_test_history li{
+  #pagination_trade_details li{
     display: inline-block;
   }
 
-  #pagination_test_history li a{
+  #pagination_trade_details li a{
     font-size: 11px;
     padding: 1px 8px;
     font-weight: 500;
