@@ -477,16 +477,7 @@ async function run_test() {
     // TRADE TESTING REPORT ###############################################################
     //-------------------------------------------------------------------------------------
 
-    // //Performance Chart ---------------------------------------------
-    // date_array.push(date);
-    // quantxi_equity_array.push(parseFloat(equity).toFixed(0));    
-    // buyhold_equity_array.push(parseFloat(buyhold_equity).toFixed(0));            
-    // //------------------------------------------------------------------
-    // //add data ID -------------------------------------------------------
-    // dataID++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?  
-    //-----------------------------------------------------------     
-
-    // $('#period_testing').val(account_and_trade_summary[0].date +" - "+ account_and_trade_summary[account_and_trade_summary.length].date);
+    $('#period_testing').val(account_and_trade_summary[0].date +" - "+ account_and_trade_summary[account_and_trade_summary.length-1].date);
     // account and trade summary table
     $("#pagination_trade_report").twbsPagination("destroy");
     $("#pagination_trade_report").twbsPagination({
