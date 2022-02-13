@@ -496,7 +496,7 @@ async function run_test() {
             for (i = (page - 1) * 25; i < (page * 25) && i < account_and_trade_summary.length; i++) {
                 let account_trade_summary_row =
                 `<tr>
-                <td style="background-color: #555555; text-align: center; position: sticky; left: 0px; z-index: 2;">
+                <td style="background-color: #555555; text-align: center; position: sticky; left: 0px;">
                     `+ account_and_trade_summary[i].date +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
