@@ -486,7 +486,7 @@ async function run_test() {
     // dataID++; // lanjut id berikutnya, cek lagi posisi tambah id ini ?  
     //-----------------------------------------------------------     
 
-    $('#period_testing').val(appendLeadingZeroes(account_and_trade_summary[i].date.getMonth() + 1) + "/" + appendLeadingZeroes(account_and_trade_summary[i].date.getDate()) + "/" + account_and_trade_summary[i].date.getFullYear() +" - "+ appendLeadingZeroes(account_and_trade_summary[account_and_trade_summary.length].date.getMonth() + 1) + "/" + appendLeadingZeroes(account_and_trade_summary[account_and_trade_summary.length].date.getDate()) + "/" + account_and_trade_summary[account_and_trade_summary.length].date.getFullYear());
+    $('#period_testing').val(account_and_trade_summary[i].date +" - "+ account_and_trade_summary[account_and_trade_summary.length].date);
     // account and trade summary table
     $("#pagination_trade_report").twbsPagination("destroy");
     $("#pagination_trade_report").twbsPagination({
