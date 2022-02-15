@@ -22,7 +22,7 @@ async function run_test() {
                 
     $(":button").prop("disabled", true); //disable all button
     //initialisation variable 
-    // let stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var preTrade_stock_position_size = new Array();
     var postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var preTrade_stock_market_value = new Array();
@@ -78,10 +78,10 @@ async function run_test() {
     
     var data_idx = 0;
     while(data_idx < 100) { 
+        let stock_trade = new Array();
        
         //get test data
         let current_date = testData[data_idx].date;
-        let stock_price = new Array();
         for (i = 0; i < 30; i++) {
             stock_price[i] = parseFloat(testData[data_idx].price[i]); 
         }
@@ -388,7 +388,7 @@ async function run_test() {
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
         $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
 
-        stock_trade_details.push([
+        stock_trade.push([
             current_date,
             stock_price,
             preTrade_stock_position_size,
@@ -401,6 +401,8 @@ async function run_test() {
             postTrade_stock_position_size,
             postTrade_stock_market_value
         ]);
+        
+        stock_trade_details.push(stock_trade);
        
         account_and_trade_summary.push([
             current_date,
