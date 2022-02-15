@@ -400,9 +400,7 @@ async function run_test() {
             postTrade_stock_position_size,
             postTrade_stock_market_value
         ]);
-        console.log(stock_trade_details);
-        console.log(stock_price);
-
+       
         account_and_trade_summary.push([
             current_date,
             daily_Interest,
@@ -496,6 +494,7 @@ async function run_test() {
     // TRADE TESTING REPORT ###############################################################
     //-------------------------------------------------------------------------------------
 
+    console.log(stock_trade_details);
     $('#period_testing').val(account_and_trade_summary[0].date +" - "+ account_and_trade_summary[account_and_trade_summary.length-1].date);
     // account and trade summary table
     $("#pagination_trade_report").twbsPagination("destroy");
