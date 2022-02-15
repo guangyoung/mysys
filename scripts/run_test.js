@@ -5,7 +5,7 @@
 //............................................................................................................
 //............................................................................................................
 
-async function run_test() {
+function run_test() {
 
     if (testData.length == 0) {
         Swal.fire(
@@ -77,7 +77,7 @@ async function run_test() {
     //------------------------------------------------------------------------------------
     
     var data_idx = 0;
-    setTimeout(function myFunction() {
+    setTimeout(async function () {
        
         //get test data
         let current_date = testData[data_idx].date;
