@@ -487,11 +487,6 @@ async function run_test() {
         let buyhold_daily_return = (buyhold_equity - previous_buyhold_equity) / previous_buyhold_equity;
         buyhold_daily_return_array.push(buyhold_daily_return);
 
-        // console.log("mean: "+math.mean(quantxi_daily_return_array));
-        // console.log("riskfree: "+(risk_freeRate/365));
-        // console.log("std: "+math.std(quantxi_daily_return_array));
-        // console.log("252: "+math.sqrt(252));
-
         quantxi_sharpe = (((math.mean(quantxi_daily_return_array)*math.sqrt(252)) - risk_freeRate) / math.std(quantxi_daily_return_array));
         buyhold_sharpe = (((math.mean(buyhold_daily_return_array)*math.sqrt(252)) - risk_freeRate) / math.std(buyhold_daily_return_array));
 
@@ -523,70 +518,49 @@ async function run_test() {
             for (i = (page - 1) * 25; i < (page * 25) && i < account_and_trade_summary.length; i++) {
                 let account_trade_summary_row =
                 `<tr>
-                <td style="background-color: #555555; text-align: center; position: sticky; left: 0px;">
-                    `+ account_and_trade_summary[i].date +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[0]).toFixed(0)) +`
-                </td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[1]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[2]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[3]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[4]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[5]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[6]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[7]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[8]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[0]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[1]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[2]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[0]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[1]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[2]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[3]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[4]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[5]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[6]).toFixed(0)) +`</td>
-                <td
-                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[7]).toFixed(0)) +`</td>
-            </tr>`
+                    <td style="background-color: #555555; text-align: center; position: sticky; left: 0px;">
+                        `+ account_and_trade_summary[i].date +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[0]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[1]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[2]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[3]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[4]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[5]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[6]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[7]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[8]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[0]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[1]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[2]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[0]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[1]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[2]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[3]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[4]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[5]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[6]).toFixed(0)) +`</td>
+                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[7]).toFixed(0)) +`</td>
+                </tr>`
                 $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
             }
         }
@@ -603,16 +577,14 @@ async function run_test() {
                 let data_input_output_arr_row =
                 `<tr>
                     <td style="border-right: 1px #292b43 solid">
-                        <pre style="font-size: 11px; color: black; margin-left: 20px; margin-top: 25px; margin-bottom: -15px">` +
-                    JSON.stringify(data_input_output_arr[i].input, null, 4) +
-                    `
-                        </pre>;
+                        <pre style="font-size: 11px; color: black; margin-left: 20px; margin-top: 25px; margin-bottom: -15px">` 
+                        + JSON.stringify(data_input_output_arr[i].input, null, 4) +
+                        `</pre>;
                     </td>
                     <td>
-                        <pre style="font-size: 11px; color: black; margin-left: 20px; margin-top: 25px; margin-bottom: -15px">` +
-                    JSON.stringify(data_input_output_arr[i].output, null, 4) +
-                    `
-                        </pre>;
+                        <pre style="font-size: 11px; color: black; margin-left: 20px; margin-top: 25px; margin-bottom: -15px">` 
+                        + JSON.stringify(data_input_output_arr[i].output, null, 4) +
+                        `</pre>;
                     </td>
                 </tr>`
                 $("#allpost_tbl>tbody").append(data_input_output_arr_row);
