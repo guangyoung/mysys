@@ -22,9 +22,9 @@ function run_test() {
                 
     $(":button").prop("disabled", true); //disable all button
     //initialisation variable 
-    var stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var stock_price = new Array();
     var preTrade_stock_position_size = new Array();
-    var postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var postTrade_stock_position_size = new Array();
     var preTrade_stock_market_value = new Array();
     var postTrade_stock_market_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var daily_Interest;
@@ -77,7 +77,7 @@ function run_test() {
     //------------------------------------------------------------------------------------
     
     var data_idx = 0;
-    setTimeout(async function () {
+    while(data_idx < 100) {
        
         //get test data
         let current_date = testData[data_idx].date;
@@ -300,27 +300,27 @@ function run_test() {
         // TRADE TRANSACTION ================================================================
         // ----------------------------------------------------------------------------------
         //calculated estimate total trade value asumsi
-        let estimate_tradeValue = 0;
+        let estimate_imr = 0;
         let estimate_comm = 0;
         for (i = 0; i < 30; i++) {
             if (signal_output.signal_position[i] == "BUY") {
-                estimate_tradeValue += (signal_output.signal_size[i] * (stock_price[i] * (1 + spread_slippage)));
+                estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 + spread_slippage)))*0.5;
                 estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
             } else if (signal_output.signal_position[i] == "SELL") {
-                estimate_tradeValue -= (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)));
+                estimate_imr -= (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)))*0.5;
                 estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
             } else {
-                estimate_tradeValue += 0;
+                estimate_imr += 0;
                 estimate_comm += 0;
             }
         }
 
         //calculate filled percentarge   
         let filled_percentage;
-        if((preTrade_buying_power/2) > ((estimate_tradeValue/2)+estimate_comm)) {
+        if(preTrade_excess_equity > (estimate_imr+estimate_comm)) {
             filled_percentage = 1;
         } else {
-            filled_percentage = (preTrade_buying_power/2)/((estimate_tradeValue/2)+estimate_comm);
+            filled_percentage = preTrade_excess_equity/(estimate_imr+estimate_comm);
         }
 
         // console.log(filled_percentage);
@@ -488,7 +488,7 @@ function run_test() {
         $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
 
         data_idx++;
-    },1);
+    };
     //-------------------------------------------------------------------------------------
     // TRADE TESTING REPORT ###############################################################
     //-------------------------------------------------------------------------------------
