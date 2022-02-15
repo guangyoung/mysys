@@ -22,8 +22,8 @@ async function run_test() {
                 
     $(":button").prop("disabled", true); //disable all button
     //initialisation variable 
-    let stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    let preTrade_stock_position_size = new Array();
+    // let stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var preTrade_stock_position_size = new Array();
     var postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var preTrade_stock_market_value = new Array();
     var postTrade_stock_market_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -81,6 +81,7 @@ async function run_test() {
        
         //get test data
         let current_date = testData[data_idx].date;
+        let stock_price = new Array();
         for (i = 0; i < 30; i++) {
             stock_price[i] = parseFloat(testData[data_idx].price[i]); 
         }
