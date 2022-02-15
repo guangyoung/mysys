@@ -77,8 +77,7 @@ async function run_test() {
     //------------------------------------------------------------------------------------
     
     var data_idx = 0;
-    while(data_idx < 100) { 
-        let stock_trade = new Array();
+    while(data_idx < 100) {       
        
         //get test data
         let current_date = testData[data_idx].date;
@@ -388,7 +387,8 @@ async function run_test() {
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
         $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
 
-        stock_trade.push([
+        let stock_trade = new Array();
+        stock_trade.push(
             current_date,
             stock_price,
             preTrade_stock_position_size,
@@ -400,8 +400,8 @@ async function run_test() {
             initialMargin,
             postTrade_stock_position_size,
             postTrade_stock_market_value
-        ]);
-        
+        );
+
         stock_trade_details.push(stock_trade);
        
         account_and_trade_summary.push([
