@@ -22,72 +22,87 @@ async function run_test() {
                 
     $(":button").prop("disabled", true); //disable all button
     //initialisation variable \
-    var current_date;
-    var stock_price = new Array();
+    // var current_date;
+    // var stock_price = new Array();
 
-    var preTrade_stock_position_size = new Array();
-    var postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    var preTrade_stock_market_value = new Array();
-    var postTrade_stock_market_value = new Array();
+    // var preTrade_stock_position_size = new Array();
+    // var postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    // var preTrade_stock_market_value = new Array();
+    // var postTrade_stock_market_value = new Array();
 
-    var daily_Interest;
-    var preTrade_cash_balance;
-    var preTrade_market_value;
-    var preTrade_equity_with_loanValue;
-    var preTrade_maintenance_margin_req;
-    var preTrade_excess_liquidity;
-    var preTrade_regT_margin_req;
-    var preTrade_excess_equity;
-    var preTrade_buying_power;
+    // var daily_Interest;
+    // var preTrade_cash_balance;
+    // var preTrade_market_value;
+    // var preTrade_equity_with_loanValue;
+    // var preTrade_maintenance_margin_req;
+    // var preTrade_excess_liquidity;
+    // var preTrade_regT_margin_req;
+    // var preTrade_excess_equity;
+    // var preTrade_buying_power;
 
-    var postTrade_cash_balance = initial_equity;
-    var postTrade_market_value;
-    var postTrade_equity_with_loanValue;
-    var postTrade_maintenance_margin_req;
-    var postTrade_excess_liquidity;
-    var postTrade_regT_margin_req;
-    var postTrade_excess_equity;
-    var postTrade_buying_power;
+    // var postTrade_cash_balance = initial_equity;
+    // var postTrade_market_value;
+    // var postTrade_equity_with_loanValue;
+    // var postTrade_maintenance_margin_req;
+    // var postTrade_excess_liquidity;
+    // var postTrade_regT_margin_req;
+    // var postTrade_excess_equity;
+    // var postTrade_buying_power;
 
-    var quantxi_equity;
-    var buyhold_equity;
-    var previous_quantxi_equity = initial_equity;
-    var previous_buyhold_equity = initial_equity;
-    var quantxi_total_return;
-    var buyhold_total_return;
-    var quantxi_cagr;
-    var buyhold_cagr;
-    var quantxi_sharpe;
-    var buyhold_sharpe;
-    var quantxi_sortino;
-    var buyhold_sortino;
-    var quantxi_equity_peak = 0;
-    var quantxi_equity_trough = 0;
-    var quantxi_maxDrawDown = 0;
-    var buyhold_equity_peak = 0;
-    var buyhold_equity_trough = 0;
-    var buyhold_maxDrawDown = 0;
-    var quantxi_equity_array = new Array();
-    var buyhold_equity_array = new Array();
-    var quantxi_daily_return_array = new Array();
-    var buyhold_daily_return_array = new Array();
+    // var quantxi_equity;
+    // var buyhold_equity;
+    // var previous_quantxi_equity = initial_equity;
+    // var previous_buyhold_equity = initial_equity;
+    // var quantxi_total_return;
+    // var buyhold_total_return;
+    // var quantxi_cagr;
+    // var buyhold_cagr;
+    // var quantxi_sharpe;
+    // var buyhold_sharpe;
+    // var quantxi_sortino;
+    // var buyhold_sortino;
+    // var quantxi_equity_peak = 0;
+    // var quantxi_equity_trough = 0;
+    // var quantxi_maxDrawDown = 0;
+    // var buyhold_equity_peak = 0;
+    // var buyhold_equity_trough = 0;
+    // var buyhold_maxDrawDown = 0;
+    // var quantxi_equity_array = new Array();
+    // var buyhold_equity_array = new Array();
+    // var quantxi_daily_return_array = new Array();
+    // var buyhold_daily_return_array = new Array();
 
-    var data_input;
-    var signal_output;
-    var data_input_output_arr = new Array();
+    // var data_input;
+    // var signal_output;
+    // var data_input_output_arr = new Array();
 
-    var stock_trade_details = new Array();
-    var account_and_trade_summary = new Array();
+    // var stock_trade_details = new Array();
+    // var account_and_trade_summary = new Array();
     
-    var startdateTest = testData[0].date;
+    // var startdateTest = testData[0].date;
     var data_idx = 0;
     //------------------------------------------------------------------------------------
     // Proses Data #######################################################################
     //------------------------------------------------------------------------------------    
     while(data_idx < 100) { 
+
+        if(data_idx = 0) {
+            let postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            let postTrade_cash_balance = initial_equity;
+            let previous_quantxi_equity = initial_equity;
+            let previous_buyhold_equity = initial_equity;
+            let quantxi_equity_peak = 0;
+            let quantxi_equity_trough = 0;
+            let quantxi_maxDrawDown = 0;
+            let buyhold_equity_peak = 0;
+            let buyhold_equity_trough = 0;
+            let buyhold_maxDrawDown = 0;
+            let startdateTest = testData[0].date;
+        }
        
         //get test data
-        current_date = testData[data_idx].date;
+        let current_date = testData[data_idx].date;
+        let stock_price = new Array();
         for (i = 0; i < 30; i++) {
             stock_price[i] = parseFloat(testData[data_idx].price[i]); 
         }
@@ -95,10 +110,13 @@ async function run_test() {
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION ===================================================
         // ----------------------------------------------------------------------------------
+        let preTrade_stock_position_size = new Array();
+        let preTrade_stock_market_value = new Array();
         for (i = 0; i < 30; i++) {
             preTrade_stock_position_size[i] = postTrade_stock_position_size[i]; 
             preTrade_stock_market_value[i] = stock_price[i] * preTrade_stock_position_size[i];
         }
+        let daily_Interest;
         if (postTrade_cash_balance < 0) {
             if (new Date(current_date).getDay() == 5) {
                 daily_Interest = postTrade_cash_balance * (interest_rate / 360) * 3; //cek lagi rumusnya
@@ -108,13 +126,16 @@ async function run_test() {
         } else {
             daily_Interest = 0;
         }
-        preTrade_cash_balance = postTrade_cash_balance - daily_Interest;//cek & tanya cara perhitungan mtd interest            
-        preTrade_market_value = preTrade_stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
-        preTrade_equity_with_loanValue = preTrade_cash_balance + preTrade_market_value;
-        preTrade_maintenance_margin_req = preTrade_market_value * 0.30;
-        preTrade_excess_liquidity = preTrade_equity_with_loanValue - preTrade_maintenance_margin_req;
-        preTrade_regT_margin_req = preTrade_market_value * 0.50;
-        preTrade_excess_equity = preTrade_equity_with_loanValue - preTrade_regT_margin_req;
+        
+        let preTrade_cash_balance = postTrade_cash_balance - daily_Interest;//cek & tanya cara perhitungan mtd interest            
+        let preTrade_market_value = preTrade_stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
+        let preTrade_equity_with_loanValue = preTrade_cash_balance + preTrade_market_value;
+        let preTrade_maintenance_margin_req = preTrade_market_value * 0.30;
+        let preTrade_excess_liquidity = preTrade_equity_with_loanValue - preTrade_maintenance_margin_req;
+        let preTrade_regT_margin_req = preTrade_market_value * 0.50;
+        let preTrade_excess_equity = preTrade_equity_with_loanValue - preTrade_regT_margin_req;
+        
+        let preTrade_buying_power;
         if(preTrade_excess_equity<0) {
             preTrade_buying_power = 0;
         } else {
@@ -208,9 +229,7 @@ async function run_test() {
             $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_price[i]).toFixed(5)));
             $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_positionSize[i]).toFixed(0)));
         }
-        // data_input_arr.push(data_input); //save data to array data_input_history
-        
-        // let post_process = "running";
+     
         // while (post_process == "running") {
             await $.ajax({
                 type: "POST",
@@ -219,6 +238,7 @@ async function run_test() {
                 dataType: 'json',
                 success: function (result) {
                     if (result.status == "success") {
+
                         signal_output = {
                             response_no: result.data.data_id,//ganti jadi response id
                             signal_timestamp: result.data.signal_timestamp,
@@ -296,9 +316,6 @@ async function run_test() {
                         }
 
                         $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
-                        // signal_output_arr.push(signal_output); //save data to array signal_output_history
-                        // console.log(signal_output);
-                        // post_process = "finish";
                     }
                 }
             })
@@ -367,17 +384,21 @@ async function run_test() {
         // ----------------------------------------------------------------------------------
         // POST TRADE POSITION CALCULATION ==================================================
         // ----------------------------------------------------------------------------------
+        let postTrade_stock_position_size = new Array();
+        let postTrade_stock_market_value = new Array();
         for (i = 0; i < 30; i++) {
             postTrade_stock_position_size[i] = preTrade_stock_position_size[i] + filledOrder[i];
             postTrade_stock_market_value[i] = stock_price[i] * postTrade_stock_position_size[i];
         }            
-        postTrade_cash_balance = preTrade_cash_balance - (total_trade_value + total_commission);            
-        postTrade_market_value = postTrade_stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
-        postTrade_equity_with_loanValue = postTrade_cash_balance + postTrade_market_value;
-        postTrade_maintenance_margin_req = postTrade_market_value * 0.30;
-        postTrade_excess_liquidity = postTrade_equity_with_loanValue - postTrade_maintenance_margin_req;
-        postTrade_regT_margin_req = postTrade_market_value * 0.50;
-        postTrade_excess_equity = postTrade_equity_with_loanValue - postTrade_regT_margin_req;
+        let postTrade_cash_balance = preTrade_cash_balance - (total_trade_value + total_commission);            
+        let postTrade_market_value = postTrade_stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
+        let postTrade_equity_with_loanValue = postTrade_cash_balance + postTrade_market_value;
+        let postTrade_maintenance_margin_req = postTrade_market_value * 0.30;
+        let postTrade_excess_liquidity = postTrade_equity_with_loanValue - postTrade_maintenance_margin_req;
+        let postTrade_regT_margin_req = postTrade_market_value * 0.50;
+        let postTrade_excess_equity = postTrade_equity_with_loanValue - postTrade_regT_margin_req;
+        
+        let postTrade_buying_power;
         if(postTrade_excess_equity<0) {
             postTrade_buying_power = 0;
         } else {
@@ -395,20 +416,19 @@ async function run_test() {
         $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
 
         stock_trade_details.push({
-            date: current_date,
-            stockPrice: stock_price,
-            preTradeStock_position_size: preTrade_stock_position_size,
-            preTradeStock_market_value: preTrade_stock_market_value,
-            filled_order: filledOrder,
-            filled_price: filledPrice,
-            trade_value: tradeValue,
-            commission: commission_arr,
-            initial_margin: initialMargin,
-            postTradeStock_position_size: postTrade_stock_position_size,
-            postTradeStock_market_value: postTrade_stock_market_value
+            current_date,
+            stock_price,
+            preTrade_stock_position_size,
+            preTrade_stock_market_value,
+            filledOrder,
+            filledPrice,
+            tradeValue,
+            commission_arr,
+            initialMargin,
+            postTrade_stock_position_size,
+            postTrade_stock_market_value
         });
         console.log(stock_trade_details);
-        console.log(stock_price);
 
         account_and_trade_summary.push([
             current_date,
