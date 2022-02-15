@@ -21,12 +21,15 @@ async function run_test() {
     //initialitation portfolio....msh dipikirkan
                 
     $(":button").prop("disabled", true); //disable all button
-    //initialisation variable 
+    //initialisation variable \
+    var current_date;
     var stock_price = new Array();
+
     var preTrade_stock_position_size = new Array();
     var postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var preTrade_stock_market_value = new Array();
     var postTrade_stock_market_value = new Array();
+
     var daily_Interest;
     var preTrade_cash_balance;
     var preTrade_market_value;
@@ -36,6 +39,7 @@ async function run_test() {
     var preTrade_regT_margin_req;
     var preTrade_excess_equity;
     var preTrade_buying_power;
+
     var postTrade_cash_balance = initial_equity;
     var postTrade_market_value;
     var postTrade_equity_with_loanValue;
@@ -44,6 +48,7 @@ async function run_test() {
     var postTrade_regT_margin_req;
     var postTrade_excess_equity;
     var postTrade_buying_power;
+
     var quantxi_equity;
     var buyhold_equity;
     var previous_quantxi_equity = initial_equity;
@@ -62,25 +67,27 @@ async function run_test() {
     var buyhold_equity_peak = 0;
     var buyhold_equity_trough = 0;
     var buyhold_maxDrawDown = 0;
-    var data_input;
-    var signal_output;
-    var data_input_output_arr = new Array();
-    var stock_trade_details = new Array();
-    var account_and_trade_summary = new Array();
     var quantxi_equity_array = new Array();
     var buyhold_equity_array = new Array();
     var quantxi_daily_return_array = new Array();
     var buyhold_daily_return_array = new Array();
+
+    var data_input;
+    var signal_output;
+    var data_input_output_arr = new Array();
+
+    var stock_trade_details = new Array();
+    var account_and_trade_summary = new Array();
+    
     var startdateTest = testData[0].date;
+    var data_idx = 0;
     //------------------------------------------------------------------------------------
     // Proses Data #######################################################################
-    //------------------------------------------------------------------------------------
-    
-    var data_idx = 0;
+    //------------------------------------------------------------------------------------    
     while(data_idx < 100) { 
        
         //get test data
-        let current_date = testData[data_idx].date;
+        current_date = testData[data_idx].date;
         for (i = 0; i < 30; i++) {
             stock_price[i] = parseFloat(testData[data_idx].price[i]); 
         }
