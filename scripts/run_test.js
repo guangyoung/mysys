@@ -377,14 +377,14 @@ async function run_test() {
         }
 
         //View in web account & margin summary
-        $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(0)));
-        $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(market_value).toFixed(0)));
-        $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(equity_with_loanValue).toFixed(0)));
-        $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_req).toFixed(0)));
-        $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(excess_liquidity).toFixed(0)));
-        $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(regT_margin_req).toFixed(0)));
-        $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(excess_equity).toFixed(0)));
-        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(buying_power).toFixed(0)));
+        $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(postTrade_cash_balance).toFixed(0)));
+        $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(postTrade_market_value).toFixed(0)));
+        $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(postTrade_equity_with_loanValue).toFixed(0)));
+        $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_maintenance_margin_req).toFixed(0)));
+        $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_liquidity).toFixed(0)));
+        $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_regT_margin_req).toFixed(0)));
+        $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
+        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
 
         stock_trade_details.push(
             current_date,
