@@ -86,7 +86,7 @@ async function run_test() {
     //------------------------------------------------------------------------------------    
     while(data_idx < 100) { 
 
-        if(data_idx = 0) {
+        if(data_idx == 0) {
             let postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             let postTrade_cash_balance = initial_equity;
             let previous_quantxi_equity = initial_equity;
@@ -102,6 +102,7 @@ async function run_test() {
        
         //get test data
         let current_date = testData[data_idx].date;
+
         let stock_price = new Array();
         for (i = 0; i < 30; i++) {
             stock_price[i] = parseFloat(testData[data_idx].price[i]); 
@@ -116,6 +117,7 @@ async function run_test() {
             preTrade_stock_position_size[i] = postTrade_stock_position_size[i]; 
             preTrade_stock_market_value[i] = stock_price[i] * preTrade_stock_position_size[i];
         }
+
         let daily_Interest;
         if (postTrade_cash_balance < 0) {
             if (new Date(current_date).getDay() == 5) {
@@ -128,11 +130,17 @@ async function run_test() {
         }
         
         let preTrade_cash_balance = postTrade_cash_balance - daily_Interest;//cek & tanya cara perhitungan mtd interest            
+        
         let preTrade_market_value = preTrade_stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
+        
         let preTrade_equity_with_loanValue = preTrade_cash_balance + preTrade_market_value;
+        
         let preTrade_maintenance_margin_req = preTrade_market_value * 0.30;
+        
         let preTrade_excess_liquidity = preTrade_equity_with_loanValue - preTrade_maintenance_margin_req;
+        
         let preTrade_regT_margin_req = preTrade_market_value * 0.50;
+        
         let preTrade_excess_equity = preTrade_equity_with_loanValue - preTrade_regT_margin_req;
         
         let preTrade_buying_power;
@@ -391,11 +399,17 @@ async function run_test() {
             postTrade_stock_market_value[i] = stock_price[i] * postTrade_stock_position_size[i];
         }            
         let postTrade_cash_balance = preTrade_cash_balance - (total_trade_value + total_commission);            
+        
         let postTrade_market_value = postTrade_stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
+        
         let postTrade_equity_with_loanValue = postTrade_cash_balance + postTrade_market_value;
+        
         let postTrade_maintenance_margin_req = postTrade_market_value * 0.30;
+        
         let postTrade_excess_liquidity = postTrade_equity_with_loanValue - postTrade_maintenance_margin_req;
+        
         let postTrade_regT_margin_req = postTrade_market_value * 0.50;
+        
         let postTrade_excess_equity = postTrade_equity_with_loanValue - postTrade_regT_margin_req;
         
         let postTrade_buying_power;
