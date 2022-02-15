@@ -81,15 +81,15 @@ async function run_test() {
        
         //get test data
         let current_date = testData[data_idx].date;
-        for (i = 0; i < 30; i++) {
-            stock_price[i] = parseFloat(testData[data_idx].price[i]); 
-        }
+        // for (i = 0; i < 30; i++) {
+        //     stock_price[i] = parseFloat(testData[data_idx].price[i]); 
+        // }
 
-    console.log(stock_price);
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION ===================================================
         // ----------------------------------------------------------------------------------
-        for (i = 0; i < 30; i++) {    
+        for (i = 0; i < 30; i++) {   
+            stock_price[i] = parseFloat(testData[data_idx].price[i]);  
             preTrade_stock_position_size[i] = postTrade_stock_position_size[i]; 
             preTrade_stock_market_value[i] = stock_price[i] * preTrade_stock_position_size[i];
         }
