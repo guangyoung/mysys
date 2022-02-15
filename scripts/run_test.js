@@ -387,19 +387,19 @@ async function run_test() {
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
         $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
 
-        stock_trade_details.push({
-            date: current_date,
-            stockPrice: stock_price,
-            preTradeStock_position_size: preTrade_stock_position_size,
-            preTradeStock_market_value: preTrade_stock_market_value,
-            filled_order: filledOrder,
-            filled_price: filledPrice,
-            trade_value: tradeValue,
-            commission: commission_arr,
-            initial_margin: initialMargin,
-            postTradeStock_position_size: postTrade_stock_position_size,
-            postTradeStock_market_value: postTrade_stock_market_value
-        });
+        stock_trade_details.push([
+            current_date,
+            stock_price,
+            preTrade_stock_position_size,
+            preTrade_stock_market_value,
+            filledOrder,
+            filledPrice,
+            tradeValue,
+            commission_arr,
+            initialMargin,
+            postTrade_stock_position_size,
+            postTrade_stock_market_value
+        ]);
         console.log(stock_trade_details);
         console.log(stock_price);
 
