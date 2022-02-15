@@ -22,9 +22,9 @@ async function run_test() {
                 
     $(":button").prop("disabled", true); //disable all button
     //initialisation variable 
-    var stock_price = new Array();
+    var stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var preTrade_stock_position_size = new Array();
-    var postTrade_stock_position_size = new Array();
+    var postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var preTrade_stock_market_value = new Array();
     var postTrade_stock_market_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var daily_Interest;
@@ -77,18 +77,19 @@ async function run_test() {
     //------------------------------------------------------------------------------------
     
     var data_idx = 0;
-    while(data_idx < 100) {
+    while(data_idx < 100) { 
        
         //get test data
         let current_date = testData[data_idx].date;
-        for (i = 0; i < 30; i++) {
-            stock_price[i] = parseFloat(testData[data_idx].price[i]); 
-        }
+        // for (i = 0; i < 30; i++) {
+        //     stock_price[i] = parseFloat(testData[data_idx].price[i]); 
+        // }
 
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION ===================================================
         // ----------------------------------------------------------------------------------
-        for (i = 0; i < 30; i++) {    
+        for (i = 0; i < 30; i++) {   
+            stock_price[i] = parseFloat(testData[data_idx].price[i]);  
             preTrade_stock_position_size[i] = postTrade_stock_position_size[i]; 
             preTrade_stock_market_value[i] = stock_price[i] * preTrade_stock_position_size[i];
         }
@@ -300,27 +301,27 @@ async function run_test() {
         // TRADE TRANSACTION ================================================================
         // ----------------------------------------------------------------------------------
         //calculated estimate total trade value asumsi
-        let estimate_imr = 0;
+        let estimate_tradeValue = 0;
         let estimate_comm = 0;
         for (i = 0; i < 30; i++) {
             if (signal_output.signal_position[i] == "BUY") {
-                estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 + spread_slippage)))*0.5;
+                estimate_tradeValue += (signal_output.signal_size[i] * (stock_price[i] * (1 + spread_slippage)));
                 estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
             } else if (signal_output.signal_position[i] == "SELL") {
-                estimate_imr -= (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)))*0.5;
+                estimate_tradeValue -= (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)));
                 estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
             } else {
-                estimate_imr += 0;
+                estimate_tradeValue += 0;
                 estimate_comm += 0;
             }
         }
 
         //calculate filled percentarge   
         let filled_percentage;
-        if(preTrade_excess_equity > (estimate_imr+estimate_comm)) {
+        if((preTrade_buying_power/2) > ((estimate_tradeValue/2)+estimate_comm)) {
             filled_percentage = 1;
         } else {
-            filled_percentage = preTrade_excess_equity/(estimate_imr+estimate_comm);
+            filled_percentage = (preTrade_buying_power/2)/((estimate_tradeValue/2)+estimate_comm);
         }
 
         // console.log(filled_percentage);
@@ -387,20 +388,22 @@ async function run_test() {
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
         $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
 
-        stock_trade_details.push([
-            current_date,
-            stock_price,
-            preTrade_stock_position_size,
-            preTrade_stock_market_value,
-            filledOrder,
-            filledPrice,
-            tradeValue,
-            commission_arr,
-            initialMargin,
-            postTrade_stock_position_size,
-            postTrade_stock_market_value
-        ]);
-       
+        stock_trade_details.push({
+            date: current_date,
+            stockPrice: stock_price,
+            preTradeStock_position_size: preTrade_stock_position_size,
+            preTradeStock_market_value: preTrade_stock_market_value,
+            filled_order: filledOrder,
+            filled_price: filledPrice,
+            trade_value: tradeValue,
+            commission: commission_arr,
+            initial_margin: initialMargin,
+            postTradeStock_position_size: postTrade_stock_position_size,
+            postTradeStock_market_value: postTrade_stock_market_value
+        });
+        console.log(stock_trade_details);
+        console.log(stock_price);
+
         account_and_trade_summary.push([
             current_date,
             daily_Interest,
@@ -423,7 +426,8 @@ async function run_test() {
             postTrade_regT_margin_req,
             postTrade_excess_equity,
             postTrade_buying_power
-        ]);        
+        ]);
+        console.log(account_and_trade_summary);
 
         data_input_output_arr.push({
             input: data_input,
@@ -488,13 +492,11 @@ async function run_test() {
         $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
 
         data_idx++;
-    };
+    }
     //-------------------------------------------------------------------------------------
     // TRADE TESTING REPORT ###############################################################
     //-------------------------------------------------------------------------------------
 
-    console.log(stock_trade_details);
-    console.log(account_and_trade_summary);
     $('#period_testing').val(account_and_trade_summary[0].date +" - "+ account_and_trade_summary[account_and_trade_summary.length-1].date);
     // account and trade summary table
     $("#pagination_trade_report").twbsPagination("destroy");
