@@ -423,8 +423,7 @@ async function run_test() {
             postTrade_regT_margin_req,
             postTrade_excess_equity,
             postTrade_buying_power
-        ]);
-        console.log(account_and_trade_summary);
+        ]);        
 
         data_input_output_arr.push({
             input: data_input,
@@ -495,6 +494,7 @@ async function run_test() {
     //-------------------------------------------------------------------------------------
 
     console.log(stock_trade_details);
+    console.log(account_and_trade_summary);
     $('#period_testing').val(account_and_trade_summary[0].date +" - "+ account_and_trade_summary[account_and_trade_summary.length-1].date);
     // account and trade summary table
     $("#pagination_trade_report").twbsPagination("destroy");
