@@ -25,6 +25,11 @@ async function run_test() {
     var stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var preTrade_stock_position_size = new Array();
     var postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var filledOrder = new Array();
+    var filledPrice = new Array();
+    var tradeValue = new Array();
+    var commission_arr = new Array();
+    var initialMargin = new Array();
     var preTrade_stock_market_value = new Array();
     var postTrade_stock_market_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var daily_Interest;
@@ -81,15 +86,14 @@ async function run_test() {
        
         //get test data
         let current_date = testData[data_idx].date;
-        // for (i = 0; i < 30; i++) {
-        //     stock_price[i] = parseFloat(testData[data_idx].price[i]); 
-        // }
+        for (i = 0; i < 30; i++) {
+            stock_price[i] = parseFloat(testData[data_idx].price[i]); 
+        }
 
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION ===================================================
         // ----------------------------------------------------------------------------------
-        for (i = 0; i < 30; i++) {   
-            stock_price[i] = parseFloat(testData[data_idx].price[i]);  
+        for (i = 0; i < 30; i++) {    
             preTrade_stock_position_size[i] = postTrade_stock_position_size[i]; 
             preTrade_stock_market_value[i] = stock_price[i] * preTrade_stock_position_size[i];
         }
@@ -326,12 +330,7 @@ async function run_test() {
 
         // console.log(filled_percentage);
         
-        //trade transaction   
-        let filledOrder = new Array();
-        let filledPrice = new Array();
-        let tradeValue = new Array();
-        let commission_arr = new Array();
-        let initialMargin = new Array();
+        //trade transaction
         for (i = 0; i < 30; i++) {
             if (signal_output.signal_position[i] == "BUY") {
                 filledOrder[i] = math.floor(parseInt(signal_output.signal_size[i] * filled_percentage));
