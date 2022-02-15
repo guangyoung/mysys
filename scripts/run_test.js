@@ -81,25 +81,22 @@ async function run_test() {
     
     // var startdateTest = testData[0].date;
     var data_idx = 0;
+    var postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var postTrade_cash_balance = initial_equity;
+    var previous_quantxi_equity = initial_equity;
+    var previous_buyhold_equity = initial_equity;
+    var quantxi_equity_peak = 0;
+    var quantxi_equity_trough = 0;
+    var quantxi_maxDrawDown = 0;
+    var buyhold_equity_peak = 0;
+    var buyhold_equity_trough = 0;
+    var buyhold_maxDrawDown = 0;
+    var startdateTest = testData[0].date;
     //------------------------------------------------------------------------------------
     // Proses Data #######################################################################
     //------------------------------------------------------------------------------------    
     while(data_idx < 100) { 
 
-        if(data_idx == 0) {
-            let postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-            let postTrade_cash_balance = initial_equity;
-            let previous_quantxi_equity = initial_equity;
-            let previous_buyhold_equity = initial_equity;
-            let quantxi_equity_peak = 0;
-            let quantxi_equity_trough = 0;
-            let quantxi_maxDrawDown = 0;
-            let buyhold_equity_peak = 0;
-            let buyhold_equity_trough = 0;
-            let buyhold_maxDrawDown = 0;
-            let startdateTest = testData[0].date;
-        }
-       
         //get test data
         let current_date = testData[data_idx].date;
 
