@@ -390,19 +390,19 @@ async function run_test() {
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
         $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
 
-        let stokkk = [
-            current_date,
-            stock_price,
-            preTrade_stock_position_size,
-            preTrade_stock_market_value,
-            filledOrder,
-            filledPrice,
-            tradeValue,
-            commission_arr,
-            initialMargin,
-            postTrade_stock_position_size,
-            postTrade_stock_market_value
-        ]
+        let stokkk = {
+            date: current_date,
+            sp: stock_price,
+            psps: preTrade_stock_position_size,
+            psmv: preTrade_stock_market_value,
+            fo: filledOrder,
+            fp: filledPrice,
+            tv: tradeValue,
+            ca: commission_arr,
+            im: initialMargin,
+            ptps: postTrade_stock_position_size,
+            ptmv: postTrade_stock_market_value
+        }
         
         stock_trade_details.push(
             stokkk
