@@ -18,7 +18,7 @@ async function run_test() {
         
     //cek last data
 
-    //initialitation portfolio
+    //initialitation portfolio....msh dipikirkan
                 
     $(":button").prop("disabled", true); //disable all button
     //initialisation variable 
@@ -71,6 +71,9 @@ async function run_test() {
     while(data_idx < 100) {    
         let current_date = testData[data_idx].date;
         let daily_stock_position_transaction_details = new Array();    
+        let preTrade_position_summary = new Array();
+        let tradeSummary = new Array();
+        let postTrade_position_summary = new Array();
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION ===================================================
         // ----------------------------------------------------------------------------------
@@ -101,11 +104,23 @@ async function run_test() {
         }
         
         //save daily pretrade stock position to array 
-        daily_stock_position_transaction_details.push({
+        daily_stock_position_transaction_details.push(
             stock_price,
             stock_position_size,
             stock_market_value
-        })  
+        )  
+
+        preTrade_position_summary.push(
+            daily_Interest,
+            cash_balance,
+            market_value,
+            equity_with_loanValue,
+            maintenance_margin_req,
+            excess_liquidity,
+            regT_margin_req,
+            excess_equity,
+            buying_power
+        )
         
         //View in web account & margin summary
         $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(0)));
@@ -273,13 +288,15 @@ async function run_test() {
                                 result.data.signal_size_stock30
                             ]
                         };     
-                        $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));                            
+                                                    
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.response_no).toFixed(0)));
                         $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
                         for (i = 0; i < 30; i++) {
                             $("#signal_position_stock" + (i+1)).html(signal_output.signal_position[i]);
                             $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.signal_size[i]).toFixed(0)));
                         }
+
+                        $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
                         // signal_output_arr.push(signal_output); //save data to array signal_output_history
                         // console.log(signal_output);
                         // post_process = "finish";
@@ -344,18 +361,23 @@ async function run_test() {
             }
         }
         //save daily stock transaction data to array  
-        daily_stock_position_transaction_details.push({
+        daily_stock_position_transaction_details.push(
             filledOrder,
             filledPrice,
             tradeValue,
             commission_arr,
             initialMargin
-        })
+        )
         //save daily trade summary data to array
         let total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current });
         let total_commission = commission_arr.reduce(function (accumulator, current) { return accumulator + current });
         let total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current });
         
+        tradeSummary.push(
+            total_trade_value,
+            total_commission,
+            total_initial_margin
+        )
         // ----------------------------------------------------------------------------------
         // POST TRADE POSITION CALCULATION ==================================================
         // ----------------------------------------------------------------------------------
@@ -375,6 +397,7 @@ async function run_test() {
         } else {
             buying_power = excess_equity * 2;
         }
+
         //save daily pretrade stock position to array 
         daily_stock_position_transaction_details.push({
             stock_position_size,
@@ -385,28 +408,25 @@ async function run_test() {
             date: current_date,
             data: daily_stock_position_transaction_details
         });
+
+        postTrade_position_summary.push(
+            cash_balance,
+            market_value,
+            equity_with_loanValue,
+            maintenance_margin_req,
+            excess_liquidity,
+            regT_margin_req,
+            excess_equity,
+            buying_power
+        )
+
         account_and_trade_summary.push({
             date: current_date,
-            preTrade_dailyInterest: daily_Interest,
-            preTrade_cashbalance: cash_balance,
-            preTrade_marketvalue: market_value,
-            preTrade_equitywith_loanValue: equity_with_loanValue,
-            preTrade_maintenancemargin_reserved: maintenance_margin_req,
-            preTrade_maintenancemargin_available: excess_liquidity,
-            preTrade_initialmargin_reserved: regT_margin_req,
-            preTrade_initialmargin_available: excess_equity,
-            preTrade_buying_power: buying_power,
-            totaltrade_value: total_trade_value,
-            totalcommission: total_commission,
-            totalinitial_margin: total_initial_margin,
-            postTrade_cashbalance: cash_balance,
-            postTrade_marketvalue: market_value,
-            postTrade_equitywith_loanValue: equity_with_loanValue,
-            postTrade_maintenancemargin_reserved: maintenance_margin_req,
-            postTrade_maintenancemargin_available: excess_liquidity,
-            postTrade_initialmargin_reserved: regT_margin_req,
-            postTrade_initialmargin_available: excess_equity
+            preTrade_position: preTrade_position_summary,
+            trade_summary: tradeSummary,
+            postTrade_position: postTrade_position_summary
         });
+
         console.log(account_and_trade_summary);
 
         data_input_output_arr.push({
@@ -507,62 +527,65 @@ async function run_test() {
                     `+ account_and_trade_summary[i].date +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_dailyInterest).toFixed(0)) +`
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[0]).toFixed(0)) +`
                 </td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_cashbalance).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[1]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_marketvalue).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[2]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_equitywith_loanValue).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[3]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_maintenancemargin_reserved).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[4]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_maintenancemargin_available).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[5]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_initialmargin_reserved).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[6]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_initialmargin_available).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[7]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_buying_power).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[8]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totaltrade_value).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[0]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totalcommission).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[1]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].totalinitial_margin).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[2]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_cashbalance).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[0]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_marketvalue).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[1]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_equitywith_loanValue).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[2]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_maintenancemargin_reserved).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[3]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_maintenancemargin_available).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[4]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_initialmargin_reserved).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[5]).toFixed(0)) +`</td>
                 <td
                     style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_initialmargin_available).toFixed(0)) +`</td>
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[6]).toFixed(0)) +`</td>
+                <td
+                    style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+                    `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[7]).toFixed(0)) +`</td>
             </tr>`
                 $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
             }
