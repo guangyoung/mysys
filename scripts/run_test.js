@@ -386,7 +386,7 @@ async function run_test() {
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
         $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
 
-        stock_trade_details.push(
+        stock_trade_details.push([
             current_date,
             stock_price,
             preTrade_stock_position_size,
@@ -398,10 +398,10 @@ async function run_test() {
             initialMargin,
             postTrade_stock_position_size,
             postTrade_stock_market_value
-        );
+        ]);
         console.log(stock_trade_details);
 
-        account_and_trade_summary.push(
+        account_and_trade_summary.push([
             current_date,
             daily_Interest,
             preTrade_cash_balance,
@@ -423,7 +423,7 @@ async function run_test() {
             postTrade_regT_margin_req,
             postTrade_excess_equity,
             postTrade_buying_power
-        );
+        ]);
         console.log(account_and_trade_summary);
 
         data_input_output_arr.push({
