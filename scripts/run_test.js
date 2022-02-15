@@ -23,17 +23,27 @@ async function run_test() {
     $(":button").prop("disabled", true); //disable all button
     //initialisation variable 
     var stock_price = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    var stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    var stock_market_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var preTrade_stock_position_size = new Array();
+    var postTrade_stock_position_size = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var preTrade_stock_market_value = new Array();
+    var postTrade_stock_market_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var daily_Interest;
-    var cash_balance = initial_equity;
-    var market_value;
-    var equity_with_loanValue;
-    var maintenance_margin_req;
-    var excess_liquidity;
-    var regT_margin_req;
-    var excess_equity;
-    var buying_power;
+    var preTrade_cash_balance;
+    var preTrade_market_value;
+    var preTrade_equity_with_loanValue;
+    var preTrade_maintenance_margin_req;
+    var preTrade_excess_liquidity;
+    var preTrade_regT_margin_req;
+    var preTrade_excess_equity;
+    var preTrade_buying_power;
+    var postTrade_cash_balance = initial_equity;
+    var postTrade_market_value;
+    var postTrade_equity_with_loanValue;
+    var postTrade_maintenance_margin_req;
+    var postTrade_excess_liquidity;
+    var postTrade_regT_margin_req;
+    var postTrade_excess_equity;
+    var postTrade_buying_power;
     var quantxi_equity;
     var buyhold_equity;
     var previous_quantxi_equity = initial_equity;
@@ -55,8 +65,7 @@ async function run_test() {
     var data_input;
     var signal_output;
     var data_input_output_arr = new Array();
-    // var signal_output_arr = new Array();
-    var daily_stock_position_transaction_summary = new Array();
+    var stock_trade_details = new Array();
     var account_and_trade_summary = new Array();
     var quantxi_equity_array = new Array();
     var buyhold_equity_array = new Array();
@@ -68,76 +77,58 @@ async function run_test() {
     //------------------------------------------------------------------------------------
     
     var data_idx = 0;
-    while(data_idx < 100) {    
+    while(data_idx < 100) { 
+       
+        //get test data
         let current_date = testData[data_idx].date;
-        let daily_stock_position_transaction_details = new Array();    
-        let preTrade_position_summary = new Array();
-        let tradeSummary = new Array();
-        let postTrade_position_summary = new Array();
+        for (i = 0; i < 30; i++) {
+            stock_price[i] = parseFloat(testData[data_idx].price[i]); 
+        }
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION ===================================================
         // ----------------------------------------------------------------------------------
-        for (i = 0; i < 30; i++) {
-            stock_price[i] = parseFloat(testData[data_idx].price[i]);           
-            stock_market_value[i] = stock_price[i] * stock_position_size[i];
+        for (i = 0; i < 30; i++) {    
+            preTrade_stock_position_size[i] = postTrade_stock_position_size[i]; 
+            preTrade_stock_market_value[i] = stock_price[i] * preTrade_stock_position_size[i];
         }
-        if (cash_balance < 0) {
+        if (postTrade_cash_balance < 0) {
             if (new Date(current_date).getDay() == 5) {
-                daily_Interest = cash_balance * (interest_rate / 360) * 3; //cek lagi rumusnya
+                daily_Interest = postTrade_cash_balance * (interest_rate / 360) * 3; //cek lagi rumusnya
             } else {
-                daily_Interest = cash_balance * (interest_rate / 360) * 1; //cek lagi rumusnya
+                daily_Interest = postTrade_cash_balance * (interest_rate / 360) * 1; //cek lagi rumusnya
             }
         } else {
             daily_Interest = 0;
         }
-        cash_balance -= daily_Interest;//cek & tanya cara perhitungan mtd interest            
-        market_value = stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
-        equity_with_loanValue = cash_balance + market_value;
-        maintenance_margin_req = market_value * 0.30;
-        excess_liquidity = equity_with_loanValue - maintenance_margin_req;
-        regT_margin_req = market_value * 0.50;
-        excess_equity = equity_with_loanValue - regT_margin_req;
-        if(excess_equity<0) {
-            buying_power = 0;
+        preTrade_cash_balance = postTrade_cash_balance - daily_Interest;//cek & tanya cara perhitungan mtd interest            
+        preTrade_market_value = preTrade_stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
+        preTrade_equity_with_loanValue = preTrade_cash_balance + preTrade_market_value;
+        preTrade_maintenance_margin_req = preTrade_market_value * 0.30;
+        preTrade_excess_liquidity = preTrade_equity_with_loanValue - preTrade_maintenance_margin_req;
+        preTrade_regT_margin_req = preTrade_market_value * 0.50;
+        preTrade_excess_equity = preTrade_equity_with_loanValue - preTrade_regT_margin_req;
+        if(preTrade_excess_equity<0) {
+            preTrade_buying_power = 0;
         } else {
-            buying_power = excess_equity * 2;
+            preTrade_buying_power = preTrade_excess_equity * 2;
         }
         
-        //save daily pretrade stock position to array 
-        daily_stock_position_transaction_details.push(
-            stock_price,
-            stock_position_size,
-            stock_market_value
-        )  
-
-        preTrade_position_summary.push(
-            daily_Interest,
-            cash_balance,
-            market_value,
-            equity_with_loanValue,
-            maintenance_margin_req,
-            excess_liquidity,
-            regT_margin_req,
-            excess_equity,
-            buying_power
-        )
-        
         //View in web account & margin summary
-        $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(0)));
-        $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(market_value).toFixed(0)));
-        $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(equity_with_loanValue).toFixed(0)));
-        $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(maintenance_margin_req).toFixed(0)));
-        $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(excess_liquidity).toFixed(0)));
-        $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(regT_margin_req).toFixed(0)));
-        $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(excess_equity).toFixed(0)));
-        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(buying_power).toFixed(0)));
+        $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(preTrade_cash_balance).toFixed(0)));
+        $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(preTrade_market_value).toFixed(0)));
+        $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(preTrade_equity_with_loanValue).toFixed(0)));
+        $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_maintenance_margin_req).toFixed(0)));
+        $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_liquidity).toFixed(0)));
+        $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_regT_margin_req).toFixed(0)));
+        $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_equity).toFixed(0)));
+        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(preTrade_buying_power).toFixed(0)));
         
         // ----------------------------------------------------------------------------------  
         // REQUEST SIGNAL TO QUANTXI AI =====================================================
         // ---------------------------------------------------------------------------------- 
         data_input = {
             request_no: data_idx + 1,//ganti jadi data_idx
-            buying_power: buying_power,
+            buying_power: preTrade_buying_power,
             stock_price: [
                 stock_price[0],
                 stock_price[1],
@@ -171,36 +162,36 @@ async function run_test() {
                 stock_price[29]                
             ],
             stock_positionSize: [
-                stock_position_size[0],
-                stock_position_size[1],
-                stock_position_size[2],
-                stock_position_size[3],
-                stock_position_size[4],
-                stock_position_size[5],
-                stock_position_size[6],
-                stock_position_size[7],
-                stock_position_size[8],
-                stock_position_size[9],
-                stock_position_size[10],
-                stock_position_size[11],
-                stock_position_size[12],
-                stock_position_size[13],
-                stock_position_size[14],
-                stock_position_size[15],
-                stock_position_size[16],
-                stock_position_size[17],
-                stock_position_size[18],
-                stock_position_size[19],
-                stock_position_size[20],
-                stock_position_size[21],
-                stock_position_size[22],
-                stock_position_size[23],
-                stock_position_size[24],
-                stock_position_size[25],
-                stock_position_size[26],
-                stock_position_size[27],
-                stock_position_size[28],
-                stock_position_size[29]                
+                preTrade_stock_position_size[0],
+                preTrade_stock_position_size[1],
+                preTrade_stock_position_size[2],
+                preTrade_stock_position_size[3],
+                preTrade_stock_position_size[4],
+                preTrade_stock_position_size[5],
+                preTrade_stock_position_size[6],
+                preTrade_stock_position_size[7],
+                preTrade_stock_position_size[8],
+                preTrade_stock_position_size[9],
+                preTrade_stock_position_size[10],
+                preTrade_stock_position_size[11],
+                preTrade_stock_position_size[12],
+                preTrade_stock_position_size[13],
+                preTrade_stock_position_size[14],
+                preTrade_stock_position_size[15],
+                preTrade_stock_position_size[16],
+                preTrade_stock_position_size[17],
+                preTrade_stock_position_size[18],
+                preTrade_stock_position_size[19],
+                preTrade_stock_position_size[20],
+                preTrade_stock_position_size[21],
+                preTrade_stock_position_size[22],
+                preTrade_stock_position_size[23],
+                preTrade_stock_position_size[24],
+                preTrade_stock_position_size[25],
+                preTrade_stock_position_size[26],
+                preTrade_stock_position_size[27],
+                preTrade_stock_position_size[28],
+                preTrade_stock_position_size[29]                
             ]
         };
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
@@ -325,10 +316,10 @@ async function run_test() {
 
         //calculate filled percentarge   
         let filled_percentage;
-        if((buying_power/2) > ((estimate_tradeValue/2)+estimate_comm)) {
+        if((preTrade_buying_power/2) > ((estimate_tradeValue/2)+estimate_comm)) {
             filled_percentage = 1;
         } else {
-            filled_percentage = (buying_power/2)/((estimate_tradeValue/2)+estimate_comm);
+            filled_percentage = (preTrade_buying_power/2)/((estimate_tradeValue/2)+estimate_comm);
         }
 
         // console.log(filled_percentage);
@@ -360,80 +351,30 @@ async function run_test() {
                 initialMargin[i] = 0;
             }
         }
-        //save daily stock transaction data to array  
-        daily_stock_position_transaction_details.push(
-            filledOrder,
-            filledPrice,
-            tradeValue,
-            commission_arr,
-            initialMargin
-        )
-        //save daily trade summary data to array
+               
         let total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current });
         let total_commission = commission_arr.reduce(function (accumulator, current) { return accumulator + current });
         let total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current });
-        
-        tradeSummary.push(
-            total_trade_value,
-            total_commission,
-            total_initial_margin
-        )
+                
         // ----------------------------------------------------------------------------------
         // POST TRADE POSITION CALCULATION ==================================================
         // ----------------------------------------------------------------------------------
         for (i = 0; i < 30; i++) {
-            stock_position_size[i] += filledOrder[i];
-            stock_market_value[i] = stock_price[i] * stock_position_size[i];
+            postTrade_stock_position_size[i] = preTrade_stock_position_size[i] + filledOrder[i];
+            postTrade_stock_market_value[i] = stock_price[i] * postTrade_stock_position_size[i];
         }            
-        cash_balance -= (total_trade_value + total_commission);            
-        market_value = stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
-        equity_with_loanValue = cash_balance + market_value;
-        maintenance_margin_req = market_value * 0.30;
-        excess_liquidity = equity_with_loanValue - maintenance_margin_req;
-        regT_margin_req = market_value * 0.50;
-        excess_equity = equity_with_loanValue - regT_margin_req;
-        if(excess_equity<0) {
-            buying_power = 0;
+        postTrade_cash_balance = preTrade_cash_balance - (total_trade_value + total_commission);            
+        postTrade_market_value = postTrade_stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
+        postTrade_equity_with_loanValue = postTrade_cash_balance + postTrade_market_value;
+        postTrade_maintenance_margin_req = postTrade_market_value * 0.30;
+        postTrade_excess_liquidity = postTrade_equity_with_loanValue - postTrade_maintenance_margin_req;
+        postTrade_regT_margin_req = postTrade_market_value * 0.50;
+        postTrade_excess_equity = postTrade_equity_with_loanValue - postTrade_regT_margin_req;
+        if(postTrade_excess_equity<0) {
+            postTrade_buying_power = 0;
         } else {
-            buying_power = excess_equity * 2;
+            postTrade_buying_power = postTrade_excess_equity * 2;
         }
-
-        //save daily pretrade stock position to array 
-        daily_stock_position_transaction_details.push({
-            stock_position_size,
-            stock_market_value
-        });
-        //save daily stock position & transaction details to summary
-        daily_stock_position_transaction_summary.push({
-            date: current_date,
-            data: daily_stock_position_transaction_details
-        });
-
-        postTrade_position_summary.push(
-            cash_balance,
-            market_value,
-            equity_with_loanValue,
-            maintenance_margin_req,
-            excess_liquidity,
-            regT_margin_req,
-            excess_equity,
-            buying_power
-        )
-
-        account_and_trade_summary.push({
-            date: current_date,
-            preTrade_position: preTrade_position_summary,
-            trade_summary: tradeSummary,
-            postTrade_position: postTrade_position_summary
-        });
-
-        console.log(account_and_trade_summary);
-
-        data_input_output_arr.push({
-            input: data_input,
-            output: signal_output
-        });
-        console.log(data_input_output_arr);        
 
         //View in web account & margin summary
         $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(cash_balance).toFixed(0)));
@@ -444,12 +385,58 @@ async function run_test() {
         $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(regT_margin_req).toFixed(0)));
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(excess_equity).toFixed(0)));
         $('#buying_power').html(Intl.NumberFormat().format(parseFloat(buying_power).toFixed(0)));
+
+        stock_trade_details.push(
+            current_date,
+            stock_price,
+            preTrade_stock_position_size,
+            preTrade_stock_market_value,
+            filledOrder,
+            filledPrice,
+            tradeValue,
+            commission_arr,
+            initialMargin,
+            postTrade_stock_position_size,
+            postTrade_stock_market_value
+        );
+        console.log(stock_trade_details);
+
+        account_and_trade_summary.push(
+            current_date,
+            daily_Interest,
+            preTrade_cash_balance,
+            preTrade_market_value,
+            preTrade_equity_with_loanValue,
+            preTrade_maintenance_margin_req,
+            preTrade_excess_liquidity,
+            preTrade_regT_margin_req,
+            preTrade_excess_equity,
+            preTrade_buying_power,
+            total_trade_value,
+            total_commission,
+            total_initial_margin,
+            postTrade_cash_balance,
+            postTrade_market_value,
+            postTrade_equity_with_loanValue,
+            postTrade_maintenance_margin_req,
+            postTrade_excess_liquidity,
+            postTrade_regT_margin_req,
+            postTrade_excess_equity,
+            postTrade_buying_power
+        );
+        console.log(account_and_trade_summary);
+
+        data_input_output_arr.push({
+            input: data_input,
+            output: signal_output
+        });
+        console.log(data_input_output_arr); 
                
         // ----------------------------------------------------------------------------------
         // UPDATE TRADE PERFORMANCE COMPARISON, QUANTXI AI VS BUY AND HOLD ==================
         // ---------------------------------------------------------------------------------- 
-        quantxi_equity = equity_with_loanValue;
-        quantxi_equity_array.push(quantxi_equity);
+        quantxi_equity = postTrade_equity_with_loanValue;
+        quantxi_equity_array.push(postTrade_equity_with_loanValue);
         buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(testData[0].price[i]) }, 0);
         buyhold_equity_array.push(buyhold_equity);
 
@@ -519,47 +506,47 @@ async function run_test() {
                 let account_trade_summary_row =
                 `<tr>
                     <td style="background-color: #555555; text-align: center; position: sticky; left: 0px;">
-                        `+ account_and_trade_summary[i].date +`</td>
+                        `+ account_and_trade_summary[i][0] +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[0]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][1]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[1]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][2]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[2]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][3]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[3]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][4]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[4]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][5]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[5]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][6]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[6]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][7]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[7]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][8]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].preTrade_position[8]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][9]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[0]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][10]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[1]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][11]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].trade_summary[2]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][12]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[0]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][13]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[1]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][14]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[2]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][15]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[3]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][16]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[4]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][17]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[5]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][18]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[6]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][19]).toFixed(0)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i].postTrade_position[7]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][20]).toFixed(0)) +`</td>
                 </tr>`
                 $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
             }
