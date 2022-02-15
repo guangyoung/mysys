@@ -84,6 +84,8 @@ async function run_test() {
         for (i = 0; i < 30; i++) {
             stock_price[i] = parseFloat(testData[data_idx].price[i]); 
         }
+
+    console.log(stock_price);
         // ----------------------------------------------------------------------------------
         // PRE TRADE POSITION CALCULATION ===================================================
         // ----------------------------------------------------------------------------------
@@ -388,16 +390,16 @@ async function run_test() {
 
         stock_trade_details.push({
             date: current_date,
-            stock_price: stock_price,
-            preTrade_stock_position_size: preTrade_stock_position_size,
-            preTrade_stock_market_value: preTrade_stock_market_value,
-            filledOrder: filledOrder,
-            filledPrice: filledPrice,
-            tradeValue: tradeValue,
+            stockPrice: stock_price,
+            preTradeStock_position_size: preTrade_stock_position_size,
+            preTradeStock_market_value: preTrade_stock_market_value,
+            filled_order: filledOrder,
+            filled_price: filledPrice,
+            trade_value: tradeValue,
             commission: commission_arr,
-            initialMargin: initialMargin,
-            postTrade_stock_position_size: postTrade_stock_position_size,
-            postTrade_stock_market_value: postTrade_stock_market_value
+            initial_margin: initialMargin,
+            postTradeStock_position_size: postTrade_stock_position_size,
+            postTradeStock_market_value: postTrade_stock_market_value
         });
         console.log(stock_trade_details);
         console.log(stock_price);
