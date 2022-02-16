@@ -335,19 +335,19 @@ async function run_test() {
         let psmv_ar = preTrade_stock_market_value.slice();
         let ptps_ar = postTrade_stock_position_size.slice();
         let ptmv_ar = postTrade_stock_market_value.slice();
-        stock_trade_details.push(
-            current_date,
-            stock_price.slice(),
-            preTrade_stock_position_size.slice(),
-            preTrade_stock_market_value.slice(),
-            filledOrder,
-            filledPrice,
-            tradeValue,
-            commission_arr,
-            initialMargin,
-            postTrade_stock_position_size.slice(),
-            postTrade_stock_market_value.slice()
-        )
+        stock_trade_details.push({
+            d: current_date,
+            sp: stock_price.slice(),
+            psps_ar: preTrade_stock_position_size.slice(),
+            psmv_ar: preTrade_stock_market_value.slice(),
+            fo: filledOrder,
+            fp: filledPrice,
+            tv: tradeValue,
+            ca: commission_arr,
+            im: initialMargin,
+            ptps_ar: postTrade_stock_position_size.slice(),
+            ptmv_ar: postTrade_stock_market_value.slice()
+        })
                 
         console.log(stock_trade_details);
 
