@@ -248,8 +248,8 @@ async function run_test() {
                 estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 + spread_slippage)))*0.5;
                 estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
             } else if (signal_output.signal_position[i] == "SELL") {
-                estimate_imr -= (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)))*0.5;
-                estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
+                estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)))*0.5;
+                estimate_comm += math.abs(signal_output.signal_size[i] * 0.005); //commision per share
             } else {
                 estimate_imr += 0;
                 estimate_comm += 0;
@@ -276,16 +276,16 @@ async function run_test() {
         let initialMargin = new Array();
         for (i = 0; i < 30; i++) {
             if (signal_output.signal_position[i] == "BUY") {
-                filledOrder[i] = math.floor(parseInt(signal_output.signal_size[i] * filled_percentage));
+                filledOrder[i] = math.floor(signal_output.signal_size[i] * filled_percentage);
                 filledPrice[i] = stock_price[i] * (1 + spread_slippage);
                 tradeValue[i] = filledOrder[i] * filledPrice[i];
                 commission_arr[i] = filledOrder[i] * commission_perShare;
                 initialMargin[i] = tradeValue[i] * 0.50;
             } else if (signal_output.signal_position[i] == "SELL") {
-                filledOrder[i] = math.floor(parseInt(signal_output.signal_size[i] * filled_percentage));
+                filledOrder[i] = math.ceil(signal_output.signal_size[i] * filled_percentage);
                 filledPrice[i] = stock_price[i] * (1 - spread_slippage);
                 tradeValue[i] = filledOrder[i] * filledPrice[i];
-                commission_arr[i] = filledOrder[i] * commission_perShare;
+                commission_arr[i] = math.abs(filledOrder[i]) * commission_perShare;
                 initialMargin[i] = tradeValue[i] * 0.50;
             } else {
                 filledOrder[i] = 0;
