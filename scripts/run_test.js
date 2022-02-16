@@ -137,70 +137,8 @@ async function run_test() {
         data_input = {
             request_no: data_idx + 1,//ganti jadi data_idx
             buying_power: preTrade_buying_power,
-            stock_price: [
-                stock_price[0],
-                stock_price[1],
-                stock_price[2],
-                stock_price[3],
-                stock_price[4],
-                stock_price[5],
-                stock_price[6],
-                stock_price[7],
-                stock_price[8],
-                stock_price[9],
-                stock_price[10],
-                stock_price[11],
-                stock_price[12],
-                stock_price[13],
-                stock_price[14],
-                stock_price[15],
-                stock_price[16],
-                stock_price[17],
-                stock_price[18],
-                stock_price[19],
-                stock_price[20],
-                stock_price[21],
-                stock_price[22],
-                stock_price[23],
-                stock_price[24],
-                stock_price[25],
-                stock_price[26],
-                stock_price[27],
-                stock_price[28],
-                stock_price[29]                
-            ],
-            stock_positionSize: [
-                preTrade_stock_position_size[0],
-                preTrade_stock_position_size[1],
-                preTrade_stock_position_size[2],
-                preTrade_stock_position_size[3],
-                preTrade_stock_position_size[4],
-                preTrade_stock_position_size[5],
-                preTrade_stock_position_size[6],
-                preTrade_stock_position_size[7],
-                preTrade_stock_position_size[8],
-                preTrade_stock_position_size[9],
-                preTrade_stock_position_size[10],
-                preTrade_stock_position_size[11],
-                preTrade_stock_position_size[12],
-                preTrade_stock_position_size[13],
-                preTrade_stock_position_size[14],
-                preTrade_stock_position_size[15],
-                preTrade_stock_position_size[16],
-                preTrade_stock_position_size[17],
-                preTrade_stock_position_size[18],
-                preTrade_stock_position_size[19],
-                preTrade_stock_position_size[20],
-                preTrade_stock_position_size[21],
-                preTrade_stock_position_size[22],
-                preTrade_stock_position_size[23],
-                preTrade_stock_position_size[24],
-                preTrade_stock_position_size[25],
-                preTrade_stock_position_size[26],
-                preTrade_stock_position_size[27],
-                preTrade_stock_position_size[28],
-                preTrade_stock_position_size[29]                
-            ]
+            stock_price: stock_price.slice(),
+            stock_positionSize: preTrade_stock_position_size.slice()
         };
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
         $('#buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input.buying_power).toFixed(0)));
@@ -397,19 +335,19 @@ async function run_test() {
         let psmv_ar = preTrade_stock_market_value.slice();
         let ptps_ar = postTrade_stock_position_size.slice();
         let ptmv_ar = postTrade_stock_market_value.slice();
-        stock_trade_details.push({
-            date: current_date,
-            sp: sp_ar,
-            psps: psps_ar,
-            psmv: psmv_ar,
-            fo: filledOrder,
-            fp: filledPrice,
-            tv: tradeValue,
-            ca: commission_arr,
-            im: initialMargin,
-            ptps: ptps_ar,
-            ptmv: ptmv_ar
-        })
+        stock_trade_details.push(
+            current_date,
+            stock_price.slice(),
+            preTrade_stock_position_size.slice(),
+            preTrade_stock_market_value.slice(),
+            filledOrder,
+            filledPrice,
+            tradeValue,
+            commission_arr,
+            initialMargin,
+            postTrade_stock_position_size.slice(),
+            postTrade_stock_market_value.slice()
+        )
                 
         console.log(stock_trade_details);
 
