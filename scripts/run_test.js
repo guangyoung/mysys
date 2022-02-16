@@ -320,7 +320,9 @@ async function run_test() {
 
         //calculate filled percentarge   
         let filled_percentage;
-        if(preTrade_excess_equity > (estimate_imr+estimate_comm)) {
+        if(preTrade_excess_equity < 0) {
+            filled_percentage = 0;
+        } else if(preTrade_excess_equity > (estimate_imr+estimate_comm)) {
             filled_percentage = 1;
         } else {
             filled_percentage = preTrade_excess_equity/(estimate_imr+estimate_comm);
