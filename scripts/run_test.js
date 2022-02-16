@@ -135,7 +135,7 @@ async function run_test() {
         // REQUEST SIGNAL TO QUANTXI AI =====================================================
         // ---------------------------------------------------------------------------------- 
         data_input = {
-            request_no: data_idx + 1,//ganti jadi data_idx
+            request_no: data_idx + 1,
             buying_power: preTrade_buying_power,
             stock_price: stock_price.slice(),
             stock_positionSize: preTrade_stock_position_size.slice()
@@ -329,24 +329,19 @@ async function run_test() {
         $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_regT_margin_req).toFixed(0)));
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
         $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
-        
-        let sp_ar = stock_price.slice();
-        let psps_ar = preTrade_stock_position_size.slice();
-        let psmv_ar = preTrade_stock_market_value.slice();
-        let ptps_ar = postTrade_stock_position_size.slice();
-        let ptmv_ar = postTrade_stock_market_value.slice();
+               
         stock_trade_details.push({
-            d: current_date,
-            sp: stock_price.slice(),
-            psps_ar: preTrade_stock_position_size.slice(),
-            psmv_ar: preTrade_stock_market_value.slice(),
-            fo: filledOrder,
-            fp: filledPrice,
-            tv: tradeValue,
-            ca: commission_arr,
-            im: initialMargin,
-            ptps_ar: postTrade_stock_position_size.slice(),
-            ptmv_ar: postTrade_stock_market_value.slice()
+            date: current_date,
+            stock_price: stock_price.slice(),
+            preTrade_stock_position_size: preTrade_stock_position_size.slice(),
+            preTrade_stock_market_value: preTrade_stock_market_value.slice(),
+            stock_filled_order: filledOrder,
+            stock_filled_price: filledPrice,
+            stock_trade_value: tradeValue,
+            stock_commission: commission_arr,
+            stock_initial_margin: initialMargin,
+            postTrade_stock_position_size: postTrade_stock_position_size.slice(),
+            postTrade_stock_market_value: postTrade_stock_market_value.slice()
         })
                 
         console.log(stock_trade_details);
