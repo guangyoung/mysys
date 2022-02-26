@@ -16,7 +16,7 @@ async function run_test() {
         return false;
     } 
         
-    //cek last data
+    //cek last data, jika ada data, reset
 
     //initialitation portfolio....msh dipikirkan
                 
@@ -80,16 +80,16 @@ async function run_test() {
     var account_and_trade_summary = new Array();
     
     var startdateTest = testData[0].date;
-    var data_idx = 0;
+    var data_idx_process = 0;
     //------------------------------------------------------------------------------------
     // Proses Data #######################################################################
     //------------------------------------------------------------------------------------    
-    while(data_idx < 1000) { 
+    while(data_idx_process < 1000) { 
        
         //get test data
-        current_date = testData[data_idx].date;
+        current_date = testData[data_idx_process].date;
         for (i = 0; i < 30; i++) {
-            stock_price[i] = parseFloat(testData[data_idx].price[i]); 
+            stock_price[i] = parseFloat(testData[data_idx_process].price[i]); 
         }
 
         // ----------------------------------------------------------------------------------
@@ -115,11 +115,11 @@ async function run_test() {
         preTrade_excess_liquidity = preTrade_equity_with_loanValue - preTrade_maintenance_margin_req;
         preTrade_regT_margin_req = preTrade_market_value * 0.50;
         preTrade_excess_equity = preTrade_equity_with_loanValue - preTrade_regT_margin_req;
-        if(preTrade_excess_equity<0) {
-            preTrade_buying_power = 0;
-        } else {
-            preTrade_buying_power = preTrade_excess_equity * 2;
-        }
+        // if(preTrade_excess_equity<0) {
+        //     preTrade_buying_power = 0;
+        // } else {
+        //     preTrade_buying_power = preTrade_excess_equity * 2;
+        // }
         
         //View in web account & margin summary
         $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(preTrade_cash_balance).toFixed(0)));
@@ -129,17 +129,18 @@ async function run_test() {
         $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_liquidity).toFixed(0)));
         $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_regT_margin_req).toFixed(0)));
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_equity).toFixed(0)));
-        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(preTrade_buying_power).toFixed(0)));
+        // $('#buying_power').html(Intl.NumberFormat().format(parseFloat(preTrade_buying_power).toFixed(0)));
         
         // ----------------------------------------------------------------------------------  
         // REQUEST SIGNAL TO QUANTXI AI =====================================================
         // ---------------------------------------------------------------------------------- 
         data_input = {
-            request_no: data_idx + 1,
-            buying_power: preTrade_buying_power,
+            request_no: data_idx_process + 1,
+            buying_power: preTrade_excess_equity,
             stock_price: stock_price.slice(),
             stock_positionSize: preTrade_stock_position_size.slice()
         };
+
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
         $('#buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input.buying_power).toFixed(0)));
         for (i = 0; i < 30; i++) {
@@ -246,19 +247,19 @@ async function run_test() {
         for (i = 0; i < 30; i++) {
             if (signal_output.signal_position[i] == "BUY") {
                 estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 + spread_slippage)))*0.5;
-                estimate_comm += (signal_output.signal_size[i] * 0.005); //commision per share
             } else if (signal_output.signal_position[i] == "SELL") {
-                estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)))*0.5;
-                estimate_comm += math.abs(signal_output.signal_size[i] * 0.005); //commision per share
+                estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)))*0.5;               
             } else {
                 estimate_imr += 0;
-                estimate_comm += 0;
             }
+            estimate_comm += math.abs(signal_output.signal_size[i] * 0.005); //commision per share
         }
 
         //calculate filled percentarge   
         let filled_percentage;
-        if(preTrade_excess_equity < 0) {
+        if((estimate_imr+estimate_comm) < 0) {
+            filled_percentage = 1;
+        } else if(preTrade_excess_equity < 0 && (estimate_imr+estimate_comm) >= 0) {
             filled_percentage = 0;
         } else if(preTrade_excess_equity > (estimate_imr+estimate_comm)) {
             filled_percentage = 1;
@@ -276,24 +277,18 @@ async function run_test() {
         let initialMargin = new Array();
         for (i = 0; i < 30; i++) {
             if (signal_output.signal_position[i] == "BUY") {
-                filledOrder[i] = math.floor(signal_output.signal_size[i] * filled_percentage);
+                filledOrder[i] = (signal_output.signal_size[i] * filled_percentage);
                 filledPrice[i] = stock_price[i] * (1 + spread_slippage);
-                tradeValue[i] = filledOrder[i] * filledPrice[i];
-                commission_arr[i] = filledOrder[i] * commission_perShare;
-                initialMargin[i] = tradeValue[i] * 0.50;
             } else if (signal_output.signal_position[i] == "SELL") {
-                filledOrder[i] = math.ceil(signal_output.signal_size[i] * filled_percentage);
-                filledPrice[i] = stock_price[i] * (1 - spread_slippage);
-                tradeValue[i] = filledOrder[i] * filledPrice[i];
-                commission_arr[i] = math.abs(filledOrder[i]) * commission_perShare;
-                initialMargin[i] = tradeValue[i] * 0.50;
+                filledOrder[i] = (signal_output.signal_size[i] * filled_percentage);
+                filledPrice[i] = stock_price[i] * (1 - spread_slippage);               
             } else {
                 filledOrder[i] = 0;
                 filledPrice[i] = 0;
-                tradeValue[i] = 0;
-                commission_arr[i] = 0;
-                initialMargin[i] = 0;
             }
+            tradeValue[i] = filledOrder[i] * filledPrice[i];
+            commission_arr[i] = math.abs(filledOrder[i]) * commission_perShare;
+            initialMargin[i] = tradeValue[i] * 0.50;
         }
                
         let total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current });
@@ -314,11 +309,11 @@ async function run_test() {
         postTrade_excess_liquidity = postTrade_equity_with_loanValue - postTrade_maintenance_margin_req;
         postTrade_regT_margin_req = postTrade_market_value * 0.50;
         postTrade_excess_equity = postTrade_equity_with_loanValue - postTrade_regT_margin_req;
-        if(postTrade_excess_equity<0) {
-            postTrade_buying_power = 0;
-        } else {
-            postTrade_buying_power = postTrade_excess_equity * 2;
-        }
+        // if(postTrade_excess_equity<0) {
+        //     postTrade_buying_power = 0;
+        // } else {
+        //     postTrade_buying_power = postTrade_excess_equity * 2;
+        // }
 
         //View in web account & margin summary
         $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(postTrade_cash_balance).toFixed(0)));
@@ -328,7 +323,7 @@ async function run_test() {
         $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_liquidity).toFixed(0)));
         $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_regT_margin_req).toFixed(0)));
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
-        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
+        // $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
                
         stock_trade_details.push({
             date: current_date,
@@ -433,7 +428,7 @@ async function run_test() {
         $('#quantxi_cagr').html(parseFloat(quantxi_cagr * 100).toFixed(2) + "%");
         $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
 
-        data_idx++;
+        data_idx_process++;
     }
     //-------------------------------------------------------------------------------------
     // TRADE TESTING REPORT ###############################################################
