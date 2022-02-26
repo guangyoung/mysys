@@ -2,11 +2,11 @@
     var exchange_list =
     ["EURONEXT","LSEe","NASDAQ","NYSE","SEHK","SSE","SZSE","TSX"];
 
-    // var NASDAQ = 
-    // ["NEON","HLIT","CWCO","GIII","CASH","IIIN","MATW","JCS","GABC","APEX","FAST","MU","INCY","NUAN","NSSC","NNBR","GT","KLAC","MCHP","AAPL","AVT","ALCO","INTC","ODFL","ARKR","NTAP","AMD","EXPD","LSTR","APOG"];
-
     var NASDAQ = 
-    ["AAME","AAPL","ABEO","ABMD","ADBE","ADI","ADP","ADSK","AEGN","AGYS","AIKI","AIRT","ALCO","ALOT","AMAG","AMAT","AMD","AMGN","AMSWA","AMWD","ANAT","APOG","ARKR","AROW","ARTW","ASRV","ASTE","ATAX","ATRI","ATRO"];
+    ["NEON","HLIT","CWCO","GIII","CASH","IIIN","MATW","JCS","GABC","APEX","FAST","MU","INCY","NUAN","NSSC","NNBR","GT","KLAC","MCHP","AAPL","AVT","ALCO","INTC","ODFL","ARKR","NTAP","AMD","EXPD","LSTR","APOG"];
+
+    // var NASDAQ = 
+    // ["AAME","AAPL","ABEO","ABMD","ADBE","ADI","ADP","ADSK","AEGN","AGYS","AIKI","AIRT","ALCO","ALOT","AMAG","AMAT","AMD","AMGN","AMSWA","AMWD","ANAT","APOG","ARKR","AROW","ARTW","ASRV","ASTE","ATAX","ATRI","ATRO"];
       
     var TEST = [
         "Startdate 1970/01/02 - MO - Altria Group",
