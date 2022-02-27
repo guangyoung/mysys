@@ -4,10 +4,15 @@
 // Ini adalah step run test ..................................................................................
 //............................................................................................................
 //............................................................................................................
-
 async function run_test() {
+    // Retrieve the array from local storage
+    var testData2 = localStorage.getItem('mytestdata');
+    // Parse it to something usable in js
+    testData2 = JSON.parse(testData2);
 
-    if (testData.length == 0) {
+    console.log(testData2);
+    console.log(testData);
+    if (testData2.length !== 0) {
         Swal.fire(
             'No Test Data !',
             'Please click Market Data and Create It',
@@ -79,7 +84,7 @@ async function run_test() {
     var stock_trade_details = new Array();
     var account_and_trade_summary = new Array();
     
-    var startdateTest = testData[0].date;
+    var startdateTest = testData2[0].date;
     var data_idx_process = 0;
     //------------------------------------------------------------------------------------
     // Proses Data #######################################################################
@@ -87,9 +92,9 @@ async function run_test() {
     while(data_idx_process < 1000) { 
        
         //get test data
-        current_date = testData[data_idx_process].date;
+        current_date = testData2[data_idx_process].date;
         for (i = 0; i < 30; i++) {
-            stock_price[i] = parseFloat(testData[data_idx_process].price[i]); 
+            stock_price[i] = parseFloat(testData2[data_idx_process].price[i]); 
         }
 
         // ----------------------------------------------------------------------------------
@@ -377,7 +382,7 @@ async function run_test() {
         // ---------------------------------------------------------------------------------- 
         quantxi_equity = postTrade_equity_with_loanValue;
         quantxi_equity_array.push(postTrade_equity_with_loanValue);
-        buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(testData[0].price[i]) }, 0);
+        buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(testData2[0].price[i]) }, 0);
         buyhold_equity_array.push(buyhold_equity);
 
         quantxi_total_return = (quantxi_equity - initial_equity) / initial_equity;

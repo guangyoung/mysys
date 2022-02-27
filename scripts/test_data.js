@@ -302,6 +302,8 @@ function create_test_data() {
     console.log(test_data); 
     testData = test_data;
     console.log(testData);
+
+    localStorage.setItem('mytestdata', JSON.stringify(test_data));
     
     $('#stock1_ticker').html(portfolio_data[0].ticker);
     $('#stock2_ticker').html(portfolio_data[1].ticker);
