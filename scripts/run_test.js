@@ -120,11 +120,11 @@ async function run_test() {
         preTrade_excess_liquidity = preTrade_equity_with_loanValue - preTrade_maintenance_margin_req;
         preTrade_regT_margin_req = preTrade_market_value * 0.50;
         preTrade_excess_equity = preTrade_equity_with_loanValue - preTrade_regT_margin_req;
-        // if(preTrade_excess_equity<0) {
-        //     preTrade_buying_power = 0;
-        // } else {
-        //     preTrade_buying_power = preTrade_excess_equity * 2;
-        // }
+        if(preTrade_excess_equity<0) {
+            preTrade_buying_power = 0;
+        } else {
+            preTrade_buying_power = preTrade_excess_equity * 2;
+        }
         
         //View in web account & margin summary
         $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(preTrade_cash_balance).toFixed(0)));
@@ -134,7 +134,7 @@ async function run_test() {
         $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_liquidity).toFixed(0)));
         $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_regT_margin_req).toFixed(0)));
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_equity).toFixed(0)));
-        // $('#buying_power').html(Intl.NumberFormat().format(parseFloat(preTrade_buying_power).toFixed(0)));
+        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(preTrade_buying_power).toFixed(0)));
         
         // ----------------------------------------------------------------------------------  
         // REQUEST SIGNAL TO QUANTXI AI =====================================================
@@ -314,11 +314,11 @@ async function run_test() {
         postTrade_excess_liquidity = postTrade_equity_with_loanValue - postTrade_maintenance_margin_req;
         postTrade_regT_margin_req = postTrade_market_value * 0.50;
         postTrade_excess_equity = postTrade_equity_with_loanValue - postTrade_regT_margin_req;
-        // if(postTrade_excess_equity<0) {
-        //     postTrade_buying_power = 0;
-        // } else {
-        //     postTrade_buying_power = postTrade_excess_equity * 2;
-        // }
+        if(postTrade_excess_equity<0) {
+            postTrade_buying_power = 0;
+        } else {
+            postTrade_buying_power = postTrade_excess_equity * 2;
+        }
 
         //View in web account & margin summary
         $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(postTrade_cash_balance).toFixed(0)));
@@ -328,7 +328,7 @@ async function run_test() {
         $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_liquidity).toFixed(0)));
         $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_regT_margin_req).toFixed(0)));
         $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
-        // $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
+        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
                
         stock_trade_details.push({
             date: current_date,

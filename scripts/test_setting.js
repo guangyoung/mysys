@@ -8,7 +8,7 @@
     var initial_equity = 1000000; //default initial equity...
     var spread_slippage = 0.001;
     var commission_perShare = 0.005;
-    var interest_rate = 0.01;
+    var interest_rate = 0.02;
     var risk_freeRate = 0.01;    
 
     function test_setting_submit_btn() {
@@ -55,7 +55,7 @@
                 'warning'
             )
             return false;
-        } else if ( $("#interest_rate").val() < 0.01 ) {
+        } else if ( $("#interest_rate").val() < 0.02 ) {
             Swal.fire(
                 'Interest rate < 1% !',
                 'Please input Interest rate between 1% - 5%',
