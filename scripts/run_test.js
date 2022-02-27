@@ -459,45 +459,45 @@ async function run_test() {
                     <td style="background-color: #555555; text-align: center; position: sticky; left: 0px;">
                         `+ account_and_trade_summary[i][0] +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][1]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][1]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][2]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][2]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][3]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][3]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][4]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][4]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][5]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][5]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][6]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][6]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][7]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][7]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][8]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][8]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][9]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][9]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][10]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][10]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][11]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][11]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][12]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][12]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][13]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][13]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][14]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][14]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][15]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][15]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][16]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][16]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][17]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][17]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][18]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][18]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][19]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][19]).toFixed(3)) +`</td>
                     <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][20]).toFixed(0)) +`</td>
+                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][20]).toFixed(3)) +`</td>
                 </tr>`
                 $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
             }
