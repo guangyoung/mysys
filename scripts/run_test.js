@@ -89,7 +89,7 @@ async function run_test() {
     //------------------------------------------------------------------------------------
     // Proses Data #######################################################################
     //------------------------------------------------------------------------------------    
-    while(data_idx_process < 100) { 
+    while(data_idx_process < 3) { 
        
         //get test data
         current_date = testData2[data_idx_process].date;
@@ -259,6 +259,8 @@ async function run_test() {
             }
             estimate_comm += math.abs(signal_output.signal_size[i] * 0.005); //commision per share
         }
+        console.log(estimate_imr);
+        console.log(estimate_comm);
 
         //calculate filled percentarge   
         let filled_percentage;
@@ -272,7 +274,7 @@ async function run_test() {
             filled_percentage = preTrade_excess_equity/(estimate_imr+estimate_comm);
         }
 
-        // console.log(filled_percentage);
+        console.log(filled_percentage);
         
         //trade transaction   
         let filledOrder = new Array();
