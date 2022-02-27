@@ -10,8 +10,8 @@ async function run_test() {
     // Parse it to something usable in js
     testData2 = JSON.parse(testData2);
 
-    console.log(testData2);
-    console.log(testData);
+    // console.log(testData2);
+    // console.log(testData);
     if (testData2.length !== 0) {
         Swal.fire(
             'No Test Data !',
