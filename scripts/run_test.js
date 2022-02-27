@@ -258,8 +258,10 @@ async function run_test() {
                 estimate_imr += 0;
             }
             estimate_comm += (math.abs(signal_output.signal_size[i]) * 0.005); //commision per share
-            console.log("signal :"+signal_output.signal_position[i])
-            console.log(estimate_imr);
+            console.log("signal_p :"+signal_output.signal_position[i]);
+            console.log("signal_s :"+signal_output.signal_size[i]);
+            console.log("price :"+stock_price[i]);
+            console.log("estimate_imr :"+estimate_imr);
         }
         console.log(estimate_imr);
         console.log(estimate_comm);
