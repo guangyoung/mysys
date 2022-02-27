@@ -141,7 +141,7 @@ async function run_test() {
         // ---------------------------------------------------------------------------------- 
         data_input = {
             request_no: data_idx_process + 1,
-            buying_power: preTrade_excess_equity,
+            buying_power: preTrade_buying_power,
             stock_price: stock_price.slice(),
             stock_positionSize: preTrade_stock_position_size.slice()
         };
