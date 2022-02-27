@@ -12,7 +12,7 @@ async function run_test() {
 
     // console.log(testData2);
     // console.log(testData);
-    if (testData2.length !== 0) {
+    if (testData2.length == 0) {
         Swal.fire(
             'No Test Data !',
             'Please click Market Data and Create It',
