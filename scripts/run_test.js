@@ -89,7 +89,7 @@ async function run_test() {
     //------------------------------------------------------------------------------------
     // Proses Data #######################################################################
     //------------------------------------------------------------------------------------    
-    while(data_idx_process < 10) { 
+    while(data_idx_process < 3) { 
        
         //get test data
         current_date = testData2[data_idx_process].date;
@@ -257,7 +257,9 @@ async function run_test() {
             } else {
                 estimate_imr += 0;
             }
-            estimate_comm += math.abs(signal_output.signal_size[i] * 0.005); //commision per share
+            estimate_comm += (math.abs(signal_output.signal_size[i]) * 0.005); //commision per share
+            console.log("signal :"+signal_output.signal_position[i])
+            console.log(estimate_imr);
         }
         console.log(estimate_imr);
         console.log(estimate_comm);
