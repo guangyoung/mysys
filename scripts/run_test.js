@@ -113,7 +113,7 @@ async function run_test() {
         } else {
             daily_Interest = 0;
         }
-        preTrade_cash_balance = postTrade_cash_balance - daily_Interest;//cek & tanya cara perhitungan mtd interest            
+        preTrade_cash_balance = postTrade_cash_balance + daily_Interest;//cek & tanya cara perhitungan mtd interest            
         preTrade_market_value = preTrade_stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
         preTrade_equity_with_loanValue = preTrade_cash_balance + preTrade_market_value;
         preTrade_maintenance_margin_req = preTrade_market_value * 0.30;
