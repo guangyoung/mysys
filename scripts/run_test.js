@@ -105,7 +105,7 @@ async function run_test() {
             preTrade_stock_market_value[i] = stock_price[i] * preTrade_stock_position_size[i];
         }
         if (postTrade_cash_balance < 0) {
-            if (new Date(current_date).getDay() == 5) {
+            if (new Date(current_date).getDay() == 1) {
                 daily_Interest = postTrade_cash_balance * (interest_rate / 360) * 3; //cek lagi rumusnya
             } else {
                 daily_Interest = postTrade_cash_balance * (interest_rate / 360) * 1; //cek lagi rumusnya
