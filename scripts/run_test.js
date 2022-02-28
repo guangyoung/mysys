@@ -4,7 +4,7 @@
 // Ini adalah step run test ..................................................................................
 //............................................................................................................
 //............................................................................................................
-async function run_test() {
+function run_test() {
     // Retrieve the array from local storage
     var testData2 = localStorage.getItem('mytestdata');
     // Parse it to something usable in js
@@ -152,9 +152,9 @@ async function run_test() {
             $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_price[i]).toFixed(5)));
             $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_positionSize[i]).toFixed(0)));
         }
-     
-        // while (post_process == "running") {
-            await $.ajax({
+        let post_process = "running";
+        while (post_process == "running") {
+            $.ajax({
                 type: "POST",
                 url: "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey"),
                 data: data_input,
@@ -239,10 +239,12 @@ async function run_test() {
                         }
 
                         $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
+
+                        post_process = "stop";
                     }
                 }
             })
-        // }            
+        }            
         // ----------------------------------------------------------------------------------  
         // TRADE TRANSACTION ================================================================
         // ----------------------------------------------------------------------------------
