@@ -247,9 +247,9 @@ async function run_test() {
                     //pasang logika jika result failed...gimana caranya kembali ke while dataidx process jika failed
                 },
                 error: function () {
-                //   alert(`koneksi ke server gagal, coba beberapa saat lagi`);
-                //   return false;
-                post_process = "running";
+                  alert(`koneksi ke server gagal, coba beberapa saat lagi`);
+                  return false;
+                // post_process = "running";
                 }
             })
         }            
