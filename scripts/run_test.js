@@ -241,6 +241,10 @@ async function run_test() {
                         $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
                     }
                     //pasang logika jika result failed...gimana caranya kembali ke while dataidx process jika failed
+                },
+                error: function () {
+                  alert(`koneksi ke server gagal, coba beberapa saat lagi`);
+                  return false;
                 }
             })
         // }            
