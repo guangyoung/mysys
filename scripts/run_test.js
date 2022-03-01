@@ -153,11 +153,12 @@ async function run_test() {
             $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_positionSize[i]).toFixed(0)));
         }
      
+        let uri = "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey");
         let post_process = "running";
         while (post_process == "running") {
             await $.ajax({
                 type: "POST",
-                url: "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey"),
+                url: uri,
                 data: data_input,
                 dataType: 'json',
                 success: function (result) {
