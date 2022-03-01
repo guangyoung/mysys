@@ -4,7 +4,7 @@
 // Ini adalah step run test ..................................................................................
 //............................................................................................................
 //............................................................................................................
-function run_test() {
+async function run_test() {
     // Retrieve the array from local storage
     var testData2 = localStorage.getItem('mytestdata');
     // Parse it to something usable in js
@@ -153,9 +153,9 @@ function run_test() {
             $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_positionSize[i]).toFixed(0)));
         }
      
-        var post_process = "running";
+        let post_process = "running";
         while (post_process == "running") {
-            $.ajax({
+            await $.ajax({
                 type: "POST",
                 url: "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey"),
                 data: data_input,
