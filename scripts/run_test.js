@@ -285,7 +285,7 @@ async function run_test() {
         } else if(preTrade_excess_equity > (estimate_imr+estimate_comm)) {
             filled_percentage = 1;
         } else {
-            filled_percentage = preTrade_excess_equity/(estimate_imr+estimate_comm);
+            filled_percentage = Math.floor((preTrade_excess_equity/(estimate_imr+estimate_comm)) * 1000) / 1000;
         }
 
         console.log(filled_percentage);
