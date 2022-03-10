@@ -268,13 +268,13 @@ async function run_test() {
                 estimate_imr += 0;
             }
             estimate_comm += (math.abs(signal_output.signal_size[i]) * 0.005); //commision per share
-            console.log("signal_p :"+signal_output.signal_position[i]);
-            console.log("signal_s :"+signal_output.signal_size[i]);
-            console.log("price :"+stock_price[i]);
-            console.log("estimate_imr :"+estimate_imr);
+            // console.log("signal_p :"+signal_output.signal_position[i]);
+            // console.log("signal_s :"+signal_output.signal_size[i]);
+            // console.log("price :"+stock_price[i]);
+            // console.log("estimate_imr :"+estimate_imr);
         }
-        console.log(estimate_imr);
-        console.log(estimate_comm);
+        // console.log(estimate_imr);
+        // console.log(estimate_comm);
 
         //calculate filled percentarge   
         let filled_percentage;
@@ -290,7 +290,7 @@ async function run_test() {
             filled_percentage = preTrade_excess_equity/(estimate_imr+estimate_comm);
         }
 
-        console.log(filled_percentage);
+        // console.log(filled_percentage);
         
         //trade transaction   
         let filledOrder = new Array();
@@ -362,7 +362,7 @@ async function run_test() {
             postTrade_stock_market_value: postTrade_stock_market_value.slice()
         })
                 
-        console.log(stock_trade_details);
+        // console.log(stock_trade_details);
 
         account_and_trade_summary.push([
             current_date,
@@ -387,13 +387,13 @@ async function run_test() {
             postTrade_excess_equity,
             postTrade_buying_power
         ]);
-        console.log(account_and_trade_summary);
+        // console.log(account_and_trade_summary);
 
         data_input_output_arr.push({
             input: data_input,
             output: signal_output
         });
-        console.log(data_input_output_arr); 
+        // console.log(data_input_output_arr); 
                
         // ----------------------------------------------------------------------------------
         // UPDATE TRADE PERFORMANCE COMPARISON, QUANTXI AI VS BUY AND HOLD ==================
