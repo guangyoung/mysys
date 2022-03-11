@@ -4,7 +4,7 @@
 // Ini adalah step run test ..................................................................................
 //............................................................................................................
 //............................................................................................................
-async function run_test() {
+function run_test() {
     // Retrieve the array from local storage
     var testData2 = localStorage.getItem('mytestdata');
     // Parse it to something usable in js
@@ -153,85 +153,88 @@ async function run_test() {
             $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_positionSize[i]).toFixed(0)));
         }
      
-        let uri = "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey");
+        let apiKEY = localStorage.getItem("apiKey");
+
+        signal_output = getData(apiKEY,data_input);
+        
         // let post_process = "running";
         // while (post_process == "running") {
-            await $.ajax({
-                type: "POST",
-                url: uri,
-                data: data_input,
-                dataType: 'json',
-                success: function (result) {
-                    if (result.status == "success") {
+            // await $.ajax({
+            //     type: "POST",
+            //     url: uri,
+            //     data: data_input,
+            //     dataType: 'json',
+            //     success: function (result) {
+            //         if (result.status == "success") {
 
-                        signal_output = {
-                            response_no: result.data.data_id,//ganti jadi response id
-                            signal_timestamp: result.data.signal_timestamp,
-                            signal_position: [
-                                result.data.signal_position_stock1,
-                                result.data.signal_position_stock2,
-                                result.data.signal_position_stock3,
-                                result.data.signal_position_stock4,
-                                result.data.signal_position_stock5,
-                                result.data.signal_position_stock6,
-                                result.data.signal_position_stock7,
-                                result.data.signal_position_stock8,
-                                result.data.signal_position_stock9,
-                                result.data.signal_position_stock10,
-                                result.data.signal_position_stock11,
-                                result.data.signal_position_stock12,
-                                result.data.signal_position_stock13,
-                                result.data.signal_position_stock14,
-                                result.data.signal_position_stock15,
-                                result.data.signal_position_stock16,
-                                result.data.signal_position_stock17,
-                                result.data.signal_position_stock18,
-                                result.data.signal_position_stock19,
-                                result.data.signal_position_stock20,
-                                result.data.signal_position_stock21,
-                                result.data.signal_position_stock22,
-                                result.data.signal_position_stock23,
-                                result.data.signal_position_stock24,
-                                result.data.signal_position_stock25,
-                                result.data.signal_position_stock26,
-                                result.data.signal_position_stock27,
-                                result.data.signal_position_stock28,
-                                result.data.signal_position_stock29,
-                                result.data.signal_position_stock30
-                            ],
-                            signal_size: [
-                                result.data.signal_size_stock1,
-                                result.data.signal_size_stock2,
-                                result.data.signal_size_stock3,
-                                result.data.signal_size_stock4,
-                                result.data.signal_size_stock5,
-                                result.data.signal_size_stock6,
-                                result.data.signal_size_stock7,
-                                result.data.signal_size_stock8,
-                                result.data.signal_size_stock9,
-                                result.data.signal_size_stock10,
-                                result.data.signal_size_stock11,
-                                result.data.signal_size_stock12,
-                                result.data.signal_size_stock13,
-                                result.data.signal_size_stock14,
-                                result.data.signal_size_stock15,
-                                result.data.signal_size_stock16,
-                                result.data.signal_size_stock17,
-                                result.data.signal_size_stock18,
-                                result.data.signal_size_stock19,
-                                result.data.signal_size_stock20,
-                                result.data.signal_size_stock21,
-                                result.data.signal_size_stock22,
-                                result.data.signal_size_stock23,
-                                result.data.signal_size_stock24,
-                                result.data.signal_size_stock25,
-                                result.data.signal_size_stock26,
-                                result.data.signal_size_stock27,
-                                result.data.signal_size_stock28,
-                                result.data.signal_size_stock29,
-                                result.data.signal_size_stock30
-                            ]
-                        };     
+            //             signal_output = {
+            //                 response_no: result.data.data_id,//ganti jadi response id
+            //                 signal_timestamp: result.data.signal_timestamp,
+            //                 signal_position: [
+            //                     result.data.signal_position_stock1,
+            //                     result.data.signal_position_stock2,
+            //                     result.data.signal_position_stock3,
+            //                     result.data.signal_position_stock4,
+            //                     result.data.signal_position_stock5,
+            //                     result.data.signal_position_stock6,
+            //                     result.data.signal_position_stock7,
+            //                     result.data.signal_position_stock8,
+            //                     result.data.signal_position_stock9,
+            //                     result.data.signal_position_stock10,
+            //                     result.data.signal_position_stock11,
+            //                     result.data.signal_position_stock12,
+            //                     result.data.signal_position_stock13,
+            //                     result.data.signal_position_stock14,
+            //                     result.data.signal_position_stock15,
+            //                     result.data.signal_position_stock16,
+            //                     result.data.signal_position_stock17,
+            //                     result.data.signal_position_stock18,
+            //                     result.data.signal_position_stock19,
+            //                     result.data.signal_position_stock20,
+            //                     result.data.signal_position_stock21,
+            //                     result.data.signal_position_stock22,
+            //                     result.data.signal_position_stock23,
+            //                     result.data.signal_position_stock24,
+            //                     result.data.signal_position_stock25,
+            //                     result.data.signal_position_stock26,
+            //                     result.data.signal_position_stock27,
+            //                     result.data.signal_position_stock28,
+            //                     result.data.signal_position_stock29,
+            //                     result.data.signal_position_stock30
+            //                 ],
+            //                 signal_size: [
+            //                     result.data.signal_size_stock1,
+            //                     result.data.signal_size_stock2,
+            //                     result.data.signal_size_stock3,
+            //                     result.data.signal_size_stock4,
+            //                     result.data.signal_size_stock5,
+            //                     result.data.signal_size_stock6,
+            //                     result.data.signal_size_stock7,
+            //                     result.data.signal_size_stock8,
+            //                     result.data.signal_size_stock9,
+            //                     result.data.signal_size_stock10,
+            //                     result.data.signal_size_stock11,
+            //                     result.data.signal_size_stock12,
+            //                     result.data.signal_size_stock13,
+            //                     result.data.signal_size_stock14,
+            //                     result.data.signal_size_stock15,
+            //                     result.data.signal_size_stock16,
+            //                     result.data.signal_size_stock17,
+            //                     result.data.signal_size_stock18,
+            //                     result.data.signal_size_stock19,
+            //                     result.data.signal_size_stock20,
+            //                     result.data.signal_size_stock21,
+            //                     result.data.signal_size_stock22,
+            //                     result.data.signal_size_stock23,
+            //                     result.data.signal_size_stock24,
+            //                     result.data.signal_size_stock25,
+            //                     result.data.signal_size_stock26,
+            //                     result.data.signal_size_stock27,
+            //                     result.data.signal_size_stock28,
+            //                     result.data.signal_size_stock29,
+            //                     result.data.signal_size_stock30
+            //                 ]
+            //             };     
                                                     
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.response_no).toFixed(0)));
                         $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
@@ -242,16 +245,16 @@ async function run_test() {
 
                         $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
 
-                        // post_process = "stop";
-                    }
-                    //pasang logika jika result failed...gimana caranya kembali ke while dataidx process jika failed
-                },
-                error: function () {
-                  alert(`koneksi ke server gagal, coba beberapa saat lagi`);
-                  return false;
-                // post_process = "running";
-                }
-            })
+            //             // post_process = "stop";
+            //         }
+            //         //pasang logika jika result failed...gimana caranya kembali ke while dataidx process jika failed
+            //     },
+            //     error: function () {
+            //       alert(`koneksi ke server gagal, coba beberapa saat lagi`);
+            //       return false;
+            //     // post_process = "running";
+            //     }
+            // })
         // }            
         // ----------------------------------------------------------------------------------  
         // TRADE TRANSACTION ================================================================
@@ -624,4 +627,89 @@ async function run_test() {
     )
 
     $('#test_result').modal('show');
+}
+
+async function getData(apiKey,data_input) {
+    let uri = "https://api.quantxi.com/add_data?api_key=" + apiKey;
+    var signal_output;
+    await $.ajax({
+        type: "POST",
+        url: uri,
+        data: data_input,
+        dataType: 'json',
+        success: function (result) {
+            if (result.status == "success") {
+
+                signal_output = {
+                    response_no: result.data.data_id,//ganti jadi response id
+                    signal_timestamp: result.data.signal_timestamp,
+                    signal_position: [
+                        result.data.signal_position_stock1,
+                        result.data.signal_position_stock2,
+                        result.data.signal_position_stock3,
+                        result.data.signal_position_stock4,
+                        result.data.signal_position_stock5,
+                        result.data.signal_position_stock6,
+                        result.data.signal_position_stock7,
+                        result.data.signal_position_stock8,
+                        result.data.signal_position_stock9,
+                        result.data.signal_position_stock10,
+                        result.data.signal_position_stock11,
+                        result.data.signal_position_stock12,
+                        result.data.signal_position_stock13,
+                        result.data.signal_position_stock14,
+                        result.data.signal_position_stock15,
+                        result.data.signal_position_stock16,
+                        result.data.signal_position_stock17,
+                        result.data.signal_position_stock18,
+                        result.data.signal_position_stock19,
+                        result.data.signal_position_stock20,
+                        result.data.signal_position_stock21,
+                        result.data.signal_position_stock22,
+                        result.data.signal_position_stock23,
+                        result.data.signal_position_stock24,
+                        result.data.signal_position_stock25,
+                        result.data.signal_position_stock26,
+                        result.data.signal_position_stock27,
+                        result.data.signal_position_stock28,
+                        result.data.signal_position_stock29,
+                        result.data.signal_position_stock30
+                    ],
+                    signal_size: [
+                        result.data.signal_size_stock1,
+                        result.data.signal_size_stock2,
+                        result.data.signal_size_stock3,
+                        result.data.signal_size_stock4,
+                        result.data.signal_size_stock5,
+                        result.data.signal_size_stock6,
+                        result.data.signal_size_stock7,
+                        result.data.signal_size_stock8,
+                        result.data.signal_size_stock9,
+                        result.data.signal_size_stock10,
+                        result.data.signal_size_stock11,
+                        result.data.signal_size_stock12,
+                        result.data.signal_size_stock13,
+                        result.data.signal_size_stock14,
+                        result.data.signal_size_stock15,
+                        result.data.signal_size_stock16,
+                        result.data.signal_size_stock17,
+                        result.data.signal_size_stock18,
+                        result.data.signal_size_stock19,
+                        result.data.signal_size_stock20,
+                        result.data.signal_size_stock21,
+                        result.data.signal_size_stock22,
+                        result.data.signal_size_stock23,
+                        result.data.signal_size_stock24,
+                        result.data.signal_size_stock25,
+                        result.data.signal_size_stock26,
+                        result.data.signal_size_stock27,
+                        result.data.signal_size_stock28,
+                        result.data.signal_size_stock29,
+                        result.data.signal_size_stock30
+                    ]
+                }; 
+            }
+        }
+    })
+    return signal_output;
 }
