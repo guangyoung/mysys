@@ -154,6 +154,7 @@ function run_test() {
         }
      
         let apiKEY = localStorage.getItem("apiKey");
+        console.log(apiKEY,data_input);
 
         console.log(getData(apiKEY,data_input));
 
