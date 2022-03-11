@@ -155,6 +155,8 @@ function run_test() {
      
         let apiKEY = localStorage.getItem("apiKey");
 
+        console.log(getData(apiKEY,data_input));
+
         signal_output = getData(apiKEY,data_input);
         
         // let post_process = "running";
@@ -237,7 +239,7 @@ function run_test() {
             //             };     
                                                     
                         $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.response_no).toFixed(0)));
-                        // $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
+                        $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
                         for (i = 0; i < 30; i++) {
                             $("#signal_position_stock" + (i+1)).html(signal_output.signal_position[i]);
                             $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.signal_size[i]).toFixed(0)));
