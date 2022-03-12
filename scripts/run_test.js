@@ -154,8 +154,8 @@ async function run_test() {
         }
      
         let uri = "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey");
-        // let post_process = "running";
-        // while (post_process == "running") {
+        let post_process = "running";
+        while (post_process == "running") {
             await $.ajax({
                 type: "POST",
                 url: uri,
@@ -242,17 +242,17 @@ async function run_test() {
 
                         $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
 
-                        // post_process = "stop";
+                        post_process = "stop";
                     }
                     //pasang logika jika result failed...gimana caranya kembali ke while dataidx process jika failed
                 },
                 error: function () {
-                  alert(`koneksi ke server gagal, coba beberapa saat lagi`);
+                //   alert(`koneksi ke server gagal, coba beberapa saat lagi`);
                 //   return false;
-                // post_process = "running";
+                    post_process = "running";
                 }
             })
-        // }            
+        }            
         // ----------------------------------------------------------------------------------  
         // TRADE TRANSACTION ================================================================
         // ----------------------------------------------------------------------------------
