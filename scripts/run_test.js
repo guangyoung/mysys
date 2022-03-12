@@ -462,90 +462,90 @@ async function run_test() {
     // TRADE TESTING REPORT ###############################################################
     //-------------------------------------------------------------------------------------
 
-    $('#period_testing').val(account_and_trade_summary[0].date +" - "+ account_and_trade_summary[account_and_trade_summary.length-1].date);
-    // account and trade summary table
-    $("#pagination_trade_report").twbsPagination("destroy");
-    $("#pagination_trade_report").twbsPagination({
-        totalPages: math.ceil(account_and_trade_summary.length/25),
-        visiblePages: 4,
-        onPageClick: function (event, page) {
-            $("#account_trade_summary_tbl>tbody").empty();
-            for (i = (page - 1) * 25; i < (page * 25) && i < account_and_trade_summary.length; i++) {
-                let account_trade_summary_row =
-                `<tr>
-                    <td style="background-color: #555555; text-align: center; position: sticky; left: 0px;">
-                        `+ account_and_trade_summary[i][0] +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][1]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][2]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][3]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][4]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][5]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][6]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][7]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][8]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][9]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][10]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][11]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][12]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][13]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][14]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][15]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][16]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][17]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][18]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][19]).toFixed(3)) +`</td>
-                    <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
-                        `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][20]).toFixed(3)) +`</td>
-                </tr>`
-                $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
-            }
-        }
-    });
+    // $('#period_testing').val(account_and_trade_summary[0].date +" - "+ account_and_trade_summary[account_and_trade_summary.length-1].date);
+    // // account and trade summary table
+    // $("#pagination_trade_report").twbsPagination("destroy");
+    // $("#pagination_trade_report").twbsPagination({
+    //     totalPages: math.ceil(account_and_trade_summary.length/25),
+    //     visiblePages: 4,
+    //     onPageClick: function (event, page) {
+    //         $("#account_trade_summary_tbl>tbody").empty();
+    //         for (i = (page - 1) * 25; i < (page * 25) && i < account_and_trade_summary.length; i++) {
+    //             let account_trade_summary_row =
+    //             `<tr>
+    //                 <td style="background-color: #555555; text-align: center; position: sticky; left: 0px;">
+    //                     `+ account_and_trade_summary[i][0] +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][1]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][2]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][3]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][4]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][5]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][6]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][7]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][8]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][9]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][10]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][11]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][12]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][13]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][14]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][15]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][16]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][17]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][18]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][19]).toFixed(3)) +`</td>
+    //                 <td style="text-align: right; border-left: 1px #373737 solid; padding: 0 3px">
+    //                     `+ Intl.NumberFormat().format(parseFloat(account_and_trade_summary[i][20]).toFixed(3)) +`</td>
+    //             </tr>`
+    //             $("#account_trade_summary_tbl>tbody").append(account_trade_summary_row);
+    //         }
+    //     }
+    // });
 
-    // all request and response table
-    $("#pagination_post_request_response").twbsPagination("destroy");
-    $("#pagination_post_request_response").twbsPagination({
-        totalPages: math.ceil(data_input_output_arr.length/1),
-        visiblePages: 4,
-        onPageClick: function (event, page) {
-            $("#allpost_tbl>tbody").empty();
-            for (i = page - 1; i < page && i < data_input_output_arr.length; i++) {
-                let data_input_output_arr_row =
-                `<tr>
-                    <td style="border-right: 1px #292b43 solid">
-                        <pre style="font-size: 11px; color: black; margin-left: 20px; margin-top: 25px; margin-bottom: -15px">` 
-                        + JSON.stringify(data_input_output_arr[i].input, null, 4) +
-                        `</pre>;
-                    </td>
-                    <td>
-                        <pre style="font-size: 11px; color: black; margin-left: 20px; margin-top: 25px; margin-bottom: -15px">` 
-                        + JSON.stringify(data_input_output_arr[i].output, null, 4) +
-                        `</pre>;
-                    </td>
-                </tr>`
-                $("#allpost_tbl>tbody").append(data_input_output_arr_row);
-            }
-        }
-    });
+    // // all request and response table
+    // $("#pagination_post_request_response").twbsPagination("destroy");
+    // $("#pagination_post_request_response").twbsPagination({
+    //     totalPages: math.ceil(data_input_output_arr.length/1),
+    //     visiblePages: 4,
+    //     onPageClick: function (event, page) {
+    //         $("#allpost_tbl>tbody").empty();
+    //         for (i = page - 1; i < page && i < data_input_output_arr.length; i++) {
+    //             let data_input_output_arr_row =
+    //             `<tr>
+    //                 <td style="border-right: 1px #292b43 solid">
+    //                     <pre style="font-size: 11px; color: black; margin-left: 20px; margin-top: 25px; margin-bottom: -15px">` 
+    //                     + JSON.stringify(data_input_output_arr[i].input, null, 4) +
+    //                     `</pre>;
+    //                 </td>
+    //                 <td>
+    //                     <pre style="font-size: 11px; color: black; margin-left: 20px; margin-top: 25px; margin-bottom: -15px">` 
+    //                     + JSON.stringify(data_input_output_arr[i].output, null, 4) +
+    //                     `</pre>;
+    //                 </td>
+    //             </tr>`
+    //             $("#allpost_tbl>tbody").append(data_input_output_arr_row);
+    //         }
+    //     }
+    // });
 
     // //performance chart
 
