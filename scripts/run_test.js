@@ -4,7 +4,7 @@
 // Ini adalah step run test ..................................................................................
 //............................................................................................................
 //............................................................................................................
-async function run_test() {
+function run_test() {
     // Retrieve the array from local storage
     var testData2 = localStorage.getItem('mytestdata');
     // Parse it to something usable in js
@@ -89,7 +89,7 @@ async function run_test() {
     //------------------------------------------------------------------------------------
     // Proses Data #######################################################################
     //------------------------------------------------------------------------------------    
-    setInterval(function(){
+    setInterval(async function(){
         // if (data_idx_process < 2000) {   
             //get test data
             current_date = testData2[data_idx_process].date;
