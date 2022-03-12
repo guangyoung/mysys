@@ -90,7 +90,7 @@ function run_test() {
     // Proses Data #######################################################################
     //------------------------------------------------------------------------------------    
     setInterval(async function(){
-        // if (data_idx_process < 2000) {   
+        if (data_idx_process < 2000) {   
             //get test data
             current_date = testData2[data_idx_process].date;
             for (i = 0; i < 30; i++) {
@@ -453,6 +453,7 @@ function run_test() {
             $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
 
             data_idx_process++;
+        }
         },1);
     // }
     //-------------------------------------------------------------------------------------
