@@ -90,7 +90,7 @@ async function run_test() {
     // Proses Data #######################################################################
     //------------------------------------------------------------------------------------    
     // while(data_idx_process < 2000) { 
-    for (i=data_idx_process; i<2000; ) {   
+    for (i=0; i<2000; i++ ) {   
         //get test data
         current_date = testData2[data_idx_process].date;
         for (i = 0; i < 30; i++) {
