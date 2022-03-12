@@ -249,7 +249,7 @@ async function run_test() {
                 error: function () {
                 //   alert(`koneksi ke server gagal, coba beberapa saat lagi`);
                 //   return false;
-                    post_process = "running";
+                    reset_test();
                 }
             })
         }            
