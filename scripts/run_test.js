@@ -628,5 +628,5 @@ async function run_test() {
         'success'
     )
 
-    $('#test_result').modal('show');
+    // $('#test_result').modal('show');
 }
