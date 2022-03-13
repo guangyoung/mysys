@@ -231,9 +231,11 @@ function add_data_random() {
     $("#Xchange_btn_random").html(`<span class="Xchange_random">Select Exchange</span>`);
     ticker_list = [];
     $('#ulul').empty();
+    exchange_choose_current_manual = "";
+    exchange_choose_previous_manual = "";
     exchange_choose_current_random = "";
     exchange_choose_previous_random = "";
-  }
+    }
   // $(':button').prop('disabled', false);
 }
 
