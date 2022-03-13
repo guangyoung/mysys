@@ -449,9 +449,10 @@ async function run_test() {
                 },
                 error: function (request, status, err) {
                     if (status == "timeout") {
+                        data_idx_process = data_idx_process;
                         // timeout -> reload the page and try again
                     //  clearInterval(ajax_call);
-                        window.location.reload(); //make it comment if you don't want to reload page
+                        // window.location.reload(); //make it comment if you don't want to reload page
                     } else {
                         // another error occured  
                         alert("error: " + request + status + err);
