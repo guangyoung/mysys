@@ -448,7 +448,7 @@ async function run_test() {
                     //pasang logika jika result failed...gimana caranya kembali ke while dataidx process jika failed
                 },
                 error: function (request, status, err) {
-                    if (status == "timeout") {
+                    if (statusText == "parsererror") {
                         data_idx_process = data_idx_process;
                         // timeout -> reload the page and try again
                     //  clearInterval(ajax_call);
