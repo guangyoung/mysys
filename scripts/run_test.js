@@ -160,7 +160,7 @@ async function run_test() {
                 type: "POST",
                 url: uri,
                 data: data_input,
-                // dataType: 'json',
+                dataType: 'json',
                 success: function (result) {
                     if (result.status == "success") {
 
