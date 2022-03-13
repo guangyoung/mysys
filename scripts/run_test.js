@@ -449,7 +449,7 @@ async function run_test() {
                 },
                 error: function (result) {
                     if (result.statusText == "parsererror") {
-                        data_idx_process = data_idx_process;
+                        debugger;
                         // timeout -> reload the page and try again
                     //  clearInterval(ajax_call);
                         // window.location.reload(); //make it comment if you don't want to reload page
