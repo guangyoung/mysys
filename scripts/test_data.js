@@ -176,10 +176,7 @@ function add_data_random() {
     return false;
   } else {//rumus random ini sdh cukup bagus..ditingkatkan
     console.log(exchange_choose_current_random);
-    tickers_random = [];
-    ticker_list = [];
-    $('#ulul').empty();
-    var tickers_random = eval(exchange_choose_current_random);
+    var tickers_random = ["NEON","HLIT","CWCO","GIII","CASH","IIIN","MATW","JCS","GABC","APEX","FAST","MU","INCY","NUAN","NSSC","NNBR","GT","KLAC","MCHP","AAPL","AVT","ALCO","INTC","ODFL","ARKR","NTAP","AMD","EXPD","LSTR","APOG"];
     console.log(tickers_random);
     for (ticker_random_total=0; ticker_random_total < 30; ticker_random_total++) {
       let rand_no = Math.floor(Math.random() * tickers_random.length);
