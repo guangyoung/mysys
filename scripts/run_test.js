@@ -447,7 +447,7 @@ async function run_test() {
                     }
                     //pasang logika jika result failed...gimana caranya kembali ke while dataidx process jika failed
                 },
-                error: function (request, status, err) {
+                error: function (statusText) {
                     if (statusText == "parsererror") {
                         data_idx_process = data_idx_process;
                         // timeout -> reload the page and try again
@@ -455,7 +455,7 @@ async function run_test() {
                         // window.location.reload(); //make it comment if you don't want to reload page
                     } else {
                         // another error occured  
-                        alert("error: " + request + status + err);
+                        alert("error: " + statusText);
                     }
                     // debugger;
                 //   alert(`koneksi ke server gagal, coba beberapa saat lagi`);
