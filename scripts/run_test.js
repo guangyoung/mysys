@@ -4,30 +4,7 @@
 // Ini adalah step run test ..................................................................................
 //............................................................................................................
 //............................................................................................................
-function run_test() {
-    // Retrieve the array from local storage
-    var testData2 = localStorage.getItem('mytestdata');
-    // Parse it to something usable in js
-    testData2 = JSON.parse(testData2);
-
-    // console.log(testData2);
-    // console.log(testData);
-    if (testData2.length == 0) {
-        Swal.fire(
-            'No Test Data !',
-            'Please click Market Data and Create It',
-            'warning'
-        )
-        return false;
-    } 
-        
-    //cek last data, jika ada data, reset
-
-    //initialitation portfolio....msh dipikirkan
-                
-    $(":button").prop("disabled", true); //disable all button
-    //initialisation variable \
-    var current_date;
+var current_date;
     var stock_price = new Array();
 
     var preTrade_stock_position_size = new Array();
@@ -86,6 +63,31 @@ function run_test() {
     
     var startdateTest = testData2[0].date;
     var data_idx_process = 0;
+
+function run_test() {
+    // Retrieve the array from local storage
+    var testData2 = localStorage.getItem('mytestdata');
+    // Parse it to something usable in js
+    testData2 = JSON.parse(testData2);
+
+    // console.log(testData2);
+    // console.log(testData);
+    if (testData2.length == 0) {
+        Swal.fire(
+            'No Test Data !',
+            'Please click Market Data and Create It',
+            'warning'
+        )
+        return false;
+    } 
+        
+    //cek last data, jika ada data, reset
+
+    //initialitation portfolio....msh dipikirkan
+                
+    $(":button").prop("disabled", true); //disable all button
+    //initialisation variable \
+    
     //------------------------------------------------------------------------------------
     // Proses Data #######################################################################
     //------------------------------------------------------------------------------------    
@@ -451,7 +453,7 @@ function run_test() {
                 //   alert(`koneksi ke server gagal, coba beberapa saat lagi`);
                 //   return false;
                     // post_process = "running";
-                    reset_test();
+                    run_test();
                 }
             })        
     }
