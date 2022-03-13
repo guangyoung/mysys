@@ -97,5 +97,5 @@ async function reset_test() {
       return false;
     }
   })
-  // window.location.reload();
+  window.location.href;
 }
