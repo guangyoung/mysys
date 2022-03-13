@@ -155,6 +155,7 @@ function tickers_exchange_btn_random() {
     exchange_choose_current_random = getEventTarget(event).innerText.split(' - ')[0]; 
     $(this).closest("#tickers_exchange_select_random").find('.Xchange_random').text(getEventTarget(event).innerText || 'Select Exchange');
   });
+  console.log(exchange_choose_current_random);
 }
 
 
@@ -174,6 +175,7 @@ function add_data_random() {
     )
     return false;
   } else {//rumus random ini sdh cukup bagus..ditingkatkan
+    console.log(exchange_choose_current_random);
     var tickers_random = eval(exchange_choose_current_random);
     for (ticker_random_total=0; ticker_random_total < 30; ticker_random_total++) {
       let rand_no = Math.floor(Math.random() * tickers_random.length);
