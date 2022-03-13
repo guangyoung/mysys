@@ -4,7 +4,7 @@
 // Ini adalah step run test ..................................................................................
 //............................................................................................................
 //............................................................................................................
-function run_test() {
+async function run_test() {
     // Retrieve the array from local storage
     var testData2 = localStorage.getItem('mytestdata');
     // Parse it to something usable in js
@@ -156,7 +156,7 @@ function run_test() {
         let uri = "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey");
         // let post_process = "running";
         // while (post_process == "running") {
-            $.ajax({
+           await $.ajax({
                 type: "POST",
                 url: uri,
                 data: data_input,
@@ -447,8 +447,16 @@ function run_test() {
                     }
                     //pasang logika jika result failed...gimana caranya kembali ke while dataidx process jika failed
                 },
-                error: function (result) {
-                    debugger;
+                error: function (request, status, err) {
+                    if (status == "timeout") {
+                        // timeout -> reload the page and try again
+                    //  clearInterval(ajax_call);
+                        window.location.reload(); //make it comment if you don't want to reload page
+                    } else {
+                        // another error occured  
+                        alert("error: " + request + status + err);
+                    }
+                    // debugger;
                 //   alert(`koneksi ke server gagal, coba beberapa saat lagi`);
                 //   return false;
                     // post_process = "running";
