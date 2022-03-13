@@ -240,7 +240,7 @@ async function run_test() {
                         //     $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.signal_size[i]).toFixed(0)));
                         // }
 
-                        // $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
+                        $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
 
                         // }            
                         // ----------------------------------------------------------------------------------  
@@ -434,7 +434,7 @@ async function run_test() {
                         buyhold_sortino = (1);
 
                         //tampilkan rasio ke halaman web------------------------------
-                        $('#quantxi_equity').html(Intl.NumberFormat().format(parseFloat(quantxi_equity).toFixed(0)));
+                        // $('#quantxi_equity').html(Intl.NumberFormat().format(parseFloat(quantxi_equity).toFixed(0)));
                         // $('#buyhold_equity').html(Intl.NumberFormat().format(parseFloat(buyhold_equity).toFixed(0)));
                         // $('#quantxi_total_return').html(parseFloat(quantxi_total_return * 100).toFixed(2) + "%");
                         // $('#buyhold_total_return').html(parseFloat(buyhold_total_return * 100).toFixed(2) + "%");
