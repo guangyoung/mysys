@@ -127,14 +127,14 @@ async function run_test() {
         }
         
         //View in web account & margin summary
-        // $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(preTrade_cash_balance).toFixed(0)));
-        // $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(preTrade_market_value).toFixed(0)));
-        // $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(preTrade_equity_with_loanValue).toFixed(0)));
-        // $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_maintenance_margin_req).toFixed(0)));
-        // $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_liquidity).toFixed(0)));
-        // $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_regT_margin_req).toFixed(0)));
-        // $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_equity).toFixed(0)));
-        // $('#buying_power').html(Intl.NumberFormat().format(parseFloat(preTrade_buying_power).toFixed(0)));
+        $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(preTrade_cash_balance).toFixed(0)));
+        $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(preTrade_market_value).toFixed(0)));
+        $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(preTrade_equity_with_loanValue).toFixed(0)));
+        $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_maintenance_margin_req).toFixed(0)));
+        $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_liquidity).toFixed(0)));
+        $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_regT_margin_req).toFixed(0)));
+        $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_equity).toFixed(0)));
+        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(preTrade_buying_power).toFixed(0)));
         
         // ----------------------------------------------------------------------------------  
         // REQUEST SIGNAL TO QUANTXI AI =====================================================
@@ -146,21 +146,21 @@ async function run_test() {
             stock_positionSize: preTrade_stock_position_size.slice()
         };
 
-        // $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
-        // $('#buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input.buying_power).toFixed(0)));
-        // for (i = 0; i < 30; i++) {
-        //     $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_price[i]).toFixed(5)));
-        //     $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_positionSize[i]).toFixed(0)));
-        // }
+        $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
+        $('#buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input.buying_power).toFixed(0)));
+        for (i = 0; i < 30; i++) {
+            $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_price[i]).toFixed(5)));
+            $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_positionSize[i]).toFixed(0)));
+        }
      
         let uri = "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey");
         // let post_process = "running";
         // while (post_process == "running") {
-           await $.ajax({
+            await $.ajax({
                 type: "POST",
                 url: uri,
                 data: data_input,
-                dataType: 'json',
+                // dataType: 'json',
                 success: function (result) {
                     if (result.status == "success") {
 
@@ -233,237 +233,226 @@ async function run_test() {
                             ]
                         };     
                                                     
-                        // $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.response_no).toFixed(0)));
-                        // $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
-                        // for (i = 0; i < 30; i++) {
-                        //     $("#signal_position_stock" + (i+1)).html(signal_output.signal_position[i]);
-                        //     $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.signal_size[i]).toFixed(0)));
-                        // }
+                        $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.response_no).toFixed(0)));
+                        $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
+                        for (i = 0; i < 30; i++) {
+                            $("#signal_position_stock" + (i+1)).html(signal_output.signal_position[i]);
+                            $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.signal_size[i]).toFixed(0)));
+                        }
 
                         $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
-
-                        // }            
-                        // ----------------------------------------------------------------------------------  
-                        // TRADE TRANSACTION ================================================================
-                        // ----------------------------------------------------------------------------------
-                        //calculated estimate total trade value asumsi
-                        let estimate_imr = 0;
-                        let estimate_comm = 0;
-                        for (i = 0; i < 30; i++) {
-                            if (signal_output.signal_position[i] == "BUY") {
-                                estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 + spread_slippage)))*0.5;
-                            } else if (signal_output.signal_position[i] == "SELL") {
-                                estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)))*0.5;               
-                            } else {
-                                estimate_imr += 0;
-                            }
-                            estimate_comm += (math.abs(signal_output.signal_size[i]) * 0.005); //commision per share
-                            // console.log("signal_p :"+signal_output.signal_position[i]);
-                            // console.log("signal_s :"+signal_output.signal_size[i]);
-                            // console.log("price :"+stock_price[i]);
-                            // console.log("estimate_imr :"+estimate_imr);
-                        }
-                        // console.log(estimate_imr);
-                        // console.log(estimate_comm);
-
-                        //calculate filled percentarge   
-                        let filled_percentage;
-                        if((estimate_imr+estimate_comm) == 0) {
-                            filled_percentage = 0;
-                        }else if((estimate_imr+estimate_comm) < 0) {
-                            filled_percentage = 1;
-                        } else if(preTrade_excess_equity < 0 && (estimate_imr+estimate_comm) >= 0) {
-                            filled_percentage = 0;
-                        } else if(preTrade_excess_equity > (estimate_imr+estimate_comm)) {
-                            filled_percentage = 1;
-                        } else {
-                            filled_percentage = preTrade_excess_equity/(estimate_imr+estimate_comm);
-                        }
-
-                        // console.log(filled_percentage);
-                        
-                        //trade transaction   
-                        let filledOrder = new Array();
-                        let filledPrice = new Array();
-                        let tradeValue = new Array();
-                        let commission_arr = new Array();
-                        let initialMargin = new Array();
-                        for (i = 0; i < 30; i++) {
-                            if (signal_output.signal_position[i] == "BUY") {
-                                filledOrder[i] = (signal_output.signal_size[i] * filled_percentage);
-                                filledPrice[i] = stock_price[i] * (1 + spread_slippage);
-                            } else if (signal_output.signal_position[i] == "SELL") {
-                                filledOrder[i] = (signal_output.signal_size[i] * filled_percentage);
-                                filledPrice[i] = stock_price[i] * (1 - spread_slippage);               
-                            } else {
-                                filledOrder[i] = 0;
-                                filledPrice[i] = 0;
-                            }
-                            tradeValue[i] = filledOrder[i] * filledPrice[i];
-                            commission_arr[i] = math.abs(filledOrder[i]) * commission_perShare;
-                            initialMargin[i] = tradeValue[i] * 0.50;
-                        }
-                            
-                        let total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current });
-                        let total_commission = commission_arr.reduce(function (accumulator, current) { return accumulator + current });
-                        let total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current });
-                                
-                        // ----------------------------------------------------------------------------------
-                        // POST TRADE POSITION CALCULATION ==================================================
-                        // ----------------------------------------------------------------------------------
-                        for (i = 0; i < 30; i++) {
-                            postTrade_stock_position_size[i] = preTrade_stock_position_size[i] + filledOrder[i];
-                            postTrade_stock_market_value[i] = stock_price[i] * postTrade_stock_position_size[i];
-                        }            
-                        postTrade_cash_balance = preTrade_cash_balance - (total_trade_value + total_commission);            
-                        postTrade_market_value = postTrade_stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
-                        postTrade_equity_with_loanValue = postTrade_cash_balance + postTrade_market_value;
-                        postTrade_maintenance_margin_req = postTrade_market_value * 0.30;
-                        postTrade_excess_liquidity = postTrade_equity_with_loanValue - postTrade_maintenance_margin_req;
-                        postTrade_regT_margin_req = postTrade_market_value * 0.50;
-                        postTrade_excess_equity = postTrade_equity_with_loanValue - postTrade_regT_margin_req;
-                        if(postTrade_excess_equity<0) {
-                            postTrade_buying_power = 0;
-                        } else {
-                            postTrade_buying_power = postTrade_excess_equity * 2;
-                        }
-
-                        //View in web account & margin summary
-                        // $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(postTrade_cash_balance).toFixed(0)));
-                        // $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(postTrade_market_value).toFixed(0)));
-                        // $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(postTrade_equity_with_loanValue).toFixed(0)));
-                        // $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_maintenance_margin_req).toFixed(0)));
-                        // $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_liquidity).toFixed(0)));
-                        // $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_regT_margin_req).toFixed(0)));
-                        // $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
-                        // $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
-                            
-                        stock_trade_details.push({
-                            date: current_date,
-                            stock_price: stock_price.slice(),
-                            preTrade_stock_position_size: preTrade_stock_position_size.slice(),
-                            preTrade_stock_market_value: preTrade_stock_market_value.slice(),
-                            stock_filled_order: filledOrder,
-                            stock_filled_price: filledPrice,
-                            stock_trade_value: tradeValue,
-                            stock_commission: commission_arr,
-                            stock_initial_margin: initialMargin,
-                            postTrade_stock_position_size: postTrade_stock_position_size.slice(),
-                            postTrade_stock_market_value: postTrade_stock_market_value.slice()
-                        })
-                                
-                        // console.log(stock_trade_details);
-
-                        account_and_trade_summary.push([
-                            current_date,
-                            daily_Interest,
-                            preTrade_cash_balance,
-                            preTrade_market_value,
-                            preTrade_equity_with_loanValue,
-                            preTrade_maintenance_margin_req,
-                            preTrade_excess_liquidity,
-                            preTrade_regT_margin_req,
-                            preTrade_excess_equity,
-                            preTrade_buying_power,
-                            total_trade_value,
-                            total_commission,
-                            total_initial_margin,
-                            postTrade_cash_balance,
-                            postTrade_market_value,
-                            postTrade_equity_with_loanValue,
-                            postTrade_maintenance_margin_req,
-                            postTrade_excess_liquidity,
-                            postTrade_regT_margin_req,
-                            postTrade_excess_equity,
-                            postTrade_buying_power
-                        ]);
-                        // console.log(account_and_trade_summary);
-
-                        data_input_output_arr.push({
-                            input: data_input,
-                            output: signal_output
-                        });
-                        // console.log(data_input_output_arr); 
-                            
-                        // ----------------------------------------------------------------------------------
-                        // UPDATE TRADE PERFORMANCE COMPARISON, QUANTXI AI VS BUY AND HOLD ==================
-                        // ---------------------------------------------------------------------------------- 
-                        quantxi_equity = postTrade_equity_with_loanValue;
-                        quantxi_equity_array.push(postTrade_equity_with_loanValue);
-                        buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(testData2[0].price[i]) }, 0);
-                        buyhold_equity_array.push(buyhold_equity);
-
-                        quantxi_total_return = (quantxi_equity - initial_equity) / initial_equity;
-                        buyhold_total_return = (buyhold_equity - initial_equity) / initial_equity;
-                        
-                        quantxi_cagr = ((quantxi_total_return+1) ** (1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)))-1;
-                        buyhold_cagr = ((buyhold_total_return+1) ** (1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)))-1;
-                        
-                        if (quantxi_equity > quantxi_equity_peak) {
-                            quantxi_equity_peak = quantxi_equity;
-                            quantxi_equity_trough = quantxi_equity_peak;
-                        } else if (quantxi_equity < quantxi_equity_trough) {
-                            quantxi_equity_trough = quantxi_equity;
-                            let quantxi_tmpDrawDown = (quantxi_equity_peak - quantxi_equity_trough) / quantxi_equity_peak;
-                            if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
-                                quantxi_maxDrawDown = quantxi_tmpDrawDown;
-                        }
-
-                        if (buyhold_equity > buyhold_equity_peak) {
-                            buyhold_equity_peak = buyhold_equity;
-                            buyhold_equity_trough = buyhold_equity_peak;
-                        } else if (buyhold_equity < buyhold_equity_trough) {
-                            buyhold_equity_trough = buyhold_equity;
-                            let buyhold_tmpDrawDown = (buyhold_equity_peak - buyhold_equity_trough) / buyhold_equity_peak;
-                            if (buyhold_tmpDrawDown > buyhold_maxDrawDown)
-                                buyhold_maxDrawDown = buyhold_tmpDrawDown;
-                        }
-
-                        quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown);
-                        buyhold_mar = (buyhold_cagr / buyhold_maxDrawDown);
-
-                        let quantxi_daily_return = (quantxi_equity - previous_quantxi_equity) / previous_quantxi_equity;
-                        quantxi_daily_return_array.push(quantxi_daily_return);
-                        let buyhold_daily_return = (buyhold_equity - previous_buyhold_equity) / previous_buyhold_equity;
-                        buyhold_daily_return_array.push(buyhold_daily_return);
-
-                        quantxi_sharpe = (((math.mean(quantxi_daily_return_array)*math.sqrt(252)) - risk_freeRate) / math.std(quantxi_daily_return_array));
-                        buyhold_sharpe = (((math.mean(buyhold_daily_return_array)*math.sqrt(252)) - risk_freeRate) / math.std(buyhold_daily_return_array));
-
-                        quantxi_sortino = (1);
-                        buyhold_sortino = (1);
-
-                        //tampilkan rasio ke halaman web------------------------------
-                        // $('#quantxi_equity').html(Intl.NumberFormat().format(parseFloat(quantxi_equity).toFixed(0)));
-                        // $('#buyhold_equity').html(Intl.NumberFormat().format(parseFloat(buyhold_equity).toFixed(0)));
-                        // $('#quantxi_total_return').html(parseFloat(quantxi_total_return * 100).toFixed(2) + "%");
-                        // $('#buyhold_total_return').html(parseFloat(buyhold_total_return * 100).toFixed(2) + "%");
-                        // $('#quantxi_cagr').html(parseFloat(quantxi_cagr * 100).toFixed(2) + "%");
-                        // $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
-
-                        data_idx_process++;
 
                         // post_process = "stop";
                     }
                     //pasang logika jika result failed...gimana caranya kembali ke while dataidx process jika failed
                 },
-                error: function (result) {
-                    if (result.statusText == "parsererror") {
-                        debugger;
-                        // timeout -> reload the page and try again
-                    //  clearInterval(ajax_call);
-                        // window.location.reload(); //make it comment if you don't want to reload page
-                    } else {
-                        // another error occured  
-                        alert("error: " + result.statusText);
-                    }
-                    // debugger;
+                error: function () {
                 //   alert(`koneksi ke server gagal, coba beberapa saat lagi`);
                 //   return false;
                     // post_process = "running";
-                    // reset_test();
+                    reset_test();
                 }
-            })        
+            })
+        // }            
+        // ----------------------------------------------------------------------------------  
+        // TRADE TRANSACTION ================================================================
+        // ----------------------------------------------------------------------------------
+        //calculated estimate total trade value asumsi
+        let estimate_imr = 0;
+        let estimate_comm = 0;
+        for (i = 0; i < 30; i++) {
+            if (signal_output.signal_position[i] == "BUY") {
+                estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 + spread_slippage)))*0.5;
+            } else if (signal_output.signal_position[i] == "SELL") {
+                estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)))*0.5;               
+            } else {
+                estimate_imr += 0;
+            }
+            estimate_comm += (math.abs(signal_output.signal_size[i]) * 0.005); //commision per share
+            // console.log("signal_p :"+signal_output.signal_position[i]);
+            // console.log("signal_s :"+signal_output.signal_size[i]);
+            // console.log("price :"+stock_price[i]);
+            // console.log("estimate_imr :"+estimate_imr);
+        }
+        // console.log(estimate_imr);
+        // console.log(estimate_comm);
+
+        //calculate filled percentarge   
+        let filled_percentage;
+        if((estimate_imr+estimate_comm) == 0) {
+            filled_percentage = 0;
+        }else if((estimate_imr+estimate_comm) < 0) {
+            filled_percentage = 1;
+        } else if(preTrade_excess_equity < 0 && (estimate_imr+estimate_comm) >= 0) {
+            filled_percentage = 0;
+        } else if(preTrade_excess_equity > (estimate_imr+estimate_comm)) {
+            filled_percentage = 1;
+        } else {
+            filled_percentage = preTrade_excess_equity/(estimate_imr+estimate_comm);
+        }
+
+        // console.log(filled_percentage);
+        
+        //trade transaction   
+        let filledOrder = new Array();
+        let filledPrice = new Array();
+        let tradeValue = new Array();
+        let commission_arr = new Array();
+        let initialMargin = new Array();
+        for (i = 0; i < 30; i++) {
+            if (signal_output.signal_position[i] == "BUY") {
+                filledOrder[i] = (signal_output.signal_size[i] * filled_percentage);
+                filledPrice[i] = stock_price[i] * (1 + spread_slippage);
+            } else if (signal_output.signal_position[i] == "SELL") {
+                filledOrder[i] = (signal_output.signal_size[i] * filled_percentage);
+                filledPrice[i] = stock_price[i] * (1 - spread_slippage);               
+            } else {
+                filledOrder[i] = 0;
+                filledPrice[i] = 0;
+            }
+            tradeValue[i] = filledOrder[i] * filledPrice[i];
+            commission_arr[i] = math.abs(filledOrder[i]) * commission_perShare;
+            initialMargin[i] = tradeValue[i] * 0.50;
+        }
+               
+        let total_trade_value = tradeValue.reduce(function (accumulator, current) { return accumulator + current });
+        let total_commission = commission_arr.reduce(function (accumulator, current) { return accumulator + current });
+        let total_initial_margin = initialMargin.reduce(function (accumulator, current) { return accumulator + current });
+                
+        // ----------------------------------------------------------------------------------
+        // POST TRADE POSITION CALCULATION ==================================================
+        // ----------------------------------------------------------------------------------
+        for (i = 0; i < 30; i++) {
+            postTrade_stock_position_size[i] = preTrade_stock_position_size[i] + filledOrder[i];
+            postTrade_stock_market_value[i] = stock_price[i] * postTrade_stock_position_size[i];
+        }            
+        postTrade_cash_balance = preTrade_cash_balance - (total_trade_value + total_commission);            
+        postTrade_market_value = postTrade_stock_market_value.reduce(function (accumulator, current) { return accumulator + current });
+        postTrade_equity_with_loanValue = postTrade_cash_balance + postTrade_market_value;
+        postTrade_maintenance_margin_req = postTrade_market_value * 0.30;
+        postTrade_excess_liquidity = postTrade_equity_with_loanValue - postTrade_maintenance_margin_req;
+        postTrade_regT_margin_req = postTrade_market_value * 0.50;
+        postTrade_excess_equity = postTrade_equity_with_loanValue - postTrade_regT_margin_req;
+        if(postTrade_excess_equity<0) {
+            postTrade_buying_power = 0;
+        } else {
+            postTrade_buying_power = postTrade_excess_equity * 2;
+        }
+
+        //View in web account & margin summary
+        $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(postTrade_cash_balance).toFixed(0)));
+        $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(postTrade_market_value).toFixed(0)));
+        $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(postTrade_equity_with_loanValue).toFixed(0)));
+        $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_maintenance_margin_req).toFixed(0)));
+        $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_liquidity).toFixed(0)));
+        $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_regT_margin_req).toFixed(0)));
+        $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
+        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
+               
+        stock_trade_details.push({
+            date: current_date,
+            stock_price: stock_price.slice(),
+            preTrade_stock_position_size: preTrade_stock_position_size.slice(),
+            preTrade_stock_market_value: preTrade_stock_market_value.slice(),
+            stock_filled_order: filledOrder,
+            stock_filled_price: filledPrice,
+            stock_trade_value: tradeValue,
+            stock_commission: commission_arr,
+            stock_initial_margin: initialMargin,
+            postTrade_stock_position_size: postTrade_stock_position_size.slice(),
+            postTrade_stock_market_value: postTrade_stock_market_value.slice()
+        })
+                
+        // console.log(stock_trade_details);
+
+        account_and_trade_summary.push([
+            current_date,
+            daily_Interest,
+            preTrade_cash_balance,
+            preTrade_market_value,
+            preTrade_equity_with_loanValue,
+            preTrade_maintenance_margin_req,
+            preTrade_excess_liquidity,
+            preTrade_regT_margin_req,
+            preTrade_excess_equity,
+            preTrade_buying_power,
+            total_trade_value,
+            total_commission,
+            total_initial_margin,
+            postTrade_cash_balance,
+            postTrade_market_value,
+            postTrade_equity_with_loanValue,
+            postTrade_maintenance_margin_req,
+            postTrade_excess_liquidity,
+            postTrade_regT_margin_req,
+            postTrade_excess_equity,
+            postTrade_buying_power
+        ]);
+        // console.log(account_and_trade_summary);
+
+        data_input_output_arr.push({
+            input: data_input,
+            output: signal_output
+        });
+        // console.log(data_input_output_arr); 
+               
+        // ----------------------------------------------------------------------------------
+        // UPDATE TRADE PERFORMANCE COMPARISON, QUANTXI AI VS BUY AND HOLD ==================
+        // ---------------------------------------------------------------------------------- 
+        quantxi_equity = postTrade_equity_with_loanValue;
+        quantxi_equity_array.push(postTrade_equity_with_loanValue);
+        buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(testData2[0].price[i]) }, 0);
+        buyhold_equity_array.push(buyhold_equity);
+
+        quantxi_total_return = (quantxi_equity - initial_equity) / initial_equity;
+        buyhold_total_return = (buyhold_equity - initial_equity) / initial_equity;
+        
+        quantxi_cagr = ((quantxi_total_return+1) ** (1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)))-1;
+        buyhold_cagr = ((buyhold_total_return+1) ** (1 / (((new Date(current_date).getTime() - new Date(startdateTest).getTime())/ (1000 * 3600 * 24))/365)))-1;
+        
+        if (quantxi_equity > quantxi_equity_peak) {
+            quantxi_equity_peak = quantxi_equity;
+            quantxi_equity_trough = quantxi_equity_peak;
+        } else if (quantxi_equity < quantxi_equity_trough) {
+            quantxi_equity_trough = quantxi_equity;
+            let quantxi_tmpDrawDown = (quantxi_equity_peak - quantxi_equity_trough) / quantxi_equity_peak;
+            if (quantxi_tmpDrawDown > quantxi_maxDrawDown)
+                quantxi_maxDrawDown = quantxi_tmpDrawDown;
+        }
+
+        if (buyhold_equity > buyhold_equity_peak) {
+            buyhold_equity_peak = buyhold_equity;
+            buyhold_equity_trough = buyhold_equity_peak;
+        } else if (buyhold_equity < buyhold_equity_trough) {
+            buyhold_equity_trough = buyhold_equity;
+            let buyhold_tmpDrawDown = (buyhold_equity_peak - buyhold_equity_trough) / buyhold_equity_peak;
+            if (buyhold_tmpDrawDown > buyhold_maxDrawDown)
+                buyhold_maxDrawDown = buyhold_tmpDrawDown;
+        }
+
+        quantxi_mar = (quantxi_cagr / quantxi_maxDrawDown);
+        buyhold_mar = (buyhold_cagr / buyhold_maxDrawDown);
+
+        let quantxi_daily_return = (quantxi_equity - previous_quantxi_equity) / previous_quantxi_equity;
+        quantxi_daily_return_array.push(quantxi_daily_return);
+        let buyhold_daily_return = (buyhold_equity - previous_buyhold_equity) / previous_buyhold_equity;
+        buyhold_daily_return_array.push(buyhold_daily_return);
+
+        quantxi_sharpe = (((math.mean(quantxi_daily_return_array)*math.sqrt(252)) - risk_freeRate) / math.std(quantxi_daily_return_array));
+        buyhold_sharpe = (((math.mean(buyhold_daily_return_array)*math.sqrt(252)) - risk_freeRate) / math.std(buyhold_daily_return_array));
+
+        quantxi_sortino = (1);
+        buyhold_sortino = (1);
+
+        //tampilkan rasio ke halaman web------------------------------
+        $('#quantxi_equity').html(Intl.NumberFormat().format(parseFloat(quantxi_equity).toFixed(0)));
+        $('#buyhold_equity').html(Intl.NumberFormat().format(parseFloat(buyhold_equity).toFixed(0)));
+        $('#quantxi_total_return').html(parseFloat(quantxi_total_return * 100).toFixed(2) + "%");
+        $('#buyhold_total_return').html(parseFloat(buyhold_total_return * 100).toFixed(2) + "%");
+        $('#quantxi_cagr').html(parseFloat(quantxi_cagr * 100).toFixed(2) + "%");
+        $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
+
+        data_idx_process++;
     }
     //-------------------------------------------------------------------------------------
     // TRADE TESTING REPORT ###############################################################
