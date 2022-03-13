@@ -78,13 +78,13 @@ async function reset_test() {
             $("#signal_size_stock"+i).html("-");
         }  
 
-        portfolio_data = new Array();
-        test_data = new Array();
-        ticker_list = new Array();
-        exchange_choose_current_manual;
-        exchange_choose_previous_manual;
-        exchange_choose_current_random;
-        exchange_choose_previous_random;
+        portfolio_data = [];
+        test_data = [];
+        ticker_list = [];
+        exchange_choose_current_manual = "";
+        exchange_choose_previous_manual = "";
+        exchange_choose_current_random = "";
+        exchange_choose_previous_random = "";
         
 
       } else {
