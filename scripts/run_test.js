@@ -127,14 +127,14 @@ async function run_test() {
         }
         
         //View in web account & margin summary
-        $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(preTrade_cash_balance).toFixed(0)));
-        $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(preTrade_market_value).toFixed(0)));
-        $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(preTrade_equity_with_loanValue).toFixed(0)));
-        $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_maintenance_margin_req).toFixed(0)));
-        $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_liquidity).toFixed(0)));
-        $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_regT_margin_req).toFixed(0)));
-        $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_equity).toFixed(0)));
-        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(preTrade_buying_power).toFixed(0)));
+        // $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(preTrade_cash_balance).toFixed(0)));
+        // $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(preTrade_market_value).toFixed(0)));
+        // $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(preTrade_equity_with_loanValue).toFixed(0)));
+        // $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_maintenance_margin_req).toFixed(0)));
+        // $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_liquidity).toFixed(0)));
+        // $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(preTrade_regT_margin_req).toFixed(0)));
+        // $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(preTrade_excess_equity).toFixed(0)));
+        // $('#buying_power').html(Intl.NumberFormat().format(parseFloat(preTrade_buying_power).toFixed(0)));
         
         // ----------------------------------------------------------------------------------  
         // REQUEST SIGNAL TO QUANTXI AI =====================================================
@@ -146,12 +146,12 @@ async function run_test() {
             stock_positionSize: preTrade_stock_position_size.slice()
         };
 
-        $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
-        $('#buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input.buying_power).toFixed(0)));
-        for (i = 0; i < 30; i++) {
-            $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_price[i]).toFixed(5)));
-            $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_positionSize[i]).toFixed(0)));
-        }
+        // $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
+        // $('#buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input.buying_power).toFixed(0)));
+        // for (i = 0; i < 30; i++) {
+        //     $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_price[i]).toFixed(5)));
+        //     $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_positionSize[i]).toFixed(0)));
+        // }
      
         let uri = "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey");
         // let post_process = "running";
@@ -233,14 +233,14 @@ async function run_test() {
                             ]
                         };     
                                                     
-                        $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.response_no).toFixed(0)));
-                        $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
-                        for (i = 0; i < 30; i++) {
-                            $("#signal_position_stock" + (i+1)).html(signal_output.signal_position[i]);
-                            $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.signal_size[i]).toFixed(0)));
-                        }
+                        // $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.response_no).toFixed(0)));
+                        // $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
+                        // for (i = 0; i < 30; i++) {
+                        //     $("#signal_position_stock" + (i+1)).html(signal_output.signal_position[i]);
+                        //     $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.signal_size[i]).toFixed(0)));
+                        // }
 
-                        $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
+                        // $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
 
                         // }            
                         // ----------------------------------------------------------------------------------  
@@ -329,14 +329,14 @@ async function run_test() {
                         }
 
                         //View in web account & margin summary
-                        $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(postTrade_cash_balance).toFixed(0)));
-                        $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(postTrade_market_value).toFixed(0)));
-                        $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(postTrade_equity_with_loanValue).toFixed(0)));
-                        $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_maintenance_margin_req).toFixed(0)));
-                        $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_liquidity).toFixed(0)));
-                        $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_regT_margin_req).toFixed(0)));
-                        $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
-                        $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
+                        // $('#cash_balance').html(Intl.NumberFormat().format(parseFloat(postTrade_cash_balance).toFixed(0)));
+                        // $('#long_market_value').html(Intl.NumberFormat().format(parseFloat(postTrade_market_value).toFixed(0)));
+                        // $('#equity_with_loan_value').html(Intl.NumberFormat().format(parseFloat(postTrade_equity_with_loanValue).toFixed(0)));
+                        // $('#maintenance_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_maintenance_margin_req).toFixed(0)));
+                        // $('#excess_liquidity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_liquidity).toFixed(0)));
+                        // $('#regT_margin_req').html(Intl.NumberFormat().format(parseFloat(postTrade_regT_margin_req).toFixed(0)));
+                        // $('#excess_equity').html(Intl.NumberFormat().format(parseFloat(postTrade_excess_equity).toFixed(0)));
+                        // $('#buying_power').html(Intl.NumberFormat().format(parseFloat(postTrade_buying_power).toFixed(0)));
                             
                         stock_trade_details.push({
                             date: current_date,
@@ -435,11 +435,11 @@ async function run_test() {
 
                         //tampilkan rasio ke halaman web------------------------------
                         $('#quantxi_equity').html(Intl.NumberFormat().format(parseFloat(quantxi_equity).toFixed(0)));
-                        $('#buyhold_equity').html(Intl.NumberFormat().format(parseFloat(buyhold_equity).toFixed(0)));
-                        $('#quantxi_total_return').html(parseFloat(quantxi_total_return * 100).toFixed(2) + "%");
-                        $('#buyhold_total_return').html(parseFloat(buyhold_total_return * 100).toFixed(2) + "%");
-                        $('#quantxi_cagr').html(parseFloat(quantxi_cagr * 100).toFixed(2) + "%");
-                        $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
+                        // $('#buyhold_equity').html(Intl.NumberFormat().format(parseFloat(buyhold_equity).toFixed(0)));
+                        // $('#quantxi_total_return').html(parseFloat(quantxi_total_return * 100).toFixed(2) + "%");
+                        // $('#buyhold_total_return').html(parseFloat(buyhold_total_return * 100).toFixed(2) + "%");
+                        // $('#quantxi_cagr').html(parseFloat(quantxi_cagr * 100).toFixed(2) + "%");
+                        // $('#buyhold_cagr').html(parseFloat(buyhold_cagr * 100).toFixed(2) + "%");
 
                         data_idx_process++;
 
