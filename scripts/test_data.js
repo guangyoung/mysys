@@ -176,6 +176,7 @@ function add_data_random() {
     return false;
   } else {//rumus random ini sdh cukup bagus..ditingkatkan
     console.log(exchange_choose_current_random);
+    tickers_random = [];
     ticker_list = [];
     $('#ulul').empty();
     var tickers_random = eval(exchange_choose_current_random);
