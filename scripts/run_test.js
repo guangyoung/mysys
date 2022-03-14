@@ -166,9 +166,9 @@ async function run_test() {
                     if (result.status == "success") {
 
                         signal_output = {
-                            response_no: result.data.data_id,//ganti jadi response id
-                            signal_timestamp: result.data.signal_timestamp,
-                            signal_position: [
+                            "response_no": result.data.data_id,//ganti jadi response id
+                            "signal_timestamp": result.data.signal_timestamp,
+                            "signal_position": [
                                 result.data.signal_position_stock1,
                                 result.data.signal_position_stock2,
                                 result.data.signal_position_stock3,
@@ -200,7 +200,7 @@ async function run_test() {
                                 result.data.signal_position_stock29,
                                 result.data.signal_position_stock30
                             ],
-                            signal_size: [
+                            "signal_size": [
                                 result.data.signal_size_stock1,
                                 result.data.signal_size_stock2,
                                 result.data.signal_size_stock3,
