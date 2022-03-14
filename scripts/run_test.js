@@ -140,11 +140,12 @@ async function run_test() {
         // REQUEST SIGNAL TO QUANTXI AI =====================================================
         // ---------------------------------------------------------------------------------- 
         data_input = {
-            request_no: data_idx_process + 1,
-            buying_power: preTrade_buying_power,
-            stock_price: stock_price.slice(),
-            stock_positionSize: preTrade_stock_position_size.slice()
+            "request_no": data_idx_process + 1,
+            "buying_power": preTrade_buying_power,
+            "stock_price": stock_price.slice(),
+            "stock_positionSize": preTrade_stock_position_size.slice()
         };
+        //PASTIKAN FORMAT DATA INPUT INI JSON DAN BISA DIBACA PHP
 
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
         $('#buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input.buying_power).toFixed(0)));
