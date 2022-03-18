@@ -221,7 +221,6 @@ async function run_test() {
                 dataType: 'json',
                 success: function (result) {
                     if (result.status == "success") {
-
                         signal_output = {
                             "signalOutput_no": result.data.data_id,
                             "signal_timestamp": result.data.signal_timestamp,
