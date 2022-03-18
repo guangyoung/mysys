@@ -5,6 +5,12 @@
 
 async function reset_test() {
 
+  data = {"data_1": 123, "data_2": 223, "data_3": 333};
+  for (stockNo=1;stockNo<=3;stockNo++) {
+  let x = data["data_"+stockNo]
+  console.log(x*10);
+  }
+
   await $.ajax({
     type: "DELETE",
     url: "https://api.quantxi.com/reset_data?api_key=" + localStorage.getItem("apiKey"),

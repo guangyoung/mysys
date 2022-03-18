@@ -6,13 +6,13 @@
 //............................................................................................................
 async function run_test() {
     // Retrieve the array from local storage
-    // var testData2 = localStorage.getItem('mytestdata');
+    var testData2 = localStorage.getItem('mytestdata');
     // Parse it to something usable in js
-    // testData2 = JSON.parse(testData2);
+    testData2 = JSON.parse(testData2);
 
     // console.log(testData2);
     // console.log(testData);
-    if (test_data.length == 0) {
+    if (testData2.length == 0) {
         Swal.fire(
             'No Test Data !',
             'Please click Market Data and Create It',
@@ -84,7 +84,7 @@ async function run_test() {
     var stock_trade_details = new Array();
     var account_and_trade_summary = new Array();
     
-    var startdateTest = test_data[0].date;
+    var startdateTest = testData2[0].date;
     var data_idx_process = 0;
     //------------------------------------------------------------------------------------
     // Proses Data #######################################################################
@@ -92,9 +92,9 @@ async function run_test() {
     while(data_idx_process < 2000) { 
        
         //get test data
-        current_date = test_data[data_idx_process].date;
+        current_date = testData2[data_idx_process].date;
         for (i = 0; i < 30; i++) {
-            stock_price[i] = parseFloat(test_data[data_idx_process].price[i]); 
+            stock_price[i] = parseFloat(testData2[data_idx_process].price[i]); 
         }
 
         // ----------------------------------------------------------------------------------
@@ -140,18 +140,75 @@ async function run_test() {
         // REQUEST SIGNAL TO QUANTXI AI =====================================================
         // ---------------------------------------------------------------------------------- 
         data_input = {
-            "request_no": data_idx_process + 1,
+            "dataInput_no": data_idx_process + 1,
             "buying_power": preTrade_buying_power,
-            "stock_price": stock_price.slice(),
-            "stock_positionSize": preTrade_stock_position_size.slice()
+            "price_stock_1": stock_price[0],
+            "positionSize_stock_1": preTrade_stock_position_size[0],
+            "price_stock_2": stock_price[1],
+            "positionSize_stock_2": preTrade_stock_position_size[1],
+            "price_stock_3": stock_price[2],
+            "positionSize_stock_3": preTrade_stock_position_size[2],
+            "price_stock_4": stock_price[3],
+            "positionSize_stock_4": preTrade_stock_position_size[3],
+            "price_stock_5": stock_price[4],
+            "positionSize_stock_5": preTrade_stock_position_size[4],
+            "price_stock_6": stock_price[5],
+            "positionSize_stock_6": preTrade_stock_position_size[5],
+            "price_stock_7": stock_price[6],
+            "positionSize_stock_7": preTrade_stock_position_size[6],
+            "price_stock_8": stock_price[7],
+            "positionSize_stock_8": preTrade_stock_position_size[7],
+            "price_stock_9": stock_price[8],
+            "positionSize_stock_9": preTrade_stock_position_size[8],
+            "price_stock_10": stock_price[9],
+            "positionSize_stock_10": preTrade_stock_position_size[9],
+            "price_stock_11": stock_price[10],
+            "positionSize_stock_11": preTrade_stock_position_size[10],
+            "price_stock_12": stock_price[11],
+            "positionSize_stock_12": preTrade_stock_position_size[11],
+            "price_stock_13": stock_price[12],
+            "positionSize_stock_13": preTrade_stock_position_size[12],
+            "price_stock_14": stock_price[13],
+            "positionSize_stock_14": preTrade_stock_position_size[13],
+            "price_stock_15": stock_price[14],
+            "positionSize_stock_15": preTrade_stock_position_size[14],
+            "price_stock_16": stock_price[15],
+            "positionSize_stock_16": preTrade_stock_position_size[15],
+            "price_stock_17": stock_price[16],
+            "positionSize_stock_17": preTrade_stock_position_size[16],
+            "price_stock_18": stock_price[17],
+            "positionSize_stock_18": preTrade_stock_position_size[17],
+            "price_stock_19": stock_price[18],
+            "positionSize_stock_19": preTrade_stock_position_size[18],
+            "price_stock_20": stock_price[19],
+            "positionSize_stock_20": preTrade_stock_position_size[19],
+            "price_stock_21": stock_price[20],
+            "positionSize_stock_21": preTrade_stock_position_size[20],
+            "price_stock_22": stock_price[21],
+            "positionSize_stock_22": preTrade_stock_position_size[21],
+            "price_stock_23": stock_price[22],
+            "positionSize_stock_23": preTrade_stock_position_size[22],
+            "price_stock_24": stock_price[23],
+            "positionSize_stock_24": preTrade_stock_position_size[23],
+            "price_stock_25": stock_price[24],
+            "positionSize_stock_25": preTrade_stock_position_size[24],
+            "price_stock_26": stock_price[25],
+            "positionSize_stock_26": preTrade_stock_position_size[25],
+            "price_stock_27": stock_price[26],
+            "positionSize_stock_27": preTrade_stock_position_size[26],
+            "price_stock_28": stock_price[27],
+            "positionSize_stock_28": preTrade_stock_position_size[27],
+            "price_stock_29": stock_price[28],
+            "positionSize_stock_29": preTrade_stock_position_size[28],
+            "price_stock_30": stock_price[29],
+            "positionSize_stock_30": preTrade_stock_position_size[29]
         };
-        //PASTIKAN FORMAT DATA INPUT INI JSON DAN BISA DIBACA PHP
-
-        $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input.request_no).toFixed(0)));
-        $('#buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input.buying_power).toFixed(0)));
-        for (i = 0; i < 30; i++) {
-            $("#price_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_price[i]).toFixed(5)));
-            $("#position_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(data_input.stock_positionSize[i]).toFixed(0)));
+        //PASTIKAN FORMAT DATA INPUT INI JSON DAN BISA DIBACA PHP        
+        $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input["dataInput_no"].toFixed(0))));
+        $('#buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input["buying_power"].toFixed(0))));
+        for (stockNo = 0; stockNo <= 30; stockNo++) {
+            $("#price_stock"+stockNo).html(Intl.NumberFormat().format(parseFloat(data_input["price_stock_"+stockNo].toFixed(5))));
+            $("#position_stock"+stockNo).html(Intl.NumberFormat().format(parseFloat(data_input["positionSize_stock_"+stockNo].toFixed(0))));
         }
      
         let uri = "https://api.quantxi.com/add_data?api_key=" + localStorage.getItem("apiKey");
@@ -165,83 +222,79 @@ async function run_test() {
                 success: function (result) {
                     if (result.status == "success") {
 
-                        signal_output = {
-                            "response_no": result.data.data_id,//ganti jadi response id
-                            "signal_timestamp": result.data.signal_timestamp,
-                            "signal_position": [
-                                result.data.signal_position_stock1,
-                                result.data.signal_position_stock2,
-                                result.data.signal_position_stock3,
-                                result.data.signal_position_stock4,
-                                result.data.signal_position_stock5,
-                                result.data.signal_position_stock6,
-                                result.data.signal_position_stock7,
-                                result.data.signal_position_stock8,
-                                result.data.signal_position_stock9,
-                                result.data.signal_position_stock10,
-                                result.data.signal_position_stock11,
-                                result.data.signal_position_stock12,
-                                result.data.signal_position_stock13,
-                                result.data.signal_position_stock14,
-                                result.data.signal_position_stock15,
-                                result.data.signal_position_stock16,
-                                result.data.signal_position_stock17,
-                                result.data.signal_position_stock18,
-                                result.data.signal_position_stock19,
-                                result.data.signal_position_stock20,
-                                result.data.signal_position_stock21,
-                                result.data.signal_position_stock22,
-                                result.data.signal_position_stock23,
-                                result.data.signal_position_stock24,
-                                result.data.signal_position_stock25,
-                                result.data.signal_position_stock26,
-                                result.data.signal_position_stock27,
-                                result.data.signal_position_stock28,
-                                result.data.signal_position_stock29,
-                                result.data.signal_position_stock30
-                            ],
-                            "signal_size": [
-                                result.data.signal_size_stock1,
-                                result.data.signal_size_stock2,
-                                result.data.signal_size_stock3,
-                                result.data.signal_size_stock4,
-                                result.data.signal_size_stock5,
-                                result.data.signal_size_stock6,
-                                result.data.signal_size_stock7,
-                                result.data.signal_size_stock8,
-                                result.data.signal_size_stock9,
-                                result.data.signal_size_stock10,
-                                result.data.signal_size_stock11,
-                                result.data.signal_size_stock12,
-                                result.data.signal_size_stock13,
-                                result.data.signal_size_stock14,
-                                result.data.signal_size_stock15,
-                                result.data.signal_size_stock16,
-                                result.data.signal_size_stock17,
-                                result.data.signal_size_stock18,
-                                result.data.signal_size_stock19,
-                                result.data.signal_size_stock20,
-                                result.data.signal_size_stock21,
-                                result.data.signal_size_stock22,
-                                result.data.signal_size_stock23,
-                                result.data.signal_size_stock24,
-                                result.data.signal_size_stock25,
-                                result.data.signal_size_stock26,
-                                result.data.signal_size_stock27,
-                                result.data.signal_size_stock28,
-                                result.data.signal_size_stock29,
-                                result.data.signal_size_stock30
-                            ]
-                        };     
+                        signal_output = [
+                            {"signalOutput_no": result.data.data_id},
+                            {"signal_timestamp": result.data.signal_timestamp},
+                            {"signalPosition_stock_1": result.data.signal_position_stock1},                            
+                            {"signalSize_stock_1": result.data.signal_size_stock1},
+                            {"signalPosition_stock_2": result.data.signal_position_stock2},                            
+                            {"signalSize_stock_2": result.data.signal_size_stock2},
+                            {"signalPosition_stock_3": result.data.signal_position_stock3},                            
+                            {"signalSize_stock_3": result.data.signal_size_stock3},
+                            {"signalPosition_stock_4": result.data.signal_position_stock4},                            
+                            {"signalSize_stock_4": result.data.signal_size_stock4},
+                            {"signalPosition_stock_5": result.data.signal_position_stock5},                            
+                            {"signalSize_stock_5": result.data.signal_size_stock5},
+                            {"signalPosition_stock_6": result.data.signal_position_stock6},                            
+                            {"signalSize_stock_6": result.data.signal_size_stock6},
+                            {"signalPosition_stock_7": result.data.signal_position_stock7},                            
+                            {"signalSize_stock_7": result.data.signal_size_stock7},
+                            {"signalPosition_stock_8": result.data.signal_position_stock8},                            
+                            {"signalSize_stock_8": result.data.signal_size_stock8},
+                            {"signalPosition_stock_9": result.data.signal_position_stock9},                            
+                            {"signalSize_stock_9": result.data.signal_size_stock9},
+                            {"signalPosition_stock_10": result.data.signal_position_stock10},                            
+                            {"signalSize_stock_10": result.data.signal_size_stock10},
+                            {"signalPosition_stock_11": result.data.signal_position_stock11},                            
+                            {"signalSize_stock_11": result.data.signal_size_stock11},
+                            {"signalPosition_stock_12": result.data.signal_position_stock12},                            
+                            {"signalSize_stock_12": result.data.signal_size_stock12},
+                            {"signalPosition_stock_13": result.data.signal_position_stock13},                            
+                            {"signalSize_stock_13": result.data.signal_size_stock13},
+                            {"signalPosition_stock_14": result.data.signal_position_stock14},                            
+                            {"signalSize_stock_14": result.data.signal_size_stock14},
+                            {"signalPosition_stock_15": result.data.signal_position_stock15},                            
+                            {"signalSize_stock_15": result.data.signal_size_stock15},
+                            {"signalPosition_stock_16": result.data.signal_position_stock16},                            
+                            {"signalSize_stock_16": result.data.signal_size_stock16},
+                            {"signalPosition_stock_17": result.data.signal_position_stock17},                            
+                            {"signalSize_stock_17": result.data.signal_size_stock17},
+                            {"signalPosition_stock_18": result.data.signal_position_stock18},                            
+                            {"signalSize_stock_18": result.data.signal_size_stock18},
+                            {"signalPosition_stock_19": result.data.signal_position_stock19},                            
+                            {"signalSize_stock_19": result.data.signal_size_stock19},
+                            {"signalPosition_stock_20": result.data.signal_position_stock20},                            
+                            {"signalSize_stock_20": result.data.signal_size_stock20},
+                            {"signalPosition_stock_21": result.data.signal_position_stock21},                            
+                            {"signalSize_stock_21": result.data.signal_size_stock21},
+                            {"signalPosition_stock_22": result.data.signal_position_stock22},                            
+                            {"signalSize_stock_22": result.data.signal_size_stock22},
+                            {"signalPosition_stock_23": result.data.signal_position_stock23},                            
+                            {"signalSize_stock_23": result.data.signal_size_stock23},
+                            {"signalPosition_stock_24": result.data.signal_position_stock24},                            
+                            {"signalSize_stock_24": result.data.signal_size_stock24},
+                            {"signalPosition_stock_25": result.data.signal_position_stock25},                            
+                            {"signalSize_stock_25": result.data.signal_size_stock25},
+                            {"signalPosition_stock_26": result.data.signal_position_stock26},                            
+                            {"signalSize_stock_26": result.data.signal_size_stock26},
+                            {"signalPosition_stock_27": result.data.signal_position_stock27},                            
+                            {"signalSize_stock_27": result.data.signal_size_stock27},
+                            {"signalPosition_stock_28": result.data.signal_position_stock28},                            
+                            {"signalSize_stock_28": result.data.signal_size_stock28},
+                            {"signalPosition_stock_29": result.data.signal_position_stock29},                            
+                            {"signalSize_stock_29": result.data.signal_size_stock29},
+                            {"signalPosition_stock_30": result.data.signal_position_stock30},                            
+                            {"signalSize_stock_30": result.data.signal_size_stock30}
+                        ]
                                                     
-                        $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.response_no).toFixed(0)));
-                        $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
-                        for (i = 0; i < 30; i++) {
-                            $("#signal_position_stock" + (i+1)).html(signal_output.signal_position[i]);
-                            $("#signal_size_stock" + (i+1)).html(Intl.NumberFormat().format(parseFloat(signal_output.signal_size[i]).toFixed(0)));
+                        $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output["signalOutput_no"]).toFixed(0)));
+                        $('#signaltimestamp').html(new Date(parseInt(signal_output["signal_timestamp"])).toISOString());
+                        for (stockNo = 1; stockNo <= 30; stockNo++) {
+                            $("#signal_position_stock"+stockNo).html(signal_output["signalPosition_stock_"+stockNo]);
+                            $("#signal_size_stock"+stockNo).html(Intl.NumberFormat().format(parseFloat(signal_output["signalSize_stock_"+stockNo]).toFixed(0)));
                         }
 
-                        $('#total_request').html(parseFloat(signal_output.response_no).toFixed(0));
+                        $('#total_request').html(parseFloat(signal_output["signalOutput_no"]).toFixed(0));
 
                         // post_process = "stop";
                     }
@@ -261,15 +314,15 @@ async function run_test() {
         //calculated estimate total trade value asumsi
         let estimate_imr = 0;
         let estimate_comm = 0;
-        for (i = 0; i < 30; i++) {
-            if (signal_output.signal_position[i] == "BUY") {
-                estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 + spread_slippage)))*0.5;
-            } else if (signal_output.signal_position[i] == "SELL") {
-                estimate_imr += (signal_output.signal_size[i] * (stock_price[i] * (1 - spread_slippage)))*0.5;               
+        for (i = 0, stockNo = 1; i < 30, stockNo <= 30; i++, stockNo++) {
+            if (signal_output["signalPosition_stock_"+stockNo] == "BUY") {
+                estimate_imr += (signal_output["signalSize_stock_"+stockNo] * (stock_price[i] * (1 + spread_slippage)))*0.5;
+            } else if (signal_output["signalPosition_stock_"+stockNo] == "SELL") {
+                estimate_imr += (signal_output["signalSize_stock_"+stockNo] * (stock_price[i] * (1 - spread_slippage)))*0.5;               
             } else {
                 estimate_imr += 0;
             }
-            estimate_comm += (math.abs(signal_output.signal_size[i]) * 0.005); //commision per share
+            estimate_comm += (math.abs(signal_output["signalSize_stock_"+stockNo]) * 0.005); //commision per share
             // console.log("signal_p :"+signal_output.signal_position[i]);
             // console.log("signal_s :"+signal_output.signal_size[i]);
             // console.log("price :"+stock_price[i]);
@@ -300,12 +353,12 @@ async function run_test() {
         let tradeValue = new Array();
         let commission_arr = new Array();
         let initialMargin = new Array();
-        for (i = 0; i < 30; i++) {
-            if (signal_output.signal_position[i] == "BUY") {
-                filledOrder[i] = (signal_output.signal_size[i] * filled_percentage);
+        for (i = 0, stockNo = 1; i < 30, stockNo <= 30; i++, stockNo++) {
+            if (signal_output["signalPosition_stock_"+stockNo] == "BUY") {
+                filledOrder[i] = (signal_output["signalSize_stock_"+stockNo] * filled_percentage);
                 filledPrice[i] = stock_price[i] * (1 + spread_slippage);
-            } else if (signal_output.signal_position[i] == "SELL") {
-                filledOrder[i] = (signal_output.signal_size[i] * filled_percentage);
+            } else if (signal_output["signalPosition_stock_"+stockNo] == "SELL") {
+                filledOrder[i] = (signal_output["signalSize_stock_"+stockNo] * filled_percentage);
                 filledPrice[i] = stock_price[i] * (1 - spread_slippage);               
             } else {
                 filledOrder[i] = 0;
@@ -402,7 +455,7 @@ async function run_test() {
         // ---------------------------------------------------------------------------------- 
         quantxi_equity = postTrade_equity_with_loanValue;
         quantxi_equity_array.push(postTrade_equity_with_loanValue);
-        buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(test_data[0].price[i]) }, 0);
+        buyhold_equity = stock_price.reduce(function (r, a, i) { return r + a * (initial_equity / 30) / parseFloat(testData2[0].price[i]) }, 0);
         buyhold_equity_array.push(buyhold_equity);
 
         quantxi_total_return = (quantxi_equity - initial_equity) / initial_equity;
