@@ -206,7 +206,7 @@ async function run_test() {
         //PASTIKAN FORMAT DATA INPUT INI JSON DAN BISA DIBACA PHP        
         $('#data_input_id').html(Intl.NumberFormat().format(parseFloat(data_input["dataInput_no"].toFixed(0))));
         $('#buyingPower').html(Intl.NumberFormat().format(parseFloat(data_input["buying_power"].toFixed(0))));
-        for (stockNo = 0; stockNo <= 30; stockNo++) {
+        for (stockNo = 1; stockNo <= 30; stockNo++) {
             $("#price_stock"+stockNo).html(Intl.NumberFormat().format(parseFloat(data_input["price_stock_"+stockNo].toFixed(5))));
             $("#position_stock"+stockNo).html(Intl.NumberFormat().format(parseFloat(data_input["positionSize_stock_"+stockNo].toFixed(0))));
         }
