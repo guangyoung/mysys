@@ -287,8 +287,8 @@ async function run_test() {
                             {"signalSize_stock_30": result.data.signal_size_stock30}
                         ]
                                                     
-                        $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output["signalOutput_no"]).toFixed(0)));
-                        $('#signaltimestamp').html(new Date(parseInt(signal_output["signal_timestamp"])).toISOString());
+                        $('#data_output_id').html(Intl.NumberFormat().format(parseFloat(signal_output.signalOutput_no).toFixed(0)));
+                        $('#signaltimestamp').html(new Date(parseInt(signal_output.signal_timestamp)).toISOString());
                         for (stockNo = 1; stockNo <= 30; stockNo++) {
                             $("#signal_position_stock"+stockNo).html(signal_output["signalPosition_stock_"+stockNo]);
                             $("#signal_size_stock"+stockNo).html(Intl.NumberFormat().format(parseFloat(signal_output["signalSize_stock_"+stockNo]).toFixed(0)));
